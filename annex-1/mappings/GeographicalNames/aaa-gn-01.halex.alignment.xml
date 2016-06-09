@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
-    <customFunction>
-        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv_sha256_singleID" name="ADV SHA256 INSPIRE-ID for Retype" type="groovy">
-            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="id">
-                <cf:binding>java.lang.String</cf:binding>
-            </cf:input>
-            <cf:output eager="false" maxOccurs="1" minOccurs="1">
-                <cf:binding>java.lang.String</cf:binding>
-            </cf:output>
-            <cf:definition>
-                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-import java.security.MessageDigest;&#xD;
-&#xD;
-MessageDigest md = MessageDigest.getInstance("SHA-256");&#xD;
-&#xD;
-md.update(id.getBytes("UTF-8"));&#xD;
-String result = new String(md.digest(), "UTF-8");&#xD;
-&#xD;
-return "_" + result;
-</core:text>
-            </cf:definition>
-            <cf:explanation>
-                <cf:locale country="" language="" variant="">
-                    <cf:template>
-                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Die Funktion bildet die localId einer inspireId aus einer Quell-ID wie der AAA-OID unter Verwendung des SHA256-Algorithmus. Die funktion bildet *genau eine* QuellId ab.</core:text>
-                    </cf:template>
-                </cf:locale>
-            </cf:explanation>
-        </cf:custom-property-function>
-    </customFunction>
+    <base prefix="ba1" location="../base-functions.halex.alignment.xml"/>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C5066930e-afc6-4363-9cbb-71846e46cb5b" priority="normal">
         <source>
             <property>
@@ -189,22 +161,6 @@ return "_" + result;
         <parameter value="false" name="copyGeometries"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="custom:alignment:adv_sha256_singleID" id="Ca91ddad1-8a90-43ff-915f-cd8d06328565" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Cd79f9d21-40ec-417b-81bb-ef1d52329f78" priority="normal">
         <source>
             <class>
@@ -242,5 +198,43 @@ return "_" + result;
         </target>
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C3d8a5eff-338f-4a05-acc4-8a05706f9ce6" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BergbaubetriebType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ceb45feb4-16a2-492c-a3c0-58dc956e8005" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
     </cell>
 </alignment>
