@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<hale-project version="2.9.5.SNAPSHOT">
+    <name>AdV Hauskoordinaten zu INSPIRE Addresses 4.0</name>
+    <author>Thorsten Reitz</author>
+    <created>2016-06-09T20:05:02.767+02:00</created>
+    <modified>2016-06-09T20:12:56.107+02:00</modified>
+    <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
+        <setting name="charset">UTF-8</setting>
+        <setting name="projectFiles.separate">false</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
+        <setting name="target">file:/C:/wetransform/dev/inspire-alignements/annex-1/mappings/Addresses/aaa-ad-01.halex</setting>
+    </save-config>
+    <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
+        <setting name="charset">ISO-8859-1</setting>
+        <setting name="resourceId">5c7616d4-42ab-4581-88b6-fc445ac0f2a5</setting>
+        <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String,java.lang.Float,java.lang.Float,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String</setting>
+        <setting name="quote">"</setting>
+        <setting name="skip">True</setting>
+        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Hauskoordinaten/kopfzeile_test.csv</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
+        <setting name="separator">;</setting>
+        <setting name="escape">\</setting>
+        <setting name="typename">Hauskoordinaten</setting>
+        <setting name="properties">NBA,OI,QUA,LAN,RBZ,KRS,GMD,OTT,SSS,HNR,ADZ,EEE,NNN,STN,PLZ,ONM,ZON,POT</setting>
+        <cache>
+            <hsd:schema xmlns:hsd="http://www.esdi-humboldt.eu/hale/schema" namespace="http://www.esdi-humboldt.eu/hale/csv">
+                <hsd:type-index>
+                    <hsd:entry index="0">
+                        <hsd:name>Hauskoordinaten</hsd:name>
+                    </hsd:entry>
+                </hsd:type-index>
+                <hsd:mapping-relevant>0</hsd:mapping-relevant>
+                <hsd:types>
+                    <hsd:type index="0">
+                        <hsd:name>Hauskoordinaten</hsd:name>
+                        <hsd:constraint type="has-value" value="false"/>
+                        <hsd:constraint type="mappable" value="true"/>
+                        <hsd:constraint type="abstract" value="false"/>
+                        <hsd:constraint type="mapping-relevant" value="true"/>
+                        <hsd:declares>
+                            <hsd:property>
+<hsd:name>NBA</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>OI</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>QUA</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>LAN</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.Integer</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>RBZ</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.Integer</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>KRS</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.Integer</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>GMD</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.Integer</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>OTT</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.Integer</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>SSS</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.Integer</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>HNR</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>ADZ</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>EEE</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.Float</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Float"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>NNN</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.Float</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Float"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>STN</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>PLZ</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.Integer</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>ONM</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>ZON</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                            <hsd:property>
+<hsd:name>POT</hsd:name>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                        </hsd:declares>
+                    </hsd:type>
+                </hsd:types>
+            </hsd:schema>
+        </cache>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.instance">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">231d01b7-aef8-4cfa-b019-c450e159d009</setting>
+        <setting name="quote">"</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">../../../testdaten/Hauskoordinaten/adressen_test.csv</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
+        <setting name="separator">;</setting>
+        <setting name="escape">\</setting>
+        <setting name="typename">Hauskoordinaten</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="onlyElementsMappable">true</setting>
+        <setting name="resourceId">0cb0fc4e-92ce-456e-977e-673a6382efc2</setting>
+        <setting name="source">http://inspire.ec.europa.eu/schemas/ad/4.0/Addresses.xsd</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
+    </resource>
+    <file name="alignment.xml" location="aaa-ad-01.halex.alignment.xml"/>
+    <file name="styles.sld" location="aaa-ad-01.halex.styles.sld"/>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressAreaNameType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressAreaNameType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressAreaNameType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressComponentType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressComponentType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressComponentType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AdminUnitNameType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AdminUnitNameType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AdminUnitNameType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}GeographicPositionType/1">{http://inspire.ec.europa.eu/schemas/ad/4.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}GeographicPositionType/2">{http://www.opengis.net/gml/3.2}Point</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}GeographicPositionType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}PostalDescriptorType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}PostalDescriptorType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}PostalDescriptorType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}ThoroughfareNameType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}ThoroughfareNameType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}ThoroughfareNameType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/1">{http://inspire.ec.europa.eu/schemas/gn/4.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/count">2</property>
+</hale-project>
