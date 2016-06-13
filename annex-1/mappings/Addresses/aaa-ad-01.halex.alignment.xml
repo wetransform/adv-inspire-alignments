@@ -141,4 +141,634 @@
         </target>
         <parameter value="#PostalDescriptor_{PLZ}" name="pattern"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.merge" id="Cd619f856-3443-4150-9e26-0cd14f392dc1" priority="normal">
+        <source>
+            <class>
+                <type name="Hauskoordinaten"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="true" name="auto_detect"/>
+        <parameter value="STN" name="property"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C48a14424-9cf5-4082-92ee-372643bd0249" priority="normal">
+        <source>
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="STN"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="ThoroughfareNameValue" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C3368716c-8734-4558-a5c8-b86e395f2c1d" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="SSS"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>0</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#ThoroughfareName_{SSS}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C49be7084-2e99-4cb5-afff-7dc753c5acbf" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="SSS"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="ThoroughfareName_{SSS}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C43c8131c-0483-47b4-a90b-f3a376ac10ad" priority="normal">
+        <source>
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="HNR"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="LocatorDesignator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C579e6256-e912-4488-9daf-4bf3d5f7957d" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="LocatorDesignator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue/addressNumber" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C33ed37fc-b2d4-4c8c-8e67-251fc7801cf4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="HNR"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/LocatorLevelValue/unitLevel" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C8b77b6f5-4d21-46e3-b5aa-7d0b4ee12cd3" priority="normal">
+        <source>
+            <class>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'L'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C8f1aa480-0ddc-4324-9e0c-8e8e16e39377" priority="normal">
+        <source>
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'L'</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2f56ac1a-0566-4332-aa8c-123254b9de00" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'L'</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/2ndOrder" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cf87ecfad-78a4-4c4f-935c-a81b0078750a" priority="normal">
+        <source>
+            <class>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1a99c811-4b07-47e4-8ef6-25898fd9a2f9" priority="normal">
+        <source>
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K'</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cca2772d3-cb14-4574-a9bc-feff094275a3" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K'</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K'</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitname_{a}_{b}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cb0b60c62-2138-4c11-b63d-516fe94a6785" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'L'</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitName_{a}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb1a3ef2a-7ce5-4cb3-b25c-5cd5d9d4f2d3" priority="normal">
+        <source>
+            <class>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cdd2e0fdb-86eb-4720-a114-d0e87ca44cf0" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R'</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R'</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R'</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitname_{a}_{b}_{c}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7babca1b-6b7e-401d-85ce-6d3b68be8534" priority="normal">
+        <source>
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R'</condition>
+                </type>
+                <child name="d"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5acd4145-c2af-4e09-8cab-0f6020e9c25d" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K'</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/3rdOrder" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cadd69904-4c3b-42ca-a1c7-7716ad4e911c" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R'</condition>
+                </type>
+                <child name="d"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/4thOrder" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb411eac2-d187-4ac9-a98e-af88c5ee6ec2" priority="normal">
+        <source>
+            <class>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9867f699-6a70-4bca-8102-46296f733a15" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="d"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitname_{a}_{b}_{c}_{d}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C58e648fc-b2c1-4487-85e7-8b9b23bf14da" priority="normal">
+        <source>
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="e"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cd80f7ca6-c124-4145-bf5f-2011d63c3b90" priority="normal">
+        <source>
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="QUA"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="position" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicPosition" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="specification" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="null" name="notClassifiedAction"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="A"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/GeometrySpecificationValue/building"/>
+                </entry>
+                <entry>
+                    <key value="B"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/GeometrySpecificationValue/parcel"/>
+                </entry>
+                <entry>
+                    <key value="R"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/GeometrySpecificationValue/parcel"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C8c992034-e1fa-44ba-9b11-fba8b6484803" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="position" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicPosition" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="default" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9ac58560-d1ff-4443-a071-65eea14f6ef8" priority="normal">
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C283fefcc-5e12-4f09-b58a-c5c95f6eab4a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="LAN"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>1</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitname_{LAN}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C6ed8c048-57b5-4de5-bbc8-728785d454de" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="RBZ"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>2</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitname_{RBZ}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C34334a04-93ab-4bb1-a0ab-7b74944836ac" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="KRS"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>3</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitname_{KRS}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C5e36e9e6-55e6-4482-8177-b1191bb080fb" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="GMD"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>4</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitname_{GMD}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3f102dfd-b969-4ce9-8f26-051e993dd9a7" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>4</context>
+                </child>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="missing" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C17e13718-dbc9-4a38-9716-7f32030eff16" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>3</context>
+                </child>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="missing" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C4954e6c0-4393-466b-b584-5d0f2eb2c6fb" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>2</context>
+                </child>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="missing" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfda8b93a-1ac8-4b9f-b83d-2612d6297887" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>1</context>
+                </child>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="missing" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C8c7b91bc-ae76-4f5a-9b82-4ed3a9004b8e" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>0</context>
+                </child>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="missing" name="value"/>
+    </cell>
 </alignment>

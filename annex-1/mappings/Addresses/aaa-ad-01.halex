@@ -3,12 +3,12 @@
     <name>AdV Hauskoordinaten zu INSPIRE Addresses 4.0</name>
     <author>Thorsten Reitz</author>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2016-06-10T13:03:08.118+02:00</modified>
+    <modified>2016-06-13T21:43:56.405+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/wetransform/dev/inspire-alignements/annex-1/mappings/Addresses/aaa-ad-01.halex</setting>
+        <setting name="target">file:/C:/wetf-dev/inspire-alignements/annex-1/mappings/Addresses/aaa-ad-01.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
         <setting name="charset">ISO-8859-1</setting>
@@ -16,7 +16,7 @@
         <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String,java.lang.Float,java.lang.Float,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String</setting>
         <setting name="quote">"</setting>
         <setting name="skip">True</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Hauskoordinaten/kopfzeile_test.csv</setting>
+        <setting name="source">file:/C:/wetf-dev/inspire-alignements/testdaten/Hauskoordinaten/kopfzeile_test.csv</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
         <setting name="separator">;</setting>
         <setting name="escape">\</setting>
@@ -33,10 +33,10 @@
                 <hsd:types>
                     <hsd:type index="0">
                         <hsd:name>Hauskoordinaten</hsd:name>
-                        <hsd:constraint type="mappable" value="true"/>
+                        <hsd:constraint type="abstract" value="false"/>
                         <hsd:constraint type="mapping-relevant" value="true"/>
                         <hsd:constraint type="has-value" value="false"/>
-                        <hsd:constraint type="abstract" value="false"/>
+                        <hsd:constraint type="mappable" value="true"/>
                         <hsd:declares>
                             <hsd:property>
 <hsd:name>NBA</hsd:name>
@@ -45,8 +45,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -57,8 +57,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -69,8 +69,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -81,8 +81,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -93,8 +93,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -105,8 +105,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -117,8 +117,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -129,8 +129,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -141,8 +141,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -153,8 +153,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -165,8 +165,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -177,8 +177,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Float</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Float"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Float"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -189,8 +189,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Float</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Float"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Float"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -201,8 +201,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -213,8 +213,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.Integer"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -225,8 +225,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -237,8 +237,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -249,8 +249,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -301,10 +301,10 @@
                 <hsd:types>
                     <hsd:type index="0">
                         <hsd:name>Schlüssel</hsd:name>
-                        <hsd:constraint type="mappable" value="true"/>
+                        <hsd:constraint type="abstract" value="false"/>
                         <hsd:constraint type="mapping-relevant" value="true"/>
                         <hsd:constraint type="has-value" value="false"/>
-                        <hsd:constraint type="abstract" value="false"/>
+                        <hsd:constraint type="mappable" value="true"/>
                         <hsd:declares>
                             <hsd:property>
 <hsd:name>typ</hsd:name>
@@ -313,8 +313,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -325,8 +325,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -337,8 +337,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -349,8 +349,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -361,8 +361,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -373,8 +373,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -385,8 +385,8 @@
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
+        <hsd:constraint type="binding" value="java.lang.String"/>
     </hsd:type>
 </hsd:propertyType>
                             </hsd:property>
@@ -407,8 +407,84 @@
         <setting name="escape">\</setting>
         <setting name="typename">Schlüssel</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">aba0b0bb-1903-4538-904f-89a5a59670e0</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/LocatorLevelValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">eb6e8e84-8bff-491f-9db2-c1366dd476c9</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">25c9211d-2abb-47bf-95b1-f51a8f2ff2dc</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/LocatorNameTypeValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">6cc29e78-47ec-4c89-b0e1-a4ac4572d110</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">41cd4052-98fe-4a55-a214-0287953e7b37</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/GeometryMethodValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">70debe30-bfc6-4032-adb1-fe55924a1409</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/GeometrySpecificationValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
     <file name="alignment.xml" location="aaa-ad-01.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-ad-01.halex.styles.sld"/>
+    <complex-property name="codelists">
+        <associations>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue" namespace="http://inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue">
+                <entity>
+                    <type name="AddressType" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="locator" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="AddressLocator" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="designator" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="LocatorDesignator" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="type" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel" namespace="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel">
+                <entity>
+                    <type name="AdminUnitNameType" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="level" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/GeometrySpecificationValue" namespace="http://inspire.ec.europa.eu/codelist/GeometrySpecificationValue">
+                <entity>
+                    <type name="AddressType" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="position" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="GeographicPosition" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="specification" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/LocatorLevelValue" namespace="http://inspire.ec.europa.eu/codelist/LocatorLevelValue">
+                <entity>
+                    <type name="AddressType" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="locator" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="AddressLocator" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="level" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+        </associations>
+    </complex-property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressAreaNameType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressAreaNameType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/ad/4.0}AddressAreaNameType/count">2</property>
@@ -436,4 +512,7 @@
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/count">2</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/count">2</property>
 </hale-project>
