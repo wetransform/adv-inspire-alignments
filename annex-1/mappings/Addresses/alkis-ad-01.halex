@@ -3,7 +3,7 @@
     <name>ALKIS zu INSPIRE Addresses</name>
     <author>Thorsten Reitz, wetransform GmbH</author>
     <created>2016-06-14T14:18:58.157+02:00</created>
-    <modified>2016-06-15T09:47:46.947+02:00</modified>
+    <modified>2016-06-15T23:40:11.562+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -939,6 +939,9 @@
     <property name="defaultGeometry:{http://www.isotc211.org/2005/gmd}MD_Metadata_Type/4">{http://www.isotc211.org/2005/gmd}cornerPoints</property>
     <property name="defaultGeometry:{http://www.isotc211.org/2005/gmd}MD_Metadata_Type/5">{http://www.opengis.net/gml/3.2}Point</property>
     <property name="defaultGeometry:{http://www.isotc211.org/2005/gmd}MD_Metadata_Type/count">5</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/count">2</property>
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractRingPropertyType/1">{http://www.opengis.net/gml/3.2/AbstractRing}choice</property>
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractRingPropertyType/count">1</property>
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}ArcByBulgeType/1">{http://www.opengis.net/gml/3.2/ArcByBulgeType}choice_1</property>
@@ -1325,6 +1328,7 @@
     <property name="mappableSourceType/10">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GemeindeType</property>
     <property name="mappableSourceType/11">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BundeslandType</property>
     <property name="mappableSourceType/12">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KreisRegionType</property>
+    <property name="mappableSourceType/13">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PostType</property>
     <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungMitPseudonummerType</property>
     <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungType</property>
     <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungOhneHausnummerType</property>
@@ -1333,7 +1337,7 @@
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_NationalstaatType</property>
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GeoreferenzierteGebaeudeadresseType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_RegierungsbezirkType</property>
-    <property name="mappableSourceType/count">12</property>
+    <property name="mappableSourceType/count">13</property>
     <property name="resource-3461353a-f8e3-4d83-90aa-01a40e86dfb1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_LPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-3461353a-f8e3-4d83-90aa-01a40e86dfb1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-3461353a-f8e3-4d83-90aa-01a40e86dfb1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
