@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba1" location="../base-functions.halex.alignment.xml"/>
+    <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.geometry.normalizedPoint" name="AdV Punkt aus Ordinaten erstellen" type="groovy">
+            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="northing">
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:input>
+            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="easting">
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:binding>java.lang.String</cf:binding>
+                <cf:type name="PointType" ns="http://www.opengis.net/gml/3.2"/>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.GeometryFactory&#xD;
+import com.vividsolutions.jts.geom.Point&#xD;
+import com.vividsolutions.jts.geom.Coordinate&#xD;
+import eu.esdihumboldt.hale.common.schema.geometry.CRSDefinition&#xD;
+import eu.esdihumboldt.hale.common.schema.geometry.GeometryProperty&#xD;
+import eu.esdihumboldt.hale.common.instance.geometry.impl.CodeDefinition&#xD;
+import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty&#xD;
+&#xD;
+// determine Zone&#xD;
+int zone = Math.floor(easting / 1000000.0);&#xD;
+String code = "EPSG:25832"&#xD;
+&#xD;
+if (zone == 31) {&#xD;
+  code = "EPSG:25831"&#xD;
+}&#xD;
+else if (33) {&#xD;
+  code = "EPSG:25833"&#xD;
+}&#xD;
+&#xD;
+&#xD;
+GeometryFactory geomFactory = new GeometryFactory()&#xD;
+Point resultPoint = geomFactory.createPoint(new Coordinate(easting - (zone * 1000000.0), northing))&#xD;
+&#xD;
+CRSDefinition crsDef = new CodeDefinition(code, null)&#xD;
+new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Diese Funktion bildet einen Punkt auf Basis des Rechtswerts ($easting) und des Hochwerts ($northing). Dabei wird die Zone identifiziert und das Koordinatensystem entsprechend gesetzt. Die Funktion unterstützt nur Koordinaten in den Bezugssystemen EPSG:25831 bis EPSG:25833.</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C6bf67ab1-0fcc-4ee8-b6b8-bdf358665940" priority="normal">
         <source>
             <class>
@@ -14,41 +64,6 @@
         </target>
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.geometric.ordinates_to_point" id="Cc035e5a1-fb05-4718-a85f-405eea8fab60" priority="normal">
-        <source name="x">
-            <property>
-                <type name="Hauskoordinaten"/>
-                <child name="EEE"/>
-            </property>
-        </source>
-        <source name="y">
-            <property>
-                <type name="Hauskoordinaten"/>
-                <child name="NNN"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="position" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="GeographicPosition" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="epsg:25832" name="referenceSystem"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc0a840a4-1f21-4039-8a67-c4e20d17adb4" priority="normal">
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-        <parameter value="https://registry.gdi-de.org/id/de.by/" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C61cd3581-bb80-4967-b812-7a3f6905105e" priority="normal">
         <source name="id">
@@ -351,47 +366,6 @@
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9867f699-6a70-4bca-8102-46296f733a15" priority="normal">
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
-                </type>
-                <child name="a"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
-                </type>
-                <child name="b"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
-                </type>
-                <child name="c"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
-                </type>
-                <child name="d"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="AdminUnitname_{a}_{b}_{c}_{d}" name="pattern"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C58e648fc-b2c1-4487-85e7-8b9b23bf14da" priority="normal">
         <source>
             <property>
@@ -468,39 +442,6 @@
             </property>
         </target>
         <parameter value="unknown" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cdd2e0fdb-86eb-4720-a114-d0e87ca44cf0" priority="normal">
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K'</condition>
-                </type>
-                <child name="a"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K'</condition>
-                </type>
-                <child name="b"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K'</condition>
-                </type>
-                <child name="c"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="AdminUnitname_{a}_{b}_{c}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C7babca1b-6b7e-401d-85ce-6d3b68be8534" priority="normal">
         <source>
@@ -614,6 +555,208 @@
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C283fefcc-5e12-4f09-b58a-c5c95f6eab4a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="LAN">
+                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>1</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_{LAN}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.string.regexanalysisfunction" id="C18b8460e-611b-4e1e-a2d2-00a59139263f" priority="normal">
+        <source>
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="OI"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="^.{2}(.{2}).*$" name="regexPattern"/>
+        <parameter value="https://registry.gdi-de.org/id/de.{1}/" name="outputFormat"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.geometry.normalizedPoint" id="C0969a7e1-30e8-4a08-8544-a1b2fe48035a" priority="normal">
+        <source name="easting">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="EEE"/>
+            </property>
+        </source>
+        <source name="northing">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="NNN"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="position" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicPosition" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C6ed8c048-57b5-4de5-bbc8-728785d454de" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="RBZ">
+                    <condition lang="CQL">RBZ &lt;&gt; '' and RBZ &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="LAN">
+                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>2</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_{LAN}{RBZ}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C34334a04-93ab-4bb1-a0ab-7b74944836ac" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="KRS">
+                    <condition lang="CQL">KRS &lt;&gt; '' and KRS &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="RBZ">
+                    <condition lang="CQL">RBZ &lt;&gt; '' and RBZ &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="LAN">
+                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>3</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_{LAN}{RBZ}{KRS}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C5e36e9e6-55e6-4482-8177-b1191bb080fb" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="GMD">
+                    <condition lang="CQL">GMD &lt;&gt; '' and GMD &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="KRS">
+                    <condition lang="CQL">KRS &lt;&gt; '' and KRS &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="RBZ">
+                    <condition lang="CQL">RBZ &lt;&gt; '' and RBZ &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="LAN">
+                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '0'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>4</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_{LAN}{RBZ}{KRS}{GMD}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cdd2e0fdb-86eb-4720-a114-d0e87ca44cf0" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K'</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K'</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K'</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitName_{a}{b}{c}" name="pattern"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cca2772d3-cb14-4574-a9bc-feff094275a3" priority="normal">
         <source name="var">
             <property>
@@ -637,86 +780,47 @@
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="AdminUnitname_{a}_{b}" name="pattern"/>
+        <parameter value="AdminUnitName_{a}{b}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C5e36e9e6-55e6-4482-8177-b1191bb080fb" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9867f699-6a70-4bca-8102-46296f733a15" priority="normal">
         <source name="var">
             <property>
-                <type name="Hauskoordinaten"/>
-                <child name="GMD">
-                    <condition lang="CQL">GMD &lt;&gt; '' and GMD &lt;&gt; '0'</condition>
-                </child>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="d"/>
             </property>
         </source>
         <target>
             <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>4</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="#AdminUnitName_{GMD}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C34334a04-93ab-4bb1-a0ab-7b74944836ac" priority="normal">
-        <source name="var">
-            <property>
-                <type name="Hauskoordinaten"/>
-                <child name="KRS">
-                    <condition lang="CQL">KRS &lt;&gt; '' and KRS &lt;&gt; '0'</condition>
-                </child>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>3</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#AdminUnitName_{KRS}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C283fefcc-5e12-4f09-b58a-c5c95f6eab4a" priority="normal">
-        <source name="var">
-            <property>
-                <type name="Hauskoordinaten"/>
-                <child name="LAN">
-                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '0'</condition>
-                </child>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>1</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#AdminUnitName_{LAN}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C6ed8c048-57b5-4de5-bbc8-728785d454de" priority="normal">
-        <source name="var">
-            <property>
-                <type name="Hauskoordinaten"/>
-                <child name="RBZ">
-                    <condition lang="CQL">RBZ &lt;&gt; '' and RBZ &lt;&gt; '0'</condition>
-                </child>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>2</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#AdminUnitName_{RBZ}" name="pattern"/>
+        <parameter value="AdminUnitName_{a}{b}{c}{d}" name="pattern"/>
     </cell>
 </alignment>

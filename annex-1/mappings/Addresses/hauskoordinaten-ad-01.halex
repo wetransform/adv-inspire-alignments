@@ -3,7 +3,7 @@
     <name>AdV Hauskoordinaten zu INSPIRE Addresses 4.0</name>
     <author>Thorsten Reitz</author>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2016-06-14T09:57:34.686+02:00</modified>
+    <modified>2016-06-15T12:50:20.898+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -13,7 +13,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
         <setting name="charset">ISO-8859-1</setting>
         <setting name="resourceId">5c7616d4-42ab-4581-88b6-fc445ac0f2a5</setting>
-        <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String,java.lang.Float,java.lang.Float,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String</setting>
+        <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.Float,java.lang.Float,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String</setting>
         <setting name="quote">"</setting>
         <setting name="skip">True</setting>
         <setting name="source">file:/C:/wetf-dev/inspire-alignements/testdaten/Hauskoordinaten/kopfzeile_test.csv</setting>
@@ -33,10 +33,10 @@
                 <hsd:types>
                     <hsd:type index="0">
                         <hsd:name>Hauskoordinaten</hsd:name>
-                        <hsd:constraint type="mappable" value="true"/>
-                        <hsd:constraint type="has-value" value="false"/>
-                        <hsd:constraint type="mapping-relevant" value="true"/>
                         <hsd:constraint type="abstract" value="false"/>
+                        <hsd:constraint type="mappable" value="true"/>
+                        <hsd:constraint type="mapping-relevant" value="true"/>
+                        <hsd:constraint type="has-value" value="false"/>
                         <hsd:declares>
                             <hsd:property>
 <hsd:name>NBA</hsd:name>
@@ -80,8 +80,8 @@
 <hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
-        <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
     </hsd:type>
 </hsd:propertyType>
@@ -92,8 +92,8 @@
 <hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
-        <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
     </hsd:type>
 </hsd:propertyType>
@@ -104,8 +104,8 @@
 <hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
-        <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
     </hsd:type>
 </hsd:propertyType>
@@ -116,8 +116,8 @@
 <hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
-        <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
     </hsd:type>
 </hsd:propertyType>
@@ -128,8 +128,8 @@
 <hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
-        <hsd:name>java.lang.Integer</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Integer"/>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.String"/>
         <hsd:constraint type="has-value" value="true"/>
     </hsd:type>
 </hsd:propertyType>
@@ -301,10 +301,10 @@
                 <hsd:types>
                     <hsd:type index="0">
                         <hsd:name>Schlüssel</hsd:name>
-                        <hsd:constraint type="mappable" value="true"/>
-                        <hsd:constraint type="has-value" value="false"/>
-                        <hsd:constraint type="mapping-relevant" value="true"/>
                         <hsd:constraint type="abstract" value="false"/>
+                        <hsd:constraint type="mappable" value="true"/>
+                        <hsd:constraint type="mapping-relevant" value="true"/>
+                        <hsd:constraint type="has-value" value="false"/>
                         <hsd:declares>
                             <hsd:property>
 <hsd:name>typ</hsd:name>
