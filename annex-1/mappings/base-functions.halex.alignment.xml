@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <customFunction>
-        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.id.default" name="AdV INSPIRE ID" type="groovy">
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.id.default" name="AdV INSPIRE localId" type="groovy">
             <cf:input eager="true" maxOccurs="-1" minOccurs="1" name="id">
                 <cf:binding>java.lang.String</cf:binding>
             </cf:input>
@@ -15,6 +15,11 @@ def digest = MessageDigest.getInstance('SHA-256')
 
 // alle Quell-IDs als Liste
 def identifiers = id.p.values()
+
+if (identifiers.size() == 1) {
+  // verwende Original-ID falls nur eine Quelle
+  return identifiers[0]
+}
 
 // sortieren (TODO spezielle Ordnung benötigt?)
 identifiers = identifiers.sort()
@@ -31,9 +36,11 @@ def hashString = digest.digest().encodeHex()
                 <cf:locale country="" language="" variant="">
                     <cf:template>
                         <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-Bestimmung einer INSPIRE-ID aus AAA-ObjektIDs.
+Bestimmung einer INSPIRE localId aus AAA-ObjektIDs.
 
-Unter Verwendung des SHA256-Algorithmus wird ein Hash-Wert aus den sortierten und dann konkatenierten AAA-ObjektIDs gebildet.
+Für eine einzige Quell-ID wird diese direkt verwendet.
+
+Andernfalls wird unter Verwendung des SHA256-Algorithmus ein Hash-Wert aus den sortierten und dann konkatenierten AAA-ObjektIDs gebildet.
 Ergebnis ist der Hash-Wert hexadezimal kodiert und mit einem Unterstrich als Präfix.
 </core:text>
                     </cf:template>
