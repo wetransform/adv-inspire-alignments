@@ -48,4 +48,30 @@ Ergebnis ist der Hash-Wert hexadezimal kodiert und mit einem Unterstrich als Pr�
             </cf:explanation>
         </cf:custom-property-function>
     </customFunction>
+    <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.namespace" name="AdV INSPIRE ID namespace" type="groovy">
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// TODO determine via external variable
+def identifier = '{{ GDIDE_DATASET_ID }}'
+
+'https://registry.gdi-de.org/id/' + identifier
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+Setzt den für den Datensatz vorgegebenen festen Namespace mit Bezug auf die GDI-DE Registry.
+
+Der Identifier für Datenanbieter und Datensatz in der GDI-DE Registry muss dafür als Vorgabe mitgegeben werden.
+</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
 </alignment>
