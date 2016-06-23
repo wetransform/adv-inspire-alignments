@@ -4,7 +4,7 @@
     <author>Simon Templer</author>
     <description>Basisprojekt mit Quell-Schema und Beispieldaten</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-06-23T11:56:44.813+02:00</modified>
+    <modified>2016-06-23T17:53:30.057+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -107,6 +107,9 @@
     </resource>
     <file name="alignment.xml" location="aaa-tn-ro-01.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-tn-ro-01.halex.styles.sld"/>
+    <property name="defaultGeometry:{eu:esdihumboldt:hale:example}RiverType/1">{eu:esdihumboldt:hale:example}geometry</property>
+    <property name="defaultGeometry:{eu:esdihumboldt:hale:example}RiverType/2">{http://www.opengis.net/gml}LineString</property>
+    <property name="defaultGeometry:{eu:esdihumboldt:hale:example}RiverType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeBoundaryType/1">{http://inspire.ec.europa.eu/schemas/au/4.0}geometry</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeBoundaryType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeBoundaryType/count">2</property>
@@ -204,6 +207,9 @@
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportAreaType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}geometry</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportAreaType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportAreaType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportLinkSetType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportLinkSetType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportLinkSetType/count">2</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_AktivitaetType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_AktivitaetType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_AktivitaetType/count">2</property>
@@ -1441,6 +1447,12 @@
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}ValueArrayType/count">2</property>
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}ValuePropertyType/1">{http://www.opengis.net/gml/3.2/Value}choice_1</property>
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}ValuePropertyType/count">1</property>
+    <property name="defaultGeometry:{urn:x-inspire:specification:gmlas:GeographicalNames:3.0}NamedPlaceType/1">{urn:x-inspire:specification:gmlas:GeographicalNames:3.0}geometry</property>
+    <property name="defaultGeometry:{urn:x-inspire:specification:gmlas:GeographicalNames:3.0}NamedPlaceType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
+    <property name="defaultGeometry:{urn:x-inspire:specification:gmlas:GeographicalNames:3.0}NamedPlaceType/count">2</property>
+    <property name="defaultGeometry:{urn:x-inspire:specification:gmlas:HydroPhysicalWaters:3.0}WatercourseType/1">{urn:x-inspire:specification:gmlas:HydroPhysicalWaters:3.0}geometry</property>
+    <property name="defaultGeometry:{urn:x-inspire:specification:gmlas:HydroPhysicalWaters:3.0}WatercourseType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{urn:x-inspire:specification:gmlas:HydroPhysicalWaters:3.0}WatercourseType/count">2</property>
     <property name="instances.sampling.enabled">true</property>
     <property name="instances.sampling.sampler">first</property>
     <property name="instances.sampling.settings.first">1</property>
@@ -1450,7 +1462,9 @@
     <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KlassifizierungNachStrassenrechtType</property>
     <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType</property>
     <property name="mappableSourceType/5">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegType</property>
-    <property name="mappableSourceType/count">5</property>
+    <property name="mappableSourceType/6">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrwegachseType</property>
+    <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrasseType</property>
+    <property name="mappableSourceType/count">7</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
