@@ -49,19 +49,17 @@ Ergebnis ist der Hash-Wert hexadezimal kodiert und mit einem Unterstrich als Pr�
             </cf:output>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// TODO determine via external variable
-def identifier = '{{ GDIDE_DATASET_ID }}'
-
-'https://registry.gdi-de.org/id/' + identifier
+// verwende Wert aus Projekt-Variable "INSPIRE_NAMESPACE"
+_project.vars.INSPIRE_NAMESPACE
 </core:text>
             </cf:definition>
             <cf:explanation>
                 <cf:locale country="" language="" variant="">
                     <cf:template>
                         <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-Setzt den f체r den Datensatz vorgegebenen festen Namespace mit Bezug auf die GDI-DE Registry.
+Setzt $_target auf den f체r den Datensatz vorgegebenen festen INSPIRE Namespace.
 
-Der Identifier f체r Datenanbieter und Datensatz in der GDI-DE Registry muss daf체r als Vorgabe mitgegeben werden.
+Der f체r Datenanbieter und Datensatz spezifische Namespace muss daf체r als Vorgabe (Projekt-Variable) konfiguriert werden.
 </core:text>
                     </cf:template>
                 </cf:locale>
