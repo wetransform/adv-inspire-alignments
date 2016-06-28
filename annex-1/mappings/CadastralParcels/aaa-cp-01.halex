@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="2.9.5.qualifier">
+<hale-project version="2.9.5.SNAPSHOT">
     <name>3A zu INSPIRE CadastralParcels</name>
     <author>Simon Templer</author>
     <description>3A zu INSPIRE CadastralParcels mit Beispieldaten</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-06-15T12:02:33.847+02:00</modified>
+    <modified>2016-06-28T15:00:52.737+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1408,4 +1408,11 @@
     <property name="resource-f7b63a48-8784-4c5e-b16f-2c41e23cee84:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlurstueckType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:31466</property>
     <property name="resource-f7b63a48-8784-4c5e-b16f-2c41e23cee84:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlurstueckType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}Arc">code:EPSG:31466</property>
     <property name="resource-f7b63a48-8784-4c5e-b16f-2c41e23cee84:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlurstueckType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:31466</property>
+    <complex-property name="variables">
+        <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="INSPIRE_NAMESPACE">
+                <core:value value="https://registry.gdi-de.org/id/de.____"/>
+            </core:property>
+        </core:properties>
+    </complex-property>
 </hale-project>

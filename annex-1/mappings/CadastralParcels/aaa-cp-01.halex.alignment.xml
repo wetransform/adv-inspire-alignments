@@ -410,28 +410,6 @@ else {
 </core:text>
         </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7b877f74-8178-4e18-9037-887a6cce6974" priority="normal">
-        <target>
-            <property>
-                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-        <parameter value="https://registry.gdi-de.org/id/de.____/alkis" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd031053b-b2d3-4135-98c2-1039722fc742" priority="normal">
-        <target>
-            <property>
-                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-        <parameter value="https://registry.gdi-de.org/id/de.____/alkis" name="value"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C5bfc7fdc-a782-48f1-b471-86da4c97a8ee" priority="normal">
         <source>
             <property>
@@ -964,6 +942,26 @@ else {
                 <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
                 <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
                 <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C12a4a855-a379-4274-9691-f95e3edfe0bf" priority="normal">
+        <target>
+            <property>
+                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C73c410cc-d6eb-4015-a834-c4221ef84a02" priority="normal">
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
     </cell>
