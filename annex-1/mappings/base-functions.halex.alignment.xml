@@ -10,9 +10,6 @@
             </cf:output>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-import java.security.MessageDigest
-def digest = MessageDigest.getInstance('SHA-256')
-
 // alle Quell-IDs als Liste
 def identifiers = id.p.values()
 
@@ -26,10 +23,7 @@ identifiers = identifiers.sort()
 
 def identString = identifiers.join()
 
-digest.update(identString.getBytes("UTF-8"))
-def hashString = digest.digest().encodeHex()
-
-'_' + hashString
+'_' + _.crypto.sha256(identString)
 </core:text>
             </cf:definition>
             <cf:explanation>
