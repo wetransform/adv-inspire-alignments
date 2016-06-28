@@ -4,7 +4,7 @@
     <author>Simon Templer</author>
     <description>Basisprojekt mit Quell-Schema und Beispieldaten</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-06-23T17:53:30.057+02:00</modified>
+    <modified>2016-06-28T15:31:32.532+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1464,7 +1464,9 @@
     <property name="mappableSourceType/5">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegType</property>
     <property name="mappableSourceType/6">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrwegachseType</property>
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrasseType</property>
-    <property name="mappableSourceType/count">7</property>
+    <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType</property>
+    <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType</property>
+    <property name="mappableSourceType/count">9</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
@@ -1605,4 +1607,11 @@
     <property name="resource-f7b63a48-8784-4c5e-b16f-2c41e23cee84:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WohnbauflaecheType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:31466</property>
     <property name="resource-f7b63a48-8784-4c5e-b16f-2c41e23cee84:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WohnbauflaecheType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:31466</property>
     <property name="resource-f7b63a48-8784-4c5e-b16f-2c41e23cee84:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WohnplatzType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
+    <complex-property name="variables">
+        <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="INSPIRE_NAMESPACE">
+                <core:value value="https://registry.gdi-de.org/id/de.____"/>
+            </core:property>
+        </core:properties>
+    </complex-property>
 </hale-project>
