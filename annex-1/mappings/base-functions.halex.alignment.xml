@@ -8,22 +8,54 @@
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
                 <cf:binding>java.lang.String</cf:binding>
             </cf:output>
+            <cf:param maxOccurs="1" minOccurs="1" name="useTargetTypePrefix">
+                <cf:description>
+                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+If enabled, adds the name of the type that the target property belongs to as a prefix to the identifier.
+
+Fügt dem Identifier als Präfix den Ziel-Typ hinzu, falls aktiviert.
+</core:text>
+                </cf:description>
+                <cf:display value="Target type prefix"/>
+                <cf:binding>java.lang.Boolean</cf:binding>
+                <cf:default value="false"/>
+            </cf:param>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 // alle Quell-IDs als Liste
 def identifiers = id.p.values()
 
+def id
+
 if (identifiers.size() == 1) {
   // verwende Original-ID falls nur eine Quelle
-  return identifiers[0]
+  id = identifiers[0]
+}
+else {
+  // sortieren (TODO spezielle Ordnung benötigt?)
+  identifiers = identifiers.sort()
+
+  def identString = identifiers.join()
+
+  id = '_' + _.crypto.sha256(identString)
 }
 
-// sortieren (TODO spezielle Ordnung benötigt?)
-identifiers = identifiers.sort()
+// Ziel-Typ als Präfix
+if (_params.useTargetTypePrefix) {
+  def targetType = _targetType.definition.name.localPart
+  if (targetType) {
+    if (targetType.endsWith('Type')) {
+      targetType = targetType[0..-5]
+    }
+  
+    if (!id.startsWith('_')) {
+      id = '_' + id
+    }
+    id = targetType + id
+  }
+}
 
-def identString = identifiers.join()
-
-'_' + _.crypto.sha256(identString)
+id
 </core:text>
             </cf:definition>
             <cf:explanation>
@@ -36,6 +68,10 @@ Für eine einzige Quell-ID wird diese direkt verwendet.
 
 Andernfalls wird unter Verwendung des SHA256-Algorithmus ein Hash-Wert aus den sortierten und dann konkatenierten AAA-ObjektIDs gebildet.
 Ergebnis ist der Hash-Wert hexadezimal kodiert und mit einem Unterstrich als Präfix.
+
+&lt;% if (_params.useTargetTypePrefix) {
+out &lt;&lt; 'Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangestellt. Dabei wird sichergestellt dass der Typ-Name von den weiteren Teilen der ID durch einen Unterstrich getrennt ist.'
+} %&gt;
 </core:text>
                     </cf:template>
                 </cf:locale>
