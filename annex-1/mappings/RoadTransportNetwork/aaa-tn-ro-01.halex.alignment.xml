@@ -6,6 +6,9 @@
             <cf:input eager="false" maxOccurs="1" minOccurs="1" name="spelling">
                 <cf:binding>java.lang.String</cf:binding>
             </cf:input>
+            <cf:input eager="false" maxOccurs="1" minOccurs="0" name="source">
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:input>
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
                 <cf:type name="GeographicalNameType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </cf:output>
@@ -13,9 +16,13 @@
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 if (spelling) {
 	_target {
+		if (source) {
+			sourceOfName( source )
+		}
 		spelling {
 			SpellingOfName {
 				text( spelling )
+				script ( 'Latn' )
 			}
 		}
 		language( 'deu' )
@@ -29,7 +36,15 @@ else {
             <cf:explanation>
                 <cf:locale country="" language="" variant="">
                     <cf:template>
-                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Bildet einen GeographicalName-Objekt zu einem einfachen Namen. Die Sprach wird als Deutsch angenommen.</core:text>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+Bildet ein GeographicalName-Objekt zu einem einfachen Namen.
+
+Die Sprache wird als Deutsch angenommen.
+
+&lt;% if (source) {
+  out &lt;&lt; "Die Quelle des Namens wird aus dem Quell-Attribut $source bestimmt."
+} %&gt;
+</core:text>
                     </cf:template>
                 </cf:locale>
             </cf:explanation>
@@ -40,6 +55,9 @@ else {
             <cf:input eager="false" maxOccurs="1" minOccurs="1" name="lagebezeichnung">
                 <cf:binding>java.lang.String</cf:binding>
                 <cf:type name="AX_LagebezeichnungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </cf:input>
+            <cf:input eager="false" maxOccurs="1" minOccurs="0" name="source">
+                <cf:binding>java.lang.String</cf:binding>
             </cf:input>
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
                 <cf:type name="GeographicalNameType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
@@ -52,9 +70,13 @@ def name = lagebezeichnung.p.unverschluesselt.value()
 
 if (name) {
 	_target {
+		if (source) {
+			sourceOfName(source)
+		}
 		spelling {
 			SpellingOfName {
 				text( name )
+				script( 'Latn' )
 			}
 		}
 		language( 'deu' )
@@ -68,7 +90,15 @@ else {
             <cf:explanation>
                 <cf:locale country="" language="" variant="">
                     <cf:template>
-                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Erstellt ein GeographicalName-Objekt aus einer unverschlüsselten Lagebezeichnung.</core:text>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+Erstellt ein GeographicalName-Objekt aus einer unverschlüsselten Lagebezeichnung.
+
+Die Sprache wird als Deutsch angenommen.
+
+&lt;% if (source) {
+  out &lt;&lt; "Die Quelle des Namens wird aus dem Quell-Attribut $source bestimmt."
+} %&gt;
+</core:text>
                     </cf:template>
                 </cf:locale>
             </cf:explanation>
