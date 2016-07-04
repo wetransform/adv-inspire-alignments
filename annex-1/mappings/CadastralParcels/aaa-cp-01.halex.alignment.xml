@@ -966,4 +966,49 @@ else {
         </target>
         <parameter value="false" name="useTargetTypePrefix"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3a5fcb1e-fbc5-47e0-98f7-be1d2668fca9" priority="normal">
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="script" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="Latn" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cad61a867-a6d9-4e58-b83f-5920669e9f2d" priority="normal">
+        <source>
+            <property>
+                <type name="AA_NREOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AA_ModellartType"/>
+                <child name="advStandardModell" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="sourceOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C569b2b25-8d75-41f6-a3e5-9776c1d7938d" priority="normal">
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="language" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="deu" name="value"/>
+    </cell>
 </alignment>
