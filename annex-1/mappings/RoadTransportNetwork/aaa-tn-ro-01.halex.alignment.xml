@@ -155,59 +155,6 @@ Die Sprache wird als Deutsch angenommen.
         <parameter value="false" name="ignoreNamespaces"/>
         <documentation>Abbildung nach RoadArea für alle Werte für funktion außer "Reitweg" und "sonstige".</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C2132f419-0fda-49d9-b01a-c5c27895e928" priority="normal">
-        <source>
-            <class>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <documentation>Abbildung nach RoadArea nur art "Fußweg", "Radweg" oder "Rad- und Fußweg".</documentation>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C4e7669e8-0669-46a5-9836-ff86d7f43672" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AbstractGMLType" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-    </cell>
-    <modifier cell="C4e7669e8-0669-46a5-9836-ff86d7f43672">
-        <disable-for parent="C2581bae5-bd09-416c-948e-bcb8b5835ca3"/>
-    </modifier>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce5efa00a-e0b4-4541-bb3d-332da94c1c7e" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AbstractGMLType" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <modifier cell="Ce5efa00a-e0b4-4541-bb3d-332da94c1c7e">
-        <disable-for parent="C2581bae5-bd09-416c-948e-bcb8b5835ca3"/>
-    </modifier>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C87845354-a68e-4c9b-98a0-8d05883d4e0d" priority="normal">
         <target>
             <property>
@@ -220,6 +167,7 @@ Die Sprache wird als Deutsch angenommen.
     </cell>
     <modifier cell="C87845354-a68e-4c9b-98a0-8d05883d4e0d">
         <disable-for parent="C2581bae5-bd09-416c-948e-bcb8b5835ca3"/>
+        <disable-for parent="C2827fa08-a3dd-4539-83de-413c6b922f47"/>
     </modifier>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cbb136720-e720-41bb-b7e0-faa34263f64a" priority="normal">
         <source>
@@ -938,6 +886,97 @@ Die Sprache wird als Deutsch angenommen.
         <source>
             <class>
                 <type name="AX_KlassifizierungNachStrassenrechtType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit flächenartigen Geometrien behandeln
+def geometries = _.geom.findPolygons(_source.p.position.first())
+
+// Ziel unterstützt keine MultiSurfaces
+def surfaces = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Identifier of source object
+def sourceId = _source.p.id.value()
+
+// Ziel-Objekt für jede Fläche erstellen
+int num = 1
+surfaces.each { surface -&gt;
+	// ID bestimmen
+	def _id = "RoadArea_${sourceId}_${num}"
+
+	// Ziel-Objekt erstellen
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _project.vars.INSPIRE_NAMESPACE )
+			}
+		}
+		geometry(surface)
+	}
+
+	num++
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C4e7669e8-0669-46a5-9836-ff86d7f43672" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AbstractGMLType" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <modifier cell="C4e7669e8-0669-46a5-9836-ff86d7f43672">
+        <disable-for parent="C2581bae5-bd09-416c-948e-bcb8b5835ca3"/>
+        <disable-for parent="C2827fa08-a3dd-4539-83de-413c6b922f47"/>
+    </modifier>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce5efa00a-e0b4-4541-bb3d-332da94c1c7e" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AbstractGMLType" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <modifier cell="Ce5efa00a-e0b4-4541-bb3d-332da94c1c7e">
+        <disable-for parent="C2581bae5-bd09-416c-948e-bcb8b5835ca3"/>
+        <disable-for parent="C2827fa08-a3dd-4539-83de-413c6b922f47"/>
+    </modifier>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2827fa08-a3dd-4539-83de-413c6b922f47" priority="normal">
+        <source>
+            <class>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
+                </type>
             </class>
         </source>
         <target>
