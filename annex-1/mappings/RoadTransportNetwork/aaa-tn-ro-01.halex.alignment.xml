@@ -473,36 +473,6 @@ Die Sprache wird als Deutsch angenommen.
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C5855cff4-b320-4f0c-bd53-c8d282791687" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C8a40758b-371a-4883-9294-1adafd5bc376" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="Cc2269463-2fe0-460d-883d-6da676dbb1bc" priority="normal">
         <target>
             <property>
@@ -1021,5 +991,37 @@ surfaces.each { surface -&gt;
 }
 </core:text>
         </complexParameter>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C5855cff4-b320-4f0c-bd53-c8d282791687" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C8a40758b-371a-4883-9294-1adafd5bc376" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
     </cell>
 </alignment>
