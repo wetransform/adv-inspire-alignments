@@ -378,20 +378,6 @@ Die Sprache wird als Deutsch angenommen.
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cd04ba570-d35b-49a4-9682-ff1fc53fa349" priority="normal">
-        <source>
-            <class>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C055eee92-8f70-4d3b-9771-2b7346cd7f6f" priority="normal">
         <source name="spelling">
             <property>
@@ -974,6 +960,9 @@ surfaces.each { surface -&gt;
 }
 </core:text>
         </complexParameter>
+        <documentation>Abbildung nach **RoadArea** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
+
+Für jede individuelle Flächen-Geometre wird eine **RoadArea** erstellt.</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C5855cff4-b320-4f0c-bd53-c8d282791687" priority="normal">
         <source name="id">
@@ -1206,5 +1195,53 @@ curves.each { curve -&gt;
 }
 </core:text>
         </complexParameter>
+        <documentation>Abbildung nach **RoadLink** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
+
+Für jede individuelle Linien-Geometrie wird ein **RoadLink** erstellt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C949d36a1-b1e9-4c1d-9fab-584d6ff7bee2" priority="normal">
+        <source>
+            <class>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit linienartigen Geometrien behandeln
+// welche einen RoadLink repräsentieren
+def geometries = _.geom.findLines(_source.p.position.first())
+
+// RoadLinks werden aus den individuellen Geometrien gebildet
+def curves = _.geom.splitMulti(geometries)
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+_target {
+	// Verweis auf individuelle RoadLinks erstellen
+	int num = 1
+	curves.each { curve -&gt;
+		// ID bestimmen
+		def ref = "#RoadLink_${sourceId}_${num}"
+		link {
+			href( ref )
+		}
+		
+		num++
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Abbildung nach Road nur `art` "Fußweg", "Radweg" und "Rad- und Fußweg".
+
+*Die Bedingung weicht von der Angabe in der vorgegebenen Mapping-Tabelle ab (alle AX_WegPfadSteig), wurde jedoch angepasst an die Vorgaben zu RoadLink, da eine Road aus mindestens einem RoadLink bestehen muss.*</documentation>
     </cell>
 </alignment>
