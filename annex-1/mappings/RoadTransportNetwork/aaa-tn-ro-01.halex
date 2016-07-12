@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="2.9.5.SNAPSHOT">
+<hale-project version="2.9.5.qualifier">
     <name>3A Alignment</name>
     <author>Simon Templer</author>
     <description>Basisprojekt mit Quell-Schema und Beispieldaten</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-07-12T11:32:43.442+02:00</modified>
+    <modified>2016-07-12T14:23:59.948+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -17,93 +17,21 @@
         <setting name="source">file:/home/simon/repos/inspire-alignements/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">f7b63a48-8784-4c5e-b16f-2c41e23cee84</setting>
-        <setting name="source">../../../testdaten/NBA-Mustermonzel_20100520T144438_4von8_32350000_5530000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">498e441a-0533-4759-871b-51eafb174237</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_0von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">13144b54-522d-4eae-9d74-e330c5f4c5fc</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_1von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">0f492db6-9eda-4489-b9df-186a7c82e577</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_3von8_32345000_5530000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">7b66de48-2c3c-4b65-be52-210d1dc22cb6</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_2von8_32350000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">4417adf1-d296-44d4-8a2c-1dffeb37ffa2</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_5von8_32355000_5530000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">0b55205f-6c0e-453c-b938-f369580faaaa</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_6von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">a918d96e-dc7d-4197-9984-554d9e5ed24d</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_7von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">7abde07b-c39d-4990-9beb-194e874e5430</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_8von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="onlyElementsMappable">true</setting>
         <setting name="resourceId">4a849539-5e6b-4a95-ba10-f4b2339dc1a5</setting>
         <setting name="source">http://inspire.ec.europa.eu/schemas/tn-ro/4.0/RoadTransportNetwork.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">5e366bd4-a742-49b7-983a-be5013dadba1</setting>
+        <setting name="source">../../../testdaten/Hamburg/ATKIS/ATKIS_HH_0009.xml.gz</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="ignoreRoot">true</setting>
     </resource>
     <file name="alignment.xml" location="aaa-tn-ro-01.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-tn-ro-01.halex.styles.sld"/>
@@ -1513,7 +1441,7 @@
     <property name="defaultGeometry:{urn:x-inspire:specification:gmlas:HydroPhysicalWaters:3.0}WatercourseType/1">{urn:x-inspire:specification:gmlas:HydroPhysicalWaters:3.0}geometry</property>
     <property name="defaultGeometry:{urn:x-inspire:specification:gmlas:HydroPhysicalWaters:3.0}WatercourseType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
     <property name="defaultGeometry:{urn:x-inspire:specification:gmlas:HydroPhysicalWaters:3.0}WatercourseType/count">2</property>
-    <property name="instances.sampling.enabled">true</property>
+    <property name="instances.sampling.enabled">false</property>
     <property name="instances.sampling.sampler">first</property>
     <property name="instances.sampling.settings.first">1</property>
     <property name="instances.sampling.settings.skip">10</property>
@@ -1554,6 +1482,16 @@
     <property name="resource-4417adf1-d296-44d4-8a2c-1dffeb37ffa2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BesondereFlurstuecksgrenzeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:31466</property>
     <property name="resource-4417adf1-d296-44d4-8a2c-1dffeb37ffa2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-4417adf1-d296-44d4-8a2c-1dffeb37ffa2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortTAType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrwegachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrwegachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PlatzType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegPfadSteigType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegPfadSteigType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-7b66de48-2c3c-4b65-be52-210d1dc22cb6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-7b66de48-2c3c-4b65-be52-210d1dc22cb6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-7b66de48-2c3c-4b65-be52-210d1dc22cb6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BesondereFlurstuecksgrenzeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:31466</property>
