@@ -331,22 +331,6 @@ Die Sprache wird als Deutsch angenommen.
         <parameter value="true" name="structuralRename"/>
         <parameter value="true" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C23317705-6906-47eb-a04c-ef5109cfd30e" priority="normal">
-        <source>
-            <class>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">internationaleBedeutung = '2001'</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C37cc2079-b6ec-4e6d-bc2c-f01eb64d6929" priority="normal">
         <source>
             <class>
@@ -1374,5 +1358,137 @@ _target {
         </target>
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb6bd7b9a-eadf-48f2-9232-260ac1bf2c10" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">internationaleBedeutung = '2001'</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">internationaleBedeutung = '2001'</condition>
+                    </type>
+                </class>
+                <class>
+                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">internationaleBedeutung = '2001'</condition>
+                        </type>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">internationaleBedeutung = '2001'</condition>
+                        </type>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Strasse nach ERoad -&gt; stelle Verknpüfung zu RoadLinks her
+
+// Fahrbahnachsen werden präferiert als RoadLink für
+// Strassen verwendet, alternativ verwende Strassenachsen
+
+boolean hatFahrbahnachse = !!_source.links.AX_Fahrbahnachse.first()
+boolean hatStrassenachse = !!_source.links.AX_Strassenachse.first()
+
+if (!hatFahrbahnachse &amp;&amp; !hatStrassenachse) {
+	def strasseId = _source.p.id.value()
+	_log.warn("ERoad: Strasse $strasseId hat weder Fahrbahnachsen noch Strassenachsen")
+	throw new NoResultException('Kann kein ERoad-Objekt ohne RoadLinks erstellen')
+}
+
+// erstelle ERoad
+
+_target {
+	if (hatFahrbahnachse) {
+		_source.links.AX_Fahrbahnachse.each { achse -&gt;
+			link {
+				href( '#RoadLink_' + achse.p.id.value() )
+			}
+		}
+	}
+	else if (hatStrassenachse) {
+		_source.links.AX_Strassenachse.each { achse -&gt;
+			link {
+				href( '#RoadLink_' + achse.p.id.value() )
+			}
+		}
+	}
+}
+
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Ca75e7935-ff63-4356-909a-b59d866bc062" priority="normal">
+        <target>
+            <property>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <modifier cell="Ca75e7935-ff63-4356-909a-b59d866bc062">
+        <disable-for parent="C3296f18d-e980-40cf-a9f3-9e5187ecf16a"/>
+        <disable-for parent="Cc8dfcac2-f330-4946-b4d6-8e1a87136c04"/>
+    </modifier>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C1505c26d-f446-4fad-8d7f-bc3fd3448caf" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="link" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#RoadLink_{id}" name="pattern"/>
     </cell>
 </alignment>
