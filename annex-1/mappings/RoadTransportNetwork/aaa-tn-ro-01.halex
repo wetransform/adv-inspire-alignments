@@ -4,7 +4,7 @@
     <author>Simon Templer</author>
     <description>Basisprojekt mit Quell-Schema und Beispieldaten</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-07-12T15:56:08.185+02:00</modified>
+    <modified>2016-07-12T22:55:14.839+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1455,6 +1455,24 @@
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType</property>
     <property name="mappableSourceType/count">9</property>
+    <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadLinkSequenceType</property>
+    <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadServiceTypeType</property>
+    <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}FunctionalRoadClassType</property>
+    <property name="mappableTargetType/12">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}ERoadType</property>
+    <property name="mappableTargetType/13">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadNameType</property>
+    <property name="mappableTargetType/14">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}NumberOfLanesType</property>
+    <property name="mappableTargetType/15">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}SpeedLimitType</property>
+    <property name="mappableTargetType/16">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}FormOfWayType</property>
+    <property name="mappableTargetType/17">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadAreaType</property>
+    <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadNodeType</property>
+    <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadServiceAreaType</property>
+    <property name="mappableTargetType/4">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadWidthType</property>
+    <property name="mappableTargetType/5">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadType</property>
+    <property name="mappableTargetType/6">{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType</property>
+    <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadLinkType</property>
+    <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadSurfaceCategoryType</property>
+    <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}VehicleTrafficAreaType</property>
+    <property name="mappableTargetType/count">17</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
@@ -1607,6 +1625,9 @@
     <property name="resource-f7b63a48-8784-4c5e-b16f-2c41e23cee84:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WohnplatzType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="NETWORK_ID">
+                <core:value value="RoadNetwork"/>
+            </core:property>
             <core:property name="INSPIRE_NAMESPACE">
                 <core:value value="https://registry.gdi-de.org/id/de.____"/>
             </core:property>
