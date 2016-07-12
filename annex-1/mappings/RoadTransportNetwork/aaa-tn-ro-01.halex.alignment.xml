@@ -331,23 +331,6 @@ Die Sprache wird als Deutsch angenommen.
         <parameter value="true" name="structuralRename"/>
         <parameter value="true" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C22670eda-7158-4105-ac31-55d0af75b569" priority="normal">
-        <source>
-            <class>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">internationaleBedeutung is null or internationaleBedeutung &lt;&gt; '2001'</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <documentation>Abbildung nach Road nur für Straßen die nicht "Europastraße" als internationale Bedeutung haben.</documentation>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C23317705-6906-47eb-a04c-ef5109cfd30e" priority="normal">
         <source>
             <class>
@@ -422,42 +405,6 @@ Die Sprache wird als Deutsch angenommen.
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca5cd019b-6e90-4f57-b478-94908d192233" priority="normal">
-        <source>
-            <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf04bf7cb-0c75-4a85-a346-ff2791070e27" priority="normal">
-        <source>
-            <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="Cc2269463-2fe0-460d-883d-6da676dbb1bc" priority="normal">
         <target>
@@ -872,38 +819,6 @@ surfaces.each { surface -&gt;
 
 Für jede individuelle Flächen-Geometre wird eine **RoadArea** erstellt.</documentation>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C5855cff4-b320-4f0c-bd53-c8d282791687" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C8a40758b-371a-4883-9294-1adafd5bc376" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ca2b6c098-4854-4d90-a534-81d0f7c5ad8b" priority="normal">
         <source name="id">
             <property>
@@ -1153,5 +1068,311 @@ if (!hatStrassenachse) {
 }
 </core:text>
         </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Ca487d3fe-c4c0-4b2e-9a46-937483bda3c3" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">internationaleBedeutung is null or internationaleBedeutung &lt;&gt; '2001'</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">internationaleBedeutung is null or internationaleBedeutung &lt;&gt; '2001'</condition>
+                    </type>
+                </class>
+                <class>
+                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">internationaleBedeutung is null or internationaleBedeutung &lt;&gt; '2001'</condition>
+                        </type>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">internationaleBedeutung is null or internationaleBedeutung &lt;&gt; '2001'</condition>
+                        </type>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Strasse nach Road -&gt; stelle Verknpüfung zu RoadLinks her
+
+// Fahrbahnachsen werden präferiert als RoadLink für
+// Strassen verwendet, alternativ verwende Strassenachsen
+
+boolean hatFahrbahnachse = !!_source.links.AX_Fahrbahnachse.first()
+boolean hatStrassenachse = !!_source.links.AX_Strassenachse.first()
+
+if (!hatFahrbahnachse &amp;&amp; !hatStrassenachse) {
+	def strasseId = _source.p.id.value()
+	_log.warn("Road: Strasse $strasseId hat weder Fahrbahnachsen noch Strassenachsen")
+	throw new NoResultException('Kann kein Road-Objekt ohne RoadLinks erstellen')
+}
+
+// erstelle Road
+
+_target {
+	if (hatFahrbahnachse) {
+		_source.links.AX_Fahrbahnachse.each { achse -&gt;
+			link {
+				href( '#RoadLink_' + achse.p.id.value() )
+			}
+		}
+	}
+	else if (hatStrassenachse) {
+		_source.links.AX_Strassenachse.each { achse -&gt;
+			link {
+				href( '#RoadLink_' + achse.p.id.value() )
+			}
+		}
+	}
+}
+
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C5855cff4-b320-4f0c-bd53-c8d282791687" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C8a40758b-371a-4883-9294-1adafd5bc376" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf04bf7cb-0c75-4a85-a346-ff2791070e27" priority="normal">
+        <source>
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca5cd019b-6e90-4f57-b478-94908d192233" priority="normal">
+        <source>
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C92e8561d-980c-40f4-aa8e-834f628f8e3d" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cde61c643-ff7b-4c72-9383-b958edf7654d" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C43612668-3d9d-4857-ac31-d510c15bc312" priority="normal">
+        <source>
+            <property>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C9503659f-1365-4672-8cfb-1600e40207a5" priority="normal">
+        <source>
+            <property>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cd8e7f411-44b2-422e-8f5e-09112b56e2a1" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C25b81492-3b0f-4ffb-be0e-7ff925713e47" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce6146fb9-6ab3-4d76-a0f8-ebf3c9e66667" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C957cc3cc-ece3-459a-9ab0-61b8dc612bcd" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
 </alignment>
