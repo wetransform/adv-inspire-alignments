@@ -4,7 +4,7 @@
     <author>Simon Templer</author>
     <description>Basisprojekt mit Quell-Schema und Beispieldaten</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-07-12T22:55:14.839+02:00</modified>
+    <modified>2016-07-13T08:38:27.141+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1464,6 +1464,7 @@
     <property name="mappableTargetType/15">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}SpeedLimitType</property>
     <property name="mappableTargetType/16">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}FormOfWayType</property>
     <property name="mappableTargetType/17">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadAreaType</property>
+    <property name="mappableTargetType/18">{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType</property>
     <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadNodeType</property>
     <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadServiceAreaType</property>
     <property name="mappableTargetType/4">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadWidthType</property>
@@ -1472,7 +1473,7 @@
     <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadLinkType</property>
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadSurfaceCategoryType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}VehicleTrafficAreaType</property>
-    <property name="mappableTargetType/count">17</property>
+    <property name="mappableTargetType/count">18</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
