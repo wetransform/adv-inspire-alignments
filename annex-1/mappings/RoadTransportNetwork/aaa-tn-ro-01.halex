@@ -4,7 +4,7 @@
     <author>Simon Templer</author>
     <description>Basisprojekt mit Quell-Schema und Beispieldaten</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-07-13T12:57:15.994+02:00</modified>
+    <modified>2016-07-13T13:49:13.052+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -33,8 +33,25 @@
         <setting name="ignoreNamespaces">false</setting>
         <setting name="ignoreRoot">true</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">7d28f2cf-71ba-4ef9-8407-d5548185d954</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/RoadPartValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
     <file name="alignment.xml" location="aaa-tn-ro-01.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-tn-ro-01.halex.styles.sld"/>
+    <complex-property name="codelists">
+        <associations>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/RoadPartValue" namespace="http://inspire.ec.europa.eu/codelist/RoadPartValue">
+                <entity>
+                    <type name="RoadWidthType" namespace="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                    <property name="measuredRoadPart" namespace="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+        </associations>
+    </complex-property>
     <property name="defaultGeometry:{eu:esdihumboldt:hale:example}RiverType/1">{eu:esdihumboldt:hale:example}geometry</property>
     <property name="defaultGeometry:{eu:esdihumboldt:hale:example}RiverType/2">{http://www.opengis.net/gml}LineString</property>
     <property name="defaultGeometry:{eu:esdihumboldt:hale:example}RiverType/count">2</property>
