@@ -4,7 +4,7 @@
     <author>Simon Templer</author>
     <description>Basisprojekt mit Quell-Schema und Beispieldaten</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-07-13T18:24:17.599+02:00</modified>
+    <modified>2016-07-13T18:47:21.068+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -39,14 +39,40 @@
         <setting name="source">http://inspire.ec.europa.eu/codelist/RoadPartValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">6e10abd1-ed0d-49f1-bfb9-d92760c5398a</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">60ea79a6-1290-4d7d-b94a-974fa02fff6f</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/ServiceFacilityValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
     <file name="alignment.xml" location="aaa-tn-ro-01.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-tn-ro-01.halex.styles.sld"/>
     <complex-property name="codelists">
         <associations>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/ServiceFacilityValue" namespace="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue">
+                <entity>
+                    <type name="RoadServiceTypeType" namespace="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                    <property name="availableFacility" namespace="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/RoadPartValue" namespace="http://inspire.ec.europa.eu/codelist/RoadPartValue">
                 <entity>
                     <type name="RoadWidthType" namespace="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
                     <property name="measuredRoadPart" namespace="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/RoadServiceTypeValue" namespace="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue">
+                <entity>
+                    <type name="RoadServiceTypeType" namespace="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                    <property name="type" namespace="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>

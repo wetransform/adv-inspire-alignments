@@ -2204,4 +2204,231 @@ withTransformationContext {
         <parameter value="true" name="structuralRename"/>
         <parameter value="true" name="ignoreNamespaces"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.merge" id="C7167685d-1927-4e65-82f3-b01258f955b4" priority="normal">
+        <source>
+            <class>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">funktion = '5320' or funktion = '5330' or funktion = '5310'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="auto_detect"/>
+        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}funktion" name="property"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C06c4fa21-f02d-428e-9a48-6de08e035852" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="RoadServiceType_{funktion}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C2144d1d2-7e84-480c-88f5-69b8d027ea97" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="RoadServiceType_{funktion}" name="pattern"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C926d15b8-a481-4947-a796-ae74e3d6e3d7" priority="normal">
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C52ac1d6a-4b79-4afa-988a-ff6f351d3c52" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="networkRef" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/net/4.0/NetworkReference"/>
+                <child name="NetworkReference" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="element" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#RoadServiceArea_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cb822d066-69fc-4cf8-8d8d-7e957bf43384" priority="normal">
+        <source>
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="null" name="notClassifiedAction"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="5310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/parking"/>
+                </entry>
+                <entry>
+                    <key value="5320"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/restArea"/>
+                </entry>
+                <entry>
+                    <key value="5330"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/restArea"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C764250f9-a589-443e-b75b-b19525bc4a25" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value = '5320' or value = '5330'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue/picnicArea" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cccc9812b-cbe4-47a6-ab03-5e4e8e237b2f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value = '5330'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                    <context>0</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue/drinks" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C82f4f042-2fa9-48f2-9212-1607e76c1fe1" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value = '5330'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                    <context>1</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue/food" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cebd7cdea-2694-4960-89ef-1cbc876bb136" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value = '5330'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                    <context>2</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue/fuel" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C194d59be-3cd4-4730-9280-b7159a68190f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value = '5330'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                    <context>3</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue/shop" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbe1e3f30-5acf-4eb2-85e2-e51713896d7b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value = '5330'</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                    <context>4</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue/toilets" name="value"/>
+    </cell>
 </alignment>
