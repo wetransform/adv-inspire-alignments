@@ -1451,110 +1451,6 @@ withTransformationContext {
         </target>
         <parameter value="{{project:NETWORK_ID}}" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cdea13ccc-cf83-4aa5-ac9d-9c076505f176" priority="low">
-        <target>
-            <class>
-                <type name="FormOfWayType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// Die Code-Liste für FormOfWay
-def codeList = 'http://inspire.ec.europa.eu/codelist/FormOfWayValue'
-// Die "direction" für die FormOfWay für einen RoadLink gilt
-def direction = 'http://inspire.ec.europa.eu/codelist/LinkDirectionValue/bothDirections'
-
-def collect
-withTransformationContext {
-	collect = _.context.collector(it)
-}
-
-// Erstelle ein FormOfWay-Objekt für jeden vorkommenden Wert
-collect.formOfWay.consume { key, values -&gt;
-	def _id = 'FormOfWay_' + key
-	
-	_target {
-		formOfWay {
-			href( "$codeList/$key" )
-		}
-		id( _id )
-		inspireId {
-			Identifier {
-				namespace( _project.vars.INSPIRE_NAMESPACE )
-				localId( _id )
-			}
-		}
-		
-		// Referenz zu gesammelten RoadLinks mit dieser Eigenschaft
-		values.each { linkId -&gt;
-			networkRef {
-				LinkReference {
-					applicableDirection {
-						href( direction )
-					}
-					element {
-						href( "#$linkId" )
-					}
-				}
-			}
-		}
-	}
-}
-</core:text>
-        </complexParameter>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C58fab7dc-5037-41c6-97cd-b69550c0ec51" priority="low">
-        <target>
-            <class>
-                <type name="RoadSurfaceCategoryType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// Die Code-Liste für RoadSurfaceCategory
-def codeList = 'http://inspire.ec.europa.eu/codelist/RoadSurfaceCategoryValue'
-// Die "direction" für die RoadSurfaceCategory für einen RoadLink gilt
-def direction = 'http://inspire.ec.europa.eu/codelist/LinkDirectionValue/bothDirections'
-
-def collect
-withTransformationContext {
-	collect = _.context.collector(it)
-}
-
-// Erstelle ein RoadSurfaceCategory-Objekt für jeden vorkommenden Wert
-collect.surfaceCategory.consume { key, values -&gt;
-	def _id = 'RoadSurfaceCategory_' + key
-	
-	_target {
-		surfaceCategory {
-			href( "$codeList/$key" )
-		}
-		id( _id )
-		inspireId {
-			Identifier {
-				namespace( _project.vars.INSPIRE_NAMESPACE )
-				localId( _id )
-			}
-		}
-		
-		// Referenz zu gesammelten RoadLinks mit dieser Eigenschaft
-		values.each { linkId -&gt;
-			networkRef {
-				LinkReference {
-					applicableDirection {
-						href( direction )
-					}
-					element {
-						href( "#$linkId" )
-					}
-				}
-			}
-		}
-	}
-}
-</core:text>
-        </complexParameter>
-    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3296f18d-e980-40cf-a9f3-9e5187ecf16a" priority="normal">
         <source>
             <class>
@@ -1694,6 +1590,16 @@ withTransformationContext {
 </core:text>
         </complexParameter>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C809327ca-b90f-4c31-8cb4-b9988c5e0aa9" priority="normal">
+        <target>
+            <property>
+                <type name="RoadWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="measuredRoadPart" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/RoadPartValue/pavedSurface" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cc8dfcac2-f330-4946-b4d6-8e1a87136c04" priority="normal">
         <source name="types">
             <class>
@@ -1782,6 +1688,8 @@ def surfaceCategory = 'paved'
 
 // Hilfsfunktion zum Erstellen eines RoadLink aus einer *achse
 def erstelleRoadLink = { achse -&gt;
+	boolean istFahrbahn = achse.definition.name.localPart.startsWith('AX_Fahrbahn')
+
 	def sourceId = achse.p.id.value()
 	def _id = "RoadLink_$sourceId"
 	_target {
@@ -1808,6 +1716,11 @@ def erstelleRoadLink = { achse -&gt;
 		def breite = achse.p.breiteDerFahrbahn.value()
 		def breiteUom = achse.p.breiteDerFahrbahn.uom.value()
 		
+		// bestimme NumberOfLanes
+		def numberOfLanes = achse.p.anzahlDerFahrstreifen.value()
+		// http://inspire.ec.europa.eu/codelist/LinkDirectionValue
+		def direction = istFahrbahn ? 'inDirection' : 'bothDirections'
+		
 		withTransformationContext {
 			def collect = _.context.collector(it)
 			// Sammle ID für Netzwerk	
@@ -1819,6 +1732,10 @@ def erstelleRoadLink = { achse -&gt;
 			// Sammle Informationen für RoadWith
 			if (breite) {
 				collect.roadWidth &lt;&lt; [_id, breite, breiteUom]
+			}
+			// Sammle ID für NumberOfLanes
+			if (numberOfLanes) {
+				collect.numberOfLanes[numberOfLanes][direction] &lt;&lt; _id
 			}
 		}
 	}
@@ -1857,6 +1774,86 @@ if (!hatStrassenachse) {
 </core:text>
         </complexParameter>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb01cca94-65d0-482e-8ddc-79381e266aef" priority="normal">
+        <target>
+            <property>
+                <type name="NumberOfLanesType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="minMaxNumberOfLanes" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9fbdcf9a-e35a-4f33-b915-77155350de27" priority="normal">
+        <target>
+            <property>
+                <type name="TransportPropertyType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C6563043b-57b7-4264-b3ff-6264b547216f" priority="normal">
+        <target>
+            <property>
+                <type name="TransportPropertyType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cf936785f-5456-4fc6-bd62-f55395169e5a" priority="low">
+        <target>
+            <class>
+                <type name="NumberOfLanesType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle NumberOfLanes-Objekt für jede Kombination von _numberOfLanes und _direction
+collect.numberOfLanes.eachCollector { _numberOfLanes, next -&gt;
+	next.consume { _direction, linkIds -&gt;
+		def _id = "NumberOfLanes_${_direction}_${_numberOfLanes}"
+		
+		def directionRef = "http://inspire.ec.europa.eu/codelist/LinkDirectionValue/$_direction"
+		
+		_target {
+			numberOfLanes( _numberOfLanes )
+			direction {
+				href( directionRef )
+			}
+			id( _id )
+			inspireId {
+				Identifier {
+					namespace( _project.vars.INSPIRE_NAMESPACE )
+					localId( _id )
+				}
+			}
+			
+			// Referenzen zu RoadLinks
+			linkIds.each { linkId -&gt;
+				networkRef {
+					NetworkReference {
+						element {
+							href( '#' + linkId )
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C01d34ad8-6db2-4d58-8bfa-5ef45239e015" priority="low">
         <target>
             <class>
@@ -1865,9 +1862,6 @@ if (!hatStrassenachse) {
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// Die "direction" für die RoadWidth für einen RoadLink gilt
-def direction = 'http://inspire.ec.europa.eu/codelist/LinkDirectionValue/bothDirections'
-
 def collect
 withTransformationContext {
 	collect = _.context.collector(it)
@@ -1898,10 +1892,7 @@ collect.roadWidth.consume { values -&gt;
 		
 		// Referenz zu RoadLink
 		networkRef {
-			LinkReference {
-				applicableDirection {
-					href( direction )
-				}
+			NetworkReference {
 				element {
 					href( '#' + values[0] )
 				}
@@ -1913,14 +1904,98 @@ collect.roadWidth.consume { values -&gt;
 </core:text>
         </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C809327ca-b90f-4c31-8cb4-b9988c5e0aa9" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C58fab7dc-5037-41c6-97cd-b69550c0ec51" priority="low">
         <target>
-            <property>
-                <type name="RoadWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="measuredRoadPart" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
+            <class>
+                <type name="RoadSurfaceCategoryType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/RoadPartValue/pavedSurface" name="value"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für RoadSurfaceCategory
+def codeList = 'http://inspire.ec.europa.eu/codelist/RoadSurfaceCategoryValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein RoadSurfaceCategory-Objekt für jeden vorkommenden Wert
+collect.surfaceCategory.consume { key, values -&gt;
+	def _id = 'RoadSurfaceCategory_' + key
+	
+	_target {
+		surfaceCategory {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _project.vars.INSPIRE_NAMESPACE )
+				localId( _id )
+			}
+		}
+		
+		// Referenz zu gesammelten RoadLinks mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cdea13ccc-cf83-4aa5-ac9d-9c076505f176" priority="low">
+        <target>
+            <class>
+                <type name="FormOfWayType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für FormOfWay
+def codeList = 'http://inspire.ec.europa.eu/codelist/FormOfWayValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein FormOfWay-Objekt für jeden vorkommenden Wert
+collect.formOfWay.consume { key, values -&gt;
+	def _id = 'FormOfWay_' + key
+	
+	_target {
+		formOfWay {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _project.vars.INSPIRE_NAMESPACE )
+				localId( _id )
+			}
+		}
+		
+		// Referenz zu gesammelten RoadLinks mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
     </cell>
 </alignment>
