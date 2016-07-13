@@ -1451,85 +1451,57 @@ withTransformationContext {
         </target>
         <parameter value="{{project:NETWORK_ID}}" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3296f18d-e980-40cf-a9f3-9e5187ecf16a" priority="normal">
-        <source>
-            <class>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
-                </type>
-            </class>
-        </source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cdea13ccc-cf83-4aa5-ac9d-9c076505f176" priority="low">
         <target>
             <class>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="FormOfWayType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
             </class>
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// nur Objekt mit linienartigen Geometrien behandeln
-def geometries = _.geom.findLines(_source.p.position.first())
+// Die Code-Liste für FormOfWay
+def codeList = 'http://inspire.ec.europa.eu/codelist/FormOfWayValue'
+// Die "direction" für die FormOfWay für einen RoadLink gilt
+def direction = 'http://inspire.ec.europa.eu/codelist/LinkDirectionValue/bothDirections'
 
-// Ziel unterstützt keine MultiLineStrings
-def curves = _.geom.splitMulti(geometries)
-
-// Builder konfigurieren
-// - Zuweisung der Geometrie auf Ebene von geometry zulassen
-_b.strictValueFlags = false
-
-// Identifier des Quell-Objekts
-def sourceId = _source.p.id.value()
-
-// bestimme FormOfWay
-def formOfWay
-def art = _source.p.art.value() as String
-if (art) {
-	switch (art) {
-	case '1106': // Radweg
-	case '1110': // Rad- und Fußweg
-		formOfWay = 'bicycleRoad'
-		break
-	case '1103': // Fußweg
-		formOfWay = 'walkway'
-		break
-	}
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
 }
 
-// Ziel-Objekt für jede Linie erstellen
-int num = 1
-curves.each { curve -&gt;
-	// ID bestimmen
-	def _id = "RoadLink_${sourceId}_${num}"
-
-	// Ziel-Objekt erstellen
+// Erstelle ein FormOfWay-Objekt für jeden vorkommenden Wert
+collect.formOfWay.consume { key, values -&gt;
+	def _id = 'FormOfWay_' + key
+	
 	_target {
+		formOfWay {
+			href( "$codeList/$key" )
+		}
 		id( _id )
 		inspireId {
 			Identifier {
-				localId( _id )
 				namespace( _project.vars.INSPIRE_NAMESPACE )
+				localId( _id )
 			}
 		}
-		centrelineGeometry(curve)
-	}
-	
-	
-	withTransformationContext {
-		def collect = _.context.collector(it)
-		// Sammle ID für Netzwerk	
-		collect.network &lt;&lt; _id
-		// Sammle ID für FormOfWay
-		if (formOfWay) {
-			collect.formOfWay[formOfWay] &lt;&lt; _id
+		
+		// Referenz zu gesammelten RoadLinks mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				LinkReference {
+					applicableDirection {
+						href( direction )
+					}
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
 		}
 	}
-	
-	num++
 }
 </core:text>
         </complexParameter>
-        <documentation>Abbildung nach **RoadLink** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
-
-Für jede individuelle Linien-Geometrie wird ein **RoadLink** erstellt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cc8dfcac2-f330-4946-b4d6-8e1a87136c04" priority="normal">
         <source name="types">
@@ -1613,6 +1585,10 @@ else {
 	formOfWay = 'singleCarriageway'
 }
 
+// bestimme RoadSurfaceCategory
+// laut Mapping-Tabelle für alle 'paved'
+def surfaceCategory = 'paved'
+
 // Hilfsfunktion zum Erstellen eines RoadLink aus einer *achse
 def erstelleRoadLink = { achse -&gt;
 	def sourceId = achse.p.id.value()
@@ -1643,6 +1619,8 @@ def erstelleRoadLink = { achse -&gt;
 			collect.network &lt;&lt; _id
 			// Sammle ID für FormOfWay
 			collect.formOfWay[formOfWayAchse] &lt;&lt; _id
+			// Sammle ID für RoadSurfaceCategory
+			collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
 		}
 	}
 }
@@ -1680,17 +1658,17 @@ if (!hatStrassenachse) {
 </core:text>
         </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cdea13ccc-cf83-4aa5-ac9d-9c076505f176" priority="low">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C58fab7dc-5037-41c6-97cd-b69550c0ec51" priority="low">
         <target>
             <class>
-                <type name="FormOfWayType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadSurfaceCategoryType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
             </class>
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// Die Code-Liste für FormOfWay
-def codeList = 'http://inspire.ec.europa.eu/codelist/FormOfWayValue'
-// Die "direction" für die FormOfWay für einen RoadLink gilt
+// Die Code-Liste für RoadSurfaceCategory
+def codeList = 'http://inspire.ec.europa.eu/codelist/RoadSurfaceCategoryValue'
+// Die "direction" für die RoadSurfaceCategory für einen RoadLink gilt
 def direction = 'http://inspire.ec.europa.eu/codelist/LinkDirectionValue/bothDirections'
 
 def collect
@@ -1698,12 +1676,12 @@ withTransformationContext {
 	collect = _.context.collector(it)
 }
 
-// Erstelle ein FormOfWay-Objekt für jeden vorkommenden Wert
-collect.formOfWay.consume { key, values -&gt;
-	def _id = 'FormOfWay_' + key
+// Erstelle ein RoadSurfaceCategory-Objekt für jeden vorkommenden Wert
+collect.surfaceCategory.consume { key, values -&gt;
+	def _id = 'RoadSurfaceCategory_' + key
 	
 	_target {
-		formOfWay {
+		surfaceCategory {
 			href( "$codeList/$key" )
 		}
 		id( _id )
@@ -1732,6 +1710,101 @@ collect.formOfWay.consume { key, values -&gt;
 </core:text>
         </complexParameter>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3296f18d-e980-40cf-a9f3-9e5187ecf16a" priority="normal">
+        <source>
+            <class>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit linienartigen Geometrien behandeln
+def geometries = _.geom.findLines(_source.p.position.first())
+
+// Ziel unterstützt keine MultiLineStrings
+def curves = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// bestimme FormOfWay
+def formOfWay
+def art = _source.p.art.value() as String
+if (art) {
+	switch (art) {
+	case '1106': // Radweg
+	case '1110': // Rad- und Fußweg
+		formOfWay = 'bicycleRoad'
+		break
+	case '1103': // Fußweg
+		formOfWay = 'walkway'
+		break
+	}
+}
+
+// bestimme RoadSurfaceCategory
+def surfaceCategory
+switch (_source.p.befestigung.value()) {
+case '1000': // Befestigt
+	surfaceCategory = 'paved'
+	break
+case '2000': // Unbefestigt
+	surfaceCategory = 'unpaved'
+	break
+}
+
+// Ziel-Objekt für jede Linie erstellen
+int num = 1
+curves.each { curve -&gt;
+	// ID bestimmen
+	def _id = "RoadLink_${sourceId}_${num}"
+
+	// Ziel-Objekt erstellen
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _project.vars.INSPIRE_NAMESPACE )
+			}
+		}
+		centrelineGeometry(curve)
+	}
+	
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk	
+		collect.network &lt;&lt; _id
+		// Sammle ID für FormOfWay
+		if (formOfWay) {
+			collect.formOfWay[formOfWay] &lt;&lt; _id
+		}
+		// Sammle ID für RoadSurfaceCategory
+		if (surfaceCategory) {
+			collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
+		}
+	}
+	
+	num++
+}
+</core:text>
+        </complexParameter>
+        <documentation>Abbildung nach **RoadLink** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
+
+Für jede individuelle Linien-Geometrie wird ein **RoadLink** erstellt.</documentation>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca2c2e18b-a4f7-4f75-8f33-c9f97ac16b08" priority="normal">
         <source>
             <class>
@@ -1750,12 +1823,28 @@ def _id = 'RoadLink_' + _source.p.id.value()
 _target {
 }
 
-// Bestimme FormOfWay
+// bestimme FormOfWay
 // -&gt; aus der Mapping-Tabelle geht kein Wert für Fahrwegachse hervor
 
-// Sammle ID für Netzwerk
+// bestimme RoadSurfaceCategory
+def surfaceCategory
+switch (_source.p.befestigung.value()) {
+case '1000': // Befestigt
+	surfaceCategory = 'paved'
+	break
+case '2000': // Unbefestigt
+	surfaceCategory = 'unpaved'
+	break
+}
+
 withTransformationContext {
-	_.context.collector(it).network &lt;&lt; _id
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk
+	collect.network &lt;&lt; _id
+	// Sammle ID für RoadSurfaceCategory
+	if (surfaceCategory) {
+		collect.surfaceCategory[surfaceCategory]
+	}
 }
 </core:text>
         </complexParameter>
