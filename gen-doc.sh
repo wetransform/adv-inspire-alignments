@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HALE_OPTS="-Duser.country=DE -Duser.language=de"
+export HALE_OPTS="-Duser.country=DE -Duser.language=de"
 
 hale project alignment export-doc
 hale project alignment export-table
