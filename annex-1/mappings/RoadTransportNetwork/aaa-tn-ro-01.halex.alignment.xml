@@ -994,119 +994,6 @@ withTransformationContext {
 
 *Die Bedingung weicht von der Angabe in der vorgegebenen Mapping-Tabelle ab (alle AX_WegPfadSteig), wurde jedoch angepasst an die Vorgaben zu RoadLink, da eine Road aus mindestens einem RoadLink bestehen muss.*</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2827fa08-a3dd-4539-83de-413c6b922f47" priority="normal">
-        <source>
-            <class>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// nur Objekt mit flächenartigen Geometrien behandeln
-def geometries = _.geom.findPolygons(_source.p.position.first())
-
-// Ziel unterstützt keine MultiSurfaces
-def surfaces = _.geom.splitMulti(geometries)
-
-// Builder konfigurieren
-// - Zuweisung der Geometrie auf Ebene von geometry zulassen
-_b.strictValueFlags = false
-
-// Identifier of source object
-def sourceId = _source.p.id.value()
-
-// Ziel-Objekt für jede Fläche erstellen
-int num = 1
-surfaces.each { surface -&gt;
-	// ID bestimmen
-	def _id = "RoadArea_${sourceId}_${num}"
-
-	// Ziel-Objekt erstellen
-	_target {
-		id( _id )
-		inspireId {
-			Identifier {
-				localId( _id )
-				namespace( _project.vars.INSPIRE_NAMESPACE )
-			}
-		}
-		geometry(surface)
-	}
-	
-	// Sammle ID für Netzwerk
-	withTransformationContext {
-		_.context.collector(it).network &lt;&lt; _id
-	}
-
-	num++
-}
-</core:text>
-        </complexParameter>
-        <documentation>Abbildung nach **RoadArea** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
-
-Für jede individuelle Flächen-Geometre wird eine **RoadArea** erstellt.</documentation>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2581bae5-bd09-416c-948e-bcb8b5835ca3" priority="normal">
-        <source>
-            <class>
-                <type name="AX_KlassifizierungNachStrassenrechtType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// nur Objekt mit flächenartigen Geometrien behandeln
-def geometries = _.geom.findPolygons(_source.p.position.first())
-
-// Ziel unterstützt keine MultiSurfaces
-def surfaces = _.geom.splitMulti(geometries)
-
-// Builder konfigurieren
-// - Zuweisung der Geometrie auf Ebene von geometry zulassen
-_b.strictValueFlags = false
-
-// Identifier of source object
-def sourceId = _source.p.id.value()
-
-// Ziel-Objekt für jede Fläche erstellen
-int num = 1
-surfaces.each { surface -&gt;
-	// ID bestimmen
-	def _id = "RoadArea_${sourceId}_${num}"
-
-	// Ziel-Objekt erstellen
-	_target {
-		id( _id )
-		inspireId {
-			Identifier {
-				localId( _id )
-				namespace( _project.vars.INSPIRE_NAMESPACE )
-			}
-		}
-		geometry(surface)
-	}
-	
-	// Sammle ID für Netzwerk
-	withTransformationContext {
-		_.context.collector(it).network &lt;&lt; _id
-	}
-
-	num++
-}
-</core:text>
-        </complexParameter>
-    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C376c9fef-ac45-4e2c-9941-651740ba7400" priority="lowest">
         <target>
             <class>
@@ -1294,33 +1181,6 @@ withTransformationContext {
         </complexParameter>
         <documentation>Abbildung nach **RoadArea** nur `funktion` *Verkehrsbegleitfläche Straße* und *Fußgängerzone*.</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cf0cb60dc-8399-4dd5-a7cc-03bba3ce2990" priority="normal">
-        <source>
-            <class>
-                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">funktion is not null and funktion &lt;&gt; '5260' and funktion &lt;&gt; '9999'</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def _id = 'RoadArea_' + _source.p.id.value()
-
-_target {
-}
-
-// Sammle ID für Netzwerk
-withTransformationContext {
-	_.context.collector(it).network &lt;&lt; _id
-}
-</core:text>
-        </complexParameter>
-    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca20f2d64-1511-4c47-b43c-ea4f8f9cae05" priority="normal">
         <source>
             <class>
@@ -1404,145 +1264,6 @@ withTransformationContext {
         </target>
         <parameter value="{{project:NETWORK_ID}}" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3296f18d-e980-40cf-a9f3-9e5187ecf16a" priority="normal">
-        <source>
-            <class>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// nur Objekt mit linienartigen Geometrien behandeln
-def geometries = _.geom.findLines(_source.p.position.first())
-
-// Ziel unterstützt keine MultiLineStrings
-def curves = _.geom.splitMulti(geometries)
-
-// Builder konfigurieren
-// - Zuweisung der Geometrie auf Ebene von geometry zulassen
-_b.strictValueFlags = false
-
-// Identifier des Quell-Objekts
-def sourceId = _source.p.id.value()
-
-// bestimme FormOfWay
-def formOfWay
-def art = _source.p.art.value() as String
-if (art) {
-	switch (art) {
-	case '1106': // Radweg
-	case '1110': // Rad- und Fußweg
-		formOfWay = 'bicycleRoad'
-		break
-	case '1103': // Fußweg
-		formOfWay = 'walkway'
-		break
-	}
-}
-
-// bestimme RoadSurfaceCategory
-def surfaceCategory
-switch (_source.p.befestigung.value()) {
-case '1000': // Befestigt
-	surfaceCategory = 'paved'
-	break
-case '2000': // Unbefestigt
-	surfaceCategory = 'unpaved'
-	break
-}
-
-// Ziel-Objekt für jede Linie erstellen
-int num = 1
-curves.each { curve -&gt;
-	// ID bestimmen
-	def _id = "RoadLink_${sourceId}_${num}"
-
-	// Ziel-Objekt erstellen
-	_target {
-		id( _id )
-		inspireId {
-			Identifier {
-				localId( _id )
-				namespace( _project.vars.INSPIRE_NAMESPACE )
-			}
-		}
-		centrelineGeometry(curve)
-	}
-	
-	
-	withTransformationContext {
-		def collect = _.context.collector(it)
-		// Sammle ID für Netzwerk	
-		collect.network &lt;&lt; _id
-		// Sammle ID für FormOfWay
-		if (formOfWay) {
-			collect.formOfWay[formOfWay] &lt;&lt; _id
-		}
-		// Sammle ID für RoadSurfaceCategory
-		if (surfaceCategory) {
-			collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
-		}
-	}
-	
-	num++
-}
-</core:text>
-        </complexParameter>
-        <documentation>Abbildung nach **RoadLink** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
-
-Für jede individuelle Linien-Geometrie wird ein **RoadLink** erstellt.</documentation>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca2c2e18b-a4f7-4f75-8f33-c9f97ac16b08" priority="normal">
-        <source>
-            <class>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def _id = 'RoadLink_' + _source.p.id.value() 
-
-_target {
-}
-
-// bestimme FormOfWay
-// -&gt; aus der Mapping-Tabelle geht kein Wert für Fahrwegachse hervor
-
-// bestimme RoadSurfaceCategory
-def surfaceCategory
-switch (_source.p.befestigung.value()) {
-case '1000': // Befestigt
-	surfaceCategory = 'paved'
-	break
-case '2000': // Unbefestigt
-	surfaceCategory = 'unpaved'
-	break
-}
-
-withTransformationContext {
-	def collect = _.context.collector(it)
-	// Sammle ID für Netzwerk
-	collect.network &lt;&lt; _id
-	// Sammle ID für RoadSurfaceCategory
-	if (surfaceCategory) {
-		collect.surfaceCategory[surfaceCategory]
-	}
-}
-</core:text>
-        </complexParameter>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C809327ca-b90f-4c31-8cb4-b9988c5e0aa9" priority="normal">
         <target>
             <property>
@@ -1552,180 +1273,6 @@ withTransformationContext {
             </property>
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/RoadPartValue/pavedSurface" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cc8dfcac2-f330-4946-b4d6-8e1a87136c04" priority="normal">
-        <source name="types">
-            <class>
-                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <source name="types">
-            <class>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <source name="types">
-            <class>
-                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="join">
-            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
-                <class>
-                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <class>
-                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <class>
-                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <jp:condition>
-                    <property>
-                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                    </property>
-                    <property>
-                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                    </property>
-                    <property>
-                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
-                    </property>
-                </jp:condition>
-            </jp:join-parameter>
-        </complexParameter>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// Fahrbahnachsen werden präferiert als RoadLink für
-// Strassen verwendet, alternativ verwende Strassenachsen
-
-
-// Builder konfigurieren
-// - Zuweisung der Geometrie auf Ebene von geometry zulassen
-_b.strictValueFlags = false
-
-// ist die Fahrbahn getrennt?
-def getrennt = _source.p.fahrbahntrennung.value() == '2000'
-
-// bestimme FormOfWay
-def formOfWay
-def widmung = _source.p.widmung.value()
-if (getrennt &amp;&amp; widmung != '1301') {
-	formOfWay = 'dualCarriageway'
-}
-else if (getrennt &amp;&amp; widmung == '1301') {
-	formOfWay = 'motorway'
-}
-else {
-	formOfWay = 'singleCarriageway'
-}
-
-// bestimme RoadSurfaceCategory
-// laut Mapping-Tabelle für alle 'paved'
-def surfaceCategory = 'paved'
-
-// Hilfsfunktion zum Erstellen eines RoadLink aus einer *achse
-def erstelleRoadLink = { achse -&gt;
-	boolean istFahrbahn = achse.definition.name.localPart.startsWith('AX_Fahrbahn')
-
-	def sourceId = achse.p.id.value()
-	def _id = "RoadLink_$sourceId"
-	_target {
-		endLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.beginnt.value() )
-		beginLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.endet.value() )
-		id( _id )
-		centrelineGeometry( _.geom.find(achse.p.position.first()) )
-		inspireId {
-			Identifier {
-				namespace( _project.vars.INSPIRE_NAMESPACE )
-				localId( _id )
-			}
-		}
-		// dokumentiere Quell-Objektart
-		description( 'Erstellt aus ' + achse.definition.name.localPart )
-		
-		// bestimme FormOfWay
-		def formOfWayAchse = formOfWay
-		if (achse.p.funktion.value() == '1808') { // Fußgängerzone
-			formOfWayAchse = 'pedestrianZone'
-		}
-		
-		// bestimme RoadWidth
-		def breite = achse.p.breiteDerFahrbahn.value()
-		def breiteUom = achse.p.breiteDerFahrbahn.uom.value()
-		
-		// bestimme NumberOfLanes
-		def numberOfLanes = achse.p.anzahlDerFahrstreifen.value()
-		// http://inspire.ec.europa.eu/codelist/LinkDirectionValue
-		def direction = istFahrbahn ? 'inDirection' : 'bothDirections'
-		
-		withTransformationContext {
-			def collect = _.context.collector(it)
-			// Sammle ID für Netzwerk	
-			collect.network &lt;&lt; _id
-			// Sammle ID für FormOfWay
-			collect.formOfWay[formOfWayAchse] &lt;&lt; _id
-			// Sammle ID für RoadSurfaceCategory
-			collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
-			// Sammle Informationen für RoadWith
-			if (breite) {
-				collect.roadWidth &lt;&lt; [_id, breite, breiteUom]
-			}
-			// Sammle ID für NumberOfLanes
-			if (numberOfLanes) {
-				collect.numberOfLanes[numberOfLanes][direction] &lt;&lt; _id
-			}
-		}
-	}
-}
-
-// Fahrbahnachsen
-
-boolean hatFahrbahnachse = false
-
-_source.links.AX_Fahrbahnachse.each { achse -&gt;
-	erstelleRoadLink(achse)
-
-	hatFahrbahnachse = true
-}
-
-if (hatFahrbahnachse) {
-	return
-}
-
-// keine Fahrbahnachsen, verwende Strassenachsen
-
-boolean hatStrassenachse = false
-
-_source.links.AX_Strassenachse.each { achse -&gt;
-	erstelleRoadLink(achse)
-
-	hatStrassenachse = true
-}
-
-// keine Fahrbahnachsen oder Strassenachsen -&gt; keine Grundlage für RoadLink
-
-if (!hatStrassenachse) {
-	def strasseId = _source.p.id.value()
-	_log.warn("RoadLink: Strasse $strasseId hat weder Fahrbahnachsen noch Strassenachsen")
-}
-</core:text>
-        </complexParameter>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb01cca94-65d0-482e-8ddc-79381e266aef" priority="normal">
         <target>
@@ -2381,5 +1928,610 @@ withTransformationContext {
             </property>
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue/toilets" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2581bae5-bd09-416c-948e-bcb8b5835ca3" priority="normal">
+        <source>
+            <class>
+                <type name="AX_KlassifizierungNachStrassenrechtType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit flächenartigen Geometrien behandeln
+def geometries = _.geom.findPolygons(_source.p.position.first())
+
+// Ziel unterstützt keine MultiSurfaces
+def surfaces = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// bestimme FunctionalRoadClass
+def functionalClass
+switch (_source.p.artDerFestlegung.value()) {
+case '1110': // Bundesautobahn
+	functionalClass = 'firstClass'
+	break
+case '1120': // Bundesstraße
+	functionalClass = 'secondClass'
+	break
+case '1130': // Landes- oder Staatsstraße
+	functionalClass = 'thirdClass'
+	break
+case '1140': // Kreisstraße
+	functionalClass = 'fourthClass'
+	break
+case '1170': // Gemeindeverbindungsstraße
+	functionalClass = 'fifthClass'
+	break
+case '1150': // Gemeindestraße
+case '1160': // Ortsstraße
+	functionalClass = 'sixthClass'
+	break
+case '1190': // Privatstraße
+	functionalClass = 'ninthClass'
+	break
+}
+
+// Ziel-Objekt für jede Fläche erstellen
+int num = 1
+surfaces.each { surface -&gt;
+	// ID bestimmen
+	def _id = "RoadArea_${sourceId}_${num}"
+
+	// Ziel-Objekt erstellen
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _project.vars.INSPIRE_NAMESPACE )
+			}
+		}
+		geometry(surface)
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk
+		collect.network &lt;&lt; _id
+		// Sammle ID für FunctionalRoadClass
+		if (functionalClass) {
+			collect.functionalClass[functionalClass] &lt;&lt; _id
+		}
+	}
+
+	num++
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cc8dfcac2-f330-4946-b4d6-8e1a87136c04" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Fahrbahnachsen werden präferiert als RoadLink für
+// Strassen verwendet, alternativ verwende Strassenachsen
+
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// ist die Fahrbahn getrennt?
+def getrennt = _source.p.fahrbahntrennung.value() == '2000'
+
+// bestimme FormOfWay
+def formOfWay
+def widmung = _source.p.widmung.value()
+if (getrennt &amp;&amp; widmung != '1301') {
+	formOfWay = 'dualCarriageway'
+}
+else if (getrennt &amp;&amp; widmung == '1301') {
+	formOfWay = 'motorway'
+}
+else {
+	formOfWay = 'singleCarriageway'
+}
+
+// bestimme RoadSurfaceCategory
+// laut Mapping-Tabelle für alle 'paved'
+def surfaceCategory = 'paved'
+
+// bestimme FunctionalRoadClass
+def functionalClass
+switch (_source.p.widmung.value()) {
+case '1301': // Bundesautobahn
+	functionalClass = 'firstClass'
+	break
+case '1303': // Bundesstraße
+	functionalClass = 'secondClass'
+	break
+case '1305': // Landesstraße, Staatsstraße
+	functionalClass = 'thirdClass'
+	break
+case '1306': // Kreisstraße
+	functionalClass = 'fourthClass'
+	break
+case '1307': // Gemeindestraße
+	functionalClass = 'sixthClass'
+	break
+}
+if (_source.p.internationaleBedeutung.value() == '2001') {
+	// internationaleBedeutung "überstimmt" Widmung
+	functionalClass = 'mainRoad'
+}
+
+// Hilfsfunktion zum Erstellen eines RoadLink aus einer *achse
+def erstelleRoadLink = { achse -&gt;
+	boolean istFahrbahn = achse.definition.name.localPart.startsWith('AX_Fahrbahn')
+
+	def sourceId = achse.p.id.value()
+	def _id = "RoadLink_$sourceId"
+	_target {
+		endLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.beginnt.value() )
+		beginLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.endet.value() )
+		id( _id )
+		centrelineGeometry( _.geom.find(achse.p.position.first()) )
+		inspireId {
+			Identifier {
+				namespace( _project.vars.INSPIRE_NAMESPACE )
+				localId( _id )
+			}
+		}
+		// dokumentiere Quell-Objektart
+		description( 'Erstellt aus ' + achse.definition.name.localPart )
+		
+		// bestimme FormOfWay
+		def formOfWayAchse = formOfWay
+		if (achse.p.funktion.value() == '1808') { // Fußgängerzone
+			formOfWayAchse = 'pedestrianZone'
+		}
+		
+		// bestimme RoadWidth
+		def breite = achse.p.breiteDerFahrbahn.value()
+		def breiteUom = achse.p.breiteDerFahrbahn.uom.value()
+		
+		// bestimme NumberOfLanes
+		def numberOfLanes = achse.p.anzahlDerFahrstreifen.value()
+		// http://inspire.ec.europa.eu/codelist/LinkDirectionValue
+		def direction = istFahrbahn ? 'inDirection' : 'bothDirections'
+		
+		withTransformationContext {
+			def collect = _.context.collector(it)
+			// Sammle ID für Netzwerk	
+			collect.network &lt;&lt; _id
+			// Sammle ID für FormOfWay
+			collect.formOfWay[formOfWayAchse] &lt;&lt; _id
+			// Sammle ID für RoadSurfaceCategory
+			collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
+			// Sammle Informationen für RoadWith
+			if (breite) {
+				collect.roadWidth &lt;&lt; [_id, breite, breiteUom]
+			}
+			// Sammle ID für NumberOfLanes
+			if (numberOfLanes) {
+				collect.numberOfLanes[numberOfLanes][direction] &lt;&lt; _id
+			}
+			// Sammle ID für FunctionalRoadClass
+			if (functionalClass) {
+				collect.functionalClass[functionalClass] &lt;&lt; _id
+			}
+		}
+	}
+}
+
+// Fahrbahnachsen
+
+boolean hatFahrbahnachse = false
+
+_source.links.AX_Fahrbahnachse.each { achse -&gt;
+	erstelleRoadLink(achse)
+
+	hatFahrbahnachse = true
+}
+
+if (hatFahrbahnachse) {
+	return
+}
+
+// keine Fahrbahnachsen, verwende Strassenachsen
+
+boolean hatStrassenachse = false
+
+_source.links.AX_Strassenachse.each { achse -&gt;
+	erstelleRoadLink(achse)
+
+	hatStrassenachse = true
+}
+
+// keine Fahrbahnachsen oder Strassenachsen -&gt; keine Grundlage für RoadLink
+
+if (!hatStrassenachse) {
+	def strasseId = _source.p.id.value()
+	_log.warn("RoadLink: Strasse $strasseId hat weder Fahrbahnachsen noch Strassenachsen")
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C76d28e9a-d217-4c2e-9b95-1597e9fe07de" priority="low">
+        <target>
+            <class>
+                <type name="FunctionalRoadClassType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein FunctionalRoadClass-Objekt für jeden vorkommenden Wert
+collect.functionalClass.consume { key, values -&gt;
+	def _id = 'FunctionalRoadClass_' + key
+	
+	_target {
+		functionalClass( key )
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _project.vars.INSPIRE_NAMESPACE )
+				localId( _id )
+			}
+		}
+		
+		// Referenz zu gesammelten RoadLinks/RoadAreas mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca2c2e18b-a4f7-4f75-8f33-c9f97ac16b08" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def _id = 'RoadLink_' + _source.p.id.value() 
+
+_target {
+}
+
+// bestimme FormOfWay
+// -&gt; aus der Mapping-Tabelle geht kein Wert für Fahrwegachse hervor
+
+// bestimme RoadSurfaceCategory
+def surfaceCategory
+switch (_source.p.befestigung.value()) {
+case '1000': // Befestigt
+	surfaceCategory = 'paved'
+	break
+case '2000': // Unbefestigt
+	surfaceCategory = 'unpaved'
+	break
+}
+
+// bestimme FunctionalRoadClass
+def functionalClass
+switch (_source.p.funktion.value()) {
+case '5211': // Hauptwirtschaftsweg
+	functionalClass = 'seventhClass'
+	break
+case '5212': // Wirtschaftsweg
+	functionalClass = 'eighthClass'
+	break
+}
+
+withTransformationContext {
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk
+	collect.network &lt;&lt; _id
+	// Sammle ID für RoadSurfaceCategory
+	if (surfaceCategory) {
+		collect.surfaceCategory[surfaceCategory]
+	}
+	// Sammle ID für FunctionalRoadClass
+	if (functionalClass) {
+		collect.functionalClass[functionalClass] &lt;&lt; _id
+	}
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cf0cb60dc-8399-4dd5-a7cc-03bba3ce2990" priority="normal">
+        <source>
+            <class>
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">funktion is not null and funktion &lt;&gt; '5260' and funktion &lt;&gt; '9999'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def _id = 'RoadArea_' + _source.p.id.value()
+
+_target {
+}
+
+// bestimme FunctionalRoadClass
+def functionalClass
+switch (_source.p.funktion.value()) {
+case '5210': // Fahrweg
+case '5212': // Wirtschaftsweg
+	functionalClass = 'eighthClass'
+	break
+case '5211': // Hauptwirtschaftsweg
+	functionalClass = 'seventhClass'
+	break
+case '5220': // Fußweg
+case '5240': // Radweg
+case '5250': // Rad- und Fußweg
+	functionalClass = 'ninthClass'
+	break
+}
+
+withTransformationContext {
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk
+	collect.network &lt;&lt; _id
+	// Sammle ID für FunctionalRoadClass
+	if (functionalClass) {
+		collect.functionalClass[functionalClass] &lt;&lt; _id
+	}
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3296f18d-e980-40cf-a9f3-9e5187ecf16a" priority="normal">
+        <source>
+            <class>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit linienartigen Geometrien behandeln
+def geometries = _.geom.findLines(_source.p.position.first())
+
+// Ziel unterstützt keine MultiLineStrings
+def curves = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// bestimme FormOfWay
+def formOfWay
+def art = _source.p.art.value() as String
+switch (art) {
+case '1106': // Radweg
+case '1110': // Rad- und Fußweg
+	formOfWay = 'bicycleRoad'
+	break
+case '1103': // Fußweg
+	formOfWay = 'walkway'
+	break
+}
+
+// bestimme RoadSurfaceCategory
+def surfaceCategory
+switch (_source.p.befestigung.value()) {
+case '1000': // Befestigt
+	surfaceCategory = 'paved'
+	break
+case '2000': // Unbefestigt
+	surfaceCategory = 'unpaved'
+	break
+}
+
+// bestimme FunctionalRoadClass
+def functionalClass = 'ninthClass'
+
+// Ziel-Objekt für jede Linie erstellen
+int num = 1
+curves.each { curve -&gt;
+	// ID bestimmen
+	def _id = "RoadLink_${sourceId}_${num}"
+
+	// Ziel-Objekt erstellen
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _project.vars.INSPIRE_NAMESPACE )
+			}
+		}
+		centrelineGeometry(curve)
+	}
+	
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk	
+		collect.network &lt;&lt; _id
+		// Sammle ID für FormOfWay
+		if (formOfWay) {
+			collect.formOfWay[formOfWay] &lt;&lt; _id
+		}
+		// Sammle ID für RoadSurfaceCategory
+		if (surfaceCategory) {
+			collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
+		}
+		// Sammle ID für FunctionalRoadClass
+		if (functionalClass) {
+			collect.functionalClass[functionalClass] &lt;&lt; _id
+		}
+	}
+	
+	num++
+}
+</core:text>
+        </complexParameter>
+        <documentation>Abbildung nach **RoadLink** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
+
+Für jede individuelle Linien-Geometrie wird ein **RoadLink** erstellt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2827fa08-a3dd-4539-83de-413c6b922f47" priority="normal">
+        <source>
+            <class>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit flächenartigen Geometrien behandeln
+def geometries = _.geom.findPolygons(_source.p.position.first())
+
+// Ziel unterstützt keine MultiSurfaces
+def surfaces = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// bestimme FunctionalRoadClass
+def functionalClass = 'ninthClass'
+
+// Ziel-Objekt für jede Fläche erstellen
+int num = 1
+surfaces.each { surface -&gt;
+	// ID bestimmen
+	def _id = "RoadArea_${sourceId}_${num}"
+
+	// Ziel-Objekt erstellen
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _project.vars.INSPIRE_NAMESPACE )
+			}
+		}
+		geometry(surface)
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk
+		collect.network &lt;&lt; _id
+		// Sammle ID für FunctionalRoadClass
+		if (functionalClass) {
+			collect.functionalClass[functionalClass] &lt;&lt; _id
+		}
+	}
+
+	num++
+}
+</core:text>
+        </complexParameter>
+        <documentation>Abbildung nach **RoadArea** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
+
+Für jede individuelle Flächen-Geometre wird eine **RoadArea** erstellt.</documentation>
     </cell>
 </alignment>
