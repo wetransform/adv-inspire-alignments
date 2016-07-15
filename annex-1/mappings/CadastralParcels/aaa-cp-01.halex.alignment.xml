@@ -59,22 +59,6 @@
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ceb874d7d-ec44-43ba-ba26-2004b0a8c78e" priority="normal">
-        <source>
-            <property>
-                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="amtlicheFlaeche" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="areaValue" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="structuralRename"/>
-        <parameter value="true" name="ignoreNamespaces"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C744bc64e-0688-4be1-9ea2-a80e5082537b" priority="normal">
         <source>
             <property>
@@ -953,5 +937,37 @@ else {
             </property>
         </target>
         <parameter value="DLKM" name="source"/>
+    </cell>
+    <cell relation="custom:alignment:adv.uom.toucum" id="C033c7108-6b60-4abd-92a4-4cf19ee508a0" priority="normal">
+        <source name="uom">
+            <property>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="amtlicheFlaeche" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="uom"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="areaValue" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="uom"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ceb874d7d-ec44-43ba-ba26-2004b0a8c78e" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="amtlicheFlaeche" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="areaValue" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
 </alignment>
