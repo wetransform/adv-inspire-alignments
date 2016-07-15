@@ -85,6 +85,7 @@ out &lt;&lt; 'Außerdem wird der Name des Feature-Typs des Ziel-Modells als Prä
             </cf:input>
             <cf:input eager="true" maxOccurs="1" minOccurs="0" name="source">
                 <cf:binding>java.lang.String</cf:binding>
+                <cf:type name="AA_ModellartPropertyType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </cf:input>
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
                 <cf:type name="GeographicalNameType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
@@ -98,10 +99,24 @@ out &lt;&lt; 'Außerdem wird der Name des Feature-Typs des Ziel-Modells als Prä
             </cf:param>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def sourceNameFromModellart() {
+	if (source) {
+		def modelle = source.p.AA_Modellart.advStandardModell.values()
+		if (modelle) {
+			//TODO Logik um korrektes anzugebendes Modell zu bestimmen?
+			//XXX Vorerst wird erstes Modell zurückgegeben
+			return modelle[0]
+		}
+	}
+	
+	null
+}
+
 if (spelling) {
 	_target {
-		if (source) {
-			sourceOfName( source )
+		def sourceName = sourceNameFromModellart()
+		if (sourceName) {
+			sourceOfName( sourceName )
 		}
 		else if (_params.source) {
 			sourceOfName( _params.source )
