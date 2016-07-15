@@ -4,13 +4,23 @@
     <author>wetransform GmbH</author>
     <description>Gemeinsame Funktionsdefinitionen für AdV INSPIRE Mappings.</description>
     <created>2016-06-09T16:44:21.068+02:00</created>
-    <modified>2016-06-29T15:28:53.353+02:00</modified>
+    <modified>2016-07-15T09:59:16.551+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
         <setting name="target">file:/home/simon/repos/inspire-alignements/annex-1/mappings/base-functions.halex</setting>
     </save-config>
+    <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="onlyElementsMappable">true</setting>
+        <setting name="resourceId">11b919d6-3431-4631-99e8-8d46a96253bc</setting>
+        <setting name="source">http://inspire.ec.europa.eu/schemas/gn/4.0/GeographicalNames.xsd</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
+    </resource>
     <file name="alignment.xml" location="base-functions.halex.alignment.xml"/>
     <file name="styles.sld" location="base-functions.halex.styles.sld"/>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/1">{http://inspire.ec.europa.eu/schemas/gn/4.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/count">2</property>
 </hale-project>
