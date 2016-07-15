@@ -1193,97 +1193,6 @@
         </target>
         <parameter value="{{project:INSPIRE_NAMESPACE}}/PostalDescriptor_{postleitzahl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cd5bb8841-8c5f-4712-bd15-03c3cf5d80ca" priority="normal">
-        <source name="types">
-            <class>
-                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">signaturnummer like '%4070' and art='HNR'</condition>
-                </type>
-            </class>
-        </source>
-        <source name="types">
-            <class>
-                <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <source name="types">
-            <class>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="join">
-            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
-                <class>
-                    <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <class>
-                    <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <class>
-                    <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                        <condition lang="CQL">signaturnummer like '%4070' and art='HNR'</condition>
-                    </type>
-                </class>
-                <jp:condition>
-                    <property>
-                        <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                    </property>
-                    <property>
-                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                    </property>
-                    <property>
-                        <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                            <condition lang="CQL">signaturnummer like '%4070' and art='HNR'</condition>
-                        </type>
-                        <child name="dientZurDarstellungVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
-                    </property>
-                </jp:condition>
-            </jp:join-parameter>
-        </complexParameter>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def positionAdresse = _source.links.AX_GeoreferenzierteGebaeudeadresse.p.position.first()&#xD;
-if (!positionAdresse) {&#xD;
-	positionAdresse = _source.links.AP_PTO.p.position.first()&#xD;
-}&#xD;
-if (positionAdresse) {&#xD;
-	_target {&#xD;
-		position {&#xD;
-			GeographicPosition {&#xD;
-				specification {&#xD;
-					href( 'http://inspire.ec.europa.eu/codelist/GeometrySpecificationValue/building' )&#xD;
-					title( 'building' )&#xD;
-				}&#xD;
-				geometry {&#xD;
-					Point(_.geom.find(positionAdresse))&#xD;
-				}&#xD;
-				method {&#xD;
-					href( 'http://inspire.ec.europa.eu/codelist/GeometryMethodValue/byAdministrator' )&#xD;
-					title( 'by administrator' )&#xD;
-				}&#xD;
-				'default'( 'true' )&#xD;
-			}&#xD;
-		}&#xD;
-	}&#xD;
-}
-</core:text>
-        </complexParameter>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C8e6bb82f-57b1-41b9-b075-5e329556c20a" priority="normal">
         <source name="var">
             <property>
@@ -1538,5 +1447,121 @@ if (positionAdresse) {&#xD;
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cd5bb8841-8c5f-4712-bd15-03c3cf5d80ca" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">signaturnummer like '%4070' and art='HNR'</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">signaturnummer like '%4070' and art='HNR'</condition>
+                    </type>
+                </class>
+                <class>
+                    <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="zeigtAuf" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">signaturnummer like '%4070' and art='HNR'</condition>
+                        </type>
+                        <child name="dientZurDarstellungVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def positionAdresse = _source.links.AX_GeoreferenzierteGebaeudeadresse.p.position.first()&#xD;
+if (!positionAdresse) {&#xD;
+	positionAdresse = _source.links.AP_PTO.p.position.first()&#xD;
+}&#xD;
+if (!positionAdresse) {&#xD;
+	positionAdresse = _source.links.AX_Gebaeude.p.position.first()&#xD;
+	if (positionAdresse) {&#xD;
+		positionAdresse = _.geom.centroid(_.geom.find(positionAdresse))&#xD;
+	}&#xD;
+}&#xD;
+if (positionAdresse) {&#xD;
+	_target {&#xD;
+		position {&#xD;
+			GeographicPosition {&#xD;
+				specification {&#xD;
+					href( 'http://inspire.ec.europa.eu/codelist/GeometrySpecificationValue/building' )&#xD;
+					title( 'building' )&#xD;
+				}&#xD;
+				geometry {&#xD;
+					Point(_.geom.find(positionAdresse))&#xD;
+				}&#xD;
+				method {&#xD;
+					href( 'http://inspire.ec.europa.eu/codelist/GeometryMethodValue/byAdministrator' )&#xD;
+					title( 'by administrator' )&#xD;
+				}&#xD;
+				'default'( 'true' )&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
     </cell>
 </alignment>
