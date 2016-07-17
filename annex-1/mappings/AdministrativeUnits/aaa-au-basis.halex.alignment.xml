@@ -674,4 +674,366 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
         <parameter value="unpopulated" name="value"/>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C4b96b3d9-a53b-4cec-9679-dd90a9934271" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GebietsgrenzeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce5d081fc-d59e-4e22-b31e-95b5818a8f58" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GebietsgrenzeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="false" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C6092e734-d37b-4a6b-964f-0b6762218a8d" priority="normal">
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C02268aec-c06b-46fc-8f61-af6d5cd6dfa0" priority="normal">
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="versionId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C9d5c3ef4-5dbe-4599-ab63-bfb08bc1683e" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GebietsgrenzeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cba0fc743-8465-4b65-912a-f82a1f90d345" priority="normal">
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="country" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Country" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="DE" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5396ee5e-a30b-42a6-a82c-8b2664cee998" priority="normal">
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="country" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Country" ns="http://www.isotc211.org/2005/gmd"/>
+                <child name="codeListValue"/>
+            </property>
+        </target>
+        <parameter value="DE" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb8c4b6f3-d73d-468c-bb0b-9c60143f2dba" priority="normal">
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="country" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Country" ns="http://www.isotc211.org/2005/gmd"/>
+                <child name="codeList"/>
+            </property>
+        </target>
+        <parameter value="http://publications.europa.eu/mdr/authority/country" name="value"/>
+        <documentation>Externer Referenzlink wie in der INSPIRE Registry angegeben.
+
+Siehe http://inspire.ec.europa.eu/document/CountryCode
+und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C7dcc71d4-57ff-4159-a663-0ebac792ba30" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GebietsgrenzeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="artDerGebietsgrenze" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="nationalLevel" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="null" name="notClassifiedAction"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="7101"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/1stOrder"/>
+                </entry>
+                <entry>
+                    <key value="7102"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/2ndOrder"/>
+                </entry>
+                <entry>
+                    <key value="7103"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/3rdOrder"/>
+                </entry>
+                <entry>
+                    <key value="7104"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/4thOrder"/>
+                </entry>
+                <entry>
+                    <key value="7105"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/5thOrder"/>
+                </entry>
+                <entry>
+                    <key value="7106"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/6thOrder"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C0763cc94-6454-472a-aaab-966e2c0e3644" priority="normal">
+        <source>
+            <class>
+                <type name="AX_GebietsgrenzeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">artDerGebietsgrenze &lt;&gt; '7107'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <documentation>Grenze des Gemeindeteils kann nicht berücksichtigt werden.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd23dd992-dc83-4e30-a67d-a4dcc56476ff" priority="normal">
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="legalStatus" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C6ac9d6bf-2106-45c7-8ead-4e38d2374ed5" priority="normal">
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="technicalStatus" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce026bc0c-3397-451f-a82d-b9f0d17f2f58" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GebietsgrenzeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd61ba716-99db-4b9a-b02e-3bc27465763f" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GebietsgrenzeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cda73bba5-8df9-4012-bf50-946a7d3c3ea7" priority="normal">
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="admUnit" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cdabe0bba-a9db-4e34-97ed-b725e1535db1" priority="normal">
+        <source>
+            <class>
+                <type name="AX_KondominiumType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C635bad95-0f4b-4482-86c1-dec0a31966a8" priority="normal">
+        <target>
+            <property>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="admUnit" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cfcf2b22b-a464-4d0f-acc9-dac64a2e6ea7" priority="normal">
+        <source>
+            <property>
+                <type name="AX_KondominiumType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd7362da3-c2c8-4fa2-9157-62602a0da9d5" priority="normal">
+        <source>
+            <property>
+                <type name="AX_KondominiumType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.geometric.aggregate" id="Ce9f48fe2-0f92-41b8-87ae-3a68142b1d25" priority="normal">
+        <source>
+            <property>
+                <type name="AX_KondominiumType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </property>
+        </target>
+        <documentation>Die Aggregate-Funktion führt hier keine Aggregation von Geometrien durch, sie wird hier nur verwendet um die Geometrie auf einfache Weise zu übertragen, unabhängig von der genauen Repräsentation.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C4947ef7f-dde0-44e0-8d5c-2bb712379150" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_KondominiumType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C643af614-e259-4787-a54c-8fbd02dcb52b" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_KondominiumType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="false" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C48c6b769-4bfd-4fbb-bed8-15e3e29aefbf" priority="normal">
+        <target>
+            <property>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C1eb167a3-9e4f-401a-b4ee-6de3ea09adbf" priority="normal">
+        <target>
+            <property>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="versionId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
 </alignment>
