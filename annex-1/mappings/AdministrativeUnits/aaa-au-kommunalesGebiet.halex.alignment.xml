@@ -118,100 +118,6 @@ _target{
 </core:text>
         </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C8302e3ba-8d48-49f2-8679-c6d44a344207" priority="normal">
-        <source name="types">
-            <class>
-                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <source name="types">
-            <class>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="join">
-            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
-                <class>
-                    <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <class>
-                    <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <jp:condition>
-                    <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Regierungsbezirk_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Regierungsbezirk_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-            </jp:join-parameter>
-        </complexParameter>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// alle Eigenschaften mit Geometrien aus Kommunalen Gebieten
-def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())
-
-// führe den Join nicht aus wenn keine assoziierten Kommunalen
-// Gebiete mit entsprechender Geometrie vorhanden sind
-if (!geoms) {
-	throw new NoResultException()
-}
-
-_target{
-	geometry {
-		MultiSurface( _.geom.union(geoms) )
-	}
-}
-</core:text>
-        </complexParameter>
-    </cell>
-    <modifier cell="ba1:Ccef5cb84-463f-48e8-82cb-646e5f1d8032">
-        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
-    </modifier>
-    <modifier cell="ba1:Cbd879726-8cea-4184-9cf3-74593fce4479">
-        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
-    </modifier>
-    <modifier cell="ba1:C1a9e49d5-897e-474b-a92e-0db044f7f60e">
-        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
-    </modifier>
-    <modifier cell="ba1:Caa605b44-05cd-4a95-8df1-68e6f85eecf8">
-        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
-    </modifier>
-    <modifier cell="ba1:C82252143-7abc-4d35-bd5f-7c91b9acd599">
-        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
-    </modifier>
-    <modifier cell="ba1:Cd866ada4-43ad-47dd-963d-a2d48a11c40c">
-        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
-    </modifier>
-    <modifier cell="ba1:Cb517321b-4e19-4fdd-bb36-41584acd28c3">
-        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
-    </modifier>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C38d860fa-6c4e-484a-b653-07c62b8f1388" priority="normal">
         <source name="types">
             <class>
@@ -404,6 +310,100 @@ _target{
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 // alle Eigenschaften mit Geometrien aus Kommunalen Gebieten
 def geoms = _.geom.findPolygons(_source.links.AX_Gemeinde.AX_KommunalesGebiet.p.position.list())
+
+// führe den Join nicht aus wenn keine assoziierten Kommunalen
+// Gebiete mit entsprechender Geometrie vorhanden sind
+if (!geoms) {
+	throw new NoResultException()
+}
+
+_target{
+	geometry {
+		MultiSurface( _.geom.union(geoms) )
+	}
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <modifier cell="ba1:Ccef5cb84-463f-48e8-82cb-646e5f1d8032">
+        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
+    </modifier>
+    <modifier cell="ba1:Cbd879726-8cea-4184-9cf3-74593fce4479">
+        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
+    </modifier>
+    <modifier cell="ba1:C1a9e49d5-897e-474b-a92e-0db044f7f60e">
+        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
+    </modifier>
+    <modifier cell="ba1:Caa605b44-05cd-4a95-8df1-68e6f85eecf8">
+        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
+    </modifier>
+    <modifier cell="ba1:C82252143-7abc-4d35-bd5f-7c91b9acd599">
+        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
+    </modifier>
+    <modifier cell="ba1:Cd866ada4-43ad-47dd-963d-a2d48a11c40c">
+        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
+    </modifier>
+    <modifier cell="ba1:Cb517321b-4e19-4fdd-bb36-41584acd28c3">
+        <disable-for parent="C38c7c833-c314-4e4a-8d7f-d166e120e878"/>
+    </modifier>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C8302e3ba-8d48-49f2-8679-c6d44a344207" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Regierungsbezirk_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Regierungsbezirk_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// alle Eigenschaften mit Geometrien aus Kommunalen Gebieten
+def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())
 
 // führe den Join nicht aus wenn keine assoziierten Kommunalen
 // Gebiete mit entsprechender Geometrie vorhanden sind
