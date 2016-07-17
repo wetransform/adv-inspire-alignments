@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+    <base prefix="ba1" location="../base-functions.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cc5299d9b-41ca-42cd-8fcd-1716000bd099" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// alle Eigenschaften mit Geometrien aus Flurstücken
+def geoms = _source.links.AX_Flurstueck.p.position.list()
+
+// führe den Join nicht aus wenn keine assoziierten Flurstücke
+// vorhanden sind
+if (!geoms) {
+	throw new NoResultException()
+}
+
+// bilde Union
+def union = _.geom.union(geoms)
+
+// konfiguriere Builder - erlaube Geometrie auf Ebene von Position
+_b.strictValueFlags = false
+
+_target {
+	position( union )
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf4463776-ab5b-4e02-9bc0-51318a1290c6" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="anlass" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="anlass" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C76b46e93-f1dd-4060-a127-ddbc4733cde9" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C35d268ad-92da-48eb-9da0-2b9d1d8af51f" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{id}_Gebiet" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C3e305a4b-1dc7-40ad-913a-077633e09eb0" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca27559f4-d94a-41db-b223-30cd62d8f3f7" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C3fd50359-09a4-46f6-aed6-e1a2551b8a4e" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+</alignment>
