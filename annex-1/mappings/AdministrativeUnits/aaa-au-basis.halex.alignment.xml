@@ -1036,4 +1036,19 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
         <parameter value="unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C8ecf1bde-6b94-49c8-82e5-1401c38b1b35" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="_{schluesselGesamt}" name="pattern"/>
+    </cell>
 </alignment>
