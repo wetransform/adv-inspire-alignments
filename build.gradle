@@ -1,8 +1,189 @@
 
+task cp(type: Transform) {
+  projectFile = file('annex-1/mappings/CadastralParcels/aaa-cp-01.halex')
+}
+
+task 'tn-ro'(type: Transform) {
+  projectFile = file('annex-1/mappings/RoadTransportNetwork/aaa-tn-ro-01.halex')
+}
+
+
+/*
+ * Internals
+ */ 
+
+/**
+ * Transformation task.
+ */
+class Transform extends AbstractExecTask {
+  Transform() {
+    super(Transform.class)
+  }
+
+  /**
+   * Path to the project file to use for transformation
+   */
+  File projectFile
+
+  /**
+   * Folder with source files.
+   */
+  File sourceFolder = project.file('quelldaten')
+
+  /**
+   * Any additional arguments.
+   */
+  List<String> additionalArgs = []
+
+  protected void exec() {
+    // build command line
+    def cmd
+
+    // executable
+    if (project.hasProperty('haleCliExecutable')) {
+      cmd = [project.getProperty('haleCliExecutable'), 'transform']
+    }
+    else if (project.hasProperty('haleExecutable')) {
+      cmd = [project.getProperty('haleExecutable'), '-nosplash', '-application', 'hale.transform']
+    }
+    else {
+      // assuming hale-cli on path
+      cmd = ['hale', 'transform']
+    }
+
+    // project
+    assert projectFile != null
+    cmd << '-project'
+    cmd << projectFile as String
+
+    // source
+    cmd << '-source'
+    cmd << sourceFolder as String
+    cmd << '-providerId'
+    cmd << 'eu.esdihumboldt.hale.io.gml.reader'
+    cmd << '-include'
+    cmd << '*.gz'
+    cmd << '-ScontentType'
+    cmd << 'eu.esdihumboldt.hale.io.xml.gzip'
+
+    cmd << '-source'
+    cmd << sourceFolder as String
+    cmd << '-providerId'
+    cmd << 'eu.esdihumboldt.hale.io.gml.reader'
+    cmd << '-include'
+    cmd << '*.xml'
+    cmd << '-include'
+    cmd << '*.gml'
+    cmd << '-ScontentType'
+    cmd << 'org.eclipse.core.runtime.xml'
+
+    // cmd << 'eu.esdihumboldt.hale.io.xml.reader'
+
+    // target
+    String targetName = name
+    File targetFolder = new File(project.file('transformiert'), targetName)
+    targetFolder.mkdirs()
+
+    cmd << '-target'
+    cmd << new File(targetFolder, 'result.gml')
+    cmd << '-providerId'
+    cmd << 'eu.esdihumboldt.hale.io.wfs.fc.write-2.0' // WFS 2 FC
+    // cmd << 'eu.esdihumboldt.hale.io.gml.writer' // faster
+    
+    cmd << '-Sxml.pretty'
+    cmd << 'true'
+
+    cmd << '-Scrs.epsg.prefix'
+    cmd << 'http://www.opengis.net/def/crs/EPSG/0/'
+
+    // validate
+    // XML schema
+    cmd << '-validate'
+    cmd << 'eu.esdihumboldt.hale.io.xml.validator'
+
+    // additional arguments
+    if (additionalArgs) {
+      cmd.addAll(additionalArgs)
+    }
+
+    // report file
+    cmd << '-reportsOut'
+    cmd << new File(targetFolder, 'reports.log')
+
+    cmd << '-stacktrace'
+    cmd << '-trustGroovy'
+
+    commandLine = cmd
+
+    // environment
+    // add HALE_OPTS if present as Gradle property
+    if (project.hasProperty('HALE_OPTS')) {
+      String haleOpts = project.getProperty('HALE_OPTS')
+      if (haleOpts) {
+        environment('HALE_OPTS', haleOpts)
+      }
+    }
+
+    // output and error streams
+    File outFile = new File(targetFolder, 'out.log')
+    standardOutput = new TeeOutputStream(outFile.newOutputStream(), standardOutput)
+    File errFile = new File(targetFolder, 'err.log')
+    errorOutput = new TeeOutputStream(errFile.newOutputStream(), errorOutput)
+
+    // execute
+    super.exec()
+  }
+}
+
+class TeeOutputStream extends OutputStream {
+
+  private final OutputStream out
+  private final OutputStream tee
+
+  TeeOutputStream(OutputStream out, OutputStream tee) {
+    if (out == null)
+      throw new NullPointerException()
+    else if (tee == null)
+      throw new NullPointerException()
+
+    this.out = out
+    this.tee = tee
+  }
+
+  @Override
+  void write(int b) throws IOException {
+    out.write(b);
+    tee.write(b);
+  }
+
+  @Override
+  void write(byte[] b) throws IOException {
+    out.write(b);
+    tee.write(b);
+  }
+
+  @Override
+  void write(byte[] b, int off, int len) throws IOException {
+    out.write(b, off, len);
+    tee.write(b, off, len);
+  }
+
+  @Override
+  void flush() throws IOException {
+    out.flush();
+    tee.flush();
+  }
+
+  @Override
+  void close() throws IOException {
+    out.close();
+    tee.close();
+  }
+}
+
 /*
  * Gradle wrapper
  */
 task wrapper(type: Wrapper) {
   gradleVersion = '2.14'
 }
-
