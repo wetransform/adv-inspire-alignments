@@ -1,16 +1,24 @@
 
-task cp(type: Transform) {
-  projectFile = file('annex-1/mappings/CadastralParcels/aaa-cp-01.halex')
+def json = new groovy.json.JsonSlurper()
+def transformations = json.parse(file('transformations.json'))
+
+task('transform-all') {
+  description "Runs all transformation tasks."
+  group 'Transformation'
 }
 
-task 'tn-ro'(type: Transform) {
-  projectFile = file('annex-1/mappings/RoadTransportNetwork/aaa-tn-ro-01.halex')
+transformations.each { name, config ->
+  // add transformation task for each key
+  task("transform-$name", type: Transform) {
+    alias = name
+    projectFile = file(config.project)
+
+    description "Runs a transformation based on the project ${projectFile.name}."
+    group 'Transformation'
+  }
+
+  tasks['transform-all'].dependsOn("transform-$name")
 }
-
-
-/*
- * Internals
- */ 
 
 /**
  * Transformation task.
@@ -21,7 +29,12 @@ class Transform extends AbstractExecTask {
   }
 
   /**
-   * Path to the project file to use for transformation
+   * Transformation alias.
+   */
+  String alias
+
+  /**
+   * Path to the project file to use for transformation.
    */
   File projectFile
 
@@ -80,7 +93,7 @@ class Transform extends AbstractExecTask {
     // cmd << 'eu.esdihumboldt.hale.io.xml.reader'
 
     // target
-    String targetName = name
+    String targetName = alias ?: name
     File targetFolder = new File(project.file('transformiert'), targetName)
     targetFolder.mkdirs()
 
