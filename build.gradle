@@ -54,13 +54,16 @@ class Transform extends AbstractExecTask {
 
     // executable
     if (project.hasProperty('haleCliExecutable')) {
+      println 'Using hale CLI executable at ' + project.getProperty('haleCliExecutable')
       cmd = [project.getProperty('haleCliExecutable'), 'transform']
     }
     else if (project.hasProperty('haleExecutable')) {
+      println 'Using halestudio executable at ' + project.getProperty('haleExecutable')
       cmd = [project.getProperty('haleExecutable'), '-nosplash', '-application', 'hale.transform']
     }
     else {
       // assuming hale-cli on path
+      println 'Assuming hale CLI executable on path'
       cmd = ['hale', 'transform']
     }
 
