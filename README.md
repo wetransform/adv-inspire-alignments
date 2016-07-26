@@ -85,6 +85,20 @@ Dazu einfach in der **Report List**-Ansicht per Rechtsklick das Kontext-Menü ö
 
 **Tip:** Falls schon andere Reports angezeigt werden, ist es einfacher die Reports der Transformation zu identifizieren, wenn man vor dem Import die Option **Clear Report List** oder **Delete Log** wählt.
 
+### Definition von Transformationen
+
+Die Transformationen die über Gradle als *Tasks* verfügbar sind werden über die Datei `transformations.json` definiert.
+Diese Datei gilt als Referenz und Muster für die Transformations-Definitionen der hier verwalteten Projekte.
+Deshalb sollten Anpassungen, die spezifisch für einen Datensatz sind oder einen Datenanbieter sind (z.B. Anpassung der INSPIRE Namespace Variablen) in einer separaten Datei erfolgen.
+
+Zu diesem Zweck ist es möglich, Gradle zu konfigurieren eine andere Datei zum Lesen der Definitionen zu verwenden.
+Dazu muss in der Datei `gradle.properties` die Eigenschaft `transformationsFile` entsprechend gesetzt werden, z.B.:
+
+```
+# Transformation definitions
+transformationsFile=transformations-by.json
+```
+
 ### Problembehandlung
 
 #### Transformation startet nicht

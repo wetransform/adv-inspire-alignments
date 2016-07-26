@@ -1,6 +1,7 @@
 
 def json = new groovy.json.JsonSlurper()
-def transformations = json.parse(file('transformations.json'))
+def transformations = json.parse(file(
+  project.hasProperty('transformationsFile') ? project.getProperty('transformationsFile') : 'transformations.json'))
 
 task('transform-all') {
   description "Runs all transformation tasks."
