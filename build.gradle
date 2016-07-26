@@ -58,6 +58,11 @@ class Transform extends AbstractExecTask {
    */
   boolean schemaValidation = true
 
+  /**
+   * Maximum heap size in megabytes.
+   */
+  int maxHeapSize = project.hasProperty('haleMaxHeapSize') ? (project.getProperty('haleMaxHeapSize') as int) : 2048
+
   protected void exec() {
     // build command line
     def cmd
@@ -84,7 +89,8 @@ class Transform extends AbstractExecTask {
             '-Dcache.level2.enabled=false', '-Dcache.level2.size=0']
 
           // add any additional system properties
-          
+          // max heap size
+          cmd << "-Xmx${maxHeapSize}m"
           // default log levels
           cmd << '-Dlog.hale.level=WARN'
           cmd << '-Dlog.root.level=ERROR'
@@ -161,12 +167,7 @@ class Transform extends AbstractExecTask {
       cmd << '-validate'
       cmd << 'eu.esdihumboldt.hale.io.xml.validator'
     }
-    // internal validation
-    if (internalValidation) {
-      // activate hale internal validation of transformed instances
-      environment('HALE_TRANSFORMATION_INTERNAL_VALIDATION', 'true')
-    }
-
+    
     // additional arguments
     if (additionalArgs) {
       cmd.addAll(additionalArgs)
@@ -182,12 +183,23 @@ class Transform extends AbstractExecTask {
     commandLine = cmd
 
     // environment
-    // add HALE_OPTS if present as Gradle property
-    if (project.hasProperty('HALE_OPTS')) {
-      String haleOpts = project.getProperty('HALE_OPTS')
+    
+    // HALE_OPTS if using hale-cli
+    if (usingHaleCli) {
+      List<String> haleOpts = []
+      
+      // max heap size
+      haleOpts << "-Xmx${maxHeapSize}m"
+
       if (haleOpts) {
-        environment('HALE_OPTS', haleOpts)
+        environment('HALE_OPTS', haleOpts.join(' '))
       }
+    }
+
+    // internal validation
+    if (internalValidation) {
+      // activate hale internal validation of transformed instances
+      environment('HALE_TRANSFORMATION_INTERNAL_VALIDATION', 'true')
     }
 
     // output and error streams
