@@ -18,6 +18,15 @@ transformations.each { name, config ->
       projectVariables << config.variables
     }
 
+    if (config.model) {
+      // restrict to a specific model -> add generic filter
+      additionalArgs << '-filter'
+      additionalArgs << "CQL:modellart.AA_Modellart.advStandardModell = '${config.model}'"
+
+      // add project variable
+      projectVariables['ADV_MODELLART'] = config.model
+    }
+
     description "Runs a transformation based on the project ${projectFile.name}."
     group 'Transformation'
   }
