@@ -48,6 +48,16 @@ class Transform extends AbstractExecTask {
    */
   List<String> additionalArgs = []
 
+  /**
+   * If hale internal validation should be performed on instances.
+   */
+  boolean internalValidation = true
+
+  /**
+   * If XML schema validation should be performed.
+   */
+  boolean schemaValidation = true
+
   protected void exec() {
     // build command line
     def cmd
@@ -114,8 +124,15 @@ class Transform extends AbstractExecTask {
 
     // validate
     // XML schema
-    cmd << '-validate'
-    cmd << 'eu.esdihumboldt.hale.io.xml.validator'
+    if (schemaValidation) {
+      cmd << '-validate'
+      cmd << 'eu.esdihumboldt.hale.io.xml.validator'
+    }
+    // internal validation
+    if (internalValidation) {
+      // activate hale internal validation of transformed instances
+      environment('HALE_TRANSFORMATION_INTERNAL_VALIDATION', 'true')
+    }
 
     // additional arguments
     if (additionalArgs) {

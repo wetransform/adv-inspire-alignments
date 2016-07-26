@@ -8,6 +8,9 @@ Die Alignments sind nach INSPIRE Annex und INSPIRE-Themen organisiert:
 
 - Annex I: Ordner `annex-1/mappings`
 
+Für das Öffnen der Alignment-Projekte oder das Generieren der Dokumentation wird halestudio in einer aktuellen Version benötigt.
+Aktuelle Entwicklungsversionen können [hier](https://builds.wetransform.to/job/hale/job/hale~publish(master)/) heruntergeladen werden.
+
 
 Ausführung der Transformation
 -----------------------------
@@ -56,3 +59,17 @@ Der Name des Unterordners ist der Identifier der Transformation (z.B. `transform
 
 Vorhandene Dateien werden bei diesem Vorgang überschrieben.
 Falls die Transformation frühzeitig abbricht kann es jedoch sein dass einzelne Dateien noch aus einer vorherigen Ausführung stammen.
+
+### Prüfung der Transformation
+
+Aktuell werden standardmäßig zwei Arten von Validierung auf den transformierten Daten durchgeführt:
+
+1. XML Schema Validierung auf der geschriebenen GML-Datei (die Transformation schlägt fehl falls diese nicht erfolgreich ist)
+2. Interne Validierung in hale vor dem Encoding der Daten (Warnungen im Report, die aktuell manuell geprüft werden müssen)
+
+Speziell für letzteres, aber auch Allgemein bzgl. des gesamten Ablaufs der Transformation, empfiehlt es sich einen Blick in die Report-Datei der Transformation (`reports.log`) zu werfen.
+
+Am einfachsten geht das indem man sie in halestudio importiert.
+Dazu einfach in der **Report List**-Ansicht per Rechtsklick das Kontext-Menü öffnen, *Import Log* wählen und die Datei auswählen.
+
+**Tip:** Falls schon andere Reports angezeigt werden, ist es einfacher die Reports der Transformation zu identifizieren, wenn man vor dem Import die Option **Clear Report List** oder **Delete Log** wählt.
