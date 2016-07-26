@@ -67,6 +67,10 @@ Aktuell werden standardmäßig zwei Arten von Validierung auf den transformierte
 1. XML Schema Validierung auf der geschriebenen GML-Datei (die Transformation schlägt fehl falls diese nicht erfolgreich ist)
 2. Interne Validierung in hale vor dem Encoding der Daten (Warnungen im Report, die aktuell manuell geprüft werden müssen)
 
+Auch wenn beide Validierungen erfolgreich sind bedeutet das noch nicht unbedingt, dass die erzeugte Datei gültig in jeder Hinsicht ist.
+Die XML Schema Validierung prüft nur die Gültigkeit gegen das GML Anwendungsschema, welches aber schon aus technischen Gründen nicht alle Constraints des INSPIRE Modells umsetzt.
+Die hale-interne Validierung baut hauptsächlich auf dem XML Schema auf und fügt nur beschränkt darüber hinausgehende Tests hinzu.
+
 Speziell für letzteres, aber auch Allgemein bzgl. des gesamten Ablaufs der Transformation, empfiehlt es sich einen Blick in die Report-Datei der Transformation (`reports.log`) zu werfen.
 
 Am einfachsten geht das indem man sie in halestudio importiert.
