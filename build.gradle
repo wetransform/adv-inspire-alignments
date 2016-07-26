@@ -62,19 +62,52 @@ class Transform extends AbstractExecTask {
     // build command line
     def cmd
 
+    boolean usingHaleCli = false
+
     // executable
     if (project.hasProperty('haleCliExecutable')) {
       println 'Using hale CLI executable at ' + project.getProperty('haleCliExecutable')
       cmd = [project.getProperty('haleCliExecutable'), 'transform']
+      usingHaleCli = true
     }
     else if (project.hasProperty('haleExecutable')) {
-      println 'Using halestudio executable at ' + project.getProperty('haleExecutable')
-      cmd = [project.getProperty('haleExecutable'), '-nosplash', '-application', 'hale.transform']
+      File execFile = project.file(project.getProperty('haleExecutable'))
+      File haleFolder = execFile.parentFile
+
+      if (haleFolder && haleFolder.exists() && haleFolder.isDirectory()) {
+        // check if we can find the launcher jar to launch hale via java
+        def files = new FileNameFinder().getFileNames(new File(haleFolder, 'plugins') as String,
+          'org.eclipse.equinox.launcher_*.jar')
+        if (files && files.size() == 1) {
+          println "Using halestudio launcher at ${files[0]} to launch transformation via java"
+          cmd = ['java', '-Dcache.level1.enabled=false', '-Dcache.level1.size=0',
+            '-Dcache.level2.enabled=false', '-Dcache.level2.size=0']
+
+          // add any additional system properties
+          
+          // default log levels
+          cmd << '-Dlog.hale.level=WARN'
+          cmd << '-Dlog.root.level=ERROR'
+          
+          // app launching
+          cmd << '-jar'
+          cmd << files[0]
+          cmd << '-application'
+          cmd << 'hale.transform'
+        }
+      }
+
+      if (!cmd) {
+        // fall-back to using executable
+        println 'Using halestudio executable at ' + project.getProperty('haleExecutable')
+        cmd = [execFile as String, '-nosplash', '-application', 'hale.transform']
+      }
     }
     else {
       // assuming hale-cli on path
       println 'Assuming hale CLI executable on path'
       cmd = ['hale', 'transform']
+      usingHaleCli = true
     }
 
     // project
