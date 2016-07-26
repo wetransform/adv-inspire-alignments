@@ -14,6 +14,10 @@ transformations.each { name, config ->
     alias = name
     projectFile = file(config.project)
 
+    if (config.variables) {
+      projectVariables << config.variables
+    }
+
     description "Runs a transformation based on the project ${projectFile.name}."
     group 'Transformation'
   }
@@ -63,6 +67,11 @@ class Transform extends AbstractExecTask {
    * Maximum heap size in megabytes.
    */
   int maxHeapSize = project.hasProperty('haleMaxHeapSize') ? (project.getProperty('haleMaxHeapSize') as int) : 2048
+
+  /**
+   * Map of project variables.
+   */
+  Map<String, String> projectVariables = [:]
 
   protected void exec() {
     // build command line
@@ -210,6 +219,11 @@ class Transform extends AbstractExecTask {
       environment('HALE_TRANSFORMATION_INTERNAL_VALIDATION', 'true')
     }
 
+    // project variables
+    projectVariables.each { name, value ->
+      environment("${PROJECT_VARIABLE_PREFIX_ENV}${name}", value)
+    }
+
     // output and error streams
     File outFile = new File(targetFolder, 'out.log')
     standardOutput = new TeeOutputStream(outFile.newOutputStream(), standardOutput)
@@ -220,6 +234,14 @@ class Transform extends AbstractExecTask {
     super.exec()
   }
 
+  /**
+   * Prefix for project variables - see ProjectVariables class in hale.
+   */
+  private static final String PROJECT_VARIABLE_PREFIX_ENV = "HALE_PROJECT_";
+
+  /**
+   * List of proxy related system properties.
+   */
   private static final PROXY_PROPS = [
     'http.proxyHost',
     'http.proxyPort',
