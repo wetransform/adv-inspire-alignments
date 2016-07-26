@@ -89,12 +89,16 @@ class Transform extends AbstractExecTask {
             '-Dcache.level2.enabled=false', '-Dcache.level2.size=0']
 
           // add any additional system properties
+
           // max heap size
           cmd << "-Xmx${maxHeapSize}m"
           // default log levels
           cmd << '-Dlog.hale.level=WARN'
           cmd << '-Dlog.root.level=ERROR'
-          
+
+          // proxy configuration
+          addProxyArgs(cmd)
+
           // app launching
           cmd << '-jar'
           cmd << files[0]
@@ -191,6 +195,9 @@ class Transform extends AbstractExecTask {
       // max heap size
       haleOpts << "-Xmx${maxHeapSize}m"
 
+      // proxy configuration
+      addProxyArgs(haleOpts)
+
       if (haleOpts) {
         environment('HALE_OPTS', haleOpts.join(' '))
       }
@@ -211,6 +218,35 @@ class Transform extends AbstractExecTask {
     // execute
     super.exec()
   }
+
+  private static final PROXY_PROPS = [
+    'http.proxyHost',
+    'http.proxyPort',
+    'http.proxyUser',
+    'http.proxyPassword',
+    'http.nonProxyHosts',
+    'https.proxyHost',
+    'https.proxyPort',
+    'https.proxyUser',
+    'https.proxyPassword',
+    'https.nonProxyHosts'
+  ].asImmutable()
+
+  /**
+   * Helper to add HTTP-Proxy system property arguments to an argument list.
+   * 
+   * @param argList The argument list to add the HTTP-Proxy configuration
+   *   arguments to
+   */
+  protected void addProxyArgs(List<String> argList) {
+    PROXY_PROPS.each { name ->
+      String prop = System.getProperty(name)
+      if (prop != null) {
+        argList << "-D${name}=${prop}"
+      }
+    }
+  }
+
 }
 
 class TeeOutputStream extends OutputStream {
