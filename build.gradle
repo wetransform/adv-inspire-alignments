@@ -8,6 +8,19 @@ task('transform-all') {
   group 'Transformation'
 }
 
+if (tasks.findByPath('clean') == null) {
+  // create clean task
+  task clean() {
+    description 'Deletes all transformation results.'
+    group 'Transformation'
+  }
+}
+
+tasks.clean << {
+  // add actions to clean task
+  delete project.file('transformiert')
+}
+
 transformations.each { name, config ->
   if (config.enabled != null && !config.enabled) {
     return
