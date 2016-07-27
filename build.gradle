@@ -57,6 +57,11 @@ transformations.each { name, config ->
       }
     }
 
+    // custom additional arguments
+    if (config.additionalArgs && config.additionalArgs instanceof Collection) {
+      additionalArgs.addAll(config.additionalArgs)
+    }
+
     description "Runs a transformation based on the project ${projectFile.name}."
     group 'Transformation'
   }

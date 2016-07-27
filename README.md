@@ -108,6 +108,7 @@ Jede Transformations-Definition kann folgende Eigenschaften haben. Alle Angaben 
 - **enabled** - Mit dem Wert `false` kann eine Definition deaktiviert werden ohne sie zu löschen
 - **model** - Hier wird als Wert ein der Name eines AdV-Standardmodells erwartet (z.B. "DLKM"). Die Angabe wirkt sich auf zwei Weisen aus: Es wird ein entsprechender Filter auf die Quell-Daten angewandt, vor der Transformation (Test des modellart-Attributs). Außerdem wird eine entsprechende Projekt-Variable gesetzt die im Alignment verwendet werden kann.
 - **variables** - Zuordnung von Projekt-Variablen um zum Beispiel einen spezifischen INSPIRE namespace anzugeben, der den Standard-Wert im Projekt überschreibt
+- **additionalArgs** - Ein Array mit zusätzlichen Parametern die an den hale-Kommandozeilenaufruf zu übergeben sind
 
 Hier ein Beispiel:
 
@@ -119,7 +120,11 @@ Hier ein Beispiel:
     "model": "DLKM",
     "variables": {
       "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.by..."
-    }
+    },
+    "additionalArgs": [
+      "-exclude-type",
+      "AX_Flurstueck"
+    ]
   },
   "transformation2": {
     ...
@@ -133,7 +138,7 @@ Hier ein Beispiel:
 
 Neben der Möglichkeit den Ordner für die Quell-Daten für eine Transformations-Definition explizit anzugeben gibt es auch die Möglichkeit, den Standard-Ordner (`quelldaten`) durch einen eigenen zu ersetzen.
 Dazu wird die Gradle-Eigenschaft `defaultSourceFolder` verwendet.
-Sie kann in der Datei `gradle.properties` konfiguriert werden, oder auch beim Aufruf in der Kommandozeile mitgegeben werden, z.B.:
+Sie kann in der Datei `gradle.properties` konfiguriert werden (siehe auch `gradle.properties.sample`), oder auch beim Aufruf in der Kommandozeile mitgegeben werden, z.B.:
 
 ```
 gradlew -PdefaultSourceFolder=quelldaten/dlkm transform-cp
