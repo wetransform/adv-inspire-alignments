@@ -8,18 +8,6 @@
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
                 <cf:binding>java.lang.String</cf:binding>
             </cf:output>
-            <cf:param maxOccurs="1" minOccurs="1" name="useTargetTypePrefix">
-                <cf:description>
-                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-If enabled, adds the name of the type that the target property belongs to as a prefix to the identifier.
-
-Fügt dem Identifier als Präfix den Ziel-Typ hinzu, falls aktiviert.
-</core:text>
-                </cf:description>
-                <cf:display value="Target type prefix"/>
-                <cf:binding>java.lang.Boolean</cf:binding>
-                <cf:default value="false"/>
-            </cf:param>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 // alle Quell-IDs als Liste
@@ -41,7 +29,7 @@ else {
 }
 
 // Ziel-Typ als Präfix
-if (_params.useTargetTypePrefix) {
+if (true /*_params.useTargetTypePrefix*/) {
   def targetType = _targetType.definition.name.localPart
   if (targetType) {
     if (targetType.endsWith('Type')) {
@@ -62,16 +50,13 @@ id
                 <cf:locale country="" language="" variant="">
                     <cf:template>
                         <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-Bestimmung einer INSPIRE localId aus AAA-ObjektIDs.
+Bestimmung einer INSPIRE localId oder GML id aus Fachkennzeichen oder AAA-ObjektIDs.
 
-Für eine einzige Quell-ID wird diese direkt verwendet.
+Für eine einzige Quell-ID wird diese direkt herangezogen.
 
-Andernfalls wird unter Verwendung des SHA256-Algorithmus ein Hash-Wert aus den sortierten und dann konkatenierten AAA-ObjektIDs gebildet.
-Ergebnis ist der Hash-Wert hexadezimal kodiert und mit einem Unterstrich als Präfix.
+Andernfalls wird unter Verwendung des SHA256-Algorithmus ein Hash-Wert aus den sortierten und dann konkatenierten Quell-IDs gebildet und hexadezimal kodiert.
 
-&lt;% if (_params.useTargetTypePrefix) {
-out &lt;&lt; 'Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangestellt. Dabei wird sichergestellt dass der Typ-Name von den weiteren Teilen der ID durch einen Unterstrich getrennt ist.'
-} %&gt;
+Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangestellt. Dabei wird sichergestellt dass der Typ-Name von den weiteren Teilen der ID durch einen Unterstrich getrennt ist.
 </core:text>
                     </cf:template>
                 </cf:locale>
