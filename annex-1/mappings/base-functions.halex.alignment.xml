@@ -8,18 +8,6 @@
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
                 <cf:binding>java.lang.String</cf:binding>
             </cf:output>
-            <cf:param maxOccurs="1" minOccurs="1" name="useTargetTypePrefix">
-                <cf:description>
-                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-If enabled, adds the name of the type that the target property belongs to as a prefix to the identifier.
-
-Fügt dem Identifier als Präfix den Ziel-Typ hinzu, falls aktiviert.
-</core:text>
-                </cf:description>
-                <cf:display value="Target type prefix"/>
-                <cf:binding>java.lang.Boolean</cf:binding>
-                <cf:default value="false"/>
-            </cf:param>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 // alle Quell-IDs als Liste
@@ -41,7 +29,7 @@ else {
 }
 
 // Ziel-Typ als Präfix
-if (_params.useTargetTypePrefix) {
+if (true /*_params.useTargetTypePrefix*/) {
   def targetType = _targetType.definition.name.localPart
   if (targetType) {
     if (targetType.endsWith('Type')) {
@@ -62,16 +50,13 @@ id
                 <cf:locale country="" language="" variant="">
                     <cf:template>
                         <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-Bestimmung einer INSPIRE localId aus AAA-ObjektIDs.
+Bestimmung einer INSPIRE localId oder GML id aus Fachkennzeichen oder AAA-ObjektIDs.
 
-Für eine einzige Quell-ID wird diese direkt verwendet.
+Für eine einzige Quell-ID wird diese direkt herangezogen.
 
-Andernfalls wird unter Verwendung des SHA256-Algorithmus ein Hash-Wert aus den sortierten und dann konkatenierten AAA-ObjektIDs gebildet.
-Ergebnis ist der Hash-Wert hexadezimal kodiert und mit einem Unterstrich als Präfix.
+Andernfalls wird unter Verwendung des SHA256-Algorithmus ein Hash-Wert aus den sortierten und dann konkatenierten Quell-IDs gebildet und hexadezimal kodiert.
 
-&lt;% if (_params.useTargetTypePrefix) {
-out &lt;&lt; 'Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangestellt. Dabei wird sichergestellt dass der Typ-Name von den weiteren Teilen der ID durch einen Unterstrich getrennt ist.'
-} %&gt;
+Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangestellt. Dabei wird sichergestellt dass der Typ-Name von den weiteren Teilen der ID durch einen Unterstrich getrennt ist.
 </core:text>
                     </cf:template>
                 </cf:locale>
@@ -114,12 +99,21 @@ def sourceNameFromModellart() {
 
 if (spelling) {
 	_target {
-		def sourceName = sourceNameFromModellart()
-		if (sourceName) {
-			sourceOfName( sourceName )
-		}
-		else if (_params.source) {
+	    
+		def sourceName_input = sourceNameFromModellart()
+		def sourceName_var = _project.vars.get('ADV_MODELLART', null)
+		
+		// Priorität 1 - feste Quelle
+		if (_params.source) {
 			sourceOfName( _params.source )
+		}
+		// Priorität 2 - aus Projektvariable
+		else if (sourceName_var) {
+			sourceOfName( sourceName_var )
+		}
+		// Priorität 3 - aus Quell-Objekt
+		else if (sourceName_input) {
+			sourceOfName( sourceName_input )
 		}
 		else {
 			sourceOfName {
@@ -157,10 +151,12 @@ Bildet ein GeographicalName-Objekt zu einem einfachen Namen.
 
 Die Sprache wird als Deutsch angenommen.
 
-&lt;% if (source) {
-  out &lt;&lt; "Die Quelle des Namens wird aus dem Quell-Attribut $source bestimmt."
-} else if (_params.source) {
+&lt;% if (_params.source) {
   out &lt;&lt; "Die Quelle des Namens wird als ${_params.source} angegeben."
+} else if (source) {
+  out &lt;&lt; "Die Quelle des Namens wird aus einer Projekt-Variable oder dem Quell-Attribut $source bestimmt."
+} else {
+  out &lt;&lt; "Die Quelle des Namens wird aus einer Projekt-Variable bestimmt, falls vorhanden."
 } %&gt;
 </core:text>
                     </cf:template>
@@ -234,6 +230,93 @@ result
 Abbildung von Maßeinheiten aus AdV URNs nach UCUM
 
 *Keine vollständige Abbildung, muss ggf. ergänzt werden.*
+
+Aktuell ist folgende Abbildung umgesetzt:
+
+- `urn:adv:uom:m2` zu `m2`
+- `urn:adv:uom:m`zu `m`
+
+</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
+    <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.identifier" name="AdV INSPIRE identifier (URI)" type="groovy">
+            <cf:input eager="true" maxOccurs="-1" minOccurs="1" name="id">
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:type name="CodeWithAuthorityType" ns="http://www.opengis.net/gml/3.2"/>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// alle Quell-IDs als Liste
+def identifiers = id.p.values()
+
+def id
+
+if (identifiers.size() == 1) {
+  // verwende Original-ID falls nur eine Quelle
+  id = identifiers[0]
+}
+else {
+  // sortieren (TODO spezielle Ordnung benötigt?)
+  identifiers = identifiers.sort()
+
+  def identString = identifiers.join()
+
+  id = '_' + _.crypto.sha256(identString)
+}
+
+// Ziel-Typ als Präfix
+if (true /*_params.useTargetTypePrefix*/) {
+  def targetType = _targetType.definition.name.localPart
+  if (targetType) {
+    if (targetType.endsWith('Type')) {
+      targetType = targetType[0..-5]
+    }
+  
+    if (!id.startsWith('_')) {
+      id = '_' + id
+    }
+    id = targetType + id
+  }
+}
+
+// Verknüpfung mit namespace
+def namespace = _project.vars.INSPIRE_NAMESPACE
+if (namespace) {
+  if (!namespace.endsWith('/')) {
+    namespace = namespace + '/'
+  }
+  
+  // namespace und id als Ergebnis
+  _target(namespace + id) {
+	codeSpace( 'http://inspire.ec.europa.eu/ids' )
+  }
+}
+else {
+  // nur id als Ergebnis
+  _target(id) {
+	codeSpace( 'http://inspire.ec.europa.eu/ids' )
+  }
+}
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+Bestimmung eines GML identifiers URI bestehend INSPIRE namespace und localId aus Fachkennzeichen oder AAA-ObjektIDs.
+
+Für eine einzige Quell-ID wird diese direkt für die localId herangezogen. Andernfalls wird unter Verwendung des SHA256-Algorithmus ein Hash-Wert aus den sortierten und dann konkatenierten Quell-IDs gebildet und hexadezimal kodiert.
+Als Präfix wird der localId der Name des Feature-Typs des Ziel-Modells vorangestellt. Dabei wird sichergestellt dass der Typ-Name von den weiteren Teilen der ID durch einen Unterstrich getrennt ist.
+
+Der für Datenanbieter und Datensatz spezifische Namespace muss als Vorgabe (Projekt-Variable) konfiguriert werden.
+
+Der `codeSpace` für den GML identifier wird als `http://inspire.ec.europa.eu/ids` gesetzt.
 </core:text>
                     </cf:template>
                 </cf:locale>

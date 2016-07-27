@@ -1,0 +1,370 @@
+
+def json = new groovy.json.JsonSlurper()
+def transformations = json.parse(file(
+  project.hasProperty('transformationsFile') ? project.getProperty('transformationsFile') : 'transformations.json'))
+
+task('transform-all') {
+  description "Runs all transformation tasks."
+  group 'Transformation'
+}
+
+if (tasks.findByPath('clean') == null) {
+  // create clean task
+  task clean() {
+    description 'Deletes all transformation results.'
+    group 'Transformation'
+  }
+}
+
+tasks.clean << {
+  // add actions to clean task
+  delete project.file('transformiert')
+}
+
+transformations.each { name, config ->
+  if (config.enabled != null && !config.enabled) {
+    return
+  }
+
+  // add transformation task for each key
+  task("transform-$name", type: Transform) {
+    alias = name
+    projectFile = file(config.project)
+
+    if (config.variables) {
+      projectVariables << config.variables
+    }
+
+    if (config.model) {
+      // restrict to a specific model -> add generic filter
+      additionalArgs << '-filter'
+      additionalArgs << "CQL:modellart.AA_Modellart.advStandardModell = '${config.model}'"
+
+      // add project variable
+      projectVariables['ADV_MODELLART'] = config.model
+    }
+
+    // source folder
+    if (config.sourceFolder) {
+      // prefer source folder from definition
+      sourceFolder = project.file(config.sourceFolder)
+    }
+    else if (project.hasProperty('defaultSourceFolder')) {
+      // use custom default source folder if present
+      String folder = project.getProperty('defaultSourceFolder')
+      if (folder) {
+        sourceFolder = project.file(folder)
+      }
+    }
+
+    // custom additional arguments
+    if (config.additionalArgs && config.additionalArgs instanceof Collection) {
+      additionalArgs.addAll(config.additionalArgs)
+    }
+
+    description "Runs a transformation based on the project ${projectFile.name}."
+    group 'Transformation'
+  }
+
+  tasks['transform-all'].dependsOn("transform-$name")
+}
+
+/**
+ * Transformation task.
+ */
+class Transform extends AbstractExecTask {
+  Transform() {
+    super(Transform.class)
+  }
+
+  /**
+   * Transformation alias.
+   */
+  String alias
+
+  /**
+   * Path to the project file to use for transformation.
+   */
+  File projectFile
+
+  /**
+   * Folder with source files.
+   */
+  File sourceFolder = project.file('quelldaten')
+
+  /**
+   * Any additional arguments.
+   */
+  List<String> additionalArgs = []
+
+  /**
+   * If hale internal validation should be performed on instances.
+   */
+  boolean internalValidation = true
+
+  /**
+   * If XML schema validation should be performed.
+   */
+  boolean schemaValidation = true
+
+  /**
+   * Maximum heap size in megabytes.
+   */
+  int maxHeapSize = project.hasProperty('haleMaxHeapSize') ? (project.getProperty('haleMaxHeapSize') as int) : 2048
+
+  /**
+   * Map of project variables.
+   */
+  Map<String, String> projectVariables = [:]
+
+  protected void exec() {
+    // build command line
+    def cmd
+
+    boolean usingHaleCli = false
+
+    // executable
+    if (project.hasProperty('haleCliExecutable')) {
+      println 'Using hale CLI executable at ' + project.getProperty('haleCliExecutable')
+      cmd = [project.getProperty('haleCliExecutable'), 'transform']
+      usingHaleCli = true
+    }
+    else if (project.hasProperty('haleExecutable')) {
+      File execFile = project.file(project.getProperty('haleExecutable'))
+      File haleFolder = execFile.parentFile
+
+      if (haleFolder && haleFolder.exists() && haleFolder.isDirectory()) {
+        // check if we can find the launcher jar to launch hale via java
+        def files = new FileNameFinder().getFileNames(new File(haleFolder, 'plugins') as String,
+          'org.eclipse.equinox.launcher_*.jar')
+        if (files && files.size() == 1) {
+          println "Using halestudio launcher at ${files[0]} to launch transformation via java"
+          cmd = ['java', '-Dcache.level1.enabled=false', '-Dcache.level1.size=0',
+            '-Dcache.level2.enabled=false', '-Dcache.level2.size=0']
+
+          // add any additional system properties
+
+          // max heap size
+          cmd << "-Xmx${maxHeapSize}m"
+          // default log levels
+          cmd << '-Dlog.hale.level=WARN'
+          cmd << '-Dlog.root.level=ERROR'
+
+          // proxy configuration
+          addProxyArgs(cmd)
+
+          // app launching
+          cmd << '-jar'
+          cmd << files[0]
+          cmd << '-application'
+          cmd << 'hale.transform'
+        }
+      }
+
+      if (!cmd) {
+        // fall-back to using executable
+        println 'Using halestudio executable at ' + project.getProperty('haleExecutable')
+        cmd = [execFile as String, '-nosplash', '-application', 'hale.transform']
+      }
+    }
+    else {
+      // assuming hale-cli on path
+      println 'Assuming hale CLI executable on path'
+      cmd = ['hale', 'transform']
+      usingHaleCli = true
+    }
+
+    // project
+    assert projectFile != null
+    cmd << '-project'
+    cmd << projectFile as String
+
+    // source
+    cmd << '-source'
+    cmd << sourceFolder as String
+    cmd << '-providerId'
+    cmd << 'eu.esdihumboldt.hale.io.gml.reader'
+    cmd << '-include'
+    cmd << '*.gz'
+    cmd << '-ScontentType'
+    cmd << 'eu.esdihumboldt.hale.io.xml.gzip'
+
+    cmd << '-source'
+    cmd << sourceFolder as String
+    cmd << '-providerId'
+    cmd << 'eu.esdihumboldt.hale.io.gml.reader'
+    cmd << '-include'
+    cmd << '*.xml'
+    cmd << '-include'
+    cmd << '*.gml'
+    cmd << '-ScontentType'
+    cmd << 'org.eclipse.core.runtime.xml'
+
+    // cmd << 'eu.esdihumboldt.hale.io.xml.reader'
+
+    // target
+    String targetName = alias ?: name
+    File targetFolder = new File(project.file('transformiert'), targetName)
+    targetFolder.mkdirs()
+
+    cmd << '-target'
+    cmd << new File(targetFolder, 'result.gml')
+    cmd << '-providerId'
+    cmd << 'eu.esdihumboldt.hale.io.wfs.fc.write-2.0' // WFS 2 FC
+    // cmd << 'eu.esdihumboldt.hale.io.gml.writer' // faster
+    
+    cmd << '-Sxml.pretty'
+    cmd << 'true'
+
+    cmd << '-Scrs.epsg.prefix'
+    cmd << 'http://www.opengis.net/def/crs/EPSG/0/'
+
+    // validate
+    // XML schema
+    if (schemaValidation) {
+      cmd << '-validate'
+      cmd << 'eu.esdihumboldt.hale.io.xml.validator'
+    }
+    
+    // additional arguments
+    if (additionalArgs) {
+      cmd.addAll(additionalArgs)
+    }
+
+    // report file
+    cmd << '-reportsOut'
+    cmd << new File(targetFolder, 'reports.log')
+
+    cmd << '-stacktrace'
+    cmd << '-trustGroovy'
+
+    commandLine = cmd
+
+    // environment
+    
+    // HALE_OPTS if using hale-cli
+    if (usingHaleCli) {
+      List<String> haleOpts = []
+      
+      // max heap size
+      haleOpts << "-Xmx${maxHeapSize}m"
+
+      // proxy configuration
+      addProxyArgs(haleOpts)
+
+      if (haleOpts) {
+        environment('HALE_OPTS', haleOpts.join(' '))
+      }
+    }
+
+    // internal validation
+    if (internalValidation) {
+      // activate hale internal validation of transformed instances
+      environment('HALE_TRANSFORMATION_INTERNAL_VALIDATION', 'true')
+    }
+
+    // project variables
+    projectVariables.each { name, value ->
+      environment("${PROJECT_VARIABLE_PREFIX_ENV}${name}", value)
+    }
+
+    // output and error streams
+    File outFile = new File(targetFolder, 'out.log')
+    standardOutput = new TeeOutputStream(outFile.newOutputStream(), standardOutput)
+    File errFile = new File(targetFolder, 'err.log')
+    errorOutput = new TeeOutputStream(errFile.newOutputStream(), errorOutput)
+
+    // execute
+    super.exec()
+  }
+
+  /**
+   * Prefix for project variables - see ProjectVariables class in hale.
+   */
+  private static final String PROJECT_VARIABLE_PREFIX_ENV = "HALE_PROJECT_";
+
+  /**
+   * List of proxy related system properties.
+   */
+  private static final PROXY_PROPS = [
+    'http.proxyHost',
+    'http.proxyPort',
+    'http.proxyUser',
+    'http.proxyPassword',
+    'http.nonProxyHosts',
+    'https.proxyHost',
+    'https.proxyPort',
+    'https.proxyUser',
+    'https.proxyPassword',
+    'https.nonProxyHosts'
+  ].asImmutable()
+
+  /**
+   * Helper to add HTTP-Proxy system property arguments to an argument list.
+   * 
+   * @param argList The argument list to add the HTTP-Proxy configuration
+   *   arguments to
+   */
+  protected void addProxyArgs(List<String> argList) {
+    PROXY_PROPS.each { name ->
+      String prop = System.getProperty(name)
+      if (prop != null) {
+        argList << "-D${name}=${prop}"
+      }
+    }
+  }
+
+}
+
+class TeeOutputStream extends OutputStream {
+
+  private final OutputStream out
+  private final OutputStream tee
+
+  TeeOutputStream(OutputStream out, OutputStream tee) {
+    if (out == null)
+      throw new NullPointerException()
+    else if (tee == null)
+      throw new NullPointerException()
+
+    this.out = out
+    this.tee = tee
+  }
+
+  @Override
+  void write(int b) throws IOException {
+    out.write(b);
+    tee.write(b);
+  }
+
+  @Override
+  void write(byte[] b) throws IOException {
+    out.write(b);
+    tee.write(b);
+  }
+
+  @Override
+  void write(byte[] b, int off, int len) throws IOException {
+    out.write(b, off, len);
+    tee.write(b, off, len);
+  }
+
+  @Override
+  void flush() throws IOException {
+    out.flush();
+    tee.flush();
+  }
+
+  @Override
+  void close() throws IOException {
+    out.close();
+    tee.close();
+  }
+}
+
+/*
+ * Gradle wrapper
+ */
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.14'
+}

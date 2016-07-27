@@ -31,18 +31,6 @@
         <parameter value="true" name="structuralRename"/>
         <parameter value="true" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C73b503d3-5aec-47f4-9d9e-e6c5f0425726" priority="normal">
-        <target>
-            <property>
-                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="versionId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unpopulated" name="value"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C8fe37216-c8fe-40ef-a5f5-41fabf8cc024" priority="normal">
         <source>
             <property>
@@ -118,18 +106,6 @@
             <property>
                 <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
                 <child name="estimatedAccuracy" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unpopulated" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce2ac6e0f-e117-41a2-bd93-132b2309fcf9" priority="normal">
-        <target>
-            <property>
-                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="versionId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -251,6 +227,7 @@
             </property>
         </target>
         <parameter value="m" name="value"/>
+        <documentation>Ein Wert wird für dieses Attribut benötigt auch wenn `estimatedAccuracy` keinen Wert hat, falls der `nilReason` angegeben ist (aufgrund der XML Schema Definition).</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C9638bc4e-53b7-4b20-838b-b25a68915654" priority="normal">
         <source name="var">
@@ -286,6 +263,7 @@ else {
 }
 </core:text>
         </complexParameter>
+        <documentation>Falls ein *nenner* vorhanden ist das Ergebnis repräsentiert als `zaehler/nenner`, ansonsten wird nur der *zaehler* angegeben.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C5bfc7fdc-a782-48f1-b471-86da4c97a8ee" priority="normal">
         <source>
@@ -472,38 +450,6 @@ else {
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca24e4975-416e-48e1-9c9c-7e90d781fe1f" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C3d6ab9ff-bf8f-4146-8e82-07b7af00bd3c" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AA_NREOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C12a4a855-a379-4274-9691-f95e3edfe0bf" priority="normal">
         <target>
             <property>
@@ -523,144 +469,6 @@ else {
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Ce2dff05c-feed-4bf1-9e90-644134c4db52" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="_{schluesselGesamt}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C084fe802-26de-45c5-951e-21aac8e65b17" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_GemarkungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="_{schluesselGesamt}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C42b1ff02-eda7-4d03-aa4a-cd5ee980166c" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="_{schluesselGesamt}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C96c64684-6750-49e4-9ec9-ef76a952baa5" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="flurstueckskennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target name="result">
-            <property>
-                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="zoning" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="false" name="variablesAsInstances"/>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// Land und Gemarkung: 1.-6. Stelle
-def landGemarkung = flurstueckskennzeichen[0..5]
-// Flurnummer: 7.-9. Stelle
-def flur = flurstueckskennzeichen[6..8]
-
-if (flur == '___') {
-  // "Eltern-Zoning" ist Gemarkung
-  "#_$landGemarkung" as String
-}
-else {
-  // "Eltern-Zoning" ist GemarkungsteilFlur
-  "#_${landGemarkung}${flur}" as String
-} 
-</core:text>
-        </complexParameter>
-        <documentation>Je nachdem ob es einen übergeordneten Gemarkungsteil/Flur gibt, wird die Verknüpfung zum Zoning hergestellt, das entweder einen Gemarkungsteil/Flur repräsentiert, oder eine Gemarkung.</documentation>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C568300d0-2316-4d88-9aee-34f1b4cf2a0f" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_GemarkungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="upperLevelUnit" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#_{schluessel.AX_Gemarkung_Schluessel.land}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C14174a15-b4b0-4278-9d2c-93243485710f" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_GemarkungsteilFlur_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="gemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_GemarkungsteilFlur_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="upperLevelUnit" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#_{schluessel.AX_GemarkungsteilFlur_Schluessel.land}{schluessel.AX_GemarkungsteilFlur_Schluessel.gemarkung}" name="pattern"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce6bf7947-2b16-446e-b4c9-5d0e39e5c0c8" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="false" name="useTargetTypePrefix"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ca3062f07-047a-43f0-852d-ce8d1759680e" priority="normal">
         <source name="spelling">
@@ -810,6 +618,13 @@ _target {
 }
 </core:text>
         </complexParameter>
+        <documentation>Hier wird ein INSPIRE *CadastralZoning* zu einer entsprechenden *AX_Gemarkung* erstellt.
+
+Zu einer *AX_Gemarkung* werden über den Gemarkungsschlüssel von *AX_Flurstueck* alle dazugehörigen Flurstücke bestimmt.
+
+Falls keine Flurstücke zu der Gemarkung in den Quell-Daten vorhanden sind, wird zu dieser Gemarkung kein *CadastralZoning* in den Ausgangsdaten erstellt.
+
+Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die Geometrie des *CadastralZoning* zusammengefasst. Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb3d47ecd-2e54-4637-a92c-de4055bd0d91" priority="normal">
         <source name="types">
@@ -902,6 +717,13 @@ _target {
 }
 </core:text>
         </complexParameter>
+        <documentation>Hier wird ein INSPIRE *CadastralZoning* zu einem entsprechenden *AX_GemarkungsteilFlur* erstellt.
+
+Zu einem *AX_GemarkungsteilFlur* werden über den Gemarkungsschlüssel von *AX_Flurstueck* alle dazugehörigen Flurstücke bestimmt.
+
+Falls keine Flurstücke zu dem Gemarkungsteil oder Flur in den Quell-Daten vorhanden sind, wird zu diesem Gemarkungsteil oderFlur kein *CadastralZoning* in den Ausgangsdaten erstellt.
+
+Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die Geometrie des *CadastralZoning* zusammengefasst. Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C9c05084d-c56a-4f00-a2cb-a52632fad7af" priority="normal">
         <source name="types">
@@ -969,5 +791,266 @@ _target {
 }
 </core:text>
         </complexParameter>
+        <documentation>Hier wird ein INSPIRE *CadastralZoning* zu einem entsprechenden *AX_Bundesland* erstellt.
+
+Zu einem *AX_Bundesland* werden über den Gemarkungsschlüssel von *AX_Flurstueck* alle dazugehörigen Flurstücke bestimmt.
+
+Falls keine Flurstücke zu dem Bundesland in den Quell-Daten vorhanden sind, wird zu diesem Bundesland kein *CadastralZoning* in den Ausgangsdaten erstellt.
+
+Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die Geometrie des *CadastralZoning* zusammengefasst. Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca24e4975-416e-48e1-9c9c-7e90d781fe1f" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="flurstueckskennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce6bf7947-2b16-446e-b4c9-5d0e39e5c0c8" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="flurstueckskennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cf5198186-7592-4d3c-9339-a402a3f09d46" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="flurstueckskennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C4783b82c-e826-47d7-a581-77dfa2f25da4" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemarkungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C3d6ab9ff-bf8f-4146-8e82-07b7af00bd3c" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemarkungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cce51c49c-f979-4c6c-abb2-4f7a0ce3e616" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemarkungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C568300d0-2316-4d88-9aee-34f1b4cf2a0f" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GemarkungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="upperLevelUnit" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#CadastralZoning_{schluessel.AX_Gemarkung_Schluessel.land}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C14174a15-b4b0-4278-9d2c-93243485710f" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_GemarkungsteilFlur_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_GemarkungsteilFlur_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="upperLevelUnit" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#CadastralZoning_{schluessel.AX_GemarkungsteilFlur_Schluessel.land}{schluessel.AX_GemarkungsteilFlur_Schluessel.gemarkung}" name="pattern"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C52231e47-4998-4d7c-b32b-cb3e06241c8e" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C7c4f84f9-d3e2-45c0-b152-901ca904de14" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cec1a368e-3449-4678-af5e-fbc6e9e07fad" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C4f9d30f6-089e-4ed1-bc24-d920802bc726" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cb6e11047-8593-4f2e-92da-d640363dc9fe" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cfa132fe1-72f4-4db6-b353-c471abd40924" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C96c64684-6750-49e4-9ec9-ef76a952baa5" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="flurstueckskennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="zoning" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="false" name="variablesAsInstances"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Land und Gemarkung: 1.-6. Stelle
+def landGemarkung = flurstueckskennzeichen[0..5]
+// Flurnummer: 7.-9. Stelle
+def flur = flurstueckskennzeichen[6..8]
+
+if (flur == '___') {
+  // "Eltern-Zoning" ist Gemarkung
+  "#CadastralZoning_$landGemarkung" as String
+}
+else {
+  // "Eltern-Zoning" ist GemarkungsteilFlur
+  "#CadastralZoning_${landGemarkung}${flur}" as String
+} 
+</core:text>
+        </complexParameter>
+        <documentation>Je nachdem ob es einen übergeordneten Gemarkungsteil/Flur gibt, wird die Verknüpfung zum Zoning hergestellt, das entweder einen Gemarkungsteil/Flur repräsentiert, oder eine Gemarkung.</documentation>
     </cell>
 </alignment>
