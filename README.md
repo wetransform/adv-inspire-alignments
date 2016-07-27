@@ -23,7 +23,7 @@ Für das Ausführen der Transformation müssen folgende Voraussetzungen geschaff
 - Internetverbindung (für Verwendung eines Proxy ist weitere Konfiguration nötig)
 - **Java 8** muss auf dem System installiert sein (erreichbar über `PATH` Umgebungsvariable)
 - **hale** muss auf dem System in einer passenden Version verfügbar sein, der Pfad zur HALE-Executable muss in der Datei `gradle.properties` angegeben werden (siehe `gradle.properties.sample` für ein Beispiel)
-- Die Quelldaten als XML/GML müssen im Verzeichnis `quelldaten` abgelegt werden (Endungen `.xml`, `.gml` oder `.gz`)
+- Die Quell-Daten als XML/GML müssen im Verzeichnis `quelldaten` abgelegt werden (Endungen `.xml`, `.gml` oder `.gz`). Alternativ kann auch ein anderer Standard-Ordner für die Quell-Daten konfiguriert werden (siehe Abschnitt *Weitere Konfigurationsoptionen*).
 
 Gradle selbst wird beim ersten Aufruf von `gradlew.bat` (Windows) bzw. `./gradlew` (Linux / Mac OS X) automatisch heruntergeladen. Folgend wird `gradlew` stellvertretend für den Aufruf im jeweiligen Betriebssystem verwendet.
 
@@ -97,6 +97,46 @@ Dazu muss in der Datei `gradle.properties` die Eigenschaft `transformationsFile`
 ```
 # Transformation definitions
 transformationsFile=transformations-by.json
+```
+
+Die Definitions-Datei ist eine JSON-Datei die als benamte Einträge die einzelnen Transformations-Definitionen enthält.
+
+Jede Transformations-Definition kann folgende Eigenschaften haben. Alle Angaben sind optional soweit nicht anders angegeben:
+
+- **project** - Der Pfad zum hale-Projekt das für die Transformation verwendet werden soll (Pflichtangabe)
+- **sourceFolder** - Der Pfad zu einem alternativen Ordner mit Quell-Daten die für die Transformation verwendet werden sollen
+- **enabled** - Mit dem Wert `false` kann eine Definition deaktiviert werden ohne sie zu löschen
+- **model** - Hier wird als Wert ein der Name eines AdV-Standardmodells erwartet (z.B. "DLKM"). Die Angabe wirkt sich auf zwei Weisen aus: Es wird ein entsprechender Filter auf die Quell-Daten angewandt, vor der Transformation (Test des modellart-Attributs). Außerdem wird eine entsprechende Projekt-Variable gesetzt die im Alignment verwendet werden kann.
+- **variables** - Zuordnung von Projekt-Variablen um zum Beispiel einen spezifischen INSPIRE namespace anzugeben, der den Standard-Wert im Projekt überschreibt
+
+Hier ein Beispiel:
+
+```
+{
+  "name": {
+    "project": "pfad/zu/projekt.halex",
+    "sourceFolder": "pfad/zu/quelldaten",
+    "model": "DLKM",
+    "variables": {
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.by..."
+    }
+  },
+  "transformation2": {
+    ...
+  }
+}
+```
+
+### Weitere Konfigurationsoptionen
+
+#### Quell-Daten aus anderem Ordner
+
+Neben der Möglichkeit den Ordner für die Quell-Daten für eine Transformations-Definition explizit anzugeben gibt es auch die Möglichkeit, den Standard-Ordner (`quelldaten`) durch einen eigenen zu ersetzen.
+Dazu wird die Gradle-Eigenschaft `defaultSourceFolder` verwendet.
+Sie kann in der Datei `gradle.properties` konfiguriert werden, oder auch beim Aufruf in der Kommandozeile mitgegeben werden, z.B.:
+
+```
+gradlew -PdefaultSourceFolder=quelldaten/dlkm transform-cp
 ```
 
 ### Problembehandlung

@@ -31,6 +31,19 @@ transformations.each { name, config ->
       projectVariables['ADV_MODELLART'] = config.model
     }
 
+    // source folder
+    if (config.sourceFolder) {
+      // prefer source folder from definition
+      sourceFolder = project.file(config.sourceFolder)
+    }
+    else if (project.hasProperty('defaultSourceFolder')) {
+      // use custom default source folder if present
+      String folder = project.getProperty('defaultSourceFolder')
+      if (folder) {
+        sourceFolder = project.file(folder)
+      }
+    }
+
     description "Runs a transformation based on the project ${projectFile.name}."
     group 'Transformation'
   }
