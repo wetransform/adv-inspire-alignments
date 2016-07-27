@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <hale-project version="2.9.5.qualifier">
-    <name>3A zu INSPIRE CadastralParcels</name>
+    <name>ALKIS zu INSPIRE CadastralParcels</name>
     <author>Simon Templer</author>
-    <description>3A zu INSPIRE CadastralParcels mit Beispieldaten</description>
+    <description>Alignment von ALKIS zu INSPIRE CadastralParcels.
+
+Da im Ausgangsmodell keine Geometrien für die entsprechenden INSPIRE *CadastralZonings* vorhanden sind, werden diese in diesem Projekt aus den Flurstücken agreggiert.
+Vorstellbar sind außerdem andere Herangehensweisen, z.B. die Verwendung anderweitig vorhandener oder erzeugter Geometrien.
+
+Dadurch dass die Geometrien für *CadastralZonings* in diesem Projekt aus Flurstücken aggregiert werden ergibts sich außerdem, dass für eine korrekte Repräsentation der einzelnen Zonings in den Quell-Daten alle entsprechenden Flurstücke vorhanden sein müssen.
+Andernfalls erhält man Aggregationen aus einer Untermenge, die natürlich auch nur einen Teil der eigentlichen Geometrie ergeben.
+
+Referenzen zwischen *CadastralParcel*s und *CadastralZoning*s, sowie der *CadastralZoning*s untereinander werden als lokale XLink-Referenzen umgesetzt.
+Für konsistente Referenzen wird in den Quell-Daten neben *AX_Gemarkung* und ggf. *AX_GemarkungsteilFlur* auch *AX_Bundesland*  benötigt.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-07-27T10:01:02.805+02:00</modified>
+    <modified>2016-07-27T11:45:27.977+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>

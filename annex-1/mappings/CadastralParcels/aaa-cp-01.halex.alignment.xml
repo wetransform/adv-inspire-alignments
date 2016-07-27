@@ -263,6 +263,7 @@ else {
 }
 </core:text>
         </complexParameter>
+        <documentation>Falls ein *nenner* vorhanden ist das Ergebnis repräsentiert als `zaehler/nenner`, ansonsten wird nur der *zaehler* angegeben.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C5bfc7fdc-a782-48f1-b471-86da4c97a8ee" priority="normal">
         <source>
@@ -617,6 +618,13 @@ _target {
 }
 </core:text>
         </complexParameter>
+        <documentation>Hier wird ein INSPIRE *CadastralZoning* zu einer entsprechenden *AX_Gemarkung* erstellt.
+
+Zu einer *AX_Gemarkung* werden über den Gemarkungsschlüssel von *AX_Flurstueck* alle dazugehörigen Flurstücke bestimmt.
+
+Falls keine Flurstücke zu der Gemarkung in den Quell-Daten vorhanden sind, wird zu dieser Gemarkung kein *CadastralZoning* in den Ausgangsdaten erstellt.
+
+Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die Geometrie des *CadastralZoning* zusammengefasst. Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb3d47ecd-2e54-4637-a92c-de4055bd0d91" priority="normal">
         <source name="types">
@@ -709,6 +717,13 @@ _target {
 }
 </core:text>
         </complexParameter>
+        <documentation>Hier wird ein INSPIRE *CadastralZoning* zu einem entsprechenden *AX_GemarkungsteilFlur* erstellt.
+
+Zu einem *AX_GemarkungsteilFlur* werden über den Gemarkungsschlüssel von *AX_Flurstueck* alle dazugehörigen Flurstücke bestimmt.
+
+Falls keine Flurstücke zu dem Gemarkungsteil oder Flur in den Quell-Daten vorhanden sind, wird zu diesem Gemarkungsteil oderFlur kein *CadastralZoning* in den Ausgangsdaten erstellt.
+
+Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die Geometrie des *CadastralZoning* zusammengefasst. Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C9c05084d-c56a-4f00-a2cb-a52632fad7af" priority="normal">
         <source name="types">
@@ -776,6 +791,13 @@ _target {
 }
 </core:text>
         </complexParameter>
+        <documentation>Hier wird ein INSPIRE *CadastralZoning* zu einem entsprechenden *AX_Bundesland* erstellt.
+
+Zu einem *AX_Bundesland* werden über den Gemarkungsschlüssel von *AX_Flurstueck* alle dazugehörigen Flurstücke bestimmt.
+
+Falls keine Flurstücke zu dem Bundesland in den Quell-Daten vorhanden sind, wird zu diesem Bundesland kein *CadastralZoning* in den Ausgangsdaten erstellt.
+
+Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die Geometrie des *CadastralZoning* zusammengefasst. Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ca24e4975-416e-48e1-9c9c-7e90d781fe1f" priority="normal">
         <source name="id">
