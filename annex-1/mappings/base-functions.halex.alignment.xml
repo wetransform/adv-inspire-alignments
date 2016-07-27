@@ -114,12 +114,21 @@ def sourceNameFromModellart() {
 
 if (spelling) {
 	_target {
-		def sourceName = sourceNameFromModellart()
-		if (sourceName) {
-			sourceOfName( sourceName )
-		}
-		else if (_params.source) {
+	    
+		def sourceName_input = sourceNameFromModellart()
+		def sourceName_var = _project.vars.get('ADV_MODELLART', null)
+		
+		// Priorität 1 - feste Quelle
+		if (_params.source) {
 			sourceOfName( _params.source )
+		}
+		// Priorität 2 - aus Projektvariable
+		else if (sourceName_var) {
+			sourceOfName( sourceName_var )
+		}
+		// Priorität 3 - aus Quell-Objekt
+		else if (sourceName_input) {
+			sourceOfName( sourceName_input )
 		}
 		else {
 			sourceOfName {
@@ -157,10 +166,12 @@ Bildet ein GeographicalName-Objekt zu einem einfachen Namen.
 
 Die Sprache wird als Deutsch angenommen.
 
-&lt;% if (source) {
-  out &lt;&lt; "Die Quelle des Namens wird aus dem Quell-Attribut $source bestimmt."
-} else if (_params.source) {
+&lt;% if (_params.source) {
   out &lt;&lt; "Die Quelle des Namens wird als ${_params.source} angegeben."
+} else if (source) {
+  out &lt;&lt; "Die Quelle des Namens wird aus einer Projekt-Variable oder dem Quell-Attribut $source bestimmt."
+} else {
+  out &lt;&lt; "Die Quelle des Namens wird aus einer Projekt-Variable bestimmt, falls vorhanden."
 } %&gt;
 </core:text>
                     </cf:template>
