@@ -183,8 +183,8 @@ collect.conditionOfFacility.consume { key, values -&gt;
 boolean hatFahrbahnachse = !!_source.links.AX_Fahrbahnachse.first()
 boolean hatStrassenachse = !!_source.links.AX_Strassenachse.first()
 
+def strasseId = _source.p.id.value()
 if (!hatFahrbahnachse &amp;&amp; !hatStrassenachse) {
-	def strasseId = _source.p.id.value()
 	_log.warn("ERoad: Strasse $strasseId hat weder Fahrbahnachsen noch Strassenachsen")
 	throw new NoResultException('Kann kein ERoad-Objekt ohne RoadLinks erstellen')
 }
@@ -2107,7 +2107,7 @@ collect.surfaceCategory.consume { key, values -&gt;
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
@@ -2120,7 +2120,7 @@ collect.surfaceCategory.consume { key, values -&gt;
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
@@ -2137,8 +2137,8 @@ collect.surfaceCategory.consume { key, values -&gt;
 boolean hatFahrbahnachse = !!_source.links.AX_Fahrbahnachse.first()
 boolean hatStrassenachse = !!_source.links.AX_Strassenachse.first()
 
+def strasseId = _source.p.id.value()
 if (!hatFahrbahnachse &amp;&amp; !hatStrassenachse) {
-	def strasseId = _source.p.id.value()
 	_log.warn("Road: Strasse $strasseId hat weder Fahrbahnachsen noch Strassenachsen")
 	throw new NoResultException('Kann kein Road-Objekt ohne RoadLinks erstellen')
 }
@@ -2164,7 +2164,7 @@ _target {
 
 // Sammle ID für Netzwerk
 withTransformationContext {
-	_.context.collector(it).network &lt;&lt; 'Road_' + _source.p.id.value()
+	_.context.collector(it).network &lt;&lt; 'Road_' + strasseId
 }
 
 </core:text>
