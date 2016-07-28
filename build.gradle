@@ -49,9 +49,19 @@ transformations.each { name, config ->
       // prefer source folder from definition
       sourceFolder = project.file(config.sourceFolder)
     }
-    else if (project.hasProperty('defaultSourceFolder')) {
-      // use custom default source folder if present
-      String folder = project.getProperty('defaultSourceFolder')
+    else {
+      String folder
+
+      if (config.model && project.hasProperty('defaultSourceFolder_' + config.model)) {
+        // use custom default source folder for model if present
+        folder = project.getProperty('defaultSourceFolder_' + config.model)
+      }
+
+      if (!folder && project.hasProperty('defaultSourceFolder')) {
+        // otherwise use custom default source folder if present
+        folder = project.getProperty('defaultSourceFolder')
+      }
+
       if (folder) {
         sourceFolder = project.file(folder)
       }
