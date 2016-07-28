@@ -77,7 +77,7 @@ Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangeste
             </cf:output>
             <cf:param maxOccurs="1" minOccurs="0" name="source">
                 <cf:description>
-                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Quelle des Namens. Wird verwendet falls nicht aus Quell-Objekt bestimmt.</core:text>
+                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Quelle des Namens. Falls nicht angegeben wird sie aus einer Projekt-Variable oder, falls konfiguriert, aus dem Quell-Objekt bestimmt.</core:text>
                 </cf:description>
                 <cf:display value="Source of name"/>
                 <cf:binding>java.lang.String</cf:binding>
