@@ -2,7 +2,7 @@
 
 export HALE_OPTS="-Duser.country=DE -Duser.language=de"
 
-for file in *.json
+for file in *.model.json
 do
   filename=$(basename "$file")
   filename="${filename%.*}"
