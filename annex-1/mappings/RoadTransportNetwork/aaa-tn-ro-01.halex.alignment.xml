@@ -108,6 +108,11 @@ collect.conditionOfFacility.consume { key, values -&gt;
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt ein `ConditionOfFacility`-Objekt für jeden in den Daten vorkommenden Wert der [ConditionOfFacilityValue Code-Liste](http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `ConditionOfFacility_functional`.
+
+Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `RoadLink`s und `RoadArea`s) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb6bd7b9a-eadf-48f2-9232-260ac1bf2c10" priority="normal">
         <source name="types">
@@ -214,6 +219,12 @@ withTransformationContext {
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt `ERoad`s zu `AX_Strasse`.
+
+Die zugehörigen `AX_Fahrbahnachse`n und `AX_Strassenachse`n werden bestimmt um die Verknüpfung zu den entsprechend zu erstellenden `RoadLink`-Objekten herstellen zu können.
+Falls Fahrbahnachsen zu der Straße verfügbar sind werden diese zur Repräsentation der `RoadLink`s verwendet, andernfalls die Straßenachsen.
+
+Die erstellte `ERoad` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cca1117da-b1b7-438c-a90d-89e71b6e0c72" priority="normal">
         <source>
@@ -295,6 +306,11 @@ collect.formOfWay.consume { key, values -&gt;
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt ein `FormOfWay`-Objekt für jeden in den Daten vorkommenden Wert der [FormOfWayValue Code-Liste](http://inspire.ec.europa.eu/codelist/FormOfWayValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `FormOfWay_motorway`.
+
+Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `RoadLink`s und `RoadArea`s) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C76d28e9a-d217-4c2e-9b95-1597e9fe07de" priority="low">
         <target>
@@ -341,6 +357,11 @@ collect.functionalClass.consume { key, values -&gt;
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt ein `FunctionalRoadClass`-Objekt für jeden in den Daten vorkommenden Wert für `functionalClass` (Enumeration).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem Attribut-Wert gebildet, z.B. `FunctionalRoadClass_mainRoad`.
+
+Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `RoadLink`s und `RoadArea`s) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C03716a0b-a2f7-4f4b-8d93-13d186c7af73" priority="normal">
         <target name="result">
@@ -354,6 +375,8 @@ collect.functionalClass.consume { key, values -&gt;
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">'#' + _project.vars.NETWORK_ID</core:text>
         </complexParameter>
+        <documentation>Verknüpft das Netzwerk-Element mit dem entsprechenden *TransportNetwork*.
+Dazu wird die vorgegebene ID für das Netzwerk verwendet (Projekt-Variable).</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cf936785f-5456-4fc6-bd62-f55395169e5a" priority="low">
         <target>
@@ -408,6 +431,11 @@ collect.numberOfLanes.eachCollector { _numberOfLanes, next -&gt;
 
 </core:text>
         </complexParameter>
+        <documentation>Erstellt ein `NumberOfLanes`-Objekt für jede in den Daten vorkommende Kombination der Anzahl von Spuren (`numberOfLanes`) und der Richtung (`direction`, [LinkDirectionValue Code-Liste](http://inspire.ec.europa.eu/codelist/LinkDirectionValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart, der Richtung und der Anzahl von Spuren gebildet, z.B. `NumberOfLanes_bothDirections_2`.
+
+Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `RoadLink`s und `RoadArea`s) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb01cca94-65d0-482e-8ddc-79381e266aef" priority="normal">
         <target>
@@ -508,6 +536,29 @@ surfaces.each { surface -&gt;
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt `RoadArea`s aus `AX_KlassifizierungNachStrassenrecht`.
+
+Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien verwendet. Je Fläche wird eine `RoadArea` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
+
+Die erstellte `RoadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**FunctionalRoadClass**
+
+Die *functionalClass* wird wie folgt aus dem Attribute `artDerFestlegung` ermittelt:
+
+artDerFestlegung  | functionalClass
+- | -
+`1110` *(Bundesautobahn)* | `firstClass`
+`1120` *(Bundesstraße)* | `secondClass`
+`1130` *(Landes- oder Staatsstraße)* | `thirdClass`
+`1140` *(Kreisstraße)* | `fourthClass`
+`1170` *(Gemeindeverbindungsstraße)* | `fifthClass`
+`1150` *(Gemeindestraße)* | `sixthClass`
+`1190` *(Privatstraße)* | `ninthClass`</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca20f2d64-1511-4c47-b43c-ea4f8f9cae05" priority="normal">
         <source>
@@ -2062,6 +2113,11 @@ collect.surfaceCategory.consume { key, values -&gt;
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt ein `RoadSurfaceCategory`-Objekt für jeden in den Daten vorkommenden Wert der [RoadSurfaceCategoryValue Code-Liste](http://inspire.ec.europa.eu/codelist/RoadSurfaceCategoryValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `RoadSurfaceCategory_paved`.
+
+Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `RoadLink`s und `RoadArea`s) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Ca487d3fe-c4c0-4b2e-9a46-937483bda3c3" priority="normal">
         <source name="types">
@@ -2169,6 +2225,12 @@ withTransformationContext {
 
 </core:text>
         </complexParameter>
+        <documentation>Erstellt `Road`s zu `AX_Strasse`. Berücksichtig werden Straßen die keine Europastraßen sind (welche nach `ERoad` abgebildet werden).
+
+Die zugehörigen `AX_Fahrbahnachse`n und `AX_Strassenachse`n werden bestimmt um die Verknüpfung zu den entsprechend zu erstellenden `RoadLink`-Objekten herstellen zu können.
+Falls Fahrbahnachsen zu der Straße verfügbar sind werden diese zur Repräsentation der `RoadLink`s verwendet, andernfalls die Straßenachsen.
+
+Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3d378c6d-c4c0-4bfe-9748-be28f5908f38" priority="normal">
         <source>
@@ -2543,6 +2605,11 @@ collect.roadWidth.consume { values -&gt;
 
 </core:text>
         </complexParameter>
+        <documentation>Erstellt ein `RoadWidth`-Objekt für jedes Netzwerk-Element mit bekannter Breite.
+
+Die Information welche Netzwerk-Elemente welche Eigenschaften bezüglich der Breite aufweisen wurde zuvor beim Erstellen der entsprechenden Features in einem Index abgelegt.
+
+Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinheit und GML id des entsprechenden Features zu rekonstruieren. Mit letzterem wird eine Referenz (`NetworkReference`) zu dem Feature erstellt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C809327ca-b90f-4c31-8cb4-b9988c5e0aa9" priority="normal">
         <target>
@@ -2744,6 +2811,9 @@ _target {
 
 </core:text>
         </complexParameter>
+        <documentation>Erstellt das *TransportNetwork* für diese Netzwerk.
+
+Zuvor wurde beim Erstellen jedes Netzwerk-Elements dessen GML id in einem Index abgelegt. Diese Information wird hier nun genutzt um auf alle Elemente des Netzwerks zu verweisen.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C79bec27b-cdca-459d-9ecc-540aeca29d4b" priority="normal">
         <target name="result">
@@ -2756,6 +2826,9 @@ _target {
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">_project.vars.NETWORK_ID</core:text>
         </complexParameter>
+        <documentation>Weist die vorgegebene lokale ID für das Netzwerk zu.
+
+Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cad28e1b9-331b-4b75-838f-94b202fdba1f" priority="normal">
         <target name="result">
@@ -2788,6 +2861,9 @@ else {
 }
 </core:text>
         </complexParameter>
+        <documentation>Erzeugt einen GML identifier basierend auf der INSPIRE ID. Dazu wird der vorgegebene INSPIRE Namespace und die vorgegebene lokale ID für das Netzwerk hinzugezogen.
+
+Beide Vorgaben können über eine Projekt-Variable überschrieben werden.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc9255943-592d-4e33-b874-03846d8c9a3c" priority="normal">
         <target>
@@ -2809,6 +2885,9 @@ else {
             </property>
         </target>
         <parameter value="{{project:NETWORK_ID}}" name="value"/>
+        <documentation>Weist die vorgegebene lokale ID für das Netzwerk zu.
+
+Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C935f563e-2939-4fcc-aecc-8029498b746b" priority="normal">
         <target>
