@@ -229,6 +229,9 @@ class Transform extends AbstractExecTask {
     cmd << '-Scrs.epsg.prefix'
     cmd << 'http://www.opengis.net/def/crs/EPSG/0/'
 
+    cmd << '-SskipFeatureCount'
+    cmd << 'true'
+
     // validate
     // XML schema
     if (schemaValidation) {
