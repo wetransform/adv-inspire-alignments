@@ -22,8 +22,8 @@ Für das Ausführen der Transformation müssen folgende Voraussetzungen geschaff
 
 - Internetverbindung (für Verwendung eines Proxy ist weitere Konfiguration nötig)
 - **Java 8** muss auf dem System installiert sein (erreichbar über `PATH` Umgebungsvariable)
-- **hale** muss auf dem System in einer passenden Version verfügbar sein, der Pfad zur HALE-Executable muss in der Datei `gradle.properties` angegeben werden (siehe `gradle.properties.sample` für ein Beispiel)
-- Die Quell-Daten als XML/GML müssen im Verzeichnis `quelldaten` abgelegt werden (Endungen `.xml`, `.gml` oder `.gz`). Alternativ kann auch ein anderer Standard-Ordner für die Quell-Daten konfiguriert werden (siehe Abschnitt *Weitere Konfigurationsoptionen*).
+- Um eine bestimmte _hale_ Version zu verwenden muss es auf dem System verfügbar sein, der Pfad zur HALE-Executable muss in der Datei `gradle.properties` angegeben werden (siehe `gradle.properties.sample` für ein Beispiel). Wird keine Angabe gemacht werden die hale-Bibliotheken für die Ausführung heruntergeladen.
+- Die Quell-Daten als XML/GML müssen im Verzeichnis `quelldaten` abgelegt werden (Endungen `.xml`, `.gml` oder `.gz`). Alternativ können auch anderere Standard-Ordner für die Quell-Daten konfiguriert werden (siehe Abschnitt *Weitere Konfigurationsoptionen*).
 
 Gradle selbst wird beim ersten Aufruf von `gradlew.bat` (Windows) bzw. `./gradlew` (Linux / Mac OS X) automatisch heruntergeladen. Folgend wird `gradlew` stellvertretend für den Aufruf im jeweiligen Betriebssystem verwendet.
 

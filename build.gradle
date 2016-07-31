@@ -1,3 +1,47 @@
+project.ext.useCommandLine = project.hasProperty('haleCliExecutable') || project.hasProperty('haleCliExecutable')
+
+def cliVersion = '2.9.5-SNAPSHOT'
+
+if (!project.ext.useCommandLine) {
+  configurations {
+    hale
+  }
+
+  repositories {
+    maven { // wetransform release repository (HALE releases and Eclipse dependencies)
+      url 'https://artifactory.wetransform.to/artifactory/libs-release-local'
+    }
+    maven { // wetransform snapshot repository (HALE snapshots)
+      url 'https://artifactory.wetransform.to/artifactory/libs-snapshot-local'
+    }
+    
+    // these need to be before jcenter/MavenCentral for retrieving JAI
+    maven {
+      url 'http://download.java.net/maven/2'
+    }
+    maven {
+      url 'http://download.osgeo.org/webdav/geotools/'
+    }
+    
+    maven { // HALE artifactory (dependencies for HALE)
+      url 'http://artifactory.esdi-humboldt.eu/artifactory/libs-release/'
+    }
+    
+    maven {
+      url 'http://repo.opengeo.org'
+    }
+    jcenter()
+  }
+
+  configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 60, 'minutes'
+  }
+
+  dependencies {
+    // hale CLI
+    hale "to.wetransform:hale-cli:$cliVersion"
+  }
+}
 
 def json = new groovy.json.JsonSlurper()
 def transformations = json.parse(file(
@@ -82,11 +126,8 @@ transformations.each { name, config ->
 /**
  * Transformation task.
  */
-class Transform extends AbstractExecTask {
-  Transform() {
-    super(Transform.class)
-  }
-
+class Transform extends DefaultTask {
+  
   /**
    * Transformation alias.
    */
@@ -120,14 +161,15 @@ class Transform extends AbstractExecTask {
   /**
    * Maximum heap size in megabytes.
    */
-  int maxHeapSize = project.hasProperty('haleMaxHeapSize') ? (project.getProperty('haleMaxHeapSize') as int) : 2048
+  int maxHeapSizeMB = project.hasProperty('haleMaxHeapSize') ? (project.getProperty('haleMaxHeapSize') as int) : 2048
 
   /**
    * Map of project variables.
    */
   Map<String, String> projectVariables = [:]
 
-  protected void exec() {
+  @TaskAction
+  void transform() {
     // build command line
     def cmd
 
@@ -155,7 +197,7 @@ class Transform extends AbstractExecTask {
           // add any additional system properties
 
           // max heap size
-          cmd << "-Xmx${maxHeapSize}m"
+          cmd << "-Xmx${maxHeapSizeMB}m"
           // default log levels
           cmd << '-Dlog.hale.level=WARN'
           cmd << '-Dlog.root.level=ERROR'
@@ -178,10 +220,10 @@ class Transform extends AbstractExecTask {
       }
     }
     else {
-      // assuming hale-cli on path
-      println 'Assuming hale CLI executable on path'
-      cmd = ['hale', 'transform']
-      usingHaleCli = true
+      // using libraries on classpath
+      println 'Using libraries on classpath...'
+      cmd = ['transform']
+      usingHaleCli = false
     }
 
     // project
@@ -251,44 +293,84 @@ class Transform extends AbstractExecTask {
     cmd << '-stacktrace'
     cmd << '-trustGroovy'
 
-    commandLine = cmd
+    if (project.ext.useCommandLine) {
+      // execution via external command
 
-    // environment
-    
-    // HALE_OPTS if using hale-cli
-    if (usingHaleCli) {
-      List<String> haleOpts = []
-      
-      // max heap size
-      haleOpts << "-Xmx${maxHeapSize}m"
+      project.exec {
+        commandLine = cmd
 
-      // proxy configuration
-      addProxyArgs(haleOpts)
+        // environment
+        
+        // HALE_OPTS if using hale-cli
+        if (usingHaleCli) {
+          List<String> haleOpts = []
+          
+          // max heap size
+          haleOpts << "-Xmx${maxHeapSizeMB}m"
 
-      if (haleOpts) {
-        environment('HALE_OPTS', haleOpts.join(' '))
+          // proxy configuration
+          addProxyArgs(haleOpts)
+
+          if (haleOpts) {
+            environment('HALE_OPTS', haleOpts.join(' '))
+          }
+        }
+
+        // internal validation
+        if (internalValidation) {
+          // activate hale internal validation of transformed instances
+          environment('HALE_TRANSFORMATION_INTERNAL_VALIDATION', 'true')
+        }
+
+        // project variables
+        projectVariables.each { name, value ->
+          environment("${Transform.PROJECT_VARIABLE_PREFIX_ENV}${name}", value)
+        }
+
+        // output and error streams
+        File outFile = new File(targetFolder, 'out.log')
+        standardOutput = new TeeOutputStream(outFile.newOutputStream(), standardOutput)
+        File errFile = new File(targetFolder, 'err.log')
+        errorOutput = new TeeOutputStream(errFile.newOutputStream(), errorOutput)
+      }
+    }
+    else {
+      // execution via libraries in classpath
+
+      project.javaexec {
+        classpath project.configurations.hale
+        main = "to.wetransform.halecli.CLI"
+        args = cmd
+        def vmargs = ['-Dcache.level1.enabled=false', '-Dcache.level1.size=0',
+          '-Dcache.level2.enabled=false', '-Dcache.level2.size=0']
+
+        // proxy configuration
+        addProxyArgs(vmargs)
+
+        // max heap size
+        maxHeapSize = "${maxHeapSizeMB}m"
+        
+        jvmArgs = vmargs
+
+        // internal validation
+        if (internalValidation) {
+          // activate hale internal validation of transformed instances
+          environment('HALE_TRANSFORMATION_INTERNAL_VALIDATION', 'true')
+        }
+
+        // project variables
+        projectVariables.each { name, value ->
+          environment("${Transform.PROJECT_VARIABLE_PREFIX_ENV}${name}", value)
+        }
+
+        // output and error streams
+        File outFile = new File(targetFolder, 'out.log')
+        standardOutput = new TeeOutputStream(outFile.newOutputStream(), standardOutput)
+        File errFile = new File(targetFolder, 'err.log')
+        errorOutput = new TeeOutputStream(errFile.newOutputStream(), errorOutput)
       }
     }
 
-    // internal validation
-    if (internalValidation) {
-      // activate hale internal validation of transformed instances
-      environment('HALE_TRANSFORMATION_INTERNAL_VALIDATION', 'true')
-    }
-
-    // project variables
-    projectVariables.each { name, value ->
-      environment("${PROJECT_VARIABLE_PREFIX_ENV}${name}", value)
-    }
-
-    // output and error streams
-    File outFile = new File(targetFolder, 'out.log')
-    standardOutput = new TeeOutputStream(outFile.newOutputStream(), standardOutput)
-    File errFile = new File(targetFolder, 'err.log')
-    errorOutput = new TeeOutputStream(errFile.newOutputStream(), errorOutput)
-
-    // execute
-    super.exec()
   }
 
   /**
