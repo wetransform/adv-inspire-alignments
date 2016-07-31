@@ -12,18 +12,16 @@ Für das Öffnen der Alignment-Projekte oder das Generieren der Dokumentation wi
 Aktuelle Entwicklungsversionen können [hier](https://builds.wetransform.to/job/hale/job/hale~publish(master)/) heruntergeladen werden.
 
 
-Ausführung der Transformation
------------------------------
+Einrichtung Gradle und hale
+---------------------------
 
-Zum einfachen Ausführen von Transformationen sind Konfigurationen für die verschiedenen Projekte hinterlegt.
 Für die Ausführung selbst wird das Werkzeug [Gradle](https://gradle.org/) verwendet, um möglichst wenig Anforderungen an das ausführende System zu stellen.
 
-Für das Ausführen der Transformation müssen folgende Voraussetzungen geschaffen werden:
+Für das Ausführen von Gradle mit hale müssen folgende Voraussetzungen geschaffen werden:
 
 - Internetverbindung (für Verwendung eines Proxy ist weitere Konfiguration nötig)
 - **Java 8** muss auf dem System installiert sein (erreichbar über `PATH` Umgebungsvariable)
 - Um eine bestimmte _hale_ Version zu verwenden muss es auf dem System verfügbar sein, der Pfad zur HALE-Executable muss in der Datei `gradle.properties` angegeben werden (siehe `gradle.properties.sample` für ein Beispiel). Wird keine Angabe gemacht werden die hale-Bibliotheken für die Ausführung heruntergeladen.
-- Die Quell-Daten als XML/GML müssen im Verzeichnis `quelldaten` abgelegt werden (Endungen `.xml`, `.gml` oder `.gz`). Alternativ können auch anderere Standard-Ordner für die Quell-Daten konfiguriert werden (siehe Abschnitt *Weitere Konfigurationsoptionen*).
 
 Gradle selbst wird beim ersten Aufruf von `gradlew.bat` (Windows) bzw. `./gradlew` (Linux / Mac OS X) automatisch heruntergeladen. Folgend wird `gradlew` stellvertretend für den Aufruf im jeweiligen Betriebssystem verwendet.
 
@@ -33,6 +31,25 @@ Gradle kann in der Datei `gradle.properties` für eine Verbindung über einen HT
 Siehe auch die [entsprechende Gradle-Dokumentation](https://docs.gradle.org/current/userguide/build_environment.html#sec:accessing_the_web_via_a_proxy) oder die Beispiel-Datei `gradle.properties.sample`.
 
 Die Einstellungen für den HTTP-Proxy für hale werden für die Transformation aus der Gradle-Konfiguration übernommen, sofern möglich.
+
+
+Generieren der Dokumentation
+----------------------------
+
+Die Dokumentation zu allen hale-Projekten kann über entsprechende Gradle tasks generiert werden:
+
+- **docHtml** - Generieren der HTML-Dokumentation
+- **docExcel** - Generieren der Excel Mapping-Tabellen
+- **doc** - Generieren aller Dokumentationsarten
+
+
+Ausführen von Transformationen
+------------------------------
+
+Zum einfachen Ausführen von Transformationen sind Konfigurationen für die verschiedenen Projekte hinterlegt.
+
+Für das Ausführen der Transformation müssen die Quell-Daten als XML/GML im Verzeichnis `quelldaten` abgelegt werden (Endungen `.xml`, `.gml` oder `.gz`).
+Alternativ können auch anderere Standard-Ordner für die Quell-Daten konfiguriert werden (siehe Abschnitt *Weitere Konfigurationsoptionen*).
 
 ### Auflisten der Transformationen
 
@@ -158,11 +175,5 @@ gradlew -PdefaultSourceFolder="C:\Meine Daten\DLKM" transform-cp
 #### Transformation startet nicht
 
 Falls der Transformationsprozess über Gradle nicht startet, ist eine wahrscheinliche Ursache, dass der entsprechende Kommandozeilenaufruf nicht korrekt ist.
-
-Bitte prüfen Sie zuerst ob Sie eine Datei `gradle.properties` angelegt haben, in der nach dem Muster der Datei `gradle.properties.sample` mindestens die Eigenschaft **haleExecutable** konfiguriert ist, z.B.:
-
-```
-haleExecutable=C:\my\hale\installation\HALE.exe
-```
 
 Durch das Übergeben des Parameters `--info` an Gradle wird beim Ausführen einer Transformation der komplette Kommandozeilen-Aufruf ausgegeben. Bitte prüfen Sie ihn auf Korrektheit (z.B. die verwendeten Pfade). Zu Testzwecken kann der Aufruf auch unabhängig von Gradle direkt ausgeführt werden.

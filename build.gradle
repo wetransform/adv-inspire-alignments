@@ -1,4 +1,4 @@
-project.ext.useCommandLine = project.hasProperty('haleCliExecutable') || project.hasProperty('haleCliExecutable')
+project.ext.useCommandLine = project.hasProperty('haleCliExecutable') || project.hasProperty('haleExecutable')
 
 def cliVersion = '2.9.5-SNAPSHOT'
 
@@ -122,6 +122,29 @@ transformations.each { name, config ->
 
   tasks['transform-all'].dependsOn("transform-$name")
 }
+
+// add documentation tasks
+
+task('doc') {
+  description 'Generate mapping documentation (All variants).'
+  group 'Documentation'
+}
+
+[
+  [task: 'docHtml', cmd: 'export-doc', type: 'HTML'],
+  [task: 'docExcel', cmd: 'export-table', type: 'Excel']
+].each { item ->
+  task(item.task, type: HaleCommandLine) {
+    args = ['project', 'alignment', item.cmd]
+
+    description "Generate mapping documentation (${item.type})."
+    group 'Documentation'
+  }
+
+  tasks['doc'].dependsOn(item.task)
+}
+
+// task and helper classes
 
 /**
  * Transformation task.
@@ -376,12 +399,12 @@ class Transform extends DefaultTask {
   /**
    * Prefix for project variables - see ProjectVariables class in hale.
    */
-  private static final String PROJECT_VARIABLE_PREFIX_ENV = "HALE_PROJECT_";
+  static final String PROJECT_VARIABLE_PREFIX_ENV = "HALE_PROJECT_";
 
   /**
    * List of proxy related system properties.
    */
-  private static final PROXY_PROPS = [
+  static final PROXY_PROPS = [
     'http.proxyHost',
     'http.proxyPort',
     'http.proxyUser',
@@ -400,13 +423,143 @@ class Transform extends DefaultTask {
    * @param argList The argument list to add the HTTP-Proxy configuration
    *   arguments to
    */
-  protected void addProxyArgs(List<String> argList) {
+  static void addProxyArgs(List<String> argList) {
     PROXY_PROPS.each { name ->
       String prop = System.getProperty(name)
       if (prop != null) {
         argList << "-D${name}=${prop}"
       }
     }
+  }
+
+}
+
+/**
+ * Generic CLI task.
+ */
+class HaleCommandLine extends DefaultTask {
+
+  /**
+   * CLI arguments.
+   */
+  List<String> args = []
+
+  /**
+   * Maximum heap size in megabytes.
+   */
+  int maxHeapSizeMB = project.hasProperty('haleMaxHeapSize') ? (project.getProperty('haleMaxHeapSize') as int) : 2048
+
+  /**
+   * Map of project variables.
+   */
+  Map<String, String> projectVariables = [:]
+
+  @TaskAction
+  void runCommand() {
+    // build command line
+    def cmd
+
+    boolean usingHaleCli = false
+
+    // executable
+    if (project.hasProperty('haleCliExecutable')) {
+      println 'Using hale CLI executable at ' + project.getProperty('haleCliExecutable')
+      cmd = [project.getProperty('haleCliExecutable')]
+      cmd.addAll(args)
+      usingHaleCli = true
+    }
+    else if (project.hasProperty('haleExecutable')) {
+      File execFile = project.file(project.getProperty('haleExecutable'))
+      File haleFolder = execFile.parentFile
+
+      if (haleFolder && haleFolder.exists() && haleFolder.isDirectory()) {
+        // check if we can find the launcher jar to launch hale via java
+        def files = new FileNameFinder().getFileNames(new File(haleFolder, 'plugins') as String,
+          'org.eclipse.equinox.launcher_*.jar')
+        if (files && files.size() == 1) {
+          println "Using halestudio launcher at ${files[0]} to launch CLI via java"
+          cmd = ['java', '-Dcache.level1.enabled=false', '-Dcache.level1.size=0',
+            '-Dcache.level2.enabled=false', '-Dcache.level2.size=0']
+
+          // add any additional system properties
+
+          // max heap size
+          cmd << "-Xmx${maxHeapSizeMB}m"
+          // default log levels
+          cmd << '-Dlog.hale.level=WARN'
+          cmd << '-Dlog.root.level=ERROR'
+
+          // proxy configuration
+          Transform.addProxyArgs(cmd)
+
+          // app launching
+          cmd << '-jar'
+          cmd << files[0]
+          cmd << '-application'
+          cmd << 'hale.cli'
+
+          cmd.addAll(args)
+        }
+      }
+
+      if (!cmd) {
+        // fall-back to using executable
+        println 'Using halestudio executable at ' + project.getProperty('haleExecutable')
+        cmd = [execFile as String, '-nosplash', '-application', 'hale.cli']
+        cmd.addAll(args)
+      }
+    }
+    else {
+      // using libraries on classpath
+      println 'Using libraries on classpath...'
+      cmd = args
+      usingHaleCli = false
+    }
+
+    if (project.ext.useCommandLine) {
+      // execution via external command
+
+      project.exec {
+        commandLine = cmd
+
+        // environment
+        
+        // HALE_OPTS if using hale-cli
+        if (usingHaleCli) {
+          List<String> haleOpts = []
+          
+          // max heap size
+          haleOpts << "-Xmx${maxHeapSizeMB}m"
+
+          // proxy configuration
+          Transform.addProxyArgs(haleOpts)
+
+          if (haleOpts) {
+            environment('HALE_OPTS', haleOpts.join(' '))
+          }
+        }
+      }
+    }
+    else {
+      // execution via libraries in classpath
+
+      project.javaexec {
+        classpath project.configurations.hale
+        main = "to.wetransform.halecli.CLI"
+        args = cmd
+        def vmargs = ['-Dcache.level1.enabled=false', '-Dcache.level1.size=0',
+          '-Dcache.level2.enabled=false', '-Dcache.level2.size=0']
+
+        // proxy configuration
+        Transform.addProxyArgs(vmargs)
+
+        // max heap size
+        maxHeapSize = "${maxHeapSizeMB}m"
+        
+        jvmArgs = vmargs
+      }
+    }
+
   }
 
 }
