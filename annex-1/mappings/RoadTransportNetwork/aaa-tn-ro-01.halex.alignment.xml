@@ -2440,6 +2440,9 @@ withTransformationContext {
 
 </core:text>
         </complexParameter>
+        <documentation>Erstellt je eine `Road` zu einer `AX_Fahrwegachse`.
+
+Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C949d36a1-b1e9-4c1d-9fab-584d6ff7bee2" priority="normal">
         <source>
@@ -2487,9 +2490,13 @@ withTransformationContext {
 
 </core:text>
         </complexParameter>
-        <documentation>Abbildung nach Road nur `art` "Fußweg", "Radweg" und "Rad- und Fußweg".
+        <documentation>Erstellt eine `Road`s aus `AX_WegPfadSteig` (nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*).
 
-*Die Bedingung weicht von der Angabe in der vorgegebenen Mapping-Tabelle ab (alle AX_WegPfadSteig), wurde jedoch angepasst an die Vorgaben zu RoadLink, da eine Road aus mindestens einem RoadLink bestehen muss.*</documentation>
+*Die Bedingung weicht von der Angabe in der vorgegebenen Mapping-Tabelle ab (alle AX_WegPfadSteig), wurde jedoch angepasst an die Vorgaben zu RoadLink, da eine Road aus mindestens einem RoadLink bestehen muss.*
+
+Die Geometrie des Quell-Objekts wird untersucht. Nur linienartige Geometrien sind relevant, da aus diesen an anderer Stelle entsprechende `RoadLink`s erstellt werden. Die Verknüpfung zu diesen `RoadLink`s wird hier hergestellt.
+
+Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce6146fb9-6ab3-4d76-a0f8-ebf3c9e66667" priority="normal">
         <source>
