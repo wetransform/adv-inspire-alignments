@@ -538,7 +538,7 @@ surfaces.each { surface -&gt;
         </complexParameter>
         <documentation>Erstellt `RoadArea`s aus `AX_KlassifizierungNachStrassenrecht`.
 
-Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien verwendet. Je Fläche wird eine `RoadArea` erzeugt.
+Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien werden verwendet. Je Fläche wird eine `RoadArea` erzeugt.
 
 Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
 
@@ -548,7 +548,7 @@ Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt
 
 **FunctionalRoadClass**
 
-Die *functionalClass* wird wie folgt aus dem Attribute `artDerFestlegung` ermittelt:
+Die *functionalClass* wird wie folgt aus dem Attribut `artDerFestlegung` ermittelt:
 
 artDerFestlegung  | functionalClass
 - | -
@@ -586,7 +586,9 @@ withTransformationContext {
 }
 </core:text>
         </complexParameter>
-        <documentation>Abbildung nach **RoadArea** nur `funktion` *Fußgängerzone*.</documentation>
+        <documentation>Erstellt `RoadArea`s aus `AX_Platz` (nur `funktion` *Fußgängerzone*).
+
+Die erstellte `RoadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C0f1c8732-7bcc-4843-abce-025a5c88d4f6" priority="normal">
         <source>
@@ -628,7 +630,23 @@ withTransformationContext {
 }
 </core:text>
         </complexParameter>
-        <documentation>Abbildung nach **RoadArea** nur `funktion` *Verkehrsbegleitfläche Straße* und *Fußgängerzone*.</documentation>
+        <documentation>Erstellt `RoadArea`s aus `AX_Strassenverkehr` (nur `funktion` *Verkehrsbegleitfläche Straße* und *Fußgängerzone*).
+
+Die erstellte `RoadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**ConditionOfFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` ermittelt:
+
+zustand  | conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional`angenommen.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2827fa08-a3dd-4539-83de-413c6b922f47" priority="normal">
         <source>
@@ -697,9 +715,20 @@ surfaces.each { surface -&gt;
 }
 </core:text>
         </complexParameter>
-        <documentation>Abbildung nach **RoadArea** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
+        <documentation>Erstellt `RoadArea`s aus `AX_WegPfadSteig` (nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*).
 
-Für jede individuelle Flächen-Geometre wird eine **RoadArea** erstellt.</documentation>
+Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien verwendet. Je Fläche wird eine `RoadArea` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
+
+Die erstellte `RoadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**FunctionalRoadClass**
+
+Die *functionalClass* wird fest als `ninthClass` angegeben.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cf0cb60dc-8399-4dd5-a7cc-03bba3ce2990" priority="normal">
         <source>
@@ -749,6 +778,25 @@ withTransformationContext {
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt `RoadArea`s aus `AX_Weg` (alle Werte `funktion` außer *Reitweg*, *sonstige*).
+
+Die erstellte `RoadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**FunctionalRoadClass**
+
+Die *functionalClass* wird wie folgt aus dem Attribut `funktion` ermittelt:
+
+funktion  | functionalClass
+- | -
+`5210` *(Fahrweg)* | `eighthClass`
+`5212` *(Wirtschaftsweg)* | `eighthClass`
+`5211` *(Hauptwirtschaftsweg)* | `seventhClass`
+`5220` *(Fußweg)* | `seventhClass`
+`5240` *(Radweg)* | `seventhClass`
+`5250` *(Rad- und Fußweg)* | `ninthClass`
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc08e41ed-4753-4bff-880c-4e02752007c7" priority="normal">
         <source>
@@ -1199,6 +1247,68 @@ if (!hatStrassenachse) {
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt `RoadLink`s zu `AX_Strasse`.
+
+Die zugehörigen `AX_Fahrbahnachse`n und `AX_Strassenachse`n werden bestimmt.
+Falls Fahrbahnachsen zu der Straße verfügbar sind werden diese zur Repräsentation der `RoadLink`s verwendet, andernfalls die Straßenachsen.
+
+Je abzubildender Achse wird ein `RoadLink` erstellt.
+Die lokale ID wird aus dem Namen der Ziel-Objektart (`RoadLink`) und der AAA-ObjektID der Achse gebildet (getrennt durch einen Unterstrich).
+Geometrie und Lebenszeitintervall der Achse werden in den `RoadLink` übernommen.
+
+Die erstellten `RoadLink`s werden dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**FormOfWay**
+
+Die *formOfWay* wird wie folgt aus den Attributen `widmung` und `fahrbahntrennung` der Straße ermittelt:
+
+Ist die Fahrbahn nicht getrennt ( *fahrbahntrennung != 2000* ) wird `singleCarriageway` verwendet.
+Ist die Fahrbahn getrennt, wird der Wert auf Basis der Widmung bestimmt. Ist der Wert für Widmung Bundesautobahn (`1301`) wird `motorway` verwendet, andernfalls `dualCarriageway`.
+
+**RoadSurfaceCategory**
+
+Die *surfaceCategory* wird für alle Straßen als `paved` angenommen.
+
+**FunctionalRoadClass**
+
+Die *functionalClass* wird wie folgt aus den Attributen `internationaleBedeutung` und `widmung` der Straße ermittelt.
+Ist die Straße eine Europastraße ( *internationaleBedeutung = 2001* ) wird `mainRoad` als Wert angenommen.
+Andernfalls wird sie aus dem Attribut `widmung` wie folgt bestimmt:
+
+widmung | functionalClass
+- | -
+`1301` *(Bundesautobahn)* | `firstClass`
+`1303` *(Bundesstraße)* | `secondClass`
+`1305` *(Landesstraße, Staatsstraße)* | `thirdClass`
+`1306` *(Kreisstraße)* | `fourthClass`
+`1307` *(Gemeindestraße)* | `sixthClass`
+
+**FormOfWay**
+
+Ist über das Attribut `funktion` der Achse feststellbar dass es sich um eine Fußgängerzone (`1808`) handelt, wird `pedestrianZone` als *formOfWay* hinterlegt.
+
+**RoadWidth**
+
+Die Information über die Fahrbahnbreite (Attribut `breiteDerFahrbahn` der Achse) wird falls vorhanden im Index hinterlegt.
+
+**NumberOfLanes**
+
+Die Information über die Anzahl der Fahrstreifen (Attribut `anzahlDerFahrstreifen` der Achse) wird falls vorhanden im Index hinterlegt.
+Für Fahrbahnachsen wird als *direction* `inDirection` angegeben, für Straßenachsen `bothDirections`.
+
+**ConditionOfFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` der Achse ermittelt:
+
+zustand  | conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional`angenommen.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca2c2e18b-a4f7-4f75-8f33-c9f97ac16b08" priority="normal">
         <source>
@@ -1258,6 +1368,30 @@ withTransformationContext {
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt einen `RoadLink` aus einer `AX_Fahrwegachse`.
+
+Der erstellte `RoadLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**RoadSurfaceCategory**
+
+Die *surfaceCategory* wird wie folgt aus dem Attribut `befestigung` ermittelt:
+
+befestigung  | surfaceCategory
+- | -
+`1000` *(Befestigt)* | `paved`
+`2000` *(Unbefestigt)* | `unpaved`
+
+**FunctionalRoadClass**
+
+Die *functionalClass* wird wie folgt aus dem Attribut `funktion` ermittelt:
+
+funktion  | functionalClass
+- | -
+`5211` *(Hauptwirtschaftsweg)* | `seventhClass`
+`5212` *(Wirtschaftsweg)* | `eighthClass`
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3296f18d-e980-40cf-a9f3-9e5187ecf16a" priority="normal">
         <source>
@@ -1359,9 +1493,39 @@ curves.each { curve -&gt;
 }
 </core:text>
         </complexParameter>
-        <documentation>Abbildung nach **RoadLink** nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*.
+        <documentation>Erstellt `RoadLink`s aus `AX_WegPfadSteig` (nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*).
 
-Für jede individuelle Linien-Geometrie wird ein **RoadLink** erstellt.</documentation>
+Die Geometrie des Quell-Objekts wird untersucht. Nur linienartige Geometrien werden verwendet. Je individueller Geometrie wird ein `RoadLink` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der individuellen Geometrien (1., 2., Geometrie) gebildet.
+
+Der erstellte `RoadLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**FormOfWay**
+
+Die *formOfWay* wird wie folgt aus dem Attribut `art` ermittelt:
+
+art  | formOfWay
+- | -
+`1106` *(Radweg)* | `bicycleRoad`
+`1110` *(Rad- und Fußweg)* | `bicycleRoad`
+`1103` *(Fußweg)* | `walkway`
+
+**RoadSurfaceCategory**
+
+Die *surfaceCategory* wird wie folgt aus dem Attribut `befestigung` ermittelt:
+
+befestigung  | surfaceCategory
+- | -
+`1000` *(Befestigt)* | `paved`
+`2000` *(Unbefestigt)* | `unpaved`
+
+**FunctionalRoadClass**
+
+Die *functionalClass* wird als `ninthClass` festgelegt.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ceb60a943-e6d4-45c8-8692-2509eb1a7320" priority="normal">
         <source>
@@ -1607,7 +1771,9 @@ withTransformationContext {
 }
 </core:text>
         </complexParameter>
-        <documentation>Abbildung nach **RoadServiceArea** nur `funktion` *Rastplatz*, *Raststätte* und *Parkplatz*.</documentation>
+        <documentation>Erstellt `RoadServiceArea` aus `AX_Platz` (nur `funktion` *Rastplatz*, *Raststätte* und *Parkplatz*).
+
+Die erstellte `RoadServiceArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2f3a385b-d4d3-4a1e-9999-296f10a58386" priority="normal">
         <source>
@@ -1649,7 +1815,23 @@ withTransformationContext {
 }
 </core:text>
         </complexParameter>
-        <documentation>Abbildung nach **RoadServiceArea** nur `funktion` *Gebäude- und Freifläche zu Verkehrsanlagen, Straße* und *Straßenentwässerungsanlage*.</documentation>
+        <documentation>Erstellt `RoadServiceArea` aus `AX_Strassenverkehr` (nur `funktion` *Gebäude- und Freifläche zu Verkehrsanlagen, Straße* und *Straßenentwässerungsanlage*).
+
+Die erstellte `RoadServiceArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**ConditionOfFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` ermittelt:
+
+zustand  | conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional`angenommen.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C061eaac0-9374-4b3e-b1e9-d153a8be91b5" priority="normal">
         <source>
@@ -1826,6 +2008,7 @@ withTransformationContext {
         </target>
         <parameter value="false" name="auto_detect"/>
         <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}funktion" name="property"/>
+        <documentation>`AX_Platz` mit gleicher `funktion` werden zusammengefasst um den `RoadServiceType` für die entsprechenden `RoadServiceArea`s zu bilden.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cccc9812b-cbe4-47a6-ab03-5e4e8e237b2f" priority="normal">
         <source name="anchor">
@@ -2917,6 +3100,7 @@ Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentati
             </property>
         </target>
         <parameter value="unpopulated" name="value"/>
+        <documentation>`TransportProperty`-Objekte sind im Rahmen der Transformation neu gebildete Objekte und übernehmen daher keine Information für `beginLifespanVersion` aus den Quell-Daten.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C9fbdcf9a-e35a-4f33-b915-77155350de27" priority="normal">
         <target>
@@ -2927,6 +3111,7 @@ Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentati
             </property>
         </target>
         <parameter value="unpopulated" name="value"/>
+        <documentation>Diese Information ist im 3A-Modell nicht vorhanden.</documentation>
     </cell>
     <modifier cell="C010d8324-6422-49f2-883a-7ee5d875177b">
         <disable-for parent="C2581bae5-bd09-416c-948e-bcb8b5835ca3"/>
