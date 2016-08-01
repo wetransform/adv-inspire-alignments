@@ -17,7 +17,27 @@
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def name = lagebezeichnung.p.unverschluesselt.value()
 
-//TODO Namen auch aus verschlüsselter Lagebezeichnung ableiten?
+if (!name) {
+	// Namen auch aus verschlüsselter Lagebezeichnung ableiten
+	
+	def gemeinde = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde.value()
+	def kreis = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis.value()
+	def lage = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.lage.value()
+	def land = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.land.value()
+	def reg = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk.value()
+
+	if (land &amp;&amp; gemeinde &amp;&amp; kreis &amp;&amp; lage) {
+		if (!reg) reg = '0'
+		def schluesselGesamt = "$land$reg$kreis$gemeinde$lage"
+		
+		withTransformationContext {
+			def collect = _.context.collector(it)
+	  
+			// Name zu Schlüssel der Lagebezeichnung aus Index holen
+			name = collect.lagebezeichnung[schluesselGesamt].value()
+		}
+	}
+}
 
 if (name) {
 	_target {
@@ -42,7 +62,8 @@ else {
                 <cf:locale country="" language="" variant="">
                     <cf:template>
                         <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-Erstellt ein GeographicalName-Objekt aus einer unverschlüsselten Lagebezeichnung.
+Erstellt ein GeographicalName-Objekt aus einer Lagebezeichnung.
+Eine unverschlüsselte Lagebezeichnung wird direkt übernommen, eine verschlüsselte Lagebezeichnung wird versucht über einen Index nachzuschlagen.
 
 Die Sprache wird als Deutsch angenommen.
 
@@ -55,6 +76,32 @@ Die Sprache wird als Deutsch angenommen.
             </cf:explanation>
         </cf:custom-property-function>
     </customFunction>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C44422922-aa67-4d00-bc52-a77a4ed816b8" priority="highest">
+        <source>
+            <class>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def name = _source.p.bezeichnung.value()
+def schluessel = _source.p.schluesselGesamt.value()
+
+withTransformationContext {
+  def collect = _.context.collector(it)
+  
+  // Name zu Schlüssel der Lagebezeichnung im Index ablegen
+  collect.lagebezeichnung[schluessel] = name
+}
+</core:text>
+        </complexParameter>
+        <documentation>Dies ist eine Dummy-Transformationsdefinition die keine Objekte erzeugt sondern zum Aufbauen eines Index für `AX_LagebezeichnungKatalogeintrag` dient.</documentation>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C1eb2d011-34d1-4077-8388-f7fbdb1659b9" priority="low">
         <target>
             <class>

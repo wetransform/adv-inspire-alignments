@@ -23,7 +23,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
 2. Ein *TransportProperty*-Objekt für alle Features die in den Quell-Daten die gleichen relevanten Informationen aufweisen. Die Identifier werden dabei basierend auf dem Quell-Wert oder -Werten gebildet. Umgesetzt wurde das so für `RoadServiceType`.
 3. Ein *TransportProperty*-Objekt für jedes Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `RoadWidth`.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-01T13:42:45.869+02:00</modified>
+    <modified>2016-08-01T15:37:57.164+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1506,6 +1506,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="instances.sampling.settings.first">1</property>
     <property name="instances.sampling.settings.skip">10</property>
     <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegPfadSteigType</property>
+    <property name="mappableSourceType/10">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungKatalogeintragType</property>
     <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PlatzType</property>
     <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KlassifizierungNachStrassenrechtType</property>
     <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType</property>
@@ -1514,7 +1515,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrasseType</property>
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType</property>
-    <property name="mappableSourceType/count">9</property>
+    <property name="mappableSourceType/count">10</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadLinkSequenceType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadServiceTypeType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}FunctionalRoadClassType</property>
@@ -1527,6 +1528,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="mappableTargetType/18">{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType</property>
     <property name="mappableTargetType/19">{http://inspire.ec.europa.eu/schemas/tn/4.0}ConditionOfFacilityType</property>
     <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadNodeType</property>
+    <property name="mappableTargetType/20">{http://www.opengis.net/gml/3.2}AbstractFeatureType</property>
     <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadServiceAreaType</property>
     <property name="mappableTargetType/4">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadWidthType</property>
     <property name="mappableTargetType/5">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadType</property>
@@ -1534,7 +1536,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadLinkType</property>
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadSurfaceCategoryType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}VehicleTrafficAreaType</property>
-    <property name="mappableTargetType/count">19</property>
+    <property name="mappableTargetType/count">20</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
