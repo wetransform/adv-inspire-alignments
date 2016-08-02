@@ -2513,28 +2513,33 @@ def geometries = _.geom.findLines(_source.p.position.first())
 // RoadLinks werden aus den individuellen Geometrien gebildet
 def curves = _.geom.splitMulti(geometries)
 
-// Identifier des Quell-Objekts
-def sourceId = _source.p.id.value()
+if (curves) {
+	// erstelle eine Road nur wenn linienartige Geometrien
+	// vorhanden sind (andernfalls wird es eine RoadArea)
 
-_target {
-	// Verweis auf individuelle RoadLinks erstellen
-	int num = 1
-	curves.each { curve -&gt;
-		// ID bestimmen
-		def ref = "#RoadLink_${sourceId}_${num}"
-		link {
-			href( ref )
+	// Identifier des Quell-Objekts
+	def sourceId = _source.p.id.value()
+	
+	_target {
+		// Verweis auf individuelle RoadLinks erstellen
+		int num = 1
+		curves.each { curve -&gt;
+			// ID bestimmen
+			def ref = "#RoadLink_${sourceId}_${num}"
+			link {
+				href( ref )
+			}
+			
+			num++
 		}
-		
-		num++
 	}
-}
+	
+	// Sammle ID für Netzwerk
+	withTransformationContext {
+		_.context.collector(it).network &lt;&lt; "Road_$sourceId"
+	}
 
-// Sammle ID für Netzwerk
-withTransformationContext {
-	_.context.collector(it).network &lt;&lt; "Road_$sourceId"
 }
-
 </core:text>
         </complexParameter>
         <documentation>Erstellt eine `Road`s aus `AX_WegPfadSteig` (nur `art` *Fußweg*, *Radweg* und *Rad- und Fußweg*).
