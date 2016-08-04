@@ -318,6 +318,14 @@ def geoms = _.geom.findPolygons(_source.links.AX_Gemeinde.AX_Flurstueck.p.positi
 // führe den Join nicht aus wenn keine assoziierten Flurstücke
 // mit entsprechender Geometrie vorhanden sind
 if (!geoms) {
+	def sourceId = _source.p.id.value()
+	def gemeinden = _source.links.AX_Gemeinde.p.id.values()
+	if (gemeinden) {
+		_log.warn("Keine Flurstückgeometrien zu Verwaltungsgemeinschaft $sourceId gefunden, zugehörige AdminstrativeUnit wird nicht erstellt")
+	}
+	else {
+		_log.warn("Keine Gemeinden zu Verwaltungsgemeinschaft $sourceId gefunden, zugehörige AdminstrativeUnit wird nicht erstellt")
+	}
 	throw new NoResultException()
 }
 
