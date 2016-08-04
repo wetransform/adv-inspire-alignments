@@ -2,27 +2,204 @@
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <base prefix="ba1" location="aaa-au-basis.halex.alignment.xml"/>
-    <modifier cell="ba1:Ccef5cb84-463f-48e8-82cb-646e5f1d8032">
-        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
-    </modifier>
-    <modifier cell="ba1:Cbd879726-8cea-4184-9cf3-74593fce4479">
-        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
-    </modifier>
-    <modifier cell="ba1:C1a9e49d5-897e-474b-a92e-0db044f7f60e">
-        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
-    </modifier>
-    <modifier cell="ba1:Caa605b44-05cd-4a95-8df1-68e6f85eecf8">
-        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
-    </modifier>
-    <modifier cell="ba1:C82252143-7abc-4d35-bd5f-7c91b9acd599">
-        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
-    </modifier>
-    <modifier cell="ba1:Cd866ada4-43ad-47dd-963d-a2d48a11c40c">
-        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
-    </modifier>
-    <modifier cell="ba1:Cb517321b-4e19-4fdd-bb36-41584acd28c3">
-        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
-    </modifier>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C9d42346d-f8ab-44d6-8a30-7b7030955c0c" priority="low">
+        <source name="types">
+            <class>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Bundesland_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// alle Eigenschaften mit Geometrien aus Flurstücken
+def geoms = _.geom.findPolygons(_source.links.AX_Flurstueck.p.position.list())
+
+// führe den Join nicht aus wenn keine assoziierten Flurstücke
+// mit entsprechender Geometrie vorhanden sind
+if (!geoms) {
+	throw new NoResultException()
+}
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+def _id = '_' + _source.p.schluesselGesamt.value()
+
+_target{
+	geometry {
+		MultiSurface( _.geom.union(geoms) )
+	}
+	// gesammelte lowerLevelUnits
+	collect.land[_id].each { lowerId -&gt;
+		lowerLevelUnit {
+			href( "#$lowerId" )
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C67bd480d-5ea0-4ef8-b84c-15b1063d2667" priority="higher">
+        <source name="types">
+            <class>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// alle Eigenschaften mit Geometrien aus Flurstücken
+def geoms = _source.links.AX_Flurstueck.p.position.list()
+
+// führe den Join nicht aus wenn keine assoziierten Flurstücke
+// vorhanden sind
+if (!geoms) {
+	throw new NoResultException()
+}
+
+// bilde Union
+def union = _.geom.union(geoms)
+
+// bestimmte upper level unit (Verwaltungsgemeinschaft oder Kreis)
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+def _id = '_' + _source.p.schluesselGesamt.value()
+// hinterlegte Verwaltungsgemeinschaft
+def upperLevelUnit = collect.verwaltungsGemeinschaft[_id].value()
+if (!upperLevelUnit) {
+	// Kreis/Region
+	def land = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.land.value()
+	def regBezirk = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.regierungsbezirk.value()?:'0'
+	def kreis = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.kreis.value()
+	
+	upperLevelUnit =  "_${land}${regBezirk}${kreis}"
+	
+	// Sammle ID für Kreis/Region
+	collect.kreis[upperLevelUnit] &lt;&lt; _id
+}
+
+_target{
+	geometry {
+		MultiSurface( union )
+	}
+	_b.upperLevelUnit {
+		href( "#${upperLevelUnit}" )
+	}
+}
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C153144ee-8008-471c-a689-adba7e1d10b7" priority="highest">
         <source name="types">
             <class>
@@ -167,133 +344,6 @@ withTransformationContext {
 	collect.kreis[upperLevelUnit] &lt;&lt; _id
 }
 
-</core:text>
-        </complexParameter>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C67bd480d-5ea0-4ef8-b84c-15b1063d2667" priority="higher">
-        <source name="types">
-            <class>
-                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <source name="types">
-            <class>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="join">
-            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
-                <class>
-                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <class>
-                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-            </jp:join-parameter>
-        </complexParameter>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// alle Eigenschaften mit Geometrien aus Flurstücken
-def geoms = _source.links.AX_Flurstueck.p.position.list()
-
-// führe den Join nicht aus wenn keine assoziierten Flurstücke
-// vorhanden sind
-if (!geoms) {
-	throw new NoResultException()
-}
-
-// bilde Union
-def union = _.geom.union(geoms)
-
-// bestimmte upper level unit (Verwaltungsgemeinschaft oder Kreis)
-def collect
-withTransformationContext {
-	collect = _.context.collector(it)
-}
-def _id = '_' + _source.p.schluesselGesamt.value()
-// hinterlegte Verwaltungsgemeinschaft
-def upperLevelUnit = collect.verwaltungsGemeinschaft[_id].value()
-if (!upperLevelUnit) {
-	// Kreis/Region
-	def land = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.land.value()
-	def regBezirk = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.regierungsbezirk.value()?:'0'
-	def kreis = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.kreis.value()
-	
-	upperLevelUnit =  "_${land}${regBezirk}${kreis}"
-	
-	// Sammle ID für Kreis/Region
-	collect.kreis[upperLevelUnit] &lt;&lt; _id
-}
-
-_target{
-	geometry {
-		MultiSurface( union )
-	}
-	_b.upperLevelUnit {
-		href( "#${upperLevelUnit}" )
-	}
-}
 </core:text>
         </complexParameter>
     </cell>
@@ -504,75 +554,25 @@ _target{
 </core:text>
         </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C9d42346d-f8ab-44d6-8a30-7b7030955c0c" priority="low">
-        <source name="types">
-            <class>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <source name="types">
-            <class>
-                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="join">
-            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
-                <class>
-                    <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <class>
-                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <jp:condition>
-                    <property>
-                        <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Bundesland_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-            </jp:join-parameter>
-        </complexParameter>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// alle Eigenschaften mit Geometrien aus Flurstücken
-def geoms = _.geom.findPolygons(_source.links.AX_Flurstueck.p.position.list())
-
-// führe den Join nicht aus wenn keine assoziierten Flurstücke
-// mit entsprechender Geometrie vorhanden sind
-if (!geoms) {
-	throw new NoResultException()
-}
-
-def collect
-withTransformationContext {
-	collect = _.context.collector(it)
-}
-def _id = '_' + _source.p.schluesselGesamt.value()
-
-_target{
-	geometry {
-		MultiSurface( _.geom.union(geoms) )
-	}
-	// gesammelte lowerLevelUnits
-	collect.land[_id].each { lowerId -&gt;
-		lowerLevelUnit {
-			href( "#$lowerId" )
-		}
-	}
-}
-</core:text>
-        </complexParameter>
-    </cell>
+    <modifier cell="ba1:C1a9e49d5-897e-474b-a92e-0db044f7f60e">
+        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
+    </modifier>
+    <modifier cell="ba1:C82252143-7abc-4d35-bd5f-7c91b9acd599">
+        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
+    </modifier>
+    <modifier cell="ba1:Caa605b44-05cd-4a95-8df1-68e6f85eecf8">
+        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
+    </modifier>
+    <modifier cell="ba1:Cb517321b-4e19-4fdd-bb36-41584acd28c3">
+        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
+    </modifier>
+    <modifier cell="ba1:Cbd879726-8cea-4184-9cf3-74593fce4479">
+        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
+    </modifier>
+    <modifier cell="ba1:Ccef5cb84-463f-48e8-82cb-646e5f1d8032">
+        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
+    </modifier>
+    <modifier cell="ba1:Cd866ada4-43ad-47dd-963d-a2d48a11c40c">
+        <disable-for parent="C153144ee-8008-471c-a689-adba7e1d10b7"/>
+    </modifier>
 </alignment>
