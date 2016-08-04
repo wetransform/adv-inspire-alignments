@@ -131,6 +131,20 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
         <parameter value="false" name="useTargetTypePrefix"/>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C1c28a6dd-5adc-4957-ac58-fbdc78b1bacb" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GebietsgrenzeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ce5d081fc-d59e-4e22-b31e-95b5818a8f58" priority="normal">
         <source name="id">
             <property>
@@ -157,18 +171,6 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C02268aec-c06b-46fc-8f61-af6d5cd6dfa0" priority="normal">
-        <target>
-            <property>
-                <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="versionId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd23dd992-dc83-4e30-a67d-a4dcc56476ff" priority="normal">
         <target>
@@ -352,8 +354,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C3238d9c1-b825-4fc1-b8ff-0f038eaf63b0" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C027c7ea7-322f-4fa9-9960-ef6263f3feac" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -365,10 +367,9 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="_{schluesselGesamt}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cfafc6c29-a722-4ae7-9a1c-fe2b10e55062" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca38b3568-15b1-4472-a4fc-c6ef492c5344" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -380,10 +381,9 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="_{schluesselGesamt}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C57ac885b-8778-4183-84df-554ba5eb3e7d" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C26070210-a298-4f35-beb5-931bd346fa62" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -395,10 +395,9 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="_{schluesselGesamt}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Ca05d8dfc-ebd2-4ac2-889f-3d535d102acd" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cd7cdb484-a324-4d6c-acb9-ad0f52d3b2b3" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -410,10 +409,9 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="_{schluesselGesamt}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C61890539-0d4c-4678-ab39-e21db0b99321" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca3691847-2b16-4d08-ac1b-4b066c4d7e8a" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -425,10 +423,9 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="_{schluesselGesamt}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C8ecf1bde-6b94-49c8-82e5-1401c38b1b35" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C58a99a25-8434-4cc3-8807-a4d1d2f4cbbb" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -440,30 +437,96 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="_{schluesselGesamt}" name="pattern"/>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C1a9e49d5-897e-474b-a92e-0db044f7f60e" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C1bd4867c-4b65-4d63-8e7e-1df77513403c" priority="normal">
         <source name="id">
             <property>
-                <type name="AA_NREOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="false" name="useTargetTypePrefix"/>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Cf69756c7-266f-43c4-bfe3-30df4b698928" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C121e3917-16e0-4cba-87db-8a21b67b8c60" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cc34eae8b-6280-412a-91e0-8fa3c73a0915" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cc3970b25-735c-4c0c-bf00-e43e8e95454e" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cafdf3c7d-6ac8-4029-a1c2-50a3b5ddfa60" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C22fe0e6e-c3e5-4901-b39f-03eb075291d8" priority="normal">
         <source name="id">
             <property>
                 <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Caa2c30aa-9ca8-4519-8365-5223b65a2b3c" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -474,7 +537,86 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="false" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cf85a35bd-9ee7-42b9-9413-0d329ffb8a49" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C931a7f9d-fc08-4f94-8f19-056a3c77d6b5" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C33b05e04-77aa-4582-ac3e-36edfa16b510" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cc26b45e5-4613-4fe3-903a-766ef132b87b" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C039d3622-0160-4ef7-ba3d-ef17b348d314" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="Cf9be43df-c175-4f1d-b1f2-25c859526761" priority="normal">
         <target>
@@ -485,18 +627,6 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C87da7315-e368-4d2a-8056-1317fc98e673" priority="normal">
-        <target>
-            <property>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="versionId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unpopulated" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C03ecccc0-d989-4597-85d7-53401c0c6390" priority="normal">
         <source name="spelling">
@@ -1012,6 +1142,20 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
         <parameter value="false" name="useTargetTypePrefix"/>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C7c56e00f-9681-41af-b6ab-4bd3991c0d9a" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_KondominiumType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C643af614-e259-4787-a54c-8fbd02dcb52b" priority="normal">
         <source name="id">
             <property>
@@ -1038,17 +1182,5 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C1eb167a3-9e4f-401a-b4ee-6de3ea09adbf" priority="normal">
-        <target>
-            <property>
-                <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="versionId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unpopulated" name="value"/>
     </cell>
 </alignment>
