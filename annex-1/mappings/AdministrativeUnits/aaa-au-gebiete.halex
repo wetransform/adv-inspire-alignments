@@ -2,9 +2,16 @@
 <hale-project version="2.9.5.qualifier">
     <name>3A zu INSPIRE Administrative Units</name>
     <author>Simon Templer</author>
-    <description>Variante unter Verwendung vorhandener Geometrien für die verschiedenen Ebenen von Administrative Units</description>
+    <description>Alignment vom 3A-Modell zum INSPIRE Anwendungsschema Administrative Units.
+
+Variante unter Verwendung vorhandener Geometrien für die verschiedenen Ebenen von Administrative Units, auf Basis von Objektarten aus 3A (`AX_Gebiet_Nationalstaat`, `AX_Gebiet_Bundesland`, `AX_Gebiet_Regierungsbezirk`, `AX_Gebiet_Kreis`, `AX_Gebiet_Verwaltungsgemeinschaft` und `AX_KommunalesGebiet`).
+
+Zur Bildung der Referenzen zwischen den unterschiedlichen Ebenen von Administrative Units wird eine spezifische Reihenfolge bei der Transformation der 3A-Objekte eingehalten (z.B. Gemeinden vor Kreisen). Währenddessen wird die Zugehörigkeit jeweils in einem Index hinterlegt (z.B. Gemeinde *X* gehört zu Kreis *Y*) und beim Erstellen der nächsten Ebene von Objekten abgefragt und für die Bildung der Referenzen verwendet.
+
+Diese Art der Aggregation mach es nötig, dass für eine konsistente Referenzierung jeweils alle Objekte die zu einer gemeinsamen "upperLevelUnit" gehören auch in der Transformation verfügbar sind -- andernfalls sind die Referenzen unvollständig (z.B. ein Kreis würde ggf. nicht alle seine Gemeinden als "lowerLevelUnit" auflisten).
+Ausnahme bildet hier der Nationalstaat. Referenzen zu/von Nationalstaat werden aktuell nicht erzeugt, da davon ausgegangen wird dass dieser ggf. auf andere Weise gebildet wird und die Vorgehensweise geklärt werden muss.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-07-17T17:39:08.028+02:00</modified>
+    <modified>2016-08-04T10:52:40.982+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
