@@ -393,7 +393,7 @@ _target{
 
 withTransformationContext {
 	def collect = _.context.collector(it)
-	def _id = 'AdministrativeUnit_' + _source.p.schluesselGesamt.value()
+	def _id = 'AdministrativeUnit_' + _source.p.id.value()
 	// Hinterlege ID je Gemeinde
 	gemeinden.each {
 		collect.verwaltungsGemeinschaft['AdministrativeUnit_' + it] = _id
