@@ -286,7 +286,7 @@ _target{
 	// Verweis auf Gemeinden
 	gemeinden.each {
 		lowerLevelUnit {
-			href( "#_$it" )
+			href( "#AdministrativeUnit_$it" )
 		}
 	}
 	_b.upperLevelUnit {
