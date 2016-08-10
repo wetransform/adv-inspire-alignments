@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+    <base prefix="ba2" location="file:/home/simon/repos/inspire-alignements/annex-1/mappings/base-functions.halex.alignment.xml"/>
+    <base prefix="ba1" location="file:/home/simon/repos/inspire-alignements/annex-1/mappings/base-tn.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C13ad15bd-b849-403e-bcf4-ec122b3998bd" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="typeOfTransport" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+            </property>
+        </target>
+        <parameter value="rail" name="value"/>
+    </cell>
+</alignment>
