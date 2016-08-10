@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<hale-project version="2.9.5.qualifier">
+    <name>Basisprojekt INSPIRE Transport Networks</name>
+    <author>Simon Templer</author>
+    <description>Basisprojekt für gemeinsame Funktionalität für INSPIRE Transport Networks Projekte.</description>
+    <created>2015-09-28T11:46:45.435+02:00</created>
+    <modified>2016-08-10T15:19:05.322+02:00</modified>
+    <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
+        <setting name="charset">UTF-8</setting>
+        <setting name="projectFiles.separate">false</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
+        <setting name="target">file:/home/simon/repos/inspire-alignements/annex-1/mappings/base-tn.halex</setting>
+    </save-config>
+    <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">fe9e4898-e2ab-4559-bec6-c92a9e455eef</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="onlyElementsMappable">true</setting>
+        <setting name="resourceId">4a849539-5e6b-4a95-ba10-f4b2339dc1a5</setting>
+        <setting name="source">http://inspire.ec.europa.eu/schemas/tn-ro/4.0/RoadTransportNetwork.xsd</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
+    </resource>
+    <file name="alignment.xml" location="base-tn.halex.alignment.xml"/>
+    <file name="styles.sld" location="base-tn.halex.styles.sld"/>
+    <property name="instances.sampling.enabled">false</property>
+    <property name="instances.sampling.sampler">first</property>
+    <property name="instances.sampling.settings.first">1</property>
+    <property name="instances.sampling.settings.skip">10</property>
+    <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegPfadSteigType</property>
+    <property name="mappableSourceType/10">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungKatalogeintragType</property>
+    <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PlatzType</property>
+    <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KlassifizierungNachStrassenrechtType</property>
+    <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType</property>
+    <property name="mappableSourceType/5">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegType</property>
+    <property name="mappableSourceType/6">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrwegachseType</property>
+    <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrasseType</property>
+    <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType</property>
+    <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType</property>
+    <property name="mappableSourceType/count">10</property>
+    <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType</property>
+    <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType</property>
+    <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/tn/4.0}ConditionOfFacilityType</property>
+    <property name="mappableTargetType/4">{http://www.opengis.net/gml/3.2}AbstractFeatureType</property>
+    <property name="mappableTargetType/5">{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportPropertyType</property>
+    <property name="mappableTargetType/count">5</property>
+    <complex-property name="variables">
+        <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="NETWORK_ID">
+                <core:value value="TransportNetwork"/>
+            </core:property>
+            <core:property name="INSPIRE_NAMESPACE">
+                <core:value value="https://registry.gdi-de.org/id/de.____"/>
+            </core:property>
+        </core:properties>
+    </complex-property>
+</hale-project>
