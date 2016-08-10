@@ -793,22 +793,6 @@
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd1647d53-d290-4acf-82c4-4822b3bf4bda" priority="normal">
-        <source>
-            <property>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C26cdb092-6dd3-4145-9e40-a4dde696a11d" priority="normal">
         <source name="var">
             <property>
@@ -1062,22 +1046,6 @@
             <property>
                 <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="postCode" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C2d46a7bd-baeb-414a-bc4e-8d1a99d88374" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </property>
         </target>
         <parameter value="false" name="structuralRename"/>
