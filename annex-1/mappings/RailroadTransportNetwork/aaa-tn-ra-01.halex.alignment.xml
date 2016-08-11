@@ -450,9 +450,26 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
 _target {
 }
 
-// ID zum hinterlegen in Indizes
-def sourceId = _source.p.nummerDerBahnstrecke.value()
-def _id = "RailwayLine_${sourceId}"
+// ID zum hinterlegen in Indizes bestimmen
+
+// alle Quell-IDs als Liste
+def identifiers = _source.p.id.values()
+
+def _id
+
+if (identifiers.size() == 1) {
+  // verwende Original-ID falls nur eine Quelle
+  _id = 'RailwayLine_' + identifiers[0]
+}
+else {
+  // sortieren (TODO spezielle Ordnung benötigt?)
+  identifiers = identifiers.sort()
+
+  def identString = identifiers.join()
+
+  _id = 'RailwayLine_' + _.crypto.sha256(identString)
+}
+
 
 withTransformationContext {
 	def collect = _.context.collector(it)
@@ -526,7 +543,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         <source name="id">
             <property>
                 <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="nummerDerBahnstrecke" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
@@ -540,7 +557,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         <source name="id">
             <property>
                 <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="nummerDerBahnstrecke" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
@@ -554,7 +571,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         <source name="id">
             <property>
                 <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="nummerDerBahnstrecke" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
@@ -954,16 +971,6 @@ Der *railwayType* wird als `suspendedRail` festgelegt.</documentation>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C43438f51-417d-4c5e-8bb6-95e46ba215aa" priority="normal">
-        <target>
-            <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="endNode" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unpopulated" name="value"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf78462fb-2cc3-4337-b4b6-4bc3e6485717" priority="normal">
         <target>
             <property>
@@ -1066,16 +1073,6 @@ Der *railwayType* wird als `suspendedRail` festgelegt.</documentation>
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdf684ce6-1452-44af-b699-853f8a76963a" priority="normal">
-        <target>
-            <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="startNode" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C8bdc6a70-fb35-49fc-8113-0fb3aac3b041" priority="normal">
         <target>

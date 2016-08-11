@@ -11,7 +11,7 @@
 - Optionale Objektarten und Bestandteile die in der Mapping-Tabelle als *nicht geführt* deklariert sind wurden nicht gebildet
 - In diesem Modell werden einige Objekt-Eigenschaften nicht als Attribute am Objekt, sondern als eigene Objekte mit Verweis auf die zu beschreibenden Objekte gebildet ( sogenannte *TransportProperty*-Objekte, z.B. `NumberOfTracks` oder `ConditionOfFacility`) -- dazu weiter unten mehr
 - In ein paar Fällen (z.B. `AX_SeilbahnSchwebebahn` nach `RailwayLink`) können Objekte anhand ihrer (Mehrfach-)Geometrie in mehrere Ziel-Objekte aufgeteilt werden. Hier wurde die ID des Zielobjekts jeweils mit der entsprechenden Nummer der Geometrie (1., 2., etc. Geometrie) als Suffix angehängt.
-- Die IDs für `RailwayLine` sind basierend auf dem Attribut `nummerDerBahnstrecke` von `AX_Bahnstrecke` gebildet worden. **In den Tests wurde bisher der Fall dass eine `AX_Bahnstrecke` mehrere Werte für dieses Attribut hat nicht behandelt. Das sollte mit entsprechenden Testdaten nachgeholt werden.**
+- **In den Tests wurde bisher der Fall dass eine `AX_Bahnstrecke` mehrere Werte für das Attribut `nummerDerBahnstrecke` hat nicht behandelt. Das sollte mit entsprechenden Testdaten nachgeholt werden.**
 - Die IDs für `RailwayStationCode` werden akutell basierend auf der `bezeichnung` der entsprechenden `AX_Bahnverkehrsanlage` gebildet. **Es ist zu klären ob dadurch immer gültige GML IDs gebildet werden.**
 
 #### Handhabung von *TransportProperty*
@@ -21,7 +21,7 @@ Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für
 
 Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für alle Features die auf die gleichen Werte abgebildet werden (z.B. gleicher Zustand für `ConditionOfFacility`). Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-11T16:48:07.093+02:00</modified>
+    <modified>2016-08-11T17:36:47.478+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
