@@ -1,1421 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba1" location="../base-functions.halex.alignment.xml"/>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc1bccc4b-5745-499d-8ef0-451a219f429a" priority="normal">
-        <source>
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="hausnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="LocatorDesignator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2c8d71c6-dcbe-4bcd-a217-56f8830fdb0f" priority="normal">
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="LocatorDesignator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="type" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue/addressNumber" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C627d5332-b4b2-4c4b-b229-7475ce547a3e" priority="normal">
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/LocatorLevelValue/siteLevel" name="value"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C3a3fc659-5ed5-4c23-8db2-d3f21a170d9c" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf26a5a1b-0059-45d7-82b6-6624cf7a104b" priority="normal">
-        <source>
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7d8d1bdc-e6b1-4e69-ae34-e09caa043943" priority="normal">
-        <source>
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C42e5309f-ca89-4f2c-af7a-5b01f97c64fb" priority="normal">
-        <source>
-            <class>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C13a60ed0-8838-46d8-b546-00e7af583b52" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C67c897fc-a4a9-4120-8008-56c7087986ef" priority="normal">
-        <source>
-            <property>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C8c2bf635-7286-4c70-8f5f-d8589052accd" priority="normal">
-        <source>
-            <class>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca0c5ca58-69f9-4917-af60-61d2acaa67c4" priority="normal">
-        <source>
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C64322369-f36d-4ee3-beb5-b8ab3ff8c48e" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc3745d4c-517a-4c5d-a0bf-ad8908bce866" priority="normal">
-        <source>
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ceda0b304-65ef-4b74-97e3-b589d0d110cd" priority="normal">
-        <source>
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cfe9f05f3-7e7c-43d1-883a-e215c07c6c62" priority="normal">
-        <source>
-            <property>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdf273295-0b54-4885-a7b7-40ab21646b5d" priority="normal">
-        <source>
-            <property>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cd0c5ca3f-089f-4614-9d37-b68c4598281a" priority="normal">
-        <source>
-            <class>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C064e28f7-71c0-4cd4-87e4-a9cd291c3f1c" priority="normal">
-        <source>
-            <property>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C4f35a356-25ea-49e5-b567-ad49cd1f92e7" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdb60c4eb-8ffa-49dc-b43c-03b8eba3620d" priority="normal">
-        <source>
-            <property>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca61f94ac-63c5-4a7a-be15-8c88be2c95cb" priority="normal">
-        <source>
-            <property>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cbc19c1b0-4c69-4997-8f49-cb02a3332759" priority="normal">
-        <source>
-            <class>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1fdf6ba9-e582-41d4-89d4-2fd3536af24f" priority="normal">
-        <source>
-            <property>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C454f0fff-315e-445b-baf8-c1ec2b19dcbd" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd93081b4-fc11-4825-bf0d-f2f02cc88589" priority="normal">
-        <source>
-            <property>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C544ace01-519f-454b-9cbc-f0e700883861" priority="normal">
-        <source>
-            <property>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cef658861-1b2b-4431-b31a-e0ec65c62402" priority="normal">
-        <source>
-            <class>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C5fe87932-7e93-4a0c-ad80-abf8069df0d6" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C91ecd964-bc5d-4457-8398-0ab9b627269a" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C678fa6c6-6d21-41f7-a03b-b44cf7f9df93" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb9a13692-9d01-4d84-a425-743f3b905ec8" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C47709e26-5e8e-4a25-845e-986a6fd20685" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/1stOrder" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd89386a6-97dd-4cb9-979a-c159ce868ff8" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/2ndOrder" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca809a2dd-4cbc-4f5a-9dd5-8f08ba8f892a" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/3rdOrder" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2333bef3-c1a0-4a84-accd-920b2354400f" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/4thOrder" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6f5eed43-e487-438c-a4fd-58b80a31b093" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/6thOrder" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C9fc48689-dc97-4f8a-864a-1557dcf3c563" priority="normal">
-        <source>
-            <class>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C741569b1-414f-48db-8308-c6ea9538e875" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca2326213-385b-46a1-921b-34bdb65470b9" priority="normal">
-        <source>
-            <property>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cee50530f-ceb8-4c36-8ba6-994ce78aa2d2" priority="normal">
-        <source>
-            <property>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd4f4a85e-07bd-46f3-9d4a-80d229cd6024" priority="normal">
-        <source>
-            <property>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="ThoroughfareNameValue" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C3e6e7ee6-189b-4dc3-9cbc-05e4319721b3" priority="normal">
-        <source>
-            <property>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="kennung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce54ba4cd-801f-4606-9410-b7d2d89649b5" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1e277297-eb69-46ae-8d3b-18ec46f498da" priority="normal">
-        <source>
-            <property>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb184f148-a9ee-4170-a5da-e425a0fe2cc2" priority="normal">
-        <source>
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf2907904-ac59-4dfb-96eb-67b187deb8f2" priority="normal">
-        <source>
-            <property>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C937d4514-6da0-4e5c-9d4f-67e2d46f73ec" priority="normal">
-        <source>
-            <property>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C26cdb092-6dd3-4145-9e40-a4dde696a11d" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>0</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cfb05b17a-dca3-486f-bb18-5eca732e1d91" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>1</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cd5f04e1f-ec85-4793-9745-2383cc48abb3" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>2</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9c13ab33-02fc-4914-8236-c04b84052656" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>2</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.string.regexanalysisfunction" id="Caa49d79e-c38e-4d07-96e7-b9b73ee67db3" priority="normal">
-        <source>
-            <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-        <parameter value="^.{2}(.{2}).*$" name="regexPattern"/>
-        <parameter value="https://registry.gdi-de.org/id/de.{1}/" name="outputFormat"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C99ef38d9-8667-4ef0-a92f-4dcfc31d8b36" priority="normal">
-        <source>
-            <class>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9842c4bf-f94e-4cb6-ae00-86bdb2c2ca62" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="PostalDescriptor_{postleitzahl}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C327276ff-581f-4aab-b58a-921a1ede3f11" priority="normal">
-        <source>
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="ortsnamePost" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="postName" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C4877a124-a4b8-4f5b-bd65-48ed3eba8f03" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-        <parameter value="PostalDescriptor_{postleitzahl}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7728f074-399c-454d-837c-ac41fcbb264c" priority="normal">
-        <source>
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="postCode" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C75348f09-eb65-459e-b73f-79a19b3936db" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postalischeAdresse" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Post" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>3</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#PostalDescriptor_{postalischeAdresse.AX_Post.postleitzahl}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cffd3a188-c63b-469f-b452-f1bec26f5b70" priority="normal">
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="codeSpace"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C39637ce1-0c45-4334-bddf-1db42f5e0be8" priority="normal">
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="codeSpace"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5fd35164-5918-4189-872b-296d8225f787" priority="normal">
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="codeSpace"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C35cc4a66-a7e9-4ed9-897e-00221d22e3f6" priority="normal">
-        <target>
-            <property>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="codeSpace"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C611cc7db-d565-41d6-8844-af5630d49a44" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="C81ca8ff9-70a5-4e3f-acbd-7dc642ec4c7c" priority="normal">
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="C5c322644-b41b-41ca-9f41-806faae001c7" priority="normal">
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cde00693b-1df7-4ff4-aab6-5e4b8a7282b1" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/PostalDescriptor_{postleitzahl}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C8e6bb82f-57b1-41b9-b075-5e329556c20a" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/Address_{id}" name="pattern"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C20893371-284d-40c4-bf1e-0429d0c613f1" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C3f9ca71b-a625-4e8b-ad52-6712f6317f97" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C95bceb6a-f6d2-4984-87dc-a384f1db0107" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C92da1fa2-7273-40cf-824b-9b879c6fb176" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Cc04d23a8-6c5a-42c2-ad04-e3294f387196" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C9116fc99-f798-4388-b55a-93a8151259f2" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cfbb22675-de38-4588-9c13-a578d13a47ea" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lage" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#ThoroughfareName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.lage}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cc179f391-2a24-4500-b41a-5107f8fcb270" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C3036c6aa-ef00-4410-abb6-a9f64b7b6203" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C5c107c12-aa5c-4546-82d6-4bac140dccac" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C382953de-65fd-46f6-aea6-7c80734e40ad" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cc935f537-3b18-4a63-a959-e1e6fe696dfa" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/ThoroughfareName_{id}" name="pattern"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="Cabf5e74f-45b2-4c28-ab8f-32252b9aa862" priority="normal">
-        <target>
-            <property>
-                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cd5bb8841-8c5f-4712-bd15-03c3cf5d80ca" priority="normal">
         <source name="types">
             <class>
@@ -1531,5 +116,1537 @@ if (positionAdresse) {&#xD;
 }
 </core:text>
         </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C08467f52-22e7-4435-9031-9149c4aac7c6" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_LagebezeichnungOhneHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">signaturnummer like '%4070' and art='HNR'</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_LagebezeichnungOhneHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">signaturnummer like '%4070' and art='HNR'</condition>
+                    </type>
+                </class>
+                <class>
+                    <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_LagebezeichnungOhneHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_LagebezeichnungOhneHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="zeigtAuf" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_LagebezeichnungOhneHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">signaturnummer like '%4070' and art='HNR'</condition>
+                        </type>
+                        <child name="dientZurDarstellungVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def positionAdresse = _source.links.AX_GeoreferenzierteGebaeudeadresse.p.position.first()&#xD;
+if (!positionAdresse) {&#xD;
+	positionAdresse = _source.links.AP_PTO.p.position.first()&#xD;
+}&#xD;
+if (!positionAdresse) {&#xD;
+	positionAdresse = _source.links.AX_Gebaeude.p.position.first()&#xD;
+	if (positionAdresse) {&#xD;
+		positionAdresse = _.geom.centroid(_.geom.find(positionAdresse))&#xD;
+	}&#xD;
+}&#xD;
+if (positionAdresse) {&#xD;
+	_target {&#xD;
+		position {&#xD;
+			GeographicPosition {&#xD;
+				specification {&#xD;
+					href( 'http://inspire.ec.europa.eu/codelist/GeometrySpecificationValue/building' )&#xD;
+					title( 'building' )&#xD;
+				}&#xD;
+				geometry {&#xD;
+					Point(_.geom.find(positionAdresse))&#xD;
+				}&#xD;
+				method {&#xD;
+					href( 'http://inspire.ec.europa.eu/codelist/GeometryMethodValue/byAdministrator' )&#xD;
+					title( 'by administrator' )&#xD;
+				}&#xD;
+				'default'( 'true' )&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+}&#xD;
+
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf26a5a1b-0059-45d7-82b6-6624cf7a104b" priority="normal">
+        <source>
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C26cdb092-6dd3-4145-9e40-a4dde696a11d" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>0</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cfb05b17a-dca3-486f-bb18-5eca732e1d91" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>1</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9c13ab33-02fc-4914-8236-c04b84052656" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>2</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cd5f04e1f-ec85-4793-9745-2383cc48abb3" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>2</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C75348f09-eb65-459e-b73f-79a19b3936db" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="postalischeAdresse" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Post" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>3</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#PostalDescriptor_{postalischeAdresse.AX_Post.postleitzahl}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cfbb22675-de38-4588-9c13-a578d13a47ea" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lage" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#ThoroughfareName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.lage}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7d8d1bdc-e6b1-4e69-ae34-e09caa043943" priority="normal">
+        <source>
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C611cc7db-d565-41d6-8844-af5630d49a44" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C8e6bb82f-57b1-41b9-b075-5e329556c20a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}/Address_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cffd3a188-c63b-469f-b452-f1bec26f5b70" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C3a3fc659-5ed5-4c23-8db2-d3f21a170d9c" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C81ca8ff9-70a5-4e3f-acbd-7dc642ec4c7c" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc1bccc4b-5745-499d-8ef0-451a219f429a" priority="normal">
+        <source>
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="hausnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="LocatorDesignator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2c8d71c6-dcbe-4bcd-a217-56f8830fdb0f" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="LocatorDesignator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue/addressNumber" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C627d5332-b4b2-4c4b-b229-7475ce547a3e" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/LocatorLevelValue/siteLevel" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C8c2bf635-7286-4c70-8f5f-d8589052accd" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cef658861-1b2b-4431-b31a-e0ec65c62402" priority="normal">
+        <source>
+            <class>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cbc19c1b0-4c69-4997-8f49-cb02a3332759" priority="normal">
+        <source>
+            <class>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C42e5309f-ca89-4f2c-af7a-5b01f97c64fb" priority="normal">
+        <source>
+            <class>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cd0c5ca3f-089f-4614-9d37-b68c4598281a" priority="normal">
+        <source>
+            <class>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb184f148-a9ee-4170-a5da-e425a0fe2cc2" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce54ba4cd-801f-4606-9410-b7d2d89649b5" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1e277297-eb69-46ae-8d3b-18ec46f498da" priority="normal">
+        <source>
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf2907904-ac59-4dfb-96eb-67b187deb8f2" priority="normal">
+        <source>
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C937d4514-6da0-4e5c-9d4f-67e2d46f73ec" priority="normal">
+        <source>
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc3745d4c-517a-4c5d-a0bf-ad8908bce866" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C678fa6c6-6d21-41f7-a03b-b44cf7f9df93" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd93081b4-fc11-4825-bf0d-f2f02cc88589" priority="normal">
+        <source>
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cfe9f05f3-7e7c-43d1-883a-e215c07c6c62" priority="normal">
+        <source>
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdb60c4eb-8ffa-49dc-b43c-03b8eba3620d" priority="normal">
+        <source>
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ceda0b304-65ef-4b74-97e3-b589d0d110cd" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb9a13692-9d01-4d84-a425-743f3b905ec8" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C544ace01-519f-454b-9cbc-f0e700883861" priority="normal">
+        <source>
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdf273295-0b54-4885-a7b7-40ab21646b5d" priority="normal">
+        <source>
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca61f94ac-63c5-4a7a-be15-8c88be2c95cb" priority="normal">
+        <source>
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C3f9ca71b-a625-4e8b-ad52-6712f6317f97" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cc04d23a8-6c5a-42c2-ad04-e3294f387196" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C92da1fa2-7273-40cf-824b-9b879c6fb176" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C20893371-284d-40c4-bf1e-0429d0c613f1" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C95bceb6a-f6d2-4984-87dc-a384f1db0107" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C382953de-65fd-46f6-aea6-7c80734e40ad" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cc179f391-2a24-4500-b41a-5107f8fcb270" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C5c107c12-aa5c-4546-82d6-4bac140dccac" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C3036c6aa-ef00-4410-abb6-a9f64b7b6203" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C39637ce1-0c45-4334-bddf-1db42f5e0be8" priority="normal">
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C64322369-f36d-4ee3-beb5-b8ab3ff8c48e" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C91ecd964-bc5d-4457-8398-0ab9b627269a" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C454f0fff-315e-445b-baf8-c1ec2b19dcbd" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C13a60ed0-8838-46d8-b546-00e7af583b52" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C4f35a356-25ea-49e5-b567-ad49cd1f92e7" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.string.regexanalysisfunction" id="Caa49d79e-c38e-4d07-96e7-b9b73ee67db3" priority="normal">
+        <source>
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="^.{2}(.{2}).*$" name="regexPattern"/>
+        <parameter value="https://registry.gdi-de.org/id/de.{1}/" name="outputFormat"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd89386a6-97dd-4cb9-979a-c159ce868ff8" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/2ndOrder" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6f5eed43-e487-438c-a4fd-58b80a31b093" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/6thOrder" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2333bef3-c1a0-4a84-accd-920b2354400f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/4thOrder" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C47709e26-5e8e-4a25-845e-986a6fd20685" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/1stOrder" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca809a2dd-4cbc-4f5a-9dd5-8f08ba8f892a" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/3rdOrder" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca0c5ca58-69f9-4917-af60-61d2acaa67c4" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C5fe87932-7e93-4a0c-ad80-abf8069df0d6" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1fdf6ba9-e582-41d4-89d4-2fd3536af24f" priority="normal">
+        <source>
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C67c897fc-a4a9-4120-8008-56c7087986ef" priority="normal">
+        <source>
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C064e28f7-71c0-4cd4-87e4-a9cd291c3f1c" priority="normal">
+        <source>
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C99ef38d9-8667-4ef0-a92f-4dcfc31d8b36" priority="normal">
+        <source>
+            <class>
+                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9842c4bf-f94e-4cb6-ae00-86bdb2c2ca62" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="PostalDescriptor_{postleitzahl}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cde00693b-1df7-4ff4-aab6-5e4b8a7282b1" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}/PostalDescriptor_{postleitzahl}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5fd35164-5918-4189-872b-296d8225f787" priority="normal">
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C4877a124-a4b8-4f5b-bd65-48ed3eba8f03" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="PostalDescriptor_{postleitzahl}" name="pattern"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C5c322644-b41b-41ca-9f41-806faae001c7" priority="normal">
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7728f074-399c-454d-837c-ac41fcbb264c" priority="normal">
+        <source>
+            <property>
+                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="postCode" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C327276ff-581f-4aab-b58a-921a1ede3f11" priority="normal">
+        <source>
+            <property>
+                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="ortsnamePost" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="postName" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C9fc48689-dc97-4f8a-864a-1557dcf3c563" priority="normal">
+        <source>
+            <class>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C3e6e7ee6-189b-4dc3-9cbc-05e4319721b3" priority="normal">
+        <source>
+            <property>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="alternativeIdentifier" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca2326213-385b-46a1-921b-34bdb65470b9" priority="normal">
+        <source>
+            <property>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cee50530f-ceb8-4c36-8ba6-994ce78aa2d2" priority="normal">
+        <source>
+            <property>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C9116fc99-f798-4388-b55a-93a8151259f2" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cc935f537-3b18-4a63-a959-e1e6fe696dfa" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}/ThoroughfareName_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C35cc4a66-a7e9-4ed9-897e-00221d22e3f6" priority="normal">
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C741569b1-414f-48db-8308-c6ea9538e875" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cabf5e74f-45b2-4c28-ab8f-32252b9aa862" priority="normal">
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd4f4a85e-07bd-46f3-9d4a-80d229cd6024" priority="normal">
+        <source>
+            <property>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="ThoroughfareNameValue" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
 </alignment>
