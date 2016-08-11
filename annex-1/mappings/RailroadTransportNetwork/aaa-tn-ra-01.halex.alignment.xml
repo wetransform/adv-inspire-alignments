@@ -572,6 +572,10 @@ surfaces.each { surface -&gt;
 		def collect = _.context.collector(it)
 		// Sammle ID für Netzwerk
 		collect.network &lt;&lt; _id
+		// Sammle ID für RailwayStationCode
+		if (_source.p.bezeichnung.value()) {
+			collect.railwayStationCode[_source.p.bezeichnung.value()] &lt;&lt; _id
+		}
 	}
 
 	num++
@@ -584,7 +588,9 @@ Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien v
 
 Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
 
-Die erstellte `RailwayStationArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+Die erstellte `RailwayStationArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Falls die `AX_Bahnverkehrsanlage` über eine `bezeichnung` verfügt, wird dem Index für `RailwayStationCode`s die `RailwayStationArea` ebenfalls hinzugefügt.</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ccf4d6e03-e860-410d-a4dc-2a47bc1b747a" priority="normal">
         <source name="spelling">
@@ -631,6 +637,57 @@ Die erstellte `RailwayStationArea` wird dem Index von Netzwerk-Elementen hinzuge
         </target>
         <parameter value="unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C1f082d85-af49-4d27-bb48-4861e974d752" priority="low">
+        <target>
+            <class>
+                <type name="RailwayStationCodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein RailwayStationCode-Objekt für jeden vorkommenden Wert
+collect.railwayStationCode.consume { key, values -&gt;
+	def _id = 'RailwayStationCode_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		stationCode( key )
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Objekten mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `RailwayStationCode`-Objekt für jeden in den Daten vorkommenden Wert für `stationCode`.
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Wert gebildet. **Es ist zu prüfen ob das so immer zu gültigen GML IDs führt.**
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `RailwayStationArea` und `RailwayStationNode`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cb67944ff-940a-461e-a1b3-cfd049ec32d2" priority="normal">
         <source>
             <class>
@@ -675,6 +732,10 @@ if (points) {
 		def collect = _.context.collector(it)
 		// Sammle ID für Netzwerk
 		collect.network &lt;&lt; _id
+		// Sammle ID für RailwayStationCode
+		if (_source.p.bezeichnung.value()) {
+			collect.railwayStationCode[_source.p.bezeichnung.value()] &lt;&lt; _id
+		}
 	}
 }
 </core:text>
@@ -682,6 +743,8 @@ if (points) {
         <documentation>Erstellt einen `RailwayStationNode` aus einer `AX_Bahnverkehrsanlage` mit Punktgeometrie.
 
 Der erstellte `RailwayStationNode` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Falls die `AX_Bahnverkehrsanlage` über eine `bezeichnung` verfügt, wird dem Index für `RailwayStationCode`s die `RailwayStationArea` ebenfalls hinzugefügt.
 
 *Laut Kommentar in der Mapping-Tabelle gibt es hier ein mögliches Problem dadurch, dass auch Objekte für Seilbahnen als Quell-Objekt hier berücksichtigt werden könnten. Es ist unklar, wie diese Information am besten bestimmt werden kann.*</documentation>
     </cell>
