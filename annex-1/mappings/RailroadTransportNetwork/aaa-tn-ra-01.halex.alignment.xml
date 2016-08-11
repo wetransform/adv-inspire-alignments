@@ -118,16 +118,72 @@ def _id = 'RailwayArea_' + _source.p.id.value()
 _target {
 }
 
+// bestimme RailwayType(s)
+def railwayTypes = []
+_source.p.bahnkategorie.each { bkt -&gt;
+	switch (bkt) {
+	case '1100': // Eisenbahn
+	case '1102': // Güterverkehr
+	case '1104': // S-Bahn
+	case '1400': // Museumsbahn
+	case '1500': // Bahn im Freizeitpark
+		railwayTypes &lt;&lt; 'train'
+		break
+	case '1200': // Stadtbahn
+	case '1202': // U-Bahn
+		railwayTypes &lt;&lt; 'metro'
+		break
+	case '1201': // Straßenbahn
+		railwayTypes &lt;&lt; 'tramway'
+		break
+	case '1300': // Seilbahn, Bergbahn
+	case '1302': // Standseilbahn
+		railwayTypes &lt;&lt; 'funicular'
+		break
+	case '1301': // Zahnradbahn
+		railwayTypes &lt;&lt; 'cogRailway'
+		break
+	case '1600': // Magnetschwebebahn
+		railwayTypes &lt;&lt; 'magneticLevitation'
+		break
+	}
+}
+
 withTransformationContext {
 	def collect = _.context.collector(it)
 	// Sammle ID für Netzwerk
 	collect.network &lt;&lt; _id
+	// Sammle ID für RailwayType(s)
+	railwayTypes.each { railwayType -&gt;
+		collect.railwayType[railwayType] &lt;&lt; _id
+	}
 }
 </core:text>
         </complexParameter>
         <documentation>Erstellt eine `RailroadArea` aus einem `AX_Bahnverkehr`.
 
-Die erstellte `RailroadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+Die erstellte `RailroadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**RailwayType**
+
+Der `railwayType` wird wie folgt aus dem Attribute `bahnkategorie` ermittelt:
+
+bahnkategorie | railwayType
+`1100` *(Eisenbahn)* | `train`
+`1102` *(Güterverkehr)* | `train`
+`1104` *(S-Bahn)* | `train`
+`1400` *(Museumsbahn)* | `train`
+`1500` *(Bahn im Freizeitpark)* | `train`
+`1200` *(Stadtbahn)* | `metro`
+`1202` *(U-Bahn)* | `metro`
+`1201` *(Straßenbahn)* | `tramway`
+`1300` *(Seilbahn, Bergbahn)* | `funicular`
+`1302` *(Standseilbahn)* | `funicular`
+`1301` *(Zahnradbahn)* | `cogRailway`
+`1600` *(Magnetschwebebahn)* | `magneticLevitation`
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C4d69e8d8-0f66-4fb1-9343-465ee5604ff3" priority="normal">
         <target>
@@ -469,6 +525,37 @@ case '3000': // Breitspur
 	break
 }
 
+// bestimme RailwayType(s)
+def railwayTypes = []
+_source.p.bahnkategorie.each { bkt -&gt;
+	switch (bkt) {
+	case '1100': // Eisenbahn
+	case '1102': // Güterverkehr
+	case '1104': // S-Bahn
+	case '1400': // Museumsbahn
+	case '1500': // Bahn im Freizeitpark
+		railwayTypes &lt;&lt; 'train'
+		break
+	case '1200': // Stadtbahn
+	case '1202': // U-Bahn
+		railwayTypes &lt;&lt; 'metro'
+		break
+	case '1201': // Straßenbahn
+		railwayTypes &lt;&lt; 'tramway'
+		break
+	case '1300': // Seilbahn, Bergbahn
+	case '1302': // Standseilbahn
+		railwayTypes &lt;&lt; 'funicular'
+		break
+	case '1301': // Zahnradbahn
+		railwayTypes &lt;&lt; 'cogRailway'
+		break
+	case '1600': // Magnetschwebebahn
+		railwayTypes &lt;&lt; 'magneticLevitation'
+		break
+	}
+}
+
 // ID zum hinterlegen in Indizes
 def sourceId = _source.p.id.value()
 def _id = "RailwayLink_${sourceId}"
@@ -480,6 +567,10 @@ withTransformationContext {
 	// Sammle ID für NominalTrackGauge
 	if (nominalTrackGauge) {
 		collect.nominalTrackGauge[nominalTrackGauge] &lt;&lt; _id
+	}
+	// Sammle ID für RailwayType(s)
+	railwayTypes.each { railwayType -&gt;
+		collect.railwayType[railwayType] &lt;&lt; _id
 	}
 }
 </core:text>
@@ -499,6 +590,24 @@ spurweite  | nominalGaugeCategory
 `1000` *(Normalspur (Regelspur, Vollspur))* | `standard`
 `2000` *(Schmalspur)* | `narrow`
 `3000` *(Breitspur)* | `broad`
+
+**RailwayType**
+
+Der `railwayType` wird wie folgt aus dem Attribute `bahnkategorie` ermittelt:
+
+bahnkategorie | railwayType
+`1100` *(Eisenbahn)* | `train`
+`1102` *(Güterverkehr)* | `train`
+`1104` *(S-Bahn)* | `train`
+`1400` *(Museumsbahn)* | `train`
+`1500` *(Bahn im Freizeitpark)* | `train`
+`1200` *(Stadtbahn)* | `metro`
+`1202` *(U-Bahn)* | `metro`
+`1201` *(Straßenbahn)* | `tramway`
+`1300` *(Seilbahn, Bergbahn)* | `funicular`
+`1302` *(Standseilbahn)* | `funicular`
+`1301` *(Zahnradbahn)* | `cogRailway`
+`1600` *(Magnetschwebebahn)* | `magneticLevitation`
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
@@ -528,6 +637,9 @@ _b.strictValueFlags = false
 
 def sourceId = _source.p.id.value()
 
+// bestimme RailwayType
+def railwayType = 'suspendedRail'
+
 // Ziel-Objekt für jede Linie erstellen
 int num = 1
 curves.each { curve -&gt;
@@ -550,11 +662,12 @@ curves.each { curve -&gt;
 		centrelineGeometry(curve)
 	}
 	
-	
 	withTransformationContext {
 		def collect = _.context.collector(it)
 		// Sammle ID für Netzwerk	
 		collect.network &lt;&lt; _id
+		// Sammle ID für RailwayType
+		collect.railwayType[railwayType] &lt;&lt; _id
 	}
 	
 	num++
@@ -567,7 +680,13 @@ Die Geometrie des Quell-Objekts wird untersucht. Nur linienartige Geometrien wer
 
 Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der individuellen Geometrien (1., 2., Geometrie) gebildet.
 
-Die erstellten `RailwayLink`s werden dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+Die erstellten `RailwayLink`s werden dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**RailwayType**
+
+Der *railwayType* wird als `suspendedRail` festgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdd940494-8116-4e0e-a7ac-a635b29f5cce" priority="normal">
         <source>
@@ -1095,6 +1214,65 @@ Falls die `AX_Bahnverkehrsanlage` über eine `bezeichnung` verfügt, wird dem In
             </property>
         </target>
         <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C2a6fa58e-9358-425c-aec0-cbb52951e52a" priority="low">
+        <target>
+            <class>
+                <type name="RailwayTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für RailwayType
+def codeList = 'http://inspire.ec.europa.eu/codelist/RailwayTypeValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein RailwayType-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.railwayType.consume { key, values -&gt;
+	def _id = 'RailwayType_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		type {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `RailwayType`-Objekt für jeden in den Daten vorkommenden Wert der [Railway Type Code Liste](http://inspire.ec.europa.eu/codelist/RailwayTypeValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Wert gebildet.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `RailwayArea` und `RailwayLink`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C13ad15bd-b849-403e-bcf4-ec122b3998bd" priority="normal">
         <target>
