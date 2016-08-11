@@ -171,6 +171,7 @@ Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt
 Der `railwayType` wird wie folgt aus dem Attribute `bahnkategorie` ermittelt:
 
 bahnkategorie | railwayType
+- | -
 `1100` *(Eisenbahn)* | `train`
 `1102` *(Güterverkehr)* | `train`
 `1104` *(S-Bahn)* | `train`
@@ -556,6 +557,31 @@ _source.p.bahnkategorie.each { bkt -&gt;
 	}
 }
 
+// bestimme RailwayUse(s)
+def railwayUses = []
+_source.p.bahnkategorie.each { bkt -&gt;
+	switch (bkt) {
+	case '1100': // Eisenbahn
+	case '1300': // Seilbahn, Bergbahn
+	case '1302': // Standseilbahn
+	case '1301': // Zahnradbahn
+		railwayUses &lt;&lt; 'mixed'
+		break
+	case '1102': // Güterverkehr
+		railwayUses &lt;&lt; 'cargo'
+		break
+	case '1104': // S-Bahn
+	case '1200': // Stadtbahn
+	case '1201': // Straßenbahn
+	case '1202': // U-Bahn
+	case '1400': // Museumsbahn
+	case '1500': // Bahn im Freizeitpark
+	case '1600': // Magnetschwebebahn
+		railwayUses &lt;&lt; 'passengers'
+		break
+	}
+}
+
 // ID zum hinterlegen in Indizes
 def sourceId = _source.p.id.value()
 def _id = "RailwayLink_${sourceId}"
@@ -571,6 +597,10 @@ withTransformationContext {
 	// Sammle ID für RailwayType(s)
 	railwayTypes.each { railwayType -&gt;
 		collect.railwayType[railwayType] &lt;&lt; _id
+	}
+	// Sammle ID für RailwayUse(s)
+	railwayUses.each { railwayUse -&gt;
+		collect.railwayUse[railwayUse] &lt;&lt; _id
 	}
 }
 </core:text>
@@ -596,6 +626,7 @@ spurweite  | nominalGaugeCategory
 Der `railwayType` wird wie folgt aus dem Attribute `bahnkategorie` ermittelt:
 
 bahnkategorie | railwayType
+- | -
 `1100` *(Eisenbahn)* | `train`
 `1102` *(Güterverkehr)* | `train`
 `1104` *(S-Bahn)* | `train`
@@ -608,6 +639,25 @@ bahnkategorie | railwayType
 `1302` *(Standseilbahn)* | `funicular`
 `1301` *(Zahnradbahn)* | `cogRailway`
 `1600` *(Magnetschwebebahn)* | `magneticLevitation`
+
+**RailwayUse**
+
+Die `railwayUse` wird wie folgt aus dem Attribute `bahnkategorie` bestimmt:
+
+bahnkategorie | railwayUse
+- | -
+`1100` *(Eisenbahn)* | `mixed`
+`1300` *(Seilbahn, Bergbahn)* | `mixed`
+`1302` *(Standseilbahn)* | `mixed`
+`1301` *(Zahnradbahn)* | `mixed`
+`1102` *(Güterverkehr)* | `cargo`
+`1104` *(S-Bahn)* | `passengers`
+`1200` *(Stadtbahn)* | `passengers`
+`1201` *(Straßenbahn)* | `passengers`
+`1202` *(U-Bahn)* | `passengers`
+`1400` *(Museumsbahn)* | `passengers`
+`1500` *(Bahn im Freizeitpark)* | `passengers`
+`1600` *(Magnetschwebebahn)* | `passengers`
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
@@ -1273,6 +1323,60 @@ collect.railwayType.consume { key, values -&gt;
 Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Wert gebildet.
 
 Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `RailwayArea` und `RailwayLink`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Ca65a86a4-b0ae-482f-bb27-b8e9c5b51713" priority="low">
+        <target>
+            <class>
+                <type name="RailwayUseType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für RailwayUse
+def codeList = 'http://inspire.ec.europa.eu/codelist/RailwayUseValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein RailwayUse-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.railwayType.consume { key, values -&gt;
+	def _id = 'RailwayUse_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		_b.createProperty('use') {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C13ad15bd-b849-403e-bcf4-ec122b3998bd" priority="normal">
         <target>
