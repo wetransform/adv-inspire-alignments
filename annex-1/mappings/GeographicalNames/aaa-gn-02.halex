@@ -3,7 +3,7 @@
     <name>AAA zu Geographical Names</name>
     <author>Thorsten Reitz</author>
     <created>2016-04-28T13:07:54.568+02:00</created>
-    <modified>2016-08-11T10:38:39.508+02:00</modified>
+    <modified>2016-08-11T10:56:12.196+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1383,6 +1383,13 @@
     <property name="mappableSourceType/20">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType</property>
     <property name="mappableSourceType/21">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegType</property>
     <property name="mappableSourceType/22">{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType</property>
+    <property name="mappableSourceType/23">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LandwirtschaftType</property>
+    <property name="mappableSourceType/24">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_UnlandVegetationsloseFlaecheType</property>
+    <property name="mappableSourceType/25">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_HeideType</property>
+    <property name="mappableSourceType/26">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_MoorType</property>
+    <property name="mappableSourceType/27">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WaldType</property>
+    <property name="mappableSourceType/28">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GehoelzType</property>
+    <property name="mappableSourceType/29">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SumpfType</property>
     <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_TagebauGrubeSteinbruchType</property>
     <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_IndustrieUndGewerbeflaecheType</property>
     <property name="mappableSourceType/5">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlaecheGemischterNutzungType</property>
@@ -1390,7 +1397,7 @@
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WohnbauflaecheType</property>
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_ObjektType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlaecheBesondererFunktionalerPraegungType</property>
-    <property name="mappableSourceType/count">22</property>
+    <property name="mappableSourceType/count">29</property>
     <property name="resource-3a8f6576-ca67-4b8e-b6e1-06bf95969ebf:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}Arc">code:EPSG:31466</property>
     <property name="resource-3a8f6576-ca67-4b8e-b6e1-06bf95969ebf:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:31466</property>
     <property name="resource-3a8f6576-ca67-4b8e-b6e1-06bf95969ebf:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:31466</property>
