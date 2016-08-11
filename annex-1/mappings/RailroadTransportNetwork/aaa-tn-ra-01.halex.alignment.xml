@@ -351,6 +351,60 @@ bahnkategorie | railwayType
         </target>
         <parameter value="unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C26cdc371-11f7-4d7d-990e-555c63de147b" priority="low">
+        <target>
+            <class>
+                <type name="RailwayElectrificationType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein RailwayElectrification-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.electrified.consume { key, values -&gt;
+	def _id = 'RailwayElectrification_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		electrified( key )
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `RailwayElectrification`-Objekt für jeden in den Daten vorkommenden Wert für `electrified`.
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Wert gebildet.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `RailwayLink`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.merge" id="Ca500e629-76b0-4cda-b53f-c9db0c272403" priority="normal">
         <source>
             <class>
@@ -657,6 +711,9 @@ case '2000': // Zweigleisig
 	break
 }
 
+// bestimme RailwayElectrification
+def electrified = _source.p.elektrifizierung.value() != '2000'
+
 // ID zum hinterlegen in Indizes
 def sourceId = _source.p.id.value()
 def _id = "RailwayLink_${sourceId}"
@@ -681,6 +738,8 @@ withTransformationContext {
 	if (numberOfTracks) {
 		collect.numberOfTracks[numberOfTracks] &lt;&lt; _id
 	}
+	// Sammle ID für RailwayElectrification
+	collect.electrified[electrified] &lt;&lt; _id
 }
 </core:text>
         </complexParameter>
@@ -746,6 +805,10 @@ anzahlDerStreckengleise | numberOfTracks
 - | -
 `1000` *(Eingleisig)* | `1`
 `2000` *(Zweigleisig)* | `2`
+
+**RailwayElectrification**
+
+Ob ein `RailwayLink` elektrifiziert (`electrified`) ist wird aus dem Attribut `elektrifizierung` bestimmt. Er ist nicht elektrifiziert falls das Attribute den Wert `2000` (Nicht elektrifiziert) hat.
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
