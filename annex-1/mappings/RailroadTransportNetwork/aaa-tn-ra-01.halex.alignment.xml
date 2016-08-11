@@ -2,6 +2,734 @@
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba2" location="file:/home/simon/repos/inspire-alignements/annex-1/mappings/base-functions.halex.alignment.xml"/>
     <base prefix="ba1" location="file:/home/simon/repos/inspire-alignements/annex-1/mappings/base-tn.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C48d3be90-5843-4323-bd79-ba1928b2429e" priority="normal">
+        <source>
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C92d71e60-b3b7-4864-a6a2-fc6d46d9ac4c" priority="normal">
+        <source>
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbdf5128c-1dad-4827-806e-ee6a6fc3cc50" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def _id = 'RailwayArea_' + _source.p.id.value() 
+
+_target {
+}
+
+withTransformationContext {
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk
+	collect.network &lt;&lt; _id
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt eine `RailroadArea` aus einem `AX_Bahnverkehr`.
+
+Die erstellte `RailroadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C4d69e8d8-0f66-4fb1-9343-465ee5604ff3" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce46930d3-2f8c-4b1a-b930-4fd411b48c6b" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="copyGeometries"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cab81ca0e-f1a1-4311-aeb5-379d03826e51" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Ce5d5030b-02c9-4cce-8c2e-0da8d0a0303b" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C825ec2fa-a425-41b9-a8af-d4d014d0de57" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C565ee942-8f6f-4e42-b213-23337a892129" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C1d0cdc85-bd58-42ce-9698-9f42683e2d58" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdc70ecf5-b963-44da-80b4-854b89fa7440" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C19325fbe-66ff-4f83-9c63-947af27dc065" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target {
+}
+
+def sourceId = _source.p.id.value()
+def _id = "RailwayLink_${sourceId}"
+
+withTransformationContext {
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk
+	collect.network &lt;&lt; _id
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `RailwayLink` aus einer `AX_Bahnstrecke`.
+
+Der erstellte `RailwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
+        <source>
+            <class>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bahnkategorie = '2500'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit linienartigen Geometrien behandeln
+def geometries = _.geom.findLines(_source.p.position.first())
+
+// Ziel unterstützt keine MultiLineStrings
+def curves = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+def sourceId = _source.p.id.value()
+
+// Ziel-Objekt für jede Linie erstellen
+int num = 1
+curves.each { curve -&gt;
+	// ID bestimmen
+	def _id = "RailwayLink_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		centrelineGeometry(curve)
+	}
+	
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk	
+		collect.network &lt;&lt; _id
+	}
+	
+	num++
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `RailwayLink` aus einer `AX_SeilbahnSchwebebahn` (nur `bahnkategorie` *Schwebebahn*).
+
+Die Geometrie des Quell-Objekts wird untersucht. Nur linienartige Geometrien werden verwendet. Je individueller Geometrie wird ein `RailwayLink` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der individuellen Geometrien (1., 2., Geometrie) gebildet.
+
+Die erstellten `RailwayLink`s werden dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdd940494-8116-4e0e-a7ac-a635b29f5cce" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="copyGeometries"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C43438f51-417d-4c5e-8bb6-95e46ba215aa" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="endNode" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf78462fb-2cc3-4337-b4b6-4bc3e6485717" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="fictitious" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C79a194e1-23b0-4f14-81f7-8b0871a857c6" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C5ee0f9dd-3579-4712-a379-af803911bc0e" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5ee3e63c-f81e-482a-8c6e-d390db597620" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce4468419-2542-4c90-a98f-02a3807111d8" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Ca7a866af-7d66-4d7a-9a25-ae2d39fca517" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C53e1aa42-b908-4f45-8224-2a82d2a5a54f" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C4bcaaeda-f8c5-41c5-8efa-bc3a2eaffa51" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdf684ce6-1452-44af-b699-853f8a76963a" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="startNode" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C8bdc6a70-fb35-49fc-8113-0fb3aac3b041" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C95a15bfe-e439-4f42-ac3f-eb3740da976a" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C05ddffbf-58b8-489b-b53b-44086656f42f" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit flächenartigen Geometrien behandeln
+def geometries = _.geom.findPolygons(_source.p.position.first())
+
+// Ziel unterstützt keine MultiSurfaces
+def surfaces = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Ziel-Objekt für jede Fläche erstellen
+int num = 1
+surfaces.each { surface -&gt;
+	// ID bestimmen
+	def _id = "RailwayStationArea_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen (IDs und Geometrie)
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(surface)
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk
+		collect.network &lt;&lt; _id
+	}
+
+	num++
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `RailwayStationAreas`s aus `AX_Bahnverkehrsanlage`.
+
+Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien verwendet. Je Fläche wird eine `RailwayStationArea` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
+
+Die erstellte `RailwayStationArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ccf4d6e03-e860-410d-a4dc-2a47bc1b747a" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2fd3d7ec-9da9-47f0-af0d-8502ced21036" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cad0cc7de-46e9-4eca-9c22-a50a195d20df" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfe820c80-b3ae-4187-9e5d-3ebf7baccc3f" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cb67944ff-940a-461e-a1b3-cfd049ec32d2" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit punkartige Geometrien behandeln
+def geometries = _.geom.findPoints(_source.p.position.first())
+
+// Ziel unterstützt keine MultiSurfaces
+def points = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+if (points.size() &gt; 1) {
+	// es wird davon ausgegangen dass es keine MultiPoint-Objekte gibt - falls doch, Fehler ausgeben
+	_log.error("AX_Bahnverkehrsanlage $sourceId besteht aus mehreren Punkten, das ist für die Abbildung nicht unterstützt, nur der erste Punkt wird verwendet")
+}
+
+if (points) {
+	// ID bestimmen
+	def _id = "RailwayStationNode_${sourceId}"
+
+	// Ziel-Objekt erstellen (Geometrie)
+	_target {
+		geometry(points[0])
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk
+		collect.network &lt;&lt; _id
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `RailwayStationNode` aus einer `AX_Bahnverkehrsanlage` mit Punktgeometrie.
+
+Der erstellte `RailwayStationNode` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+*Laut Kommentar in der Mapping-Tabelle gibt es hier ein mögliches Problem dadurch, dass auch Objekte für Seilbahnen als Quell-Objekt hier berücksichtigt werden könnten. Es ist unklar, wie diese Information am besten bestimmt werden kann.*</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C71b01119-07ef-4ba5-be89-f559ba8348ae" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="formOfNode" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/FormOfRailwayNodeValue/railwayStop" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C7ff7aee4-31db-4735-8a08-b11eac8d868f" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd6685840-e394-483b-aeaa-59ae1f9586a1" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C36800514-78ca-4872-b040-59eddf5ca7b4" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C23cef4d3-5996-444b-a1c8-87cc1fa78515" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C3039108d-700e-411d-a739-df8f5923c887" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cae1ea087-9828-474b-91c9-8db9511b673d" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C14650329-7fc8-4101-98ea-8a83c5e5d43c" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="numberOfPlatforms" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cba533cdd-acb9-48ee-90c2-9082ce31335e" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="spokeEnd" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7b95bff6-9040-421a-ae01-bbbdb645202f" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="spokeStart" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce8f3b00d-2e54-404e-9cb7-b81aac9ecfd0" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ceb47e522-8ed1-4468-84b8-76accceda0a1" priority="normal">
+        <target>
+            <property>
+                <type name="RailwayStationNodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C13ad15bd-b849-403e-bcf4-ec122b3998bd" priority="normal">
         <target>
             <property>
@@ -11,4 +739,7 @@
         </target>
         <parameter value="rail" name="value"/>
     </cell>
+    <modifier cell="C4bcaaeda-f8c5-41c5-8efa-bc3a2eaffa51">
+        <disable-for parent="C433d8afa-844b-4e56-b6c8-82e369fd15ea"/>
+    </modifier>
 </alignment>
