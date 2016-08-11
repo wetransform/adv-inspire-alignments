@@ -189,6 +189,62 @@ Der für Datenanbieter und Datensatz spezifische Namespace muss dafür als Vorga
         </cf:custom-property-function>
     </customFunction>
     <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.date.earliest" name="Jüngstes Datum" type="groovy">
+            <cf:input eager="true" maxOccurs="-1" minOccurs="1" name="dates">
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//import java.text.SimpleDateFormat
+//def formatter = new SimpleDateFormat('yyyy-MM-dd')
+
+// all source dates as list
+def values = dates.p.values()
+
+if (!values) {
+	// no result
+	return null
+}
+
+// try to convert to date
+values = values.collect { value -&gt;
+	def result
+	//XXX skip instanceof check - instanceof is not supported by Groovy Sandbox
+	// and Class.isInstance requires the Groovy restriction to be lifted
+	//if (Date.isInstance(value)) {
+	//	result = value
+	//}
+	//TODO also support parsing based on provided pattern?
+	if (result == null) {
+		// try hale conversion
+		result = _.convert(value: value, to: Date)
+	}
+	if (result == null) {
+		result = value as Date
+	}
+	result
+}
+
+// sort dates
+values.sort()
+
+// yield last date
+values[-1]
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Liefert das jüngste Datum/Zeit aller Eingabedaten.</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
+    <customFunction>
         <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.uom.toucum" name="AdV Maßeinheit zu UCUM" type="groovy">
             <cf:input eager="false" maxOccurs="1" minOccurs="1" name="uom">
                 <cf:binding>java.lang.String</cf:binding>
