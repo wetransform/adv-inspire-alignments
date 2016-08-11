@@ -38,6 +38,68 @@
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cbc1d0004-f009-40ce-a9e0-284e0852cbd0" priority="low">
+        <target>
+            <class>
+                <type name="NominalTrackGaugeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein NominalTrackGauge-Objekt für jeden vorkommenden Wert
+collect.nominalTrackGauge.consume { key, values -&gt;
+	def _id = 'NominalTrackGauge_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		if (key == 'standard') {
+			// Spurweite ist nur für standard bekannt
+			nominalGauge( '1435' ) {
+				uom( 'mm' )
+			}
+		}
+		else {
+			nominalGauge {
+				nilReason( 'unknown' )
+			}
+		}
+		nominalGaugeCategory( key )
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Objekten mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `NominalTrackGauge`-Objekt für jeden in den Daten vorkommenden Wert für `nominalGaugeCategory`.
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Wert gebildet, z.B. `NominalTrackGauge_standard`.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `RailwayLink`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbdf5128c-1dad-4827-806e-ee6a6fc3cc50" priority="normal">
         <source>
             <class>
@@ -184,6 +246,21 @@ Die erstellte `RailroadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
 _target {
 }
 
+// bestimme NominalTrackGauge
+def nominalTrackGauge
+switch (_source.p.spurweite.value()) {
+case '1000': // Normalspur (Regelspur, Vollspur)
+	nominalTrackGauge = 'standard'
+	break
+case '2000': // Schmalspur
+	nominalTrackGauge = 'narrow'
+	break
+case '3000': // Breitspur
+	nominalTrackGauge = 'broad'
+	break
+}
+
+// ID zum hinterlegen in Indizes
 def sourceId = _source.p.id.value()
 def _id = "RailwayLink_${sourceId}"
 
@@ -191,12 +268,29 @@ withTransformationContext {
 	def collect = _.context.collector(it)
 	// Sammle ID für Netzwerk
 	collect.network &lt;&lt; _id
+	// Sammle ID für NominalTrackGauge
+	if (nominalTrackGauge) {
+		collect.nominalTrackGauge[nominalTrackGauge] &lt;&lt; _id
+	}
 }
 </core:text>
         </complexParameter>
         <documentation>Erstellt einen `RailwayLink` aus einer `AX_Bahnstrecke`.
 
-Der erstellte `RailwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+Der erstellte `RailwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**NominalTrackGauge**
+
+Die `nominalGaugeCategory` wird wie folgt aus dem Attribut `spurweite` ermittelt:
+
+spurweite  | nominalGaugeCategory
+- | -
+`1000` *(Normalspur (Regelspur, Vollspur))* | `standard`
+`2000` *(Schmalspur)* | `narrow`
+`3000` *(Breitspur)* | `broad`
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
         <source>
