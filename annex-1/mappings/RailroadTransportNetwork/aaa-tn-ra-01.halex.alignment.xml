@@ -213,6 +213,17 @@ _source.p.bahnkategorie.each { bkt -&gt;
 	}
 }
 
+// bestimme ConditionOfFacility
+def conditionOfFacility = 'functional'
+switch (_source.p.zustand.value()) {
+case '2100': // Außer Betrieb, stillgelegt, verlassen
+	conditionOfFacility = 'disused'
+	break
+case '4000': // Im Bau
+	conditionOfFacility = 'underConstruction'
+	break
+}
+
 withTransformationContext {
 	def collect = _.context.collector(it)
 	// Sammle ID für Netzwerk
@@ -221,6 +232,8 @@ withTransformationContext {
 	railwayTypes.each { railwayType -&gt;
 		collect.railwayType[railwayType] &lt;&lt; _id
 	}
+	// Sammle ID für ConditionOfFacility
+	collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
 }
 </core:text>
         </complexParameter>
@@ -248,6 +261,17 @@ bahnkategorie | railwayType
 `1302` *(Standseilbahn)* | `funicular`
 `1301` *(Zahnradbahn)* | `cogRailway`
 `1600` *(Magnetschwebebahn)* | `magneticLevitation`
+
+**ConditionOfFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` ermittelt:
+
+zustand | conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C4d69e8d8-0f66-4fb1-9343-465ee5604ff3" priority="normal">
@@ -714,6 +738,17 @@ case '2000': // Zweigleisig
 // bestimme RailwayElectrification
 def electrified = _source.p.elektrifizierung.value() != '2000'
 
+// bestimme ConditionOfFacility
+def conditionOfFacility = 'functional'
+switch (_source.p.zustand.value()) {
+case '2100': // Außer Betrieb, stillgelegt, verlassen
+	conditionOfFacility = 'disused'
+	break
+case '4000': // Im Bau
+	conditionOfFacility = 'underConstruction'
+	break
+}
+
 // ID zum hinterlegen in Indizes
 def sourceId = _source.p.id.value()
 def _id = "RailwayLink_${sourceId}"
@@ -740,6 +775,8 @@ withTransformationContext {
 	}
 	// Sammle ID für RailwayElectrification
 	collect.electrified[electrified] &lt;&lt; _id
+	// Sammle ID für ConditionOfFacility
+	collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
 }
 </core:text>
         </complexParameter>
@@ -809,6 +846,17 @@ anzahlDerStreckengleise | numberOfTracks
 **RailwayElectrification**
 
 Ob ein `RailwayLink` elektrifiziert (`electrified`) ist wird aus dem Attribut `elektrifizierung` bestimmt. Er ist nicht elektrifiziert falls das Attribute den Wert `2000` (Nicht elektrifiziert) hat.
+
+**ConditionOfFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` ermittelt:
+
+zustand | conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
@@ -1075,6 +1123,17 @@ _b.strictValueFlags = false
 // Identifier des Quell-Objekts
 def sourceId = _source.p.id.value()
 
+// bestimme ConditionOfFacility
+def conditionOfFacility = 'functional'
+switch (_source.p.zustand.value()) {
+case '2100': // Außer Betrieb, stillgelegt, verlassen
+	conditionOfFacility = 'disused'
+	break
+case '4000': // Im Bau
+	conditionOfFacility = 'underConstruction'
+	break
+}
+
 // Ziel-Objekt für jede Fläche erstellen
 int num = 1
 surfaces.each { surface -&gt;
@@ -1105,6 +1164,8 @@ surfaces.each { surface -&gt;
 		if (_source.p.bezeichnung.value()) {
 			collect.railwayStationCode[_source.p.bezeichnung.value()] &lt;&lt; _id
 		}
+		// Sammle ID für ConditionOfFacility
+		collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
 	}
 
 	num++
@@ -1119,7 +1180,21 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
 
 Die erstellte `RailwayStationArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
 
-Falls die `AX_Bahnverkehrsanlage` über eine `bezeichnung` verfügt, wird dem Index für `RailwayStationCode`s die `RailwayStationArea` ebenfalls hinzugefügt.</documentation>
+Falls die `AX_Bahnverkehrsanlage` über eine `bezeichnung` verfügt, wird dem Index für `RailwayStationCode`s die `RailwayStationArea` ebenfalls hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**ConditionOfFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` ermittelt:
+
+zustand | conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
+</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ccf4d6e03-e860-410d-a4dc-2a47bc1b747a" priority="normal">
         <source name="spelling">
@@ -1251,10 +1326,21 @@ if (points.size() &gt; 1) {
 if (points) {
 	// ID bestimmen
 	def _id = "RailwayStationNode_${sourceId}"
-
+	
 	// Ziel-Objekt erstellen (Geometrie)
 	_target {
 		geometry(points[0])
+	}
+	
+	// bestimme ConditionOfFacility
+	def conditionOfFacility = 'functional'
+	switch (_source.p.zustand.value()) {
+	case '2100': // Außer Betrieb, stillgelegt, verlassen
+		conditionOfFacility = 'disused'
+		break
+	case '4000': // Im Bau
+		conditionOfFacility = 'underConstruction'
+		break
 	}
 	
 	withTransformationContext {
@@ -1265,6 +1351,8 @@ if (points) {
 		if (_source.p.bezeichnung.value()) {
 			collect.railwayStationCode[_source.p.bezeichnung.value()] &lt;&lt; _id
 		}
+		// Sammle ID für ConditionOfFacility
+		collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
 	}
 }
 </core:text>
@@ -1275,7 +1363,21 @@ Der erstellte `RailwayStationNode` wird dem Index von Netzwerk-Elementen hinzuge
 
 Falls die `AX_Bahnverkehrsanlage` über eine `bezeichnung` verfügt, wird dem Index für `RailwayStationCode`s die `RailwayStationArea` ebenfalls hinzugefügt.
 
-*Laut Kommentar in der Mapping-Tabelle gibt es hier ein mögliches Problem dadurch, dass auch Objekte für Seilbahnen als Quell-Objekt hier berücksichtigt werden könnten. Es ist unklar, wie diese Information am besten bestimmt werden kann.*</documentation>
+*Laut Kommentar in der Mapping-Tabelle gibt es hier ein mögliches Problem dadurch, dass auch Objekte für Seilbahnen als Quell-Objekt hier berücksichtigt werden könnten. Es ist unklar, wie diese Information am besten bestimmt werden kann.*
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**ConditionOfFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` ermittelt:
+
+zustand | conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C71b01119-07ef-4ba5-be89-f559ba8348ae" priority="normal">
         <target>
