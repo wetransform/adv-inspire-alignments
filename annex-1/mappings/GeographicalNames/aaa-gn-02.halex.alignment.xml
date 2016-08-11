@@ -1,62 +1,352 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba1" location="../base-functions.halex.alignment.xml"/>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C5066930e-afc6-4363-9cbb-71846e46cb5b" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C44422922-aa67-4d00-bc52-a77a4ed816b8" priority="highest">
         <source>
-            <property>
-                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
+            <class>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
         </source>
         <target>
-            <property>
+            <class>
+                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def name = _source.p.bezeichnung.value()
+def schluessel = _source.p.schluesselGesamt.value()
+
+withTransformationContext {
+  def collect = _.context.collector(it)
+  
+  // Name zu Schlüssel der Lagebezeichnung im Index ablegen
+  collect.lagebezeichnung[schluessel] = name
+}
+</core:text>
+        </complexParameter>
+        <documentation>Dies ist eine Dummy-Transformationsdefinition die keine Objekte erzeugt sondern zum Aufbauen eines Index für `AX_LagebezeichnungKatalogeintrag` dient.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.join" id="C620b2869-0c69-4e70-afca-9c141b68e844" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    </type>
+                </class>
+                <class>
+                    <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                        </type>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="dientZurDarstellungVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C3f5941a3-eaf1-4c23-99c8-fd528b94431f" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
         </target>
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C635eb544-fc9a-4bc4-8c15-05b3313c14f4" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cdc98b28b-8a26-4dbb-bbc7-3f74a20a3203" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
         </source>
         <target>
-            <property>
+            <class>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
-            </property>
+            </class>
         </target>
-        <parameter value="Gebäude" name="value"/>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C43dd73e1-8184-4703-9039-9001006ae3b2" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C264dc096-61b5-4a61-acaa-ebd17310de5a" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BergbaubetriebType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
         </source>
         <target>
-            <property>
+            <class>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
+            </class>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/building" name="value"/>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce3e103b6-abfd-4ec2-8fa2-a93dee571cc4" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C60802bb3-6148-4e81-b1a3-204994b51894" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cd79f9d21-40ec-417b-81bb-ef1d52329f78" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce2b69a76-1300-4403-b2fc-5569b6915243" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C7f522955-2939-4741-92bb-e0caf45a1333" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FriedhofType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C3d16c037-d22d-46a6-b068-62925103a866" priority="normal">
         <source>
             <class>
                 <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cf69e7b2b-192f-4820-bb10-1303afdbb91a" priority="normal">
+        <source>
+            <class>
+                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C4890150f-eb5a-42dc-a7dd-dcbcec92821d" priority="normal">
+        <source>
+            <class>
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C6b0f4934-f8ca-4b4a-b0a1-ae8482ff00c6" priority="normal">
+        <source>
+            <class>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cc2e7b4d9-c8a5-4727-a8a3-07325dd8744e" priority="normal">
+        <source>
+            <class>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C1b06eafe-7a44-46fe-aa27-d351e2a82228" priority="normal">
+        <source>
+            <class>
+                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C768ef05d-1933-4470-a903-3d486f4d3a5e" priority="normal">
+        <source>
+            <class>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cf4ab4650-3ba3-4187-ba43-fd735710495c" priority="normal">
+        <source>
+            <class>
+                <type name="AX_TagebauGrubeSteinbruchType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C1ba7535e-a1bb-4db1-9b24-d73899871f56" priority="normal">
+        <source>
+            <class>
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cfb1ef4cf-be19-46af-a44a-1e312eac56fe" priority="normal">
+        <source>
+            <class>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
             </class>
@@ -87,20 +377,164 @@
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C264dc096-61b5-4a61-acaa-ebd17310de5a" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb174f863-adde-4bb6-a881-8ee469d1ba7a" priority="normal">
         <source>
-            <class>
+            <property>
+                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C50ee9be0-3608-4020-8298-6f7f988bc9ac" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C86bee92c-7b77-4535-a5fd-b33f28ed0468" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7b79c5de-146a-4fa4-8cd4-91a9e65f7b75" priority="normal">
+        <source>
+            <property>
                 <type name="AX_BergbaubetriebType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
-            </class>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
         </source>
         <target>
-            <class>
+            <property>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
         </target>
         <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cae006b36-6727-45ee-a9dc-21292d5b3941" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf4b7cde4-7726-4fc4-86ae-db95af878b57" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cbf53a39e-bd5e-45ac-99c9-c365e56483a9" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc2506188-e3c8-4ea4-bfda-6199c59f14a3" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cfe024169-ded7-41b7-9b89-67958908fc29" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FriedhofType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C7bfd886a-0318-46a5-84df-aecb599e9cc4" priority="normal">
@@ -120,78 +554,144 @@
         <parameter value="false" name="copyGeometries"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cd79f9d21-40ec-417b-81bb-ef1d52329f78" priority="normal">
-        <source>
-            <class>
-                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce40c8e83-c7a6-4363-8e36-3582d9715c4d" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ccdf2a969-543b-4aa0-a38c-adcf9b68a2a3" priority="normal">
         <source>
             <property>
-                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C3d8a5eff-338f-4a05-acc4-8a05706f9ce6" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C971d6a38-38f9-4ff0-baba-0d09fa533432" priority="normal">
         <source>
             <property>
-                <type name="AX_BergbaubetriebType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cf69e7b2b-192f-4820-bb10-1303afdbb91a" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C5ca336cb-a8b7-4ca0-9b0e-a4728c4ce919" priority="normal">
         <source>
-            <class>
-                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
-            </class>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
         </source>
         <target>
-            <class>
+            <property>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C18f54868-9d95-40b4-ab53-101b0ad4197c" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C998d8c05-aedf-4e5b-bd56-adb8e91ea533" priority="normal">
+        <source>
+            <property>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C6b71d962-9c41-4311-b79d-d020fb3e8a61" priority="normal">
+        <source>
+            <property>
+                <type name="AX_TagebauGrubeSteinbruchType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C20cdaaa3-48ea-4003-92d6-e2edcb3a7eb4" priority="normal">
+        <source>
+            <property>
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1edd7400-23ee-4f58-965a-44336023f5e8" priority="normal">
+        <source>
+            <property>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
         </target>
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -216,30 +716,37 @@
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C95d17b10-614b-47c9-ad79-57d0368c011c" priority="normal">
-        <source name="spelling">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cbb91121f-7d7e-40b6-8b95-087d3a05b81e" priority="normal">
+        <source name="id">
             <property>
-                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="source">
-            <property>
-                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ceb45feb4-16a2-492c-a3c0-58dc956e8005" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="true" name="useTargetTypePrefix"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="Cd65a6e9e-f415-40ff-8f46-d7d340cfa408" priority="normal">
         <target>
@@ -251,10 +758,10 @@
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C60ff6273-48b5-449c-97b0-c1cb3c7189df" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C7448f370-ca82-47da-a33c-787303ca077b" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -267,9 +774,27 @@
                 <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
             </property>
         </target>
-        <parameter value="Halde" name="value"/>
+        <parameter value="Bahnstrecke" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ccb454817-79a4-456f-a889-a30f68762abd" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C4166c2d4-91f2-439b-a9cd-22a5171ec949" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Bahnverkehr" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0994672b-e969-4b62-b813-1e4145177bb5" priority="normal">
         <source name="anchor">
             <property>
                 <type name="AX_BergbaubetriebType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -286,6 +811,42 @@
             </property>
         </target>
         <parameter value="Bergbaubetrieb" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca30cd3a7-8fbe-4382-b0c4-e2a289fda230" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Fahrwegachse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9e7ea1c7-1f47-47aa-bc55-2fae59a314bf" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Fläche mit besonderer funktionaler Prägung" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc4855cb2-db8d-4f0c-9bdb-ac96a4b4c426" priority="normal">
         <source name="anchor">
@@ -305,8 +866,410 @@
         </target>
         <parameter value="FlächeGemischterNutzung" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C87911549-0698-40c6-87d9-237a6fc7c62f" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cdba3b061-b38b-4b87-9f20-5ccbac21f766" priority="normal">
         <source name="anchor">
+            <property>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Flugverkehr" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C55338d8b-ce54-4b0d-a68a-4ea18e51d822" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_FriedhofType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Friedhof" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C635eb544-fc9a-4bc4-8c15-05b3313c14f4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Gebäude" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C60ff6273-48b5-449c-97b0-c1cb3c7189df" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Halde" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C98aa1dc7-e873-4f70-97a5-434cc9c55e7f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="IndustrieUndGewerbefläche" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6b79aea0-f4c1-44b2-8f80-a7797858365c" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Platz" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1cf2b792-2d53-4137-a02a-8637d04cce85" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Schiffsverkehr" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C806f8ab0-e004-4ca3-b1dd-d272ee1092bb" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="FlächeBesondererFunktionalerPrägung" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0735bf53-72c0-485e-aa6a-7d7060f8f685" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Strasse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C7bbb895b-b581-4149-982f-345ce6032761" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Strassenverkehr" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd5972674-dcf6-47e8-ac7a-3cf4557997f3" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_TagebauGrubeSteinbruchType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="TagebauGrubeSteinbruch" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cfef79e8e-6a54-4874-8925-1c7c94660d72" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Weg" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce0be85c1-3ed7-4fa2-be30-9d3521070962" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Wohnbaufläche" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C510499f9-62aa-4e14-975f-9d36e7d84e5b" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ce688d878-23f2-41f5-8280-10a1f4b32712" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C7c97e0e8-a75e-49d9-98f3-9e997b27235a" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C5f7b966c-afdb-42a4-b18c-1a1eb769892f" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C1df3bfe5-aee3-45db-a90c-ecdad62c35b6" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C03a70e9d-239c-4dba-85a1-e26b11bb2524" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="Cb6bc9ef4-e386-4832-a1e7-b8eeb2037400" priority="normal">
+        <source name="lagebezeichnung">
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ca5d467a9-c35c-4499-9211-730a222d852f" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="AX_BergbaubetriebType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
@@ -314,178 +1277,46 @@
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
+        <source name="source">
+            <property>
+                <type name="AX_BergbaubetriebType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/other" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C95fbe584-ccbc-45b0-b08d-f967ada447d4" priority="normal">
-        <source name="anchor">
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C668edb89-4f9a-4e77-9dfe-5430b794c39c" priority="normal">
+        <source name="spelling">
             <property>
-                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
-        <target>
+        <source name="source">
             <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/populatedPlace" name="value"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Ceb45feb4-16a2-492c-a3c0-58dc956e8005" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C4890150f-eb5a-42dc-a7dd-dcbcec92821d" priority="normal">
-        <source>
-            <class>
-                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cf4ab4650-3ba3-4187-ba43-fd735710495c" priority="normal">
-        <source>
-            <class>
-                <type name="AX_TagebauGrubeSteinbruchType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cfb1ef4cf-be19-46af-a44a-1e312eac56fe" priority="normal">
-        <source>
-            <class>
-                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Cbb91121f-7d7e-40b6-8b95-087d3a05b81e" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="true" name="useTargetTypePrefix"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C60802bb3-6148-4e81-b1a3-204994b51894" priority="normal">
-        <source>
-            <class>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C1b06eafe-7a44-46fe-aa27-d351e2a82228" priority="normal">
-        <source>
-            <class>
-                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C7f522955-2939-4741-92bb-e0caf45a1333" priority="normal">
-        <source>
-            <class>
-                <type name="AX_FriedhofType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf4b7cde4-7726-4fc4-86ae-db95af878b57" priority="normal">
-        <source>
-            <property>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C7e75153d-66b9-4be7-8aa0-1c50b4a906a2" priority="normal">
         <source name="spelling">
@@ -512,64 +1343,10 @@
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0235eeb1-5db4-48a5-abd0-e83ccd2421b4" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/populatedPlace" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9e7ea1c7-1f47-47aa-bc55-2fae59a314bf" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
-            </property>
-        </target>
-        <parameter value="Fläche mit besonderer funktionaler Prägung" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C18f54868-9d95-40b4-ab53-101b0ad4197c" priority="normal">
-        <source>
-            <property>
-                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cab596d46-0377-47bc-b1f6-c8099e46e8ee" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cf05826e5-293d-4431-961f-18fb018ffe10" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -577,7 +1354,7 @@
         </source>
         <source name="source">
             <property>
-                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -591,41 +1368,23 @@
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C20851f84-de80-4e22-8a0a-599fd6f2dfa4" priority="normal">
-        <source name="anchor">
+    <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="Ca302db1b-ec63-46bc-b5ba-0ca0a349b028" priority="normal">
+        <source name="lagebezeichnung">
             <property>
-                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/other" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C806f8ab0-e004-4ca3-b1dd-d272ee1092bb" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
-            </property>
-        </target>
-        <parameter value="FlächeBesondererFunktionalerPrägung" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C6dce5bcd-a76e-4d4a-a471-fa8ec29cf244" priority="normal">
         <source name="spelling">
@@ -652,196 +1411,20 @@
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cfe024169-ded7-41b7-9b89-67958908fc29" priority="normal">
-        <source>
-            <property>
-                <type name="AX_FriedhofType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbc47b338-0cf3-4fb4-9c59-97626ace3be4" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_FriedhofType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/other" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C55338d8b-ce54-4b0d-a68a-4ea18e51d822" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_FriedhofType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
-            </property>
-        </target>
-        <parameter value="Friedhof" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="C433db30d-4782-418c-ae6b-bf26c3fa9b61" priority="normal">
-        <source name="types">
-            <class>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-            </class>
-        </source>
-        <source name="types">
-            <class>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="join">
-            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
-                <class>
-                    <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                        <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                    </type>
-                </class>
-                <class>
-                    <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <jp:condition>
-                    <property>
-                        <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                            <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                        </type>
-                        <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                        <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                            <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                        </type>
-                        <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                        <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                            <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                        </type>
-                        <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                        <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                            <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                        </type>
-                        <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                        <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="lage" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="lage" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                            <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                        </type>
-                        <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                        <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-            </jp:join-parameter>
-        </complexParameter>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C5f7b966c-afdb-42a4-b18c-1a1eb769892f" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc9523916-55cc-44ef-9efc-a17f9c90e4da" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <source name="source">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
@@ -853,35 +1436,45 @@
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C971d6a38-38f9-4ff0-baba-0d09fa533432" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C95d17b10-614b-47c9-ad79-57d0368c011c" priority="normal">
+        <source name="spelling">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C19bc5b28-0cf0-4108-8491-f648e4225365" priority="highest">
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc8942d20-a605-4fd7-9e66-875dd35a0570" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="unverschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <source name="source">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
@@ -913,5 +1506,567 @@
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C0387fa9e-2ba2-4e37-8242-b1a284f952fb" priority="normal">
+        <source name="lagebezeichnung">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C001a1ba1-d7ff-4374-89a6-a00fac6bc13a" priority="normal">
+        <source name="lagebezeichnung">
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cab596d46-0377-47bc-b1f6-c8099e46e8ee" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc692daf2-37c9-4219-b740-f3e4ff28d3fe" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C0e671607-ee4c-4398-bb36-03d5a089d46c" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="Cd2f35246-916d-4414-b732-7071be7ad95a" priority="normal">
+        <source name="lagebezeichnung">
+            <property>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cb97090fc-c605-4eee-9147-64be2641b3cd" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_TagebauGrubeSteinbruchType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_TagebauGrubeSteinbruchType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C9784554a-ab1b-4e9c-86f9-54929a6e1428" priority="normal">
+        <source name="lagebezeichnung">
+            <property>
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C380b06db-0270-4cab-8b65-9e458efac174" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ca4f6e9cf-b443-4cbe-8df5-518f6de6c5c7" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca40a5fd3-3196-4752-b3f1-9e532001bae3" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/transportNetwork" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C7fb83589-604f-4d84-914e-380d18d1c329" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/transportNetwork" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C87911549-0698-40c6-87d9-237a6fc7c62f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BergbaubetriebType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/other" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C998838d7-ad1e-4563-b47d-e4c51f128833" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/transportNetwork" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0235eeb1-5db4-48a5-abd0-e83ccd2421b4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/populatedPlace" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C95fbe584-ccbc-45b0-b08d-f967ada447d4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/populatedPlace" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C31da1b6b-cd42-4707-b4dd-bfad1972a2b9" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/transportNetwork" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbc47b338-0cf3-4fb4-9c59-97626ace3be4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_FriedhofType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/other" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C43dd73e1-8184-4703-9039-9001006ae3b2" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/building" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C012bb0d1-43e1-4693-b561-bf978fc7fadd" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/other" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C90bbde07-9a36-47ba-9ace-c2a32082a423" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/populatedPlace" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca2b50342-b590-4a28-9548-73e19c553013" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/transportNetwork" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5082ed33-5336-48ba-8bfc-3136d9c45d80" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/transportNetwork" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C20851f84-de80-4e22-8a0a-599fd6f2dfa4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_SportFreizeitUndErholungsflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/other" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd990f379-8609-4081-9189-27668e9426d0" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/transportNetwork" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C7259f6ea-75b3-4bfe-976b-7a1996ca8d29" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/transportNetwork" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C500bab5a-614e-4da8-98cd-181793ddf437" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_TagebauGrubeSteinbruchType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/other" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C85c15e09-4330-4ab3-a003-c9e93d09bea4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/transportNetwork" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc1317d0f-707a-424f-b8b9-8d8deb97d71d" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/populatedPlace" name="value"/>
     </cell>
 </alignment>
