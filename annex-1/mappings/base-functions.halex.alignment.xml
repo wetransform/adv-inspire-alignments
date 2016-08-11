@@ -1,5 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+	<customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.AX_Lagebezeichnung.GeographicalName" name="AX_Lagebezeichnung zu GeographicalName" type="groovy">
+            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="lagebezeichnung">
+                <cf:binding>java.lang.String</cf:binding>
+                <cf:type name="AX_LagebezeichnungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </cf:input>
+            <cf:input eager="false" maxOccurs="1" minOccurs="0" name="source">
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:type name="GeographicalNameType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def name = lagebezeichnung.p.unverschluesselt.value()
+
+if (!name) {
+	// Namen auch aus verschlüsselter Lagebezeichnung ableiten
+	
+	def gemeinde = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde.value()
+	def kreis = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis.value()
+	def lage = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.lage.value()
+	def land = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.land.value()
+	def reg = lagebezeichnung.p.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk.value()
+
+	if (land &amp;&amp; gemeinde &amp;&amp; kreis &amp;&amp; lage) {
+		if (!reg) reg = '0'
+		def schluesselGesamt = "$land$reg$kreis$gemeinde$lage"
+		
+		withTransformationContext {
+			def collect = _.context.collector(it)
+	  
+			// Name zu Schlüssel der Lagebezeichnung aus Index holen
+			name = collect.lagebezeichnung[schluesselGesamt].value()
+		}
+	}
+}
+
+if (name) {
+	_target {
+		if (source) {
+			sourceOfName(source)
+		}
+		spelling {
+			SpellingOfName {
+				text( name )
+				script( 'Latn' )
+			}
+		}
+		language( 'deu' )
+	}
+}
+else {
+	throw new NoResultException()
+}
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+Erstellt ein GeographicalName-Objekt aus einer Lagebezeichnung.
+Eine unverschlüsselte Lagebezeichnung wird direkt übernommen, eine verschlüsselte Lagebezeichnung wird versucht über einen Index nachzuschlagen.
+
+Die Sprache wird als Deutsch angenommen.
+
+&lt;% if (source) {
+  out &lt;&lt; "Die Quelle des Namens wird aus dem Quell-Attribut $source bestimmt."
+} %&gt;
+</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
     <customFunction>
         <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.id.default" name="AdV INSPIRE localId" type="groovy">
             <cf:input eager="true" maxOccurs="-1" minOccurs="1" name="id">
