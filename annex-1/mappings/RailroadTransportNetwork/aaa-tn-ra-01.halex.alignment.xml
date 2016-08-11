@@ -100,6 +100,70 @@ Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Obje
 
 Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `RailwayLink`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C6f5276f4-be5d-4509-a927-a39aea98844a" priority="low">
+        <target>
+            <class>
+                <type name="NumberOfTracksType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein NumberOfTracks-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.numberOfTracks.consume { key, values -&gt;
+	def _id = 'NumberOfTracks_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		numberOfTracks( key )
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `NumberOfTracks`-Objekt für jeden in den Daten vorkommenden Wert für `numberOfTracks`.
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Wert gebildet.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `RailwayLink`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca5062864-f188-41e7-a800-dc412d36911d" priority="normal">
+        <target>
+            <property>
+                <type name="NumberOfTracksType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="minMaxNumberOfTracks" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbdf5128c-1dad-4827-806e-ee6a6fc3cc50" priority="normal">
         <source>
             <class>
@@ -582,6 +646,17 @@ _source.p.bahnkategorie.each { bkt -&gt;
 	}
 }
 
+// bestimme NumberOfTracks
+def numberOfTracks
+switch (_source.p.anzahlDerStreckengleise.value()) {
+case '1000': // Eingleisig
+	numberOfTracks = 1
+	break
+case '2000': // Zweigleisig
+	numberOfTracks = 2
+	break
+}
+
 // ID zum hinterlegen in Indizes
 def sourceId = _source.p.id.value()
 def _id = "RailwayLink_${sourceId}"
@@ -601,6 +676,10 @@ withTransformationContext {
 	// Sammle ID für RailwayUse(s)
 	railwayUses.each { railwayUse -&gt;
 		collect.railwayUse[railwayUse] &lt;&lt; _id
+	}
+	// Sammle ID für NumberOfTracks
+	if (numberOfTracks) {
+		collect.numberOfTracks[numberOfTracks] &lt;&lt; _id
 	}
 }
 </core:text>
@@ -658,6 +737,15 @@ bahnkategorie | railwayUse
 `1400` *(Museumsbahn)* | `passengers`
 `1500` *(Bahn im Freizeitpark)* | `passengers`
 `1600` *(Magnetschwebebahn)* | `passengers`
+
+**NumberOfTracks**
+
+Die `numberOfTracks` wird wie folgt aus dem Attribut `anzahlDerStreckengleise` bestimmt:
+
+anzahlDerStreckengleise | numberOfTracks
+- | -
+`1000` *(Eingleisig)* | `1`
+`2000` *(Zweigleisig)* | `2`
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
@@ -1318,7 +1406,7 @@ collect.railwayType.consume { key, values -&gt;
 }
 </core:text>
         </complexParameter>
-        <documentation>Erstellt ein `RailwayType`-Objekt für jeden in den Daten vorkommenden Wert der [Railway Type Code Liste](http://inspire.ec.europa.eu/codelist/RailwayTypeValue).
+        <documentation>Erstellt ein `RailwayType`-Objekt für jeden in den Daten vorkommenden Wert der [Railway Type Code-Liste](http://inspire.ec.europa.eu/codelist/RailwayTypeValue).
 
 Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Wert gebildet.
 
@@ -1377,6 +1465,11 @@ collect.railwayType.consume { key, values -&gt;
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt ein `RailwayUse`-Objekt für jeden in den Daten vorkommenden Wert der [Railway Use Code-Liste](http://inspire.ec.europa.eu/codelist/RailwayUseValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Wert gebildet.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `RailwayLink`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C13ad15bd-b849-403e-bcf4-ec122b3998bd" priority="normal">
         <target>
