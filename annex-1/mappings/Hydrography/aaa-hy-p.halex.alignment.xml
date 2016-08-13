@@ -1739,6 +1739,16 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
         </target>
         <parameter value="unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5b2134cf-b9aa-4bd0-b5fd-c4084daeb55d" priority="normal">
+        <target>
+            <property>
+                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="elevation" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="uom"/>
+            </property>
+        </target>
+        <parameter value="m" name="value"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C45a9e47b-e2c7-408a-a3b8-3e43593337e0" priority="normal">
         <source name="lagebezeichnung">
             <property>
@@ -1944,6 +1954,16 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
             </property>
         </target>
         <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb8e38300-1f13-4475-b6ba-2c2534cea851" priority="normal">
+        <target>
+            <property>
+                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="meanDepth" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="uom"/>
+            </property>
+        </target>
+        <parameter value="m" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C59fda809-5619-441a-89d7-a1ede60f9463" priority="normal">
         <source>
