@@ -3,7 +3,7 @@
     <name>ALKIS Basis-DLM zu INSPIRE Hydro-Physical Waters</name>
     <author>Thorsten Reitz</author>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2016-08-11T21:01:25.246+02:00</modified>
+    <modified>2016-08-13T12:34:16.383+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -129,12 +129,22 @@
         <associations>
             <codeList identifier="//inspire.ec.europa.eu/codelist/HydrologicalPersistenceValue" namespace="http://inspire.ec.europa.eu/codelist/HydrologicalPersistenceValue">
                 <entity>
+                    <type name="WatercourseType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="persistence" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+                <entity>
                     <type name="StandingWaterType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                     <property name="persistence" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/ConditionOfFacilityValue" namespace="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue">
+                <entity>
+                    <type name="DamOrWeirType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
                 <entity>
                     <type name="LockType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                     <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
@@ -152,6 +162,11 @@
                 </entity>
                 <entity>
                     <type name="EmbankmentType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+                <entity>
+                    <type name="WatercourseType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                     <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
@@ -1549,6 +1564,7 @@
     <property name="mappableSourceType/12">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_MoorType</property>
     <property name="mappableSourceType/13">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SumpfType</property>
     <property name="mappableSourceType/14">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_VegetationsmerkmalType</property>
+    <property name="mappableSourceType/15">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FliessgewaesserType</property>
     <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_DammWallDeichType</property>
     <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType</property>
     <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_MeerType</property>
@@ -1557,7 +1573,7 @@
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaessermerkmalType</property>
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrsanlageType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaesserachseType</property>
-    <property name="mappableSourceType/count">14</property>
+    <property name="mappableSourceType/count">15</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RapidsType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}EmbankmentType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WetlandType</property>
