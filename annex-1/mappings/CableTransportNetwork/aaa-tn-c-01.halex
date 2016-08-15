@@ -9,10 +9,10 @@
 - Eingabedaten für die Transformation werden als ein *TransportNetwork* behandelt (die ID des Netzwerks kann über Projekt-Variablen angepasst werden)
 - Um einen komplexen und speicherintensiven Join über alle erstellten Objekte zu vermeiden, wird bei der Erstellung jedes `NetworkElement` dessen ID mit den anderen gesammelt. Aus den gesammelten IDs werden dann am Ende die Referenzen des `TransportNetwork` auf die `NetworkElement`s gebildet
 - Optionale Objektarten und Bestandteile die in der Mapping-Tabelle als *nicht geführt* deklariert sind wurden nicht gebildet
-- Bei der Abbildung `AX_SeilbahnSchwebebahn` nach `CablewayLink`) werden Objekte anhand ihrer (Mehrfach-)Geometrie in mehrere Ziel-Objekte aufgeteilt werden. Hier wurde die ID des Zielobjekts jeweils mit der entsprechenden Nummer der Geometrie (1., 2., etc. Geometrie) als Suffix angehängt.
+- Bei der Abbildung `AX_SeilbahnSchwebebahn` nach `CablewayLink` werden Objekte anhand ihrer (Mehrfach-)Geometrie in mehrere Ziel-Objekte aufgeteilt werden. Hier wurde die ID des Zielobjekts jeweils mit der entsprechenden Nummer der Geometrie (1., 2., etc. Geometrie) als Suffix angehängt.
 </description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-15T16:32:53.255+02:00</modified>
+    <modified>2016-08-15T16:42:43.222+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
