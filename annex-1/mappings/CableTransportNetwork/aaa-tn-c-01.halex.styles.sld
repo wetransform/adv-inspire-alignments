@@ -2,5 +2,13 @@
   <sld:Name>Default Styler</sld:Name>
   <sld:FeatureTypeStyle>
     <sld:Name>name</sld:Name>
+    <sld:FeatureTypeName>AX_SeilbahnSchwebebahn</sld:FeatureTypeName>
+    <sld:Rule>
+      <sld:LineSymbolizer>
+        <sld:Stroke>
+          <sld:CssParameter name="stroke">#FF6580</sld:CssParameter>
+        </sld:Stroke>
+      </sld:LineSymbolizer>
+    </sld:Rule>
   </sld:FeatureTypeStyle>
 </sld:UserStyle>
