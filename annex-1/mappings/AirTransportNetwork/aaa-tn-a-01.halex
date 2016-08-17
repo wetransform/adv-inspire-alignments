@@ -23,7 +23,7 @@ Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für
 
 Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für alle Features die auf die gleichen Werte abgebildet werden (z.B. gleicher Zustand für `ConditionOfFacility`). Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-17T14:45:56.474+02:00</modified>
+    <modified>2016-08-17T14:54:53.437+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -58,6 +58,12 @@ Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für a
         <setting name="source">http://inspire.ec.europa.eu/codelist/RunwayTypeValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">23cdee98-c06c-422b-a35d-3c329f7b12c8</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/AirUseRestrictionValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
     <file name="alignment.xml" location="aaa-tn-a-01.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-tn-a-01.halex.styles.sld"/>
     <complex-property name="codelists">
@@ -73,6 +79,13 @@ Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für a
                 <entity>
                     <type name="RailwayStationNodeType" namespace="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
                     <property name="formOfNode" namespace="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/AirUseRestrictionValue" namespace="http://inspire.ec.europa.eu/codelist/AirUseRestrictionValue">
+                <entity>
+                    <type name="UseRestrictionType" namespace="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                    <property name="restriction" namespace="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>

@@ -999,4 +999,80 @@ oberflaechenmaterial | surfaceComposition
         </target>
         <parameter value="air" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.merge" id="Cf9468cc1-4312-4e19-af99-217d1e276e28" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">nutzung = '2000'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="UseRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="auto_detect"/>
+        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}position" name="additional_property"/>
+        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}nutzung" name="property"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C4185fd7c-c7c8-4b51-ab7b-3667f679859e" priority="normal">
+        <target>
+            <property>
+                <type name="UseRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="UseRestriction_reservedForMilitary" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C0bdca2a3-eb72-4498-97c5-68ddcbd51e1d" priority="normal">
+        <target name="result">
+            <property>
+                <type name="UseRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="variablesAsInstances"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def _ns = _project.vars.INSPIRE_NAMESPACE
+def _id = 'UseRestriction_reservedForMilitary'
+_target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+	codeSpace( 'http://inspire.ec.europa.eu/ids' )
+}
+</core:text>
+        </complexParameter>
+        <documentation>Kombinert den INSPIRE namespace mit der ID `UseRestriction_reservedForMilitary`.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C1d289ee8-8964-414a-a3d8-bca9de010f04" priority="normal">
+        <target>
+            <property>
+                <type name="UseRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="UseRestriction_reservedForMilitary" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C62dc259c-e645-4697-8d21-c1a982cb98e0" priority="normal">
+        <target>
+            <property>
+                <type name="UseRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7228aae4-6bff-4a55-a28b-a2f3b70ba778" priority="normal">
+        <target>
+            <property>
+                <type name="UseRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="restriction" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AirUseRestrictionValue/reservedForMilitary" name="value"/>
+    </cell>
 </alignment>
