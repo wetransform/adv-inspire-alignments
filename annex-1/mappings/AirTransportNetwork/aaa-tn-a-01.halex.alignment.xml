@@ -46,13 +46,55 @@ def _id = 'AerodromeArea_' + _source.p.id.value()
 _target {
 }
 
+// bestimme AerodromeCategory
+def aerodromeCategory
+switch(_source.p.art.value()) {
+case '5511': // Internationaler Flughafen
+	aerodromeCategory = 'international'
+	break
+case '5510': // Flughafen
+	aerodromeCategory = 'domesticNational'
+	break
+case '5512': // Regionalflughafen
+case '5520': // Verkehrslandeplatz
+case '5530': // Hubschrauberflugplatz
+case '5540': // Landeplatz, Sonderlandeplatz
+case '5550': // Segelfluggelände
+	aerodromeCategory = 'domesticRegional'
+	break
+}
+
 withTransformationContext {
 	def collect = _.context.collector(it)
 	// Sammle ID für Netzwerk
 	collect.network &lt;&lt; _id
+	// Sammle ID für AerodromeCategory
+	if (aerodromeCategory) {
+		collect.aerodromeCategory[aerodromeCategory] &lt;&lt; _id
+	}
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt eine `AerodromeArea` aus einem `AX_Flugverkehr`.
+
+Die erstellte `AerodromeArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**AerodromeCategory**
+
+Die *aerodromeCategory* wird wie folgt aus dem Attribut `art` bestimmt:
+
+art | aerodromeCategory
+- | -
+`5511` *(Internationaler Flughafen)* | `international`
+`5510` *(Flughafen)* | `domesticNational`
+`5512` *(Regionalflughafen)* | `domesticRegional`
+`5520` *(Verkehrslandeplatz)* | `domesticRegional`
+`5530` *(Hubschrauberflugplatz)* | `domesticRegional`
+`5540` *(Landeplatz, Sonderlandeplatz)* | `domesticRegional`
+`5550` *(Segelfluggelände)* | `domesticRegional`
+</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C1b0796d8-8a2e-48bc-b165-e88ffc8e52ae" priority="normal">
         <target>
@@ -63,6 +105,65 @@ withTransformationContext {
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C29954e8c-8766-4a4a-9dbb-4e3371b9adff" priority="low">
+        <target>
+            <class>
+                <type name="AerodromeCategoryType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für AerodromeCategory
+def codeList = 'http://inspire.ec.europa.eu/codelist/AerodromeCategoryValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein AerodromeCategory-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.aerodromeCategory.consume { key, values -&gt;
+	def _id = 'AerodromeCategory_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		aerodromeCategory {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `AerodromeCategory`-Objekt für jeden in den Daten vorkommenden Wert der [AerodromeCategoryValue Code-Liste](http://inspire.ec.europa.eu/codelist/AerodromeCategoryValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `AerodromeCategory_international`.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `AerodromeArea`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca317d4ab-58b3-461c-8cec-a1cbfc9cd30e" priority="normal">
         <source>
