@@ -4,26 +4,26 @@
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Air Transport Network GML Anwendungsschema.
 
-**TODO: Anpassung Air Transport Network**
-
 #### Allgemeine Anmerkungen
 
 - Eingabedaten für die Transformation werden als ein *TransportNetwork* behandelt (die ID des Netzwerks kann über Projekt-Variablen angepasst werden)
 - Um einen komplexen und speicherintensiven Join über alle erstellten Objekte zu vermeiden, wird bei der Erstellung jedes `NetworkElement` dessen ID mit den anderen gesammelt. Aus den gesammelten IDs werden dann am Ende die Referenzen des `TransportNetwork` auf die `NetworkElement`s gebildet
 - Optionale Objektarten und Bestandteile die in der Mapping-Tabelle als *nicht geführt* deklariert sind wurden nicht gebildet
-- In diesem Modell werden einige Objekt-Eigenschaften nicht als Attribute am Objekt, sondern als eigene Objekte mit Verweis auf die zu beschreibenden Objekte gebildet ( sogenannte *TransportProperty*-Objekte, z.B. `NumberOfTracks` oder `ConditionOfFacility`) -- dazu weiter unten mehr
-- In ein paar Fällen (z.B. `AX_SeilbahnSchwebebahn` nach `RailwayLink`) können Objekte anhand ihrer (Mehrfach-)Geometrie in mehrere Ziel-Objekte aufgeteilt werden. Hier wurde die ID des Zielobjekts jeweils mit der entsprechenden Nummer der Geometrie (1., 2., etc. Geometrie) als Suffix angehängt.
-- **In den Tests wurde bisher der Fall dass eine `AX_Bahnstrecke` mehrere Werte für das Attribut `nummerDerBahnstrecke` hat nicht behandelt. Das sollte mit entsprechenden Testdaten nachgeholt werden.**
-- Die IDs für `RailwayStationCode` werden akutell basierend auf der `bezeichnung` der entsprechenden `AX_Bahnverkehrsanlage` gebildet. **Es ist zu klären ob dadurch immer gültige GML IDs gebildet werden.**
+- In diesem Modell werden einige Objekt-Eigenschaften nicht als Attribute am Objekt, sondern als eigene Objekte mit Verweis auf die zu beschreibenden Objekte gebildet ( sogenannte *TransportProperty*-Objekte, z.B. `AerodromeType` oder `ConditionOfAirFacility`) -- dazu weiter unten mehr
+- Bei der Abbildung von `AX_Flugverkehrsanlage` können Objekte anhand ihrer (Mehrfach-)Geometrie in mehrere Ziel-Objekte aufgeteilt werden. Hier wurde die ID des Zielobjekts jeweils mit der entsprechenden Nummer der Geometrie (1., 2., etc. Geometrie) als Suffix angehängt.
+- Es wird keine Ableitung von Werten für `ElementWidth` oder `ElementLength` aus der Geometrie einer `AX_Flugverkehrsanlage` vorgenommen
 
 #### Handhabung von *TransportProperty*
 
 Allgemein wurde hier so vorgegangen, dass wo sinnvoll möglich *TransportProperty*-Objekte mit gleichen Eigenschaften zusammengefasst werden.
 Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für jedes Objekt wo zutreffend entsprechende *TransportProperty*-Objekte erzeugt werden.
 
-Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für alle Features die auf die gleichen Werte abgebildet werden (z.B. gleicher Zustand für `ConditionOfFacility`). Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet.</description>
+Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *TransportProperty* die verwendet wurden:
+
+1. Ein *TransportProperty*-Objekt für alle Features die auf die gleichen Werte abgebildet werden. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfAirFacility`, `SurfaceComposition`, `AerodromeCategory`, `AerodromeType`, und `UseRestriction`.
+2. Ein *TransportProperty*-Objekt für jedes (Quell-)Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `ElementWidth`.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-17T15:05:36.378+02:00</modified>
+    <modified>2016-08-17T15:14:04.270+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
