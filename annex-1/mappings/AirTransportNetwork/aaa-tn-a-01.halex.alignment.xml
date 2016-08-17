@@ -237,6 +237,8 @@ surfaces.each { surface -&gt;
 		if (surfaceComposition) {
 			collect.surfaceComposition[surfaceComposition] &lt;&lt; _id
 		}
+		// Sammle ID für Zuordnung zu entsprechender AX_Flugverkehrsanlage
+		collect.AX_Flugverkehrsanlage[sourceId] &lt;&lt; _id
 	}
 
 	num++
@@ -249,7 +251,7 @@ Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien v
 
 Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
 
-Die erstellte `ApronArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+Die erstellte `ApronArea` wird dem Index von allen Netzwerk-Elementen, sowie dem Index von Netzwerk-Elementen die aus der gleichen `AX_Flugverkehrsanlage` erstellt wurden, hinzugefügt.
 
 Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
 
@@ -263,6 +265,134 @@ oberflaechenmaterial | surfaceComposition
 `1220` *(Beton)* | `concrete`
 `1230` *(Bitumen, Asphalt)* | `asphalt`
 </documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbfe48734-25e9-488c-bb87-cb9913240d13" priority="low">
+        <source>
+            <class>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">breiteDesObjekts is not null</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ElementWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// ID des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+_target {
+	// Referenz zu jedem NetworkElement das aus der Flugverkehrs-
+	// anlage abgeleitet wurde
+	collect.AX_Flugverkehrsanlage[sourceId].each { elementId -&gt;
+		networkRef {
+			NetworkReference {
+				element {
+					href( "#$elementId" )
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `ElementWidth`-Objekt für eine `AX_Flugverkehrsanlage` mit vorhandener `breiteDesObjekts`.
+
+Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die GML ids der Objekte hergestellt, die bei Erstellung in einem Index abgelegt wurden.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C416dabd3-d1e8-4fa5-8091-ccf6f223ff82" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ElementWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cab4ed7c4-66f5-4506-aff9-60d7b02f19c8" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ElementWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C0f4e1c8d-fcf7-4b47-b137-5aaeda71ca57" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ElementWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Ce2b488b6-3928-4b81-bf6f-5dab80e42b96" priority="normal">
+        <target>
+            <property>
+                <type name="ElementWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C6c636244-2269-419c-9d78-61d730a7a834" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="breiteDesObjekts" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ElementWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="width" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.uom.toucum" id="Cc3659e5d-d3a3-464a-bc59-506edd1b7763" priority="normal">
+        <source name="uom">
+            <property>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="breiteDesObjekts" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="uom"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ElementWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="width" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="uom"/>
+            </property>
+        </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C1b49d11f-6391-4a48-b2d0-ff215716d3c2" priority="normal">
         <source>
@@ -372,6 +502,8 @@ surfaces.each { surface -&gt;
 		if (surfaceComposition) {
 			collect.surfaceComposition[surfaceComposition] &lt;&lt; _id
 		}
+		// Sammle ID für Zuordnung zu entsprechender AX_Flugverkehrsanlage
+		collect.AX_Flugverkehrsanlage[sourceId] &lt;&lt; _id
 	}
 
 	num++
@@ -384,7 +516,7 @@ Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien v
 
 Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
 
-Die erstellte `RunwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+Die erstellte `RunwayArea` wird dem Index von allen Netzwerk-Elementen, sowie dem Index von Netzwerk-Elementen die aus der gleichen `AX_Flugverkehrsanlage` erstellt wurden, hinzugefügt.
 
 Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
 
@@ -585,6 +717,8 @@ surfaces.each { surface -&gt;
 		if (surfaceComposition) {
 			collect.surfaceComposition[surfaceComposition] &lt;&lt; _id
 		}
+		// Sammle ID für Zuordnung zu entsprechender AX_Flugverkehrsanlage
+		collect.AX_Flugverkehrsanlage[sourceId] &lt;&lt; _id
 	}
 
 	num++
@@ -597,7 +731,7 @@ Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien v
 
 Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
 
-Die erstellte `TaxiwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+Die erstellte `TaxiwayArea` wird dem Index von allen Netzwerk-Elementen, sowie dem Index von Netzwerk-Elementen die aus der gleichen `AX_Flugverkehrsanlage` erstellt wurden, hinzugefügt.
 
 Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
 
