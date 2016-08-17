@@ -407,7 +407,7 @@ withTransformationContext {
 // Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
 // zu den entsprechenden Netzwerk-Elementen
 collect.conditionOfAirFacility.consume { key, values -&gt;
-	def _id = 'ConditionOfFacility_' + key
+	def _id = 'ConditionOfAirFacility_' + key
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
 	_target {
@@ -439,6 +439,11 @@ collect.conditionOfAirFacility.consume { key, values -&gt;
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt ein `ConditionOfAirFacility`-Objekt für jeden in den Daten vorkommenden Wert der [ConditionOfFacilityValue Code-Liste](http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `ConditionOfAirFacility_functional`.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `AerodromeArea`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbfe48734-25e9-488c-bb87-cb9913240d13" priority="low">
         <source>
