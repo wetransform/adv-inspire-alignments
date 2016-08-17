@@ -92,6 +92,20 @@ _b.strictValueFlags = false
 // Identifier des Quell-Objekts
 def sourceId = _source.p.id.value()
 
+// bestimme SurfaceComposition
+def surfaceComposition
+switch(_source.p.oberflaechenmaterial.value()) {
+case '1210': // Gras, Rasen
+	surfaceComposition = 'grass'
+	break
+case '1220': // Beton
+	surfaceComposition = 'concrete'
+	break
+case '1230': // Bitumen, Asphalt
+	surfaceComposition = 'asphalt'
+	break
+}
+
 // Ziel-Objekt für jede Fläche erstellen
 int num = 1
 surfaces.each { surface -&gt;
@@ -118,6 +132,10 @@ surfaces.each { surface -&gt;
 		def collect = _.context.collector(it)
 		// Sammle ID für Netzwerk
 		collect.network &lt;&lt; _id
+		// Sammle ID für SurfaceComposition
+		if (surfaceComposition) {
+			collect.surfaceComposition[surfaceComposition] &lt;&lt; _id
+		}
 	}
 
 	num++
@@ -130,7 +148,20 @@ Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien v
 
 Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
 
-Die erstellte `ApronArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+Die erstellte `ApronArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**SurfaceComposition**
+
+Die *surfaceComposition* wird wie folgt aus dem Attribut `oberflaechenmaterial` bestimmt:
+
+oberflaechenmaterial | surfaceComposition
+- | -
+`1210` *(Gras, Rasen)* | `grass`
+`1220` *(Beton)* | `concrete`
+`1230` *(Bitumen, Asphalt)* | `asphalt`
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C1b49d11f-6391-4a48-b2d0-ff215716d3c2" priority="normal">
         <source>
@@ -196,6 +227,20 @@ _b.strictValueFlags = false
 // Identifier des Quell-Objekts
 def sourceId = _source.p.id.value()
 
+// bestimme SurfaceComposition
+def surfaceComposition
+switch(_source.p.oberflaechenmaterial.value()) {
+case '1210': // Gras, Rasen
+	surfaceComposition = 'grass'
+	break
+case '1220': // Beton
+	surfaceComposition = 'concrete'
+	break
+case '1230': // Bitumen, Asphalt
+	surfaceComposition = 'asphalt'
+	break
+}
+
 // Ziel-Objekt für jede Fläche erstellen
 int num = 1
 surfaces.each { surface -&gt;
@@ -222,6 +267,10 @@ surfaces.each { surface -&gt;
 		def collect = _.context.collector(it)
 		// Sammle ID für Netzwerk
 		collect.network &lt;&lt; _id
+		// Sammle ID für SurfaceComposition
+		if (surfaceComposition) {
+			collect.surfaceComposition[surfaceComposition] &lt;&lt; _id
+		}
 	}
 
 	num++
@@ -234,7 +283,21 @@ Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien v
 
 Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
 
-Die erstellte `RunwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+Die erstellte `RunwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**SurfaceComposition**
+
+Die *surfaceComposition* wird wie folgt aus dem Attribut `oberflaechenmaterial` bestimmt:
+
+oberflaechenmaterial | surfaceComposition
+- | -
+`1210` *(Gras, Rasen)* | `grass`
+`1220` *(Beton)* | `concrete`
+`1230` *(Bitumen, Asphalt)* | `asphalt`
+
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd911918f-ab41-4a80-9dbb-1723e2b03b74" priority="normal">
         <source>
@@ -290,6 +353,65 @@ Die erstellte `RunwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</
             </lookup-table>
         </complexParameter>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C0e4df250-2688-47ea-8f06-9b8dfa95f60a" priority="low">
+        <target>
+            <class>
+                <type name="SurfaceCompositionType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für SurfaceComposition
+def codeList = 'http://inspire.ec.europa.eu/codelist/SurfaceCompositionValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein SurfaceComposition-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.surfaceComposition.consume { key, values -&gt;
+	def _id = 'SurfaceComposition_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		surfaceComposition {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `SurfaceComposition`-Objekt für jeden in den Daten vorkommenden Wert der [SurfaceCompositionValue Code-Liste](http://inspire.ec.europa.eu/codelist/SurfaceCompositionValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `SurfaceComposition_concrete`.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `RunwayArea`s und `TaxiwayArea`s) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2f4ac65c-9363-468b-843d-9d629339eb39" priority="normal">
         <source>
             <class>
@@ -318,6 +440,20 @@ _b.strictValueFlags = false
 // Identifier des Quell-Objekts
 def sourceId = _source.p.id.value()
 
+// bestimme SurfaceComposition
+def surfaceComposition
+switch(_source.p.oberflaechenmaterial.value()) {
+case '1210': // Gras, Rasen
+	surfaceComposition = 'grass'
+	break
+case '1220': // Beton
+	surfaceComposition = 'concrete'
+	break
+case '1230': // Bitumen, Asphalt
+	surfaceComposition = 'asphalt'
+	break
+}
+
 // Ziel-Objekt für jede Fläche erstellen
 int num = 1
 surfaces.each { surface -&gt;
@@ -344,6 +480,10 @@ surfaces.each { surface -&gt;
 		def collect = _.context.collector(it)
 		// Sammle ID für Netzwerk
 		collect.network &lt;&lt; _id
+		// Sammle ID für SurfaceComposition
+		if (surfaceComposition) {
+			collect.surfaceComposition[surfaceComposition] &lt;&lt; _id
+		}
 	}
 
 	num++
@@ -356,7 +496,20 @@ Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien v
 
 Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
 
-Die erstellte `TaxiwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+Die erstellte `TaxiwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**SurfaceComposition**
+
+Die *surfaceComposition* wird wie folgt aus dem Attribut `oberflaechenmaterial` bestimmt:
+
+oberflaechenmaterial | surfaceComposition
+- | -
+`1210` *(Gras, Rasen)* | `grass`
+`1220` *(Beton)* | `concrete`
+`1230` *(Bitumen, Asphalt)* | `asphalt`
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C45ffdd0a-d3e1-4d96-80f1-f9e2f11f8e52" priority="normal">
         <source>
