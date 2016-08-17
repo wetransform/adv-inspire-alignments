@@ -160,6 +160,100 @@ Die erstellte `RunwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</
             </lookup-table>
         </complexParameter>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2f4ac65c-9363-468b-843d-9d629339eb39" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">art = '1320'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="TaxiwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit flächenartigen Geometrien behandeln
+def geometries = _.geom.findPolygons(_source.p.position.first())
+
+// Ziel unterstützt keine MultiSurfaces
+def surfaces = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Ziel-Objekt für jede Fläche erstellen
+int num = 1
+surfaces.each { surface -&gt;
+	// ID bestimmen
+	def _id = "TaxiwayArea_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen (IDs und Geometrie)
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(surface)
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk
+		collect.network &lt;&lt; _id
+	}
+
+	num++
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `TaxiwayArea`s aus einer `AX_Flugverkehrsanlage` mit `art` *Zurollbahn/Taxiway* (`1320`).
+
+Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien verwendet. Je Fläche wird eine `TaxiwayArea` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
+
+Die erstellte `TaxiwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C45ffdd0a-d3e1-4d96-80f1-f9e2f11f8e52" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TaxiwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfba859bc-4b9f-4701-b28c-dc64ff12f28e" priority="normal">
+        <target>
+            <property>
+                <type name="TaxiwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc821f68c-572e-4c49-9b2f-c721bb98d6a5" priority="normal">
         <source name="spelling">
             <property>
@@ -204,5 +298,14 @@ Die erstellte `RunwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</
             </property>
         </target>
         <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfcd5b202-e630-44a2-a8bb-44f1b0f24344" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="typeOfTransport" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+            </property>
+        </target>
+        <parameter value="air" name="value"/>
     </cell>
 </alignment>
