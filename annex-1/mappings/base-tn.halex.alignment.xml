@@ -75,16 +75,6 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. *Tra
         <documentation>Verknüpft das Netzwerk-Element mit dem entsprechenden *TransportNetwork*.
 Dazu wird die vorgegebene ID für das Netzwerk verwendet (Projekt-Variable).</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb01cca94-65d0-482e-8ddc-79381e266aef" priority="normal">
-        <target>
-            <property>
-                <type name="NumberOfLanesType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="minMaxNumberOfLanes" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unpopulated" name="value"/>
-    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C376c9fef-ac45-4e2c-9941-651740ba7400" priority="lowest">
         <target>
             <class>
