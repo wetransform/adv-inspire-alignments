@@ -366,7 +366,7 @@ oberflaechenmaterial | surfaceComposition
         <source>
             <class>
                 <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">breiteDesObjekts is not null</condition>
+                    <condition lang="CQL">breiteDesObjekts is not null and (art = '1310' or art = '1320')</condition>
                 </type>
             </class>
         </source>
