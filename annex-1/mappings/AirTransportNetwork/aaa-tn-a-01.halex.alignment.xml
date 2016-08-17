@@ -64,6 +64,25 @@ case '5550': // Segelfluggelände
 	break
 }
 
+// bestimme AerodromeType
+def aerodromeType
+switch(_source.p.art.value()) {
+case '5510': // Flughafen
+case '5511': // Internationaler Flughafen
+case '5512': // Regionalflughafen
+	aerodromeType = 'aerodromeHeliport'
+	break
+case '5520': // Verkehrslandeplatz
+case '5540': // Landeplatz, Sonderlandeplatz
+case '5550': // Segelfluggelände
+	aerodromeType = 'landingSite'
+	break
+case '5530': // Hubschrauberflugplatz
+	aerodromeType = 'heliportOnly'
+	break
+}
+
+
 withTransformationContext {
 	def collect = _.context.collector(it)
 	// Sammle ID für Netzwerk
@@ -71,6 +90,10 @@ withTransformationContext {
 	// Sammle ID für AerodromeCategory
 	if (aerodromeCategory) {
 		collect.aerodromeCategory[aerodromeCategory] &lt;&lt; _id
+	}
+	// Sammle ID für AerodromeType
+	if (aerodromeType) {
+		collect.aerodromeType[aerodromeType] &lt;&lt; _id
 	}
 }
 </core:text>
@@ -94,6 +117,20 @@ art | aerodromeCategory
 `5530` *(Hubschrauberflugplatz)* | `domesticRegional`
 `5540` *(Landeplatz, Sonderlandeplatz)* | `domesticRegional`
 `5550` *(Segelfluggelände)* | `domesticRegional`
+
+**AerodromeType**
+
+Der *aerodromeType* wird wie folgt aus dem Attribut `art` bestimmt:
+
+art | aerodromeType
+- | -
+`5510` *(Flughafen)* | `aerodromeHeliport`
+`5511` *(Internationaler Flughafen)* | `aerodromeHeliport`
+`5512` *(Regionalflughafen)* | `aerodromeHeliport`
+`5520` *(Verkehrslandeplatz)* | `landingSite`
+`5540` *(Landeplatz, Sonderlandeplatz)* | `landingSite`
+`5550` *(Segelfluggelände)* | `landingSite`
+`5530` *(Hubschrauberflugplatz)* | `heliportOnly`
 </documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C1b0796d8-8a2e-48bc-b165-e88ffc8e52ae" priority="normal">
@@ -162,6 +199,65 @@ collect.aerodromeCategory.consume { key, values -&gt;
         <documentation>Erstellt ein `AerodromeCategory`-Objekt für jeden in den Daten vorkommenden Wert der [AerodromeCategoryValue Code-Liste](http://inspire.ec.europa.eu/codelist/AerodromeCategoryValue).
 
 Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `AerodromeCategory_international`.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `AerodromeArea`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C460deb4f-2cdd-443b-8617-8821bdddc061" priority="low">
+        <target>
+            <class>
+                <type name="AerodromeTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für AerodromeType
+def codeList = 'http://inspire.ec.europa.eu/codelist/AerodromeTypeValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein AerodromeType-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.aerodromeType.consume { key, values -&gt;
+	def _id = 'AerodromeType_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		aerodromeType {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `AerodromeType`-Objekt für jeden in den Daten vorkommenden Wert der [AerodromeTypeValue Code-Liste](http://inspire.ec.europa.eu/codelist/AerodromeTypeValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `AerodromeType_landingSite`.
 
 Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `AerodromeArea`) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
