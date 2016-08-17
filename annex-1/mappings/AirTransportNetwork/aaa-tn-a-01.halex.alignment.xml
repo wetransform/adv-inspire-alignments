@@ -82,6 +82,17 @@ case '5530': // Hubschrauberflugplatz
 	break
 }
 
+// bestimme ConditionOfFacility
+def conditionOfFacility = 'functional'
+switch (_source.p.zustand.value()) {
+case '2100': // Außer Betrieb, stillgelegt, verlassen
+	conditionOfFacility = 'disused'
+	break
+case '4000': // Im Bau
+	conditionOfFacility = 'underConstruction'
+	break
+}
+
 
 withTransformationContext {
 	def collect = _.context.collector(it)
@@ -95,6 +106,8 @@ withTransformationContext {
 	if (aerodromeType) {
 		collect.aerodromeType[aerodromeType] &lt;&lt; _id
 	}
+	// Sammle ID für ConditionOf(Air)Facility
+	collect.conditionOfAirFacility[conditionOfFacility] &lt;&lt; _id
 }
 </core:text>
         </complexParameter>
@@ -131,6 +144,17 @@ art | aerodromeType
 `5540` *(Landeplatz, Sonderlandeplatz)* | `landingSite`
 `5550` *(Segelfluggelände)* | `landingSite`
 `5530` *(Hubschrauberflugplatz)* | `heliportOnly`
+
+**ConditionOfAirFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` ermittelt:
+
+zustand |conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
 </documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C1b0796d8-8a2e-48bc-b165-e88ffc8e52ae" priority="normal">
@@ -361,6 +385,60 @@ oberflaechenmaterial | surfaceComposition
 `1220` *(Beton)* | `concrete`
 `1230` *(Bitumen, Asphalt)* | `asphalt`
 </documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C4e94b346-a202-4024-9b96-5f8ccb9239ff" priority="low">
+        <target>
+            <class>
+                <type name="ConditionOfAirFacilityType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für ConditionOf(Air)Facility
+def codeList = 'http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein ConditionOfAirFacility-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.conditionOfAirFacility.consume { key, values -&gt;
+	def _id = 'ConditionOfFacility_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		currentStatus {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbfe48734-25e9-488c-bb87-cb9913240d13" priority="low">
         <source>
@@ -1075,4 +1153,7 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/AirUseRestrictionValue/reservedForMilitary" name="value"/>
     </cell>
+    <modifier cell="ba1:C1eb2d011-34d1-4077-8388-f7fbdb1659b9">
+        <transformation mode="disabled"/>
+    </modifier>
 </alignment>
