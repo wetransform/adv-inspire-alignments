@@ -64,6 +64,74 @@ withTransformationContext {
             </property>
         </target>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca317d4ab-58b3-461c-8cec-a1cbfc9cd30e" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">art = '1330'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ApronAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit flächenartigen Geometrien behandeln
+def geometries = _.geom.findPolygons(_source.p.position.first())
+
+// Ziel unterstützt keine MultiSurfaces
+def surfaces = _.geom.splitMulti(geometries)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Ziel-Objekt für jede Fläche erstellen
+int num = 1
+surfaces.each { surface -&gt;
+	// ID bestimmen
+	def _id = "ApronArea_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen (IDs und Geometrie)
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(surface)
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk
+		collect.network &lt;&lt; _id
+	}
+
+	num++
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `ApronArea`s aus einer `AX_Flugverkehrsanlage` mit `art` *Vorfeld* (`1330`).
+
+Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien verwendet. Je Fläche wird eine `ApronArea` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
+
+Die erstellte `ApronArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C1b49d11f-6391-4a48-b2d0-ff215716d3c2" priority="normal">
         <source>
             <property>

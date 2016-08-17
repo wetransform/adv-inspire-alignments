@@ -23,7 +23,7 @@ Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für
 
 Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für alle Features die auf die gleichen Werte abgebildet werden (z.B. gleicher Zustand für `ConditionOfFacility`). Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-17T12:35:17.051+02:00</modified>
+    <modified>2016-08-17T12:43:09.849+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -166,8 +166,7 @@ Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für a
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn-a/4.0}AirspaceAreaType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn-a/4.0}AirspaceAreaType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn-a/4.0}ApronAreaType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn-a/4.0}ApronAreaType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn-a/4.0}ApronAreaType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn-a/4.0}ApronAreaType/count">1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn-a/4.0}ConditionOfAirFacilityType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn-a/4.0}ConditionOfAirFacilityType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn-a/4.0}ConditionOfAirFacilityType/count">2</property>
