@@ -2,6 +2,68 @@
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <base prefix="ba1" location="../base-tn.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cc7d2bc90-35f9-4f33-8b6b-b87b6b02600d" priority="highest">
+        <source>
+            <class>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def name = _source.p.bezeichnung.value()
+def schluessel = _source.p.schluesselGesamt.value()
+
+withTransformationContext {
+  def collect = _.context.collector(it)
+  
+  // Name zu Schlüssel der Lagebezeichnung im Index ablegen
+  collect.lagebezeichnung[schluessel] = name
+}
+</core:text>
+        </complexParameter>
+        <documentation>Dies ist eine Dummy-Transformationsdefinition die keine Objekte erzeugt sondern zum Aufbauen eines Index für `AX_LagebezeichnungKatalogeintrag` dient.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cd2d3c726-c951-484a-8bb0-c17504676eeb" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AerodromeAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def _id = 'AerodromeArea_' + _source.p.id.value() 
+
+_target {
+}
+
+withTransformationContext {
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk
+	collect.network &lt;&lt; _id
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C1b0796d8-8a2e-48bc-b165-e88ffc8e52ae" priority="normal">
+        <target>
+            <property>
+                <type name="AerodromeAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C1b49d11f-6391-4a48-b2d0-ff215716d3c2" priority="normal">
         <source>
             <property>
@@ -254,6 +316,22 @@ Die erstellte `TaxiwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </target>
         <parameter value="unknown" name="value"/>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C013ef1ce-3389-4a12-9e43-299c5877d6dd" priority="normal">
+        <source name="lagebezeichnung">
+            <property>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportAreaType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc821f68c-572e-4c49-9b2f-c721bb98d6a5" priority="normal">
         <source name="spelling">
             <property>
@@ -278,6 +356,67 @@ Die erstellte `TaxiwayArea` wird dem Index von Netzwerk-Elementen hinzugefügt.<
             </property>
         </target>
         <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C63ced63a-311c-4bc0-8c17-0c1696f8153e" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportAreaType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="copyGeometries"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C1e56f083-0567-44ba-a80e-9306aa13ba62" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportAreaType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C56e7652a-27b6-4c1f-bf46-c8613c8fbee5" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportAreaType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C2cc0d75c-81b6-47c7-8476-a51f4bc8d872" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="TransportAreaType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C59f463b4-e885-4c0d-be10-9372532edeaf" priority="normal">
         <target>
