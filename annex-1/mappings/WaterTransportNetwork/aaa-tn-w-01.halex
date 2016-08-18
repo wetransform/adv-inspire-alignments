@@ -25,7 +25,7 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
 1. Ein *TransportProperty*-Objekt für alle Features die auf die gleichen Werte abgebildet werden. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfAirFacility`, `SurfaceComposition`, `AerodromeCategory`, `AerodromeType`, und `UseRestriction`.
 2. Ein *TransportProperty*-Objekt für jedes (Quell-)Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `ElementWidth`.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-18T16:27:54.497+02:00</modified>
+    <modified>2016-08-18T17:59:18.767+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -146,6 +146,15 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_ObjektType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_ObjektType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_ObjektType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_REOType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_REOType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_REOType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_ZUSOType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_ZUSOType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_ZUSOType/count">2</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_EinrichtungenFuerDenSchiffsverkehrType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_EinrichtungenFuerDenSchiffsverkehrType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_EinrichtungenFuerDenSchiffsverkehrType/count">2</property>
