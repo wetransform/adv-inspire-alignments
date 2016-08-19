@@ -436,9 +436,7 @@ Für den entsprechenden `AX_Wasserlauf` wird hinterlegt, dass dieser `WaterwayLi
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbd3d5432-25dc-4994-8c8d-d7680a5859e0" priority="normal">
         <source>
             <class>
-                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">identnummer is not null</condition>
-                </type>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <target>
@@ -464,7 +462,7 @@ withTransformationContext {
 
 </core:text>
         </complexParameter>
-        <documentation>Erstellt einen `WaterwayLink` zu einer `AX_Gewaesserstationierungsachse` mit vorhandener `identnummer`.
+        <documentation>Erstellt einen `WaterwayLink` zu einer `AX_Gewaesserstationierungsachse`.
 
 Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
 </documentation>
