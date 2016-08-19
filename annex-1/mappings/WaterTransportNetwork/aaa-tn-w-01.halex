@@ -4,28 +4,26 @@
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Water Transport Network GML Anwendungsschema.
 
-**TODO: Anpassen**
-
 #### Allgemeine Anmerkungen
 
 - Eingabedaten für die Transformation werden als ein *TransportNetwork* behandelt (die ID des Netzwerks kann über Projekt-Variablen angepasst werden)
 - Um einen komplexen und speicherintensiven Join über alle erstellten Objekte zu vermeiden, wird bei der Erstellung jedes `NetworkElement` dessen ID mit den anderen gesammelt. Aus den gesammelten IDs werden dann am Ende die Referenzen des `TransportNetwork` auf die `NetworkElement`s gebildet
 - Optionale Objektarten und Bestandteile die in der Mapping-Tabelle als *nicht geführt* deklariert sind wurden nicht gebildet
-- In diesem Modell werden einige Objekt-Eigenschaften nicht als Attribute am Objekt, sondern als eigene Objekte mit Verweis auf die zu beschreibenden Objekte gebildet ( sogenannte *TransportProperty*-Objekte, z.B. `AerodromeType` oder `ConditionOfAirFacility`) -- dazu weiter unten mehr
-- Bei der Abbildung von `AX_Flugverkehrsanlage` können Objekte anhand ihrer (Mehrfach-)Geometrie in mehrere Ziel-Objekte aufgeteilt werden. Hier wurde die ID des Zielobjekts jeweils mit der entsprechenden Nummer der Geometrie (1., 2., etc. Geometrie) als Suffix angehängt.
+- In diesem Modell werden einige Objekt-Eigenschaften nicht als Attribute am Objekt, sondern als eigene Objekte mit Verweis auf die zu beschreibenden Objekte gebildet ( sogenannte *TransportProperty*-Objekte, z.B. `FerryUse` oder `ConditionOfWaterFacility`) -- dazu weiter unten mehr
 - Es wird keine Ableitung von Werten für `ElementWidth` oder `ElementLength` aus der Geometrie einer `AX_Flugverkehrsanlage` vorgenommen
+- Es werden keine `WaterLinkSequence`s gebildet. Hierfür wäre noch zusätzlicher Aufwand nötig um herzuleiten welche `WaterwayLink`s in welcher Reihenfolge und mit welcher Richtungsangabe zu einer `WaterLinkSequence` zusammengefasst werden sollten. Die Vorgehensweise dazu ist unklar. Die Typen `AX_Kanal` und `AX_Wasserlauf` sind als `InlandWaterway` (WaterwayTransportLinkSet) in den Ziel-Daten repräsentiert.
+- Laut der Mapping-Tabelle wird eine Entsprechung für `MarineWaterway` im 3A-Modell nicht geführt. Das scheint den Angaben bei `InlandWaterway` zu widersprechen, wo an die Abbildung die Bedingung geknüpft ist, das es sich um ein Binnengewässer handelt. Die ist ggf. zu prüfen.
+- Nach Angabe in der Mapping-Tabelle gibt es noch keine offizielle Abbildung der `widmung` eines `AX_Kanal` oder `AX_Wasserlauf` auf die Klassifizierung nach der European Conference of Ministers of Transport (CEMT). Entsprechend fehlt im Mapping noch die Bestimmung der Klassifizierung für `InlandWaterway`s.
 
 #### Handhabung von *TransportProperty*
 
 Allgemein wurde hier so vorgegangen, dass wo sinnvoll möglich *TransportProperty*-Objekte mit gleichen Eigenschaften zusammengefasst werden.
 Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für jedes Objekt wo zutreffend entsprechende *TransportProperty*-Objekte erzeugt werden.
 
-Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *TransportProperty* die verwendet wurden:
-
-1. Ein *TransportProperty*-Objekt für alle Features die auf die gleichen Werte abgebildet werden. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfAirFacility`, `SurfaceComposition`, `AerodromeCategory`, `AerodromeType`, und `UseRestriction`.
-2. Ein *TransportProperty*-Objekt für jedes (Quell-)Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `ElementWidth`.</description>
+Ein *TransportProperty*-Objekt wird erstellt für alle Features die über die gleichen Eigenschaften bzgl. der *TransportProperty* verfügen. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfWaterFacility`, `FerryUse` und `CEMTClass`.
+</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-19T15:02:52.502+02:00</modified>
+    <modified>2016-08-19T15:40:11.375+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
