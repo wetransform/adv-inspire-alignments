@@ -175,34 +175,40 @@ Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
             <property>
                 <type name="AX_EinrichtungenFuerDenSchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="structuralRename"/>
         <parameter value="true" name="copyGeometries"/>
-        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C8494f7dd-4c75-46b5-b8c8-23e2de6901a2" priority="normal">
         <source>
             <property>
                 <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="structuralRename"/>
         <parameter value="true" name="copyGeometries"/>
-        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="false" name="ignoreNamespaces"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cfef43c2d-376c-414d-9c11-619eaa7df89b" priority="normal">
         <source name="id">
