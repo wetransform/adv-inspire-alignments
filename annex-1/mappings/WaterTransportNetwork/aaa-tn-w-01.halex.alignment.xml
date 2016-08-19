@@ -278,6 +278,65 @@ Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
         </target>
         <parameter value="unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C487226a2-f5d6-4527-82d4-3417f4e479bd" priority="low">
+        <target>
+            <class>
+                <type name="ConditionOfWaterFacilityType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für ConditionOfFacility
+def codeList = 'http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein ConditionOfWaterFacility-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.conditionOfWaterFacility.consume { key, values -&gt;
+	def _id = 'ConditionOfWaterFacility_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		currentStatus {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `ConditionOfWaterFacility`-Objekt für jeden in den Daten vorkommenden Wert der [ConditionOfFacilityValue Code-Liste](http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `ConditionOfWaterFacility_functional`.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `WaterwayLink`s für Kanäle) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C5a4972ce-eb0a-48ef-8a40-debf02cf39a3" priority="normal">
         <source>
             <class>
@@ -1061,12 +1120,25 @@ if (parentId) {
 	_target {
 	}
 	
+	// bestimme ConditionOfWaterFacility
+	def conditionOfFacility = 'functional'
+	switch (_source.p.zustand.value()) {
+	case '2100': // Außer Betrieb, stillgelegt, verlassen
+		conditionOfFacility = 'disused'
+		break
+	case '4000': // Im Bau
+		conditionOfFacility = 'underConstruction'
+		break
+	}
+	
 	withTransformationContext {
 		def collect = _.context.collector(it)
 		// Sammle ID für Netzwerk	
 		collect.network &lt;&lt; _id
 		// Sammle ID für Liste von WaterwayLinks für den Kanal
 		collect.AX_Kanal[parentId].links &lt;&lt; _id
+		// Sammle ID für ConditionOfWaterFacility
+		collect.conditionOfWaterFacility[conditionOfFacility] &lt;&lt; _id
 	}
 }
 </core:text>
@@ -1076,6 +1148,19 @@ if (parentId) {
 Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
 
 Für den entsprechenden `AX_Kanal` wird hinterlegt, dass dieser `WaterwayLink` aus einer zugehörigen `AX_Gewaesserachse` erstellt wurde.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**ConditionOfWaterFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` ermittelt:
+
+zustand| conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
 
 [1]: https://services.interactive-instruments.de/xsaaasuite-gitlab/adv-inspire/inspire-alignements/issues/33</documentation>
     </cell>
