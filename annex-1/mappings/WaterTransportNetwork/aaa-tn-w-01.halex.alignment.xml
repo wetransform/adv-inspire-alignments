@@ -1,0 +1,1813 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
+    <base prefix="ba1" location="../base-tn.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2a56c91e-e51c-4d0e-b793-3eeddd2db607" priority="normal">
+        <source>
+            <class>
+                <type name="AX_EinrichtungenFuerDenSchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">art = '1420'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (!_source.p.position.Point.first()) {
+	// Nur Objekte mit Punkt-Geometrien verwenden
+	return
+}
+
+// ID des Quellobjekts
+def sourceId = _source.p.id.value()
+
+def _id = "Beacon_$sourceId"
+	
+_target {
+}
+
+withTransformationContext {
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk	
+	collect.network &lt;&lt; _id
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `Beacon` zu einer `AX_EinrichtungenFuerDenSchiffsverkehr` mit Geometrie-Typ *GM_Point* und `art` *Leuchtfeuer* (`1420`).
+
+Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
+</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cdd4f2102-ce96-4efe-9d55-97e4e2b3a52c" priority="normal">
+        <source>
+            <class>
+                <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1006'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (!_source.p.position.Point.first()) {
+	// Nur Objekte mit Punkt-Geometrien verwenden
+	return
+}
+
+// ID des Quellobjekts
+def sourceId = _source.p.id.value()
+
+def _id = "Beacon_$sourceId"
+	
+_target {
+}
+
+withTransformationContext {
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk	
+	collect.network &lt;&lt; _id
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `Beacon` zu einem `AX_Turm` mit Geometrie-Typ *GM_Point* und `bauwerksfunktion` *Leuchtturm* (`1006`).
+
+Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
+</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7218003c-8d6b-4af7-87a1-36f9d1404e11" priority="normal">
+        <source>
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C2bd625f2-b918-40d1-9516-9e16131a590c" priority="normal">
+        <source>
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C3c41c6c3-f2cb-43ce-8ea7-81e6d7535882" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_EinrichtungenFuerDenSchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C1652e4bd-b28f-4dbb-8f72-720322fde61a" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C56de7b41-922d-412e-ba68-2586fd6f8223" priority="normal">
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfe16f77f-0197-4799-a74a-4cba828da254" priority="normal">
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C4a0cc162-ac3e-49ed-86a1-0f1a710ece5c" priority="normal">
+        <source>
+            <property>
+                <type name="AX_EinrichtungenFuerDenSchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="copyGeometries"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C8494f7dd-4c75-46b5-b8c8-23e2de6901a2" priority="normal">
+        <source>
+            <property>
+                <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="copyGeometries"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cfef43c2d-376c-414d-9c11-619eaa7df89b" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cdd8ddb3b-1a52-4e89-bc63-4e3ecadedcf4" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cfb256771-1656-4483-a9d6-e39418da21f3" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C45119567-9c6b-4b27-83d2-d47b459a0503" priority="normal">
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9f3edea5-679e-4748-a581-0c2526826313" priority="normal">
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3788f6bf-9e32-4613-b5fd-e3739cca86c4" priority="normal">
+        <target>
+            <property>
+                <type name="BeaconType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Ce4614dcb-0798-4b8e-87da-ddf1f1e4a3ea" priority="low">
+        <target>
+            <class>
+                <type name="CEMTClassType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein CEMTClass-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.CEMTClass.consume { key, values -&gt;
+	def _id = 'CEMTClass_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		CEMTClass( key )
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `CEMTClass`-Objekt für jeden in den Daten vorkommenden Wert.
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `CEMTClass_I`.
+
+Es werden Referenzen (NetworkReference) zu allen `InlandWaterway`s erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C487226a2-f5d6-4527-82d4-3417f4e479bd" priority="low">
+        <target>
+            <class>
+                <type name="ConditionOfWaterFacilityType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für ConditionOfFacility
+def codeList = 'http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein ConditionOfWaterFacility-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.conditionOfWaterFacility.consume { key, values -&gt;
+	def _id = 'ConditionOfWaterFacility_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		currentStatus {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `ConditionOfWaterFacility`-Objekt für jeden in den Daten vorkommenden Wert der [ConditionOfFacilityValue Code-Liste](http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `ConditionOfWaterFacility_functional`.
+
+Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `WaterwayLink`s für Kanäle) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C5a4972ce-eb0a-48ef-8a40-debf02cf39a3" priority="normal">
+        <source>
+            <class>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// ID des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// alle zuvor gesammelten IDs für zugehörige WaterwayLinks (aktuell maximal einer)
+def links = collect.AX_SchifffahrtslinieFaehrverkehr[sourceId].links.values()
+
+def _id = "FerryCrossing_$sourceId"
+
+// bestimme FerryUse
+def ferryUse
+switch (_source.p.art.value()) {
+case '1710': // Autofährverkehr
+	ferryUse = 'cars'
+	break
+case '1720': // Eisenbahnfährverkehr
+	ferryUse = 'train'
+	break
+case '1730': // Personenfährverkehr
+	ferryUse = 'passengers'
+	break
+case '1740': // Linienverkehr
+	ferryUse = 'other'
+	break
+}
+
+if (links) {
+	_target {
+		links.each { linkId -&gt;
+			link {
+				href( "#$linkId" )
+			}
+		}
+	}
+	
+	withTransformationContext {
+		// Sammle ID für Netzwerk	
+		collect.network &lt;&lt; _id
+		// Sammle ID für FerryUse
+		collect.ferryUse[ferryUse] &lt;&lt; _id
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `FerryCrossing` zu einem `AX_SchifffahrtslinieFaehrverkehr` falls zuvor ein entsprechender `WaterwayLink` erzeugt wurde.
+
+Referenzen zu den entsprechenden `WaterwayLink`s werden anhand der bei deren Erstellung im Index hinterlegten Zuordnung hergestellt.
+
+Das erstellte `FerryCrossing` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**FerryUse**
+
+Die *ferryUse* wird wie folgt aus dem Attribut `art` ermittelt:
+
+art | ferryUse
+- | -
+`1710` *(Autofährverkehr)* | `cars`
+`1720` *(Eisenbahnfährverkehr)* | `train`
+`1730` *(Personenfährverkehr)* | `passengers`
+`1740` *(Linienverkehr)* | `other`
+</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Caf7b0555-5a63-4b10-96bb-2c957f27b686" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C2fc86ee5-4387-40bf-a141-350a4caff2e9" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C796062d5-d95f-442c-b6ba-8c07dcc3acc6" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C04e5f29a-56cb-4f72-9f4c-92ac149ef366" priority="normal">
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C3a0a2fd0-7f2a-4949-9524-8816046c5a96" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cdf1f605f-b9fb-48f1-a1fb-4dda08785640" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C1c9370d6-e78a-46c0-b6a7-473e2d52039d" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C1cb559a6-6235-48e7-83aa-6abc0b03e122" priority="normal">
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cecd03bc3-487d-471f-807d-dd28c7b141d2" priority="normal">
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7ccb8846-94d2-4891-a6dc-1430b128a95e" priority="normal">
+        <target>
+            <property>
+                <type name="FerryCrossingType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C4c69f1a6-6ccc-45ab-a446-898990d17441" priority="low">
+        <target>
+            <class>
+                <type name="FerryUseType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für FerryUse
+def codeList = 'http://inspire.ec.europa.eu/codelist/FerryUseValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein FerryUse-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.ferryUse.consume { key, values -&gt;
+	def _id = 'FerryUse_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		ferryUse {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `FerryUse`-Objekt für jeden in den Daten vorkommenden Wert der [FerryUseValue Code-Liste](http://inspire.ec.europa.eu/codelist/FerryUseValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `FerryUse_passengers`.
+
+Es werden Referenzen (NetworkReference) zu allen `FerryCrossing`s erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cf1f2f7bd-bb34-484b-b673-8b7b532d0f53" priority="normal">
+        <source>
+            <class>
+                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">schifffahrtskategorie = '1000' or schifffahrtskategorie = '3000'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// ID des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// alle zuvor gesammelten IDs für zu dem Kanal gehörende WaterwayLinks
+def links = collect.AX_Kanal[sourceId].links.values()
+if (!links) {
+	// keine WaterwayLinks zu Kanal vorhanden
+	return
+}
+
+def _id = "InlandWaterway_$sourceId"
+
+_target {
+	links.each { linkId -&gt;
+		link {
+			href( "#$linkId" )
+		}
+	}
+}
+
+// bestimme CEMTClass
+def CEMTClass
+switch (_source.p.widmung.value()) {
+//TODO festzulegen!
+//case '': //
+//	CEMTClass = ''
+//	break
+}
+
+withTransformationContext {
+	// Sammle ID für Netzwerk	
+	collect.network &lt;&lt; _id
+	if (CEMTClass) {
+		// Sammle ID für CEMTClass
+		collect.CEMTClass[CEMTClass] &lt;&lt; _id
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `InlandWateray` zu einem `AX_Kanal` im Binnenbereich.
+
+Referenzen zu den entsprechenden `WaterwayLink`s werden anhand der bei deren Erstellung im Index hinterlegten Zuordnung hergestellt.
+
+Der erstellte `InlandWaterway` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**CEMTClass**
+
+Die *CEMTClass* wird wie folgt aus dem Attribut `widmung` ermittelt:
+
+***Noch festzulegen***
+</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3d72272e-349b-469e-96d4-b1487aa1e681" priority="normal">
+        <source>
+            <class>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">schifffahrtskategorie = '1000' or schifffahrtskategorie = '3000'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// ID des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// alle zuvor gesammelten IDs für zu dem Wasserlauf gehörende WaterwayLinks
+def links = collect.AX_Wasserlauf[sourceId].links.values()
+if (!links) {
+	// keine WaterwayLinks zu Wasserlauf vorhanden
+	return
+}
+
+def _id = "InlandWaterway_$sourceId"
+
+_target {
+	links.each { linkId -&gt;
+		link {
+			href( "#$linkId" )
+		}
+	}
+}
+
+// bestimme CEMTClass
+def CEMTClass
+switch (_source.p.widmung.value()) {
+//TODO festzulegen!
+//case '': //
+//	CEMTClass = ''
+//	break
+}
+
+withTransformationContext {
+	// Sammle ID für Netzwerk	
+	collect.network &lt;&lt; _id
+	if (CEMTClass) {
+		// Sammle ID für CEMTClass
+		collect.CEMTClass[CEMTClass] &lt;&lt; _id
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `InlandWateray` zu einem `AX_Wasserlauf` im Binnenbereich.
+
+Referenzen zu den entsprechenden `WaterwayLink`s werden anhand der bei deren Erstellung im Index hinterlegten Zuordnung hergestellt.
+
+Der erstellte `InlandWaterway` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**CEMTClass**
+
+Die *CEMTClass* wird wie folgt aus dem Attribut `widmung` ermittelt:
+
+***Noch festzulegen***
+</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C141f2f47-581a-47da-8732-626f593cbc6e" priority="normal">
+        <source>
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7400f7b3-3b75-4b90-9270-fa8855343c72" priority="normal">
+        <source>
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ca8634f0a-bd4a-4a67-92de-42d073bff027" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C947d0186-a5ef-4403-a40d-68ff36cd0082" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdb5be5d3-b7df-4ae2-9f9b-6035f22de40c" priority="normal">
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C3b005256-e42f-444b-bd6c-a86b4690cfdc" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C612881bf-a4cd-4a1f-a5e7-ab4d31bf841f" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cb742a3cd-b7d6-48c3-be8d-ae7d79dd3cdb" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cd7f7fddc-a910-456c-9479-d49e16605565" priority="normal">
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cec2abf19-bee8-4bbf-96c6-773a4d8639a0" priority="normal">
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C726f07cf-2245-447f-89da-da7f34278da7" priority="normal">
+        <target>
+            <property>
+                <type name="InlandWaterwayType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C31c21664-3fcc-43ea-89d3-d5485904465c" priority="normal">
+        <source>
+            <class>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">funktion = '5610'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// ID des Quellobjekts
+def sourceId = _source.p.id.value()
+
+def _id = "PortArea_$sourceId"
+	
+_target {
+}
+
+withTransformationContext {
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk	
+	collect.network &lt;&lt; _id
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt eine `PortArea` zu einem `AX_Schiffsverkehr` mit `funktion` *Hafenanlage (Landfläche)* (`5610`).
+
+Die erstellte `PortArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ccf154095-4848-4440-a66e-0cbf2730500c" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce3aa3157-e12f-4794-8226-d6dc6e876c65" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd5a302fa-15cb-4ff3-82f8-ba1c6370065b" priority="normal">
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C874a26b0-406c-4a01-aaba-93bee2ea5759" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="copyGeometries"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cca83e39e-3475-4b62-9cef-0c4099c7e63d" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cbe32f6f6-ee87-475e-953e-821c0c30c18a" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C8691cbe4-1b7c-4b17-a22b-cc9064912e28" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C468ca902-89be-474c-94f9-af2454c7586e" priority="normal">
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C1fb8ae9d-135a-45bc-8a53-e7ac1af19590" priority="normal">
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C58079db3-f86b-46ff-9958-9864eb201aa2" priority="normal">
+        <target>
+            <property>
+                <type name="PortAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C6f9c3702-c3f2-44e4-b3ae-30c909310cb1" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="typeOfTransport" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+            </property>
+        </target>
+        <parameter value="water" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cc3026039-7b92-4b52-aaa5-cc40b3749b65" priority="high">
+        <source name="types">
+            <class>
+                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">schifffahrtskategorie is not null or identnummer is not null</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">schifffahrtskategorie is not null or identnummer is not null</condition>
+                    </type>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                    <property>
+                        <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">schifffahrtskategorie is not null or identnummer is not null</condition>
+                        </type>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// ID des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// ID des Quell-Kanals
+def parentId = _source.links.AX_Kanal.p.id.value()
+
+if (parentId) {
+	// nur falls ein Kanal verfügbar ist, der die entsprechenden Bedingungen erfüllt
+	// wird ein WaterwayLink erzeugt
+	
+	def _id = "WaterwayLink_$sourceId"
+	
+	_target {
+	}
+	
+	// bestimme ConditionOfWaterFacility
+	def conditionOfFacility = 'functional'
+	switch (_source.p.zustand.value()) {
+	case '2100': // Außer Betrieb, stillgelegt, verlassen
+		conditionOfFacility = 'disused'
+		break
+	case '4000': // Im Bau
+		conditionOfFacility = 'underConstruction'
+		break
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk	
+		collect.network &lt;&lt; _id
+		// Sammle ID für Liste von WaterwayLinks für den Kanal
+		collect.AX_Kanal[parentId].links &lt;&lt; _id
+		// Sammle ID für ConditionOfWaterFacility
+		collect.conditionOfWaterFacility[conditionOfFacility] &lt;&lt; _id
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `WaterwayLink` zu einer `AX_Gewässerachse` die Teil eines `AX_Kanal`s ist, der wiederum zumindest über eine `schifffahrtskategorie` oder eine `identnummer` verfügen muss [[#33]].
+
+Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Für den entsprechenden `AX_Kanal` wird hinterlegt, dass dieser `WaterwayLink` aus einer zugehörigen `AX_Gewaesserachse` erstellt wurde.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**ConditionOfWaterFacility**
+
+Die *conditionOfFacility* wird wie folgt aus dem Attribut `zustand` ermittelt:
+
+zustand| conditionOfFacility
+- | -
+`2100` *(Außer Betrieb, stillgelegt, verlassen)* | `disused`
+`4000` *(Im Bau)* | `underConstruction`
+
+In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
+
+[#33]: https://services.interactive-instruments.de/xsaaasuite-gitlab/adv-inspire/inspire-alignements/issues/33</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C4ce2dafa-0c09-46d1-b006-f8b9d3156e12" priority="high">
+        <source name="types">
+            <class>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">schifffahrtskategorie is not null or identnummer is not null</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">schifffahrtskategorie is not null or identnummer is not null</condition>
+                    </type>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                    <property>
+                        <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">schifffahrtskategorie is not null or identnummer is not null</condition>
+                        </type>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// ID des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// ID des Quell-Wasserlaufs
+def parentId = _source.links.AX_Wasserlauf.p.id.value()
+
+if (parentId) {
+	// nur falls ein Wasserlauf verfügbar ist, der die entsprechenden Bedingungen erfüllt
+	// wird ein WaterwayLink erzeugt
+	
+	def _id = "WaterwayLink_$sourceId"
+	
+	_target {
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk	
+		collect.network &lt;&lt; _id
+		// Sammle ID für Liste von WaterwayLinks für Wasserlauf
+		collect.AX_Wasserlauf[parentId].links &lt;&lt; _id
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `WaterwayLink` zu einer `AX_Gewaesserachse` die Teil eines `AX_Wasserlauf`s ist, der wiederum zumindest über eine `schifffahrtskategorie` oder eine `identnummer` verfügen muss [[#33]].
+
+Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Für den entsprechenden `AX_Wasserlauf` wird hinterlegt, dass dieser `WaterwayLink` aus einer zugehörigen `AX_Gewaesserachse` erstellt wurde.
+
+[#33]: https://services.interactive-instruments.de/xsaaasuite-gitlab/adv-inspire/inspire-alignements/issues/33</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbd3d5432-25dc-4994-8c8d-d7680a5859e0" priority="normal">
+        <source>
+            <class>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// ID des Quellobjekts
+def sourceId = _source.p.id.value()
+
+def _id = "WaterwayLink_$sourceId"
+	
+_target {
+}
+
+withTransformationContext {
+	def collect = _.context.collector(it)
+	// Sammle ID für Netzwerk	
+	collect.network &lt;&lt; _id
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `WaterwayLink` zu einer `AX_Gewaesserstationierungsachse`.
+
+Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
+</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2eb8a251-1062-494b-808f-c7a5771b0b57" priority="high">
+        <source>
+            <class>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// ID des Quellobjekts
+def sourceId = _source.p.id.value()
+
+if (_source.p.position.CompositeCurve.first() || _source.p.position.Curve.first() || _source.p.position.LineString.first()) {
+	// nur Objekte die durch Curve/LineString oder CompositeCurve dargestellt sind
+	
+	def _id = "WaterwayLink_$sourceId"
+	
+	_target {
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk	
+		collect.network &lt;&lt; _id
+		// Sammle ID für Liste von WaterwayLinks für AX_SchifffahrtslinieFaehrverkehr
+		collect.AX_SchifffahrtslinieFaehrverkehr[sourceId].links &lt;&lt; _id
+	}
+}
+else {
+	// keine Curve oder CompositeCurve -&gt; kein Objekt
+	// das ist die Vorgabe aus der Mapping-Tabelle - heißt das es können keine MultiCurves auftreten?
+	// zur Sicherheit - Warnung falls andere linienartige Geometrie gefunden
+	
+	def geometries = _.geom.findLines(_source.p.position.first())
+	if (geometries) {
+		_log.warn("AX_SchifffahrtslinieFaehrverkehr $sourceId enthält wider Erwarten linienartige Geometrie die nicht Curve/LineString/CompositeCurve ist, es wurde kein WaterwayLink gebildet")
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt einen `WaterwayLink` zu einem `AX_SchifffahrtslinieFaehrverkehr` mit Geometrie-Typ *GM_CompositeCurve* oder *GM_Curve*.
+
+Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `WaterwayLink` daraus erstellt wurde.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Caae3ba1e-0a31-4dd7-9660-0c0c2a6ddd41" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca4fbb1a7-bc33-49ea-86dd-95aa2549f3ab" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C59525ab6-8dee-4437-928e-54e1f6a151e2" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd33efa37-4a17-47e7-9d11-3c6351116e85" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="copyGeometries"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb6f2007a-eb0f-425c-af6f-2cd74f25e475" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="copyGeometries"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cac502866-2720-40ba-ac7c-93d388f5b593" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="false" name="copyGeometries"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce14a00f7-0f0f-425e-96bc-e278fa0d9678" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cbf27a703-118d-492f-afec-07be2551d5db" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Caaca87e3-a9d5-44d7-81fe-a11e193e342d" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce78abcd4-4f1e-4e80-9601-61885dc4185e" priority="normal">
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="fictitious" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cbe021c4f-327f-4795-9577-da58aedae3cb" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cabfea868-d47a-4fa5-a554-443f3f8f0943" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C60f845e8-bb92-47e0-b0f7-8010551b7d79" priority="normal">
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb0f0cfae-14fe-464f-8dea-468b9378fe4e" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cce74419d-0751-4c44-8a6b-5d4abb872a84" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca8495950-07d3-49ad-baaf-74292d11c9ae" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca50aaae2-ab35-458e-bb82-0b8139997861" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C1ba7c3de-dde9-42a8-bf41-3e0eb8d05787" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cd69df3f9-4409-47f5-b7a5-352467967492" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cd32b1107-5206-48b7-a0e8-04a512d542bc" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C1323b69f-e907-4261-8bd9-b8fc0d01bab8" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cae7cd425-4532-48d1-82ba-e30f07daa650" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C82f94774-fde7-4990-967e-821d4f761b28" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C5c0ab4cb-bfaf-4e08-886e-f42c5d121cd3" priority="normal">
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca38a7f6e-9aef-4804-b3a8-703f720e4aee" priority="normal">
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf578548d-b5b6-4f90-9d89-59fee7bbf1e4" priority="normal">
+        <target>
+            <property>
+                <type name="WaterwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unpopulated" name="value"/>
+    </cell>
+    <modifier cell="ba1:C1eb2d011-34d1-4077-8388-f7fbdb1659b9">
+        <transformation mode="disabled"/>
+    </modifier>
+</alignment>
