@@ -278,6 +278,60 @@ Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
         </target>
         <parameter value="unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Ce4614dcb-0798-4b8e-87da-ddf1f1e4a3ea" priority="low">
+        <target>
+            <class>
+                <type name="CEMTClassType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein CEMTClass-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.CEMTClass.consume { key, values -&gt;
+	def _id = 'CEMTClass_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		CEMTClass( key )
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `CEMTClass`-Objekt für jeden in den Daten vorkommenden Wert.
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `CEMTClass_I`.
+
+Es werden Referenzen (NetworkReference) zu allen `InlandWaterway`s erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C487226a2-f5d6-4527-82d4-3417f4e479bd" priority="low">
         <target>
             <class>
@@ -638,28 +692,37 @@ withTransformationContext {
 
 // alle zuvor gesammelten IDs für zu dem Kanal gehörende WaterwayLinks
 def links = collect.AX_Kanal[sourceId].links.values()
+if (!links) {
+	// keine WaterwayLinks zu Kanal vorhanden
+	return
+}
 
 def _id = "InlandWaterway_$sourceId"
 
 _target {
-	if (links) {
-		links.each { linkId -&gt;
-			link {
-				href( "#$linkId" )
-			}
-		}
-	}
-	else {
-		_log.warn("InlandWaterway ohne WaterwayLinks zu AX_Kanal $sourceId erstellt")
+	links.each { linkId -&gt;
 		link {
-			nilReason( 'unknown' )
+			href( "#$linkId" )
 		}
 	}
+}
+
+// bestimme CEMTClass
+def CEMTClass
+switch (_source.p.widmung.value()) {
+//TODO festzulegen!
+//case '': //
+//	CEMTClass = ''
+//	break
 }
 
 withTransformationContext {
 	// Sammle ID für Netzwerk	
 	collect.network &lt;&lt; _id
+	if (CEMTClass) {
+		// Sammle ID für CEMTClass
+		collect.CEMTClass[CEMTClass] &lt;&lt; _id
+	}
 }
 
 </core:text>
@@ -669,6 +732,14 @@ withTransformationContext {
 Referenzen zu den entsprechenden `WaterwayLink`s werden anhand der bei deren Erstellung im Index hinterlegten Zuordnung hergestellt.
 
 Der erstellte `InlandWaterway` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**CEMTClass**
+
+Die *CEMTClass* wird wie folgt aus dem Attribut `widmung` ermittelt:
+
+***Noch festzulegen***
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3d72272e-349b-469e-96d4-b1487aa1e681" priority="normal">
@@ -696,28 +767,37 @@ withTransformationContext {
 
 // alle zuvor gesammelten IDs für zu dem Wasserlauf gehörende WaterwayLinks
 def links = collect.AX_Wasserlauf[sourceId].links.values()
+if (!links) {
+	// keine WaterwayLinks zu Wasserlauf vorhanden
+	return
+}
 
 def _id = "InlandWaterway_$sourceId"
 
 _target {
-	if (links) {
-		links.each { linkId -&gt;
-			link {
-				href( "#$linkId" )
-			}
-		}
-	}
-	else {
-		_log.warn("InlandWaterway ohne WaterwayLinks zu AX_Wasserlauf $sourceId erstellt")
+	links.each { linkId -&gt;
 		link {
-			nilReason( 'unknown' )
+			href( "#$linkId" )
 		}
 	}
+}
+
+// bestimme CEMTClass
+def CEMTClass
+switch (_source.p.widmung.value()) {
+//TODO festzulegen!
+//case '': //
+//	CEMTClass = ''
+//	break
 }
 
 withTransformationContext {
 	// Sammle ID für Netzwerk	
 	collect.network &lt;&lt; _id
+	if (CEMTClass) {
+		// Sammle ID für CEMTClass
+		collect.CEMTClass[CEMTClass] &lt;&lt; _id
+	}
 }
 
 </core:text>
@@ -727,6 +807,14 @@ withTransformationContext {
 Referenzen zu den entsprechenden `WaterwayLink`s werden anhand der bei deren Erstellung im Index hinterlegten Zuordnung hergestellt.
 
 Der erstellte `InlandWaterway` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**CEMTClass**
+
+Die *CEMTClass* wird wie folgt aus dem Attribut `widmung` ermittelt:
+
+***Noch festzulegen***
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C141f2f47-581a-47da-8732-626f593cbc6e" priority="normal">
