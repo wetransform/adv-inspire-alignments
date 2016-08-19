@@ -304,6 +304,23 @@ def links = collect.AX_SchifffahrtslinieFaehrverkehr[sourceId].links.values()
 
 def _id = "FerryCrossing_$sourceId"
 
+// bestimme FerryUse
+def ferryUse
+switch (_source.p.art.value()) {
+case '1710': // Autofährverkehr
+	ferryUse = 'cars'
+	break
+case '1720': // Eisenbahnfährverkehr
+	ferryUse = 'train'
+	break
+case '1730': // Personenfährverkehr
+	ferryUse = 'passengers'
+	break
+case '1740': // Linienverkehr
+	ferryUse = 'other'
+	break
+}
+
 if (links) {
 	_target {
 		links.each { linkId -&gt;
@@ -316,6 +333,8 @@ if (links) {
 	withTransformationContext {
 		// Sammle ID für Netzwerk	
 		collect.network &lt;&lt; _id
+		// Sammle ID für FerryUse
+		collect.ferryUse[ferryUse] &lt;&lt; _id
 	}
 }
 
@@ -326,6 +345,19 @@ if (links) {
 Referenzen zu den entsprechenden `WaterwayLink`s werden anhand der bei deren Erstellung im Index hinterlegten Zuordnung hergestellt.
 
 Das erstellte `FerryCrossing` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**FerryUse**
+
+Die *ferryUse* wird wie folgt aus dem Attribut `art` ermittelt:
+
+art | ferryUse
+- | -
+`1710` *(Autofährverkehr)* | `cars`
+`1720` *(Eisenbahnfährverkehr)* | `train`
+`1730` *(Personenfährverkehr)* | `passengers`
+`1740` *(Linienverkehr)* | `other`
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Caf7b0555-5a63-4b10-96bb-2c957f27b686" priority="normal">
@@ -462,6 +494,65 @@ Das erstellte `FerryCrossing` wird dem Index von Netzwerk-Elementen hinzugefügt
             </property>
         </target>
         <parameter value="unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C4c69f1a6-6ccc-45ab-a446-898990d17441" priority="low">
+        <target>
+            <class>
+                <type name="FerryUseType" ns="http://inspire.ec.europa.eu/schemas/tn-w/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für FerryUse
+def codeList = 'http://inspire.ec.europa.eu/codelist/FerryUseValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein FerryUse-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.ferryUse.consume { key, values -&gt;
+	def _id = 'FerryUse_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		ferryUse {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `FerryUse`-Objekt für jeden in den Daten vorkommenden Wert der [FerryUseValue Code-Liste](http://inspire.ec.europa.eu/codelist/FerryUseValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `FerryUse_passengers`.
+
+Es werden Referenzen (NetworkReference) zu allen `FerryCrossing`s erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cf1f2f7bd-bb34-484b-b673-8b7b532d0f53" priority="normal">
         <source>
