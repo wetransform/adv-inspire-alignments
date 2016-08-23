@@ -3,12 +3,12 @@
     <name>ALKIS Basis-DLM zu INSPIRE Hydro-Physical Waters</name>
     <author>Thorsten Reitz</author>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2016-08-13T12:56:21.601+02:00</modified>
+    <modified>2016-08-23T15:26:38.890+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/wetransform/dev/inspire-alignements/annex-1/mappings/Hydrography/aaa-hy-p.halex</setting>
+        <setting name="target">file:/C:/wetf-dev/inspire-alignements/annex-1/mappings/Hydrography/aaa-hy-p.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
@@ -27,7 +27,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">1dc4a27c-7e55-4971-af19-523c4b95e920</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_0von8_32345000_5525000.xml.gz</setting>
+        <setting name="source">file:/C:/wetf-dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_0von8_32345000_5525000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -36,7 +36,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">4baa75a8-e78b-47e7-9088-0c9381844975</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_1von8_32345000_5525000.xml.gz</setting>
+        <setting name="source">file:/C:/wetf-dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_1von8_32345000_5525000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -1565,6 +1565,8 @@
     <property name="mappableSourceType/13">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SumpfType</property>
     <property name="mappableSourceType/14">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_VegetationsmerkmalType</property>
     <property name="mappableSourceType/15">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FliessgewaesserType</property>
+    <property name="mappableSourceType/16">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WasserlaufType</property>
+    <property name="mappableSourceType/17">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KanalType</property>
     <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_DammWallDeichType</property>
     <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType</property>
     <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_MeerType</property>
@@ -1573,7 +1575,7 @@
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaessermerkmalType</property>
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrsanlageType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaesserachseType</property>
-    <property name="mappableSourceType/count">15</property>
+    <property name="mappableSourceType/count">17</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RapidsType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}EmbankmentType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WetlandType</property>
