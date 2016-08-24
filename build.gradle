@@ -144,6 +144,73 @@ task('doc') {
   tasks['doc'].dependsOn(item.task)
 }
 
+// add tasks for creating derived projects
+
+task('derive-all') {
+  description "Creates all derived projects."
+  group 'Derived transformation projects'
+}
+
+transformations.each { name, config ->
+  if (config.enabled != null && !config.enabled) {
+    return
+  }
+
+  // create a task to derive a project for every model
+  // association of a project
+
+  if (config.model && config.deriveProject != false) {
+    // determine model definition
+    def modelDefinition
+    switch(config.model) {
+    case 'DLKM':
+      modelDefinition = file('dlkm.model.json')
+      break
+    case 'Basis-DLM':
+      modelDefinition = file('basis-dlm.model.json')
+      break
+    case 'DLM50':
+      modelDefinition = file('dlm-50.model.json')
+      break
+    case 'DLM250':
+      modelDefinition = file('dlm-250.model.json')
+      break
+    case 'DLM1000':
+      modelDefinition = file('dlm-1000.model.json')
+      break
+    }
+
+    def projectFile = file(config.project)
+
+    if (modelDefinition) {
+      task("derive-$name", type: HaleCommandLine) {
+        args = [
+          'project',
+          'alignment',
+          'filter',
+          '--name',
+          config.model,
+          '--json-filter',
+          modelDefinition,
+          '--skip-empty',
+          '--skip-no-type-cells',
+          '--use-base-alignment',
+          '--prepend-description',
+          "***Automatisch generierte Variante des Projekts für das ${config.model} Modell***",
+          projectFile
+        ]
+
+        requiresHaleCli = true
+
+        description "Generate derived project for model ${config.model} of project ${projectFile.name}"
+        group 'Derived transformation projects'
+      }
+
+      tasks['derive-all'].dependsOn("derive-$name")
+    }
+  }
+}
+
 // task and helper classes
 
 /**
@@ -450,6 +517,12 @@ class HaleCommandLine extends DefaultTask {
   int maxHeapSizeMB = project.hasProperty('haleMaxHeapSize') ? (project.getProperty('haleMaxHeapSize') as int) : 2048
 
   /**
+   * States if the hale CLI tool (or library) is required, i.e
+   * halestudio cannot be used.
+   */
+  boolean requiresHaleCli = false
+
+  /**
    * Map of project variables.
    */
   Map<String, String> projectVariables = [:]
@@ -460,6 +533,7 @@ class HaleCommandLine extends DefaultTask {
     def cmd
 
     boolean usingHaleCli = false
+    boolean useCommandLine = true
 
     // executable
     if (project.hasProperty('haleCliExecutable')) {
@@ -468,7 +542,7 @@ class HaleCommandLine extends DefaultTask {
       cmd.addAll(args)
       usingHaleCli = true
     }
-    else if (project.hasProperty('haleExecutable')) {
+    else if (!requiresHaleCli && project.hasProperty('haleExecutable')) {
       File execFile = project.file(project.getProperty('haleExecutable'))
       File haleFolder = execFile.parentFile
 
@@ -514,9 +588,10 @@ class HaleCommandLine extends DefaultTask {
       println 'Using libraries on classpath...'
       cmd = args
       usingHaleCli = false
+      useCommandLine = false
     }
 
-    if (project.ext.useCommandLine) {
+    if (useCommandLine) {
       // execution via external command
 
       project.exec {
@@ -541,6 +616,10 @@ class HaleCommandLine extends DefaultTask {
       }
     }
     else {
+      if (project.ext.useCommandLine) {
+        throw new IllegalStateException('Task cannot be run with haleExecutable configured')
+      }
+
       // execution via libraries in classpath
 
       project.javaexec {

@@ -177,3 +177,23 @@ gradlew -PdefaultSourceFolder="C:\Meine Daten\DLKM" transform-cp
 Falls der Transformationsprozess über Gradle nicht startet, ist eine wahrscheinliche Ursache, dass der entsprechende Kommandozeilenaufruf nicht korrekt ist.
 
 Durch das Übergeben des Parameters `--info` an Gradle wird beim Ausführen einer Transformation der komplette Kommandozeilen-Aufruf ausgegeben. Bitte prüfen Sie ihn auf Korrektheit (z.B. die verwendeten Pfade). Zu Testzwecken kann der Aufruf auch unabhängig von Gradle direkt ausgeführt werden.
+
+
+Modell-spezifische Projekte
+---------------------------
+
+Die definierten Transformationsprojekte decken in den meisten Fällen alle relevanten AAA-Modelle ab.
+Es gibt die Möglichkeit abgeleitete Projekte für ein Modell (z.B. DLM1000) zu erstellen, in denen die nicht anwendbaren Objektarten-Transformationen deaktiviert sind.
+Dies erfolgt anhand der modell-spezifischen Filter-Definitionen in JSON-Dateien (z.B. `dlm-1000.model.json`).
+Dort sind die Objektarten hinterlegt, die zu dem jeweiligen Modell gehören. Die Auflistung der Objektarten ist aus der HTML-Version der Objektartenkataloge übernommen worden.
+
+Gradle Tasks um die abgeleiteten Projekte automatisch zu erzeugen werden basierend auf den Transformations-Definitionen erstellt. Voraussetzung ist dass in einer Definition eine Angabe zum Modell gemacht wurde und das Ableiten des Projekts nicht mit `"deriveProject": false` deaktiviert wurde.
+
+Mit `gradlew tasks` können die Tasks aufgelistet werden. Alle Tasks deren Name mit `derive-` beginnt dienen zum Ableiten von modell-spezifischen Projekten.
+Der Task `derive-all` ist ein spezieller Task, der das Ausführen aller Ableitungs-Tasks bewirkt.
+
+**Hinweis:** Die Ableitungs-Tasks können nicht mit halestudio ausgeführt werden. Dazu ist eine aktuelle Version von [hale-cli](https://github.com/halestudio/hale-cli) (Konfiguration über Gradle property `haleCliExecutable`) oder die Ausführung basierend auf denen im Build konfigurierten Bibliotheken notwendig.
+
+Um die Dokumentation für dies abgeleiteten Projekte zu erstellen müssen lediglich die Tasks zum Ableiten der Projekte vor den Dokumentations-Tasks ausgeführt werden.
+
+Nicht in allen Fällen ist die automatische Bestimmung ob Transformationen in einem abgeleiteten Projekt enthalten sein sollen möglich. Deshalb kann es vorkommen, dass Join-Operationen in ein Projekt übernommen werden, auch wenn sie nicht relevant sind.
