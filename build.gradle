@@ -294,6 +294,8 @@ class Transform extends DefaultTask {
 
           // proxy configuration
           addProxyArgs(cmd)
+          // additional system properties
+          addSystemProps(project, cmd)
 
           // app launching
           cmd << '-jar'
@@ -400,6 +402,8 @@ class Transform extends DefaultTask {
 
           // proxy configuration
           addProxyArgs(haleOpts)
+          // additional system properties
+          addSystemProps(project, haleOpts)
 
           if (haleOpts) {
             environment('HALE_OPTS', haleOpts.join(' '))
@@ -436,6 +440,8 @@ class Transform extends DefaultTask {
 
         // proxy configuration
         addProxyArgs(vmargs)
+        // additional system properties
+        addSystemProps(project, vmargs)
 
         // max heap size
         maxHeapSize = "${maxHeapSizeMB}m"
@@ -496,6 +502,38 @@ class Transform extends DefaultTask {
       if (prop != null) {
         argList << "-D${name}=${prop}"
       }
+    }
+  }
+
+  /**
+   * Add additionally defined system properties to the arguments.
+   * 
+   * @param argList The argument list to add the system properties to
+   */
+  static void addSystemProps(Project project, List<String> argList) {
+    try {
+      def props = new Properties()
+      project.file('gradle.properties').withInputStream {
+        props.load(it)
+      }
+
+      props.stringPropertyNames().each { name ->
+        if (name.startsWith('systemProp.')) {
+          def value = props.getProperty(name)
+          if (value) {
+            def strippedName = name[11..-1]
+            if (!PROXY_PROPS.contains(strippedName)) {
+              // don't handle proxy properties two times
+
+              println "Adding system property ${strippedName} to command"
+              argList << "-D${strippedName}=${value}"
+            }
+          }
+        }
+      }
+    } catch (e) {
+      println 'ERROR loading gradle.properties to extract system properties'
+      e.printStackTrace()
     }
   }
 
@@ -565,6 +603,8 @@ class HaleCommandLine extends DefaultTask {
 
           // proxy configuration
           Transform.addProxyArgs(cmd)
+          // additional system properties
+          Transform.addSystemProps(project, cmd)
 
           // app launching
           cmd << '-jar'
@@ -608,6 +648,8 @@ class HaleCommandLine extends DefaultTask {
 
           // proxy configuration
           Transform.addProxyArgs(haleOpts)
+          // additional system properties
+          Transform.addSystemProps(project, haleOpts)
 
           if (haleOpts) {
             environment('HALE_OPTS', haleOpts.join(' '))
@@ -631,6 +673,8 @@ class HaleCommandLine extends DefaultTask {
 
         // proxy configuration
         Transform.addProxyArgs(vmargs)
+        // additional system properties
+        Transform.addSystemProps(project, vmargs)
 
         // max heap size
         maxHeapSize = "${maxHeapSizeMB}m"
