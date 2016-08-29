@@ -404,6 +404,20 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
                         <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Kreis_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Kreis_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                     <property>
@@ -425,20 +439,6 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
                         <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Kreis_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -464,7 +464,7 @@ def _id = 'AdministrativeUnit_' + _source.p.schluesselGesamt.value()
 def land = _source.p.schluessel.AX_Kreis_Schluessel.land.value()
 def regBezirk = _source.p.schluessel.AX_Kreis_Schluessel.regierungsbezirk.value()
 def upperLevelUnit
-if (regBezirk) {
+if (regBezirk &amp;&amp; regBezirk != '0') {
 	upperLevelUnit = 'AdministrativeUnit_' + land + regBezirk
 	collect.regBezirk[upperLevelUnit] &lt;&lt; _id
 }

@@ -132,7 +132,7 @@ def _id = 'AdministrativeUnit_' + _source.p.schluesselGesamt.value()
 def land = _source.p.schluessel.AX_Kreis_Schluessel.land.value()
 def regBezirk = _source.p.schluessel.AX_Kreis_Schluessel.regierungsbezirk.value()
 def upperLevelUnit
-if (regBezirk) {
+if (regBezirk &amp;&amp; regBezirk != '0') {
 	upperLevelUnit = 'AdministrativeUnit_' + land + regBezirk
 	collect.regBezirk[upperLevelUnit] &lt;&lt; _id
 }
