@@ -277,8 +277,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C5bcd993e-7368-4515-ab75-240fc0c2dae5" priority="normal">
         <source>
@@ -295,8 +295,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C703329e4-7e4e-4926-9d4e-97a371647756" priority="normal">
         <source>
@@ -313,8 +313,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ce2bb96a0-f563-4c97-8074-b1eabdcbd68d" priority="normal">
         <source name="id">
@@ -1081,17 +1081,96 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C0d6bbcec-b3ce-4676-90e2-c360244e6841" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C223e2b6b-b46d-4e60-972c-f0d003149edf" priority="normal">
         <source>
             <property>
                 <type name="AX_MeerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractSurface"/>
+                <child name="Surface" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/patches"/>
+                <child name="patches" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractSurfacePatch"/>
+                <child name="PolygonPatch" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="exterior" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractRing"/>
+                <child name="LinearRing" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice_1" ns="http://www.opengis.net/gml/3.2/LinearRingType"/>
+                <child name="choice_1" ns="http://www.opengis.net/gml/3.2/LinearRingType/choice_1"/>
+                <child name="pos" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="LandWaterBoundaryType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractCurve"/>
+                <child name="LineString" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice_1" ns="http://www.opengis.net/gml/3.2/LineStringType"/>
+                <child name="choice_1" ns="http://www.opengis.net/gml/3.2/LineStringType/choice_1"/>
+                <child name="pos" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C07cd9b63-322c-4f02-a7bd-d009e1774c5d" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MeerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractSurface"/>
+                <child name="Surface" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/patches"/>
+                <child name="patches" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractSurfacePatch"/>
+                <child name="PolygonPatch" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="exterior" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractRing"/>
+                <child name="LinearRing" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice_1" ns="http://www.opengis.net/gml/3.2/LinearRingType"/>
+                <child name="coordinates" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandWaterBoundaryType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractCurve"/>
+                <child name="LineString" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice_1" ns="http://www.opengis.net/gml/3.2/LineStringType"/>
+                <child name="coordinates" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf65e8f35-2585-47af-be11-53b988bb1676" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MeerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractSurface"/>
+                <child name="Surface" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/patches"/>
+                <child name="patches" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractSurfacePatch"/>
+                <child name="PolygonPatch" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="exterior" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractRing"/>
+                <child name="LinearRing" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice_1" ns="http://www.opengis.net/gml/3.2/LinearRingType"/>
+                <child name="posList" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandWaterBoundaryType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractCurve"/>
+                <child name="LineString" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="choice_1" ns="http://www.opengis.net/gml/3.2/LineStringType"/>
+                <child name="posList" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
         <parameter value="false" name="structuralRename"/>
@@ -1794,8 +1873,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C94f49f2b-9097-4bde-8097-4d3889770cff" priority="normal">
         <source>
@@ -1810,8 +1889,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ca9d019d4-590e-4196-9eb0-25fd39a57904" priority="normal">
         <source name="id">
@@ -2320,8 +2399,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.geometric.aggregate" id="C838edfb2-fea0-44d8-bc9d-e9f6657f5abc" priority="low">
         <source>
@@ -2933,8 +3012,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb68a6ac3-12f5-4371-b710-a8d7c20c7617" priority="normal">
         <source>
@@ -2949,8 +3028,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdf312206-8b25-4f0f-83f8-6fd19fdc8ca7" priority="normal">
         <source>
@@ -2965,8 +3044,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cbaf6bec8-ffab-411e-a006-3f469cab0865" priority="normal">
         <source>
@@ -2983,8 +3062,8 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C4ec7295f-7a13-44b1-a85a-3e9df8b828b3" priority="normal">
         <source name="id">
