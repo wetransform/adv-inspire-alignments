@@ -111,6 +111,29 @@ transformations.each { name, config ->
       }
     }
 
+    // filter duplicate objects based on GML ID (= AAA-ObjektID)
+    additionalArgs << '-exclude'
+    additionalArgs << '''groovy:
+      def id = instance.p.id.value()
+      boolean rejected = false
+      if (id) {
+        withContext {
+          def collect = _.context.collector(it)
+          if (collect.ids.values().contains(id)) {
+            _log.warn("Rejecting feature with duplicate id $id")
+            rejected = true
+          }
+          else {
+            collect.ids << id
+          }
+        }
+      }
+
+      rejected
+    '''
+    // enable global filter context (to allow filtering duplicates across files)
+    additionalArgs << '-overallFilterContext'
+
     // custom additional arguments
     if (config.additionalArgs && config.additionalArgs instanceof Collection) {
       additionalArgs.addAll(config.additionalArgs)
