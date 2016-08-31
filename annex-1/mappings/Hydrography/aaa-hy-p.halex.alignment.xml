@@ -2185,15 +2185,15 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
         <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="Cdf37f373-3160-4aec-b78d-a474e3491a13" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.join" id="C10c45935-9238-404b-870a-6ccd939a0589" priority="normal">
         <source name="types">
             <class>
-                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <target>
@@ -2204,18 +2204,56 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 </class>
                 <class>
-                    <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.join" id="Cb1352d13-3de9-4b1a-bd9c-8f8c8d93f1ea" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
@@ -2250,6 +2288,44 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <jp:condition>
                     <property>
                         <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.join" id="C1178ade0-921f-47b1-864e-129ca432bddd" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
@@ -2349,6 +2425,29 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
             </property>
         </target>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc69885bf-8fd1-435c-83ef-599b734f7abe" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>0</context>
+                </child>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="Cac506b61-01eb-49ee-81a9-0ac1717afc48" priority="normal">
         <source name="lagebezeichnung">
             <property>
@@ -2386,7 +2485,28 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C6f68df6f-081e-418b-b1b6-3dbf2e44eae0" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cea58528f-17ec-408c-a064-36835ebad97a" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="source">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.geometric.aggregate" id="C8d9644be-d7a9-4e6b-9de3-522a7dbd746b" priority="normal">
         <source>
             <property>
                 <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -2399,8 +2519,6 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
-        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.geometric.aggregate" id="C838edfb2-fea0-44d8-bc9d-e9f6657f5abc" priority="low">
         <source>
@@ -2416,10 +2534,42 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
             </property>
         </target>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C06311019-6a42-4ec5-adf1-b478284e27ea" priority="low">
+        <source name="id">
+            <property>
+                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="hydroId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="HydroIdentifier" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C4b86b49e-a8df-4c27-96d4-7131b5d17ca3" priority="normal">
         <source name="id">
             <property>
                 <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gewaesserkennzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="hydroId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="HydroIdentifier" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cd67d10a4-e0bf-4b02-a9d1-58c7eee1b102" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="gewaesserkennzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
@@ -2442,10 +2592,10 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Cf24113de-6fe5-46b3-a637-fe74cfa7b3cb" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cc086ca10-0e08-43d6-8c48-075b62c2c226" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -2458,10 +2608,10 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Cc086ca10-0e08-43d6-8c48-075b62c2c226" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cb5d7c74b-8ebd-4f91-9f27-e906185c486b" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -2612,7 +2762,7 @@ if (_source.links.AX_Gewaesserachse.first()) {&#xD;
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
         </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C280a5bfc-f420-415f-834d-f9a93da29a48" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C280a5bfc-f420-415f-834d-f9a93da29a48" priority="high">
         <source>
             <property>
                 <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
