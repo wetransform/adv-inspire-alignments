@@ -222,8 +222,9 @@
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <documentation>Falls `AX_BauwerkImGewaesserbereich` flächenhaft ausgeprägt ist, kann keine Abbildung auf `WatercourseLink.centrelineGeometry` erfolgen. </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd4cf04d5-ab77-488b-baf1-90544a4300aa" priority="normal">
         <source>
@@ -238,8 +239,8 @@
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C6f44443e-a329-4a66-8161-77ef1ea62666" priority="normal">
         <source>
@@ -254,8 +255,8 @@
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C703b2209-f978-44d6-b46e-406c389fb0d9" priority="normal">
         <source>
@@ -270,8 +271,8 @@
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C457401dd-ec1f-4ee7-984f-c50c73c9a8c0" priority="lowest">
         <target>
