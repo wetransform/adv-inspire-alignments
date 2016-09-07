@@ -3,7 +3,7 @@
     <name>AdV Hauskoordinaten zu INSPIRE Addresses 4.0</name>
     <author>Thorsten Reitz</author>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2016-08-31T12:11:07.751+02:00</modified>
+    <modified>2016-09-07T14:54:14.054+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -20,6 +20,7 @@
         <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
         <setting name="separator">;</setting>
         <setting name="escape">\</setting>
+		<setting name="decimal">,</setting>
         <setting name="typename">Hauskoordinaten</setting>
         <setting name="properties">NBA,OI,QUA,LAN,RBZ,KRS,GMD,OTT,SSS,HNR,ADZ,EEE,NNN,STN,PLZ,ONM,ZON,POT</setting>
         <cache>
@@ -33,10 +34,10 @@
                 <hsd:types>
                     <hsd:type index="0">
                         <hsd:name>Hauskoordinaten</hsd:name>
-                        <hsd:constraint type="mappable" value="true"/>
-                        <hsd:constraint type="abstract" value="false"/>
                         <hsd:constraint type="has-value" value="false"/>
                         <hsd:constraint type="mapping-relevant" value="true"/>
+                        <hsd:constraint type="abstract" value="false"/>
+                        <hsd:constraint type="has-value" value="false"/>
                         <hsd:declares>
                             <hsd:property>
 <hsd:name>NBA</hsd:name>
@@ -267,17 +268,6 @@
         <setting name="source">http://inspire.ec.europa.eu/schemas/ad/4.0/Addresses.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.instance">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">72cbd9ad-4e19-4c83-950c-1aa317016e17</setting>
-        <setting name="quote">"</setting>
-        <setting name="skip">false</setting>
-        <setting name="source">../../../testdaten/Hauskoordinaten/adressen_test.csv</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
-        <setting name="separator">;</setting>
-        <setting name="escape">\</setting>
-        <setting name="typename">Hauskoordinaten</setting>
-    </resource>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">67d373a5-2566-418f-b21f-f3ee90836674</setting>
@@ -288,6 +278,7 @@
         <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
         <setting name="separator">;</setting>
         <setting name="escape">\</setting>
+		<setting name="decimal">,</setting>
         <setting name="typename">Schlüssel</setting>
         <setting name="properties">typ,a,b,c,d,e,f</setting>
         <cache>
@@ -301,10 +292,10 @@
                 <hsd:types>
                     <hsd:type index="0">
                         <hsd:name>Schlüssel</hsd:name>
-                        <hsd:constraint type="mappable" value="true"/>
-                        <hsd:constraint type="abstract" value="false"/>
                         <hsd:constraint type="has-value" value="false"/>
                         <hsd:constraint type="mapping-relevant" value="true"/>
+                        <hsd:constraint type="abstract" value="false"/>
+                        <hsd:constraint type="has-value" value="false"/>
                         <hsd:declares>
                             <hsd:property>
 <hsd:name>typ</hsd:name>
@@ -396,17 +387,6 @@
             </hsd:schema>
         </cache>
     </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.instance">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">80c9bc27-d2ba-4016-a7da-1091f1937daf</setting>
-        <setting name="quote">"</setting>
-        <setting name="skip">false</setting>
-        <setting name="source">../../../testdaten/Hauskoordinaten/schluessel_test.csv</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
-        <setting name="separator">;</setting>
-        <setting name="escape">\</setting>
-        <setting name="typename">Schlüssel</setting>
-    </resource>
     <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">aba0b0bb-1903-4538-904f-89a5a59670e0</setting>
@@ -442,6 +422,30 @@
         <setting name="resourceId">70debe30-bfc6-4032-adb1-fe55924a1409</setting>
         <setting name="source">http://inspire.ec.europa.eu/codelist/GeometrySpecificationValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.instance">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">e58d6441-d9ba-4d87-8ceb-a76b03b18679</setting>
+        <setting name="quote">"</setting>
+        <setting name="skip">false</setting>
+        <setting name="source">../../../testdaten/Hauskoordinaten/adressen_test.csv</setting>
+        <setting name="decimal">,</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
+        <setting name="separator">;</setting>
+        <setting name="escape">\</setting>
+        <setting name="typename">Hauskoordinaten</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.instance">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">99435ba0-22ca-4be2-9c95-532c303606cb</setting>
+        <setting name="quote">"</setting>
+        <setting name="skip">false</setting>
+        <setting name="source">../../../testdaten/Hauskoordinaten/schluessel_test.csv</setting>
+        <setting name="decimal">,</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
+        <setting name="separator">;</setting>
+        <setting name="escape">\</setting>
+        <setting name="typename">Schlüssel</setting>
     </resource>
     <file name="alignment.xml" location="hauskoordinaten-ad-01.halex.alignment.xml"/>
     <file name="styles.sld" location="hauskoordinaten-ad-01.halex.styles.sld"/>
