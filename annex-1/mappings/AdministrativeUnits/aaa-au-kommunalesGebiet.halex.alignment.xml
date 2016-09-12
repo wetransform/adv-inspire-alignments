@@ -147,7 +147,7 @@ if (!upperLevelUnit) {
 
 _target{
 	geometry {
-		MultiSurface( geoms[0] )
+		MultiSurface( _.geom.union(geoms) )
 	}
 	_b.upperLevelUnit {
 		href( "#${upperLevelUnit}" )
@@ -156,7 +156,7 @@ _target{
 </core:text>
         </complexParameter>
         <documentation>Erstellt eine `AdministrativeUnit` aus einer `AX_Gemeinde`.
-Die Geometrie wird aus dem über den Gesamtschlüssel verknüpften `AX_KommunalesGebiet` übernommen. Nur falls eine Geometrie gefunden werden kann wird eine eine `AdministrativeUnit` erstellt.
+Die Geometrie wird aus den über die Gesamtschlüssel verknüpften `AX_KommunalesGebiet`e zusammengefasst. Nur falls eine Geometrie gefunden werden kann wird eine eine `AdministrativeUnit` erstellt.
 
 Über den Index wird bestimmt ob die Gemeinde zu einer Verwaltungsgemeinschaft gehört. Diese wird als `upperLevelUnit` referenziert.
 Falls keine Zugehörigkeit zu einer Verwaltungsgemeinschaft besteht wird die Zugehörigkeit zur übergeordneten `AdministrativeUnit` (in diesem Fall *Kreis*) im Index hinterlegt.</documentation>
