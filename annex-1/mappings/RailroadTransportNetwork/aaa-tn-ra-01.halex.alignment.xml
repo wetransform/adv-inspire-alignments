@@ -66,6 +66,7 @@ collect.nominalTrackGauge.consume { key, values -&gt;
 		else {
 			nominalGauge {
 				nilReason( 'unknown' )
+				uom( 'mm' )
 			}
 		}
 		nominalGaugeCategory( key )
