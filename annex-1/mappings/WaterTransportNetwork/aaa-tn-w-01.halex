@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="2.9.5.qualifier">
+<hale-project version="3.0.0.release">
     <name>3A zu INSPIRE Water Transport Network</name>
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Water Transport Network GML Anwendungsschema.
@@ -10,10 +10,8 @@
 - Um einen komplexen und speicherintensiven Join über alle erstellten Objekte zu vermeiden, wird bei der Erstellung jedes `NetworkElement` dessen ID mit den anderen gesammelt. Aus den gesammelten IDs werden dann am Ende die Referenzen des `TransportNetwork` auf die `NetworkElement`s gebildet
 - Optionale Objektarten und Bestandteile die in der Mapping-Tabelle als *nicht geführt* deklariert sind wurden nicht gebildet
 - In diesem Modell werden einige Objekt-Eigenschaften nicht als Attribute am Objekt, sondern als eigene Objekte mit Verweis auf die zu beschreibenden Objekte gebildet ( sogenannte *TransportProperty*-Objekte, z.B. `FerryUse` oder `ConditionOfWaterFacility`) -- dazu weiter unten mehr
-- Es wird keine Ableitung von Werten für `ElementWidth` oder `ElementLength` aus der Geometrie einer `AX_Flugverkehrsanlage` vorgenommen
-- Es werden keine `WaterLinkSequence`s gebildet. Hierfür wäre noch zusätzlicher Aufwand nötig um herzuleiten welche `WaterwayLink`s in welcher Reihenfolge und mit welcher Richtungsangabe zu einer `WaterLinkSequence` zusammengefasst werden sollten. Die Vorgehensweise dazu ist unklar. Die Typen `AX_Kanal` und `AX_Wasserlauf` sind als `InlandWaterway` (WaterwayTransportLinkSet) in den Ziel-Daten repräsentiert.
-- Laut der Mapping-Tabelle wird eine Entsprechung für `MarineWaterway` im 3A-Modell nicht geführt. Das scheint den Angaben bei `InlandWaterway` zu widersprechen, wo an die Abbildung die Bedingung geknüpft ist, das es sich um ein Binnengewässer handelt. Dies ist ggf. zu prüfen.
-- Nach Angabe in der Mapping-Tabelle gibt es noch keine offizielle Abbildung der `widmung` eines `AX_Kanal` oder `AX_Wasserlauf` auf die Klassifizierung nach der European Conference of Ministers of Transport (CEMT). Entsprechend fehlt im Mapping noch die Bestimmung der Klassifizierung für `InlandWaterway`s.
+- Es werden keine `WaterLinkSequence`s gebildet da hierfür zusätzlicher Aufwand nötig wäre um herzuleiten welche `WaterwayLink`s in welcher Reihenfolge und mit welcher Richtungsangabe zu einer `WaterLinkSequence` zusammengefasst werden sollten. Die Typen `AX_Kanal` und `AX_Wasserlauf` sind als `InlandWaterway` (WaterwayTransportLinkSet) in den Ziel-Daten repräsentiert.
+- Nach Angabe in der Mapping-Tabelle gibt es noch keine offizielle Abbildung der `widmung` eines `AX_Kanal` oder `AX_Wasserlauf` auf die Klassifizierung nach der European Conference of Ministers of Transport (CEMT). Widmung in AAA beschreibt jedoch die Klassifizierung von Zuständigkeiten, CEMT die Klassifizierung von Schiffskategorien. Dies ist nicht aufeinander abbbildbar. Das Objekt `CEMTClass` kann daher nicht befüllt werden.
 
 #### Handhabung von *TransportProperty*
 
@@ -23,7 +21,7 @@ Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für
 Ein *TransportProperty*-Objekt wird erstellt für alle Features die über die gleichen Eigenschaften bzgl. der *TransportProperty* verfügen. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfWaterFacility`, `FerryUse` und `CEMTClass`.
 </description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-19T16:02:01.541+02:00</modified>
+    <modified>2016-09-23T10:45:49.876+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
