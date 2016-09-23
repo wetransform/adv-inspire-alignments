@@ -1263,6 +1263,9 @@ withTransformationContext {
         <documentation>Erstellt einen `WaterwayLink` zu einer `AX_Gewaesserstationierungsachse`.
 
 Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+**Achtung:** Hier werden aktuell zu viele `WaterwayLink`s gebildet. Denn über die Gewaesserstationierungsachse werden sowohl schiffbare als auch nicht schiffbare Linien betrachtet. Eigentlich müssten die nicht schiffbaren herausgefiltert werden. Dies könnte über eine geometrische Verschneidung mit dem flächenförmigen `AX_Kanal` bzw. `AX_Wasserlauf` geschehen.
+*Vorschlag:* Filterung später (wenn die Funktion in HALE implementiert ist) umsetzen. Bis dahin alle Gewaesserstationierungsachsen zu WaterwayLinks übernehmen.
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2eb8a251-1062-494b-808f-c7a5771b0b57" priority="high">
