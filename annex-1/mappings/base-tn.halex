@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="2.9.5.qualifier">
+<hale-project version="3.0.0.release">
     <name>Basisprojekt INSPIRE Transport Networks</name>
     <author>Simon Templer</author>
     <description>Basisprojekt für gemeinsame Funktionalität für INSPIRE Transport Networks Projekte.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-10T15:19:05.322+02:00</modified>
+    <modified>2016-09-23T11:42:04.351+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -24,8 +24,72 @@
         <setting name="source">http://inspire.ec.europa.eu/schemas/tn-ro/4.0/RoadTransportNetwork.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">93564f56-a1ac-45e9-9c0e-69c937cdd5af</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/NameStatusValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
     <file name="alignment.xml" location="base-tn.halex.alignment.xml"/>
     <file name="styles.sld" location="base-tn.halex.styles.sld"/>
+    <complex-property name="codelists">
+        <associations>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/NameStatusValue" namespace="http://inspire.ec.europa.eu/codelist/NameStatusValue">
+                <entity>
+                    <type name="TransportNetworkType" namespace="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                    <property name="geographicalName" namespace="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                    <property name="GeographicalName" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                    <property name="nameStatus" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+        </associations>
+    </complex-property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}ConditionOfFacilityType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}ConditionOfFacilityType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}ConditionOfFacilityType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportPropertyType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportPropertyType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportPropertyType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrwegachseType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrwegachseType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrwegachseType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KlassifizierungNachStrassenrechtType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KlassifizierungNachStrassenrechtType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KlassifizierungNachStrassenrechtType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungKatalogeintragType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungKatalogeintragType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungKatalogeintragType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PlatzType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PlatzType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PlatzType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrasseType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrasseType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrasseType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegPfadSteigType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegPfadSteigType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegPfadSteigType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegType/count">2</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/count">2</property>
     <property name="instances.sampling.enabled">false</property>
     <property name="instances.sampling.sampler">first</property>
     <property name="instances.sampling.settings.first">1</property>
@@ -51,6 +115,9 @@
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="NETWORK_ID">
                 <core:value value="TransportNetwork"/>
+            </core:property>
+            <core:property name="NETWORK_NAME">
+                <core:value value="Network"/>
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">
                 <core:value value="https://registry.gdi-de.org/id/de.____"/>
