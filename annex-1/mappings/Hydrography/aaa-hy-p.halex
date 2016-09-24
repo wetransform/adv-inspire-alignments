@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="2.9.5.SNAPSHOT">
+<hale-project version="3.0.0.release">
     <name>ALKIS Basis-DLM zu INSPIRE Hydro-Physical Waters</name>
     <author>Thorsten Reitz</author>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2016-08-31T11:42:17.291+02:00</modified>
+    <modified>2016-09-24T17:40:42.729+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -123,6 +123,39 @@
         <setting name="source">http://inspire.ec.europa.eu/codelist/CrossingTypeValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">2c1e7726-825f-4a4b-bb95-74ede939f7c5</setting>
+        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Hamburg/AX_BauwerkImGewaesserbereich_HH.xml</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="ignoreRoot">true</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">43624e6e-094a-45be-a126-73a46c398187</setting>
+        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Hamburg/AX_Wasserlauf_HH.xml</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="ignoreRoot">true</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">8b048bf8-a936-4aa2-a16f-e69fcf64e373</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/NameStatusValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">095e09bb-d0af-4258-8946-430809bdbab2</setting>
+        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Hamburg/Inspire_160831_18von68.xml</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="ignoreRoot">true</setting>
+    </resource>
     <file name="alignment.xml" location="aaa-hy-p.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-hy-p.halex.styles.sld"/>
     <complex-property name="codelists">
@@ -140,6 +173,26 @@
                 </entity>
             </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/ConditionOfFacilityValue" namespace="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue">
+                <entity>
+                    <type name="FordType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+                <entity>
+                    <type name="EmbankmentType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+                <entity>
+                    <type name="SluiceType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+                <entity>
+                    <type name="WatercourseType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
                 <entity>
                     <type name="DamOrWeirType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                     <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
@@ -160,21 +213,20 @@
                     <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
-                <entity>
-                    <type name="EmbankmentType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
-                </entity>
-                <entity>
-                    <type name="WatercourseType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
-                </entity>
             </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/CrossingTypeValue" namespace="http://inspire.ec.europa.eu/codelist/CrossingTypeValue">
                 <entity>
                     <type name="CrossingType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                     <property name="type" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/NameStatusValue" namespace="http://inspire.ec.europa.eu/codelist/NameStatusValue">
+                <entity>
+                    <type name="WatercourseType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="geographicalName" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <property name="GeographicalName" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                    <property name="nameStatus" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>
@@ -261,15 +313,39 @@
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}CrossReferenceType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}CrossReferenceType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}CrossReferenceType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GeneralisedLinkType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GeneralisedLinkType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GeneralisedLinkType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GradeSeparatedCrossingType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GradeSeparatedCrossingType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GradeSeparatedCrossingType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSequenceType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSequenceType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSequenceType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSetType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSetType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSetType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}centrelineGeometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkAreaType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkAreaType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkAreaType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkConnectionType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkConnectionType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkConnectionType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkPropertyType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkPropertyType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkPropertyType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NodeType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NodeType/2">{http://www.opengis.net/gml/3.2}Point</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NodeType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/omop/3.0}ObservablePropertyType/1">{http://inspire.ec.europa.eu/schemas/omop/3.0}statisticalMeasure</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/omop/3.0}ObservablePropertyType/2">{http://inspire.ec.europa.eu/schemas/omop/3.0}StatisticalMeasure</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/omop/3.0}ObservablePropertyType/3">{http://inspire.ec.europa.eu/schemas/omop/3.0}otherAggregation</property>
@@ -299,6 +375,9 @@
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}MarineIsolineType/1">{http://inspire.ec.europa.eu/schemas/sr/4.0}geometry</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}MarineIsolineType/2">{http://www.opengis.net/gml/3.2}MultiCurve</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}MarineIsolineType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}MarineLayerType/1">{http://inspire.ec.europa.eu/schemas/sr/4.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}MarineLayerType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}MarineLayerType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}SeaAreaType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}SeaAreaType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}SeaAreaType/count">2</property>
@@ -1595,6 +1674,8 @@
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RiverBasinType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}SluiceType</property>
     <property name="mappableTargetType/count">16</property>
+    <property name="resource-095e09bb-d0af-4258-8946-430809bdbab2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FliessgewaesserType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-095e09bb-d0af-4258-8946-430809bdbab2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FliessgewaesserType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-1d2243fe-14cb-409f-b1c1-a1f06e6bcfce:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_LPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-1d2243fe-14cb-409f-b1c1-a1f06e6bcfce:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-1d2243fe-14cb-409f-b1c1-a1f06e6bcfce:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
@@ -1710,6 +1791,9 @@
     <property name="resource-26e7001d-a2eb-45ec-a3fe-288b0999f8fb:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BesondereFlurstuecksgrenzeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-26e7001d-a2eb-45ec-a3fe-288b0999f8fb:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-26e7001d-a2eb-45ec-a3fe-288b0999f8fb:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortTAType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
+    <property name="resource-2c1e7726-825f-4a4b-bb95-74ede939f7c5:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-2c1e7726-825f-4a4b-bb95-74ede939f7c5:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
+    <property name="resource-2c1e7726-825f-4a4b-bb95-74ede939f7c5:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-4baa75a8-e78b-47e7-9088-0c9381844975:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BewertungType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-4baa75a8-e78b-47e7-9088-0c9381844975:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BewertungType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-4baa75a8-e78b-47e7-9088-0c9381844975:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlurstueckType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
