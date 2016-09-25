@@ -2,32 +2,6 @@
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <base prefix="ba1" location="../base-tn.halex.alignment.xml"/>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cc7d2bc90-35f9-4f33-8b6b-b87b6b02600d" priority="highest">
-        <source>
-            <class>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def name = _source.p.bezeichnung.value()
-def schluessel = _source.p.schluesselGesamt.value()
-
-withTransformationContext {
-  def collect = _.context.collector(it)
-  
-  // Name zu Schlüssel der Lagebezeichnung im Index ablegen
-  collect.lagebezeichnung[schluessel] = name
-}
-</core:text>
-        </complexParameter>
-        <documentation>Dies ist eine Dummy-Transformationsdefinition die keine Objekte erzeugt sondern zum Aufbauen eines Index für `AX_LagebezeichnungKatalogeintrag` dient.</documentation>
-    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cd2d3c726-c951-484a-8bb0-c17504676eeb" priority="normal">
         <source>
             <class>
@@ -367,9 +341,10 @@ surfaces.each { surface -&gt;
         </complexParameter>
         <documentation>Erstellt `ApronArea`s aus einer `AX_Flugverkehrsanlage` mit `art` *Vorfeld* (`1330`).
 
-Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien verwendet. Je Fläche wird eine `ApronArea` erzeugt.
+Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien werden verwendet. Je individueller Fläche wird eine `ApronArea` erzeugt.
 
-Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet. Diese wird für die INSPIRE ID zusammen mit dem vorgegebenen INSPIRE Namespace herangezogen.
+Außerdem wird die lokale ID auch als GML `id` verwendet und der GML `identifier` wird aus der Kombination von Namespace und lokaler ID gebildet.
 
 Die erstellte `ApronArea` wird dem Index von allen Netzwerk-Elementen, sowie dem Index von Netzwerk-Elementen die aus der gleichen `AX_Flugverkehrsanlage` erstellt wurden, hinzugefügt.
 
@@ -691,9 +666,10 @@ surfaces.each { surface -&gt;
         </complexParameter>
         <documentation>Erstellt `RunwayArea`s aus einer `AX_Flugverkehrsanlage` mit `art` *Startbahn/Landebahn* (`1310`) oder *Hubschrauberlandeplatz* (`5531`).
 
-Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien verwendet. Je Fläche wird eine `RunwayArea` erzeugt.
+Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien werden verwendet. Je individueller Fläche wird eine `RunwayArea` erzeugt.
 
-Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet. Diese wird für die INSPIRE ID zusammen mit dem vorgegebenen INSPIRE Namespace herangezogen.
+Außerdem wird die lokale ID auch als GML `id` verwendet und der GML `identifier` wird aus der Kombination von Namespace und lokaler ID gebildet.
 
 Die erstellte `RunwayArea` wird dem Index von allen Netzwerk-Elementen, sowie dem Index von Netzwerk-Elementen die aus der gleichen `AX_Flugverkehrsanlage` erstellt wurden, hinzugefügt.
 
@@ -906,9 +882,10 @@ surfaces.each { surface -&gt;
         </complexParameter>
         <documentation>Erstellt `TaxiwayArea`s aus einer `AX_Flugverkehrsanlage` mit `art` *Zurollbahn/Taxiway* (`1320`).
 
-Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien verwendet. Je Fläche wird eine `TaxiwayArea` erzeugt.
+Die Geometrie des Quell-Objekts wird untersucht. Nur flächenartige Geometrien werden verwendet. Je individueller Fläche wird eine `TaxiwayArea` erzeugt.
 
-Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet.
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Fläche (1., 2., etc. Fläche der Geometrie) gebildet. Diese wird für die INSPIRE ID zusammen mit dem vorgegebenen INSPIRE Namespace herangezogen.
+Außerdem wird die lokale ID auch als GML `id` verwendet und der GML `identifier` wird aus der Kombination von Namespace und lokaler ID gebildet.
 
 Die erstellte `TaxiwayArea` wird dem Index von allen Netzwerk-Elementen, sowie dem Index von Netzwerk-Elementen die aus der gleichen `AX_Flugverkehrsanlage` erstellt wurden, hinzugefügt.
 
@@ -966,6 +943,7 @@ oberflaechenmaterial | surfaceComposition
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
+        <documentation>Der Fall das eine verschlüsselte Lagebezeichnung vorliegt kann laut Erfassungskriterium für `AX_Flugverkehr` nicht vorkommen. Die verschlüsselte Lagebezeichnung kann also ignoriert werden.</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc821f68c-572e-4c49-9b2f-c721bb98d6a5" priority="normal">
         <source name="spelling">
