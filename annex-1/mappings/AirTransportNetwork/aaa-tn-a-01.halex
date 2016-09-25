@@ -23,7 +23,7 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
 1. Ein *TransportProperty*-Objekt für alle Features die auf die gleichen Werte abgebildet werden. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfAirFacility`, `SurfaceComposition`, `AerodromeCategory`, `AerodromeType`, und `UseRestriction`.
 2. Ein *TransportProperty*-Objekt für jedes (Quell-)Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `ElementWidth`.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-09-25T13:54:33.669+02:00</modified>
+    <modified>2016-09-25T14:09:41.329+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1618,10 +1618,9 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="instances.sampling.sampler">first</property>
     <property name="instances.sampling.settings.first">1</property>
     <property name="instances.sampling.settings.skip">10</property>
-    <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungKatalogeintragType</property>
-    <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlugverkehrType</property>
-    <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlugverkehrsanlageType</property>
-    <property name="mappableSourceType/count">3</property>
+    <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlugverkehrType</property>
+    <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlugverkehrsanlageType</property>
+    <property name="mappableSourceType/count">2</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayElectrificationType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}NominalTrackGaugeType</property>
