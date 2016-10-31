@@ -1,6 +1,6 @@
 project.ext.useCommandLine = project.hasProperty('haleCliExecutable') || project.hasProperty('haleExecutable')
 
-def cliVersion = '2.9.5-SNAPSHOT'
+def cliVersion = '3.0.0-SNAPSHOT'
 
 if (!project.ext.useCommandLine) {
   configurations {
