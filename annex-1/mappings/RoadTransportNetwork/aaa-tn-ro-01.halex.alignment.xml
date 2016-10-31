@@ -417,7 +417,7 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
                 <child name="nilReason"/>
             </property>
         </target>
-        <parameter value="unpopulated" name="value"/>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2581bae5-bd09-416c-948e-bcb8b5835ca3" priority="normal">
         <source>
@@ -1963,7 +1963,7 @@ In allen anderen Fällen wird *conditionOfFacility* als `functional`angenommen.
                 <child name="nilReason"/>
             </property>
         </target>
-        <parameter value="unpopulated" name="value"/>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.merge" id="C7167685d-1927-4e65-82f3-b01258f955b4" priority="normal">
         <source>
@@ -2951,7 +2951,7 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
                 <child name="nilReason"/>
             </property>
         </target>
-        <parameter value="unpopulated" name="value"/>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C376c9fef-ac45-4e2c-9941-651740ba7400" priority="lowest">
         <target>
@@ -3083,7 +3083,7 @@ Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentati
                 <child name="nilReason"/>
             </property>
         </target>
-        <parameter value="unpopulated" name="value"/>
+        <parameter value="other:unpopulated" name="value"/>
         <documentation>`TransportProperty`-Objekte sind im Rahmen der Transformation neu gebildete Objekte und übernehmen daher keine Information für `beginLifespanVersion` aus den Quell-Daten.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C9fbdcf9a-e35a-4f33-b915-77155350de27" priority="normal">
@@ -3094,7 +3094,7 @@ Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentati
                 <child name="nilReason"/>
             </property>
         </target>
-        <parameter value="unpopulated" name="value"/>
+        <parameter value="other:unpopulated" name="value"/>
         <documentation>Diese Information ist im 3A-Modell nicht vorhanden.</documentation>
     </cell>
     <modifier cell="C010d8324-6422-49f2-883a-7ee5d875177b">
