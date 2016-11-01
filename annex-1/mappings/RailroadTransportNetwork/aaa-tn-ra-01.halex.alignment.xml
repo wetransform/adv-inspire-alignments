@@ -1595,7 +1595,7 @@ withTransformationContext {
 //
 // Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
 // zu den entsprechenden Netzwerk-Elementen
-collect.railwayType.consume { key, values -&gt;
+collect.railwayUse.consume { key, values -&gt;
 	def _id = 'RailwayUse_' + key
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
