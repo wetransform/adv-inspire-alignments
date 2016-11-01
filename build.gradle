@@ -534,9 +534,13 @@ class Transform extends DefaultTask {
    * @param argList The argument list to add the system properties to
    */
   static void addSystemProps(Project project, List<String> argList) {
+    def propsFile = project.file('gradle.properties')
+    if (!propsFile.exists()) {
+      return
+    }
     try {
       def props = new Properties()
-      project.file('gradle.properties').withInputStream {
+      propsFile.withInputStream {
         props.load(it)
       }
 
