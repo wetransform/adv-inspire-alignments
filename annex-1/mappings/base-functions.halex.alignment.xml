@@ -83,6 +83,9 @@ Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangeste
                 <cf:binding>java.lang.String</cf:binding>
             </cf:param>
             <cf:param maxOccurs="1" minOccurs="0" name="nameStatus">
+                <cf:description>
+                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Status des Namens. Falls nicht angegeben wird als Standardwert official angenommen.</core:text>
+                </cf:description>
                 <cf:display value="nameStatus"/>
                 <cf:value>standardised</cf:value>
                 <cf:value>other</cf:value>
@@ -92,6 +95,9 @@ Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangeste
                 <cf:value>unknown</cf:value>
             </cf:param>
             <cf:param maxOccurs="1" minOccurs="0" name="nativeness">
+                <cf:description>
+                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Ortsüblichkeit des Namens. Falls nicht angegeben wird als Standardwert endonym angenommen.</core:text>
+                </cf:description>
                 <cf:display value="nativeness"/>
                 <cf:value>endonym</cf:value>
                 <cf:value>unpopulated</cf:value>
@@ -490,6 +496,9 @@ Der `codeSpace` für den GML identifier wird als `http://inspire.ec.europa.eu/id
                 <cf:binding>java.lang.String</cf:binding>
             </cf:param>
             <cf:param maxOccurs="1" minOccurs="0" name="nameStatus">
+                <cf:description>
+                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Status des Namens. Falls nicht angegeben wird als Standardwert official angenommen.</core:text>
+                </cf:description>
                 <cf:display value="nameStatus"/>
                 <cf:value>standardised</cf:value>
                 <cf:value>other</cf:value>
@@ -499,6 +508,9 @@ Der `codeSpace` für den GML identifier wird als `http://inspire.ec.europa.eu/id
                 <cf:value>unknown</cf:value>
             </cf:param>
             <cf:param maxOccurs="1" minOccurs="0" name="nativeness">
+                <cf:description>
+                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Ortsüblichkeit des Namens. Falls nicht angegeben wird als Standardwert endonym angenommen.</core:text>
+                </cf:description>
                 <cf:display value="nativeness"/>
                 <cf:value>endonym</cf:value>
                 <cf:value>unpopulated</cf:value>
