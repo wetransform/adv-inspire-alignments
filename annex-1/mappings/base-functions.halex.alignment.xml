@@ -88,6 +88,8 @@ Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangeste
                 <cf:value>other</cf:value>
                 <cf:value>official</cf:value>
                 <cf:value>historical</cf:value>
+                <cf:value>unpopulated</cf:value>
+                <cf:value>unknown</cf:value>
             </cf:param>
             <cf:param maxOccurs="1" minOccurs="0" name="nativeness">
                 <cf:display value="nativeness"/>
@@ -137,14 +139,29 @@ if (spelling) {
 		pronunciation {
 			nilReason( 'other:unpopulated' )
 		}
-		if (_params.nameStatus) {
-			nameStatus {
-				href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/' + _params.nameStatus )
+		// nameStatus
+		def ns = _params.nameStatus
+		if (ns) {
+			if (ns == 'unpopulated') {
+				nameStatus {
+					nilReason( 'other:unpopulated' )
+				}
+			}
+			else if (ns == 'unknown') {
+				nameStatus {
+					nilReason( 'unknown' )
+				}
+			}
+			else {
+				nameStatus {
+					href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/' + ns )
+				}
 			}
 		}
 		else {
+			// default for nameStatus if not specified is official
 			nameStatus {
-				nilReason( 'other:unpopulated' )
+				href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/official' )
 			}
 		}
 		// nativeness
@@ -195,9 +212,20 @@ Bildet ein GeographicalName-Objekt zu einem einfachen Namen. Der Wert des Quell-
 Die Sprache wird als Deutsch angenommen.&#xD;
 
 &lt;% if (_params.nameStatus) {
-  out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als ${_params.nameStatus} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
-  out &lt;&lt; "\n\n"
+  if (_params.nameStatus == 'unpopulated') {
+    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird nicht angegeben, als *nilReason* wird `other:unpopulated` angegeben."
+  }
+  else if (_params.nameStatus == 'unknown') {
+    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird nicht angegeben, als *nilReason* wird `unknown` angegeben."
+  }
+  else {
+    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als ${_params.nameStatus} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
+  }
 }
+else {
+  out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als *official* angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
+}
+out &lt;&lt; "\n\n"
 if (_params.nativeness) {
   if (_params.nativeness == 'unpopulated') {
     out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird nicht angegeben, als *nilReason* wird `other:unpopulated` angegeben."
