@@ -454,6 +454,29 @@ Der `codeSpace` für den GML identifier wird als `http://inspire.ec.europa.eu/id
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
                 <cf:type name="GeographicalNameType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </cf:output>
+            <cf:param maxOccurs="1" minOccurs="0" name="source">
+                <cf:description>
+                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Quelle des Namens. Falls nicht angegeben wird sie aus einer Projekt-Variable bestimmt.</core:text>
+                </cf:description>
+                <cf:display value="Source of name"/>
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:param>
+            <cf:param maxOccurs="1" minOccurs="0" name="nameStatus">
+                <cf:display value="nameStatus"/>
+                <cf:value>standardised</cf:value>
+                <cf:value>other</cf:value>
+                <cf:value>official</cf:value>
+                <cf:value>historical</cf:value>
+                <cf:value>unpopulated</cf:value>
+                <cf:value>unknown</cf:value>
+            </cf:param>
+            <cf:param maxOccurs="1" minOccurs="0" name="nativeness">
+                <cf:display value="nativeness"/>
+                <cf:value>endonym</cf:value>
+                <cf:value>unpopulated</cf:value>
+                <cf:value>exonym</cf:value>
+                <cf:value>unknown</cf:value>
+            </cf:param>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def name = lagebezeichnung.p.unverschluesselt.value()
@@ -481,16 +504,85 @@ if (!name) {
 }
 
 if (name) {
+	def sourceName_var = _project.vars.get('ADV_MODELLART', null)
+
 	_target {
-		if (source) {
-			sourceOfName(source)
+		// source
+
+		// Priorität 1 - feste Quelle
+		if (_params.source) {
+			sourceOfName( _params.source )
 		}
+		// Priorität 2 - aus Projektvariable
+		else if (sourceName_var) {
+			sourceOfName( sourceName_var )
+		}
+		else {
+			sourceOfName {
+				nilReason( 'unknown' )
+			}
+		}
+
+		// nativeness
+		def nn = _params.nativeness
+		if (nn) {
+			if (nn == 'unpopulated') {
+				nativeness {
+					nilReason( 'other:unpopulated' )
+				}
+			}
+			else if (nn == 'unknown') {
+				nativeness {
+					nilReason( 'unknown' )
+				}
+			}
+			else {
+				nativeness {
+					href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/' + nn )
+				}
+			}
+		}
+		else {
+			// default for nativeness if not specified is endonym
+			nativeness {
+				href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )
+			}
+		}
+
+		// nameStatus
+		def ns = _params.nameStatus
+		if (ns) {
+			if (ns == 'unpopulated') {
+				nameStatus {
+					nilReason( 'other:unpopulated' )
+				}
+			}
+			else if (ns == 'unknown') {
+				nameStatus {
+					nilReason( 'unknown' )
+				}
+			}
+			else {
+				nameStatus {
+					href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/' + ns )
+				}
+			}
+		}
+		else {
+			// default for nameStatus if not specified is official
+			nameStatus {
+				href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/official' )
+			}
+		}
+
+		// spelling
 		spelling {
 			SpellingOfName {
 				text( name )
 				script( 'Latn' )
 			}
 		}
+		// language
 		language( 'deu' )
 	}
 }
@@ -508,8 +600,40 @@ Eine unverschlüsselte Lagebezeichnung wird direkt übernommen, eine verschlüss
 
 Die Sprache wird als Deutsch angenommen.
 
-&lt;% if (source) {
-  out &lt;&lt; "Die Quelle des Namens wird aus dem Quell-Attribut $source bestimmt."
+&lt;% if (_params.nameStatus) {
+  if (_params.nameStatus == 'unpopulated') {
+    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird nicht angegeben, als *nilReason* wird `other:unpopulated` angegeben."
+  }
+  else if (_params.nameStatus == 'unknown') {
+    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird nicht angegeben, als *nilReason* wird `unknown` angegeben."
+  }
+  else {
+    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als ${_params.nameStatus} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
+  }
+}
+else {
+  out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als *official* angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
+}
+out &lt;&lt; "\n\n"
+if (_params.nativeness) {
+  if (_params.nativeness == 'unpopulated') {
+    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird nicht angegeben, als *nilReason* wird `other:unpopulated` angegeben."
+  }
+  else if (_params.nativeness == 'unknown') {
+    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird nicht angegeben, als *nilReason* wird `unknown` angegeben."
+  }
+  else {
+    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird als ${_params.nativeness} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NativenessValue&gt;)."
+  }
+}
+else {
+  out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird als *endonym* angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NativenessValue&gt;)."
+}
+out &lt;&lt; "\n\n"
+if (_params.source) {&#xD;
+  out &lt;&lt; "Die Quelle des Namens (`sourceOfName`) wird als ${_params.source} angegeben."&#xD;
+} else {&#xD;
+  out &lt;&lt; "Die Quelle des Namens (`sourceOfName`) wird aus einer Projekt-Variable (`ADV_MODELLART`) bestimmt, falls vorhanden."&#xD;
 } %&gt;
 </core:text>
                     </cf:template>
