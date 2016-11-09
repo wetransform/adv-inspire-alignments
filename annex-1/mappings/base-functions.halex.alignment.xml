@@ -89,6 +89,13 @@ Außerdem wird der Name des Feature-Typs des Ziel-Modells als Präfix vorangeste
                 <cf:value>official</cf:value>
                 <cf:value>historical</cf:value>
             </cf:param>
+            <cf:param maxOccurs="1" minOccurs="0" name="nativeness">
+                <cf:display value="nativeness"/>
+                <cf:value>endonym</cf:value>
+                <cf:value>unpopulated</cf:value>
+                <cf:value>exonym</cf:value>
+                <cf:value>unknown</cf:value>
+            </cf:param>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def sourceNameFromModellart() {
@@ -140,8 +147,30 @@ if (spelling) {
 				nilReason( 'other:unpopulated' )
 			}
 		}
-		nativeness {
-			nilReason( 'other:unpopulated' )
+		// nativeness
+		def nn = _params.nativeness
+		if (nn) {
+			if (nn == 'unpopulated') {
+				nativeness {
+					nilReason( 'other:unpopulated' )
+				}
+			}
+			else if (nn == 'unknown') {
+				nativeness {
+					nilReason( 'unknown' )
+				}
+			}
+			else {
+				nativeness {
+					href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/' + nn )
+				}
+			}
+		}
+		else {
+			// default for nativeness if not specified is endonym
+			nativeness {
+				href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )
+			}
 		}
 		spelling {
 			SpellingOfName {
@@ -169,6 +198,21 @@ Die Sprache wird als Deutsch angenommen.&#xD;
   out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als ${_params.nameStatus} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
   out &lt;&lt; "\n\n"
 }
+if (_params.nativeness) {
+  if (_params.nativeness == 'unpopulated') {
+    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird nicht angegeben, als *nilReason* wird `other:unpopulated` angegeben."
+  }
+  else if (_params.nativeness == 'unknown') {
+    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird nicht angegeben, als *nilReason* wird `unknown` angegeben."
+  }
+  else {
+    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird als ${_params.nativeness} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
+  }
+}
+else {
+  out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird als *endonym* angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
+}
+out &lt;&lt; "\n\n"
 if (_params.source) {&#xD;
   out &lt;&lt; "Die Quelle des Namens (`sourceOfName`) wird als ${_params.source} angegeben."&#xD;
 } else if (source) {&#xD;
