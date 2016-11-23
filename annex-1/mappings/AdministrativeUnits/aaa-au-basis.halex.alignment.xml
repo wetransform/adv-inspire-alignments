@@ -14,8 +14,8 @@
                 <type name="AdministrativeBoundaryType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
         <documentation>Grenze des Gemeindeteils kann nicht berücksichtigt werden.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cda73bba5-8df9-4012-bf50-946a7d3c3ea7" priority="normal">
@@ -43,8 +43,8 @@
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cba0fc743-8465-4b65-912a-f82a1f90d345" priority="normal">
         <target>
@@ -97,8 +97,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9d5c3ef4-5dbe-4599-ab63-bfb08bc1683e" priority="normal">
         <source>
@@ -113,9 +113,9 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C4b96b3d9-a53b-4cec-9679-dd90a9934271" priority="normal">
         <source name="id">
@@ -197,7 +197,6 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="null" name="notClassifiedAction"/>
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
@@ -226,6 +225,7 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 </entry>
             </lookup-table>
         </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C6ac9d6bf-2106-45c7-8ead-4e38d2374ed5" priority="normal">
         <target>
@@ -252,8 +252,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C09453a00-9d93-4ea2-94d5-83a662679e84" priority="normal">
         <source>
@@ -270,8 +270,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C0c74cb2b-0866-4a59-ade9-e31fe3a2000f" priority="normal">
         <target>
@@ -334,8 +334,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf6233ece-b5e3-49fc-bf2d-0966d13e6ca1" priority="normal">
         <source>
@@ -352,8 +352,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C027c7ea7-322f-4fa9-9960-ef6263f3feac" priority="normal">
         <source name="id">
@@ -630,16 +630,16 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C03ecccc0-d989-4597-85d7-53401c0c6390" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -651,16 +651,16 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cb517321b-4e19-4fdd-bb36-41584acd28c3" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -672,16 +672,16 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C11652e8a-9255-43e3-a93b-087a7d23e5d6" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -693,16 +693,16 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C546a87af-d3b2-407e-a030-655a3afea3a8" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -714,16 +714,16 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C6ddff7d7-c1be-4950-8937-5ab069cbb372" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -735,16 +735,16 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc914b5bf-167d-4b30-9155-bf43363cf6dc" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -768,8 +768,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="nationalCode" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Caa605b44-05cd-4a95-8df1-68e6f85eecf8" priority="normal">
         <source>
@@ -784,8 +784,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="nationalCode" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdba833bd-f1e1-49e6-b33d-1a74d2b309cd" priority="normal">
         <source>
@@ -800,8 +800,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="nationalCode" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc4a1e2f6-7e5e-442d-bbe5-bdd9d983fb3d" priority="normal">
         <source>
@@ -816,8 +816,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="nationalCode" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd1b7f401-86c0-4375-a22b-a7a3df75036c" priority="normal">
         <source>
@@ -832,8 +832,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="nationalCode" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C47023cf3-ddda-42e2-97df-c1f3c0439936" priority="normal">
         <source>
@@ -848,8 +848,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="nationalCode" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc79906f6-7938-43b4-bae4-31266ced1798" priority="normal">
         <source name="anchor">
@@ -1064,8 +1064,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <type name="CondominiumType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C635bad95-0f4b-4482-86c1-dec0a31966a8" priority="normal">
         <target>
@@ -1092,8 +1092,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd7362da3-c2c8-4fa2-9157-62602a0da9d5" priority="normal">
         <source>
@@ -1110,8 +1110,8 @@ und http://inspire.ec.europa.eu/codelist/CountryCode</documentation>
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.geometric.aggregate" id="Ce9f48fe2-0f92-41b8-87ae-3a68142b1d25" priority="normal">
         <source>
