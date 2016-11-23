@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="2.9.5.SNAPSHOT">
+<hale-project version="3.0.0.release">
     <name>AdV Hauskoordinaten zu INSPIRE Addresses 4.0</name>
     <author>Thorsten Reitz</author>
+    <description>Bei diesem Projekt werden eine Schlüsseldatei sowie eine Datei mit Hauskoordinaten im CSV-Format (und in UTF-8 kodiert) verwendet, um INSPIRE AD4.0-GML zu erzeugen.&#xD;
+&#xD;
+Anmerkungen:&#xD;
+&#xD;
+1. Zur Zeit werden keine `AddressAreaNames` erzeugt, da die Schlüsseldatei und die Hauskoordinaten nicht alle dafür notwendigen Informationen enthalten. &#xD;
+&#xD;
+2. Um die Koordinaten formatiert (z.B. 00000000.000) auszugeben, ist die Verwendung von hale studio 3.1.0 erforderlich.</description>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2016-09-07T14:54:14.054+02:00</modified>
+    <modified>2016-11-23T12:02:40.955+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -17,10 +24,10 @@
         <setting name="quote">"</setting>
         <setting name="skip">True</setting>
         <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Hauskoordinaten/kopfzeile_test.csv</setting>
+        <setting name="decimal">,</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
         <setting name="separator">;</setting>
         <setting name="escape">\</setting>
-		<setting name="decimal">,</setting>
         <setting name="typename">Hauskoordinaten</setting>
         <setting name="properties">NBA,OI,QUA,LAN,RBZ,KRS,GMD,OTT,SSS,HNR,ADZ,EEE,NNN,STN,PLZ,ONM,ZON,POT</setting>
         <cache>
@@ -34,15 +41,15 @@
                 <hsd:types>
                     <hsd:type index="0">
                         <hsd:name>Hauskoordinaten</hsd:name>
-                        <hsd:constraint type="has-value" value="false"/>
+                        <hsd:constraint type="mappable" value="true"/>
                         <hsd:constraint type="mapping-relevant" value="true"/>
-                        <hsd:constraint type="abstract" value="false"/>
                         <hsd:constraint type="has-value" value="false"/>
+                        <hsd:constraint type="abstract" value="false"/>
                         <hsd:declares>
                             <hsd:property>
 <hsd:name>NBA</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -53,8 +60,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>OI</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -65,8 +72,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>QUA</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -77,8 +84,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>LAN</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -89,8 +96,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>RBZ</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -101,8 +108,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>KRS</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -113,8 +120,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>GMD</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -125,8 +132,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>OTT</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -137,8 +144,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>SSS</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -149,8 +156,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>HNR</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -161,8 +168,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>ADZ</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -173,8 +180,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>EEE</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Float</hsd:name>
@@ -185,8 +192,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>NNN</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Float</hsd:name>
@@ -197,8 +204,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>STN</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -209,8 +216,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>PLZ</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.Integer</hsd:name>
@@ -221,8 +228,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>ONM</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -233,8 +240,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>ZON</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -245,8 +252,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>POT</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -275,10 +282,10 @@
         <setting name="quote">"</setting>
         <setting name="skip">True</setting>
         <setting name="source">../../../testdaten/Hauskoordinaten/schluessel_kopfzeile.csv</setting>
+        <setting name="decimal">,</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
         <setting name="separator">;</setting>
         <setting name="escape">\</setting>
-		<setting name="decimal">,</setting>
         <setting name="typename">Schlüssel</setting>
         <setting name="properties">typ,a,b,c,d,e,f</setting>
         <cache>
@@ -292,15 +299,15 @@
                 <hsd:types>
                     <hsd:type index="0">
                         <hsd:name>Schlüssel</hsd:name>
-                        <hsd:constraint type="has-value" value="false"/>
+                        <hsd:constraint type="mappable" value="true"/>
                         <hsd:constraint type="mapping-relevant" value="true"/>
-                        <hsd:constraint type="abstract" value="false"/>
                         <hsd:constraint type="has-value" value="false"/>
+                        <hsd:constraint type="abstract" value="false"/>
                         <hsd:declares>
                             <hsd:property>
 <hsd:name>typ</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -311,8 +318,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>a</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -323,8 +330,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>b</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -335,8 +342,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>c</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -347,8 +354,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>d</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -359,8 +366,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>e</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -371,8 +378,8 @@
                             </hsd:property>
                             <hsd:property>
 <hsd:name>f</hsd:name>
-<hsd:constraint type="nillable" value="true"/>
 <hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
         <hsd:name>java.lang.String</hsd:name>
@@ -519,4 +526,11 @@
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/count">2</property>
+    <complex-property name="variables">
+        <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="INSPIRE_NAMESPACE">
+                <core:value value="https://registry.gdi-de.org/id/de.rp/"/>
+            </core:property>
+        </core:properties>
+    </complex-property>
 </hale-project>
