@@ -68,10 +68,10 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. *Tra
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="false" name="variablesAsInstances"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">'#' + _project.vars.NETWORK_ID</core:text>
         </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
         <documentation>Verknüpft das Netzwerk-Element mit dem entsprechenden *TransportNetwork*.
 Dazu wird die vorgegebene ID für das Netzwerk verwendet (Projekt-Variable).</documentation>
     </cell>
@@ -160,7 +160,6 @@ Zuvor wurde beim Erstellen jedes Netzwerk-Elements dessen GML id in einem Index 
                 <child name="sourceOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="variablesAsInstances"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def modellArt = _project.vars.ADV_MODELLART
@@ -174,6 +173,7 @@ else {
 }
 </core:text>
         </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
         <documentation>Bestimmung aus Projekt-Variable (`ADV_MODELLART`) falls vorhanden, andernfalls wird *nilReason* auf `unknown` gesetzt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd4048617-c86f-4863-99b5-3e9f0635a8f5" priority="normal">
@@ -209,10 +209,10 @@ else {
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="false" name="variablesAsInstances"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">_project.vars.NETWORK_ID</core:text>
         </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
         <documentation>Weist die vorgegebene lokale ID für das Netzwerk zu.
 
 Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentation>
@@ -224,7 +224,6 @@ Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentati
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="false" name="variablesAsInstances"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 // Zusammenfügen von INSPIRE namespace und localId
@@ -248,6 +247,7 @@ else {
 }
 </core:text>
         </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
         <documentation>Erzeugt einen GML identifier basierend auf der INSPIRE ID. Dazu wird der vorgegebene INSPIRE Namespace und die vorgegebene lokale ID für das Netzwerk hinzugezogen.
 
 Beide Vorgaben können über eine Projekt-Variable überschrieben werden.</documentation>
