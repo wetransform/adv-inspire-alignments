@@ -160,9 +160,11 @@ else {
                     <cf:template>
                         <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 Erstellt ein GeographicalName-Objekt aus einer Lagebezeichnung.
-Eine unverschlüsselte Lagebezeichnung wird direkt übernommen, eine verschlüsselte Lagebezeichnung wird versucht über einen Index nachzuschlagen.
+Eine unverschlüsselte Lagebezeichnung wird direkt als Name übernommen.
+Falls stattdessen eine verschlüsselte Lagebezeichnung vorliegt (nur in ALKIS/DLKM möglich), wird versucht den Namen über den Schlüssel in einem Index nachzuschlagen.
+Trifft keiner der beiden Fälle zu, oder kann der Name nicht nachgeschlagen werden, wird kein GeographicalName erzeugt.
 
-Die Sprache wird als Deutsch angenommen.
+Die Sprache des Namens wird als Deutsch angenommen.
 
 &lt;% if (_params.nameStatus) {
   if (_params.nameStatus == 'unpopulated') {
