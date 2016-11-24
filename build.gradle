@@ -34,7 +34,7 @@ if (!project.ext.useCommandLine) {
   }
 
   configurations.all {
-    resolutionStrategy.cacheChangingModulesFor 60, 'minutes'
+    resolutionStrategy.cacheChangingModulesFor 5, 'minutes'
   }
 
   dependencies {
