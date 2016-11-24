@@ -51,8 +51,8 @@
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="zeigtAuf" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -75,8 +75,8 @@
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="zeigtAuf" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -85,8 +85,13 @@
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def positionAdresse = _source.links.AX_GeoreferenzierteGebaeudeadresse.p.position.first()&#xD;
+def pointId = ""&#xD;
 if (!positionAdresse) {&#xD;
 	positionAdresse = _source.links.AP_PTO.p.position.first()&#xD;
+	if (positionAdresse) {&#xD;
+		pointId = positionAdresse.p.Point.id.value()&#xD;
+		positionAdresse = _.geom.find(positionAdresse)&#xD;
+	}&#xD;
 }&#xD;
 if (!positionAdresse) {&#xD;
 	positionAdresse = _source.links.AX_Gebaeude.p.position.first()&#xD;
@@ -104,6 +109,11 @@ if (positionAdresse) {&#xD;
 				}&#xD;
 				geometry {&#xD;
 					Point(_.geom.find(positionAdresse))&#xD;
+					{&#xD;
+						if (pointId) {&#xD;
+							id(pointId)&#xD;
+						}&#xD;
+					}&#xD;
 				}&#xD;
 				method {&#xD;
 					href( 'http://inspire.ec.europa.eu/codelist/GeometryMethodValue/byAdministrator' )&#xD;
@@ -167,17 +177,6 @@ if (positionAdresse) {&#xD;
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_LagebezeichnungOhneHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                    </property>
-                    <property>
                         <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="zeigtAuf" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -196,13 +195,30 @@ if (positionAdresse) {&#xD;
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_LagebezeichnungOhneHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
             </jp:join-parameter>
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def positionAdresse = _source.links.AX_GeoreferenzierteGebaeudeadresse.p.position.first()&#xD;
+def pointId = ""&#xD;
+&#xD;
 if (!positionAdresse) {&#xD;
 	positionAdresse = _source.links.AP_PTO.p.position.first()&#xD;
+	if (positionAdresse) {&#xD;
+		pointId = positionAdresse.p.Point.id.value()&#xD;
+		positionAdresse = _.geom.find(positionAdresse)&#xD;
+	}&#xD;
 }&#xD;
 if (!positionAdresse) {&#xD;
 	positionAdresse = _source.links.AX_Gebaeude.p.position.first()&#xD;
@@ -210,7 +226,11 @@ if (!positionAdresse) {&#xD;
 		positionAdresse = _.geom.centroid(_.geom.find(positionAdresse))&#xD;
 	}&#xD;
 }&#xD;
+ &#xD;
+&#xD;
 if (positionAdresse) {&#xD;
+	&#xD;
+&#xD;
 	_target {&#xD;
 		position {&#xD;
 			GeographicPosition {&#xD;
@@ -220,6 +240,11 @@ if (positionAdresse) {&#xD;
 				}&#xD;
 				geometry {&#xD;
 					Point(_.geom.find(positionAdresse))&#xD;
+					{&#xD;
+						if (pointId) {&#xD;
+							id(pointId)&#xD;
+						}&#xD;
+					}&#xD;
 				}&#xD;
 				method {&#xD;
 					href( 'http://inspire.ec.europa.eu/codelist/GeometryMethodValue/byAdministrator' )&#xD;
@@ -274,6 +299,7 @@ if (positionAdresse) {&#xD;
             </property>
         </target>
         <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}" name="pattern"/>
+        <documentation>Erzeugt die Referenz auf das `AdminUnitName`-Objekt für das (Bundes-)Land.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cfb05b17a-dca3-486f-bb18-5eca732e1d91" priority="normal">
         <source name="var">
@@ -284,7 +310,9 @@ if (positionAdresse) {&#xD;
                 <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
                 <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value &lt;&gt; '0' and value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <source name="var">
@@ -308,62 +336,7 @@ if (positionAdresse) {&#xD;
             </property>
         </target>
         <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9c13ab33-02fc-4914-8236-c04b84052656" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
-                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
-                    <context>2</context>
-                </child>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde}" name="pattern"/>
+        <documentation>Erzeugt die Referenz für das `AdminUnitName`-Objekt für den Regierungsbezirk.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cd5f04e1f-ec85-4793-9745-2383cc48abb3" priority="normal">
         <source name="var">
@@ -385,7 +358,9 @@ if (positionAdresse) {&#xD;
                 <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
                 <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value &lt;&gt; '0' and value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <source name="var">
@@ -429,6 +404,66 @@ if (positionAdresse) {&#xD;
             </property>
         </target>
         <parameter value="#PostalDescriptor_{postalischeAdresse.AX_Post.postleitzahl}" name="pattern"/>
+        <documentation>Erzeugt die Referenz auf das passende Objekt vom Typ `PostalDescriptor`.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9c13ab33-02fc-4914-8236-c04b84052656" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value &lt;&gt; '0' and value &lt;&gt; ''</condition>
+                </child>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_LagebezeichnungMitHausnummerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
+                <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>4</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde}" name="pattern"/>
+        <documentation>Erzeugt eine Referenz auf das `AdminUnitName`-Objekt für die Gemeinde.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cfbb22675-de38-4588-9c13-a578d13a47ea" priority="normal">
         <source name="var">
@@ -461,7 +496,9 @@ if (positionAdresse) {&#xD;
                 <child name="choice_1" ns="http://www.adv-online.de/namespaces/adv/gid/6.0/AX_LagebezeichnungType"/>
                 <child name="verschluesselt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_VerschluesselteLagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">value &lt;&gt; '0' and value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <source name="var">
@@ -494,6 +531,7 @@ if (positionAdresse) {&#xD;
             </property>
         </target>
         <parameter value="#ThoroughfareName_{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.land}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.regierungsbezirk}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.kreis}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde}{lagebezeichnung.AX_Lagebezeichnung.choice_1.verschluesselt.AX_VerschluesselteLagebezeichnung.lage}" name="pattern"/>
+        <documentation>Erzeugt die Referenz auf den Straßennamen (`ThoroughfareName`).</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C7d8d1bdc-e6b1-4e69-ae34-e09caa043943" priority="normal">
         <source>
