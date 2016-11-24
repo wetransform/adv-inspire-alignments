@@ -1716,6 +1716,16 @@ Die *functionalClass* wird als `ninthClass` festgelegt.
             </property>
         </target>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7e730557-eed5-41b1-9e74-ceb423099aeb" priority="normal">
+        <target>
+            <property>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2676fc94-d50d-4c45-b5b1-e4301a9cfe4a" priority="normal">
         <source>
             <class>
