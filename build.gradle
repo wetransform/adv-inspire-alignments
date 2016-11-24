@@ -206,7 +206,32 @@ transformations.each { name, config ->
     def projectFile = file(config.project)
 
     if (modelDefinition) {
-      task("derive-$name", type: HaleCommandLine) {
+      def filterDir = new File(buildDir, 'filter')
+      def filterFile = new File(filterDir, name + '-' + modelDefinition.name)
+
+      // task to prepare filter definition
+      task("prepare-filter-$name").doLast {
+        // copy model definition
+        filterDir.mkdirs()
+        copy {
+          from modelDefinition
+          into filterDir
+          rename {
+            filterFile.name
+          }
+        }
+
+        if (config.deriveFilter) {
+          // merge filter with model definition
+          def filterDef = new groovy.json.JsonSlurper().parse(filterFile)
+          filterDef.putAll(config.deriveFilter)
+          filterFile.text = groovy.json.JsonOutput.prettyPrint(
+            groovy.json.JsonOutput.toJson(filterDef))
+        }
+      }
+
+      // task to derive project
+      task("derive-$name", type: HaleCommandLine, dependsOn: "prepare-filter-$name") {
         args = [
           'project',
           'alignment',
@@ -214,7 +239,7 @@ transformations.each { name, config ->
           '--name',
           config.model,
           '--json-filter',
-          modelDefinition,
+          filterFile,
           '--skip-empty',
           '--skip-no-type-cells',
           '--use-base-alignment',

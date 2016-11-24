@@ -127,6 +127,42 @@
       "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
       "NETWORK_ID": "RoadNetwork",
       "NETWORK_NAME": "Straßen-Verkehrsnetz"
+    },
+    "deriveFilter": {
+      "exclude": [
+        {
+          "typeCell": {
+            "source": "AX_WegPfadSteig",
+            "target": "Road"
+          }
+        },
+        {
+          "typeCell": {
+            "source": "AX_WegPfadSteig",
+            "target": "RoadLink"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "FormOfWay"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "RoadSurfaceCategory"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "RoadWidth"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "NumberOfLanes"
+          }
+        }
+      ]
     }
   },
   "tn-ro-basis-dlm": {
@@ -136,6 +172,28 @@
       "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
       "NETWORK_ID": "RoadNetwork",
       "NETWORK_NAME": "Straßen-Verkehrsnetz"
+    },
+    "deriveFilter": {
+      "exclude": [
+        {
+          "typeCell": {
+            "source": "AX_Strassenverkehr",
+            "target": "RoadArea"
+          }
+        },
+        {
+          "typeCell": {
+            "source": "AX_Strassenverkehr",
+            "target": "RoadServiceArea"
+          }
+        },
+        {
+          "typeCell": {
+            "source": "AX_WegPfadSteig",
+            "target": "RoadArea"
+          }
+        }
+      ]
     }
   },
   "tn-ro-dlm50": {
@@ -145,6 +203,28 @@
       "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
       "NETWORK_ID": "RoadNetwork",
       "NETWORK_NAME": "Straßen-Verkehrsnetz"
+    },
+    "deriveFilter": {
+      "exclude": [
+        {
+          "typeCell": {
+            "source": "AX_Strassenverkehr",
+            "target": "RoadArea"
+          }
+        },
+        {
+          "typeCell": {
+            "source": "AX_Strassenverkehr",
+            "target": "RoadServiceArea"
+          }
+        },
+        {
+          "typeCell": {
+            "source": "AX_WegPfadSteig",
+            "target": "RoadArea"
+          }
+        }
+      ]
     }
   },
   "tn-ro-dlm250": {
@@ -154,6 +234,26 @@
       "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
       "NETWORK_ID": "RoadNetwork",
       "NETWORK_NAME": "Straßen-Verkehrsnetz"
+    },
+    "deriveFilter": {
+      "exclude": [
+        {
+          "typeCell": {
+            "source": "AX_WegPfadSteig",
+            "target": "RoadArea"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "RoadSurfaceCategory"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "RoadServiceType"
+          }
+        }
+      ]
     }
   },
   "tn-ro-dlm1000": {
@@ -163,6 +263,36 @@
       "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
       "NETWORK_ID": "RoadNetwork",
       "NETWORK_NAME": "Straßen-Verkehrsnetz"
+    },
+    "deriveFilter": {
+      "exclude": [
+        {
+          "typeCell": {
+            "source": "AX_WegPfadSteig",
+            "target": "RoadArea"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "RoadServiceType"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "RoadSurfaceCategory"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "RoadWidth"
+          }
+        },
+        {
+          "typeCell": {
+            "target": "NumberOfLanes"
+          }
+        }
+      ]
     }
   },
   "au-dlkm-kommunalesGebiet": {
