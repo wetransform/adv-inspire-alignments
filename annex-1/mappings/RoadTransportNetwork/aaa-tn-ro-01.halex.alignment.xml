@@ -2392,7 +2392,7 @@ withTransformationContext {
         </complexParameter>
         <documentation>Erstellt `Road`s zu `AX_Strasse`. Berücksichtig werden Straßen die keine Europastraßen sind (welche nach `ERoad` abgebildet werden).
 
-Die zugehörigen `AX_Fahrbahnachse`n (nur Basis-DLM) und `AX_Strassenachse`n werden bestimmt um die Verknüpfung zu den entsprechend zu erstellenden `RoadLink`-Objekten herstellen zu können.
+Die zugehörigen `AX_Fahrbahnachse`n (nur Basis-DLM) und `AX_Strassenachse`n werden bestimmt um die Verknüpfung zu den entsprechend zu erstellenden `RoadLink`-Objekten herstellen zu können (in der Eigenschaft `link`).
 Falls Fahrbahnachsen zu der Straße verfügbar sind werden diese zur Repräsentation der `RoadLink`s verwendet, andernfalls die Straßenachsen.
 
 Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
@@ -2481,7 +2481,7 @@ if (curves) {
 
 *Die Bedingung weicht von der Angabe in der vorgegebenen Mapping-Tabelle ab (alle AX_WegPfadSteig), wurde jedoch angepasst an die Vorgaben zu RoadLink, da eine Road aus mindestens einem RoadLink bestehen muss.*
 
-Die Geometrie des Quell-Objekts wird untersucht. Nur linienartige Geometrien sind relevant, da aus diesen an anderer Stelle entsprechende `RoadLink`s erstellt werden. Die Verknüpfung zu diesen `RoadLink`s wird hier hergestellt.
+Die Geometrie des Quell-Objekts wird untersucht. Nur linienartige Geometrien sind relevant, da aus diesen an anderer Stelle entsprechende `RoadLink`s erstellt werden. Die Verknüpfung zu diesen `RoadLink`s wird hier hergestellt (in der Eigenschaft `link`).
 
 Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
     </cell>
@@ -2728,6 +2728,26 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C783bc706-7027-4d63-bdc7-39f885bc3652" priority="normal">
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C0b66c144-c6eb-4f0b-9148-e9e7220f97fc" priority="normal">
+        <target>
+            <property>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C01d34ad8-6db2-4d58-8bfa-5ef45239e015" priority="low">
         <target>
