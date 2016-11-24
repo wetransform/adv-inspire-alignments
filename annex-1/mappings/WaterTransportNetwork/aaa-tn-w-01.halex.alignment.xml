@@ -887,7 +887,7 @@ Es werden Referenzen (NetworkReference) zu allen `FerryCrossing`s erstellt, welc
         <source>
             <class>
                 <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">schifffahrtskategorie = '1000' or schifffahrtskategorie = '3000'</condition>
+                    <condition lang="CQL">schifffahrtskategorie is not null</condition>
                 </type>
             </class>
         </source>
@@ -941,7 +941,7 @@ Der erstellte `InlandWaterway` wird dem Index von Netzwerk-Elementen hinzugefüg
         <source>
             <class>
                 <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">schifffahrtskategorie = '1000' or schifffahrtskategorie = '3000'</condition>
+                    <condition lang="CQL">schifffahrtskategorie is not null</condition>
                 </type>
             </class>
         </source>
