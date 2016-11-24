@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
-    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <base prefix="ba1" location="../base-tn.halex.alignment.xml"/>
+    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2a56c91e-e51c-4d0e-b793-3eeddd2db607" priority="normal">
         <source>
             <class>
@@ -30,17 +30,109 @@ def _id = "Beacon_$sourceId"
 _target {
 }
 
+def collect
 withTransformationContext {
-	def collect = _.context.collector(it)
+	collect = _.context.collector(it)
 	// Sammle ID für Netzwerk	
 	collect.network &lt;&lt; _id
 }
+
+/*
+ * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+ */
+def untenRefs = _source.p.hatDirektUnten.href.values()
+def verticalPositions = untenRefs.findResults { identifier -&gt;
+	def bwf = collect.bauwerksfunktion[identifier].value()
+	if (bwf) {
+		switch (bwf) {
+		// AX_BauwerkImVerkehrsbereich
+		case '1800': // Brücke
+		case '1801': // Mehrstöckige Brücke
+		case '1802': // Bogenbrücke
+		case '1803': // Fachwerkbrücke
+		case '1804': // Hängebrücke
+		case '1805': // Pontonbrücke
+		case '1806': // Drehbrücke
+		case '1807': // Hebebrücke
+		case '1808': // Zugbrücke
+		case '1820': // Steg
+		case '1830': // Hochbahn, Hochstraße
+		case '1890': // Schleusenkammer
+		// AX_BauwerkImGewaesserbereich
+		case '2030': // Staumauer
+		case '2040': // Staudamm
+		case '2050': // Wehr
+		case '2060': // Sicherheitstor
+		case '2080': // Sperrwerk
+			return 'suspendedOrElevated'
+		// AX_BauwerkImVerkehrsbereich
+		case '1870': // Tunnel, Unterführung
+		// AX_BauwerkImGewaesserbereich
+		case '2010': // Durchlass
+		case '2011': // Rohrdurchlass
+		case '2012': // Düker
+		case '2070': // Siel
+		case '2090': // Schöpfwerk
+			return 'underground'
+		}
+	}
+	else {
+		null
+	}
+} as Set
+def verticalPosition
+if (!verticalPositions) {
+	verticalPosition = 'onGroundSurface'
+}
+else {
+	verticalPosition = verticalPositions.iterator().next()
+	if (verticalPositions.size() &gt;= 1) {
+		_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+	}
+}
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 
 </core:text>
         </complexParameter>
         <documentation>Erstellt einen `Beacon` zu einer `AX_EinrichtungenFuerDenSchiffsverkehr` mit Geometrie-Typ *GM_Point* und `art` *Leuchtfeuer* (`1420`).
 
 Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cdd4f2102-ce96-4efe-9d55-97e4e2b3a52c" priority="normal">
@@ -71,17 +163,109 @@ def _id = "Beacon_$sourceId"
 _target {
 }
 
+def collect
 withTransformationContext {
-	def collect = _.context.collector(it)
+	collect = _.context.collector(it)
 	// Sammle ID für Netzwerk	
 	collect.network &lt;&lt; _id
 }
+
+/*
+ * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+ */
+def untenRefs = _source.p.hatDirektUnten.href.values()
+def verticalPositions = untenRefs.findResults { identifier -&gt;
+	def bwf = collect.bauwerksfunktion[identifier].value()
+	if (bwf) {
+		switch (bwf) {
+		// AX_BauwerkImVerkehrsbereich
+		case '1800': // Brücke
+		case '1801': // Mehrstöckige Brücke
+		case '1802': // Bogenbrücke
+		case '1803': // Fachwerkbrücke
+		case '1804': // Hängebrücke
+		case '1805': // Pontonbrücke
+		case '1806': // Drehbrücke
+		case '1807': // Hebebrücke
+		case '1808': // Zugbrücke
+		case '1820': // Steg
+		case '1830': // Hochbahn, Hochstraße
+		case '1890': // Schleusenkammer
+		// AX_BauwerkImGewaesserbereich
+		case '2030': // Staumauer
+		case '2040': // Staudamm
+		case '2050': // Wehr
+		case '2060': // Sicherheitstor
+		case '2080': // Sperrwerk
+			return 'suspendedOrElevated'
+		// AX_BauwerkImVerkehrsbereich
+		case '1870': // Tunnel, Unterführung
+		// AX_BauwerkImGewaesserbereich
+		case '2010': // Durchlass
+		case '2011': // Rohrdurchlass
+		case '2012': // Düker
+		case '2070': // Siel
+		case '2090': // Schöpfwerk
+			return 'underground'
+		}
+	}
+	else {
+		null
+	}
+} as Set
+def verticalPosition
+if (!verticalPositions) {
+	verticalPosition = 'onGroundSurface'
+}
+else {
+	verticalPosition = verticalPositions.iterator().next()
+	if (verticalPositions.size() &gt;= 1) {
+		_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+	}
+}
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 
 </core:text>
         </complexParameter>
         <documentation>Erstellt einen `Beacon` zu einem `AX_Turm` mit Geometrie-Typ *GM_Point* und `bauwerksfunktion` *Leuchtturm* (`1006`).
 
 Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C7218003c-8d6b-4af7-87a1-36f9d1404e11" priority="normal">
@@ -99,8 +283,8 @@ Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C2bd625f2-b918-40d1-9516-9e16131a590c" priority="normal">
         <source>
@@ -117,8 +301,8 @@ Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C3c41c6c3-f2cb-43ce-8ea7-81e6d7535882" priority="normal">
         <source name="spelling">
@@ -176,9 +360,9 @@ Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
                 <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="true" name="copyGeometries"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C8494f7dd-4c75-46b5-b8c8-23e2de6901a2" priority="normal">
         <source>
@@ -196,9 +380,9 @@ Der erstellte `Beacon` wird dem Index von Netzwerk-Elementen hinzugefügt.
                 <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="true" name="copyGeometries"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cfef43c2d-376c-414d-9c11-619eaa7df89b" priority="normal">
         <source name="id">
@@ -391,6 +575,62 @@ if (links) {
 		// Sammle ID für FerryUse
 		collect.ferryUse[ferryUse] &lt;&lt; _id
 	}
+	
+	/*
+	 * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+	 */
+	def untenRefs = _source.p.hatDirektUnten.href.values()
+	def verticalPositions = untenRefs.findResults { identifier -&gt;
+		def bwf = collect.bauwerksfunktion[identifier].value()
+		if (bwf) {
+			switch (bwf) {
+			// AX_BauwerkImVerkehrsbereich
+			case '1800': // Brücke
+			case '1801': // Mehrstöckige Brücke
+			case '1802': // Bogenbrücke
+			case '1803': // Fachwerkbrücke
+			case '1804': // Hängebrücke
+			case '1805': // Pontonbrücke
+			case '1806': // Drehbrücke
+			case '1807': // Hebebrücke
+			case '1808': // Zugbrücke
+			case '1820': // Steg
+			case '1830': // Hochbahn, Hochstraße
+			case '1890': // Schleusenkammer
+			// AX_BauwerkImGewaesserbereich
+			case '2030': // Staumauer
+			case '2040': // Staudamm
+			case '2050': // Wehr
+			case '2060': // Sicherheitstor
+			case '2080': // Sperrwerk
+				return 'suspendedOrElevated'
+			// AX_BauwerkImVerkehrsbereich
+			case '1870': // Tunnel, Unterführung
+			// AX_BauwerkImGewaesserbereich
+			case '2010': // Durchlass
+			case '2011': // Rohrdurchlass
+			case '2012': // Düker
+			case '2070': // Siel
+			case '2090': // Schöpfwerk
+				return 'underground'
+			}
+		}
+		else {
+			null
+		}
+	} as Set
+	def verticalPosition
+	if (!verticalPositions) {
+		verticalPosition = 'onGroundSurface'
+	}
+	else {
+		verticalPosition = verticalPositions.iterator().next()
+		if (verticalPositions.size() &gt;= 1) {
+			_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+		}
+	}
+	collect.verticalPosition[verticalPosition] &lt;&lt; _id
+	
 }
 
 </core:text>
@@ -413,6 +653,40 @@ art | ferryUse
 `1720` *(Eisenbahnfährverkehr)* | `train`
 `1730` *(Personenfährverkehr)* | `passengers`
 `1740` *(Linienverkehr)* | `other`
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Caf7b0555-5a63-4b10-96bb-2c957f27b686" priority="normal">
@@ -430,8 +704,8 @@ art | ferryUse
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C2fc86ee5-4387-40bf-a141-350a4caff2e9" priority="normal">
         <source>
@@ -448,8 +722,8 @@ art | ferryUse
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C796062d5-d95f-442c-b6ba-8c07dcc3acc6" priority="normal">
         <source name="spelling">
@@ -733,8 +1007,8 @@ Der erstellte `InlandWaterway` wird dem Index von Netzwerk-Elementen hinzugefüg
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C7400f7b3-3b75-4b90-9270-fa8855343c72" priority="normal">
         <source>
@@ -751,8 +1025,8 @@ Der erstellte `InlandWaterway` wird dem Index von Netzwerk-Elementen hinzugefüg
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ca8634f0a-bd4a-4a67-92de-42d073bff027" priority="normal">
         <source name="spelling">
@@ -891,17 +1165,110 @@ def _id = "PortArea_$sourceId"
 _target {
 }
 
+def collect
 withTransformationContext {
-	def collect = _.context.collector(it)
+	collect = _.context.collector(it)
 	// Sammle ID für Netzwerk	
 	collect.network &lt;&lt; _id
 }
+
+/*
+ * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+ */
+def untenRefs = _source.p.hatDirektUnten.href.values()
+def verticalPositions = untenRefs.findResults { identifier -&gt;
+	def bwf = collect.bauwerksfunktion[identifier].value()
+	if (bwf) {
+		switch (bwf) {
+		// AX_BauwerkImVerkehrsbereich
+		case '1800': // Brücke
+		case '1801': // Mehrstöckige Brücke
+		case '1802': // Bogenbrücke
+		case '1803': // Fachwerkbrücke
+		case '1804': // Hängebrücke
+		case '1805': // Pontonbrücke
+		case '1806': // Drehbrücke
+		case '1807': // Hebebrücke
+		case '1808': // Zugbrücke
+		case '1820': // Steg
+		case '1830': // Hochbahn, Hochstraße
+		case '1890': // Schleusenkammer
+		// AX_BauwerkImGewaesserbereich
+		case '2030': // Staumauer
+		case '2040': // Staudamm
+		case '2050': // Wehr
+		case '2060': // Sicherheitstor
+		case '2080': // Sperrwerk
+			return 'suspendedOrElevated'
+		// AX_BauwerkImVerkehrsbereich
+		case '1870': // Tunnel, Unterführung
+		// AX_BauwerkImGewaesserbereich
+		case '2010': // Durchlass
+		case '2011': // Rohrdurchlass
+		case '2012': // Düker
+		case '2070': // Siel
+		case '2090': // Schöpfwerk
+			return 'underground'
+		}
+	}
+	else {
+		null
+	}
+} as Set
+def verticalPosition
+if (!verticalPositions) {
+	verticalPosition = 'onGroundSurface'
+}
+else {
+	verticalPosition = verticalPositions.iterator().next()
+	if (verticalPositions.size() &gt;= 1) {
+		_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+	}
+}
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 
 </core:text>
         </complexParameter>
         <documentation>Erstellt eine `PortArea` zu einem `AX_Schiffsverkehr` mit `funktion` *Hafenanlage (Landfläche)* (`5610`).
 
-Die erstellte `PortArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
+Die erstellte `PortArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ccf154095-4848-4440-a66e-0cbf2730500c" priority="normal">
         <source>
@@ -918,8 +1285,8 @@ Die erstellte `PortArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</do
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce3aa3157-e12f-4794-8226-d6dc6e876c65" priority="normal">
         <source>
@@ -936,8 +1303,8 @@ Die erstellte `PortArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</do
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd5a302fa-15cb-4ff3-82f8-ba1c6370065b" priority="normal">
         <target>
@@ -962,9 +1329,9 @@ Die erstellte `PortArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</do
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cca83e39e-3475-4b62-9cef-0c4099c7e63d" priority="normal">
         <source name="id">
@@ -1120,8 +1487,9 @@ if (parentId) {
 		break
 	}
 	
+	def collect
 	withTransformationContext {
-		def collect = _.context.collector(it)
+		collect = _.context.collector(it)
 		// Sammle ID für Netzwerk	
 		collect.network &lt;&lt; _id
 		// Sammle ID für Liste von WaterwayLinks für den Kanal
@@ -1129,6 +1497,61 @@ if (parentId) {
 		// Sammle ID für ConditionOfWaterFacility
 		collect.conditionOfWaterFacility[conditionOfFacility] &lt;&lt; _id
 	}
+	
+	/*
+	 * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+	 */
+	def untenRefs = _source.p.hatDirektUnten.href.values()
+	def verticalPositions = untenRefs.findResults { identifier -&gt;
+		def bwf = collect.bauwerksfunktion[identifier].value()
+		if (bwf) {
+			switch (bwf) {
+			// AX_BauwerkImVerkehrsbereich
+			case '1800': // Brücke
+			case '1801': // Mehrstöckige Brücke
+			case '1802': // Bogenbrücke
+			case '1803': // Fachwerkbrücke
+			case '1804': // Hängebrücke
+			case '1805': // Pontonbrücke
+			case '1806': // Drehbrücke
+			case '1807': // Hebebrücke
+			case '1808': // Zugbrücke
+			case '1820': // Steg
+			case '1830': // Hochbahn, Hochstraße
+			case '1890': // Schleusenkammer
+			// AX_BauwerkImGewaesserbereich
+			case '2030': // Staumauer
+			case '2040': // Staudamm
+			case '2050': // Wehr
+			case '2060': // Sicherheitstor
+			case '2080': // Sperrwerk
+				return 'suspendedOrElevated'
+			// AX_BauwerkImVerkehrsbereich
+			case '1870': // Tunnel, Unterführung
+			// AX_BauwerkImGewaesserbereich
+			case '2010': // Durchlass
+			case '2011': // Rohrdurchlass
+			case '2012': // Düker
+			case '2070': // Siel
+			case '2090': // Schöpfwerk
+				return 'underground'
+			}
+		}
+		else {
+			null
+		}
+	} as Set
+	def verticalPosition
+	if (!verticalPositions) {
+		verticalPosition = 'onGroundSurface'
+	}
+	else {
+		verticalPosition = verticalPositions.iterator().next()
+		if (verticalPositions.size() &gt;= 1) {
+			_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+		}
+	}
+	collect.verticalPosition[verticalPosition] &lt;&lt; _id
 }
 </core:text>
         </complexParameter>
@@ -1150,6 +1573,40 @@ zustand| conditionOfFacility
 `4000` *(Im Bau)* | `underConstruction`
 
 In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.
 
 [#33]: https://services.interactive-instruments.de/xsaaasuite-gitlab/adv-inspire/inspire-alignements/issues/33</documentation>
     </cell>
@@ -1213,13 +1670,69 @@ if (parentId) {
 	_target {
 	}
 	
+	def collect
 	withTransformationContext {
-		def collect = _.context.collector(it)
+		collect = _.context.collector(it)
 		// Sammle ID für Netzwerk	
 		collect.network &lt;&lt; _id
 		// Sammle ID für Liste von WaterwayLinks für Wasserlauf
 		collect.AX_Wasserlauf[parentId].links &lt;&lt; _id
 	}
+	
+	/*
+	 * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+	 */
+	def untenRefs = _source.p.hatDirektUnten.href.values()
+	def verticalPositions = untenRefs.findResults { identifier -&gt;
+		def bwf = collect.bauwerksfunktion[identifier].value()
+		if (bwf) {
+			switch (bwf) {
+			// AX_BauwerkImVerkehrsbereich
+			case '1800': // Brücke
+			case '1801': // Mehrstöckige Brücke
+			case '1802': // Bogenbrücke
+			case '1803': // Fachwerkbrücke
+			case '1804': // Hängebrücke
+			case '1805': // Pontonbrücke
+			case '1806': // Drehbrücke
+			case '1807': // Hebebrücke
+			case '1808': // Zugbrücke
+			case '1820': // Steg
+			case '1830': // Hochbahn, Hochstraße
+			case '1890': // Schleusenkammer
+			// AX_BauwerkImGewaesserbereich
+			case '2030': // Staumauer
+			case '2040': // Staudamm
+			case '2050': // Wehr
+			case '2060': // Sicherheitstor
+			case '2080': // Sperrwerk
+				return 'suspendedOrElevated'
+			// AX_BauwerkImVerkehrsbereich
+			case '1870': // Tunnel, Unterführung
+			// AX_BauwerkImGewaesserbereich
+			case '2010': // Durchlass
+			case '2011': // Rohrdurchlass
+			case '2012': // Düker
+			case '2070': // Siel
+			case '2090': // Schöpfwerk
+				return 'underground'
+			}
+		}
+		else {
+			null
+		}
+	} as Set
+	def verticalPosition
+	if (!verticalPositions) {
+		verticalPosition = 'onGroundSurface'
+	}
+	else {
+		verticalPosition = verticalPositions.iterator().next()
+		if (verticalPositions.size() &gt;= 1) {
+			_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+		}
+	}
+	collect.verticalPosition[verticalPosition] &lt;&lt; _id
 }
 </core:text>
         </complexParameter>
@@ -1228,6 +1741,42 @@ if (parentId) {
 Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
 
 Für den entsprechenden `AX_Wasserlauf` wird hinterlegt, dass dieser `WaterwayLink` aus einer zugehörigen `AX_Gewaesserachse` erstellt wurde.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.
 
 [#33]: https://services.interactive-instruments.de/xsaaasuite-gitlab/adv-inspire/inspire-alignements/issues/33</documentation>
     </cell>
@@ -1252,11 +1801,68 @@ def _id = "WaterwayLink_$sourceId"
 _target {
 }
 
+def collect
 withTransformationContext {
-	def collect = _.context.collector(it)
+	collect = _.context.collector(it)
 	// Sammle ID für Netzwerk	
 	collect.network &lt;&lt; _id
 }
+
+/*
+ * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+ */
+def untenRefs = _source.p.hatDirektUnten.href.values()
+def verticalPositions = untenRefs.findResults { identifier -&gt;
+	def bwf = collect.bauwerksfunktion[identifier].value()
+	if (bwf) {
+		switch (bwf) {
+		// AX_BauwerkImVerkehrsbereich
+		case '1800': // Brücke
+		case '1801': // Mehrstöckige Brücke
+		case '1802': // Bogenbrücke
+		case '1803': // Fachwerkbrücke
+		case '1804': // Hängebrücke
+		case '1805': // Pontonbrücke
+		case '1806': // Drehbrücke
+		case '1807': // Hebebrücke
+		case '1808': // Zugbrücke
+		case '1820': // Steg
+		case '1830': // Hochbahn, Hochstraße
+		case '1890': // Schleusenkammer
+		// AX_BauwerkImGewaesserbereich
+		case '2030': // Staumauer
+		case '2040': // Staudamm
+		case '2050': // Wehr
+		case '2060': // Sicherheitstor
+		case '2080': // Sperrwerk
+			return 'suspendedOrElevated'
+		// AX_BauwerkImVerkehrsbereich
+		case '1870': // Tunnel, Unterführung
+		// AX_BauwerkImGewaesserbereich
+		case '2010': // Durchlass
+		case '2011': // Rohrdurchlass
+		case '2012': // Düker
+		case '2070': // Siel
+		case '2090': // Schöpfwerk
+			return 'underground'
+		}
+	}
+	else {
+		null
+	}
+} as Set
+def verticalPosition
+if (!verticalPositions) {
+	verticalPosition = 'onGroundSurface'
+}
+else {
+	verticalPosition = verticalPositions.iterator().next()
+	if (verticalPositions.size() &gt;= 1) {
+		_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+	}
+}
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
+
 
 </core:text>
         </complexParameter>
@@ -1266,6 +1872,43 @@ Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
 
 **Achtung:** Hier werden aktuell zu viele `WaterwayLink`s gebildet. Denn über die Gewaesserstationierungsachse werden sowohl schiffbare als auch nicht schiffbare Linien betrachtet. Eigentlich müssten die nicht schiffbaren herausgefiltert werden. Dies könnte über eine geometrische Verschneidung mit dem flächenförmigen `AX_Kanal` bzw. `AX_Wasserlauf` geschehen.
 *Vorschlag:* Filterung später (wenn die Funktion in HALE implementiert ist) umsetzen. Bis dahin alle Gewaesserstationierungsachsen zu WaterwayLinks übernehmen.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.
+
 </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2eb8a251-1062-494b-808f-c7a5771b0b57" priority="high">
@@ -1292,13 +1935,70 @@ if (_source.p.position.CompositeCurve.first() || _source.p.position.Curve.first(
 	_target {
 	}
 	
+	def collect
 	withTransformationContext {
-		def collect = _.context.collector(it)
+		collect = _.context.collector(it)
 		// Sammle ID für Netzwerk	
 		collect.network &lt;&lt; _id
 		// Sammle ID für Liste von WaterwayLinks für AX_SchifffahrtslinieFaehrverkehr
 		collect.AX_SchifffahrtslinieFaehrverkehr[sourceId].links &lt;&lt; _id
 	}
+	
+	/*
+	 * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+	 */
+	def untenRefs = _source.p.hatDirektUnten.href.values()
+	def verticalPositions = untenRefs.findResults { identifier -&gt;
+		def bwf = collect.bauwerksfunktion[identifier].value()
+		if (bwf) {
+			switch (bwf) {
+			// AX_BauwerkImVerkehrsbereich
+			case '1800': // Brücke
+			case '1801': // Mehrstöckige Brücke
+			case '1802': // Bogenbrücke
+			case '1803': // Fachwerkbrücke
+			case '1804': // Hängebrücke
+			case '1805': // Pontonbrücke
+			case '1806': // Drehbrücke
+			case '1807': // Hebebrücke
+			case '1808': // Zugbrücke
+			case '1820': // Steg
+			case '1830': // Hochbahn, Hochstraße
+			case '1890': // Schleusenkammer
+			// AX_BauwerkImGewaesserbereich
+			case '2030': // Staumauer
+			case '2040': // Staudamm
+			case '2050': // Wehr
+			case '2060': // Sicherheitstor
+			case '2080': // Sperrwerk
+				return 'suspendedOrElevated'
+			// AX_BauwerkImVerkehrsbereich
+			case '1870': // Tunnel, Unterführung
+			// AX_BauwerkImGewaesserbereich
+			case '2010': // Durchlass
+			case '2011': // Rohrdurchlass
+			case '2012': // Düker
+			case '2070': // Siel
+			case '2090': // Schöpfwerk
+				return 'underground'
+			}
+		}
+		else {
+			null
+		}
+	} as Set
+	def verticalPosition
+	if (!verticalPositions) {
+		verticalPosition = 'onGroundSurface'
+	}
+	else {
+		verticalPosition = verticalPositions.iterator().next()
+		if (verticalPositions.size() &gt;= 1) {
+			_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+		}
+	}
+	collect.verticalPosition[verticalPosition] &lt;&lt; _id
+	
 }
 else {
 	// keine Curve oder CompositeCurve -&gt; kein Objekt
@@ -1317,7 +2017,44 @@ else {
 
 Der erstellte `WaterwayLink` wird dem Index von Netzwerk-Elementen hinzugefügt.
 
-Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `WaterwayLink` daraus erstellt wurde.</documentation>
+Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `WaterwayLink` daraus erstellt wurde.
+
+Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt:
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Caae3ba1e-0a31-4dd7-9660-0c0c2a6ddd41" priority="normal">
         <source>
@@ -1334,8 +2071,8 @@ Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `Waterw
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca4fbb1a7-bc33-49ea-86dd-95aa2549f3ab" priority="normal">
         <source>
@@ -1352,8 +2089,8 @@ Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `Waterw
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C59525ab6-8dee-4437-928e-54e1f6a151e2" priority="normal">
         <source>
@@ -1370,8 +2107,8 @@ Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `Waterw
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd33efa37-4a17-47e7-9d11-3c6351116e85" priority="normal">
         <source>
@@ -1386,9 +2123,9 @@ Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `Waterw
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb6f2007a-eb0f-425c-af6f-2cd74f25e475" priority="normal">
         <source>
@@ -1403,9 +2140,9 @@ Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `Waterw
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cac502866-2720-40ba-ac7c-93d388f5b593" priority="normal">
         <source>
@@ -1420,9 +2157,9 @@ Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `Waterw
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce14a00f7-0f0f-425e-96bc-e278fa0d9678" priority="normal">
         <source>
@@ -1439,8 +2176,8 @@ Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `Waterw
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cbf27a703-118d-492f-afec-07be2551d5db" priority="normal">
         <source>
@@ -1457,8 +2194,8 @@ Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `Waterw
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Caaca87e3-a9d5-44d7-81fe-a11e193e342d" priority="normal">
         <source>
@@ -1475,8 +2212,8 @@ Für das `AX_SchifffahrtslinieFaehrverkehr` wird hinterlegt, dass dieser `Waterw
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce78abcd4-4f1e-4e80-9601-61885dc4185e" priority="normal">
         <target>
