@@ -21,7 +21,7 @@ Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für
 Ein *TransportProperty*-Objekt wird erstellt für alle Features die über die gleichen Eigenschaften bzgl. der *TransportProperty* verfügen. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfWaterFacility`, `FerryUse` und `VerticalPosition`.
 </description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-11-24T09:30:58.971+01:00</modified>
+    <modified>2016-11-24T09:55:01.529+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1369,9 +1369,10 @@ Ein *TransportProperty*-Objekt wird erstellt für alle Features die über die gl
     <property name="mappableTargetType/69">{http://inspire.ec.europa.eu/schemas/tn-w/4.0}InlandWaterwayType</property>
     <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayLinkType</property>
     <property name="mappableTargetType/70">{http://inspire.ec.europa.eu/schemas/tn/4.0}VerticalPositionType</property>
+    <property name="mappableTargetType/71">{http://inspire.ec.europa.eu/schemas/tn/4.0}MarkerPostType</property>
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayStationAreaType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayTypeType</property>
-    <property name="mappableTargetType/count">70</property>
+    <property name="mappableTargetType/count">71</property>
     <property name="resource-10618f26-dc80-4c44-b988-ee8cbfbd0878:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-10618f26-dc80-4c44-b988-ee8cbfbd0878:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-10618f26-dc80-4c44-b988-ee8cbfbd0878:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
