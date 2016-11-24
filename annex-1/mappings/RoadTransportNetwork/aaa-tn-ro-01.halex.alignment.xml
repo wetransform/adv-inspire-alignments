@@ -1000,6 +1000,26 @@ funktion  | functionalClass
             </property>
         </target>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C6d642b7a-9a3c-4e71-aec4-43534a1b7e3c" priority="normal">
+        <target>
+            <property>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5cbdfd0f-656b-4ab1-b556-a315cc806dc7" priority="normal">
+        <target>
+            <property>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cc8dfcac2-f330-4946-b4d6-8e1a87136c04" priority="normal">
         <source name="types">
             <class>
