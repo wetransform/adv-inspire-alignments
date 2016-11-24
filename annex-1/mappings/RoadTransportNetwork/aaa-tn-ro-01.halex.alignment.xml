@@ -193,7 +193,7 @@ withTransformationContext {
         </complexParameter>
         <documentation>Erstellt `ERoad`s zu `AX_Strasse`.
 
-Die zugehörigen `AX_Fahrbahnachse`n (nur Basis-DLM) und `AX_Strassenachse`n werden bestimmt um die Verknüpfung zu den entsprechend zu erstellenden `RoadLink`-Objekten herstellen zu können.
+Die zugehörigen `AX_Fahrbahnachse`n (nur Basis-DLM) und `AX_Strassenachse`n werden bestimmt um die Verknüpfung zu den entsprechend zu erstellenden `RoadLink`-Objekten herstellen zu können (in der Eigenschaft `link`).
 Falls Fahrbahnachsen zu der Straße verfügbar sind werden diese zur Repräsentation der `RoadLink`s verwendet, andernfalls die Straßenachsen.
 
 Die erstellte `ERoad` wird dem Index von Netzwerk-Elementen hinzugefügt.</documentation>
@@ -227,6 +227,26 @@ Die erstellte `ERoad` wird dem Index von Netzwerk-Elementen hinzugefügt.</docum
             </property>
         </target>
         <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C18011a5e-4bdd-4a36-9235-ed65c8929197" priority="normal">
+        <target>
+            <property>
+                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C971693cf-9a72-4128-85ed-87338b3c7288" priority="normal">
+        <target>
+            <property>
+                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cdea13ccc-cf83-4aa5-ac9d-9c076505f176" priority="low">
         <target>
