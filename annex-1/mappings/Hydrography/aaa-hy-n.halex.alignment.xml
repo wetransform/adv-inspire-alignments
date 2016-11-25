@@ -369,7 +369,7 @@ _target {&#xD;
                 </entry>
             </lookup-table>
         </complexParameter>
-        <parameter value="fixed:unknown" name="notClassifiedAction"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C5a37708c-333d-4276-8f1f-8326af62a576" priority="normal">
         <source>
@@ -393,31 +393,7 @@ _target {&#xD;
                 </entry>
             </lookup-table>
         </complexParameter>
-        <parameter value="fixed:unknown" name="notClassifiedAction"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C5a37708c-333d-4276-8f1f-8326af62a576" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="fliessrichtung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="flowDirection" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="true"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/LinkDirectionValue/inDirection"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="fixed:unknown" name="notClassifiedAction"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C863128d2-fb28-4d47-ac92-85dfb42d0c60" priority="lowest">
         <target>
