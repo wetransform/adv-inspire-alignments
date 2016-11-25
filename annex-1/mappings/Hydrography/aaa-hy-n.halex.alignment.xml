@@ -14,6 +14,7 @@
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
+        <parameter value="network" name="collectorName"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.identifier" id="C9892986c-a82d-4d20-80b9-bbd0d408055c" priority="normal">
         <source name="id">
@@ -74,6 +75,42 @@
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C67d8bf39-6e9d-4605-aefc-d8abeb246f75" priority="lowest">
+        <target>
+            <class>
+                <type name="NetworkType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collector&#xD;
+&#xD;
+withTransformationContext {&#xD;
+	collector = _.context.collector(it)&#xD;
+}&#xD;
+&#xD;
+_target {&#xD;
+	// Verknüpfung zu gesammelten Netzwerk-Elementen&#xD;
+	collector.network.each { id -&gt;;&#xD;
+		elements {&#xD;
+			href( "#$id" )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.numeric.sequentialid" id="C58ff5da7-1058-4ad4-9db8-4979d199ea9a" priority="normal">
+        <target>
+            <property>
+                <type name="NetworkType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="HydrographyNetwork_" name="prefix"/>
+        <parameter value="type" name="sequence"/>
+        <parameter value="" name="suffix"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C0bd64ec9-a7e3-41c0-a0d1-88bde4a02a52" priority="normal">
         <source>

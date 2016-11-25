@@ -466,6 +466,13 @@ values[-1]
             <cf:input eager="true" maxOccurs="-1" minOccurs="1" name="id">
                 <cf:binding>java.lang.String</cf:binding>
             </cf:input>
+			<cf:param maxOccurs="1" minOccurs="0" name="collectorName">
+                <cf:description>
+                    <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">Name eines Kollektors, der verwendet werden soll, um die erzeugten IDs zu sammeln.</core:text>
+                </cf:description>
+                <cf:display value="Collector name"/>
+                <cf:binding>java.lang.String</cf:binding>
+            </cf:param>
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
                 <cf:binding>java.lang.String</cf:binding>
             </cf:output>
@@ -501,6 +508,15 @@ if (true /*_params.useTargetTypePrefix*/) {
       id = '_' + id
     }
     id = targetType + id
+  }
+}
+
+// Falls ein Collector-Name angegeben wurde, IDs in diesem einspeisen
+
+if (_params.collectorName) {
+  withTransformationContext {
+    def c = _.context.collector(it)
+    c[_params.collectorName] &lt;&lt; id
   }
 }
 
