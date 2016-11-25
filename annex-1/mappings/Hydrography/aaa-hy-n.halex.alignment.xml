@@ -54,8 +54,8 @@
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb91972dd-fc22-488d-8b0f-3918f77a7c79" priority="normal">
         <source>
@@ -72,8 +72,8 @@
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C0bd64ec9-a7e3-41c0-a0d1-88bde4a02a52" priority="normal">
         <source>
@@ -88,8 +88,8 @@
                 <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.join" id="C5030a27e-9231-41f2-b351-e3972d38c52e" priority="normal">
         <source name="types">
@@ -190,8 +190,8 @@
                 <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce45298d6-bb21-48c2-9f44-91b32411e0d0" priority="normal">
         <source>
@@ -204,8 +204,8 @@
                 <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C5e2bf06e-be2d-4f49-a9cb-a1beeeca5f82" priority="normal">
         <source>
@@ -222,8 +222,8 @@
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
         <documentation>Falls `AX_BauwerkImGewaesserbereich` flächenhaft ausgeprägt ist, kann keine Abbildung auf `WatercourseLink.centrelineGeometry` erfolgen. </documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd4cf04d5-ab77-488b-baf1-90544a4300aa" priority="normal">
@@ -239,8 +239,8 @@
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C6f44443e-a329-4a66-8161-77ef1ea62666" priority="normal">
         <source>
@@ -255,8 +255,8 @@
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C703b2209-f978-44d6-b46e-406c389fb0d9" priority="normal">
         <source>
@@ -271,8 +271,8 @@
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C457401dd-ec1f-4ee7-984f-c50c73c9a8c0" priority="lowest">
         <target>
@@ -296,7 +296,6 @@
                 <child name="fictitious" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="fixed:false" name="notClassifiedAction"/>
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
@@ -309,6 +308,7 @@
                 </entry>
             </lookup-table>
         </complexParameter>
+        <parameter value="fixed:false" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C9fa88231-373a-462b-9bdf-64c2bad25eeb" priority="normal">
         <source>
@@ -324,7 +324,6 @@
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="fixed:unknown" name="notClassifiedAction"/>
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
@@ -337,6 +336,7 @@
                 </entry>
             </lookup-table>
         </complexParameter>
+        <parameter value="fixed:unknown" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C5a37708c-333d-4276-8f1f-8326af62a576" priority="normal">
         <source>
@@ -352,7 +352,6 @@
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="fixed:unknown" name="notClassifiedAction"/>
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
@@ -365,18 +364,19 @@
                 </entry>
             </lookup-table>
         </complexParameter>
+        <parameter value="fixed:unknown" name="notClassifiedAction"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ce3cc8696-e7b1-4231-ac7a-201fdf247ecc" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -391,16 +391,16 @@
         <parameter value="other" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C86f39286-d581-4d2b-a3a0-5e619cc766ea" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -415,16 +415,16 @@
         <parameter value="other" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C71676b63-a9dc-4ad2-800b-aaa43b690ae9" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -439,16 +439,16 @@
         <parameter value="other" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C122cb93f-90e4-46dc-b908-65f257665de5" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -543,20 +543,20 @@
         <parameter value="http://inspire.ec.europa.eu/codelist/NameStatusValue/other" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc6eb5d52-fad0-49f1-b26b-5246f2a6338e" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2012'</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">bauwerksfunktion = '2012'</condition>
                 </type>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '2012'</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -569,16 +569,16 @@
         <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C16ffcf76-ef69-4be7-9ae0-82a786e774c8" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -591,16 +591,16 @@
         <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C101f23ad-7a7f-4b77-a555-48704b165288" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -613,16 +613,16 @@
         <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C08c61bda-a3b3-4666-b590-9983166ed010" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -635,16 +635,16 @@
         <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C7f4b3d7e-4c85-4754-b571-ece32a50c67f" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
@@ -1104,20 +1104,20 @@ if (gewaesserAchseID) {&#xD;
         <documentation>Mittels der Relation`hatDirektUnten` wird ermittelt, ob es Gewässerachsen gibt, die von einem Düker unterquert werden. Ist dies der Fall, wird ein `WatercourseSeparatedCrossing` erstellt, wobei direkt zwei Referenzen auf `WatercourseLinks` erstellt werden - auf den Düker selbst (der durch einen WatercourseLink repräsentiert wird) sowie auf die Gewässerachse (die ebenfalls durch einen WatercourseLink repräsentiert wird)</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C09349cb4-f977-4f44-b662-4c9597457d39" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="source">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">bauwerksfunktion = '1800'</condition>
                 </type>
                 <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="spelling">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
