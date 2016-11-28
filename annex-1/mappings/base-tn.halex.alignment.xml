@@ -169,29 +169,29 @@ Zuvor wurde beim Erstellen jedes Netzwerk-Elements dessen GML id in einem Index 
         </target>
         <parameter value="deu" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9e4d44b0-eec5-4b5e-beff-4bea76ac30e1" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C8bd6e468-105d-4337-a3e7-f7355ed60664" priority="normal">
         <target>
             <property>
                 <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
                 <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="nilReason"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="other:unpopulated" name="value"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NameStatusValue/official" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2488af4c-3d4e-4738-a9d5-abd81ee566dc" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C56e9b1b9-1ade-49d5-9f53-37423fe9d061" priority="normal">
         <target>
             <property>
                 <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
                 <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="nativeness" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="nilReason"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="other:unpopulated" name="value"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NativenessValue/endonym" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf2ce1338-3fce-4a09-807d-09c3e76262d0" priority="normal">
         <target>

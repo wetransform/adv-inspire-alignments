@@ -4,7 +4,7 @@
     <author>Simon Templer</author>
     <description>Basisprojekt für gemeinsame Funktionalität für INSPIRE Transport Networks Projekte.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-11-24T08:53:51.350+01:00</modified>
+    <modified>2016-11-28T13:53:05.159+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -30,10 +30,25 @@
         <setting name="source">http://inspire.ec.europa.eu/codelist/NameStatusValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">2ba7298f-df44-4f5d-a81d-9c00301dd0df</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/NativenessValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
     <file name="alignment.xml" location="base-tn.halex.alignment.xml"/>
     <file name="styles.sld" location="base-tn.halex.styles.sld"/>
     <complex-property name="codelists">
         <associations>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/NativenessValue" namespace="http://inspire.ec.europa.eu/codelist/NativenessValue">
+                <entity>
+                    <type name="TransportNetworkType" namespace="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                    <property name="geographicalName" namespace="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                    <property name="GeographicalName" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                    <property name="nativeness" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/NameStatusValue" namespace="http://inspire.ec.europa.eu/codelist/NameStatusValue">
                 <entity>
                     <type name="TransportNetworkType" namespace="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
