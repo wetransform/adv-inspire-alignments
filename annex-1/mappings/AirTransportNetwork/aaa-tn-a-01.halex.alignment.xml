@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
-    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <base prefix="ba1" location="../base-tn.halex.alignment.xml"/>
+    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cd2d3c726-c951-484a-8bb0-c17504676eeb" priority="normal">
         <source>
             <class>
@@ -529,8 +529,8 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
                 <child name="width" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.uom.toucum" id="Cc3659e5d-d3a3-464a-bc59-506edd1b7763" priority="normal">
         <source name="uom">
@@ -563,8 +563,8 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C52d452c3-a4d1-41f5-b239-de1564584cdb" priority="normal">
         <source>
@@ -581,8 +581,8 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ccaa52a0b-aa46-4373-913d-d52ebe85743c" priority="normal">
         <source>
@@ -700,8 +700,8 @@ oberflaechenmaterial | surfaceComposition
                 <child name="designator" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C0c1014d7-111e-4e52-992d-bddb280e74a6" priority="normal">
         <target>
@@ -727,7 +727,6 @@ oberflaechenmaterial | surfaceComposition
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="null" name="notClassifiedAction"/>
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
@@ -740,6 +739,7 @@ oberflaechenmaterial | surfaceComposition
                 </entry>
             </lookup-table>
         </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C0e4df250-2688-47ea-8f06-9b8dfa95f60a" priority="low">
         <target>
@@ -915,8 +915,8 @@ oberflaechenmaterial | surfaceComposition
                 <child name="designator" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfba859bc-4b9f-4701-b28c-dc64ff12f28e" priority="normal">
         <target>
@@ -983,9 +983,9 @@ oberflaechenmaterial | surfaceComposition
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C1e56f083-0567-44ba-a80e-9306aa13ba62" priority="normal">
         <source name="id">
@@ -1073,8 +1073,8 @@ oberflaechenmaterial | surfaceComposition
                 <type name="UseRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="auto_detect"/>
         <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}position" name="additional_property"/>
+        <parameter value="false" name="auto_detect"/>
         <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}nutzung" name="property"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C4185fd7c-c7c8-4b51-ab7b-3667f679859e" priority="normal">
@@ -1093,7 +1093,6 @@ oberflaechenmaterial | surfaceComposition
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="false" name="variablesAsInstances"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def _ns = _project.vars.INSPIRE_NAMESPACE
@@ -1103,6 +1102,7 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
 }
 </core:text>
         </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
         <documentation>Kombinert den INSPIRE namespace mit der ID `UseRestriction_reservedForMilitary`.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C1d289ee8-8964-414a-a3d8-bca9de010f04" priority="normal">
