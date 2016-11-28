@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
-    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <base prefix="ba1" location="../base-tn.halex.alignment.xml"/>
+    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C48d3be90-5843-4323-bd79-ba1928b2429e" priority="normal">
         <source>
             <property>
@@ -17,8 +17,8 @@
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C92d71e60-b3b7-4864-a6a2-fc6d46d9ac4c" priority="normal">
         <source>
@@ -35,8 +35,8 @@
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cbc1d0004-f009-40ce-a9e0-284e0852cbd0" priority="low">
         <target>
@@ -298,9 +298,9 @@ In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cab81ca0e-f1a1-4311-aeb5-379d03826e51" priority="normal">
         <source name="id">
@@ -443,8 +443,8 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
                 <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="auto_detect"/>
         <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}name" name="additional_property"/>
+        <parameter value="false" name="auto_detect"/>
         <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}nummerDerBahnstrecke" name="property"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
@@ -633,8 +633,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
                 <child name="railwayLineCode" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd99f8fb6-fc49-4a92-85bd-059d1e7deb42" priority="normal">
         <target>
@@ -968,9 +968,9 @@ Der *railwayType* wird als `suspendedRail` festgelegt.</documentation>
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf78462fb-2cc3-4337-b4b6-4bc3e6485717" priority="normal">
         <target>
