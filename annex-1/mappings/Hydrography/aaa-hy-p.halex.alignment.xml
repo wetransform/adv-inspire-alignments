@@ -208,14 +208,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C0664ffc1-5775-4565-b4f7-36e8ca17f5cd" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -233,14 +225,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C13fc5874-2c20-48de-b80e-ed3a8ae4ff73" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -258,14 +242,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C5c2f96fd-8ae6-44d9-af64-f2261dc8ac44" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">archaeologischerTyp = '1110'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -660,14 +636,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cfde62eb0-4d0e-47c1-9290-91631c8392d6" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_DammWallDeichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">funktion = '3001' or funktion = '3003'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_DammWallDeichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -685,14 +653,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C44c4dc3b-51c0-40a0-bf85-7370a347b617" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1720'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -876,14 +836,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C8220fe6a-8a3e-4807-9d5d-0564bb6df281" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1620'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -1040,12 +992,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cbf1cda1f-4b02-4c93-970e-bddaabf3ebfb" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_StrassenverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_StrassenverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1064,14 +1010,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="other" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cbd827f78-2210-4e29-af90-97da9de6e6c4" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_StrassenverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '2000'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_StrassenverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -1360,14 +1298,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="notClassifiedAction"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cedef1a85-0446-4ec8-879f-270116960042" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1890'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -1621,14 +1551,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C5f7f4bef-d160-4d1c-ae9f-2643c2d57e5b" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1630'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -1748,14 +1670,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="notClassifiedAction"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cbc519d88-61b1-4853-9ca9-2cc035a3eddb" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2130' or bauwerksfunktion = '2131' or bauwerksfunktion = '2132' or bauwerksfunktion = '2133' or bauwerksfunktion = '2134' or bauwerksfunktion = '2135'  or bauwerksfunktion = '2136'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -1875,14 +1789,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="notClassifiedAction"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C6ef68b74-d86f-48a8-b598-4f1f0a9ecfe3" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2070'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -2669,12 +2575,6 @@ if (hatFlaechenhaft) {&#xD;
         <parameter value="true" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C8a8634eb-f5e9-4eeb-812c-91283edcf8c6" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -2693,12 +2593,6 @@ if (hatFlaechenhaft) {&#xD;
         <parameter value="other" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C090830b0-827e-4cdc-b3b2-50b0d3237a8c" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -2717,12 +2611,6 @@ if (hatFlaechenhaft) {&#xD;
         <parameter value="other" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ce4a48e2b-84e1-41be-9c32-9cab71cfa1d6" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -2739,12 +2627,6 @@ if (hatFlaechenhaft) {&#xD;
         <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cea58528f-17ec-408c-a064-36835ebad97a" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -3287,14 +3169,6 @@ if (hatFlaechenhaft) {&#xD;
         <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cd97765cc-c225-4d5a-8f97-2aeaf227b592" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1650'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -3312,14 +3186,6 @@ if (hatFlaechenhaft) {&#xD;
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C76a93599-1a50-47c0-9f39-995d30ea93c3" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_VegetationsmerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">zustand = '5000'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_VegetationsmerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
