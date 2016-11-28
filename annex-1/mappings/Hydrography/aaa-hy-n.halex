@@ -6,7 +6,7 @@
 &#xD;
 `WatercourseLinlSequences` werden nicht gebildet, da in den Quelldaten keine Verknüpfungen zwischen den einzelnen `AX_Gewaesserachsen` existieren, die für eine zuverlässige Bildung der Sequenz herangezogen werdne können. Eine geometrische Analyse kann nicht zuverlässif funktionieren.</description>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2016-11-28T14:42:22.147+01:00</modified>
+    <modified>2016-11-28T18:14:34.281+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -19,87 +19,6 @@
         <setting name="resourceId">7903face-9940-4d33-9f67-afcb16352bde</setting>
         <setting name="source">../../../schemas/NAS_6.0.1/schema/aaa.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">1dc4a27c-7e55-4971-af19-523c4b95e920</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_0von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">4baa75a8-e78b-47e7-9088-0c9381844975</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_1von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">261d30f4-dbf5-4dcf-9965-cd235516f26c</setting>
-        <setting name="source">../../../testdaten/NBA-Mustermonzel_20100520T144438_2von8_32350000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">dab30e29-2dfc-4242-9faa-3f369e08dd70</setting>
-        <setting name="source">../../../testdaten/NBA-Mustermonzel_20100520T144438_3von8_32345000_5530000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">1d2243fe-14cb-409f-b1c1-a1f06e6bcfce</setting>
-        <setting name="source">../../../testdaten/NBA-Mustermonzel_20100520T144438_4von8_32350000_5530000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">26e7001d-a2eb-45ec-a3fe-288b0999f8fb</setting>
-        <setting name="source">../../../testdaten/NBA-Mustermonzel_20100520T144438_5von8_32355000_5530000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">8d2b7723-1af8-44ae-a441-330f09fbe277</setting>
-        <setting name="source">../../../testdaten/NBA-Mustermonzel_20100520T144438_6von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">9c81fce8-027e-44ed-9008-38d77161426b</setting>
-        <setting name="source">../../../testdaten/NBA-Mustermonzel_20100520T144438_7von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">0670202b-c1f9-4ad7-88e3-86bbb70791b8</setting>
-        <setting name="source">../../../testdaten/NBA-Mustermonzel_20100520T144438_8von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
     </resource>
     <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
         <setting name="charset">UTF-8</setting>
@@ -146,31 +65,11 @@
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">1bc28e1a-8abc-424f-a987-b84256a11b5c</setting>
+        <setting name="resourceId">f3a267a5-dd2e-4b76-a7b3-25c28b336c4b</setting>
         <setting name="interpolation.maxerror">0.1</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Hamburg/AX_BauwerkImGewaesserbereich_HH.xml</setting>
+        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Rheinland-Pfalz/DLMNAS_5611.xml.gz</setting>
         <setting name="strict">false</setting>
-        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">68e0f67c-f73c-41f7-bc90-4fb6ad7c4c75</setting>
-        <setting name="interpolation.maxerror">0.1</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Hamburg/AX_Wasserlauf_HH.xml</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">8d0e4242-44df-4287-b877-53a121adfc9a</setting>
-        <setting name="interpolation.maxerror">0.1</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/Hamburg/Inspire_160831_18von68.xml</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
         <setting name="ignoreRoot">true</setting>
     </resource>
@@ -1813,6 +1712,14 @@
     <property name="resource-dab30e29-2dfc-4242-9faa-3f369e08dd70:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAGType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-dab30e29-2dfc-4242-9faa-3f369e08dd70:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-dab30e29-2dfc-4242-9faa-3f369e08dd70:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortTAType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
+    <property name="resource-f3a267a5-dd2e-4b76-a7b3-25c28b336c4b:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-f3a267a5-dd2e-4b76-a7b3-25c28b336c4b:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-f3a267a5-dd2e-4b76-a7b3-25c28b336c4b:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
+    <property name="resource-f3a267a5-dd2e-4b76-a7b3-25c28b336c4b:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-f3a267a5-dd2e-4b76-a7b3-25c28b336c4b:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FliessgewaesserType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-f3a267a5-dd2e-4b76-a7b3-25c28b336c4b:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FliessgewaesserType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-f3a267a5-dd2e-4b76-a7b3-25c28b336c4b:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaesserachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-f3a267a5-dd2e-4b76-a7b3-25c28b336c4b:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaesserstationierungsachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="INSPIRE_NAMESPACE">
