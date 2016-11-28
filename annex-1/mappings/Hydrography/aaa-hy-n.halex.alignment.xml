@@ -406,12 +406,6 @@ _target {&#xD;
         <parameter value="unknown" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ce3cc8696-e7b1-4231-ac7a-201fdf247ecc" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -430,12 +424,6 @@ _target {&#xD;
         <parameter value="other" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C86f39286-d581-4d2b-a3a0-5e619cc766ea" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -454,12 +442,6 @@ _target {&#xD;
         <parameter value="other" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C71676b63-a9dc-4ad2-800b-aaa43b690ae9" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -478,12 +460,6 @@ _target {&#xD;
         <parameter value="other" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C122cb93f-90e4-46dc-b908-65f257665de5" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -501,95 +477,7 @@ _target {&#xD;
         </target>
         <parameter value="other" name="nameStatus"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C871869e8-bd34-4e72-a078-e02c022fd26e" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0">
-                    <context>0</context>
-                </child>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NameStatusValue/other" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb113cedc-a4f4-4e65-9f77-8000e4adf8db" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0">
-                    <context>0</context>
-                </child>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NameStatusValue/other" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5e8e2b59-36d1-4647-9299-24cefed399a4" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0">
-                    <context>0</context>
-                </child>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NameStatusValue/other" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C49c0bbf5-2e24-4cf0-92ad-b69643eed04d" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0">
-                    <context>0</context>
-                </child>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NameStatusValue/other" name="value"/>
-    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc6eb5d52-fad0-49f1-b26b-5246f2a6338e" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2012'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -608,12 +496,6 @@ _target {&#xD;
         <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C16ffcf76-ef69-4be7-9ae0-82a786e774c8" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -630,12 +512,6 @@ _target {&#xD;
         <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C101f23ad-7a7f-4b77-a555-48704b165288" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -652,12 +528,6 @@ _target {&#xD;
         <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C08c61bda-a3b3-4666-b590-9983166ed010" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -674,12 +544,6 @@ _target {&#xD;
         <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C7f4b3d7e-4c85-4754-b571-ece32a50c67f" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -694,18 +558,6 @@ _target {&#xD;
             </property>
         </target>
         <parameter value="official" name="nameStatus"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C065a4f14-14bd-4570-a0d9-194a5da08406" priority="normal">
-        <target>
-            <property>
-                <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/NameStatusValue/official" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C1f0af287-eddd-4251-b6ac-e06cc7e18b89" priority="normal">
         <source name="id">
@@ -1143,14 +995,6 @@ if (gewaesserAchseID) {&#xD;
         <documentation>Mittels der Relation`hatDirektUnten` wird ermittelt, ob es Gewässerachsen gibt, die von einem Düker unterquert werden. Ist dies der Fall, wird ein `WatercourseSeparatedCrossing` erstellt, wobei direkt zwei Referenzen auf `WatercourseLinks` erstellt werden - auf den Düker selbst (der durch einen WatercourseLink repräsentiert wird) sowie auf die Gewässerachse (die ebenfalls durch einen WatercourseLink repräsentiert wird)</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C09349cb4-f977-4f44-b662-4c9597457d39" priority="normal">
-        <source name="source">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
-                </type>
-                <child name="modellart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
