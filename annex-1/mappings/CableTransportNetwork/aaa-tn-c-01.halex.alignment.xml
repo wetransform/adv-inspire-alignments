@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
-    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <base prefix="ba1" location="../base-tn.halex.alignment.xml"/>
+    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
         <source>
             <class>
@@ -85,8 +85,8 @@ Die erstellten `CablewayLink`s werden dem Index von Netzwerk-Elementen hinzugef√
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C5f8353d2-54ee-47d4-8abb-62c2c585ba41" priority="normal">
         <source>
@@ -102,7 +102,6 @@ Die erstellten `CablewayLink`s werden dem Index von Netzwerk-Elementen hinzugef√
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="null" name="notClassifiedAction"/>
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
@@ -123,6 +122,7 @@ Die erstellten `CablewayLink`s werden dem Index von Netzwerk-Elementen hinzugef√
                 </entry>
             </lookup-table>
         </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C1107dba0-b8e6-4f84-95b6-36c2015934be" priority="normal">
         <target>
@@ -149,8 +149,8 @@ Die erstellten `CablewayLink`s werden dem Index von Netzwerk-Elementen hinzugef√
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdebc2019-9966-4798-ba79-2c5a23c84db1" priority="normal">
         <target>
