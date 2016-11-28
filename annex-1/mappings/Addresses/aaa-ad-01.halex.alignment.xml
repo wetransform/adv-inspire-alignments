@@ -1316,8 +1316,8 @@ if (positionAdresse) {&#xD;
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/3rdOrder" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca0c5ca58-69f9-4917-af60-61d2acaa67c4" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C2cec625e-879a-4406-b77a-570f4acf7a16" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1328,16 +1328,12 @@ if (positionAdresse) {&#xD;
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="DLKM" name="source"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C5fe87932-7e93-4a0c-ad80-abf8069df0d6" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C9bd3802a-3312-4c60-b65c-01716f854e9b" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1348,16 +1344,12 @@ if (positionAdresse) {&#xD;
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="DLKM" name="source"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1fdf6ba9-e582-41d4-89d4-2fd3536af24f" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C9c6a4a39-4371-4afd-b95b-99ea5b2efdfe" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1368,16 +1360,12 @@ if (positionAdresse) {&#xD;
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="DLKM" name="source"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C67c897fc-a4a9-4120-8008-56c7087986ef" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cbd19a099-b6aa-46e0-952d-3ee56a523b0e" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1388,16 +1376,12 @@ if (positionAdresse) {&#xD;
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="DLKM" name="source"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C064e28f7-71c0-4cd4-87e4-a9cd291c3f1c" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C59c011ba-f77e-4f86-a34b-abea477d1886" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1408,13 +1392,9 @@ if (positionAdresse) {&#xD;
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="DLKM" name="source"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.merge" id="C853700b9-c520-4c5c-9e2c-105f697c6d50" priority="normal">
         <source>
@@ -1516,8 +1496,8 @@ if (positionAdresse) {&#xD;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C327276ff-581f-4aab-b58a-921a1ede3f11" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc9517454-0c72-414a-87ba-a1b252c7f69d" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="ortsnamePost" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1528,13 +1508,9 @@ if (positionAdresse) {&#xD;
                 <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="postName" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="DLKM" name="source"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C9fc48689-dc97-4f8a-864a-1557dcf3c563" priority="normal">
         <source>
@@ -1668,8 +1644,8 @@ if (positionAdresse) {&#xD;
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd4f4a85e-07bd-46f3-9d4a-80d229cd6024" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C92934998-8d8a-41d9-ad6d-f2aeb4227180" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1682,12 +1658,8 @@ if (positionAdresse) {&#xD;
                 <child name="ThoroughfareNameValue" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="DLKM" name="source"/>
     </cell>
 </alignment>

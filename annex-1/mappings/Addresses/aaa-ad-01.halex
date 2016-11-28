@@ -3,7 +3,7 @@
     <name>ALKIS zu INSPIRE Addresses</name>
     <author>Thorsten Reitz, wetransform GmbH</author>
     <created>2016-06-14T14:18:58.157+02:00</created>
-    <modified>2016-11-24T12:52:59.320+01:00</modified>
+    <modified>2016-11-28T14:24:06.803+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -52,10 +52,33 @@
         <setting name="ignoreNamespaces">false</setting>
         <setting name="ignoreRoot">true</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">96087dc7-459d-4586-bc57-74317fb55b89</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/NameStatusValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">c2569242-791b-4b23-b924-58dc11f0c8b5</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/NativenessValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
     <file name="alignment.xml" location="aaa-ad-01.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-ad-01.halex.styles.sld"/>
     <complex-property name="codelists">
         <associations>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/NativenessValue" namespace="http://inspire.ec.europa.eu/codelist/NativenessValue">
+                <entity>
+                    <type name="ThoroughfareNameType" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="name" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="ThoroughfareNameValue" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="name" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="GeographicalName" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                    <property name="nativeness" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue" namespace="http://inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue">
                 <entity>
                     <type name="AddressType" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -80,6 +103,17 @@
                     <property name="locator" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                     <property name="AddressLocator" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                     <property name="level" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/NameStatusValue" namespace="http://inspire.ec.europa.eu/codelist/NameStatusValue">
+                <entity>
+                    <type name="ThoroughfareNameType" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="name" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="ThoroughfareNameValue" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="name" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="GeographicalName" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                    <property name="nameStatus" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>
