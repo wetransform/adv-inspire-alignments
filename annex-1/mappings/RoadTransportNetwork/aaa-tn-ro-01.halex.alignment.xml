@@ -513,7 +513,7 @@ Die erstellte `RoadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.</do
         <source>
             <class>
                 <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">funktion = '2312' or funktion = '5130'</condition>
+                    <condition lang="CQL">funktion is null or funktion = '2312' or funktion = '5130'</condition>
                 </type>
             </class>
         </source>
@@ -549,7 +549,7 @@ withTransformationContext {
 }
 </core:text>
         </complexParameter>
-        <documentation>Erstellt `RoadArea`s aus `AX_Strassenverkehr` (nur `funktion` *Verkehrsbegleitfläche Straße* und *Fußgängerzone*).
+        <documentation>Erstellt `RoadArea`s aus `AX_Strassenverkehr` (falls `funktion` nicht gesetzt und für `funktion` *Verkehrsbegleitfläche Straße* und *Fußgängerzone*).
 
 Die erstellte `RoadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
 
@@ -653,7 +653,7 @@ Die *functionalClass* wird fest als `ninthClass` angegeben.
         <source>
             <class>
                 <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">funktion is not null and funktion &lt;&gt; '5260' and funktion &lt;&gt; '9999'</condition>
+                    <condition lang="CQL">funktion &lt;&gt; '5260' and funktion &lt;&gt; '9999'</condition>
                 </type>
             </class>
         </source>
@@ -697,7 +697,7 @@ withTransformationContext {
 }
 </core:text>
         </complexParameter>
-        <documentation>Erstellt `RoadArea`s aus `AX_Weg` (alle Werte `funktion` außer *Reitweg*, *sonstige*).
+        <documentation>Erstellt `RoadArea`s aus `AX_Weg` (alle Werte `funktion` außer *Reitweg*, *sonstige*, auch wenn kein Wert für `funktion` vorhanden ist).
 
 Die erstellte `RoadArea` wird dem Index von Netzwerk-Elementen hinzugefügt.
 
