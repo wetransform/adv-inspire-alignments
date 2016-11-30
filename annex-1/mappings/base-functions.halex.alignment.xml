@@ -6,7 +6,7 @@
             <cf:output eager="false" maxOccurs="1" minOccurs="1"/>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def geoms = _.geom.toSimpleGeometries(geometries: geometrie, collections: false)
+def geoms = _.geom.toSimpleGeometries(geometries: _.geom.aggregate(geometrie), collections: false)
 if (geoms) {
 	if (geoms.size() &gt; 1) {
 		_log.error("Mehrere Geometrien gefunden - Aufteilung nötig")
@@ -18,7 +18,17 @@ else {
 }
 </core:text>
             </cf:definition>
-            <cf:explanation/>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+Überführt die Quell-Geometrien als eine zusammengefasste Simple Feature Geometrie (ohne Multi-Geometrien).
+
+Nur erfolgreich falls genau eine Simple Feature Geometrie gebildet werden kann. Andernfalls wird ein entsprechender Fehler in die Transformations-Logs eingetragen.
+</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
         </cf:custom-property-function>
     </customFunction>
     <customFunction>
