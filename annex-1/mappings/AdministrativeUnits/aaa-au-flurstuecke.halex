@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="2.9.5.qualifier">
+<hale-project version="3.1.0.qualifier">
     <name>3A zu INSPIRE Administrative Units</name>
     <author>Simon Templer</author>
     <description>Alignment vom 3A-Modell zum INSPIRE Anwendungsschema Administrative Units.
@@ -15,7 +15,7 @@ Das gleiche gilt für die aggregierten Geometrien -- hier werden bei unvollstän
 
 Sofern möglich sollte alternativ für die Transformation das Projekt mit Aggregierung aus `AX_KommunalesGebiet` verwendet werden. Falls diese Objekte nich vorhanden sind, könnten als Zwischenschritt auch `AX_KommunalesGebiet` aus Flurstücken abgeleitet werden.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-08-29T14:35:51.030+02:00</modified>
+    <modified>2016-11-30T11:25:16.520+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1387,23 +1387,16 @@ Sofern möglich sollte alternativ für die Transformation das Projekt mit Aggreg
     <property name="instances.sampling.sampler">first</property>
     <property name="instances.sampling.settings.first">500</property>
     <property name="instances.sampling.settings.skip">10</property>
-    <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BesondereFlurstuecksgrenzeType</property>
-    <property name="mappableSourceType/10">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KondominiumType</property>
-    <property name="mappableSourceType/11">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_RegierungsbezirkType</property>
-    <property name="mappableSourceType/12">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GemeindeType</property>
-    <property name="mappableSourceType/13">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BundeslandType</property>
-    <property name="mappableSourceType/14">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KreisRegionType</property>
-    <property name="mappableSourceType/15">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_VerwaltungsgemeinschaftType</property>
-    <property name="mappableSourceType/16">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlurstueckType</property>
-    <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_Gebiet_BundeslandType</property>
-    <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_Gebiet_KreisType</property>
-    <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebietsgrenzeType</property>
-    <property name="mappableSourceType/5">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_Gebiet_VerwaltungsgemeinschaftType</property>
-    <property name="mappableSourceType/6">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KommunalesGebietType</property>
-    <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_Gebiet_RegierungsbezirkType</property>
-    <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_Gebiet_NationalstaatType</property>
-    <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_NationalstaatType</property>
-    <property name="mappableSourceType/count">16</property>
+    <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebietsgrenzeType</property>
+    <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_NationalstaatType</property>
+    <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KondominiumType</property>
+    <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_RegierungsbezirkType</property>
+    <property name="mappableSourceType/5">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GemeindeType</property>
+    <property name="mappableSourceType/6">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BundeslandType</property>
+    <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KreisRegionType</property>
+    <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_VerwaltungsgemeinschaftType</property>
+    <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlurstueckType</property>
+    <property name="mappableSourceType/count">9</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeUnitType</property>
     <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeBoundaryType</property>
     <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/au/4.0}CondominiumType</property>
