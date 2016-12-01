@@ -21,7 +21,7 @@
 def geometries = _.geom.findLines(_source.p.position.first())
 
 // Ziel unterstützt keine MultiLineStrings
-def curves = _.geom.splitMulti(geometries)
+def curves = _.geom.toSimpleGeometries(geometries: geometries, collections: false)
 
 // Builder konfigurieren
 // - Zuweisung der Geometrie auf Ebene von geometry zulassen
