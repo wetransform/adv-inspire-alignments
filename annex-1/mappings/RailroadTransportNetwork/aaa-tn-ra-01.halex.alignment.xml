@@ -285,8 +285,8 @@ In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce46930d3-2f8c-4b1a-b930-4fd411b48c6b" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="C2415887f-d793-4ea9-be9a-5401165c7541" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -298,9 +298,6 @@ In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="copyGeometries"/>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cab81ca0e-f1a1-4311-aeb5-379d03826e51" priority="normal">
         <source name="id">
@@ -896,7 +893,7 @@ In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
 def geometries = _.geom.findLines(_source.p.position.first())
 
 // Ziel unterstützt keine MultiLineStrings
-def curves = _.geom.splitMulti(geometries)
+def curves = _.geom.toSimpleGeometries(geometries: geometries, collections: false)
 
 // Builder konfigurieren
 // - Zuweisung der Geometrie auf Ebene von geometry zulassen
@@ -955,8 +952,8 @@ Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt
 
 Der *railwayType* wird als `suspendedRail` festgelegt.</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdd940494-8116-4e0e-a7ac-a635b29f5cce" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="C3db7a167-d20a-482b-8b61-ce70f573de62" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -968,9 +965,6 @@ Der *railwayType* wird als `suspendedRail` festgelegt.</documentation>
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="copyGeometries"/>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf78462fb-2cc3-4337-b4b6-4bc3e6485717" priority="normal">
         <target>
