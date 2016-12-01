@@ -1663,8 +1663,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C874a26b0-406c-4a01-aaba-93bee2ea5759" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cb0d7c387-ff11-4165-b81c-fe28c5cb7813" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1676,9 +1676,6 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="copyGeometries"/>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cca83e39e-3475-4b62-9cef-0c4099c7e63d" priority="normal">
         <source name="id">
@@ -2457,8 +2454,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd33efa37-4a17-47e7-9d11-3c6351116e85" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cb6470605-31fb-45d1-9126-c9933af47049" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -2470,12 +2467,9 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="copyGeometries"/>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb6f2007a-eb0f-425c-af6f-2cd74f25e475" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cee224ae4-bd8b-447e-b1ff-ec8b16a6aa40" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -2487,12 +2481,9 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="copyGeometries"/>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cac502866-2720-40ba-ac7c-93d388f5b593" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="C83f11aca-ef38-44f5-ad61-fbb7614b6218" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_SchifffahrtslinieFaehrverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -2504,9 +2495,6 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="copyGeometries"/>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce14a00f7-0f0f-425e-96bc-e278fa0d9678" priority="normal">
         <source>
