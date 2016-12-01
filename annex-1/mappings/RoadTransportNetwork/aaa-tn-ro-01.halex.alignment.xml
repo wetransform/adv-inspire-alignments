@@ -831,8 +831,8 @@ funktion  | functionalClass
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C90c94cf5-9033-4987-bcc0-c0fb11912e07" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="C03242cf4-d306-48d3-b28c-36ca110b9268" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -844,11 +844,9 @@ funktion  | functionalClass
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C2716b554-45cd-4a01-a710-11906f6333f3" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="C14b7beec-415e-4a5e-bdf1-d522c580c2a7" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -860,11 +858,9 @@ funktion  | functionalClass
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C317a2a74-9586-4a27-a0d6-f071671768bd" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cfa221ae9-32f8-4cd2-a17e-e70893ce5865" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -876,8 +872,6 @@ funktion  | functionalClass
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C4e7669e8-0669-46a5-9836-ff86d7f43672" priority="normal">
         <source name="id">
@@ -993,7 +987,7 @@ funktion  | functionalClass
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
@@ -1004,7 +998,7 @@ funktion  | functionalClass
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
@@ -1077,7 +1071,11 @@ def erstelleRoadLink = { achse -&gt;
 		endLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.beginnt.value() )
 		beginLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.endet.value() )
 		id( _id )
-		centrelineGeometry( _.geom.find(achse.p.position.first()) )
+		def geoms = _.geom.toSimpleGeometries(geometries: achse.p.position.first(), collections: false)
+		if (geoms.size() &gt; 1) {
+			_log.error('Zusammenfassung von Geometrie in Achse nicht möglich')
+		}
+		centrelineGeometry( geoms[0] )
 		inspireId {
 			Identifier {
 				namespace( _ns )
@@ -1339,7 +1337,7 @@ funktion  | functionalClass
 def geometries = _.geom.findLines(_source.p.position.first())
 
 // Ziel unterstützt keine MultiLineStrings
-def curves = _.geom.splitMulti(geometries)
+def curves = _.geom.toSimpleGeometries(geometries: geometries, collections: false)
 
 // Builder konfigurieren
 // - Zuweisung der Geometrie auf Ebene von geometry zulassen
@@ -1490,8 +1488,8 @@ Die *functionalClass* wird als `ninthClass` festgelegt.
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ccbd1ee97-a42d-46bc-bb32-300ea8ab5cff" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cea0e0475-9496-4b4f-92a9-6f2a1d12bc85" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1503,9 +1501,6 @@ Die *functionalClass* wird als `ninthClass` festgelegt.
                 <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="copyGeometries"/>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C28de3162-ee30-4e33-a023-c790c0626889" priority="normal">
         <source>
@@ -1824,8 +1819,8 @@ In allen anderen Fällen wird *conditionOfFacility* als `functional`angenommen.
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ceaa88c24-66ad-4fa2-8663-e1e383f38522" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cd93d26ce-75f5-4a6a-9d4f-5e15f288d6f8" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1837,11 +1832,9 @@ In allen anderen Fällen wird *conditionOfFacility* als `functional`angenommen.
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7d25a6fb-8c50-4bb7-b696-c4a4269eff58" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cabfa9b04-be6c-4af3-a77c-09348ea070a1" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1853,8 +1846,6 @@ In allen anderen Fällen wird *conditionOfFacility* als `functional`angenommen.
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C28588120-6d5c-4d16-b0e8-2b7a10d53c4c" priority="normal">
         <source name="id">
