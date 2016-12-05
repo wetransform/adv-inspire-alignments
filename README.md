@@ -124,6 +124,7 @@ Jede Transformations-Definition kann folgende Eigenschaften haben. Alle Angaben 
 - **sourceFolder** - Der Pfad zu einem alternativen Ordner mit Quell-Daten die für die Transformation verwendet werden sollen
 - **enabled** - Mit dem Wert `false` kann eine Definition deaktiviert werden ohne sie zu löschen
 - **model** - Hier wird als Wert ein der Name eines AdV-Standardmodells erwartet (z.B. "DLKM"). Die Angabe wirkt sich auf drei Weisen aus: Es wird ein entsprechender Filter auf die Quell-Daten angewandt, vor der Transformation (Test des modellart-Attributs). Außerdem wird eine entsprechende Projekt-Variable gesetzt die im Alignment verwendet werden kann. Des weiteren wird ggf. ein Modell-spezifischer Ordner für die Quell-Daten verwendet (siehe _Quell-Daten aus anderem Ordner_).
+- **additionalModels** - Hier können in einem Array weitere Modellarten angegeben werden, die bei der Transformation akzeptiert werden sollen, die Filter werden entsprechend ergänzt
 - **variables** - Zuordnung von Projekt-Variablen um zum Beispiel einen spezifischen INSPIRE namespace anzugeben, der den Standard-Wert im Projekt überschreibt
 - **additionalArgs** - Ein Array mit zusätzlichen Parametern die an den hale-Kommandozeilenaufruf zu übergeben sind
 
@@ -135,6 +136,9 @@ Hier ein Beispiel:
     "project": "pfad/zu/projekt.halex",
     "sourceFolder": "pfad/zu/quelldaten",
     "model": "DLKM",
+    "additionalModels": [
+      "DKKM1000"
+    ],
     "variables": {
       "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.by..."
     },
