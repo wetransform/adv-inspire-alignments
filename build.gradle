@@ -84,6 +84,14 @@ transformations.each { name, config ->
       additionalArgs << '-filter'
       additionalArgs << "CQL:modellart.AA_Modellart.advStandardModell = '${config.model}'"
 
+      if (config.additionalModels) {
+        // add filters for additional models (also accepting those)
+        config.additionalModels.each { modelName ->
+          additionalArgs << '-filter'
+          additionalArgs << "CQL:modellart.AA_Modellart.advStandardModell = '${modelName}'"
+        }
+      }
+
       // add project variable
       projectVariables['ADV_MODELLART'] = config.model
     }

@@ -115,6 +115,24 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca6813682-3575-4bb7-9a69-d65ba4d3d86a" priority="lowest">
+        <source name="anchor">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012'</condition>
+                </type>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="condition" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C55f30921-d5d1-477f-8d01-19b218a1f25a" priority="normal">
         <source>
             <property>
@@ -144,6 +162,24 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
             </lookup-table>
         </complexParameter>
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd09e31ef-430a-435c-a900-8bb0d439032f" priority="lowest">
+        <source name="anchor">
+            <property>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                </type>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="condition" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="Cf63c2fb7-08aa-4316-b52a-781b5dcabb99" priority="normal">
         <source>
