@@ -868,9 +868,7 @@ withTransformationContext {
         </source>
         <source name="types">
             <class>
-                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <target>
@@ -884,9 +882,7 @@ withTransformationContext {
                     <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 </class>
                 <class>
-                    <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                        <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                    </type>
+                    <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 </class>
                 <jp:condition>
                     <property>
@@ -894,9 +890,7 @@ withTransformationContext {
                         <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                     <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                            <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                        </type>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                 </jp:condition>
@@ -2483,9 +2477,7 @@ withTransformationContext {
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9405b153-68f1-41ee-b945-e9c4953e7511" priority="normal">
         <source>
             <property>
-                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
