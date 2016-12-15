@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.1.0.SNAPSHOT">
+<hale-project version="3.1.0.qualifier">
     <name>AAA zu Geographical Names</name>
     <author>Thorsten Reitz</author>
     <created>2016-04-28T13:07:54.568+02:00</created>
-    <modified>2016-12-01T13:50:53.761+01:00</modified>
+    <modified>2016-12-13T14:27:12.337+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/wetransform/dev/inspire-alignements/annex-1/mappings/GeographicalNames/aaa-gn-02.halex</setting>
+        <setting name="target">file:/home/simon/repos/inspire-alignements/annex-1/mappings/GeographicalNames/aaa-gn-02.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="onlyElementsMappable">true</setting>
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">66d07dea-60f3-4c80-8a9d-924e14b0cc16</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
@@ -33,16 +33,16 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">63fe910f-95d7-49a0-b620-e4ae4e7fcb8c</setting>
-        <setting name="source">file:/C:/wetransform/Box%20Sync/staff/Projects/2016-04%20AdV%20Umsetzung%20Anhang%20I/Beispieldaten/Bestandsdaten%20Mustermonzel/beispieldatensatz_nba_grundausstattung/NBA-Mustermonzel_20100520T144438_4von8_32350000_5530000.xml</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_4von8_32350000_5530000.xml.gz</setting>
         <setting name="strict">false</setting>
-        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
         <setting name="ignoreRoot">true</setting>
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">e54322d7-8b8a-4ba1-b6a6-a4574a120997</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_0von8_32345000_5525000.xml.gz</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_0von8_32345000_5525000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -51,7 +51,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">f7fa202f-48da-49cb-b63b-bc60e47dcd82</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_1von8_32345000_5525000.xml.gz</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_1von8_32345000_5525000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -60,7 +60,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">df592a6f-c617-4195-8c30-ff2ffaea35c9</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_3von8_32345000_5530000.xml.gz</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_3von8_32345000_5530000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -69,7 +69,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">f86b4534-fb1e-407a-b56a-52c6eb6d1aa4</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_2von8_32350000_5525000.xml.gz</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_2von8_32350000_5525000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -78,7 +78,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">c4d7b467-f2ee-472f-bd20-6ae0d0b6bba0</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_5von8_32355000_5530000.xml.gz</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_5von8_32355000_5530000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -87,7 +87,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">927b75d3-9a13-4c73-8ed3-a59e662f95ce</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_6von8_32345000_5525000.xml.gz</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_6von8_32345000_5525000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -96,7 +96,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">c9db282c-ed78-4098-895e-db8d5edf172d</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_7von8_32345000_5525000.xml.gz</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_7von8_32345000_5525000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -105,7 +105,7 @@
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">0c7a474f-51ad-40bf-84a7-d2fc7bd86cc5</setting>
-        <setting name="source">file:/C:/wetransform/dev/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_8von8_32345000_5525000.xml.gz</setting>
+        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/NBA-Mustermonzel_20100520T144438_8von8_32345000_5525000.xml.gz</setting>
         <setting name="strict">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
         <setting name="ignoreNamespaces">false</setting>
