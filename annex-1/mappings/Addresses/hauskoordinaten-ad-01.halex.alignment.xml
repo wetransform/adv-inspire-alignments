@@ -10,7 +10,6 @@
                 <cf:binding>java.lang.String</cf:binding>
             </cf:input>
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
-                <cf:binding>java.lang.String</cf:binding>
                 <cf:type name="PointType" ns="http://www.opengis.net/gml/3.2"/>
             </cf:output>
             <cf:definition>
@@ -30,7 +29,7 @@ String code = "EPSG:25832"&#xD;
 if (zone == 31) {&#xD;
   code = "EPSG:25831"&#xD;
 }&#xD;
-else if (33) {&#xD;
+else if (zone == 33) {&#xD;
   code = "EPSG:25833"&#xD;
 }&#xD;
 &#xD;
