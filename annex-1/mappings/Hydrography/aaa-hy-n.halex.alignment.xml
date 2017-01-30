@@ -988,7 +988,9 @@ if (gewaesserAchseID) {&#xD;
 	_target {&#xD;
 		element {&#xD;
 			// Zuerst kommt der Düker, da dieser die andere Gewässerachse unterquert.&#xD;
-			href( "#$duekerID" )&#xD;
+			//href( "#$duekerID" )&#xD;
+			// XXX es gibt kein bekanntes Objekt das aus dem Düker gebildet wird&#xD;
+			nilReason( 'unknown' )&#xD;
 		}&#xD;
 		element {&#xD;
 			// Dann kommt die andere Gewässerachse.&#xD;
@@ -998,7 +1000,7 @@ if (gewaesserAchseID) {&#xD;
 }
 </core:text>
         </complexParameter>
-        <documentation>Mittels der Relation`hatDirektUnten` wird ermittelt, ob es Gewässerachsen gibt, die von einem Düker unterquert werden. Ist dies der Fall, wird ein `WatercourseSeparatedCrossing` erstellt, wobei direkt zwei Referenzen auf `WatercourseLinks` erstellt werden - auf den Düker selbst (der durch einen WatercourseLink repräsentiert wird) sowie auf die Gewässerachse (die ebenfalls durch einen WatercourseLink repräsentiert wird)</documentation>
+        <documentation>Mittels der Relation`hatDirektUnten` wird ermittelt, ob es Gewässerachsen gibt, die von einem Düker unterquert werden. Ist dies der Fall, wird ein `WatercourseSeparatedCrossing` erstellt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C17077e21-db6b-43a0-b1a4-8e1a68dc9e25" priority="normal">
         <source name="types">
@@ -1060,13 +1062,16 @@ if (gewaesserAchseID) {&#xD;
 		}&#xD;
 		element {&#xD;
 			// Dann kommt die Brücke, da dieser die andere Gewässerachse überquert.&#xD;
-			href( "#$brueckeID" )&#xD;
+			//href( "#$brueckeID" )&#xD;
+			// XXX es gibt kein bekanntes Objekt das aus der Brücke gebildet wird&#xD;
+			nilReason( 'unknown' )&#xD;
 		}&#xD;
 	}&#xD;
 }&#xD;
 
 </core:text>
         </complexParameter>
+        <documentation>Mittels der Relation`hatDirektUnten` wird ermittelt, ob es Fliessgewässer gibt, die von einer Brücke überquert werden. Ist dies der Fall, wird ein `WatercourseSeparatedCrossing` erstellt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C34e7e1a9-d45a-4579-a5aa-53b2958a02e5" priority="normal">
         <source name="types">
@@ -1128,12 +1133,15 @@ if (gewaesserAchseID) {&#xD;
 		}&#xD;
 		element {&#xD;
 			// Dann kommt die Brücke, da dieser die andere Gewässerachse überquert.&#xD;
-			href( "#$brueckeID" )&#xD;
+			//href( "#$brueckeID" )&#xD;
+			// XXX es gibt kein bekanntes Objekt das aus der Brücke gebildet wird&#xD;
+			nilReason( 'unknown' )&#xD;
 		}&#xD;
 	}&#xD;
 }
 </core:text>
         </complexParameter>
+        <documentation>Mittels der Relation`hatDirektUnten` wird ermittelt, ob es Gewässerachsen gibt, die von einer Brücke überquert werden. Ist dies der Fall, wird ein `WatercourseSeparatedCrossing` erstellt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C2bd85216-4863-4563-954d-31c8e95e7490" priority="normal">
         <source>
