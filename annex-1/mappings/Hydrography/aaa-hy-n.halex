@@ -6,7 +6,7 @@
 &#xD;
 `WatercourseLinlSequences` werden nicht gebildet, da in den Quelldaten keine Verknüpfungen zwischen den einzelnen `AX_Gewaesserachsen` existieren, die für eine zuverlässige Bildung der Sequenz herangezogen werdne können. Eine geometrische Analyse kann nicht zuverlässif funktionieren.</description>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2017-01-30T16:00:12.354+01:00</modified>
+    <modified>2017-01-30T16:46:33.136+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1584,7 +1584,8 @@
     <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseSeparatedCrossingType</property>
     <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseLinkSequenceType</property>
     <property name="mappableTargetType/4">{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkType</property>
-    <property name="mappableTargetType/count">4</property>
+    <property name="mappableTargetType/5">{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType</property>
+    <property name="mappableTargetType/count">5</property>
     <property name="resource-1bc28e1a-8abc-424f-a987-b84256a11b5c:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-1bc28e1a-8abc-424f-a987-b84256a11b5c:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-1bc28e1a-8abc-424f-a987-b84256a11b5c:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
