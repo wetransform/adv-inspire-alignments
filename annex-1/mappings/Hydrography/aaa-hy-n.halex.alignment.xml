@@ -11,6 +11,16 @@
             </property>
         </target>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C55538203-dd9d-41f9-b453-d036082feada" priority="normal">
+        <target>
+            <property>
+                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="inNetwork" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#{{project:NETWORK_ID}}" name="pattern"/>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C67d8bf39-6e9d-4605-aefc-d8abeb246f75" priority="lowest">
         <target>
             <class>
@@ -36,16 +46,14 @@ _target {&#xD;
 </core:text>
         </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.numeric.sequentialid" id="C58ff5da7-1058-4ad4-9db8-4979d199ea9a" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C60e1f079-e706-4198-85bc-7ba947ec92e0" priority="normal">
         <target>
             <property>
                 <type name="NetworkType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="HydrographyNetwork_" name="prefix"/>
-        <parameter value="type" name="sequence"/>
-        <parameter value="" name="suffix"/>
+        <parameter value="{{project:NETWORK_ID}}" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.join" id="C5030a27e-9231-41f2-b351-e3972d38c52e" priority="normal">
         <source name="types">
