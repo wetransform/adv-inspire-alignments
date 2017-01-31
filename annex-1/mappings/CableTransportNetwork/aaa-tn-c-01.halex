@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.1.0.qualifier">
+<hale-project version="3.2.0.qualifier">
     <name>3A zu INSPIRE Cable Transport Network</name>
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Cable Transport Network GML Anwendungsschema.
@@ -12,7 +12,7 @@
 - Bei der Abbildung `AX_SeilbahnSchwebebahn` nach `CablewayLink` werden Objekte anhand ihrer (Mehrfach-)Geometrie in mehrere Ziel-Objekte aufgeteilt werden. Hier wurde die ID des Zielobjekts jeweils mit der entsprechenden Nummer der Geometrie (1., 2., etc. Geometrie) als Suffix angehängt.
 </description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-11-28T13:44:39.980+01:00</modified>
+    <modified>2017-01-31T14:05:56.583+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1399,7 +1399,9 @@
     <property name="instances.sampling.settings.first">1</property>
     <property name="instances.sampling.settings.skip">10</property>
     <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SeilbahnSchwebebahnType</property>
-    <property name="mappableSourceType/count">1</property>
+    <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType</property>
+    <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType</property>
+    <property name="mappableSourceType/count">3</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayElectrificationType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}NominalTrackGaugeType</property>
@@ -1409,6 +1411,7 @@
     <property name="mappableTargetType/15">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayStationCodeType</property>
     <property name="mappableTargetType/16">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayAreaType</property>
     <property name="mappableTargetType/17">{http://inspire.ec.europa.eu/schemas/tn-c/4.0}CablewayLinkType</property>
+    <property name="mappableTargetType/18">{http://inspire.ec.europa.eu/schemas/tn/4.0}VerticalPositionType</property>
     <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType</property>
     <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/tn/4.0}ConditionOfFacilityType</property>
     <property name="mappableTargetType/4">{http://www.opengis.net/gml/3.2}AbstractFeatureType</property>
@@ -1417,7 +1420,7 @@
     <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayLinkType</property>
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayStationAreaType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayTypeType</property>
-    <property name="mappableTargetType/count">17</property>
+    <property name="mappableTargetType/count">18</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
@@ -1445,6 +1448,9 @@
     <property name="resource-4417adf1-d296-44d4-8a2c-1dffeb37ffa2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BesondereFlurstuecksgrenzeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:31466</property>
     <property name="resource-4417adf1-d296-44d4-8a2c-1dffeb37ffa2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-4417adf1-d296-44d4-8a2c-1dffeb37ffa2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortTAType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
+    <property name="resource-50c2f159-d569-43e8-970b-15d7ee098550:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-50c2f159-d569-43e8-970b-15d7ee098550:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-50c2f159-d569-43e8-970b-15d7ee098550:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-50c2f159-d569-43e8-970b-15d7ee098550:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SeilbahnSchwebebahnType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BahnstreckeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BahnstreckeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
