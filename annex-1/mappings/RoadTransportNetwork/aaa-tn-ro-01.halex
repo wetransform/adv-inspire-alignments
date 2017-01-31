@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.1.0.qualifier">
+<hale-project version="3.2.0.qualifier">
     <name>3A zu INSPIRE Road Transport Network</name>
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Road Transport Network GML Anwendungsschema.
@@ -23,7 +23,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
 2. Ein *TransportProperty*-Objekt für alle Features die in den Quell-Daten die gleichen relevanten Informationen aufweisen. Die Identifier werden dabei basierend auf dem Quell-Wert oder -Werten gebildet. Umgesetzt wurde das so für `RoadServiceType`.
 3. Ein *TransportProperty*-Objekt für jedes Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `RoadWidth`.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-12-01T17:17:25.429+01:00</modified>
+    <modified>2017-01-31T14:53:58.831+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1509,6 +1509,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="mappableSourceType/10">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungKatalogeintragType</property>
     <property name="mappableSourceType/11">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType</property>
     <property name="mappableSourceType/12">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType</property>
+    <property name="mappableSourceType/13">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_EinrichtungInOeffentlichenBereichenType</property>
     <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PlatzType</property>
     <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KlassifizierungNachStrassenrechtType</property>
     <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType</property>
@@ -1517,7 +1518,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrasseType</property>
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenachseType</property>
-    <property name="mappableSourceType/count">12</property>
+    <property name="mappableSourceType/count">13</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadLinkSequenceType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadServiceTypeType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}FunctionalRoadClassType</property>
@@ -1532,6 +1533,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadNodeType</property>
     <property name="mappableTargetType/20">{http://www.opengis.net/gml/3.2}AbstractFeatureType</property>
     <property name="mappableTargetType/21">{http://inspire.ec.europa.eu/schemas/tn/4.0}VerticalPositionType</property>
+    <property name="mappableTargetType/22">{http://inspire.ec.europa.eu/schemas/tn/4.0}MarkerPostType</property>
     <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadServiceAreaType</property>
     <property name="mappableTargetType/4">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadWidthType</property>
     <property name="mappableTargetType/5">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadType</property>
@@ -1539,7 +1541,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadLinkType</property>
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}RoadSurfaceCategoryType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/tn-ro/4.0}VehicleTrafficAreaType</property>
-    <property name="mappableTargetType/count">21</property>
+    <property name="mappableTargetType/count">22</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
@@ -1571,6 +1573,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_EinrichtungInOeffentlichenBereichenType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrbahnachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FahrwegachseType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
