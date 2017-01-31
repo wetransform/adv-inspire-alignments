@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.1.0.qualifier">
+<hale-project version="3.2.0.qualifier">
     <name>3A zu INSPIRE Air Transport Network</name>
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Air Transport Network GML Anwendungsschema.
@@ -23,7 +23,7 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
 1. Ein *TransportProperty*-Objekt für alle Features die auf die gleichen Werte abgebildet werden. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfAirFacility`, `SurfaceComposition`, `AerodromeCategory`, `AerodromeType`, und `UseRestriction`.
 2. Ein *TransportProperty*-Objekt für jedes (Quell-)Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `ElementWidth`.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-11-28T13:41:29.635+01:00</modified>
+    <modified>2017-01-31T14:29:08.393+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1620,7 +1620,9 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="instances.sampling.settings.skip">10</property>
     <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlugverkehrType</property>
     <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlugverkehrsanlageType</property>
-    <property name="mappableSourceType/count">2</property>
+    <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType</property>
+    <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType</property>
+    <property name="mappableSourceType/count">4</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayElectrificationType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}NominalTrackGaugeType</property>
@@ -1661,12 +1663,13 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="mappableTargetType/43">{http://inspire.ec.europa.eu/schemas/tn-a/4.0}AirLinkType</property>
     <property name="mappableTargetType/44">{http://inspire.ec.europa.eu/schemas/tn-a/4.0}AirRouteLinkType</property>
     <property name="mappableTargetType/45">{http://inspire.ec.europa.eu/schemas/tn-a/4.0}ProcedureLinkType</property>
+    <property name="mappableTargetType/46">{http://inspire.ec.europa.eu/schemas/tn/4.0}VerticalPositionType</property>
     <property name="mappableTargetType/5">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayNodeType</property>
     <property name="mappableTargetType/6">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayStationNodeType</property>
     <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayLinkType</property>
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayStationAreaType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayTypeType</property>
-    <property name="mappableTargetType/count">45</property>
+    <property name="mappableTargetType/count">46</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
@@ -1710,6 +1713,10 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegPfadSteigType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-5e366bd4-a742-49b7-983a-be5013dadba1:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WegPfadSteigType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-6a2f5f63-3eb0-445f-9687-08220f2a3e27:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-6a2f5f63-3eb0-445f-9687-08220f2a3e27:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
+    <property name="resource-6a2f5f63-3eb0-445f-9687-08220f2a3e27:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
+    <property name="resource-6a2f5f63-3eb0-445f-9687-08220f2a3e27:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-6a2f5f63-3eb0-445f-9687-08220f2a3e27:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlugverkehrType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-6a2f5f63-3eb0-445f-9687-08220f2a3e27:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlugverkehrType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-6a2f5f63-3eb0-445f-9687-08220f2a3e27:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlugverkehrsanlageType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
