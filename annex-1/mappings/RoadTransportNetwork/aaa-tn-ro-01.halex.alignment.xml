@@ -379,6 +379,11 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 // nur Objekt mit flächenartigen Geometrien behandeln
 def geometries = _.geom.findPolygons(_source.p.position.first())
 
@@ -495,17 +500,14 @@ surfaces.each { surface -&gt;
 		geometry(surface)
 	}
 	
-	withTransformationContext {
-		def collect = _.context.collector(it)
-		// Sammle ID für Netzwerk
-		collect.network &lt;&lt; _id
-		// Sammle ID für FunctionalRoadClass
-		if (functionalClass) {
-			collect.functionalClass[functionalClass] &lt;&lt; _id
-		}
-		// Sammle ID für VerticalPosition
-		collect.verticalPosition[verticalPosition] &lt;&lt; _id
+	// Sammle ID für Netzwerk
+	collect.network &lt;&lt; _id
+	// Sammle ID für FunctionalRoadClass
+	if (functionalClass) {
+		collect.functionalClass[functionalClass] &lt;&lt; _id
 	}
+	// Sammle ID für VerticalPosition
+	collect.verticalPosition[verticalPosition] &lt;&lt; _id
 
 	num++
 }
@@ -584,6 +586,11 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 def _id = 'RoadArea_' + _source.p.id.value()
 
 _target {
@@ -643,13 +650,10 @@ else {
 	}
 }
 
-withTransformationContext {
-	def collect = _.context.collector(it)
-	// Sammle ID für Netzwerk
-	collect.network &lt;&lt; _id
-	// Sammle ID für VerticalPosition
-	collect.verticalPosition[verticalPosition] &lt;&lt; _id
-}
+// Sammle ID für Netzwerk
+collect.network &lt;&lt; _id
+// Sammle ID für VerticalPosition
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 </core:text>
         </complexParameter>
         <documentation>Erstellt `RoadArea`s aus `AX_Platz` (nur `funktion` *Fußgängerzone*).
@@ -707,6 +711,11 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 def _id = 'RoadArea_' + _source.p.id.value()
 
 _target {
@@ -777,15 +786,12 @@ else {
 	}
 }
 
-withTransformationContext {
-	def collect = _.context.collector(it)
-	// Sammle ID für Netzwerk
-	collect.network &lt;&lt; _id
-	// Sammle ID für ConditionOfFacility
-	collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
-	// Sammle ID für VerticalPosition
-	collect.verticalPosition[verticalPosition] &lt;&lt; _id
-}
+// Sammle ID für Netzwerk
+collect.network &lt;&lt; _id
+// Sammle ID für ConditionOfFacility
+collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
+// Sammle ID für VerticalPosition
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 </core:text>
         </complexParameter>
         <documentation>Erstellt `RoadArea`s aus `AX_Strassenverkehr` (falls `funktion` nicht gesetzt und für `funktion` *Verkehrsbegleitfläche Straße* und *Fußgängerzone*).
@@ -854,6 +860,11 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 // nur Objekt mit flächenartigen Geometrien behandeln
 def geometries = _.geom.findPolygons(_source.p.position.first())
 
@@ -946,17 +957,14 @@ surfaces.each { surface -&gt;
 		geometry(surface)
 	}
 	
-	withTransformationContext {
-		def collect = _.context.collector(it)
-		// Sammle ID für Netzwerk
-		collect.network &lt;&lt; _id
-		// Sammle ID für FunctionalRoadClass
-		if (functionalClass) {
-			collect.functionalClass[functionalClass] &lt;&lt; _id
-		}
-		// Sammle ID für VerticalPosition
-		collect.verticalPosition[verticalPosition] &lt;&lt; _id
+	// Sammle ID für Netzwerk
+	collect.network &lt;&lt; _id
+	// Sammle ID für FunctionalRoadClass
+	if (functionalClass) {
+		collect.functionalClass[functionalClass] &lt;&lt; _id
 	}
+	// Sammle ID für VerticalPosition
+	collect.verticalPosition[verticalPosition] &lt;&lt; _id
 
 	num++
 }
@@ -1025,6 +1033,11 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 def _id = 'RoadArea_' + _source.p.id.value()
 
 _target {
@@ -1101,17 +1114,14 @@ else {
 	}
 }
 
-withTransformationContext {
-	def collect = _.context.collector(it)
-	// Sammle ID für Netzwerk
-	collect.network &lt;&lt; _id
-	// Sammle ID für FunctionalRoadClass
-	if (functionalClass) {
-		collect.functionalClass[functionalClass] &lt;&lt; _id
-	}
-	// Sammle ID für VerticalPosition
-	collect.verticalPosition[verticalPosition] &lt;&lt; _id
+// Sammle ID für Netzwerk
+collect.network &lt;&lt; _id
+// Sammle ID für FunctionalRoadClass
+if (functionalClass) {
+	collect.functionalClass[functionalClass] &lt;&lt; _id
 }
+// Sammle ID für VerticalPosition
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 </core:text>
         </complexParameter>
         <documentation>Erstellt `RoadArea`s aus `AX_Weg` (alle Werte `funktion` außer *Reitweg*, *sonstige*, auch wenn kein Wert für `funktion` vorhanden ist).
@@ -1463,6 +1473,11 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 // Fahrbahnachsen werden präferiert als RoadLink für
 // Strassen verwendet, alternativ verwende Strassenachsen
 
@@ -1620,31 +1635,28 @@ def erstelleRoadLink = { achse -&gt;
 			}
 		}
 		
-		withTransformationContext {
-			def collect = _.context.collector(it)
-			// Sammle ID für Netzwerk	
-			collect.network &lt;&lt; _id
-			// Sammle ID für FormOfWay
-			collect.formOfWay[formOfWayAchse] &lt;&lt; _id
-			// Sammle ID für RoadSurfaceCategory
-			collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
-			// Sammle Informationen für RoadWith
-			if (breite) {
-				collect.roadWidth &lt;&lt; [_id, breite, breiteUom]
-			}
-			// Sammle ID für NumberOfLanes
-			if (numberOfLanes) {
-				collect.numberOfLanes[numberOfLanes][direction] &lt;&lt; _id
-			}
-			// Sammle ID für FunctionalRoadClass
-			if (functionalClass) {
-				collect.functionalClass[functionalClass] &lt;&lt; _id
-			}
-			// Sammle ID für ConditionOfFacility
-			collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
-			// Sammle ID für VerticalPosition
-			collect.verticalPosition[verticalPosition] &lt;&lt; _id
+		// Sammle ID für Netzwerk	
+		collect.network &lt;&lt; _id
+		// Sammle ID für FormOfWay
+		collect.formOfWay[formOfWayAchse] &lt;&lt; _id
+		// Sammle ID für RoadSurfaceCategory
+		collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
+		// Sammle Informationen für RoadWith
+		if (breite) {
+			collect.roadWidth &lt;&lt; [_id, breite, breiteUom]
 		}
+		// Sammle ID für NumberOfLanes
+		if (numberOfLanes) {
+			collect.numberOfLanes[numberOfLanes][direction] &lt;&lt; _id
+		}
+		// Sammle ID für FunctionalRoadClass
+		if (functionalClass) {
+			collect.functionalClass[functionalClass] &lt;&lt; _id
+		}
+		// Sammle ID für ConditionOfFacility
+		collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
+		// Sammle ID für VerticalPosition
+		collect.verticalPosition[verticalPosition] &lt;&lt; _id
 	}
 }
 
@@ -1789,6 +1801,11 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 def _id = 'RoadLink_' + _source.p.id.value() 
 
 _target {
@@ -1873,21 +1890,18 @@ else {
 	}
 }
 
-withTransformationContext {
-	def collect = _.context.collector(it)
-	// Sammle ID für Netzwerk
-	collect.network &lt;&lt; _id
-	// Sammle ID für RoadSurfaceCategory
-	if (surfaceCategory) {
-		collect.surfaceCategory[surfaceCategory]
-	}
-	// Sammle ID für FunctionalRoadClass
-	if (functionalClass) {
-		collect.functionalClass[functionalClass] &lt;&lt; _id
-	}
-	// Sammle ID für VerticalPosition
-	collect.verticalPosition[verticalPosition] &lt;&lt; _id
+// Sammle ID für Netzwerk
+collect.network &lt;&lt; _id
+// Sammle ID für RoadSurfaceCategory
+if (surfaceCategory) {
+	collect.surfaceCategory[surfaceCategory]
 }
+// Sammle ID für FunctionalRoadClass
+if (functionalClass) {
+	collect.functionalClass[functionalClass] &lt;&lt; _id
+}
+// Sammle ID für VerticalPosition
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 </core:text>
         </complexParameter>
         <documentation>Erstellt einen `RoadLink` aus einer `AX_Fahrwegachse`.
@@ -1963,6 +1977,11 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 // nur Objekt mit linienartigen Geometrien behandeln
 def geometries = _.geom.findLines(_source.p.position.first())
 
@@ -2080,25 +2099,22 @@ curves.each { curve -&gt;
 	}
 	
 	
-	withTransformationContext {
-		def collect = _.context.collector(it)
-		// Sammle ID für Netzwerk	
-		collect.network &lt;&lt; _id
-		// Sammle ID für FormOfWay
-		if (formOfWay) {
-			collect.formOfWay[formOfWay] &lt;&lt; _id
-		}
-		// Sammle ID für RoadSurfaceCategory
-		if (surfaceCategory) {
-			collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
-		}
-		// Sammle ID für FunctionalRoadClass
-		if (functionalClass) {
-			collect.functionalClass[functionalClass] &lt;&lt; _id
-		}
-		// Sammle ID für VerticalPosition
-		collect.verticalPosition[verticalPosition] &lt;&lt; _id
+	// Sammle ID für Netzwerk	
+	collect.network &lt;&lt; _id
+	// Sammle ID für FormOfWay
+	if (formOfWay) {
+		collect.formOfWay[formOfWay] &lt;&lt; _id
 	}
+	// Sammle ID für RoadSurfaceCategory
+	if (surfaceCategory) {
+		collect.surfaceCategory[surfaceCategory] &lt;&lt; _id
+	}
+	// Sammle ID für FunctionalRoadClass
+	if (functionalClass) {
+		collect.functionalClass[functionalClass] &lt;&lt; _id
+	}
+	// Sammle ID für VerticalPosition
+	collect.verticalPosition[verticalPosition] &lt;&lt; _id
 	
 	num++
 }
@@ -2405,6 +2421,11 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 def _id = 'RoadServiceArea_' + _source.p.id.value()
 
 _target {
@@ -2464,13 +2485,10 @@ else {
 	}
 }
 
-withTransformationContext {
-	def collect = _.context.collector(it)
-	// Sammle ID für Netzwerk
-	collect.network &lt;&lt; _id
-	// Sammle ID für VerticalPosition
-	collect.verticalPosition[verticalPosition] &lt;&lt; _id
-}
+// Sammle ID für Netzwerk
+collect.network &lt;&lt; _id
+// Sammle ID für VerticalPosition
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 </core:text>
         </complexParameter>
         <documentation>Erstellt `RoadServiceArea` aus `AX_Platz` (nur `funktion` *Rastplatz*, *Raststätte* und *Parkplatz*).
@@ -2528,6 +2546,11 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 def _id = 'RoadServiceArea_' + _source.p.id.value()
 
 _target {
@@ -2598,15 +2621,12 @@ else {
 	}
 }
 
-withTransformationContext {
-	def collect = _.context.collector(it)
-	// Sammle ID für Netzwerk
-	collect.network &lt;&lt; _id
-	// Sammle ID für ConditionOfFacility
-	collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
-	// Sammle ID für VerticalPosition
-	collect.verticalPosition[verticalPosition] &lt;&lt; _id
-}
+// Sammle ID für Netzwerk
+collect.network &lt;&lt; _id
+// Sammle ID für ConditionOfFacility
+collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
+// Sammle ID für VerticalPosition
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 </core:text>
         </complexParameter>
         <documentation>Erstellt `RoadServiceArea` aus `AX_Strassenverkehr` (nur `funktion` *Gebäude- und Freifläche zu Verkehrsanlagen, Straße* und *Straßenentwässerungsanlage*).
