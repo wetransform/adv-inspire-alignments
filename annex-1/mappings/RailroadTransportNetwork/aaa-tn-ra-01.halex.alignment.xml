@@ -760,6 +760,11 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 _target {
 }
 
@@ -858,35 +863,88 @@ case '4000': // Im Bau
 	break
 }
 
+/*
+ * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+ */
+def untenRefs = _source.p.hatDirektUnten.href.values()
+def verticalPositions = untenRefs.findResults { identifier -&gt;
+	def bwf = collect.bauwerksfunktion[identifier].value()
+	if (bwf) {
+		switch (bwf) {
+		// AX_BauwerkImVerkehrsbereich
+		case '1800': // Brücke
+		case '1801': // Mehrstöckige Brücke
+		case '1802': // Bogenbrücke
+		case '1803': // Fachwerkbrücke
+		case '1804': // Hängebrücke
+		case '1805': // Pontonbrücke
+		case '1806': // Drehbrücke
+		case '1807': // Hebebrücke
+		case '1808': // Zugbrücke
+		case '1820': // Steg
+		case '1830': // Hochbahn, Hochstraße
+		case '1890': // Schleusenkammer
+		// AX_BauwerkImGewaesserbereich
+		case '2030': // Staumauer
+		case '2040': // Staudamm
+		case '2050': // Wehr
+		case '2060': // Sicherheitstor
+		case '2080': // Sperrwerk
+			return 'suspendedOrElevated'
+		// AX_BauwerkImVerkehrsbereich
+		case '1870': // Tunnel, Unterführung
+		// AX_BauwerkImGewaesserbereich
+		case '2010': // Durchlass
+		case '2011': // Rohrdurchlass
+		case '2012': // Düker
+		case '2070': // Siel
+		case '2090': // Schöpfwerk
+			return 'underground'
+		}
+	}
+	else {
+		null
+	}
+} as Set
+def verticalPosition
+if (!verticalPositions) {
+	verticalPosition = 'onGroundSurface'
+}
+else {
+	verticalPosition = verticalPositions.iterator().next()
+	if (verticalPositions.size() &gt;= 1) {
+		_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+	}
+}
+
 // ID zum hinterlegen in Indizes
 def sourceId = _source.p.id.value()
 def _id = "RailwayLink_${sourceId}"
 
-withTransformationContext {
-	def collect = _.context.collector(it)
-	// Sammle ID für Netzwerk
-	collect.network &lt;&lt; _id
-	// Sammle ID für NominalTrackGauge
-	if (nominalTrackGauge) {
-		collect.nominalTrackGauge[nominalTrackGauge] &lt;&lt; _id
-	}
-	// Sammle ID für RailwayType(s)
-	railwayTypes.each { railwayType -&gt;
-		collect.railwayType[railwayType] &lt;&lt; _id
-	}
-	// Sammle ID für RailwayUse(s)
-	railwayUses.each { railwayUse -&gt;
-		collect.railwayUse[railwayUse] &lt;&lt; _id
-	}
-	// Sammle ID für NumberOfTracks
-	if (numberOfTracks) {
-		collect.numberOfTracks[numberOfTracks] &lt;&lt; _id
-	}
-	// Sammle ID für RailwayElectrification
-	collect.electrified[electrified] &lt;&lt; _id
-	// Sammle ID für ConditionOfFacility
-	collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
+// Sammle ID für Netzwerk
+collect.network &lt;&lt; _id
+// Sammle ID für NominalTrackGauge
+if (nominalTrackGauge) {
+	collect.nominalTrackGauge[nominalTrackGauge] &lt;&lt; _id
 }
+// Sammle ID für RailwayType(s)
+railwayTypes.each { railwayType -&gt;
+	collect.railwayType[railwayType] &lt;&lt; _id
+}
+// Sammle ID für RailwayUse(s)
+railwayUses.each { railwayUse -&gt;
+	collect.railwayUse[railwayUse] &lt;&lt; _id
+}
+// Sammle ID für NumberOfTracks
+if (numberOfTracks) {
+	collect.numberOfTracks[numberOfTracks] &lt;&lt; _id
+}
+// Sammle ID für RailwayElectrification
+collect.electrified[electrified] &lt;&lt; _id
+// Sammle ID für ConditionOfFacility
+collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
+// Sammle ID für VerticalPosition
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
 </core:text>
         </complexParameter>
         <documentation>Erstellt einen `RailwayLink` aus einer `AX_Bahnstrecke`.
@@ -966,7 +1024,40 @@ zustand | conditionOfFacility
 `4000` *(Im Bau)* | `underConstruction`
 
 In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
-</documentation>
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
         <source>
@@ -983,6 +1074,11 @@ In allen anderen Fällen wird *conditionOfFacility* als `functional` angenommen.
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
 // nur Objekt mit linienartigen Geometrien behandeln
 def geometries = _.geom.findLines(_source.p.position.first())
 
@@ -997,6 +1093,60 @@ def sourceId = _source.p.id.value()
 
 // bestimme RailwayType
 def railwayType = 'suspendedRail'
+
+/*
+ * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
+ */
+def untenRefs = _source.p.hatDirektUnten.href.values()
+def verticalPositions = untenRefs.findResults { identifier -&gt;
+	def bwf = collect.bauwerksfunktion[identifier].value()
+	if (bwf) {
+		switch (bwf) {
+		// AX_BauwerkImVerkehrsbereich
+		case '1800': // Brücke
+		case '1801': // Mehrstöckige Brücke
+		case '1802': // Bogenbrücke
+		case '1803': // Fachwerkbrücke
+		case '1804': // Hängebrücke
+		case '1805': // Pontonbrücke
+		case '1806': // Drehbrücke
+		case '1807': // Hebebrücke
+		case '1808': // Zugbrücke
+		case '1820': // Steg
+		case '1830': // Hochbahn, Hochstraße
+		case '1890': // Schleusenkammer
+		// AX_BauwerkImGewaesserbereich
+		case '2030': // Staumauer
+		case '2040': // Staudamm
+		case '2050': // Wehr
+		case '2060': // Sicherheitstor
+		case '2080': // Sperrwerk
+			return 'suspendedOrElevated'
+		// AX_BauwerkImVerkehrsbereich
+		case '1870': // Tunnel, Unterführung
+		// AX_BauwerkImGewaesserbereich
+		case '2010': // Durchlass
+		case '2011': // Rohrdurchlass
+		case '2012': // Düker
+		case '2070': // Siel
+		case '2090': // Schöpfwerk
+			return 'underground'
+		}
+	}
+	else {
+		null
+	}
+} as Set
+def verticalPosition
+if (!verticalPositions) {
+	verticalPosition = 'onGroundSurface'
+}
+else {
+	verticalPosition = verticalPositions.iterator().next()
+	if (verticalPositions.size() &gt;= 1) {
+		_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)
+	}
+}
 
 // Ziel-Objekt für jede Linie erstellen
 int num = 1
@@ -1020,13 +1170,12 @@ curves.each { curve -&gt;
 		centrelineGeometry(curve)
 	}
 	
-	withTransformationContext {
-		def collect = _.context.collector(it)
-		// Sammle ID für Netzwerk	
-		collect.network &lt;&lt; _id
-		// Sammle ID für RailwayType
-		collect.railwayType[railwayType] &lt;&lt; _id
-	}
+	// Sammle ID für Netzwerk	
+	collect.network &lt;&lt; _id
+	// Sammle ID für RailwayType
+	collect.railwayType[railwayType] &lt;&lt; _id
+	// Sammle ID für VerticalPosition
+	collect.verticalPosition[verticalPosition] &lt;&lt; _id
 	
 	num++
 }
@@ -1044,7 +1193,41 @@ Zusätzlich werden folgende Informationen in den entsprechenden Indizes abgelegt
 
 **RailwayType**
 
-Der *railwayType* wird als `suspendedRail` festgelegt.</documentation>
+Der *railwayType* wird als `suspendedRail` festgelegt.
+
+**VerticalPosition**
+
+Die *verticalPosition* wird über das Attribut `hatDirektUnten` ermittelt.
+Referenzen auf `AX_BauwerkImVerkehrsbereich` und `AX_BauwerkImGewaesserbereich` werden über einen Index nachgeschlagen um die entsprechende `bauwerksfunktion` zu erhalten.
+Aus der `bauwerksfunktion` wird der Wert wie folgt ermittelt:
+
+bauwerksfunktion | verticalPosition
+- | -
+`1800` *(Brücke)* | `suspendedOrElevated`
+`1801` *(Mehrstöckige Brücke)* | `suspendedOrElevated`
+`1802` *(Bogenbrücke)* | `suspendedOrElevated`
+`1803` *(Fachwerkbrücke)* | `suspendedOrElevated`
+`1804` *(Hängebrücke)* | `suspendedOrElevated`
+`1805` *(Pontonbrücke)* | `suspendedOrElevated`
+`1806` *(Drehbrücke)* | `suspendedOrElevated`
+`1807` *(Hebebrücke)* | `suspendedOrElevated`
+`1808` *(Zugbrücke)* | `suspendedOrElevated`
+`1820` *(Steg)* | `suspendedOrElevated`
+`1830` *(Hochbahn, Hochstraße)* | `suspendedOrElevated`
+`1890` *(Schleusenkammer)* | `suspendedOrElevated`
+`2030` *(Staumauer)* | `suspendedOrElevated`
+`2040` *(Staudamm)* | `suspendedOrElevated`
+`2050` *(Wehr)* | `suspendedOrElevated`
+`2060` *(Sicherheitstor)* | `suspendedOrElevated`
+`2080` *(Sperrwerk)* | `suspendedOrElevated`
+`1870` *(Tunnel, Unterführung)* | `underground`
+`2010` *(Durchlass)* | `underground`
+`2011` *(Rohrdurchlass)* | `underground`
+`2012` *(Düker)* | `underground`
+`2070` *(Siel)* | `underground`
+`2090` *(Schöpfwerk)* | `underground`
+
+Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdd940494-8116-4e0e-a7ac-a635b29f5cce" priority="normal">
         <source>
