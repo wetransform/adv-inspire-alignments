@@ -21,7 +21,7 @@ Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für
 
 Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für alle Features die auf die gleichen Werte abgebildet werden (z.B. gleicher Zustand für `ConditionOfFacility`). Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2017-01-31T13:58:34.129+01:00</modified>
+    <modified>2017-01-31T13:59:50.090+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1366,6 +1366,7 @@ Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für a
     <property name="mappableTargetType/14">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayUseType</property>
     <property name="mappableTargetType/15">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayStationCodeType</property>
     <property name="mappableTargetType/16">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayAreaType</property>
+    <property name="mappableTargetType/17">{http://inspire.ec.europa.eu/schemas/tn/4.0}VerticalPositionType</property>
     <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType</property>
     <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/tn/4.0}ConditionOfFacilityType</property>
     <property name="mappableTargetType/4">{http://www.opengis.net/gml/3.2}AbstractFeatureType</property>
@@ -1374,7 +1375,7 @@ Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für a
     <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayLinkType</property>
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayStationAreaType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayTypeType</property>
-    <property name="mappableTargetType/count">16</property>
+    <property name="mappableTargetType/count">17</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_PTOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
