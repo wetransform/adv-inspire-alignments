@@ -1888,8 +1888,8 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <parameter value="unknown" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C652430d1-9b2e-431f-9d60-fa17ebfd1843" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="C1b0ebcaf-be82-4e39-a6c0-4dbccf9f95dc" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_HafenbeckenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1901,11 +1901,9 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C94f49f2b-9097-4bde-8097-4d3889770cff" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="C7621e85f-7d14-4b91-b9f1-c3c1168241be" priority="normal">
+        <source name="geometrie">
             <property>
                 <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -1915,24 +1913,6 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             <property>
                 <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca9d019d4-590e-4196-9eb0-25fd39a57904" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_HafenbeckenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="hydroId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="HydroIdentifier" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
             </property>
         </target>
     </cell>
@@ -1952,23 +1932,13 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Ceaeadf9c-abad-483d-bd77-4b7c6a67a00f" priority="normal">
-        <source name="id">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C13745c24-7740-4e72-83f8-b2767eac21b6" priority="normal">
+        <source name="anchor">
             <property>
                 <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="gewaesserkennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
-        <target>
-            <property>
-                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="hydroId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="HydroIdentifier" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="C65196a04-df9b-4f73-ad02-328c13c1dca0" priority="normal">
         <target>
             <property>
                 <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
@@ -1977,6 +1947,8 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
             </property>
         </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+        <documentation>**Hier sollte wahrscheinlich ein anderer Namespace als der INSPIRE Namespace verwendet werden.**</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C1df2b062-9f5b-4cac-80f9-1c8263a0c92f" priority="normal">
         <source name="id">
