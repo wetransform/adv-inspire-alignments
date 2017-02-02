@@ -798,7 +798,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <parameter value="unknown" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C26cbdb6d-8570-4f1e-a76b-1a1d2b28e6e3" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cae0752b4-933e-4549-8771-2f1e96f6ea98" priority="normal">
         <source>
             <class>
                 <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -811,8 +811,49 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <type name="FallsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Geometrien aufteilen in einzelne Simple Feature Geometrien
+def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Ziel Objekt je Geometrie erstellen
+int num = 1
+geometries.each { geom -&gt;
+	// ID bestimmen
+	def _id = "Falls_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen mit IDs und Geometrie
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(geom)
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `Falls` aus `AX_Gewaessermerkmal` mit `art` *Wasserfall* (`1620`).
+
+Die Geometrie des Quell-Objekts wird untersucht. Je einzelner Simple-Feature Geometrie wird ein `Falls` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Geometrie (1., 2., etc. einzelne Geometrie) gebildet.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C59e380fc-8670-4e0b-af1f-4a4f3d30d461" priority="normal">
         <source>
@@ -881,24 +922,6 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <parameter value="unknown" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C40669fde-5eec-488d-9670-d885f3b7a93e" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1620'</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="FallsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C6824724d-d3c8-4e35-95d5-942ed844d7d4" priority="normal">
         <source>
             <property>
@@ -936,8 +959,8 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <parameter value="m" name="value"/>
         <documentation>Falls in den Ausgangsdaten keine `uom` definiert wurde, wird `uom` auf `m` gesetzt.</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C9b1629a5-e9c5-4362-ad73-be55111d4c2a" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.uom.toucum" id="Cba9e19c1-19ee-4393-bf1c-01bceb39ce3e" priority="normal">
+        <source name="uom">
             <property>
                 <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">art = '1620'</condition>
@@ -951,36 +974,6 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <type name="FallsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                 <child name="height" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                 <child name="uom"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C52e6fdae-a9f7-45c9-918f-319450bbc4fb" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1620'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="FallsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="C03aa21c6-c716-484f-92d0-eaf28f503af2" priority="normal">
-        <target>
-            <property>
-                <type name="FallsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
     </cell>
