@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba1" location="../base-functions.halex.alignment.xml"/>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb1cef2ae-817e-4113-96b8-e98b78272cb8" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C7062dc56-15a8-4b8e-a5d7-2b9aef459001" priority="normal">
         <source>
             <class>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -14,8 +14,49 @@
                 <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Geometrien aufteilen in einzelne Simple Feature Geometrien
+def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Ziel Objekt je Geometrie erstellen
+int num = 1
+geometries.each { geom -&gt;
+	// ID bestimmen
+	def _id = "Crossing_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen mit IDs und Geometrie
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(geom)
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `Crossing`s aus `AX_BauwerkImGewaesserbereich` mit `bauwerksfunktion` *Durchlass* (`2010`).
+
+Die Geometrie des Quell-Objekts wird untersucht. Je einzelner Simple-Feature Geometrie wird ein `Crossing` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Geometrie (1., 2., etc. einzelne Geometrie) gebildet.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16" priority="normal">
         <source name="types">
@@ -85,21 +126,55 @@
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 // Prüfen, ob tatsächlich eine AX_Gewässerachse und/oder ein AX_Fliessgewaesser zu der Relation hatDirektUnten gefunden wurde&#xD;
 &#xD;
-if (_source.links.AX_Gewaesserachse.first()) {&#xD;
-	_target {&#xD;
-	&#xD;
-	}&#xD;
-}&#xD;
+boolean hatReferenz = _source.links.AX_Gewaesserachse.first() || _source.links.AX_Fliessgewaesser.first()&#xD;
 &#xD;
-if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
-	_target {&#xD;
+if (hatReferenz) {&#xD;
+&#xD;
+	// Geometrien aufteilen in einzelne Simple Feature Geometrien&#xD;
+	def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)&#xD;
 	&#xD;
+	// Identifier des Quell-Objekts&#xD;
+	def sourceId = _source.p.id.value()&#xD;
+	&#xD;
+	// Builder konfigurieren&#xD;
+	// - Zuweisung der Geometrie auf Ebene von geometry zulassen&#xD;
+	_b.strictValueFlags = false&#xD;
+	&#xD;
+	// Ziel Objekt je Geometrie erstellen&#xD;
+	int num = 1&#xD;
+	geometries.each { geom -&gt;&#xD;
+		// ID bestimmen&#xD;
+		def _id = "Crossing_${sourceId}_${num}"&#xD;
+		def _ns = _project.vars.INSPIRE_NAMESPACE&#xD;
+	&#xD;
+		// Ziel-Objekt erstellen mit IDs und Geometrie&#xD;
+		_target {&#xD;
+			id( _id )&#xD;
+			inspireId {&#xD;
+				Identifier {&#xD;
+					localId( _id )&#xD;
+					namespace( _ns )&#xD;
+				}&#xD;
+			}&#xD;
+			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {&#xD;
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+			}&#xD;
+			geometry(geom)&#xD;
+		}&#xD;
 	}&#xD;
+	&#xD;
+&#xD;
 }
 </core:text>
         </complexParameter>
+        <documentation>Erstellt `Crossing`s aus `AX_BauwerkImVerkehrsbereich` mit `bauwerksfunktion` *Brücke* (`1800`), die über eine `hatDirektUnten`-Beziehung mit einem `AX_Fliessgewaesser` oder einer `AX_Gewaesserachse` verknüpft ist.
+
+Die Geometrie des Quell-Objekts wird untersucht. Je einzelner Simple-Feature Geometrie wird ein `Crossing` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Geometrie (1., 2., etc. einzelne Geometrie) gebildet.
+</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C20c820a6-6c63-4ff7-bad4-2777b45c3b1a" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C76a01cce-00b7-4705-8a54-109506ab4fdb" priority="normal">
         <source>
             <class>
                 <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -111,6 +186,67 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
             <class>
                 <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Geometrien aufteilen in einzelne Simple Feature Geometrien
+def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Ziel Objekt je Geometrie erstellen
+int num = 1
+geometries.each { geom -&gt;
+	// ID bestimmen
+	def _id = "Crossing_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen mit IDs und Geometrie
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(geom)
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `Crossing`s aus `AX_HistorischesBauwerkOderHistorischeEinrichtung` mit `archaeologischerTyp` *Aquädukt* (`1110`).
+
+Die Geometrie des Quell-Objekts wird untersucht. Je einzelner Simple-Feature Geometrie wird ein `Crossing` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Geometrie (1., 2., etc. einzelne Geometrie) gebildet.
+</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C8212dbab-5681-4fa9-a3d4-48332c5c9dd4" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                </type>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+            </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
@@ -211,37 +347,25 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
         </complexParameter>
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb7db8d16-6a28-436c-9d41-cd5bdef3c6d0" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C9ebfe7f6-4d54-48a9-84bf-98620050e82b" priority="normal">
+        <source>
             <property>
-                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                </type>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="condition" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8d56215b-7b38-45a8-bde7-0897439a40ab" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="condition" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="value"/>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C0664ffc1-5775-4565-b4f7-36e8ca17f5cd" priority="normal">
         <source name="spelling">
@@ -303,124 +427,6 @@ if (_source.links.AX_Fliessgewaesser.first()) {&#xD;
             </property>
         </target>
         <parameter value="unknown" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7958c032-22ac-4c86-8fc4-b2d665dae7bb" priority="normal">
-        <source>
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012'</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C5bcd993e-7368-4515-ab75-240fc0c2dae5" priority="normal">
-        <source>
-            <property>
-                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C703329e4-7e4e-4926-9d4e-97a371647756" priority="normal">
-        <source>
-            <property>
-                <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">archaeologischerTyp = '1110'</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce2bb96a0-f563-4c97-8074-b1eabdcbd68d" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C4bc41b7e-5542-4094-ac0e-afb45415ec5c" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C90f05c8c-9973-4ef7-ae8a-27a37a6ebf48" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">archaeologischerTyp = '1110'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="C45f0697c-2265-42d8-8f02-337f5084380c" priority="normal">
-        <target>
-            <property>
-                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="Cd31ebb2d-50bf-420d-82b8-dd5f5f6f8cf1" priority="normal">
         <source>
@@ -3471,5 +3477,21 @@ if (hatFlaechenhaft) {&#xD;
     </cell>
     <modifier cell="C140bf801-ace9-4ad1-9966-5ad0890a5734">
         <transformation mode="disabled"/>
+    </modifier>
+    <modifier cell="C2fbf5b7d-2f92-4d4f-a2ce-f4829d308bcf">
+        <disable-for parent="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16"/>
+    </modifier>
+    <modifier cell="C58817263-94ad-47a9-97c5-36968314bc04">
+        <disable-for parent="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16"/>
+    </modifier>
+    <modifier cell="C8c914f39-9647-4653-bd06-c6b8871cd637">
+        <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
+        <disable-for parent="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16"/>
+        <disable-for parent="C76a01cce-00b7-4705-8a54-109506ab4fdb"/>
+    </modifier>
+    <modifier cell="Cb8460d08-86f3-41ec-afe4-7bd999be3b0c">
+        <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
+        <disable-for parent="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16"/>
+        <disable-for parent="C76a01cce-00b7-4705-8a54-109506ab4fdb"/>
     </modifier>
 </alignment>
