@@ -1252,7 +1252,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C3941178e-be2c-4c52-8b48-ba5df7c15cfa" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3aac6754-dc82-4824-932a-3df081b6d4a4" priority="normal">
         <source>
             <class>
                 <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -1265,8 +1265,49 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <type name="LockType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Geometrien aufteilen in einzelne Simple Feature Geometrien
+def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Ziel Objekt je Geometrie erstellen
+int num = 1
+geometries.each { geom -&gt;
+	// ID bestimmen
+	def _id = "Lock_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen mit IDs und Geometrie
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(geom)
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `Lock`s aus `AX_BauwerkImVerkehrsbereich` mit `bauwerksfunktion` *Schleusenkammer* (`1890`).
+
+Die Geometrie des Quell-Objekts wird untersucht. Je einzelner Simple-Feature Geometrie wird ein `Lock` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Geometrie (1., 2., etc. einzelne Geometrie) gebildet.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca502ede7-7ddf-4c06-81fd-d22177a90c2f" priority="lowest">
         <target>
@@ -1330,112 +1371,6 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </property>
         </target>
         <parameter value="unknown" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C05a4694f-8337-4f73-b7c8-dc70c5d2f5e1" priority="normal">
-        <source>
-            <property>
-                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1890'</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="LockType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C183868c7-28bd-43c6-8d48-e4d47431b0fc" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1890'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="LockType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="hydroId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="HydroIdentifier" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="Cb5b384b8-c0fe-40af-bb8c-cc4192a69ca5" priority="normal">
-        <target>
-            <property>
-                <type name="LockType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="hydroId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="HydroIdentifier" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C620a6539-1ad8-49ed-a2d0-daa5cdaa4ba8" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1890'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="LockType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.identifier" id="C612ff161-f7d6-4bc0-bc7a-793afa719ef7" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1890'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="LockType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C386a0206-1fc2-457d-9902-6978ddd398e8" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '1890'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="LockType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="Cc4fc3dc4-36d3-4e76-b8d0-b41bbab4295f" priority="normal">
-        <target>
-            <property>
-                <type name="LockType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C2fbf5b7d-2f92-4d4f-a2ce-f4829d308bcf" priority="normal">
         <source>
@@ -3450,7 +3385,7 @@ if (hatFlaechenhaft) {&#xD;
         <disable-for parent="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16"/>
     </modifier>
     <modifier cell="C8c914f39-9647-4653-bd06-c6b8871cd637">
-        <disable-for parent="C2591d7b5-73c0-44b7-9559-4f2f8d09ff38"/>
+        <disable-for parent="C3aac6754-dc82-4824-932a-3df081b6d4a4"/>
         <disable-for parent="C6f0c9e09-ca9c-4e91-8217-b0b3f24e1c5c"/>
         <disable-for parent="C1f48e318-a73d-4dc7-ae83-a03f60aafd65"/>
         <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
@@ -3460,7 +3395,7 @@ if (hatFlaechenhaft) {&#xD;
         <disable-for parent="C76a01cce-00b7-4705-8a54-109506ab4fdb"/>
     </modifier>
     <modifier cell="Cb8460d08-86f3-41ec-afe4-7bd999be3b0c">
-        <disable-for parent="C2591d7b5-73c0-44b7-9559-4f2f8d09ff38"/>
+        <disable-for parent="C3aac6754-dc82-4824-932a-3df081b6d4a4"/>
         <disable-for parent="C6f0c9e09-ca9c-4e91-8217-b0b3f24e1c5c"/>
         <disable-for parent="C1f48e318-a73d-4dc7-ae83-a03f60aafd65"/>
         <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
