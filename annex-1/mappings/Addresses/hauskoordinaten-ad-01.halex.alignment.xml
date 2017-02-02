@@ -14,14 +14,6 @@
             </cf:output>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-import com.vividsolutions.jts.geom.GeometryFactory&#xD;
-import com.vividsolutions.jts.geom.Point&#xD;
-import com.vividsolutions.jts.geom.Coordinate&#xD;
-import eu.esdihumboldt.hale.common.schema.geometry.CRSDefinition&#xD;
-import eu.esdihumboldt.hale.common.schema.geometry.GeometryProperty&#xD;
-import eu.esdihumboldt.hale.common.instance.geometry.impl.CodeDefinition&#xD;
-import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty&#xD;
-&#xD;
 // determine Zone&#xD;
 int zone = Math.floor(easting / 1000000.0);&#xD;
 String code = "EPSG:25832"&#xD;
@@ -33,12 +25,11 @@ else if (zone == 33) {&#xD;
   code = "EPSG:25833"&#xD;
 }&#xD;
 &#xD;
+def x = easting - (zone * 1000000.0)&#xD;
+def y = northing&#xD;
 &#xD;
-GeometryFactory geomFactory = new GeometryFactory()&#xD;
-Point resultPoint = geomFactory.createPoint(new Coordinate(easting - (zone * 1000000.0), northing))&#xD;
-&#xD;
-CRSDefinition crsDef = new CodeDefinition(code, null)&#xD;
-new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
+_.geom.with(geometry: "POINT($x $y)", crs: code)&#xD;
+
 </core:text>
             </cf:definition>
             <cf:explanation>
@@ -61,8 +52,8 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C3368716c-8734-4558-a5c8-b86e395f2c1d" priority="normal">
         <source name="var">
@@ -271,8 +262,8 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="^.{2}(.{2}).*$" name="regexPattern"/>
         <parameter value="https://registry.gdi-de.org/id/de.{1}/" name="outputFormat"/>
+        <parameter value="^.{2}(.{2}).*$" name="regexPattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C43c8131c-0483-47b4-a90b-f3a376ac10ad" priority="normal">
         <source>
@@ -291,8 +282,8 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C579e6256-e912-4488-9daf-4bf3d5f7957d" priority="normal">
         <target>
@@ -376,7 +367,6 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="null" name="notClassifiedAction"/>
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
@@ -393,6 +383,7 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 </entry>
             </lookup-table>
         </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb411eac2-d187-4ac9-a98e-af88c5ee6ec2" priority="normal">
         <source>
@@ -407,8 +398,8 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb1a3ef2a-7ce5-4cb3-b25c-5cd5d9d4f2d3" priority="normal">
         <source>
@@ -423,8 +414,8 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C8b77b6f5-4d21-46e3-b5aa-7d0b4ee12cd3" priority="normal">
         <source>
@@ -439,8 +430,8 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Cf87ecfad-78a4-4c4f-935c-a81b0078750a" priority="normal">
         <source>
@@ -455,8 +446,8 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9867f699-6a70-4bca-8102-46296f733a15" priority="normal">
         <source name="var">
@@ -748,8 +739,8 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <child name="postCode" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.merge" id="Cd619f856-3443-4150-9e26-0cd14f392dc1" priority="normal">
         <source>
@@ -799,7 +790,7 @@ new DefaultGeometryProperty&lt;Point&gt;(crsDef, resultPoint)
                 <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
 </alignment>
