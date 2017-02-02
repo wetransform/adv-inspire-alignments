@@ -977,7 +977,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C2f3ec1da-c358-49de-bb08-c437def151a0" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C1f48e318-a73d-4dc7-ae83-a03f60aafd65" priority="normal">
         <source>
             <class>
                 <type name="AX_StrassenverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -990,18 +990,59 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <type name="FordType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Geometrien aufteilen in einzelne Simple Feature Geometrien
+def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Ziel Objekt je Geometrie erstellen
+int num = 1
+geometries.each { geom -&gt;
+	// ID bestimmen
+	def _id = "Ford_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen mit IDs und Geometrie
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(geom)
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `Ford`s aus `AX_Strassenverkehrsanlage` mit `art` *Furt* (`2000`).
+
+Die Geometrie des Quell-Objekts wird untersucht. Je einzelner Simple-Feature Geometrie wird ein `Ford` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Geometrie (1., 2., etc. einzelne Geometrie) gebildet.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cae054665-f39b-4f7b-b627-e387d7781f97" priority="normal">
         <target>
             <property>
                 <type name="FordType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                 <child name="condition" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                <child name="nilReason"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="value"/>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cbf1cda1f-4b02-4c93-970e-bddaabf3ebfb" priority="normal">
         <source name="spelling">
@@ -1047,52 +1088,6 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </property>
         </target>
         <parameter value="unknown" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C6d1af76a-de39-4214-b117-591e8917f802" priority="normal">
-        <source>
-            <property>
-                <type name="AX_StrassenverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '2000'</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="FordType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Cb5a30b8f-9684-49dc-ab51-b100eb4ad339" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_StrassenverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '2000'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="FordType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="C5aed8a8c-64d1-4e1e-a9b4-29f867312f5d" priority="normal">
-        <target>
-            <property>
-                <type name="FordType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C140bf801-ace9-4ad1-9966-5ad0890a5734" priority="normal">
         <source>
@@ -3457,6 +3452,7 @@ if (hatFlaechenhaft) {&#xD;
     <modifier cell="C8c914f39-9647-4653-bd06-c6b8871cd637">
         <disable-for parent="C2591d7b5-73c0-44b7-9559-4f2f8d09ff38"/>
         <disable-for parent="C6f0c9e09-ca9c-4e91-8217-b0b3f24e1c5c"/>
+        <disable-for parent="C1f48e318-a73d-4dc7-ae83-a03f60aafd65"/>
         <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
         <disable-for parent="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16"/>
         <disable-for parent="Cb562d66d-d71a-4ef6-bacd-a24d624e7524"/>
@@ -3466,6 +3462,7 @@ if (hatFlaechenhaft) {&#xD;
     <modifier cell="Cb8460d08-86f3-41ec-afe4-7bd999be3b0c">
         <disable-for parent="C2591d7b5-73c0-44b7-9559-4f2f8d09ff38"/>
         <disable-for parent="C6f0c9e09-ca9c-4e91-8217-b0b3f24e1c5c"/>
+        <disable-for parent="C1f48e318-a73d-4dc7-ae83-a03f60aafd65"/>
         <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
         <disable-for parent="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16"/>
         <disable-for parent="Cb562d66d-d71a-4ef6-bacd-a24d624e7524"/>
