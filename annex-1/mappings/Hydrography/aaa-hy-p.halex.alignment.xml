@@ -506,7 +506,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/CrossingTypeValue/aqueduct" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C752c75f8-f980-43f8-b37e-db66dc359e37" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cb562d66d-d71a-4ef6-bacd-a24d624e7524" priority="normal">
         <source>
             <class>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -519,8 +519,49 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <type name="DamOrWeirType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Geometrien aufteilen in einzelne Simple Feature Geometrien
+def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Ziel Objekt je Geometrie erstellen
+int num = 1
+geometries.each { geom -&gt;
+	// ID bestimmen
+	def _id = "DamOrWeir_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen mit IDs und Geometrie
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(geom)
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `DamOrWeir`s aus `AX_BauwerkImGewaesserbereich` mit `bauwerksfunktion` *Staumauer* (`2030`), *Staudamm* (`2040`), *Wehr* (`2050`), *Sicherheitstor* (`2060`) oder *Sperrwerk* (`2080`).
+
+Die Geometrie des Quell-Objekts wird untersucht. Je einzelner Simple-Feature Geometrie wird ein `DamOrWeir` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Geometrie (1., 2., etc. einzelne Geometrie) gebildet.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C52249ce3-f646-4dab-8ed2-5383e8b3ae5a" priority="lowest">
         <target>
@@ -588,52 +629,6 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </property>
         </target>
         <parameter value="unknown" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C6ad9881b-561b-41bc-84df-336189e2d3ef" priority="normal">
-        <source>
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2040' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2080'</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="DamOrWeirType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="Ccafac3f0-deb5-4517-84c2-1a0bb828ed1c" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2040' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2080'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="DamOrWeirType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="Ceb8ce2a0-2ab7-4dbf-8300-8455171d38f9" priority="normal">
-        <target>
-            <property>
-                <type name="DamOrWeirType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C2591d7b5-73c0-44b7-9559-4f2f8d09ff38" priority="normal">
         <source>
@@ -3487,11 +3482,13 @@ if (hatFlaechenhaft) {&#xD;
     <modifier cell="C8c914f39-9647-4653-bd06-c6b8871cd637">
         <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
         <disable-for parent="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16"/>
+        <disable-for parent="Cb562d66d-d71a-4ef6-bacd-a24d624e7524"/>
         <disable-for parent="C76a01cce-00b7-4705-8a54-109506ab4fdb"/>
     </modifier>
     <modifier cell="Cb8460d08-86f3-41ec-afe4-7bd999be3b0c">
         <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
         <disable-for parent="Cef61b9c6-e7e9-410d-a70b-ef79522d1d16"/>
+        <disable-for parent="Cb562d66d-d71a-4ef6-bacd-a24d624e7524"/>
         <disable-for parent="C76a01cce-00b7-4705-8a54-109506ab4fdb"/>
     </modifier>
 </alignment>
