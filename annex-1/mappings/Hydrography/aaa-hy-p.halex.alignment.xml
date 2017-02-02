@@ -1550,7 +1550,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C15add59d-cb60-421b-91d4-065c79388c6d" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C18bc7bb0-8edd-4fa0-8029-94ef246b80bf" priority="normal">
         <source>
             <class>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -1563,8 +1563,49 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <type name="ShorelineConstructionType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Geometrien aufteilen in einzelne Simple Feature Geometrien
+def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)
+
+// Identifier des Quell-Objekts
+def sourceId = _source.p.id.value()
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+// Ziel Objekt je Geometrie erstellen
+int num = 1
+geometries.each { geom -&gt;
+	// ID bestimmen
+	def _id = "ShorelineConstruction_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen mit IDs und Geometrie
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		geometry(geom)
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `ShorelineConstruction`s aus `AX_BauwerkImGewaesserbereich` mit `bauwerksfunktion` *Uferbefestigung* (`2130`), *Wellenbrecher, Buhne* (`2131`), *Lahnung* (`2132`), *Hafendamm, Mole* (`2133`), *Höft* (`2134`), *Deckwerk* (`2135`) oder *Ufermauer, Kaimauer* (`2136`).
+
+Die Geometrie des Quell-Objekts wird untersucht. Je einzelner Simple-Feature Geometrie wird ein `ShorelineConstruction` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der Geometrie (1., 2., etc. einzelne Geometrie) gebildet.
+</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C19d699a6-88bd-421d-91bb-c89995b95029" priority="lowest">
         <target>
@@ -1632,52 +1673,6 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </property>
         </target>
         <parameter value="unknown" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C2dda0bb4-8f94-4eca-b7e7-0e4b3fdefb85" priority="normal">
-        <source>
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2130' or bauwerksfunktion = '2131' or bauwerksfunktion = '2132' or bauwerksfunktion = '2133' or bauwerksfunktion = '2134' or bauwerksfunktion = '2135'  or bauwerksfunktion = '2136'</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ShorelineConstructionType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="true" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C7da0b708-7591-4738-bfd0-ab33a3296e61" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2130' or bauwerksfunktion = '2131' or bauwerksfunktion = '2132' or bauwerksfunktion = '2133' or bauwerksfunktion = '2134' or bauwerksfunktion = '2135'  or bauwerksfunktion = '2136'</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ShorelineConstructionType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="C619759b9-c6d9-4484-9121-977ee7081de0" priority="normal">
-        <target>
-            <property>
-                <type name="ShorelineConstructionType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C11226ea4-e6ea-41ed-b286-db3b9f1fdc39" priority="normal">
         <source>
@@ -3381,6 +3376,7 @@ if (hatFlaechenhaft) {&#xD;
     </modifier>
     <modifier cell="C8c914f39-9647-4653-bd06-c6b8871cd637">
         <disable-for parent="C3aac6754-dc82-4824-932a-3df081b6d4a4"/>
+        <disable-for parent="C18bc7bb0-8edd-4fa0-8029-94ef246b80bf"/>
         <disable-for parent="C6f0c9e09-ca9c-4e91-8217-b0b3f24e1c5c"/>
         <disable-for parent="C1f48e318-a73d-4dc7-ae83-a03f60aafd65"/>
         <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
@@ -3391,6 +3387,7 @@ if (hatFlaechenhaft) {&#xD;
     </modifier>
     <modifier cell="Cb8460d08-86f3-41ec-afe4-7bd999be3b0c">
         <disable-for parent="C3aac6754-dc82-4824-932a-3df081b6d4a4"/>
+        <disable-for parent="C18bc7bb0-8edd-4fa0-8029-94ef246b80bf"/>
         <disable-for parent="C6f0c9e09-ca9c-4e91-8217-b0b3f24e1c5c"/>
         <disable-for parent="C1f48e318-a73d-4dc7-ae83-a03f60aafd65"/>
         <disable-for parent="C7062dc56-15a8-4b8e-a5d7-2b9aef459001"/>
