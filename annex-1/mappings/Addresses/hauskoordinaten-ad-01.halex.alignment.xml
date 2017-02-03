@@ -254,13 +254,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.string.regexanalysisfunction" id="C18b8460e-611b-4e1e-a2d2-00a59139263f" priority="normal">
-        <source>
-            <property>
-                <type name="Hauskoordinaten"/>
-                <child name="OI"/>
-            </property>
-        </source>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cf2f28067-1780-4ffd-bbee-af75116bed78" priority="normal">
         <target>
             <property>
                 <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -269,8 +263,6 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="https://registry.gdi-de.org/id/de.{1}/" name="outputFormat"/>
-        <parameter value="^.{2}(.{2}).*$" name="regexPattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C43c8131c-0483-47b4-a90b-f3a376ac10ad" priority="normal">
         <source>
