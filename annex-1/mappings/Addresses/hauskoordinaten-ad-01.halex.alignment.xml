@@ -55,14 +55,14 @@ _.geom.with(geometry: "POINT($x $y)", crs: code)&#xD;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C3368716c-8734-4558-a5c8-b86e395f2c1d" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cfe80e618-ab77-42a0-bb11-45fd8b88e2f0" priority="normal">
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="SSS"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
@@ -71,7 +71,14 @@ _.geom.with(geometry: "POINT($x $y)", crs: code)&#xD;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="#ThoroughfareName_{SSS}" name="pattern"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
+
+"#ThoroughfareName_$id"
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C283fefcc-5e12-4f09-b58a-c5c95f6eab4a" priority="normal">
         <source name="var">
@@ -756,20 +763,27 @@ _.geom.with(geometry: "POINT($x $y)", crs: code)&#xD;
         <parameter value="true" name="auto_detect"/>
         <parameter value="STN" name="property"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C49be7084-2e99-4cb5-afff-7dc753c5acbf" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C30814c3e-10a3-4608-838d-6599dd113160" priority="normal">
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="SSS"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="ThoroughfareName_{SSS}" name="pattern"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
+
+"ThoroughfareName_$id"
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C48a14424-9cf5-4082-92ee-372643bd0249" priority="normal">
         <source>
