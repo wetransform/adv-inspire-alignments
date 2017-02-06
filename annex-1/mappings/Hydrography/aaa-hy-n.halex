@@ -2,11 +2,11 @@
 <hale-project version="3.2.0.qualifier">
     <name>ALKIS Basis-DLM zu INSPIRE Hydro-Network</name>
     <author>Thorsten Reitz</author>
-    <description>Aus `AX_BauwerkImGewaesserbereich` mit `bauwerksfunktion=1800` (Brücke) wurde kein `WatercourseLink` abgeleitet, da ein `WatercourseLink` stets Teil eines Gewässers sein soll, was bei Brücken nur gegeben seinkann, wenn diese Brücke ein Gewässer (Kanal) stützt.&#xD;
+    <description>Aus `AX_BauwerkImGewaesserbereich` mit `bauwerksfunktion=1800` (Brücke) wurde kein `WatercourseLink` abgeleitet, da ein `WatercourseLink` stets Teil eines Gewässers sein soll, was bei Brücken nur gegeben sein kann, wenn diese Brücke ein Gewässer (Kanal) stützt.&#xD;
 &#xD;
-`WatercourseLinlSequences` werden nicht gebildet, da in den Quelldaten keine Verknüpfungen zwischen den einzelnen `AX_Gewaesserachsen` existieren, die für eine zuverlässige Bildung der Sequenz herangezogen werdne können. Eine geometrische Analyse kann nicht zuverlässif funktionieren.</description>
+`WatercourseLinkSequence`s werden nicht gebildet, da in den Quelldaten keine Verknüpfungen zwischen den einzelnen `AX_Gewaesserachsen` existieren, die für eine zuverlässige Bildung der Sequenz herangezogen werden können. Eine geometrische Analyse kann nicht zuverlässig funktionieren.</description>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2017-01-30T17:18:06.871+01:00</modified>
+    <modified>2017-02-06T10:48:54.878+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
