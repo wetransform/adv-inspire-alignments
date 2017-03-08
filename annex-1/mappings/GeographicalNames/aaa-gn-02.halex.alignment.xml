@@ -1699,22 +1699,6 @@ withTransformationContext {
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb174f863-adde-4bb6-a881-8ee469d1ba7a" priority="normal">
-        <source>
-            <property>
-                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C50ee9be0-3608-4020-8298-6f7f988bc9ac" priority="normal">
         <source>
             <property>
@@ -1730,7 +1714,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C86bee92c-7b77-4535-a5fd-b33f28ed0468" priority="normal">
@@ -1748,8 +1732,8 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf418a6aa-846e-4d06-9580-f0ff672d620d" priority="normal">
         <source>
@@ -1766,7 +1750,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C87c4c04c-b595-4f7c-9b5c-6817f8f977f1" priority="normal">
@@ -1784,7 +1768,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ccf5c2cb9-5ea3-417a-93a3-8dcb4d66c4cc" priority="normal">
@@ -1802,7 +1786,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf3e867c7-bfc1-4b4e-b857-e64c74d1851e" priority="normal">
@@ -1820,7 +1804,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C5cdc93b4-f602-4775-84cd-da2cb0ce1caf" priority="normal">
@@ -1836,7 +1820,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9edec3c7-8645-4d4a-84c4-b81ca0923e62" priority="normal">
@@ -1854,8 +1838,8 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C7429730b-65d9-432c-8484-1c68d869a62f" priority="normal">
         <source>
@@ -1872,7 +1856,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C7b79c5de-146a-4fa4-8cd4-91a9e65f7b75" priority="normal">
@@ -1890,8 +1874,8 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C006b9f35-07ac-4418-9874-0df9cbce51fa" priority="normal">
         <source>
@@ -1906,7 +1890,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C0d7ea614-c72a-4730-b17c-9fdb9b697c49" priority="normal">
@@ -1924,7 +1908,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ccbf09a9c-752c-4108-b283-e03fcea000d8" priority="normal">
@@ -1942,8 +1926,8 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C613ec5b3-02cc-413c-ba33-7c9419339eb6" priority="normal">
         <source>
@@ -1960,7 +1944,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cae006b36-6727-45ee-a9dc-21292d5b3941" priority="normal">
@@ -1978,7 +1962,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C2ed76894-2331-40ea-b329-74f7cd514797" priority="normal">
@@ -1996,7 +1980,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf4b7cde4-7726-4fc4-86ae-db95af878b57" priority="normal">
@@ -2014,8 +1998,8 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cbf53a39e-bd5e-45ac-99c9-c365e56483a9" priority="normal">
         <source>
@@ -2032,7 +2016,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce19a7c0d-f528-406e-ab6c-429e737a266e" priority="normal">
@@ -2050,7 +2034,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc2506188-e3c8-4ea4-bfda-6199c59f14a3" priority="normal">
@@ -2068,7 +2052,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C8dd4592e-c396-4e1b-87ca-0268379bd56c" priority="normal">
@@ -2086,7 +2070,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cfe024169-ded7-41b7-9b89-67958908fc29" priority="normal">
@@ -2104,7 +2088,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C7bfd886a-0318-46a5-84df-aecb599e9cc4" priority="normal">
@@ -2121,7 +2105,7 @@ withTransformationContext {
             </property>
         </target>
         <parameter value="false" name="copyGeometries"/>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C6b3b6a01-cd2c-4d11-9c18-0522a992f01e" priority="normal">
@@ -2137,7 +2121,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C5f66cb0d-87c0-48e2-bbba-9a313e588dd9" priority="normal">
@@ -2153,7 +2137,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C665376b0-7a8d-4c15-851e-5c7eddd09171" priority="normal">
@@ -2169,7 +2153,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C78ecb0f2-e791-4300-99d1-69afbb6c2fb2" priority="normal">
@@ -2185,7 +2169,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C1c67e014-c83d-4539-bb0d-2a8b7bd25dcf" priority="normal">
@@ -2201,7 +2185,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C23df448d-6016-4219-bfc8-c23990204a5f" priority="normal">
@@ -2219,7 +2203,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C96a20019-faa0-4791-802c-73d844809bfc" priority="normal">
@@ -2237,7 +2221,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C8292cbfa-9e1f-4a62-b5b0-d4a64754753f" priority="normal">
@@ -2255,7 +2239,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9314e5ff-aef8-47c1-9264-051081377d53" priority="normal">
@@ -2273,7 +2257,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C4589b5a8-5857-4b8b-b4d5-c91d551eeefc" priority="normal">
@@ -2291,7 +2275,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C637643d3-3404-4980-9255-1638617ce1e0" priority="normal">
@@ -2309,7 +2293,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cff69e14d-bcd1-430b-976d-a1200f4871fe" priority="normal">
@@ -2327,7 +2311,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C94972184-be69-4695-9dfd-68f7a2e3b89e" priority="normal">
@@ -2345,7 +2329,25 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cabfa5434-99a3-48eb-b083-ef839948e614" priority="normal">
+        <source>
+            <property>
+                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C7d1d6f24-96e4-4fd5-bfd3-d9985438ba04" priority="normal">
@@ -2363,26 +2365,8 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C9765b81e-4c83-4462-b78c-0c0b4238e12a" priority="normal">
-        <source>
-            <property>
-                <type name="AX_HeilquelleGasquelleType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C624d3a57-07b3-4691-9dee-976ff80170d0" priority="normal">
         <source>
@@ -2399,25 +2383,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca7573612-d513-4093-9cc6-913c7215407b" priority="normal">
-        <source>
-            <property>
-                <type name="AX_HoehleneingangType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ccdf2a969-543b-4aa0-a38c-adcf9b68a2a3" priority="normal">
@@ -2435,8 +2401,8 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C892bfa03-b3ab-4926-a49b-0970098f6313" priority="normal">
         <source>
@@ -2453,7 +2419,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd2abfe74-d1fd-4370-ab3d-8dec38ef0f20" priority="normal">
@@ -2471,7 +2437,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9405b153-68f1-41ee-b945-e9c4953e7511" priority="normal">
@@ -2487,7 +2453,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C0ac9927c-b1ed-452e-a648-f0495eda4177" priority="normal">
@@ -2505,7 +2471,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cda6a25f5-0ee3-4dda-aecc-5dfaed584e01" priority="normal">
@@ -2523,7 +2489,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C78a2a722-2da9-4f48-9dd8-5ae926500c89" priority="normal">
@@ -2541,7 +2507,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cabdd563d-7c4f-4c65-8b22-83f82573f655" priority="normal">
@@ -2559,7 +2525,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc4f332ef-956d-42ee-b33f-0c7148557402" priority="normal">
@@ -2577,7 +2543,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb4d0e017-5a29-4948-9793-30b6cc3084c6" priority="normal">
@@ -2595,7 +2561,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca9fd8e79-204d-4d1a-8297-b83b5d1f2844" priority="normal">
@@ -2613,7 +2579,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C971d6a38-38f9-4ff0-baba-0d09fa533432" priority="normal">
@@ -2629,7 +2595,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C1ef7d22f-e59c-426d-82fc-c02d4458f055" priority="normal">
@@ -2647,7 +2613,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf8a7d0db-d99f-496a-8d9d-8c1bae1e5eb8" priority="normal">
@@ -2665,8 +2631,8 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C5ca336cb-a8b7-4ca0-9b0e-a4728c4ce919" priority="normal">
         <source>
@@ -2683,7 +2649,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9fd14d8c-a24d-460c-af58-afb9ce8b37f5" priority="normal">
@@ -2701,43 +2667,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cea5a1af1-d155-4977-9405-55c676cb235d" priority="normal">
-        <source>
-            <property>
-                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cefb7aa9a-09bd-4c5d-83fc-f32f6cdafbc9" priority="normal">
-        <source>
-            <property>
-                <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd9889af4-723d-436c-97f0-22b0619433b7" priority="normal">
@@ -2755,7 +2685,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9ca348d2-c80f-4226-b018-32bae2630070" priority="normal">
@@ -2773,7 +2703,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C0a7cba65-692f-47b7-94b5-13ebcc667035" priority="normal">
@@ -2791,7 +2721,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C18f54868-9d95-40b4-ab53-101b0ad4197c" priority="normal">
@@ -2809,7 +2739,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9acf5610-fd46-4bb2-bd06-7f7caf29cd1b" priority="normal">
@@ -2827,7 +2757,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C998d8c05-aedf-4e5b-bd56-adb8e91ea533" priority="normal">
@@ -2845,7 +2775,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C91982063-7c6b-464b-a654-b6d03c2a4197" priority="normal">
@@ -2863,7 +2793,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ccf88abdc-badb-4214-88dc-18ca48a7668d" priority="normal">
@@ -2881,7 +2811,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C6b71d962-9c41-4311-b79d-d020fb3e8a61" priority="normal">
@@ -2899,7 +2829,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C61a75b8d-20f2-4e3a-9a41-01f56b5a1534" priority="normal">
@@ -2917,7 +2847,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd790126d-8142-46a9-9600-b104f7ec6734" priority="normal">
@@ -2935,7 +2865,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C57bfb7b8-7d57-4b63-a8ef-fba4ae724046" priority="normal">
@@ -2953,7 +2883,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9b0885d5-a475-4443-9d6d-8bcc54d4574a" priority="normal">
@@ -2971,7 +2901,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd50ba3c1-6489-416c-882b-fe88cb8a8e53" priority="normal">
@@ -2989,7 +2919,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C8dc3895b-0f01-4a2e-9a5a-ea1b1a776e07" priority="normal">
@@ -3007,7 +2937,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C17cba077-0802-4cd3-9024-6523ae396f40" priority="normal">
@@ -3025,7 +2955,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cce6bb655-402c-400a-91ca-00057f240fc3" priority="normal">
@@ -3043,7 +2973,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C20cdaaa3-48ea-4003-92d6-e2edcb3a7eb4" priority="normal">
@@ -3061,7 +2991,7 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C1edd7400-23ee-4f58-965a-44336023f5e8" priority="normal">
@@ -3079,8 +3009,111 @@ withTransformationContext {
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cefb7aa9a-09bd-4c5d-83fc-f32f6cdafbc9" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SickerstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="CompositeCurve" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="CompositeCurve" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cea5a1af1-d155-4977-9405-55c676cb235d" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="MultiCurve" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="MultiCurve" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb174f863-adde-4bb6-a881-8ee469d1ba7a" priority="normal">
+        <source>
+            <property>
+                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C9765b81e-4c83-4462-b78c-0c0b4238e12a" priority="normal">
+        <source>
+            <property>
+                <type name="AX_HeilquelleGasquelleType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca7573612-d513-4093-9cc6-913c7215407b" priority="normal">
+        <source>
+            <property>
+                <type name="AX_HoehleneingangType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce725c8d4-3100-493a-8ec5-d15aeb54ca2a" priority="normal">
         <source>
@@ -3089,24 +3122,7 @@ withTransformationContext {
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="true" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cabfa5434-99a3-48eb-b083-ef839948e614" priority="normal">
-        <source>
-            <property>
-                <type name="AX_HaldeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
-                </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
@@ -3114,11 +3130,11 @@ withTransformationContext {
                 <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
-                <child name="Surface" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cbb91121f-7d7e-40b6-8b95-087d3a05b81e" priority="normal">
         <source name="id">
