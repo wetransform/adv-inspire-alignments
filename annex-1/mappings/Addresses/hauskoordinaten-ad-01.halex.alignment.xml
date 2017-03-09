@@ -795,8 +795,8 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C48a14424-9cf5-4082-92ee-372643bd0249" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C26a26d1a-7e30-49f9-b519-94a95d0c158f" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="STN"/>
@@ -809,12 +809,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
                 <child name="ThoroughfareNameValue" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
     </cell>
 </alignment>
