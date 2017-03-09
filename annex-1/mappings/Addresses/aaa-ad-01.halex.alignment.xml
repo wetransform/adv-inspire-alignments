@@ -277,6 +277,16 @@ if (positionAdresse) {&#xD;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C94b18a20-5cd5-4c89-9a8b-70285727ae78" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C26cdb092-6dd3-4145-9e40-a4dde696a11d" priority="normal">
         <source name="var">
             <property>
@@ -651,6 +661,16 @@ if (positionAdresse) {&#xD;
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/LocatorLevelValue/siteLevel" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb6d14144-fb01-49d3-ae82-98645c961794" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C8c2bf635-7286-4c70-8f5f-d8589052accd" priority="normal">
         <source>
             <class>
@@ -890,6 +910,16 @@ if (positionAdresse) {&#xD;
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdf998527-b6c2-4bb3-b6a0-6ef6399a86c8" priority="normal">
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ceda0b304-65ef-4b74-97e3-b589d0d110cd" priority="normal">
         <source>
@@ -1384,6 +1414,16 @@ if (positionAdresse) {&#xD;
         </target>
         <parameter value="DLKM" name="source"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7adb482f-dff2-4ef5-a495-6518987d3635" priority="normal">
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.merge" id="C853700b9-c520-4c5c-9e2c-105f697c6d50" priority="normal">
         <source>
             <class>
@@ -1400,6 +1440,16 @@ if (positionAdresse) {&#xD;
         <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}ortsnamePost" name="additional_property"/>
         <parameter value="false" name="auto_detect"/>
         <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}postleitzahl" name="property"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc5c40a0a-bc89-42aa-a918-7e25fb8215f5" priority="normal">
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9842c4bf-f94e-4cb6-ae00-86bdb2c2ca62" priority="normal">
         <source name="var">
@@ -1500,6 +1550,16 @@ if (positionAdresse) {&#xD;
         </target>
         <parameter value="DLKM" name="source"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cae50d6a8-8f52-4846-8a29-b20b2e495505" priority="normal">
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C9fc48689-dc97-4f8a-864a-1557dcf3c563" priority="normal">
         <source>
             <class>
@@ -1547,6 +1607,16 @@ if (positionAdresse) {&#xD;
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cecd37f01-722c-4732-ae93-20a18334adc0" priority="normal">
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cee50530f-ceb8-4c36-8ba6-994ce78aa2d2" priority="normal">
         <source>
@@ -1649,5 +1719,15 @@ if (positionAdresse) {&#xD;
             </property>
         </target>
         <parameter value="DLKM" name="source"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7b56fcba-904c-42f8-b005-f5b9b5c2d421" priority="normal">
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
 </alignment>
