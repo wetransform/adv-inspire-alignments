@@ -85,7 +85,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="LAN">
-                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '0'</condition>
+                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '00'</condition>
                 </child>
             </property>
         </source>
@@ -100,7 +100,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         </target>
         <parameter value="#AdminUnitName_{LAN}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C6ed8c048-57b5-4de5-bbc8-728785d454de" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C5f9de700-7784-47ce-a7dd-663d153c8248" priority="normal">
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
@@ -112,12 +112,10 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="LAN">
-                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '0'</condition>
-                </child>
+                <child name="LAN"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
@@ -126,34 +124,40 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="#AdminUnitName_{LAN}{RBZ}" name="pattern"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (RBZ) {
+	"#AdminUnitName_${LAN}${RBZ}"
+}
+else {
+	throw new NoResultException()
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C34334a04-93ab-4bb1-a0ab-7b74944836ac" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C39b9585c-9471-4950-b97c-af52ecb25867" priority="normal">
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="KRS">
-                    <condition lang="CQL">KRS &lt;&gt; '' and KRS &lt;&gt; '0'</condition>
+                    <condition lang="CQL">KRS &lt;&gt; '' and KRS &lt;&gt; '00'</condition>
                 </child>
             </property>
         </source>
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="RBZ">
-                    <condition lang="CQL">RBZ &lt;&gt; '' and RBZ &lt;&gt; '0'</condition>
-                </child>
+                <child name="RBZ"/>
             </property>
         </source>
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="LAN">
-                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '0'</condition>
-                </child>
+                <child name="LAN"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
@@ -162,39 +166,43 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="#AdminUnitName_{LAN}{RBZ}{KRS}" name="pattern"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (KRS) {
+	"#AdminUnitName_${LAN}${RBZ}${KRS}"
+}
+else {
+	throw new NoResultException()
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C5e36e9e6-55e6-4482-8177-b1191bb080fb" priority="normal">
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="GMD">
-                    <condition lang="CQL">GMD &lt;&gt; '' and GMD &lt;&gt; '0'</condition>
+                    <condition lang="CQL">GMD &lt;&gt; ''</condition>
                 </child>
             </property>
         </source>
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="KRS">
-                    <condition lang="CQL">KRS &lt;&gt; '' and KRS &lt;&gt; '0'</condition>
-                </child>
+                <child name="KRS"/>
             </property>
         </source>
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="RBZ">
-                    <condition lang="CQL">RBZ &lt;&gt; '' and RBZ &lt;&gt; '0'</condition>
-                </child>
+                <child name="RBZ"/>
             </property>
         </source>
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="LAN">
-                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '0'</condition>
-                </child>
+                <child name="LAN"/>
             </property>
         </source>
         <target>
@@ -404,7 +412,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source>
             <class>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K'</condition>
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
                 </type>
             </class>
         </source>
@@ -420,7 +428,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source>
             <class>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L'</condition>
+                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
                 </type>
             </class>
         </source>
@@ -436,7 +444,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source>
             <class>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R'</condition>
+                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
                 </type>
             </class>
         </source>
@@ -493,7 +501,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K'</condition>
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
                 </type>
                 <child name="a"/>
             </property>
@@ -501,7 +509,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K'</condition>
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
                 </type>
                 <child name="b"/>
             </property>
@@ -509,7 +517,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K'</condition>
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
                 </type>
                 <child name="c"/>
             </property>
@@ -526,7 +534,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L'</condition>
+                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
                 </type>
                 <child name="a"/>
             </property>
@@ -543,7 +551,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R'</condition>
+                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
                 </type>
                 <child name="a"/>
             </property>
@@ -551,7 +559,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R'</condition>
+                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
                 </type>
                 <child name="b"/>
             </property>
@@ -586,7 +594,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="anchor">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K'</condition>
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
                 </type>
                 <child name="d"/>
             </property>
@@ -604,7 +612,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="anchor">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L'</condition>
+                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
                 </type>
                 <child name="b"/>
             </property>
@@ -622,7 +630,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="anchor">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R'</condition>
+                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
                 </type>
                 <child name="c"/>
             </property>
@@ -667,7 +675,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="spelling">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K'</condition>
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
                 </type>
                 <child name="d"/>
             </property>
@@ -684,7 +692,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="spelling">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L'</condition>
+                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
                 </type>
                 <child name="b"/>
             </property>
@@ -701,7 +709,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="spelling">
             <property>
                 <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R'</condition>
+                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
                 </type>
                 <child name="c"/>
             </property>
