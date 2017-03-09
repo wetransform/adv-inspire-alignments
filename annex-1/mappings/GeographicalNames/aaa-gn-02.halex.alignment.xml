@@ -27,17 +27,17 @@ withTransformationContext {
         </complexParameter>
         <documentation>Dies ist eine Dummy-Transformationsdefinition die keine Objekte erzeugt sondern zum Aufbauen eines Index für `AX_LagebezeichnungKatalogeintrag` dient.</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="Ca3ebfac9-ea93-4f00-ad87-53c90fcefd6d" priority="normal">
-        <source name="types">
-            <class>
-                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C0745b820-d15a-47ba-83a1-bebdc0d2a2bb" priority="normal">
         <source name="types">
             <class>
                 <type name="AX_BoeschungKliffType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <target>
@@ -70,8 +70,17 @@ withTransformationContext {
                 </jp:condition>
             </jp:join-parameter>
         </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def point = _source.links.AP_PTO.p.position.Point.value()
+if (point) {
+	_target {
+	}
+}
+</core:text>
+        </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="C00ce9792-6386-452a-a96e-479e896a6077" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cd904c950-4920-42cc-8648-858bf842f64c" priority="normal">
         <source name="types">
             <class>
                 <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -114,18 +123,27 @@ withTransformationContext {
                 </jp:condition>
             </jp:join-parameter>
         </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def point = _source.links.AP_PTO.p.position.Point.value()
+if (point) {
+	_target {
+	}
+}
+</core:text>
+        </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="C29a5ee63-234f-4d8c-9451-b059ea1dea0c" priority="normal">
-        <source name="types">
-            <class>
-                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C0fe8025f-9b37-46c5-bea0-0fb65743617a" priority="normal">
         <source name="types">
             <class>
                 <type name="AX_SchutzgebietNachNaturUmweltOderBodenschutzrechtType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <target>
@@ -158,18 +176,27 @@ withTransformationContext {
                 </jp:condition>
             </jp:join-parameter>
         </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def point = _source.links.AP_PTO.p.position.Point.value()
+if (point) {
+	_target {
+	}
+}
+</core:text>
+        </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="C4e42085c-cea8-4679-bb10-ae9ac568aac6" priority="normal">
-        <source name="types">
-            <class>
-                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C874fc701-461b-4bea-a6f4-f5ad6305edb0" priority="normal">
         <source name="types">
             <class>
                 <type name="AX_SchutzgebietNachWasserrechtType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <target>
@@ -202,8 +229,17 @@ withTransformationContext {
                 </jp:condition>
             </jp:join-parameter>
         </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def point = _source.links.AP_PTO.p.position.Point.value()
+if (point) {
+	_target {
+	}
+}
+</core:text>
+        </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="C620b2869-0c69-4e70-afca-9c141b68e844" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C81c816fb-f232-47ff-b1e3-2cc177631b3f" priority="normal">
         <source name="types">
             <class>
                 <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -246,18 +282,27 @@ withTransformationContext {
                 </jp:condition>
             </jp:join-parameter>
         </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def point = _source.links.AP_PTO.p.position.Point.value()
+if (point) {
+	_target {
+	}
+}
+</core:text>
+        </complexParameter>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="C71713b77-1284-4ba9-a970-94501a6ea626" priority="normal">
-        <source name="types">
-            <class>
-                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb327b836-6e14-4edd-94ed-52bd21f94b4b" priority="normal">
         <source name="types">
             <class>
                 <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
                 </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AP_PTOType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <target>
@@ -289,6 +334,15 @@ withTransformationContext {
                     </property>
                 </jp:condition>
             </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def point = _source.links.AP_PTO.p.position.Point.value()
+if (point) {
+	_target {
+	}
+}
+</core:text>
         </complexParameter>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C3f5941a3-eaf1-4c23-99c8-fd528b94431f" priority="normal">
