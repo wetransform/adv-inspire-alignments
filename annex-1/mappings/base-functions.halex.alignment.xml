@@ -32,6 +32,37 @@ Nur erfolgreich falls genau eine Simple Feature Geometrie gebildet werden kann. 
         </cf:custom-property-function>
     </customFunction>
     <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.geometry.simplefeature.multi" name="Simple Feature Geometrie (Multi)" type="groovy">
+            <cf:input eager="true" maxOccurs="1" minOccurs="1" name="geometrie"/>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1"/>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def geoms = _.geom.toSimpleGeometries(geometries: _.geom.aggregate(geometrie), collections: true)
+if (geoms) {
+	if (geoms.size() &gt; 1) {
+		_log.error("Mehrere Geometrien gefunden - Aufteilung nötig")
+	}
+	_target(geoms[0])
+}
+else {
+	_log.error("Keine Geometrie gefunden")
+}
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+Überführt die Quell-Geometrien als eine zusammengefasste Simple Feature Geometrie (ggf. als Multi-Geometrie).
+
+Nur erfolgreich falls genau eine Simple Feature Geometrie gebildet werden kann. Andernfalls wird ein entsprechender Fehler in die Transformations-Logs eingetragen.
+</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
+    <customFunction>
         <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.AX_Lagebezeichnung.GeographicalName" name="AX_Lagebezeichnung zu GeographicalName" type="groovy">
             <cf:input eager="false" maxOccurs="1" minOccurs="1" name="lagebezeichnung">
                 <cf:binding>java.lang.String</cf:binding>
