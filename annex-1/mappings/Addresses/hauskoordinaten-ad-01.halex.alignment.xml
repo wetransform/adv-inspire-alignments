@@ -564,6 +564,24 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         </target>
         <parameter value="AdminUnitName_{a}{b}" name="pattern"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C95786a23-4df6-4327-88c9-85193bb8ba80" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="d"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/6thOrder" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cadd69904-4c3b-42ca-a1c7-7716ad4e911c" priority="normal">
         <source name="anchor">
             <property>
