@@ -95,7 +95,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="LAN">
-                    <condition lang="CQL">LAN &lt;&gt; '' and LAN &lt;&gt; '00'</condition>
+                    <condition lang="CQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
                 </child>
             </property>
         </source>
@@ -115,7 +115,7 @@ def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="RBZ">
-                    <condition lang="CQL">RBZ &lt;&gt; '' and RBZ &lt;&gt; '0'</condition>
+                    <condition lang="CQL">value &lt;&gt; '' and value &lt;&gt; '0'</condition>
                 </child>
             </property>
         </source>
@@ -151,7 +151,7 @@ else {
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="KRS">
-                    <condition lang="CQL">KRS &lt;&gt; '' and KRS &lt;&gt; '00'</condition>
+                    <condition lang="CQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
                 </child>
             </property>
         </source>
@@ -193,7 +193,7 @@ else {
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="GMD">
-                    <condition lang="CQL">GMD &lt;&gt; ''</condition>
+                    <condition lang="CQL">value &lt;&gt; ''</condition>
                 </child>
             </property>
         </source>
@@ -230,7 +230,9 @@ else {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="PLZ"/>
+                <child name="PLZ">
+                    <condition lang="CQL">value is not null and value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -779,7 +781,9 @@ else {
     <cell relation="eu.esdihumboldt.hale.align.merge" id="Ccba5d1e0-650c-4a47-985f-c7842e2297f1" priority="normal">
         <source>
             <class>
-                <type name="Hauskoordinaten"/>
+                <type name="Hauskoordinaten">
+                    <condition lang="CQL">PLZ is not null and PLZ &lt;&gt; ''</condition>
+                </type>
             </class>
         </source>
         <target>
