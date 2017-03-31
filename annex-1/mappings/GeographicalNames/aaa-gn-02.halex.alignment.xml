@@ -413,7 +413,7 @@ if (point) {
         <source>
             <class>
                 <type name="AX_BaublockType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="CQL">baublockbezeichnung is not null and baublockbezeichnung &lt;&gt; ''</condition>
                 </type>
             </class>
         </source>
@@ -1821,7 +1821,7 @@ if (point) {
         <source name="geometrie">
             <property>
                 <type name="AX_BaublockType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="CQL">baublockbezeichnung is not null and baublockbezeichnung &lt;&gt; ''</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -3149,7 +3149,7 @@ if (point) {
         <source name="anchor">
             <property>
                 <type name="AX_BaublockType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="CQL">baublockbezeichnung is not null and baublockbezeichnung &lt;&gt; ''</condition>
                 </type>
                 <child name="baublockbezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -4934,7 +4934,7 @@ if (point) {
         <source name="spelling">
             <property>
                 <type name="AX_BaublockType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="CQL">baublockbezeichnung is not null and baublockbezeichnung &lt;&gt; ''</condition>
                 </type>
                 <child name="baublockbezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -6452,7 +6452,7 @@ if (point) {
         <source name="anchor">
             <property>
                 <type name="AX_BaublockType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="CQL">baublockbezeichnung is not null and baublockbezeichnung &lt;&gt; ''</condition>
                 </type>
                 <child name="baublockbezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
