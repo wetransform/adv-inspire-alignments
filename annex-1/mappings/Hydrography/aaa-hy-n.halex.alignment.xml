@@ -947,24 +947,24 @@ _target {&#xD;
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <class>
                     <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                         <condition lang="CQL">bauwerksfunktion = '2012'</condition>
                     </type>
                 </class>
+                <class>
+                    <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
                 <jp:condition>
-                    <property>
-                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="hatDirektUnten" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
-                    </property>
                     <property>
                         <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                             <condition lang="CQL">bauwerksfunktion = '2012'</condition>
                         </type>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatDirektUnten" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
