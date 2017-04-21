@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="2.9.5.SNAPSHOT">
+<hale-project version="3.3.0.qualifier">
     <name>ALKIS zu INSPIRE CadastralParcels</name>
     <author>Simon Templer</author>
     <description>Alignment von ALKIS zu INSPIRE CadastralParcels.
@@ -13,7 +13,7 @@ Andernfalls erhält man Aggregationen aus einer Untermenge, die natürlich auch 
 Referenzen zwischen *CadastralParcels* und *CadastralZonings*, sowie der *CadastralZonings* untereinander werden als lokale XLink-Referenzen umgesetzt.
 Für konsistente Referenzen wird in den Quell-Daten neben *AX_Gemarkung* und ggf. *AX_GemarkungsteilFlur* auch *AX_Bundesland*  benötigt.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-09-13T18:26:54.193+02:00</modified>
+    <modified>2017-04-21T11:48:22.114+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -160,6 +160,9 @@ Für konsistente Referenzen wird in den Quell-Daten neben *AX_Gemarkung* und ggf
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/1">{http://inspire.ec.europa.eu/schemas/gn/4.0}geometry</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FallsType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FallsType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FallsType/count">2</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_AktivitaetType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_AktivitaetType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AA_AktivitaetType/count">2</property>

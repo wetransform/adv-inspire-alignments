@@ -12,8 +12,8 @@
                 <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ceb874d7d-ec44-43ba-ba26-2004b0a8c78e" priority="normal">
         <source>
@@ -28,8 +28,8 @@
                 <child name="areaValue" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.uom.toucum" id="C033c7108-6b60-4abd-92a4-4cf19ee508a0" priority="normal">
         <source name="uom">
@@ -62,8 +62,8 @@
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C7f209965-d6a1-4cf7-8b1e-bf4ff7ebe028" priority="normal">
         <target>
@@ -88,9 +88,9 @@
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="true" name="structuralRename"/>
         <parameter value="false" name="copyGeometries"/>
         <parameter value="true" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ce6bf7947-2b16-446e-b4c9-5d0e39e5c0c8" priority="normal">
         <source name="id">
@@ -169,7 +169,6 @@
                 <child name="label" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="variablesAsInstances"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 if (nenner) {
@@ -180,6 +179,7 @@ else {
 }
 </core:text>
         </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
         <documentation>Falls ein *nenner* vorhanden ist das Ergebnis repräsentiert als `zaehler/nenner`, ansonsten wird nur der *zaehler* angegeben.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C8fe37216-c8fe-40ef-a5f5-41fabf8cc024" priority="normal">
@@ -195,8 +195,8 @@ else {
                 <child name="nationalCadastralReference" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.geometric.interiorPoint" id="C3e2e3e1e-449b-4985-b1ce-f4a3a5fa8198" priority="normal">
         <source>
@@ -228,8 +228,8 @@ else {
                 <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C41ceffd5-78c3-4f15-a342-5e6f33b25b5f" priority="normal">
         <target>
@@ -255,7 +255,6 @@ else {
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="false" name="variablesAsInstances"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 // Land und Gemarkung: 1.-6. Stelle
@@ -273,6 +272,7 @@ else {
 } 
 </core:text>
         </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
         <documentation>Je nachdem ob es einen übergeordneten Gemarkungsteil/Flur gibt, wird die Verknüpfung zum Zoning hergestellt, das entweder einen Gemarkungsteil/Flur repräsentiert, oder eine Gemarkung.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C9c05084d-c56a-4f00-a2cb-a52632fad7af" priority="normal">
@@ -317,15 +317,23 @@ else {
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 // alle Eigenschaften mit Geometrien aus Flurstücken
 def geoms = _source.links.AX_Flurstueck.p.position.list()
+if (geoms) {
+	geoms = _.geom.findAll(geoms)
+}
 
 // führe den Join nicht aus wenn keine assoziierten Flurstücke
-// vorhanden sind
+// mit Geometrien vorhanden sind
 if (!geoms) {
 	throw new NoResultException()
 }
 
 // bilde Union
 def union = _.geom.union(geoms)
+
+if (!union) {
+	_log.error("Unable to determine union for geometries $geoms")
+	throw new NoResultException()
+}
 
 // bilde interiorPoint aus Union
 def interiorPoint = _.geom.interiorPoint(union)
@@ -335,8 +343,10 @@ _target {
 	geometry {
 		MultiSurface(union)
 	}
-	referencePoint {
-		Point(interiorPoint)
+	if (interiorPoint) {
+		referencePoint {
+			Point(interiorPoint)
+		}
 	}
 }
 </core:text>
@@ -393,15 +403,23 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 // alle Eigenschaften mit Geometrien aus Flurstücken
 def geoms = _source.links.AX_Flurstueck.p.position.list()
+if (geoms) {
+	geoms = _.geom.findAll(geoms)
+}
 
 // führe den Join nicht aus wenn keine assoziierten Flurstücke
-// vorhanden sind
+// mit Geometrien vorhanden sind
 if (!geoms) {
 	throw new NoResultException()
 }
 
 // bilde Union
 def union = _.geom.union(geoms)
+
+if (!union) {
+	_log.error("Unable to determine union for geometries $geoms")
+	throw new NoResultException()
+}
 
 // bilde interiorPoint aus Union
 def interiorPoint = _.geom.interiorPoint(union)
@@ -411,8 +429,10 @@ _target {
 	geometry {
 		MultiSurface(union)
 	}
-	referencePoint {
-		Point(interiorPoint)
+	if (interiorPoint) {
+		referencePoint {
+			Point(interiorPoint)
+		}
 	}
 }
 </core:text>
@@ -454,20 +474,6 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                         <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_GemarkungsteilFlur_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_GemarkungsteilFlur_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="gemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                     <property>
@@ -475,6 +481,20 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                         <child name="gemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="gemarkungsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_GemarkungsteilFlur_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -493,15 +513,23 @@ fs = fs.findAll {
 def geoms = fs.collect {
   it.p.position.first()
 }
+if (geoms) {
+  geoms = _.geom.findAll(geoms)
+}
 
 // führe den Join nicht aus wenn keine assoziierten Flurstücke
-// vorhanden sind
-//if (!geoms) {
-//	throw new NoResultException()
-//}
+// mit Geometrien vorhanden sind
+if (!geoms) {
+  throw new NoResultException()
+}
 
 // bilde Union
 def union = _.geom.union(geoms)
+
+if (!union) {
+  _log.error("Unable to determine union for geometries $geoms")
+  throw new NoResultException()
+}
 
 // bilde interiorPoint
 def interiorPoint = _.geom.interiorPoint(union)
@@ -510,8 +538,10 @@ _target {
   geometry {
   	MultiSurface( union )
   }
-  referencePoint {
-    Point( interiorPoint )
+  if (interiorPoint) {
+    referencePoint {
+      Point(interiorPoint)
+    }
   }
 }
 </core:text>
@@ -539,8 +569,8 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C3f86cfe1-7de4-41c0-9b0a-de46fd576ae4" priority="normal">
         <source>
@@ -557,8 +587,8 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc2df1716-c68b-414c-ae38-d976a5b406eb" priority="normal">
         <target>
@@ -738,8 +768,8 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="label" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd3503205-d3dd-4065-b890-f0ca7bc48ab3" priority="normal">
         <source>
@@ -756,8 +786,8 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="label" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9dfc4c6d-358f-435f-98f6-fec4fc45f55a" priority="normal">
         <source>
@@ -774,8 +804,8 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="label" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C31124838-4e0d-4aa1-a7f9-8aec658f8c1d" priority="normal">
         <source name="anchor">
@@ -945,8 +975,8 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="nationalCadastalZoningReference" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C477b8046-eca5-46d5-ac8d-17447e20dd02" priority="normal">
         <source>
@@ -961,8 +991,8 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="nationalCadastalZoningReference" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf39ce03f-c797-4bb5-a633-e244b1d715fe" priority="normal">
         <source>
@@ -977,8 +1007,8 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="nationalCadastalZoningReference" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="structuralRename"/>
         <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ccdd35fbd-03f9-4740-9807-a15d901e43c7" priority="normal">
         <target>
