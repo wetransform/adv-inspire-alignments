@@ -298,6 +298,41 @@ else {
             </property>
         </target>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C0d73a16b-0b0a-41e8-aaf1-f425b2195651" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="ADZ"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="locator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="AddressLocator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="designator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (ADZ) {
+
+_target {
+	LocatorDesignator {
+		type {
+			href( 'http://inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue/addressNumberExtension' )
+		}
+		designator( ADZ )
+	}
+}
+
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C43c8131c-0483-47b4-a90b-f3a376ac10ad" priority="normal">
         <source>
             <property>
