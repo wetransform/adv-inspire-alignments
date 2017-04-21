@@ -940,15 +940,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd283ee45-7652-46d7-a1f4-24e9e7314a42" priority="lowest">
-        <source name="anchor">
-            <property>
-                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">art = '1620'</condition>
-                </type>
-                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd3fdff85-40bd-4c71-a81a-4e749cc4b813" priority="lowest">
         <target>
             <property>
                 <type name="FallsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
