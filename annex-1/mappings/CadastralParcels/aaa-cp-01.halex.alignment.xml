@@ -315,6 +315,71 @@ else {
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.*
+import com.vividsolutions.jts.io.WKTReader
+import com.vividsolutions.jts.algorithm.CGAlgorithms
+import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
+
+class Processor {
+
+    static final GeometryFactory factory = new GeometryFactory()
+    
+    Polygon convert(Polygon p, areaThreshold) {
+        if (p.numInteriorRing &gt; 0) {
+            // has holes
+            LinearRing shell = p.exteriorRing
+            List&lt;LinearRing&gt; holes = []
+            
+            for (int i = 0; i &lt; p.numInteriorRing; i++) {
+                LinearRing hole = p.getInteriorRingN(i)
+                
+                // determine area of hole
+                try {
+                    double area = CGAlgorithms.signedArea(hole.coordinates)
+                    // println "Area of hole: $area"
+                    if (area &gt; areaThreshold) {
+                        // keep hole
+                        holes &lt;&lt; hole
+                        _log.info("Loch in Zoning mit Fläche ${area} beibehalten")
+                    }
+                    else {
+                        // throw hole away
+                    }
+                } catch (Exception e) {
+                    // ignore
+                }
+            }
+            
+            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
+        }
+        else {
+            // no holes
+            p
+        }
+    }
+    
+    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
+        if (mp.numGeometries) {
+            Polygon[] polygons = new Polygon[mp.numGeometries]
+            for (int i = 0; i &lt; mp.numGeometries; i++) {
+                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
+            }
+            factory.createMultiPolygon(polygons)
+        }
+        else {
+            // empty
+            mp
+        }
+    }
+    
+    Geometry convert(Geometry g, areaThreshold) {
+        // nothing to do
+        g
+    }
+
+}
+
+
 // alle Eigenschaften mit Geometrien aus Flurstücken
 def geoms = _source.links.AX_Flurstueck.p.position.list()
 if (geoms) {
@@ -334,6 +399,11 @@ if (!union) {
 	_log.error("Unable to determine union for geometries $geoms")
 	throw new NoResultException()
 }
+
+// remove small holes created due to interpolation
+def g = union.geometry
+g = new Processor().convert(g, 1)
+union = new DefaultGeometryProperty(union.CRSDefinition, g)
 
 // bilde interiorPoint aus Union
 def interiorPoint = _.geom.interiorPoint(union)
@@ -401,6 +471,71 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.*
+import com.vividsolutions.jts.io.WKTReader
+import com.vividsolutions.jts.algorithm.CGAlgorithms
+import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
+
+class Processor {
+
+    static final GeometryFactory factory = new GeometryFactory()
+    
+    Polygon convert(Polygon p, areaThreshold) {
+        if (p.numInteriorRing &gt; 0) {
+            // has holes
+            LinearRing shell = p.exteriorRing
+            List&lt;LinearRing&gt; holes = []
+            
+            for (int i = 0; i &lt; p.numInteriorRing; i++) {
+                LinearRing hole = p.getInteriorRingN(i)
+                
+                // determine area of hole
+                try {
+                    double area = CGAlgorithms.signedArea(hole.coordinates)
+                    // println "Area of hole: $area"
+                    if (area &gt; areaThreshold) {
+                        // keep hole
+                        holes &lt;&lt; hole
+                        _log.info("Loch in Zoning mit Fläche ${area} beibehalten")
+                    }
+                    else {
+                        // throw hole away
+                    }
+                } catch (Exception e) {
+                    // ignore
+                }
+            }
+            
+            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
+        }
+        else {
+            // no holes
+            p
+        }
+    }
+    
+    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
+        if (mp.numGeometries) {
+            Polygon[] polygons = new Polygon[mp.numGeometries]
+            for (int i = 0; i &lt; mp.numGeometries; i++) {
+                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
+            }
+            factory.createMultiPolygon(polygons)
+        }
+        else {
+            // empty
+            mp
+        }
+    }
+    
+    Geometry convert(Geometry g, areaThreshold) {
+        // nothing to do
+        g
+    }
+
+}
+
+
 // alle Eigenschaften mit Geometrien aus Flurstücken
 def geoms = _source.links.AX_Flurstueck.p.position.list()
 if (geoms) {
@@ -420,6 +555,11 @@ if (!union) {
 	_log.error("Unable to determine union for geometries $geoms")
 	throw new NoResultException()
 }
+
+// remove small holes created due to interpolation
+def g = union.geometry
+g = new Processor().convert(g, 1)
+union = new DefaultGeometryProperty(union.CRSDefinition, g)
 
 // bilde interiorPoint aus Union
 def interiorPoint = _.geom.interiorPoint(union)
@@ -501,6 +641,71 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.*
+import com.vividsolutions.jts.io.WKTReader
+import com.vividsolutions.jts.algorithm.CGAlgorithms
+import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
+
+class Processor {
+
+    static final GeometryFactory factory = new GeometryFactory()
+    
+    Polygon convert(Polygon p, areaThreshold) {
+        if (p.numInteriorRing &gt; 0) {
+            // has holes
+            LinearRing shell = p.exteriorRing
+            List&lt;LinearRing&gt; holes = []
+            
+            for (int i = 0; i &lt; p.numInteriorRing; i++) {
+                LinearRing hole = p.getInteriorRingN(i)
+                
+                // determine area of hole
+                try {
+                    double area = CGAlgorithms.signedArea(hole.coordinates)
+                    // println "Area of hole: $area"
+                    if (area &gt; areaThreshold) {
+                        // keep hole
+                        holes &lt;&lt; hole
+                        _log.info("Loch in Zoning mit Fläche ${area} beibehalten")
+                    }
+                    else {
+                        // throw hole away
+                    }
+                } catch (Exception e) {
+                    // ignore
+                }
+            }
+            
+            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
+        }
+        else {
+            // no holes
+            p
+        }
+    }
+    
+    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
+        if (mp.numGeometries) {
+            Polygon[] polygons = new Polygon[mp.numGeometries]
+            for (int i = 0; i &lt; mp.numGeometries; i++) {
+                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
+            }
+            factory.createMultiPolygon(polygons)
+        }
+        else {
+            // empty
+            mp
+        }
+    }
+    
+    Geometry convert(Geometry g, areaThreshold) {
+        // nothing to do
+        g
+    }
+
+}
+
+
 // sammle Geometrien von assoziierten Flurstücken
 
 // Flurnummer als Zahl
@@ -530,6 +735,11 @@ if (!union) {
   _log.error("Unable to determine union for geometries $geoms")
   throw new NoResultException()
 }
+
+// remove small holes created due to interpolation
+def g = union.geometry
+g = new Processor().convert(g, 1)
+union = new DefaultGeometryProperty(union.CRSDefinition, g)
 
 // bilde interiorPoint
 def interiorPoint = _.geom.interiorPoint(union)
