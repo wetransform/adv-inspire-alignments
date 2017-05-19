@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="2.9.5.qualifier">
+<hale-project version="3.2.0.release">
     <name>3A zu INSPIRE Administrative Units</name>
     <author>Simon Templer</author>
     <description>Alignment vom 3A-Modell zum INSPIRE Anwendungsschema Administrative Units.
@@ -12,8 +12,8 @@ Diese Art der Aggregation mach es nötig, dass für eine konsistente Referenzier
 Ausnahme bildet hier der Nationalstaat. Eine `AdministrativeUnit` die den Nationalstaat repräsentiert wird nicht erzeugt, ebenso keine Referenzen zu  dem Nationalstaat-Objekt, da davon ausgegangen wird dass dieses ggf. auf andere Weise gebildet wird und die Vorgehensweise geklärt werden muss.
 
 Das gleiche gilt für die aggregierten Geometrien -- hier werden bei unvollständigen Eingangsdaten für die Transformation entsprechend unvollständige aggregierte Geometrien erzeugt.</description>
-    <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-09-08T13:47:27.421+02:00</modified>
+    <created>2015-09-28T09:46:45.435Z</created>
+    <modified>2017-05-19T10:41:52.026Z</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
