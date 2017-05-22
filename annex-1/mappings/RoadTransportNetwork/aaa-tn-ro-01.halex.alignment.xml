@@ -1759,7 +1759,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
@@ -1770,7 +1770,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
@@ -1850,7 +1850,7 @@ def erstelleRoadLink = { achse -&gt;
 		id( _id )
 		def geoms = _.geom.toSimpleGeometries(geometries: achse.p.position.first(), collections: false)
 		if (geoms.size() &gt; 1) {
-			_log.error('Zusammenfassung von Geometrie in Achse nicht möglich')
+			_log.error("Zusammenfassung von Geometrie in Achse ${sourceId} nicht möglich")
 		}
 		centrelineGeometry( geoms[0] )
 		inspireId {
