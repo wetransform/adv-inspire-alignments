@@ -174,6 +174,22 @@ Die Eigenschaft kann in der Datei `gradle.properties` konfiguriert werden (siehe
 gradlew -PdefaultSourceFolder="C:\Meine Daten\DLKM" transform-cp
 ```
 
+### Standard-CRS für Quell-Daten
+
+Analog zum Ordner für die Quell-Daten kann man auch das Standard-CRS für die Quell-Daten konfigurieren.
+Dieses findet Anwendung wenn hale das CRS nicht aus den Daten bestimmen kann.
+Das trifft auch für die AdV-CRS codes zu, weshalb es in den meisten Fällen nötig ist diese Einstellung zu setzen.
+Dazu wird die Gradle-Eigenschaft `defaultSourceCRS` verwendet.
+
+Falls die Quell-Daten je nach Modellart vorliegen können auch folgende Gradle-Eigenschaften verwendet werden um das Standard-CRS für die Daten je nach Modellart zu setzen:
+
+- `defaultSourceCRS_DLKM`
+- `defaultSourceCRS_Basis-DLM`
+- `defaultSourceCRS_DLM50`
+- `defaultSourceCRS_DLM250`
+- `defaultSourceCRS_DLM1000`
+
+
 ### Problembehandlung
 
 #### Transformation startet nicht

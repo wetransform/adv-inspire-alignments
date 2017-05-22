@@ -119,6 +119,27 @@ transformations.each { name, config ->
       }
     }
 
+    // source CRS
+    def sourceCRS = null
+    if (config.sourceCRS) {
+      // prefer source CRS from definition
+      sourceCRS = config.sourceCRS;
+    }
+    else {
+      if (config.model && project.hasProperty('defaultSourceCRS_' + config.model)) {
+        // use custom default source folder for model if present
+        sourceCRS = project.getProperty('defaultSourceCRS_' + config.model)
+      }
+
+      if (!sourceCRS && project.hasProperty('defaultSourceCRS')) {
+        // otherwise use custom default source CRS if present
+        sourceCRS = project.getProperty('defaultSourceCRS')
+      }
+    }
+    if (sourceCRS) {
+      defaultSrs = "code:${sourceCRS}"
+    }
+
     // filter duplicate objects based on GML ID (= AAA-ObjektID)
     additionalArgs << '-exclude'
     additionalArgs << '''groovy:
@@ -290,6 +311,11 @@ class Transform extends DefaultTask {
   File sourceFolder = project.file('quelldaten')
 
   /**
+   * Default SRS for source.
+   */
+  String defaultSrs
+
+  /**
    * Any additional arguments.
    */
   List<String> additionalArgs = []
@@ -388,6 +414,10 @@ class Transform extends DefaultTask {
     cmd << '*.gz'
     cmd << '-ScontentType'
     cmd << 'eu.esdihumboldt.hale.io.xml.gzip'
+    if (defaultSrs) {
+      cmd << '-SdefaultSrs'
+      cmd << defaultSrs
+    }
 
     cmd << '-source'
     cmd << sourceFolder as String
@@ -399,6 +429,10 @@ class Transform extends DefaultTask {
     cmd << '*.gml'
     cmd << '-ScontentType'
     cmd << 'org.eclipse.core.runtime.xml'
+    if (defaultSrs) {
+      cmd << '-SdefaultSrs'
+      cmd << defaultSrs
+    }
 
     // cmd << 'eu.esdihumboldt.hale.io.xml.reader'
 
