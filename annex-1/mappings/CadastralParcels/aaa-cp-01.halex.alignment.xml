@@ -727,7 +727,19 @@ def flur = _source.p.schluessel.AX_GemarkungsteilFlur_Schluessel.gemarkungsteilF
 // alle Flurstücke der Gemarkung
 def fs = _source.links.AX_Flurstueck.list()
 fs = fs.findAll {
-  it.p.flurnummer.value() == flur
+  // flur aus flurnummer bestimmen
+  def stueckFlur = it.p.flurnummer.value()
+  
+  if (stueckFlur == null) { // flurnummer ist ggf. nicht gesetzt (z.B. Berlin)
+    // stattdessen flur aus Kennzeichen extrahieren
+    def kennzeichen = it.p.flurstueckskennzeichen.value()
+    if (kennzeichen) {
+      stueckFlur = kennzeichen[6..8]
+    }
+  }
+  
+  // Auswahl aller Objekte mit gleicher Flur
+  stueckFlur == flur
 }
 def geoms = fs.collect {
   it.p.position.first()
