@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.3.0.qualifier">
+<hale-project version="3.4.0.qualifier">
     <name>AdV Hauskoordinaten zu INSPIRE Addresses 4.0</name>
     <author>Thorsten Reitz</author>
     <description>Bei diesem Projekt werden eine Schlüsseldatei sowie eine Datei mit Hauskoordinaten im CSV-Format (und in UTF-8 kodiert) verwendet, um INSPIRE AD4.0-GML zu erzeugen.&#xD;
@@ -10,7 +10,7 @@ Anmerkungen:&#xD;
 &#xD;
 2. Um die Koordinaten formatiert (z.B. 00000000.000) auszugeben, ist die Verwendung von hale studio 3.1.0 erforderlich.</description>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2017-04-21T12:52:28.221+02:00</modified>
+    <modified>2017-05-22T12:11:35.778+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -20,7 +20,7 @@ Anmerkungen:&#xD;
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
         <setting name="charset">ISO-8859-1</setting>
         <setting name="resourceId">5c7616d4-42ab-4581-88b6-fc445ac0f2a5</setting>
-        <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Float,java.lang.Float,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String</setting>
+        <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Double,java.lang.Double,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String</setting>
         <setting name="quote">"</setting>
         <setting name="skip">True</setting>
         <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/Hauskoordinaten/kopfzeile_test.csv</setting>
@@ -184,8 +184,8 @@ Anmerkungen:&#xD;
 <hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
-        <hsd:name>java.lang.Float</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Float"/>
+        <hsd:name>java.lang.Double</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.Double"/>
         <hsd:constraint type="has-value" value="true"/>
     </hsd:type>
 </hsd:propertyType>
@@ -196,8 +196,8 @@ Anmerkungen:&#xD;
 <hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
-        <hsd:name>java.lang.Float</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.Float"/>
+        <hsd:name>java.lang.Double</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.Double"/>
         <hsd:constraint type="has-value" value="true"/>
     </hsd:type>
 </hsd:propertyType>

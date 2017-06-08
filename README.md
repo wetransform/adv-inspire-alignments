@@ -21,7 +21,7 @@ Für das Ausführen von Gradle mit hale müssen folgende Voraussetzungen geschaf
 
 - Internetverbindung (für Verwendung eines Proxy ist weitere Konfiguration nötig)
 - **Java 8** muss auf dem System installiert sein (erreichbar über `PATH` Umgebungsvariable)
-- Um eine bestimmte _hale_ Version zu verwenden muss es auf dem System verfügbar sein, der Pfad zur HALE-Executable muss in der Datei `gradle.properties` angegeben werden (siehe `gradle.properties.sample` für ein Beispiel). Wird keine Angabe gemacht werden die hale-Bibliotheken für die Ausführung heruntergeladen.
+- Um eine bestimmte _hale_ Version zu verwenden muss es auf dem System verfügbar sein, der Pfad zur HALE-Executable muss in der Datei `gradle.properties` angegeben werden (siehe `gradle.properties.sample` für ein Beispiel). Wird keine Angabe gemacht werden die hale-Bibliotheken für die Ausführung heruntergeladen (empfohlen).
 
 Gradle selbst wird beim ersten Aufruf von `gradlew.bat` (Windows) bzw. `./gradlew` (Linux / Mac OS X) automatisch heruntergeladen. Folgend wird `gradlew` stellvertretend für den Aufruf im jeweiligen Betriebssystem verwendet.
 
@@ -69,6 +69,30 @@ transform-cp - Runs a transformation based on the project aaa-cp-01.halex.
 Der *Task* `transform-all` ist speziell in der Hinsicht, dass er keine bestimmte, sondern alle Transformations-Tasks ausführt. Die Ausführung stoppt jedoch falls eine der Transformationen fehlschlägt.
 
 Alle weiteren *Tasks* stehen für die Transformation eines bestimmten Projekts, ggf. in einer Variante (z.B. nach Modellart). Der Teil das Task-Namens nach `transform-` ist der Identifier der Transformation.
+
+### Transformation für Hauskoordinaten
+
+Die Transformation von Hauskoordinaten zu Adressen ist ein Spezialfall, da hier kein XML als Quelle vorhanden ist, sondern CSV-Dateien.
+
+Das Kürzel `ad-hk` steht für diese Transformation und wird anders behandelt als die restlichen Transformationen.
+Die Quell-Dateien müssen hier einzeln angegeben werden, als Gradle properties (z.B. in der Datei `gradle.properties`):
+
+- **hkSchluesselDatei** - Pfad zur CSV-Datei mit Schlüssel-Informationen
+- **hkDatei** - Pfad zur Datei mit Hauskoordinaten
+
+Sind diese Eigenschaften nicht angegeben, werden standardmäßig Testdaten aus dem Repository verwendet.
+
+Zusätzlich muss für jede der beiden Dateien angegeben werden, ob die erste Zeile der Datei übersprungen werden soll. Dies geschieht ebenfalls über Gradle properties. Eine Konfiguration kann beispielsweise so aussehen:
+
+```
+# Hauskoordinaten (CSV-Dateien)
+hkSchluesselDatei=hk/schluessel.csv
+hkSchluesselSkipFirst=false
+hkDatei=hk/adressen.csv
+hkSkipFirst=true
+```
+
+Weitere Einstellungen zum Lesen der CSV-Dateien (z.B. Trennzeichen) sind im Moment fest konfiguriert.
 
 ### Ausführen einer Transformation
 
