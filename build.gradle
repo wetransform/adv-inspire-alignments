@@ -3,12 +3,12 @@ buildscript {
     maven {
       url 'https://artifactory.wetransform.to/artifactory/libs-release-local'
     }
-    maven {
-      url 'https://artifactory.wetransform.to/artifactory/libs-snapshot-local'
-    }
+    // maven {
+    //   url 'https://artifactory.wetransform.to/artifactory/libs-snapshot-local'
+    // }
   }
   dependencies {
-    classpath 'to.wetransform.hale:gradle-hale-plugin:1.2.0-SNAPSHOT'
+    classpath 'to.wetransform.hale:gradle-hale-plugin:1.1.1'
   }
 }
 
