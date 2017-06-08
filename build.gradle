@@ -63,7 +63,10 @@ transformations.each { name, config ->
       projectVariables << config.variables
     }
 
-    if (config.model) {
+    // special case: Hauskoordinaten mapping
+    boolean isHauskoordinaten = (name == 'ad-hk')
+
+    if (config.model && !isHauskoordinaten) {
       // restrict to a specific model -> add generic filter
       filterArgs << '-filter'
       filterArgs << "CQL:modellart.AA_Modellart.advStandardModell = '${config.model}'"
@@ -80,90 +83,138 @@ transformations.each { name, config ->
       projectVariables['ADV_MODELLART'] = config.model
     }
 
-    // source folder
-    def sourceFolder = project.file('quelldaten')
-    if (config.sourceFolder) {
-      // prefer source folder from definition
-      sourceFolder = project.file(config.sourceFolder)
-    }
-    else {
-      String folder
-
-      if (config.model && project.hasProperty('defaultSourceFolder_' + config.model)) {
-        // use custom default source folder for model if present
-        folder = project.getProperty('defaultSourceFolder_' + config.model)
-      }
-
-      if (!folder && project.hasProperty('defaultSourceFolder')) {
-        // otherwise use custom default source folder if present
-        folder = project.getProperty('defaultSourceFolder')
-      }
-
-      if (folder) {
-        sourceFolder = project.file(folder)
-      }
-    }
-
-    // source CRS
-    def sourceCRS = null
-    if (config.sourceCRS) {
-      // prefer source CRS from definition
-      sourceCRS = config.sourceCRS;
-    }
-    else {
-      if (config.model && project.hasProperty('defaultSourceCRS_' + config.model)) {
-        // use custom default source folder for model if present
-        sourceCRS = project.getProperty('defaultSourceCRS_' + config.model)
-      }
-
-      if (!sourceCRS && project.hasProperty('defaultSourceCRS')) {
-        // otherwise use custom default source CRS if present
-        sourceCRS = project.getProperty('defaultSourceCRS')
-      }
-    }
-
     // add sources
-    source(sourceFolder) {
-      provider 'eu.esdihumboldt.hale.io.gml.reader'
-      include '*.gz'
-      setting 'contentType', 'eu.esdihumboldt.hale.io.xml.gzip'
-      if (sourceCRS) {
-        setting 'defaultSrs', "code:${sourceCRS}"
+    if (!isHauskoordinaten) {
+      // project w/ XML/GML sources
+      
+      // source folder
+      def sourceFolder = project.file('quelldaten')
+      if (config.sourceFolder) {
+        // prefer source folder from definition
+        sourceFolder = project.file(config.sourceFolder)
       }
-    }
+      else {
+        String folder
 
-    source(sourceFolder) {
-      provider 'eu.esdihumboldt.hale.io.gml.reader'
-      include '*.gml'
-      include '*.xml'
-      setting 'contentType', 'org.eclipse.core.runtime.xml'
-      if (sourceCRS) {
-        setting 'defaultSrs', "code:${sourceCRS}"
-      }
-    }
+        if (config.model && project.hasProperty('defaultSourceFolder_' + config.model)) {
+          // use custom default source folder for model if present
+          folder = project.getProperty('defaultSourceFolder_' + config.model)
+        }
 
-    // filter duplicate objects based on GML ID (= AAA-ObjektID)
-    filterArgs << '-exclude'
-    filterArgs << '''groovy:
-      def id = instance.p.id.value();
-      boolean rejected = false;
-      if (id) {
-        withContext {
-          def collect = _.context.collector(it);
-          if (collect.ids.values().contains(id)) {
-            _log.warn(\'Rejecting feature with duplicate id \' + id);
-            rejected = true;
-          }
-          else {
-            collect.ids << id;
-          }
+        if (!folder && project.hasProperty('defaultSourceFolder')) {
+          // otherwise use custom default source folder if present
+          folder = project.getProperty('defaultSourceFolder')
+        }
+
+        if (folder) {
+          sourceFolder = project.file(folder)
         }
       }
 
-      rejected;
-    '''
-    // enable global filter context (to allow filtering duplicates across files)
-    overallFilterContext = true
+      // source CRS
+      def sourceCRS = null
+      if (config.sourceCRS) {
+        // prefer source CRS from definition
+        sourceCRS = config.sourceCRS;
+      }
+      else {
+        if (config.model && project.hasProperty('defaultSourceCRS_' + config.model)) {
+          // use custom default source folder for model if present
+          sourceCRS = project.getProperty('defaultSourceCRS_' + config.model)
+        }
+
+        if (!sourceCRS && project.hasProperty('defaultSourceCRS')) {
+          // otherwise use custom default source CRS if present
+          sourceCRS = project.getProperty('defaultSourceCRS')
+        }
+      }
+
+      // source definitions
+
+      source(sourceFolder) {
+        provider 'eu.esdihumboldt.hale.io.gml.reader'
+        include '*.gz'
+        setting 'contentType', 'eu.esdihumboldt.hale.io.xml.gzip'
+        if (sourceCRS) {
+          setting 'defaultSrs', "code:${sourceCRS}"
+        }
+      }
+
+      source(sourceFolder) {
+        provider 'eu.esdihumboldt.hale.io.gml.reader'
+        include '*.gml'
+        include '*.xml'
+        setting 'contentType', 'org.eclipse.core.runtime.xml'
+        if (sourceCRS) {
+          setting 'defaultSrs', "code:${sourceCRS}"
+        }
+      }
+
+      // filter duplicate objects based on GML ID (= AAA-ObjektID)
+      filterArgs << '-exclude'
+      filterArgs << '''groovy:
+        def id = instance.p.id.value();
+        boolean rejected = false;
+        if (id) {
+          withContext {
+            def collect = _.context.collector(it);
+            if (collect.ids.values().contains(id)) {
+              _log.warn(\'Rejecting feature with duplicate id \' + id);
+              rejected = true;
+            }
+            else {
+              collect.ids << id;
+            }
+          }
+        }
+
+        rejected;
+      '''
+      // enable global filter context (to allow filtering duplicates across files)
+      overallFilterContext = true 
+    }
+    else {
+      // Hauskoordinaten project
+      
+      // file locations
+      def hkSchluesselDatei = project.hasProperty('hkSchluesselDatei') ? project.getProperty('hkSchluesselDatei') : project.file('testdaten/Hauskoordinaten/schluessel_test.csv')
+      def hkDatei = project.hasProperty('hkDatei') ? project.property('hkDatei') : project.file('testdaten/Hauskoordinaten/adressen_test.csv')
+
+      // common settings
+      def hkQuote = '"'
+      def hkCharset = 'UTF-8'
+      def hkDecimal = ','
+      def hkSeparator = ';'
+      def hkEscape = '\\'
+
+      // define sources
+      
+      source(hkSchluesselDatei) {
+        provider 'eu.esdihumboldt.hale.io.csv.reader.instance'
+
+        setting 'typename', 'Schlüssel'
+        setting 'skip', project.hasProperty('hkSchluesselSkipFirst') ? project.getProperty('hkSchluesselSkipFirst') : false
+
+        setting 'charset', hkCharset
+        setting 'quote', hkQuote
+        setting 'decimal', hkDecimal
+        setting 'separator', hkSeparator
+        setting 'escape', hkEscape
+      }
+
+      source(hkDatei) {
+        provider 'eu.esdihumboldt.hale.io.csv.reader.instance'
+
+        setting 'typename', 'Hauskoordinaten'
+        setting 'skip', project.hasProperty('hkSkipFirst') ? project.getProperty('hkSkipFirst') : false
+
+        setting 'charset', hkCharset
+        setting 'quote', hkQuote
+        setting 'decimal', hkDecimal
+        setting 'separator', hkSeparator
+        setting 'escape', hkEscape
+      }
+    }
 
     // transformation target
     target(new File(targetFolder, 'result.gml')) {

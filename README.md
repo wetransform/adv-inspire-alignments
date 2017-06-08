@@ -70,6 +70,30 @@ Der *Task* `transform-all` ist speziell in der Hinsicht, dass er keine bestimmte
 
 Alle weiteren *Tasks* stehen für die Transformation eines bestimmten Projekts, ggf. in einer Variante (z.B. nach Modellart). Der Teil das Task-Namens nach `transform-` ist der Identifier der Transformation.
 
+### Transformation für Hauskoordinaten
+
+Die Transformation von Hauskoordinaten zu Adressen ist ein Spezialfall, da hier kein XML als Quelle vorhanden ist, sondern CSV-Dateien.
+
+Das Kürzel `ad-hk` steht für diese Transformation und wird anders behandelt als die restlichen Transformationen.
+Die Quell-Dateien müssen hier einzeln angegeben werden, als Gradle properties (z.B. in der Datei `gradle.properties`):
+
+- **hkSchluesselDatei** - Pfad zur CSV-Datei mit Schlüssel-Informationen
+- **hkDatei** - Pfad zur Datei mit Hauskoordinaten
+
+Sind diese Eigenschaften nicht angegeben, werden standardmäßig Testdaten aus dem Repository verwendet.
+
+Zusätzlich muss für jede der beiden Dateien angegeben werden, ob die erste Zeile der Datei übersprungen werden soll. Dies geschieht ebenfalls über Gradle properties. Eine Konfiguration kann beispielsweise so aussehen:
+
+```
+# Hauskoordinaten (CSV-Dateien)
+hkSchluesselDatei=hk/schluessel.csv
+hkSchluesselSkipFirst=false
+hkDatei=hk/adressen.csv
+hkSkipFirst=true
+```
+
+Weitere Einstellungen zum Lesen der CSV-Dateien (z.B. Trennzeichen) sind im Moment fest konfiguriert.
+
 ### Ausführen einer Transformation
 
 Zum Ausführen einer Transformation wird einfach der entsprechende Task ausgeführt, z.B.:
