@@ -734,7 +734,7 @@ fs = fs.findAll {
     // stattdessen flur aus Kennzeichen extrahieren
     def kennzeichen = it.p.flurstueckskennzeichen.value()
     if (kennzeichen) {
-      stueckFlur = kennzeichen[6..8]
+      stueckFlur = kennzeichen[6..8] as Integer
     }
   }
   
