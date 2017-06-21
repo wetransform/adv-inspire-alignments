@@ -108,7 +108,7 @@ Der Name des Unterordners ist der Identifier der Transformation (z.B. `transform
 Vorhandene Dateien werden bei diesem Vorgang überschrieben.
 Falls die Transformation frühzeitig abbricht kann es jedoch sein dass einzelne Dateien noch aus einer vorherigen Ausführung stammen.
 
-### Prüfung der Transformation
+### Manuelle Prüfung der Transformation
 
 Aktuell werden standardmäßig zwei Arten von Validierung auf den transformierten Daten durchgeführt:
 
@@ -236,7 +236,7 @@ Gradle Tasks um die abgeleiteten Projekte automatisch zu erzeugen werden basiere
 Mit `gradlew tasks` können die Tasks aufgelistet werden. Alle Tasks deren Name mit `derive-` beginnt dienen zum Ableiten von modell-spezifischen Projekten.
 Der Task `derive-all` ist ein spezieller Task, der das Ausführen aller Ableitungs-Tasks bewirkt.
 
-**Hinweis:** Die Ableitungs-Tasks können nicht mit halestudio ausgeführt werden. Dazu ist eine aktuelle Version von [hale-cli](https://github.com/halestudio/hale-cli) (Konfiguration über Gradle property `haleCliExecutable`) oder die Ausführung basierend auf denen im Build konfigurierten Bibliotheken notwendig.
+**Hinweis:** Die Ableitungs-Tasks können nicht mit hale studio ausgeführt werden. Dazu ist eine aktuelle Version von [hale-cli](https://github.com/halestudio/hale-cli) (Konfiguration über Gradle property `haleCliExecutable`) oder die Ausführung basierend auf denen im Build konfigurierten Bibliotheken notwendig.
 
 Um die Dokumentation für dies abgeleiteten Projekte zu erstellen müssen lediglich die Tasks zum Ableiten der Projekte vor den Dokumentations-Tasks ausgeführt werden.
 

@@ -16,7 +16,7 @@ apply plugin: 'to.wetransform.hale'
 
 hale {
   //cliVersion = '3.3.0'
-  cliVersion = '3.4.0-SNAPSHOT' // for CSV Double binding support
+  cliVersion = '3.4.0-SNAPSHOT' // for CSV Double binding support & CLI rewrite task
 }
 
 configurations.all {
@@ -52,6 +52,7 @@ transformations.each { name, config ->
 
   String targetName = name
   File targetFolder = new File(project.file('transformiert'), targetName)
+  File targetFile = new File(targetFolder, 'result.gml')
   
   // add transformation task for each key
   task("transform-$name", type: hale.transform()) {
@@ -217,7 +218,7 @@ transformations.each { name, config ->
     }
 
     // transformation target
-    target(new File(targetFolder, 'result.gml')) {
+    target(targetFile) {
       provider 'eu.esdihumboldt.hale.io.wfs.fc.write-2.0' // WFS 2 FC
       setting 'xml.pretty', true
       setting 'crs.epsg.prefix', 'http://www.opengis.net/def/crs/EPSG/0/'
@@ -251,6 +252,66 @@ transformations.each { name, config ->
   }
 
   tasks['transform-all'].dependsOn("transform-$name")
+
+  // validation
+  
+  task("validate-$name") {
+    description "Validate the transformed data set $name (NOT IMPLEMENTED)"
+    group 'Validation'
+  }.doLast {
+    // check if the target file exists
+    // we don't add a dependency to the transform task by intention, so that
+    // the validation can be run independently
+    assert targetFile.exists()
+
+    /*
+     * XXX This task could be used to validate the result from the transform task
+     *
+     * - check reports
+     *   - check if the transformation was successful and there were no errors
+     *   - check if writing the result was successful and w/o errors
+     *   - check if the internal validation report was successful and there were no warnings (e.g. Xlink references that were not resolved)
+     *   - check if the schema validation was successful and there were no errors
+     * - run a validator on the data (e.g. Schematron, INSPIRE validator, ...)
+     */
+    
+    
+  }
+
+  // upload
+
+  task("upload-$name", type: hale.cli()) {
+    args = ['data', 'rewrite'];
+
+    args << '--data'
+    args << targetFile.absolutePath
+
+    args << '--target'
+    args << project.findProperty('uploadWFS')
+    args << '--target-writer'
+    args << 'eu.esdihumboldt.hale.io.wfs.write.partitioned'
+    // args << 'eu.esdihumboldt.hale.io.wfs.write'
+    args << '--target-setting'
+    args << 'wfsVersion=2.0.0'
+
+    /*
+     * XXX this approach reads the data and encodes it again
+     * So there may be changes to the data, e.g. Arcs will be interpolated
+     */
+
+    description "Upload the transformed data set $name to a WFS-T"
+    group 'WFS-T upload'
+  }
+  tasks["upload-$name"].doFirst {
+    // check if the target file exists
+    // we don't add a dependency to the transform or validate task by intention,
+    // so that the upload can be run independently
+    assert targetFile.exists()
+
+    // WFS-T address must be set
+    assert project.hasProperty('uploadWFS')
+  }
+
 }
 
 // add documentation tasks
