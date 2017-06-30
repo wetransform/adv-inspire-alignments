@@ -286,6 +286,14 @@ transformations.each { name, config ->
     args << '--data'
     args << targetFile.absolutePath
 
+    // use all feature types as mapping relevant types
+    args << '--schema-setting'
+    args << 'relevantMode=featureTypes'
+
+    // suppress parsing geometries (no need to re-encode)
+    args << '--data-setting'
+    args << 'suppressParsingGeometry=true'
+
     args << '--target'
     args << project.findProperty('uploadWFS')
     args << '--target-writer'
@@ -293,11 +301,6 @@ transformations.each { name, config ->
     // args << 'eu.esdihumboldt.hale.io.wfs.write'
     args << '--target-setting'
     args << 'wfsVersion=2.0.0'
-
-    /*
-     * XXX this approach reads the data and encodes it again
-     * So there may be changes to the data, e.g. Arcs will be interpolated
-     */
 
     description "Upload the transformed data set $name to a WFS-T"
     group 'WFS-T upload'
