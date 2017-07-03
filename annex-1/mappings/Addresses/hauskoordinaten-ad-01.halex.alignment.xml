@@ -72,6 +72,30 @@ _.geom.with(geometry: "POINT($x $y)", crs: code)&#xD;
                 <child name="SSS"/>
             </property>
         </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="GMD"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="KRS"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="LAN"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="RBZ"/>
+            </property>
+        </source>
         <target name="result">
             <property>
                 <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -83,9 +107,9 @@ _.geom.with(geometry: "POINT($x $y)", crs: code)&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
+def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
 
-"#ThoroughfareName_$id"
+"#ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
@@ -891,8 +915,13 @@ _target {
                 <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="true" name="auto_detect"/>
-        <parameter value="STN" name="property"/>
+        <parameter value="STN" name="additional_property"/>
+        <parameter value="false" name="auto_detect"/>
+        <parameter value="SSS" name="property"/>
+        <parameter value="LAN" name="property"/>
+        <parameter value="GMD" name="property"/>
+        <parameter value="KRS" name="property"/>
+        <parameter value="RBZ" name="property"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf95c3e71-b0af-4308-aee9-622fcb0008e3" priority="normal">
         <target>
@@ -911,6 +940,30 @@ _target {
                 <child name="SSS"/>
             </property>
         </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="GMD"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="KRS"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="LAN"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="RBZ"/>
+            </property>
+        </source>
         <target name="result">
             <property>
                 <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -919,9 +972,9 @@ _target {
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def id = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
+def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
 
-"ThoroughfareName_$id"
+"ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
