@@ -94,7 +94,7 @@ _log.info("Loch in Zoning mit Fläche ${area} beibehalten")
 
 // remove small holes created due to interpolation
 def g = union.geometry
-g = new Processor().convert(g, 1)
+g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
 union = new DefaultGeometryProperty(union.CRSDefinition, g)
 
 */

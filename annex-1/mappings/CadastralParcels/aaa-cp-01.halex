@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.3.0.release">
+<hale-project version="3.4.0.qualifier">
     <name>ALKIS zu INSPIRE CadastralParcels</name>
     <author>Simon Templer</author>
     <description>Alignment von ALKIS zu INSPIRE CadastralParcels.
@@ -13,7 +13,7 @@ Andernfalls erhält man Aggregationen aus einer Untermenge, die natürlich auch 
 Referenzen zwischen *CadastralParcels* und *CadastralZonings*, sowie der *CadastralZonings* untereinander werden als lokale XLink-Referenzen umgesetzt.
 Für konsistente Referenzen wird in den Quell-Daten neben *AX_Gemarkung* und ggf. *AX_GemarkungsteilFlur* auch *AX_Bundesland*  benötigt.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2017-06-09T11:53:34.075+02:00</modified>
+    <modified>2017-07-03T15:57:01.185+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1422,6 +1422,9 @@ Für konsistente Referenzen wird in den Quell-Daten neben *AX_Gemarkung* und ggf
     <property name="resource-f7b63a48-8784-4c5e-b16f-2c41e23cee84:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FlurstueckType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="ERROR_AREA_THRESHOLD">
+                <core:value value="1.0"/>
+            </core:property>
             <core:property name="INSPIRE_NAMESPACE">
                 <core:value value="https://registry.gdi-de.org/id/de.____"/>
             </core:property>
