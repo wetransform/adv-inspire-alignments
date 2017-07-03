@@ -44,6 +44,71 @@
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.*
+import com.vividsolutions.jts.io.WKTReader
+import com.vividsolutions.jts.algorithm.CGAlgorithms
+import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
+
+class Processor {
+
+    static final GeometryFactory factory = new GeometryFactory()
+    
+    Polygon convert(Polygon p, areaThreshold) {
+        if (p.numInteriorRing &gt; 0) {
+            // has holes
+            LinearRing shell = p.exteriorRing
+            List&lt;LinearRing&gt; holes = []
+            
+            for (int i = 0; i &lt; p.numInteriorRing; i++) {
+                LinearRing hole = p.getInteriorRingN(i)
+                
+                // determine area of hole
+                try {
+                    double area = CGAlgorithms.signedArea(hole.coordinates)
+                    // println "Area of hole: $area"
+                    if (area &gt; areaThreshold) {
+                        // keep hole
+                        holes &lt;&lt; hole
+                        _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
+                    }
+                    else {
+                        // throw hole away
+                    }
+                } catch (Exception e) {
+                    // ignore
+                }
+            }
+            
+            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
+        }
+        else {
+            // no holes
+            p
+        }
+    }
+    
+    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
+        if (mp.numGeometries) {
+            Polygon[] polygons = new Polygon[mp.numGeometries]
+            for (int i = 0; i &lt; mp.numGeometries; i++) {
+                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
+            }
+            factory.createMultiPolygon(polygons)
+        }
+        else {
+            // empty
+            mp
+        }
+    }
+    
+    Geometry convert(Geometry g, areaThreshold) {
+        // nothing to do
+        g
+    }
+
+}
+
+
 // alle Eigenschaften mit Geometrien aus Kommunalen Gebieten
 def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())
 
@@ -59,9 +124,16 @@ withTransformationContext {
 }
 def _id = 'AdministrativeUnit_' + _source.p.schluesselGesamt.value()
 
+def union = _.geom.union(geoms)
+
+// remove small holes created due to interpolation
+def g = union.geometry
+g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
+union = new DefaultGeometryProperty(union.CRSDefinition, g)
+
 _target{
 	geometry {
-		MultiSurface( _.geom.union(geoms) )
+		MultiSurface( union )
 	}
 	// gesammelte lowerLevelUnits
 	collect.land[_id].each { lowerId -&gt;
@@ -161,6 +233,71 @@ Die Verknüpfung zur untergeordneten Ebene von `AdministrativeUnit`s wird über 
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.*
+import com.vividsolutions.jts.io.WKTReader
+import com.vividsolutions.jts.algorithm.CGAlgorithms
+import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
+
+class Processor {
+
+    static final GeometryFactory factory = new GeometryFactory()
+    
+    Polygon convert(Polygon p, areaThreshold) {
+        if (p.numInteriorRing &gt; 0) {
+            // has holes
+            LinearRing shell = p.exteriorRing
+            List&lt;LinearRing&gt; holes = []
+            
+            for (int i = 0; i &lt; p.numInteriorRing; i++) {
+                LinearRing hole = p.getInteriorRingN(i)
+                
+                // determine area of hole
+                try {
+                    double area = CGAlgorithms.signedArea(hole.coordinates)
+                    // println "Area of hole: $area"
+                    if (area &gt; areaThreshold) {
+                        // keep hole
+                        holes &lt;&lt; hole
+                        _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
+                    }
+                    else {
+                        // throw hole away
+                    }
+                } catch (Exception e) {
+                    // ignore
+                }
+            }
+            
+            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
+        }
+        else {
+            // no holes
+            p
+        }
+    }
+    
+    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
+        if (mp.numGeometries) {
+            Polygon[] polygons = new Polygon[mp.numGeometries]
+            for (int i = 0; i &lt; mp.numGeometries; i++) {
+                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
+            }
+            factory.createMultiPolygon(polygons)
+        }
+        else {
+            // empty
+            mp
+        }
+    }
+    
+    Geometry convert(Geometry g, areaThreshold) {
+        // nothing to do
+        g
+    }
+
+}
+
+
 // alle Eigenschaften mit Geometrien aus Kommunalem Gebiet
 def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())
 
@@ -191,9 +328,16 @@ if (!upperLevelUnit) {
 	collect.kreis[upperLevelUnit] &lt;&lt; _id
 }
 
+def union = _.geom.union(geoms)
+
+// remove small holes created due to interpolation
+def g = union.geometry
+g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
+union = new DefaultGeometryProperty(union.CRSDefinition, g)
+
 _target{
 	geometry {
-		MultiSurface( _.geom.union(geoms) )
+		MultiSurface( union )
 	}
 	_b.upperLevelUnit {
 		href( "#${upperLevelUnit}" )
@@ -255,6 +399,48 @@ Falls keine Zugehörigkeit zu einer Verwaltungsgemeinschaft besteht wird die Zug
                 </jp:condition>
                 <jp:condition>
                     <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
                         <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
@@ -264,52 +450,75 @@ Falls keine Zugehörigkeit zu einer Verwaltungsgemeinschaft besteht wird die Zug
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
             </jp:join-parameter>
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.*
+import com.vividsolutions.jts.io.WKTReader
+import com.vividsolutions.jts.algorithm.CGAlgorithms
+import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
+
+class Processor {
+
+    static final GeometryFactory factory = new GeometryFactory()
+    
+    Polygon convert(Polygon p, areaThreshold) {
+        if (p.numInteriorRing &gt; 0) {
+            // has holes
+            LinearRing shell = p.exteriorRing
+            List&lt;LinearRing&gt; holes = []
+            
+            for (int i = 0; i &lt; p.numInteriorRing; i++) {
+                LinearRing hole = p.getInteriorRingN(i)
+                
+                // determine area of hole
+                try {
+                    double area = CGAlgorithms.signedArea(hole.coordinates)
+                    // println "Area of hole: $area"
+                    if (area &gt; areaThreshold) {
+                        // keep hole
+                        holes &lt;&lt; hole
+                        _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
+                    }
+                    else {
+                        // throw hole away
+                    }
+                } catch (Exception e) {
+                    // ignore
+                }
+            }
+            
+            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
+        }
+        else {
+            // no holes
+            p
+        }
+    }
+    
+    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
+        if (mp.numGeometries) {
+            Polygon[] polygons = new Polygon[mp.numGeometries]
+            for (int i = 0; i &lt; mp.numGeometries; i++) {
+                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
+            }
+            factory.createMultiPolygon(polygons)
+        }
+        else {
+            // empty
+            mp
+        }
+    }
+    
+    Geometry convert(Geometry g, areaThreshold) {
+        // nothing to do
+        g
+    }
+
+}
+
+
 // alle Eigenschaften mit Geometrien aus Kommunalen Gebieten
 def geoms = _.geom.findPolygons(_source.links.AX_Gemeinde.AX_KommunalesGebiet.p.position.list())
 
@@ -325,9 +534,16 @@ def gemeinden = _source.links.AX_Gemeinde.p.schluesselGesamt.values()
 // bestimme upperLevelUnit
 def upperLevelUnit = 'AdministrativeUnit_' + _source.p.schluesselGesamt.value()[0..4]
 
+def union = _.geom.union(geoms)
+
+// remove small holes created due to interpolation
+def g = union.geometry
+g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
+union = new DefaultGeometryProperty(union.CRSDefinition, g)
+
 _target{
 	geometry {
-		MultiSurface( _.geom.union(geoms) )
+		MultiSurface( union )
 	}
 	// Verweis auf Gemeinden
 	gemeinden.each {
@@ -389,13 +605,13 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
                         <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Kreis_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                     <property>
                         <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
@@ -403,13 +619,13 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
                         <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Kreis_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                     <property>
                         <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
@@ -430,6 +646,71 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.*
+import com.vividsolutions.jts.io.WKTReader
+import com.vividsolutions.jts.algorithm.CGAlgorithms
+import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
+
+class Processor {
+
+    static final GeometryFactory factory = new GeometryFactory()
+    
+    Polygon convert(Polygon p, areaThreshold) {
+        if (p.numInteriorRing &gt; 0) {
+            // has holes
+            LinearRing shell = p.exteriorRing
+            List&lt;LinearRing&gt; holes = []
+            
+            for (int i = 0; i &lt; p.numInteriorRing; i++) {
+                LinearRing hole = p.getInteriorRingN(i)
+                
+                // determine area of hole
+                try {
+                    double area = CGAlgorithms.signedArea(hole.coordinates)
+                    // println "Area of hole: $area"
+                    if (area &gt; areaThreshold) {
+                        // keep hole
+                        holes &lt;&lt; hole
+                        _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
+                    }
+                    else {
+                        // throw hole away
+                    }
+                } catch (Exception e) {
+                    // ignore
+                }
+            }
+            
+            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
+        }
+        else {
+            // no holes
+            p
+        }
+    }
+    
+    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
+        if (mp.numGeometries) {
+            Polygon[] polygons = new Polygon[mp.numGeometries]
+            for (int i = 0; i &lt; mp.numGeometries; i++) {
+                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
+            }
+            factory.createMultiPolygon(polygons)
+        }
+        else {
+            // empty
+            mp
+        }
+    }
+    
+    Geometry convert(Geometry g, areaThreshold) {
+        // nothing to do
+        g
+    }
+
+}
+
+
 // alle Eigenschaften mit Geometrien aus Kommunalen Gebieten
 def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())
 
@@ -458,9 +739,16 @@ else {
 	collect.land[upperLevelUnit] &lt;&lt; _id
 }
 
+def union = _.geom.union(geoms)
+
+// remove small holes created due to interpolation
+def g = union.geometry
+g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
+union = new DefaultGeometryProperty(union.CRSDefinition, g)
+
 _target{
 	geometry {
-		MultiSurface( _.geom.union(geoms) )
+		MultiSurface( union )
 	}
 	_b.upperLevelUnit {
 		href( "#$upperLevelUnit" )
@@ -510,13 +798,13 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
                         <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Regierungsbezirk_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                     <property>
                         <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
@@ -524,19 +812,84 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
                         <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Regierungsbezirk_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                     <property>
                         <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.*
+import com.vividsolutions.jts.io.WKTReader
+import com.vividsolutions.jts.algorithm.CGAlgorithms
+import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
+
+class Processor {
+
+    static final GeometryFactory factory = new GeometryFactory()
+    
+    Polygon convert(Polygon p, areaThreshold) {
+        if (p.numInteriorRing &gt; 0) {
+            // has holes
+            LinearRing shell = p.exteriorRing
+            List&lt;LinearRing&gt; holes = []
+            
+            for (int i = 0; i &lt; p.numInteriorRing; i++) {
+                LinearRing hole = p.getInteriorRingN(i)
+                
+                // determine area of hole
+                try {
+                    double area = CGAlgorithms.signedArea(hole.coordinates)
+                    // println "Area of hole: $area"
+                    if (area &gt; areaThreshold) {
+                        // keep hole
+                        holes &lt;&lt; hole
+                        _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
+                    }
+                    else {
+                        // throw hole away
+                    }
+                } catch (Exception e) {
+                    // ignore
+                }
+            }
+            
+            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
+        }
+        else {
+            // no holes
+            p
+        }
+    }
+    
+    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
+        if (mp.numGeometries) {
+            Polygon[] polygons = new Polygon[mp.numGeometries]
+            for (int i = 0; i &lt; mp.numGeometries; i++) {
+                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
+            }
+            factory.createMultiPolygon(polygons)
+        }
+        else {
+            // empty
+            mp
+        }
+    }
+    
+    Geometry convert(Geometry g, areaThreshold) {
+        // nothing to do
+        g
+    }
+
+}
+
+
 // alle Eigenschaften mit Geometrien aus Kommunalen Gebieten
 def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())
 
@@ -556,9 +909,16 @@ def _id = 'AdministrativeUnit_' + _source.p.schluesselGesamt.value()
 def upperLevelUnit = 'AdministrativeUnit_' + _source.p.schluessel.AX_Regierungsbezirk_Schluessel.land.value()
 collect.land[upperLevelUnit] &lt;&lt; _id
 
+def union = _.geom.union(geoms)
+
+// remove small holes created due to interpolation
+def g = union.geometry
+g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
+union = new DefaultGeometryProperty(union.CRSDefinition, g)
+
 _target{
 	geometry {
-		MultiSurface( _.geom.union(geoms) )
+		MultiSurface( union )
 	}
 	_b.upperLevelUnit {
 		href( "#$upperLevelUnit" )
