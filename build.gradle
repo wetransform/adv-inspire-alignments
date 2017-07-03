@@ -338,6 +338,23 @@ task('doc') {
   tasks['doc'].dependsOn(item.task)
 }
 
+tasks.docHtml.doLast {
+  // replace halejs URLs with one that supports https
+  print 'Use https URLs to load halejs...'
+
+  // find documentation files
+  def files = fileTree(dir: projectDir, include: 'annex*/mappings/**/*.halex.svg.html')
+
+  files.each { file ->
+    def text = file.text
+    file.text = text.replaceAll(
+      java.util.regex.Pattern.quote('http://build-artifacts.wetransform.to'),
+      'https://s3-eu-central-1.amazonaws.com/build-artifacts.wetransform.to')
+  }
+
+  println 'done'
+}
+
 // add tasks for creating derived projects
 
 task('derive-all') {
