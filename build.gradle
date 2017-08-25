@@ -40,7 +40,7 @@ if (tasks.findByPath('clean') == null) {
   }
 }
 
-tasks.clean << {
+tasks.clean.doLast {
   // add actions to clean task
   delete project.file('transformiert')
 }
@@ -430,11 +430,16 @@ transformations.each { name, config ->
           filterFile,
           '--skip-empty',
           '--skip-no-type-cells',
-          '--use-base-alignment',
           '--prepend-description',
-          "***Automatisch generierte Variante des Projekts für das ${config.model} Modell***",
-          projectFile
+          "***Automatisch generierte Variante des Projekts für das ${config.model} Modell***"
         ]
+
+        // allow customizing the behavior (also from projects using this as sub-project)
+        if (!project.ext.has('deriveProjectUseCopy') || !project.ext.get('deriveProjectUseCopy')) {
+          args << '--use-base-alignment'
+        }
+
+        args << projectFile
 
         requiresHaleCli = true
 
