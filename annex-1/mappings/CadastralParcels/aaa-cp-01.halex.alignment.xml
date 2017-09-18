@@ -275,15 +275,10 @@ else {
         <parameter value="false" name="variablesAsInstances"/>
         <documentation>Je nachdem ob es einen übergeordneten Gemarkungsteil/Flur gibt, wird die Verknüpfung zum Zoning hergestellt, das entweder einen Gemarkungsteil/Flur repräsentiert, oder eine Gemarkung.</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C9c05084d-c56a-4f00-a2cb-a52632fad7af" priority="normal">
-        <source name="types">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C8a96eace-7e17-4c0d-b649-a7fd73b0757c" priority="lowest">
+        <source>
             <class>
                 <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <source name="types">
-            <class>
-                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <target>
@@ -291,28 +286,6 @@ else {
                 <type name="CadastralZoningType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
             </class>
         </target>
-        <complexParameter name="join">
-            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
-                <class>
-                    <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <class>
-                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                </class>
-                <jp:condition>
-                    <property>
-                        <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-            </jp:join-parameter>
-        </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 import com.vividsolutions.jts.geom.*
@@ -380,14 +353,15 @@ class Processor {
 }
 
 
-// alle Eigenschaften mit Geometrien aus Flurstücken
-def geoms = _source.links.AX_Flurstueck.p.position.list()
+// Geometrien wenn aus zugehörigen Gemarkungen bestimmen
+def _land = _source.p.schluessel.AX_Bundesland_Schluessel.land.value()
+def geoms = _.context.collector().GemarkungGeometrien[_land].clear()
 if (geoms) {
 	geoms = _.geom.findAll(geoms)
 }
 
-// führe den Join nicht aus wenn keine assoziierten Flurstücke
-// mit Geometrien vorhanden sind
+// führe den Join nicht aus wenn keine assoziierten Gemarkungsgeometrien
+// vorhanden sind
 if (!geoms) {
 	throw new NoResultException()
 }
@@ -423,13 +397,13 @@ _target {
         </complexParameter>
         <documentation>Hier wird ein INSPIRE *CadastralZoning* zu einem entsprechenden *AX_Bundesland* erstellt.
 
-Zu einem *AX_Bundesland* werden über den Gemarkungsschlüssel von *AX_Flurstueck* alle dazugehörigen Flurstücke bestimmt.
+Für die Geometrie des Bundeslands werden die Geometrien der zuvor gebildeten Gemarkungen zusammengefasst.
+Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.
 
-Falls keine Flurstücke zu dem Bundesland in den Quell-Daten vorhanden sind, wird zu diesem Bundesland kein *CadastralZoning* in den Ausgangsdaten erstellt.
-
-Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die Geometrie des *CadastralZoning* zusammengefasst. Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.</documentation>
+Falls keine *CadastralZonings* zu den Gemarkungen für das Bundesland als Teil der Transformation gebildet wurden, wird zu diesem Bundesland kein *CadastralZoning* in den Ausgangsdaten erstellt.
+</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C6ea88b52-bfd5-417d-81d0-3ff64788eb3a" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C6ea88b52-bfd5-417d-81d0-3ff64788eb3a" priority="lower">
         <source name="types">
             <class>
                 <type name="AX_GemarkungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -549,9 +523,20 @@ class Processor {
 
 }
 
+def geoms
 
-// alle Eigenschaften mit Geometrien aus Flurstücken
-def geoms = _source.links.AX_Flurstueck.p.position.list()
+// Geometrien wenn möglich aus zugehörigen Fluren bestimmen
+def _land = _source.p.schluessel.AX_Gemarkung_Schluessel.land.value()
+def _gemarkung = _source.p.schluessel.AX_Gemarkung_Schluessel.gemarkungsnummer.value()
+if (_land &amp;&amp; _gemarkung) {
+	geoms = _.context.collector().FlurGeometrien[_land][_gemarkung].clear()
+}
+
+// ansonsten Geometrien aus Flurstücken (in manchen Bundesländern gibt es keine Flure/Gemarkungsteile)
+if (!geoms) {
+	geoms = _source.links.AX_Flurstueck.p.position.list()
+}
+
 if (geoms) {
 	geoms = _.geom.findAll(geoms)
 }
@@ -575,6 +560,11 @@ def g = union.geometry
 g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
 union = new DefaultGeometryProperty(union.CRSDefinition, g)
 
+// speichere aggregierte Geometrie für Bildung von Bundesland
+if (_land) {
+	_.context.collector().GemarkungGeometrien[_land] &lt;&lt; union
+}
+
 // bilde interiorPoint aus Union
 def interiorPoint = _.geom.interiorPoint(union)
 
@@ -595,11 +585,12 @@ _target {
 
 Zu einer *AX_Gemarkung* werden über den Gemarkungsschlüssel von *AX_Flurstueck* alle dazugehörigen Flurstücke bestimmt.
 
-Falls keine Flurstücke zu der Gemarkung in den Quell-Daten vorhanden sind, wird zu dieser Gemarkung kein *CadastralZoning* in den Ausgangsdaten erstellt.
+Falls als Teil der Transformation aus entsprechenden Fluren oder Gemarkungsteilen *CadastralZoning*-Objekte erstellt wurden, werden die dort gebildeten Geometrien für die Gemarkung zusammengefasst. Andernfalls werden die Flurstücke der Gemarkung, sofern vorhanden, für die Geometrie des *CadastralZoning* zusammengefasst. Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.
 
-Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die Geometrie des *CadastralZoning* zusammengefasst. Außerdem wird für den Referenz-Punkt ein Punkt innerhalb dieser Fläche bestimmt.</documentation>
+Falls keine Flure/Gemarkungsteile oder Flurstücke zu der Gemarkung in den Quell-Daten vorhanden sind, wird zu dieser Gemarkung kein *CadastralZoning* in den Ausgangsdaten erstellt.
+</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb3d47ecd-2e54-4637-a92c-de4055bd0d91" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb3d47ecd-2e54-4637-a92c-de4055bd0d91" priority="low">
         <source name="types">
             <class>
                 <type name="AX_GemarkungsteilFlurType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -766,6 +757,13 @@ if (!union) {
 def g = union.geometry
 g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
 union = new DefaultGeometryProperty(union.CRSDefinition, g)
+
+// speichere aggregierte Geometrie für Bildung von Gemarkung
+def _land = _source.p.schluesselGesamt.value()
+def _gemarkung = _source.p.schluessel.AX_GemarkungsteilFlur_Schluessel.gemarkung.value()
+if (_land &amp;&amp; _gemarkung) {
+	_.context.collector().FlurGeometrien[_land][_gemarkung] &lt;&lt; union
+}
 
 // bilde interiorPoint
 def interiorPoint = _.geom.interiorPoint(union)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.4.0.qualifier">
+<hale-project version="3.3.0.release">
     <name>ALKIS zu INSPIRE CadastralParcels</name>
     <author>Simon Templer</author>
     <description>Alignment von ALKIS zu INSPIRE CadastralParcels.
@@ -13,7 +13,7 @@ Andernfalls erhält man Aggregationen aus einer Untermenge, die natürlich auch 
 Referenzen zwischen *CadastralParcels* und *CadastralZonings*, sowie der *CadastralZonings* untereinander werden als lokale XLink-Referenzen umgesetzt.
 Für konsistente Referenzen wird in den Quell-Daten neben *AX_Gemarkung* und ggf. *AX_GemarkungsteilFlur* auch *AX_Bundesland*  benötigt.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2017-07-03T15:57:01.185+02:00</modified>
+    <modified>2017-09-18T15:57:01.688+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -153,7 +153,7 @@ Für konsistente Referenzen wird in den Quell-Daten neben *AX_Gemarkung* und ggf
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/cp/4.0}CadastralBoundaryType/1">{http://inspire.ec.europa.eu/schemas/cp/4.0}geometry</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/cp/4.0}CadastralBoundaryType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/cp/4.0}CadastralBoundaryType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/cp/4.0}CadastralParcelType/1">{http://inspire.ec.europa.eu/schemas/cp/4.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/cp/4.0}CadastralParcelType/1">{http://inspire.ec.europa.eu/schemas/cp/4.0}referencePoint</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/cp/4.0}CadastralParcelType/count">1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/cp/4.0}CadastralZoningType/1">{http://inspire.ec.europa.eu/schemas/cp/4.0}geometry</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/cp/4.0}CadastralZoningType/count">1</property>
