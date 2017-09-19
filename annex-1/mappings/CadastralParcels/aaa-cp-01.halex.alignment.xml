@@ -759,7 +759,7 @@ g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double
 union = new DefaultGeometryProperty(union.CRSDefinition, g)
 
 // speichere aggregierte Geometrie für Bildung von Gemarkung
-def _land = _source.p.schluesselGesamt.value()
+def _land = _source.p.schluessel.AX_GemarkungsteilFlur_Schluessel.land.value()
 def _gemarkung = _source.p.schluessel.AX_GemarkungsteilFlur_Schluessel.gemarkung.value()
 if (_land &amp;&amp; _gemarkung) {
 	_.context.collector().FlurGeometrien[_land][_gemarkung] &lt;&lt; union
