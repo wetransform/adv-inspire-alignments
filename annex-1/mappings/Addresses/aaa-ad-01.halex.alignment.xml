@@ -1102,8 +1102,8 @@ else {
         </target>
         <parameter value="true" name="useTargetTypePrefix"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C382953de-65fd-46f6-aea6-7c80734e40ad" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C03637c18-11f1-4184-92ad-311e18881ead" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
@@ -1115,10 +1115,9 @@ else {
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cc179f391-2a24-4500-b41a-5107f8fcb270" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C9f710d24-fa55-4bd5-8acb-b710231f2dd7" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
@@ -1130,10 +1129,9 @@ else {
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C5c107c12-aa5c-4546-82d6-4bac140dccac" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C4bc9b5df-5bf6-4014-96a0-f7e441935a72" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
@@ -1145,10 +1143,23 @@ else {
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C3036c6aa-ef00-4410-abb6-a9f64b7b6203" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cf698d364-855f-47dd-8680-7076f04a5ec3" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cfa22cf7c-79bf-4f87-a385-c4c7c0d063eb" priority="normal">
+        <source name="id">
             <property>
                 <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
@@ -1160,17 +1171,6 @@ else {
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/AdminUnitName_{id}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C39637ce1-0c45-4334-bddf-1db42f5e0be8" priority="normal">
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="codeSpace"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C64322369-f36d-4ee3-beb5-b8ab3ff8c48e" priority="normal">
         <source name="id">
