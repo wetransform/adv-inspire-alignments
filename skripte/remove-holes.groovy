@@ -81,6 +81,9 @@ println 'Processed:'
 println new Processor().convert(g, 51)
 
 
+// return processor for use as snippet
+new Processor()
+
 /*
 
 import com.vividsolutions.jts.geom.*

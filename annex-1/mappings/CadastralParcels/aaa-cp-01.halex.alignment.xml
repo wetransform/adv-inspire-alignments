@@ -288,70 +288,7 @@ else {
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-import com.vividsolutions.jts.geom.*
-import com.vividsolutions.jts.io.WKTReader
-import com.vividsolutions.jts.algorithm.CGAlgorithms
 import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
-
-class Processor {
-
-    static final GeometryFactory factory = new GeometryFactory()
-    
-    Polygon convert(Polygon p, areaThreshold) {
-        if (p.numInteriorRing &gt; 0) {
-            // has holes
-            LinearRing shell = p.exteriorRing
-            List&lt;LinearRing&gt; holes = []
-            
-            for (int i = 0; i &lt; p.numInteriorRing; i++) {
-                LinearRing hole = p.getInteriorRingN(i)
-                
-                // determine area of hole
-                try {
-                    double area = CGAlgorithms.signedArea(hole.coordinates)
-                    // println "Area of hole: $area"
-                    if (area &gt; areaThreshold) {
-                        // keep hole
-                        holes &lt;&lt; hole
-                        _log.info("Loch in Zoning mit Fläche ${area} beibehalten")
-                    }
-                    else {
-                        // throw hole away
-                    }
-                } catch (Exception e) {
-                    // ignore
-                }
-            }
-            
-            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
-        }
-        else {
-            // no holes
-            p
-        }
-    }
-    
-    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
-        if (mp.numGeometries) {
-            Polygon[] polygons = new Polygon[mp.numGeometries]
-            for (int i = 0; i &lt; mp.numGeometries; i++) {
-                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
-            }
-            factory.createMultiPolygon(polygons)
-        }
-        else {
-            // empty
-            mp
-        }
-    }
-    
-    Geometry convert(Geometry g, areaThreshold) {
-        // nothing to do
-        g
-    }
-
-}
-
 
 // Geometrien wenn aus zugehörigen Gemarkungen bestimmen
 def _land = _source.p.schluessel.AX_Bundesland_Schluessel.land.value()
@@ -376,7 +313,7 @@ if (!union) {
 
 // remove small holes created due to interpolation
 def g = union.geometry
-g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
+g = _snippets.remove_holes().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
 union = new DefaultGeometryProperty(union.CRSDefinition, g)
 
 // bilde interiorPoint aus Union
@@ -459,69 +396,7 @@ Falls keine *CadastralZonings* zu den Gemarkungen für das Bundesland als Teil d
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-import com.vividsolutions.jts.geom.*
-import com.vividsolutions.jts.io.WKTReader
-import com.vividsolutions.jts.algorithm.CGAlgorithms
 import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
-
-class Processor {
-
-    static final GeometryFactory factory = new GeometryFactory()
-    
-    Polygon convert(Polygon p, areaThreshold) {
-        if (p.numInteriorRing &gt; 0) {
-            // has holes
-            LinearRing shell = p.exteriorRing
-            List&lt;LinearRing&gt; holes = []
-            
-            for (int i = 0; i &lt; p.numInteriorRing; i++) {
-                LinearRing hole = p.getInteriorRingN(i)
-                
-                // determine area of hole
-                try {
-                    double area = CGAlgorithms.signedArea(hole.coordinates)
-                    // println "Area of hole: $area"
-                    if (area &gt; areaThreshold) {
-                        // keep hole
-                        holes &lt;&lt; hole
-                        _log.info("Loch in Zoning mit Fläche ${area} beibehalten")
-                    }
-                    else {
-                        // throw hole away
-                    }
-                } catch (Exception e) {
-                    // ignore
-                }
-            }
-            
-            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
-        }
-        else {
-            // no holes
-            p
-        }
-    }
-    
-    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
-        if (mp.numGeometries) {
-            Polygon[] polygons = new Polygon[mp.numGeometries]
-            for (int i = 0; i &lt; mp.numGeometries; i++) {
-                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
-            }
-            factory.createMultiPolygon(polygons)
-        }
-        else {
-            // empty
-            mp
-        }
-    }
-    
-    Geometry convert(Geometry g, areaThreshold) {
-        // nothing to do
-        g
-    }
-
-}
 
 def geoms
 
@@ -557,7 +432,7 @@ if (!union) {
 
 // remove small holes created due to interpolation
 def g = union.geometry
-g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
+g = _snippets.remove_holes().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
 union = new DefaultGeometryProperty(union.CRSDefinition, g)
 
 // speichere aggregierte Geometrie für Bildung von Bundesland
@@ -646,70 +521,7 @@ Falls keine Flure/Gemarkungsteile oder Flurstücke zu der Gemarkung in den Quell
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-import com.vividsolutions.jts.geom.*
-import com.vividsolutions.jts.io.WKTReader
-import com.vividsolutions.jts.algorithm.CGAlgorithms
 import eu.esdihumboldt.hale.common.instance.geometry.DefaultGeometryProperty
-
-class Processor {
-
-    static final GeometryFactory factory = new GeometryFactory()
-    
-    Polygon convert(Polygon p, areaThreshold) {
-        if (p.numInteriorRing &gt; 0) {
-            // has holes
-            LinearRing shell = p.exteriorRing
-            List&lt;LinearRing&gt; holes = []
-            
-            for (int i = 0; i &lt; p.numInteriorRing; i++) {
-                LinearRing hole = p.getInteriorRingN(i)
-                
-                // determine area of hole
-                try {
-                    double area = CGAlgorithms.signedArea(hole.coordinates)
-                    // println "Area of hole: $area"
-                    if (area &gt; areaThreshold) {
-                        // keep hole
-                        holes &lt;&lt; hole
-                        _log.info("Loch in Zoning mit Fläche ${area} beibehalten")
-                    }
-                    else {
-                        // throw hole away
-                    }
-                } catch (Exception e) {
-                    // ignore
-                }
-            }
-            
-            factory.createPolygon(shell, holes.toArray(new LinearRing[holes.size()]))
-        }
-        else {
-            // no holes
-            p
-        }
-    }
-    
-    MultiPolygon convert(MultiPolygon mp, areaThreshold) {
-        if (mp.numGeometries) {
-            Polygon[] polygons = new Polygon[mp.numGeometries]
-            for (int i = 0; i &lt; mp.numGeometries; i++) {
-                polygons[i] = convert(mp.getGeometryN(i), areaThreshold)
-            }
-            factory.createMultiPolygon(polygons)
-        }
-        else {
-            // empty
-            mp
-        }
-    }
-    
-    Geometry convert(Geometry g, areaThreshold) {
-        // nothing to do
-        g
-    }
-
-}
-
 
 // sammle Geometrien von assoziierten Flurstücken
 
@@ -755,7 +567,7 @@ if (!union) {
 
 // remove small holes created due to interpolation
 def g = union.geometry
-g = new Processor().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
+g = _snippets.remove_holes().convert(g, _project.variables.ERROR_AREA_THRESHOLD as double)
 union = new DefaultGeometryProperty(union.CRSDefinition, g)
 
 // speichere aggregierte Geometrie für Bildung von Gemarkung
@@ -1270,7 +1082,7 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="#CadastralZoning_{schluessel.AX_Gemarkung_Schluessel.land}" name="pattern"/>
+        <parameter value="#CadastralZoning_{land}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C14174a15-b4b0-4278-9d2c-93243485710f" priority="normal">
         <source name="var">
@@ -1296,7 +1108,7 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="#CadastralZoning_{schluessel.AX_GemarkungsteilFlur_Schluessel.land}{schluessel.AX_GemarkungsteilFlur_Schluessel.gemarkung}" name="pattern"/>
+        <parameter value="#CadastralZoning_{land}{gemarkung}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca6561677-18bf-4882-8f37-04ca5dc53eb4" priority="normal">
         <target>
