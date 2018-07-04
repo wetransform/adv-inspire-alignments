@@ -15,8 +15,7 @@ buildscript {
 apply plugin: 'to.wetransform.hale'
 
 hale {
-  //cliVersion = '3.3.0'
-  cliVersion = '3.4.0-SNAPSHOT' // for CSV Double binding support & CLI rewrite task
+  cliVersion = '3.4.0' // for CSV Double binding support & CLI rewrite task
 }
 
 configurations.all {
