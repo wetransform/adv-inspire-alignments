@@ -52,7 +52,7 @@ transformations.each { name, config ->
 
   String targetName = name
   File targetFolder = new File(project.file('transformiert'), targetName)
-  File targetFile = new File(targetFolder, 'result.gml')
+  File targetFile = new File(targetFolder, 'result.gml.gz')
   
   // add transformation task for each key
   task("transform-$name", type: hale.transform()) {
@@ -223,6 +223,7 @@ transformations.each { name, config ->
       setting 'xml.pretty', true
       setting 'crs.epsg.prefix', 'http://www.opengis.net/def/crs/EPSG/0/'
       setting 'skipFeatureCount', true
+      setting 'contentType', 'eu.esdihumboldt.hale.io.xml.gzip'
     }
     
     // XML schema validation
