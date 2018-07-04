@@ -247,6 +247,9 @@ transformations.each { name, config ->
     additionalArgs << '-successEvaluation'
     additionalArgs << project.file('success.groovy')
 
+    // ignore exit value to ensure all transformations run w/ transform-all
+    ignoreExitValue = true
+
     // custom additional arguments
     if (config.additionalArgs && config.additionalArgs instanceof Collection) {
       additionalArgs.addAll(config.additionalArgs)
