@@ -239,6 +239,14 @@ transformations.each { name, config ->
     // activate hale internal validation of transformed instances
     environment['HALE_TRANSFORMATION_INTERNAL_VALIDATION'] = 'true'
     
+    // statistics and ...
+    additionalArgs << '-statisticsOut'
+    File statsFile = new File(targetFolder, 'statistics.json')
+    additionalArgs << statsFile.absolutePath
+    // ... success evaluation
+    additionalArgs << '-successEvaluation'
+    additionalArgs << project.file('success.groovy')
+
     // custom additional arguments
     if (config.additionalArgs && config.additionalArgs instanceof Collection) {
       additionalArgs.addAll(config.additionalArgs)
