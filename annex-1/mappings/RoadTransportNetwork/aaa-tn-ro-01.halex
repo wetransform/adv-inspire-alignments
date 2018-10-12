@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.2.0.release">
+<hale-project version="3.5.0.SNAPSHOT">
     <name>3A zu INSPIRE Road Transport Network</name>
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Road Transport Network GML Anwendungsschema.
@@ -22,18 +22,18 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
 1. Ein *TransportProperty*-Objekt für alle Features die auf die gleichen Werte abgebildet werden. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfFacility`, `FormOfWay`, `FunctionalRoadClass`, `NumberOfLanes`, und `RoadSurfaceCategory`.
 2. Ein *TransportProperty*-Objekt für alle Features die in den Quell-Daten die gleichen relevanten Informationen aufweisen. Die Identifier werden dabei basierend auf dem Quell-Wert oder -Werten gebildet. Umgesetzt wurde das so für `RoadServiceType`.
 3. Ein *TransportProperty*-Objekt für jedes Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `RoadWidth`.</description>
-    <created>2015-09-28T09:46:45.435Z</created>
-    <modified>2017-05-22T08:30:25.658Z</modified>
+    <created>2015-09-28T11:46:45.435+02:00</created>
+    <modified>2018-10-12T12:02:56.064+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/home/simon/repos/inspire-alignements/annex-1/mappings/RoadTransportNetwork/aaa-tn-ro-01.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna%20Ott/eclipse/workspace/gits/adv-inspire-alignments/annex-1/mappings/RoadTransportNetwork/aaa-tn-ro-01.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">fe9e4898-e2ab-4559-bec6-c92a9e455eef</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/eclipse/workspace/gits/adv-inspire-alignments/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
@@ -1701,6 +1701,9 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="NETWORK_ID">
                 <core:value value="RoadNetwork"/>
+            </core:property>
+            <core:property name="NETWORK_THEME">
+                <core:value value=""/>
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">
                 <core:value value="https://registry.gdi-de.org/id/de.____"/>
