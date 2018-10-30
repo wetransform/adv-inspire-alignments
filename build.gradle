@@ -3,25 +3,267 @@ buildscript {
     maven {
       url 'https://artifactory.wetransform.to/artifactory/libs-release-local'
     }
-    // maven {
-    //   url 'https://artifactory.wetransform.to/artifactory/libs-snapshot-local'
-    // }
+    maven {
+      url 'https://artifactory.wetransform.to/artifactory/libs-snapshot-local'
+    }
+    jcenter()
   }
   dependencies {
-    classpath 'to.wetransform.hale:gradle-hale-plugin:1.1.2'
+    // Gradle plugin
+    classpath 'to.wetransform.hale:gradle-hale-plugin:1.1.3'
+
+    // for Config class
+    classpath 'eu.esdihumboldt.hale:eu.esdihumboldt.util.config:3.5.0-SNAPSHOT'
   }
+}
+
+import eu.esdihumboldt.util.config.*
+
+plugins {
+  id 'org.ajoberstar.grgit' version '2.3.0'
 }
 
 apply plugin: 'to.wetransform.hale'
 
 hale {
   //cliVersion = '3.3.0'
-  cliVersion = '3.4.0-SNAPSHOT' // for CSV Double binding support & CLI rewrite task
+  cliVersion = '3.5.0-SNAPSHOT' // for update to hale-connect
 }
 
 configurations.all {
   resolutionStrategy.cacheChangingModulesFor 5, 'minutes'
 }
+
+/*
+ * Update projects on hale connect
+ */
+
+def projects = ConfigYaml.load(file('projects.yaml')).asMap()
+
+projects.each { name, config ->
+  def projectFile = file(config.file)
+  assert projectFile.exists()
+
+  def id = config.hcId.replaceAll('/', ':').replaceAll('\\.', ':')
+  def urn = "hc:project:$id"
+
+  def user = findProperty('hcUser')
+  def password = findProperty('hcPassword') ?: ''
+
+  // update task for each project
+  task("update-$name", type: hale.cli()) {
+    // project export --hc-user user --hc-password password --project file --target urn
+
+    args << 'project'
+    args << 'export'
+
+    // credentials
+    if (user) {
+      args << '--hc-user'
+      args << user
+      args << '--hc-password'
+      args << password
+    }
+
+    // source
+    args << '--project'
+    args << projectFile.absolutePath
+
+    // target
+    args << '--target'
+    args << urn
+
+    args << '--target-setting'
+    args << 'excludedata=true'
+
+    args << '--target-setting'
+    args << 'excludecachedresources=true'
+
+    // configuration
+
+    logToConsole = true
+
+    description "Update project ${name} on hale-connect."
+    group 'hale-connect'
+  }
+}
+
+task("updateAll", type: GradleBuild) {
+  description "Updates all projects on hale-connect."
+  group 'hale-connect'
+
+  // retain buildId (to have combined summary)
+  // startParameter.projectProperties.buildId = project.ext.buildId
+
+  def taskList = []
+  projects.each { name, config ->
+    taskList << ("update-$name" as String)
+  }
+  tasks = taskList
+}
+
+def lastUpdateFile = file('hc-lastUpdate')
+def baseCommit = lastUpdateFile.exists() ? lastUpdateFile.text : null
+def isMainRun = !project.findProperty('updateRun')
+if (!baseCommit && isMainRun) {
+  println "Cannot determine changes, updating all projects"
+}
+
+/**
+ * Helper for finding base alignment files
+ * @param  alignmentFile the alignment file
+ * @param  savePath      the save path of the project
+ * @return               the list of base alignment file paths, with the path
+ *                       relative to the Gradle project directory
+ */
+def determineBaseAlignmentFiles(File alignmentFile, def savePath) {
+  def alignmentPath = alignmentFile.toPath().parent
+  def result = []
+  def xml = new groovy.util.XmlSlurper().parse(alignmentFile)
+
+  xml.base.each { base ->
+    def location = base.'@location'.toString()
+    
+    URI uri = URI.create(location)
+    def relative
+
+    if (uri.absolute) {
+      // absolute file or other URI
+      if (uri.scheme == 'file') {
+        // resolve in relation to save location
+        def rel = savePath.parent.relativize(new File(uri).toPath())
+        relative = rel.toString()
+      }
+    }
+    else {
+      relative = location
+    }
+
+    //XXX decoding needed?
+
+    if (relative) {
+      // relative path (to alignment)
+      def path = alignmentPath.resolve(relative).normalize()
+      // relativize to Gradle project folder
+      def baseFile = projectDir.toPath().relativize(path).toString()
+      result << baseFile
+
+      // do the same for the base alignment file (it may reference other base alignments)
+      result.addAll(determineBaseAlignmentFiles(file(baseFile), savePath))
+    }
+  }
+
+  result
+}
+
+/**
+ * Helper for determining files associated to a project.
+ * @param  fileName the file path of the project file
+ * @return          the list of file paths, with the path relative to the
+ *                  Gradle project directory
+ */
+def determineProjectFiles(String fileName) {
+  // project file and alignment file
+  def alignmentFileName = fileName + '.alignment.xml'
+  def result = [fileName, alignmentFileName]
+
+  // println "Project: " + fileName
+
+  def projectPath = file(fileName).toPath()
+  def xml = new groovy.util.XmlSlurper().parse(file(fileName))
+
+  def saveLocation = xml.'save-config'.setting.find{ it.'@name' == 'target' }?.text()
+  def savePath = new File(URI.create(saveLocation)).toPath()
+
+  xml.resource.each { res ->
+    def actionId = res.'@action-id'
+
+    if (actionId != 'eu.esdihumboldt.hale.io.instance.read.source') {
+      // ignore source data
+
+      res.setting.each { setting ->
+        if (setting.'@name' == 'source') {
+          def source = setting.text()
+          URI uri = URI.create(source)
+          def relative
+
+          if (uri.absolute) {
+            // absolute file or other URI
+            if (uri.scheme == 'file') {
+              // resolve in relation to save location
+              def rel = savePath.parent.relativize(new File(uri).toPath())
+              relative = rel.toString()
+            }
+          }
+          else {
+            relative = source
+          }
+
+          //XXX decoding needed?
+
+          if (relative) {
+            // relative path (to project)
+            def path = projectPath.resolve(relative).normalize()
+            // relativize to Gradle project folder
+            result << projectDir.toPath().relativize(path).toString()
+          }
+        }
+      }
+    }
+  }
+
+  // alignment file -> determine base alignments
+  result.addAll(determineBaseAlignmentFiles(file(alignmentFileName), savePath))
+
+  // result.each { println it }
+  // println()
+
+  result
+}
+
+task("updateChanged", type: GradleBuild) {
+  description "Updates changed projects on hale-connect (based on Git log)."
+  group 'hale-connect'
+
+  startParameter.projectProperties.updateRun = true
+
+  def taskList = []
+  projects.each { name, config ->
+    if (baseCommit) {
+      def commits = grgit.log {
+        paths = determineProjectFiles(config.file)
+        range(baseCommit, 'HEAD')
+      }
+
+      if (!commits.empty) {
+        if (isMainRun) {
+          println "Found changes for project '$name'"
+          println()
+        }
+        
+        taskList << ("update-$name" as String)
+      }
+    }
+    else {
+      taskList << ("update-$name" as String)
+    }
+
+  }
+
+  if (taskList.empty && isMainRun) {
+    'No changes detected, no project is updated'
+  }
+
+  tasks = taskList
+}.doLast {
+  // save HEAD as last update
+  lastUpdateFile.text = grgit.head().id
+}
+
+
+/*
+ * Transformation
+ */
 
 def json = new groovy.json.JsonSlurper()
 def transformations = json.parse(file(
