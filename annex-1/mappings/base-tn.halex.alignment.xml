@@ -76,7 +76,7 @@ withTransformationContext {
 // Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
 // zu den entsprechenden Netzwerk-Elementen
 collect.conditionOfFacility.consume { key, values -&gt;
-	def _id = 'ConditionOfFacility_' + key
+	def _id = 'ConditionOfFacility_' + _project.vars.THEME_DISTINGUISHER + '_' + key
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
 	_target {
@@ -380,7 +380,7 @@ withTransformationContext {
 // Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
 // zu den entsprechenden Netzwerk-Elementen
 collect.verticalPosition.consume { key, values -&gt;
-	def _id = 'VerticalPosition_' + key
+	def _id = 'VerticalPosition_' + _project.vars.THEME_DISTINGUISHER + '_' + key
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
 	_target {

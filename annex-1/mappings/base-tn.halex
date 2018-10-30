@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.1.0.qualifier">
+<hale-project version="3.5.0.SNAPSHOT">
     <name>Basisprojekt INSPIRE Transport Networks</name>
     <author>Simon Templer</author>
     <description>Basisprojekt für gemeinsame Funktionalität für INSPIRE Transport Networks Projekte.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2016-11-28T13:53:05.159+01:00</modified>
+    <modified>2018-10-12T09:48:22.920+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/home/simon/repos/inspire-alignements/annex-1/mappings/base-tn.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna%20Ott/eclipse/workspace/gits/adv-inspire-alignments/annex-1/mappings/base-tn.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">fe9e4898-e2ab-4559-bec6-c92a9e455eef</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/eclipse/workspace/gits/adv-inspire-alignments/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
@@ -1275,6 +1275,9 @@
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="NETWORK_ID">
                 <core:value value="TransportNetwork"/>
+            </core:property>
+            <core:property name="THEME_DISTINGUISHER">
+                <core:value value=""/>
             </core:property>
             <core:property name="NETWORK_NAME">
                 <core:value value="Network"/>
