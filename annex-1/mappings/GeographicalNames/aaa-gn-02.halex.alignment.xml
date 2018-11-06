@@ -914,15 +914,15 @@ if (point) {
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="C0607871a-8806-4d7e-bfe2-163ee53a0c07" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C0607871a-8806-4d7e-bfe2-163ee53a0c07" priority="normal">
         <source name="types">
             <class>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </class>
         </source>
         <target>
@@ -941,15 +941,76 @@ if (point) {
                 <jp:condition>
                     <property>
                         <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                     <property>
                         <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    </property>
+                    <property>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
         </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// alle Eigenschaften mit Geometrien aus Kommunalem Gebiet&#xD;
+def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())&#xD;
+&#xD;
+// erzeuge ein NamedPlace, wenn ein assoziiertes Kommunales&#xD;
+// Gebiet vorhanden ist mit entsprechender Geometrie&#xD;
+if (geoms) {&#xD;
+	_target{}&#xD;
+}&#xD;
+&#xD;
+else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geometrien. Für diese werden dem Modell entsprechend keine NamedPlace-Instanzen erzeugt.')
+</core:text>
+        </complexParameter>
+        <documentation>Diese Join-Funktion wurde im Gegensatz zu den anderen Join-Funktionen aufgrund dieser Diskussion https://haleconnect.com/#/transformation/org/163/5eff88d7-55a7-4d3c-94a9-336bff14ec90/tasks/l5s7 auf active gesetzt.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Cab15e70e-d089-4e3e-8635-fe3d06615fab" priority="normal">
         <source>
@@ -1753,6 +1814,24 @@ if (point) {
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C167eb8a8-1778-41cb-94e3-7b2cebc8bd38" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
     <cell relation="custom:alignment:adv.geometry.simplefeature.multi" id="Ce082180c-5e32-4b00-92d1-947076136417" priority="normal">
         <source name="geometrie">
             <property>
@@ -2409,8 +2488,8 @@ if (point) {
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.geometry.simplefeature.multi" id="C36c0c986-e8c0-41ec-a44a-acd18d211d40" priority="normal">
-        <source name="geometrie">
+    <cell relation="eu.esdihumboldt.cst.functions.geometric.aggregate" id="C36c0c986-e8c0-41ec-a44a-acd18d211d40" priority="normal">
+        <source>
             <property>
                 <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -3046,6 +3125,20 @@ if (point) {
         </target>
         <parameter value="true" name="useTargetTypePrefix"/>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C8095e8eb-67b6-43dd-badb-4d0d895d0de7" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ceb45feb4-16a2-492c-a3c0-58dc956e8005" priority="normal">
         <source name="id">
             <property>
@@ -3062,6 +3155,22 @@ if (point) {
             </property>
         </target>
         <parameter value="true" name="useTargetTypePrefix"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce0eeda92-d8ec-45c1-a0c0-d7cf89de95f8" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="Cd65a6e9e-f415-40ff-8f46-d7d340cfa408" priority="normal">
         <target>
@@ -7888,14 +7997,14 @@ if (point) {
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/NamedPlaceTypeValue/populatedPlace" name="value"/>
     </cell>
-    <modifier cell="C0607871a-8806-4d7e-bfe2-163ee53a0c07">
-        <transformation mode="disabled"/>
-    </modifier>
     <modifier cell="C09d71e6c-a2f3-4f7e-9ded-0f703cb30bd5">
         <transformation mode="disabled"/>
     </modifier>
     <modifier cell="C6ffe1102-f993-49da-bc1e-7c25ed40b8d2">
         <transformation mode="disabled"/>
+    </modifier>
+    <modifier cell="C76799f79-133d-4391-a607-300546bcc056">
+        <disable-for parent="C0607871a-8806-4d7e-bfe2-163ee53a0c07"/>
     </modifier>
     <modifier cell="C86bdd4fc-6d3e-4919-af38-49dd92fe26aa">
         <transformation mode="disabled"/>
@@ -7903,7 +8012,13 @@ if (point) {
     <modifier cell="C9f5c5023-e913-4fb5-8255-2070c0b3399f">
         <transformation mode="disabled"/>
     </modifier>
+    <modifier cell="Cbb91121f-7d7e-40b6-8b95-087d3a05b81e">
+        <disable-for parent="C0607871a-8806-4d7e-bfe2-163ee53a0c07"/>
+    </modifier>
     <modifier cell="Cc97357e7-3242-45b4-9409-7c3a4f78f9be">
         <transformation mode="disabled"/>
+    </modifier>
+    <modifier cell="Ceb45feb4-16a2-492c-a3c0-58dc956e8005">
+        <disable-for parent="C0607871a-8806-4d7e-bfe2-163ee53a0c07"/>
     </modifier>
 </alignment>

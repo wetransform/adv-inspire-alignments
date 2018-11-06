@@ -926,6 +926,180 @@ _target {&#xD;
         </target>
         <parameter value="m" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cd25b8ffb-1b4a-4fbc-b480-57faf3462979" priority="highest">
+        <source name="types">
+            <class>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WatercourseSeparatedCrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                    </type>
+                </class>
+                <class>
+                    <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                    </type>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatDirektUnten" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                    <property>
+                        <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                        </type>
+                        <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatDirektUnten" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                    <property>
+                        <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                        </type>
+                        <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//Alle Fliessgewässer identifizieren, die auf Brücken oder Dükern sind und Paare sammeln&#xD;
+//Kollektor hat Brücken/Düker-id als key und Fliessgewässer-id als Wert&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+if (_source.links.AX_BauwerkImVerkehrsbereich.first()){&#xD;
+	c.crossing[_source.links.AX_BauwerkImVerkehrsbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#xD;
+}&#xD;
+&#xD;
+if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#xD;
+	c.crossing[_source.links.AX_BauwerkImGewaesserbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#xD;
+}&#xD;
+&#xD;
+//an dieser Stelle wird keine Ziel-Instanz erzeugt, sondern lediglich Wasserläufe und Brücken/Düker gesammelt, bei denen der Wasserlauf über der Brücke/dem Düker liegt&#xD;
+//diese Information wird in den Groovy Retype.Funktionen mit niedrigerer Priorität genutzt, um WatercourseSeparatedCrossings zu erzeugen.
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C13a28068-b2af-407e-91c2-780ee4fa28f2" priority="higher">
+        <source name="types">
+            <class>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                </type>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WatercourseSeparatedCrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                    </type>
+                </class>
+                <class>
+                    <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                    </type>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatDirektUnten" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                    <property>
+                        <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                        </type>
+                        <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatDirektUnten" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                    <property>
+                        <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                        </type>
+                        <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//Alle Gewässerachsen identifizieren, die auf Brücken oder Dükern sind und Paare sammeln&#xD;
+//Kollektor hat Brücken/Düker-id als key und Gewässerachsen-id als Wert&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+if (_source.links.AX_BauwerkImVerkehrsbereich.first()){&#xD;
+	c.crossing[_source.links.AX_BauwerkImVerkehrsbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#xD;
+}&#xD;
+&#xD;
+if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#xD;
+	c.crossing[_source.links.AX_BauwerkImGewaesserbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#xD;
+}&#xD;
+&#xD;
+//an dieser Stelle wird keine Ziel-Instanz erzeugt, sondern lediglich Wasserläufe und Brücken/Düker gesammelt, bei denen der Wasserlauf über der Brücke/dem Düker liegt&#xD;
+//diese Information wird in den Groovy Retype.Funktionen mit niedrigerer Priorität genutzt, um WatercourseSeparatedCrossings zu erzeugen.
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C3138ace2-ae86-4835-b110-f39ead4202a0" priority="normal">
         <source name="types">
             <class>
@@ -971,24 +1145,25 @@ _target {&#xD;
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// ID des Dükers bestimmen&#xD;
-def duekerID = _source.p.id.value()&#xD;
-duekerID = 'WatercourseLink_' + duekerID&#xD;
+def c = _.context.collector()&#xD;
 &#xD;
-// Wurde eine passende AX_Gewasserachse gefunden? Falls ja, ID bestimmen:&#xD;
-def gewaesserAchseID = _source.links.AX_Gewaesserachse.p.id.value()&#xD;
-if (gewaesserAchseID) {&#xD;
-	gewaesserAchseID = 'WatercourseLink_' + gewaesserAchseID&#xD;
-	_target {&#xD;
-		element {&#xD;
-			// Zuerst kommt der Düker, da dieser die andere Gewässerachse unterquert.&#xD;
-			//href( "#$duekerID" )&#xD;
-			// XXX es gibt kein bekanntes Objekt das aus dem Düker gebildet wird&#xD;
-			nilReason( 'unknown' )&#xD;
-		}&#xD;
-		element {&#xD;
-			// Dann kommt die andere Gewässerachse.&#xD;
-			href( "#$gewaesserAchseID" )&#xD;
+def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#xD;
+&#xD;
+if(obereGewaesserAchseIDs){&#xD;
+	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#xD;
+		_source.links.AX_Gewaesserachse.p.id.each { gewaesserachseID -&gt;&#xD;
+			gewaesserachseID = 'WatercourseLink_' + gewaesserachseID&#xD;
+			_target {&#xD;
+			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#xD;
+				element {&#xD;
+					//unteres Fliessgewaesser&#xD;
+					href( "#$gewaesserachseID" )&#xD;
+					}&#xD;
+				element {&#xD;
+					// obere Gewaesserachse/Fliessgewaesser&#xD;
+					href( "#WatercourseLink_$obereGewaesserAchseID" )&#xD;
+				}&#xD;
+			}&#xD;
 		}&#xD;
 	}&#xD;
 }
@@ -1041,28 +1216,30 @@ if (gewaesserAchseID) {&#xD;
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// ID der Brücke bestimmen&#xD;
-def brueckeID = _source.p.id.value()&#xD;
-brueckeID = 'WatercourseLink_' + brueckeID&#xD;
+//nur Brücken betrachten, die im Kollektor sind, weil sie einen Wasserlauf oder ein Fließgewässer über sich haben&#xD;
 &#xD;
-// Wurde eine passende AX_Gewasserachse gefunden? Falls ja, ID bestimmen:&#xD;
-def gewaesserAchseID = _source.links.AX_Fliessgewaesser.p.id.value()&#xD;
-if (gewaesserAchseID) {&#xD;
-	gewaesserAchseID = 'WatercourseLink_' + gewaesserAchseID&#xD;
-	_target {&#xD;
-		element {&#xD;
-			// Zuerst kommt die Gewässerachse.&#xD;
-			href( "#$gewaesserAchseID" )&#xD;
-		}&#xD;
-		element {&#xD;
-			// Dann kommt die Brücke, da dieser die andere Gewässerachse überquert.&#xD;
-			//href( "#$brueckeID" )&#xD;
-			// XXX es gibt kein bekanntes Objekt das aus der Brücke gebildet wird&#xD;
-			nilReason( 'unknown' )&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#xD;
+&#xD;
+if(obereGewaesserAchseIDs){&#xD;
+	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#xD;
+		_source.links.AX_Fliessgewaesser.p.id.each { fliessgewaesserID -&gt;&#xD;
+			fliessgewaesserID = 'WatercourseLink_' + fliessgewaesserID&#xD;
+			_target {&#xD;
+			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#xD;
+				element {&#xD;
+					//unteres Fliessgewaesser&#xD;
+					href( "#$fliessgewaesserID" )&#xD;
+					}&#xD;
+				element {&#xD;
+					// obere Gewaesserachse/Fliessgewaesser&#xD;
+					href( "#WatercourseLink_$obereGewaesserAchseID" )&#xD;
+				}&#xD;
+			}&#xD;
 		}&#xD;
 	}&#xD;
-}&#xD;
-
+}
 </core:text>
         </complexParameter>
         <documentation>Mittels der Relation`hatDirektUnten` wird ermittelt, ob es Fliessgewässer gibt, die von einer Brücke überquert werden. Ist dies der Fall, wird ein `WatercourseSeparatedCrossing` erstellt.</documentation>
@@ -1112,24 +1289,27 @@ if (gewaesserAchseID) {&#xD;
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// ID der Brücke bestimmen&#xD;
-def brueckeID = _source.p.id.value()&#xD;
-brueckeID = 'WatercourseLink_' + brueckeID&#xD;
+//nur Brücken betrachten, die im Kollektor sind, weil sie einen Wasserlauf oder ein Fließgewässer über sich haben&#xD;
 &#xD;
-// Wurde eine passende AX_Gewasserachse gefunden? Falls ja, ID bestimmen:&#xD;
-def gewaesserAchseID = _source.links.AX_Gewaesserachse.p.id.value()&#xD;
-if (gewaesserAchseID) {&#xD;
-	gewaesserAchseID = 'WatercourseLink_' + gewaesserAchseID&#xD;
-	_target {&#xD;
-		element {&#xD;
-			// Zuerst kommt die Gewässerachse.&#xD;
-			href( "#$gewaesserAchseID" )&#xD;
-		}&#xD;
-		element {&#xD;
-			// Dann kommt die Brücke, da dieser die andere Gewässerachse überquert.&#xD;
-			//href( "#$brueckeID" )&#xD;
-			// XXX es gibt kein bekanntes Objekt das aus der Brücke gebildet wird&#xD;
-			nilReason( 'unknown' )&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#xD;
+&#xD;
+if(obereGewaesserAchseIDs){&#xD;
+	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#xD;
+		_source.links.AX_Gewaesserachse.p.id.each { gewaesserachseID -&gt;&#xD;
+			gewaesserAchseID = 'WatercourseLink_' + gewaesserAchseID&#xD;
+			_target {&#xD;
+			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#xD;
+				element {&#xD;
+					//untere Gewaesserachse&#xD;
+					href( "#$gewaesserAchseID" )&#xD;
+					}&#xD;
+				element {&#xD;
+					// obere Gewaesserachse/Fliessgewaesser&#xD;
+					href( "#WatercourseLink_$obereGewaesserAchseID" )&#xD;
+				}&#xD;
+			}&#xD;
 		}&#xD;
 	}&#xD;
 }
