@@ -1,0 +1,3053 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+    <base prefix="ba1" location="../../../annex-1/mappings/base-functions.halex.alignment.xml"/>
+    <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="AX_DQMitDatenerhebung to TimeInstant" name="AX_DQMitDatenerhebung to TimeInstant" type="groovy">
+            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="AX_DQMitDatenerhebung">
+                <cf:binding>java.lang.String</cf:binding>
+                <cf:type name="AX_DQMitDatenerhebungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:type name="TimeInstantType" ns="http://www.opengis.net/gml/3.2"/>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def values = qualitaetsangaben.p.herkunft.LI_Lineage.processStep.LI_ProcessStep.dateTime.DateTime.values()&#xD;
+&#xD;
+// sort dates&#xD;
+values.sort()&#xD;
+&#xD;
+// yield last date&#xD;
+def date = values[-1].toInstant() as String&#xD;
+&#xD;
+_target {&#xD;
+	timePosition( date)&#xD;
+	id( 'TimeInstant_' + UUID.randomUUID())&#xD;
+}
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">the function takes the time information out of a AX_DQMitDatenerhebung attribute and maps it to a TimeInstant</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
+    <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="lebenszeitintervall to TimeInstant" name="lebenszeitintervall to TimeInstant" type="groovy">
+            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="lebenszeitintervall">
+                <cf:binding>java.lang.String</cf:binding>
+                <cf:type name="AA_LebenszeitintervallPropertyType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:type name="TimeInstantType" ns="http://www.opengis.net/gml/3.2"/>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target {&#xD;
+	timePosition(  lebenszeitintervall.p.AA_Lebenszeitintervall.beginnt.value().toInstant() as String)&#xD;
+	id( 'TimeInstant_' + UUID.randomUUID() )&#xD;
+}
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">customFunction, weil an mehreren Stellen des Alignments von lebenszeitintervall auf TimeInstant abgebildet wird.</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
+    <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="qualitaetsangaben to TimeInstant" name="qualitaetsangaben to TimeInstant" type="groovy">
+            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="qualitaetsangaben">
+                <cf:binding>java.lang.String</cf:binding>
+                <cf:type name="AX_DQMitDatenerhebungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:type name="TimeInstantType" ns="http://www.opengis.net/gml/3.2"/>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+/*def resulttime = qualitaetsangaben.p.herkunft.LI_Lineage.processStep.LI_ProcessStep.dateTime.DateTime.value().toInstant()&#xD;
+&#xD;
+qualitaetsangaben.p.herkunft.LI_Lineage.processStep.each {&#xD;
+	instance -&gt;&#xD;
+	if (instance.LI_ProcessStep.dateTime.DateTime.value().toInstant().isAfter(resulttime)) {&#xD;
+		resulttime = instance.LI_ProcessStep.dateTime.DateTime.value().toInstant()&#xD;
+	}&#xD;
+}*/&#xD;
+&#xD;
+def values = qualitaetsangaben.p.herkunft.LI_Lineage.processStep.LI_ProcessStep.dateTime.DateTime.values()&#xD;
+&#xD;
+// sort dates&#xD;
+values.sort()&#xD;
+&#xD;
+// yield last date&#xD;
+def date = values[-1].toInstant() as String&#xD;
+&#xD;
+_target {&#xD;
+	timePosition( date)&#xD;
+	id( 'TimeInstant_' + UUID.randomUUID())&#xD;
+}
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">the function takes the time information out of a qualitaetsangaben attribute and maps it to a TimeInstant</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cdc31571d-2dc7-43f9-87fc-18b4801a641e" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.join" id="Cb4ffb271-c1bc-4821-9a06-f120eae6e556" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gehoertZu" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                    <property>
+                        <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cbabbca51-7f1a-4300-be6f-6a0c120b141f" priority="normal">
+        <source>
+            <class>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C06c52e7f-40e1-483f-a9fa-88f86e1d40e0" priority="normal">
+        <source>
+            <class>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ccd11dd24-5e4f-4b37-8ab9-f794a5d5eadb" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C0bddb4f3-8d2c-49b8-8de8-694854abefe3" priority="high">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca3763a17-7a9e-45e2-b9e5-c9d4706042f4" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C519a58df-8a70-45e1-ba45-26d796943604" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cd966da9b-24c9-4690-a104-173144c2d0a6" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C2c132feb-fdd4-4d77-b817-9e5673dc4f0a" priority="high">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Ccfec527d-6180-41d4-a69c-693ae11057ed" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C7e4bd11b-53cd-4642-89c9-5a39cdde9b9f" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf64418e7-c21e-4048-87b2-2d573cca3066" priority="normal">
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C48d1c2e9-cfd8-4979-b965-a2d09a4fa5c4" priority="normal">
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd1b953aa-9606-452f-a7d8-524e46101dcd" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kulturart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="kulturart" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0492ad28-c7f3-483d-8660-4e4edb131bcb" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="inGemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemarkungsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="inGemarkung: land_gemarkungsnummer" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5e421f40-8660-4e57-9754-5341d93841f8" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kulturart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="kulturart" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc54089c2-ef50-4a30-9aa0-dfb3fb8cfc03" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="merkmal" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="merkmal" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3dfad4a8-04ee-40cb-8a0c-808a08f78eb5" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="nummer" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0bc93f73-36a8-4016-90b2-73ca445b2a76" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="tagesabschnittsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="tagesabschnittsnummer" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca497b7bb-31b6-49bc-a094-12bdc224f6fc" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kulturart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C0d76d922-53ac-4891-aaf0-c4d4696688a9" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="inGemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemarkungsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="inGemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="{land}_{gemarkungsnummer}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C14d98636-39d9-4eca-890a-809aaf9c9f37" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kulturart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C30042c7e-ede7-4b17-881c-4e92566170ad" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="merkmal" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C042fba8e-a6b6-46c2-b337-696e9174a98e" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd12b23d7-17cf-4147-bde0-3e7a2f6051b7" priority="normal">
+        <source>
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="tagesabschnittsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3a8ab6a2-4795-4c87-8ac9-01158f9935f5" priority="normal">
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="phenomenonTime" ns="http://www.opengis.net/om/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5cdc11e3-8b4d-4d2f-9cd4-7abfded8d45b" priority="normal">
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="procedure" ns="http://www.opengis.net/om/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce864dffa-0c2b-4b28-acec-51d5c36c196b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="description" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="AX_Bodenschaetzung - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5bce068c-ef42-4910-9f36-3c520422554c" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="description" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="AX_MusterLandesmusterUndVergleichsstueck - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C4e2db5e4-7def-4b18-83ab-d7ea5be98487" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementCount" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="Count" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="value" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="1" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbf4b5da1-1520-422b-ae82-f179d5d0876f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementCount" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="Count" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="value" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="1" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C17a2e15d-3d6d-4548-9d0d-5430e3f5841f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>0</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="zustandsstufeOderBodenstufe" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C7805d9f0-8aaa-4318-adec-0e67bfb6d952" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>0</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="zustandsstufeOderBodenstufe" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ceb2104d9-b915-471d-972b-436d458ce1a7" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>0</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="zustandsstufeOderBodenstufe" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C999938c0-be1d-4ec0-928f-bfa4c4beec49" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>0</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="zustandsstufeOderBodenstufe" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C9db6bb08-2f29-4bb8-b6f7-e28520628092" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="entstehungsartOderKlimastufeWasserverhaeltnisse" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementCount" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="Count" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="value" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//zwei Felder des DataArrays, der in result gespeichert wird, sind selbst wieder dataArrays, da die entsprechenden Attribute in den Quelldaten Kardinalitäten &lt;1 haben.&#xD;
+//eines dieser Felder enthält die Informationen aus entstehungsartOderKlimastufeWasserverhaeltnisse&#xD;
+//dataArrays fordern Angaben zur Menge der enthaltenen Werte - diese werden hier erzeugt und dem entsprechenden Zielattribut zugeordnet&#xD;
+if (entstehungsartOderKlimastufeWasserverhaeltnisse){&#xD;
+	def list = entstehungsartOderKlimastufeWasserverhaeltnisse.p.values()&#xD;
+	&#xD;
+	return list.size()&#xD;
+}&#xD;
+&#xD;
+else return 0
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+        <documentation>Die Element-Anzahl im Array in dem einen Feld des übergeordneten Arrays hängt davon ab, wie viele Werte für entstehungsartOderKlimastufeWasserverhältnisse in dem entsprechenden Quellobjekt vorliegen. Daher werden diese gezählt und das Ergebnis dem elementCount-Attribut zugewiesen</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C3bbd785e-1a5e-4315-94c2-5727fc83652d" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="entstehungsartOderKlimastufeWasserverhaeltnisse" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementCount" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="Count" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="value" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//zwei Felder des DataArrays, der in result gespeichert wird, sind selbst wieder dataArrays, da die entsprechenden Attribute in den Quelldaten Kardinalitäten &lt;1 haben.&#xD;
+//eines dieser Felder enthält die Informationen aus entstehungsartOderKlimastufeWasserverhaeltnisse&#xD;
+//dataArrays fordern Angaben zur Menge der enthaltenen Werte - diese werden hier erzeugt und dem entsprechenden Zielattribut zugeordnet&#xD;
+if (entstehungsartOderKlimastufeWasserverhaeltnisse){&#xD;
+	def list = entstehungsartOderKlimastufeWasserverhaeltnisse.p.values()&#xD;
+	&#xD;
+	return list.size()&#xD;
+}&#xD;
+&#xD;
+else return 0
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca5b351e4-d23f-48df-8a85-0dcf3c1ee49b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="enstehungsartOderKlimastufeWasserverhaeltnisse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C952a8f82-f870-4794-a421-c83d61eb0a40" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="enstehungsartOderKlimastufeWasserverhaeltnisse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6d2ea14d-6f34-4961-a192-c055b48a707c" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="entstehungsartOderKlimastufeWasserverhaeltnisse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C94c58bbe-dc26-4c07-89ee-c7455925daf8" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="entstehungsartOderKlimastufeWasserverhaeltnisse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C785f9f7c-1564-4011-8393-f94a1ece74e1" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="blockSeparator"/>
+            </property>
+        </target>
+        <parameter value="|" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5cd21e82-f272-475c-97e4-fee3a0da7bbc" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="blockSeparator"/>
+            </property>
+        </target>
+        <parameter value="|" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ceeaffaec-b366-4e8f-834b-1e4b9c12344d" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="tokenSeparator"/>
+            </property>
+        </target>
+        <parameter value="-" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0940e70b-0878-4061-bf11-fadc77e61f66" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="tokenSeparator"/>
+            </property>
+        </target>
+        <parameter value="-" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3d137027-39cf-4167-a4c1-781bcef13a8f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="entstehungsartOderKlimastufeWasserverhaeltnisse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8d5cc4b2-ce9b-41f6-bb6c-6e4e4d8e56c4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="entstehungsartOderKlimastufeWasserverhaeltnisse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5884c5c5-5489-4c29-9529-701df9177d6a" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="entstehungsartOderKlimastufeWasserverhaeltnisse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc81968e0-1a63-472e-8835-e7df715b4584" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>1</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="entstehungsartOderKlimastufeWasserverhaeltnisse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C4932197d-48ad-48fd-9fe7-bef859ce0b18" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>2</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="bodenzahlOderGruenlandgrundzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cdf4a327e-6b0c-4bfd-92b9-31eee97040ad" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>2</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="bodenzahlOderGruenlandgrundzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cff555770-90ca-4b67-af2c-b7d31ba7dd82" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>2</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="bodenzahlOderGruenlandgrundzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C36280c27-515c-4718-9747-7e73c63f43e4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>2</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="bodenzahlOderGruenlandgrundzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce4f6c328-93ce-4117-a52a-3091c124f549" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>3</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="ackerOderGruenlandzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8c2c52b1-2dbb-44f9-b255-275ca46a77a9" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>3</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="ackerOderGruenlandzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C89be0554-44d1-4d67-9105-5bfb73e41325" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>3</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="ackerOderGruenlandzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce5dc696c-0d22-4244-bfbf-8f83fbb3fc89" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>3</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="ackerOderGruenlandzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C3ca1ff4b-ef01-499d-8caa-aa9c3c64358a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="sonstigeAngaben" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementCount" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="Count" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="value" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//zwei Felder des DataArrays, der in result gespeichert wird, sind selbst wieder dataArrays, da die entsprechenden Attribute in den Quelldaten Kardinalitäten &lt;1 haben.&#xD;
+//eines dieser Felder enthält die Informationen aus sonstigeAngaben&#xD;
+//dataArrays fordern Angaben zur Menge der enthaltenen Werte - diese werden hier erzeugt und dem entsprechenden Zielattribut zugeordnet&#xD;
+&#xD;
+if (sonstigeAngaben){&#xD;
+	def list = sonstigeAngaben.p.values()&#xD;
+	return list.size()&#xD;
+}&#xD;
+&#xD;
+else return 0
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+        <documentation>Die Element-Anzahl im Array in dem einen Feld des übergeordneten Arrays hängt davon ab, wie viele Werte für sonstigeAngaben in dem entsprechenden Quellobjekt vorliegen. Daher werden diese gezählt und das Ergebnis dem elementCount-Attribut zugewiesen</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C61ad673e-0143-47ee-8086-82036be0ab78" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="sonstigeAngaben" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementCount" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="Count" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="value" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//zwei Felder des DataArrays, der in result gespeichert wird, sind selbst wieder dataArrays, da die entsprechenden Attribute in den Quelldaten Kardinalitäten &lt;1 haben.&#xD;
+//eines dieser Felder enthält die Informationen aus sonstigeAngaben&#xD;
+//dataArrays fordern Angaben zur Menge der enthaltenen Werte - diese werden hier erzeugt und dem entsprechenden Zielattribut zugeordnet&#xD;
+&#xD;
+if (sonstigeAngaben){&#xD;
+	def list = sonstigeAngaben.p.values()&#xD;
+	return list.size()&#xD;
+}&#xD;
+&#xD;
+else return 0
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C53ac8954-593c-4e3d-a77b-f92e7fdf40d4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="sonstigeAngaben" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C24b8fadc-3b6c-4041-ae8f-c95a3a773589" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="sonstigeAngaben" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbb65ffbf-9b0e-42af-97a5-4ba03ad696b0" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="sonstigeAngaben" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C03e42f2c-f1ee-44e6-86b3-baf9f11975fc" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="sonstigeAngaben" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf737681e-5330-4a0b-a941-83f7ba75a9b3" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="blockSeparator"/>
+            </property>
+        </target>
+        <parameter value="|" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C7435b4b0-9448-4466-acab-9056c6c8a4c2" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="blockSeparator"/>
+            </property>
+        </target>
+        <parameter value="|" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc8e75772-fa64-4086-b51b-f515f7c50107" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="tokenSeparator"/>
+            </property>
+        </target>
+        <parameter value="-" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6793f674-ff5c-4439-ae73-60c541d4a846" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="tokenSeparator"/>
+            </property>
+        </target>
+        <parameter value="-" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb4c12f24-28e8-4ce3-9933-f5e11beafebc" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="sonstigeAngaben" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C4cd5f053-5f3d-466c-8933-88aa6a9741f8" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="sonstigeAngaben" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C539c9ee0-d87e-416a-96da-e81432b53ee7" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="sonstigeAngaben" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf08f6b84-076d-47bb-a7d9-9bcc56ffbc99" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>4</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="sonstigeAngaben" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3401b84a-a01d-4a54-a2fd-59d958ba93b6" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>5</context>
+                </child>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="bodenzahlOderGruenlandgrundzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1640e2f1-7374-42b4-b2a0-35f2874d9a3a" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0">
+                    <context>5</context>
+                </child>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="jahreszahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5bd363a6-6a54-455c-ab69-eb2d5ee3d158" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="bodenart" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd329212a-d6f7-468d-a0ad-5751de1da0e2" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="bodenart" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C38090a9f-a82c-4cc6-87d1-c2dccca5ac0f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="bodenart" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C4511fd31-207f-48ac-946f-f0f7ebfdefde" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractDataComponent"/>
+                <child name="DataRecord" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="field" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="bodenart" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf7aa988c-9b7c-4252-9906-1a8ecc04eb8a" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="observations" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C20a2d0db-f5c1-4a8d-a220-9a0118dcbedb" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="elementType" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="name"/>
+            </property>
+        </target>
+        <parameter value="observations" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca0e0e125-32c6-4249-b700-5c76a4dad37b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="blockSeparator"/>
+            </property>
+        </target>
+        <parameter value=";" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cdfa51aee-5f8a-4a3b-9a55-54deef9b587a" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="blockSeparator"/>
+            </property>
+        </target>
+        <parameter value=";" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C73a0639b-0bd9-4d6b-9864-7d006ded77f4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="tokenSeparator"/>
+            </property>
+        </target>
+        <parameter value="," name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce54702f0-57f3-4591-8780-44900e7036cb" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="encoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="choice" ns="http://www.opengis.net/swe/2.0/AbstractEncoding"/>
+                <child name="TextEncoding" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="tokenSeparator"/>
+            </property>
+        </target>
+        <parameter value="," name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="Cb32dabb4-da5a-4138-8875-95961f9c3994" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="entstehungsartOderKlimastufeWasserverhaeltnisse" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bodenzahlOderGruenlandgrundzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="ackerzahlOderGruenlandzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bodenart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zustandsstufeOderBodenstufe" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="sonstigeAngaben" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="jahreszahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="values" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//für die Repräsentation des result-Attributs von OM_Observation wurde sich für die Nutzung eines DataArrays entschieden. Dieser erlaubt es, die enthaltenen Felder und deren encoding zu&#xD;
+//definieren. Die enthaltenen Werte selbst werden dann in das values-Attribut des Data-Arrays geschrieben. Letzteres wird mir Hilfe dieses Groovy-Scripts durchgeführt&#xD;
+&#xD;
+//Methode, die den Wert eines Attributs oder, wenn keiner vorhanden ist, einen leeren String zurückgibt&#xD;
+def extractValue = {&#xD;
+  if (it) {&#xD;
+    it.p.value()&#xD;
+  }&#xD;
+  else {&#xD;
+    ''&#xD;
+  }&#xD;
+}&#xD;
+&#xD;
+//in der Liste werden alle Einträge gesammelt, die in das values-Attribut des DataArrays geschrieben werden sollen, mit dessen hilfe das result repräsentiert wird&#xD;
+def list = []&#xD;
+&#xD;
+//die Werte aus verschiedenen Attributen werden ausgelesen - bei Kardinalität 1 unter Nutzung der oben definierten Methode, bei Kardinalität &gt;1 über einen Join aller enthaltenen Werte &#xD;
+list &lt;&lt; extractValue(bodenart)&#xD;
+list &lt;&lt; extractValue(zustandsstufeOderBodenstufe)&#xD;
+if (entstehungsartOderKlimastufeWasserverhaeltnisse) {&#xD;
+  //das encoding (Werte innerhalb dieses Feldes werden mit | getrennt), wird in einem DataArray beschrieben, der in dem entsprechenden Feld enthalten ist&#xD;
+  list &lt;&lt; entstehungsartOderKlimastufeWasserverhaeltnisse.p.values().join('|')&#xD;
+}&#xD;
+else {&#xD;
+  list &lt;&lt; ''&#xD;
+}&#xD;
+list &lt;&lt; extractValue(bodenzahlOderGruenlandgrundzahl)&#xD;
+list &lt;&lt; extractValue(ackerzahlOderGruenlandzahl)&#xD;
+if (sonstigeAngaben) {&#xD;
+  list &lt;&lt; sonstigeAngaben.p.values().join('|')&#xD;
+}&#xD;
+else {&#xD;
+  list &lt;&lt; ''&#xD;
+}&#xD;
+list &lt;&lt; extractValue(jahreszahl)&#xD;
+&#xD;
+//die gesamte Liste wird in das Ziel-Attribut geschrieben. Das encoding (Werte innerhalb dieses Attributs werden mit , getrennt), wird an einer anderen Stelle dieses DataArrays beschrieben&#xD;
+_target(list.join(','))
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+        <documentation>Alle Werte, die als result gewertet sind, werden in einem gemeinsamen DataArray gesammelt. Dabei werden unter elementType --&gt; DataRecord Felder definiert, welche die Struktur des results angeben.&#xD;
+Wie die Angaben innerhalb des DataArrays voneinander getrennt werden, wird im encoding angegeben.&#xD;
+Die Werte selbst stehen im values-Attribut, das an dieser Stelle gefüllt wird.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="Cf0f272a2-73ce-4ae6-ac83-fbadfb2b67e6" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="entstehungsartOderKlimastufeWasserverhaeltnisse" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="sonstigeAngaben" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bodenart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="ackerzahlOderGruenlandzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zustandsstufeOderBodenstufe" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bodenzahlOderGruenlandgrundzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="DataArray" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="values" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//für die Repräsentation des result-Attributs von OM_Observation wurde sich für die Nutzung eines DataArrays entschieden. Dieser erlaubt es, die enthaltenen Felder und deren encoding zu&#xD;
+//definieren. Die enthaltenen Werte selbst werden dann in das values-Attribut des Data-Arrays geschrieben. Letzteres wird mir Hilfe dieses Groovy-Scripts durchgeführt&#xD;
+&#xD;
+//Methode, die den Wert eines Attributs oder, wenn keiner vorhanden ist, einen leeren String zurückgibt&#xD;
+def extractValue = {&#xD;
+  if (it) {&#xD;
+    it.p.value()&#xD;
+  }&#xD;
+  else {&#xD;
+    ''&#xD;
+  }&#xD;
+}&#xD;
+&#xD;
+//in der Liste werden alle Einträge gesammelt, die in das values-Attribut des DataArrays geschrieben werden sollen, mit dessen hilfe das result repräsentiert wird&#xD;
+def list = []&#xD;
+&#xD;
+//die Werte aus verschiedenen Attributen werden ausgelesen - bei Kardinalität 1 unter Nutzung der oben definierten Methode, bei Kardinalität &gt;1 über einen Join aller enthaltenen Werte &#xD;
+list &lt;&lt; extractValue(bodenart)&#xD;
+list &lt;&lt; extractValue(zustandsstufeOderBodenstufe)&#xD;
+if (entstehungsartOderKlimastufeWasserverhaeltnisse) {&#xD;
+  //das encoding (Werte innerhalb dieses Feldes werden mit | getrennt), wird in einem DataArray beschrieben, der in dem entsprechenden Feld enthalten ist&#xD;
+  list &lt;&lt; entstehungsartOderKlimastufeWasserverhaeltnisse.p.values().join('|')&#xD;
+}&#xD;
+else {&#xD;
+  list &lt;&lt; ''&#xD;
+}&#xD;
+list &lt;&lt; extractValue(bodenzahlOderGruenlandgrundzahl)&#xD;
+list &lt;&lt; extractValue(ackerzahlOderGruenlandzahl)&#xD;
+if (sonstigeAngaben) {&#xD;
+  list &lt;&lt; sonstigeAngaben.p.values().join('|')&#xD;
+}&#xD;
+else {&#xD;
+  list &lt;&lt; ''&#xD;
+}&#xD;
+&#xD;
+//die gesamte Liste wird in das Ziel-Attribut geschrieben. Das encoding (Werte innerhalb dieses Attributs werden mit , getrennt), wird an einer anderen Stelle dieses DataArrays beschrieben&#xD;
+_target(list.join(','))
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9681f959-3fac-42db-9022-61562fe4fc5c" priority="high">
+        <source name="anchor">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="description" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="AX_GrablochDerBodenschaetzung - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cdde83751-19ba-4595-b551-d8282d705827" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="description" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="AX_Tagesabschnitt - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C4af5cdc5-5a6d-4f35-a2b4-1e314b0a4c8b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="bodenzahlOderGruenlandgrundzahl" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cdf40b9c4-863c-4101-91a7-86473895bbb9" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="label" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="tagesabschnittsnummer" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C028b7493-914b-4383-8dba-1726392a7e58" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bodenzahlOderGruenlandgrundzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="value" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca471f9ca-3b1e-4f24-8469-a349ba51b9b3" priority="normal">
+        <source>
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="tagesabschnittsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="Text" ns="http://www.opengis.net/swe/2.0"/>
+                <child name="value" ns="http://www.opengis.net/swe/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cad0e69d2-54e8-4c0e-9fe2-8fae0c937d8e" priority="normal">
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="resultTime" ns="http://www.opengis.net/om/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce64e9c79-41cb-4131-b549-60189b1f3130" priority="normal">
+        <source>
+            <class>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C40b7477f-acdb-479e-b977-a5084dfec381" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="WRBSoilName" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce2c799aa-8a14-412f-ae9b-f58b68e5a7fa" priority="normal">
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cf3dbe4a5-2399-43cf-a7e6-f85f3b1b930b" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cdb470f3f-5d0f-43f0-9412-9d17942b6b11" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C93d7ed4e-7040-4b26-bf4a-60c6ea95e5ec" priority="normal">
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2fabd623-7ab8-4109-a5b6-c35a539d9f2d" priority="normal">
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="isDescribedBy" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other: unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Ca15418a8-6d57-4bc2-b12c-06f08623700a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummerDesGrablochs" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummerierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemarkungsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="localIdentifier" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </property>
+        </target>
+        <parameter value="{land}_{gemarkungsnummer}_{nummerierungsbezirk}_{nummerDesGrablochs}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cc6a6b5d0-bfa7-4592-b714-4a1bed38595b" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="location" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#SoilPlot_{id}" name="pattern"/>
+        <documentation>Stellt die Verbindung zwischen dem SoilPlot und dem ObservedSoilProfile her, die beide aus dem selben GrablochDerBodenschätzung entstehen - durch den formatierten String wird eine Referenz auf den entstehenden SoilPlot hergestellt</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd4a9c27a-49d8-4f6b-9214-9ca92534a589" priority="normal">
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.create" id="Cfd964e63-5bc2-4cce-835a-08c8dedd50de" priority="normal">
+        <target>
+            <class>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+            </class>
+        </target>
+        <parameter value="1" name="number"/>
+        <documentation>Alle Beobachtungen basieren auf dem Gesetz zur Schätzung des landwirtschaftlichen Kulturbodens. Daher wird dieses innerhalb des eines Process als documentation angelegt und aus allen entsprechenden Objekten darauf als Process verwiesen.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C988e82a2-abad-45b7-985e-b20b7dd85d9b" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="dateEnteredIntoForce" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="2008-01-01T00:00:00" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C02b81385-163b-466f-b893-1e2b28eea5e3" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="LegislationCitation_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf9694eb2-4f3c-4b32-8312-d02480aab4ba" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/LegislationLevelValue/national" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C805f0988-8916-4841-a865-3a4ef36d4b52" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="link" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="http://www.gesetze-im-internet.de/bodsch_tzg_2008/index.html" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca5fe8c66-b3c9-4064-98cd-6bad2e3aa76f" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="Gesetz zur Schätzung des landwirtschaftlichen Kulturbodens" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C417c7644-748d-429d-9ac3-279b2cf27c5a" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="shortName" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="Bodenschätzungsgesetz - BodSchätzG" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfacd64ac-4168-469b-a558-68868eceb357" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7b161495-ea90-4f3e-b148-b88feacacfe6" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb0a5865c-d9bd-40af-9c96-61a11cdbd929" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf4a7ce72-a58b-4c97-83e6-826de767f3dc" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cbbf008b3-5481-45f7-8b61-a44709634fbe" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C25dbee53-1982-4334-8d5b-025afa9ea143" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+            </property>
+        </target>
+        <parameter value="Bodenschaetzung" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C267df9f8-efe3-4248-8b99-c1229080da21" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C30f536dd-d229-4e0f-ac87-7114f083452f" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb78e3268-e2f7-4f90-a8bf-7c64775f27bc" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C02d3d852-53ad-4ae5-bcdd-8a89fac5826b" priority="normal">
+        <source>
+            <class>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce6d25c00-4005-4302-a65f-c5a7a7244f47" priority="normal">
+        <source>
+            <class>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C54815cd2-64bc-4047-8b6e-f91f4bde2d5a" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd15130e3-64a0-4055-91ab-701430e3ddd9" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C0be2942f-dd42-4233-82da-c7696c43661d" priority="normal">
+        <source>
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C69ff7caf-5f67-4b5e-8682-2e01822f84ae" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C526ef649-2c0e-4ed0-96a5-1aa608b634fb" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C7595a089-6e0b-4501-b50e-cc8b89d37f6a" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cd54be3d5-3894-4735-8e91-7b964bdc01de" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Ce5c3d6a3-aa4f-4dea-acbf-af46d2dd418b" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C5c79a021-7261-441f-9752-5726dbc0fb43" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce28fc42e-c5bf-48f4-95d0-fe0d350fa689" priority="normal">
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C2e9d2df8-62d7-405c-8263-48ba905c12fd" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce696974c-f245-470a-a1a7-90e5c8a149fc" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C11b85f82-3b9b-4f3c-8f7b-5083e17d799e" priority="normal">
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C284c2dd5-e128-4051-8f13-f27bfa113714" priority="normal">
+        <source>
+            <class>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C0a2d77a9-6ce7-4bbd-a466-6e125c39fe6e" priority="normal">
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unknown" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C6fcd0880-c1db-402b-bb97-d674e02365b4" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C0b78d324-9cd0-47e0-be5a-de78534deb16" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdd4bbe81-b547-48d9-82ff-5f261df56cb4" priority="normal">
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C0092dcd8-26a6-43a5-bf83-4ef5bbf55eee" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Ce37f3eea-4f45-4162-864a-6a7330773a10" priority="normal">
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C51aeb2a7-0183-44c3-b569-2db4abd511d3" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="observedProfile" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#ObservedSoilProfile_{id}" name="pattern"/>
+        <documentation>Stellt die Verbindung zwischen dem SoilPlot und dem ObservedSoilProfile her, die beide aus dem selben GrablochDerBodenschätzung entstehen - durch den formatierten String wird eine Referenz auf das entstehende ObservedSoilProfile hergestellt</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1ec7ce82-4064-4977-92fa-474bd7587087" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilPlotLocation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="choice_1" ns="http://www.opengis.net/samplingSpecimen/2.0/LocationPropertyType/sequence_1"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C4d16240f-c68c-4796-bdc6-1f895747b1f0" priority="normal">
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/SoilPlotTypeValue/sample" name="value"/>
+        <documentation>Für die Abbildung des soilPlotTypes wird die INSPIRE-Codeliste um alle möglichen Werte des Attributs bedeutung erweitert. Dabei kann Bedeutung bis zu 2 mal vorkommen, sodass die zu erstellende Codeliste alle möglichen Kombinationen von bedeutung erhalten muss und diese dann entsprechend abgebildet werden müssen.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cac796209-a904-4cef-9b6a-0d3b5981907f" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C2ca7b078-0b16-4d3b-99f1-7dc35f12cd35" priority="normal">
+        <target>
+            <property>
+                <type name="SoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <modifier cell="Ca471f9ca-3b1e-4f24-8469-a349ba51b9b3">
+        <disable-for parent="Cb4ffb271-c1bc-4821-9a06-f120eae6e556"/>
+    </modifier>
+    <modifier cell="Cdde83751-19ba-4595-b551-d8282d705827">
+        <disable-for parent="Cb4ffb271-c1bc-4821-9a06-f120eae6e556"/>
+    </modifier>
+    <modifier cell="Cdf40b9c4-863c-4101-91a7-86473895bbb9">
+        <disable-for parent="Cb4ffb271-c1bc-4821-9a06-f120eae6e556"/>
+    </modifier>
+</alignment>

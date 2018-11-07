@@ -1,0 +1,135 @@
+-Doku: https://www.citygml.org/ (Buttons oben zum Download nutzen)
+
+-SIMON: wie mit Einschätzungen Herr Gruber umgehen, die in der AdV beschlossen werden müssen? (verticalGeometryEstimatedaccuracy&horizontalGeometryEstimatedAccurancy&BuildingNature)
+	--> Mapping-Notiz zu bestätigenden Mapping-Infos machen
+	--> wenn Informationen keine genaue Abbildung zulassen --> ggf. weglassen, falls Attribut nicht mandatory
+	--> erstmal weglassen und als Task dokumentieren
+--> alle zusätzlcihen Infos zu der Mapping-Tabelle als optional für uns betrahten, weil sie nicht in der uns übergebenen Mapping-Tabelle enthalten sind, die als Grundlage zu verwenden war (insb. wenn ungenau, unvollständig)
+
+Fragen zu Mapping aufgrund Testdaten NRW und TH
+
+-FYI: Thüringen LOD2-GMLS produzieren Geometriefehler beim Einlesen in hs --> SIMON analysiert, welche Geometrien das auslösen
+	--> 14.06.: nicht mehr reproduzierbar, eingelesen mit 25832
+
+-GELÖST: ExternalReference.reference soll lt. MappingTabelle aus ExternalReference.externalObject.choice.uri gefüllt werden --> ist in Testdaten nicht belegt, aber in INSPIRE mandatory - in diesen Fällen gar keine externalReference erzeugen?
+
+-was ist uom für verticalGeometryEstimatedaccuracy&horizontalGeometryEstimatedAccurancy, derzeit zwecks Fehlervermeidung mm zugewiesen (bei Building und Buidingpart)? (Werte 1000,3000,4000,5000)
+	--> sind das die wirklichen accuracies oder Codes? Wenn Codes, wie aufzulösen?
+	--> das ist nicht unbedingt cityGML, sondern ggf. eine Codeliste der Adv o.ä., weil generisches Attribut
+	--> Herr Gruber 21.03. uom ist m, Mappingvorschläge, die derzeit in hale umgesetzt sind --> muss von AdV bestätig werden
+
+-GELÖST: wie genericAttribute-stringAttribut mit name = DatenquelleBodenhoehe in Buidling:buildingGeometry3DLoD1/2:verticalGeometryReference3DBottom packen? (für Building und BuildingPart)
+	--> erwartet Eintrag aus Codeliste: http://inspire.ec.europa.eu/codeList/ElevationReferenceValue
+	--> Quellcodes sind nicht unbedingt cityGML, sondern ggf. eine Codeliste der Adv o.ä., weil generisches Attribut
+	--> Herr Gruber 21.03: "Eine Abbildung auf das angegebene Attribut ist nicht möglich. Eine Zuordnung ist nur auf eine nationale Erweiterung der Codewerte möglich." --> soll es eine solche Erweiterung geben?
+
+-GELÖST: wie genericAttribute-stringAttribut mit name= BezugspunktDachhoehe in Buidling:buildingGeometry3DLoD1/2:verticalGeometryReference3DTop packen? (für Building und BuildingPart)
+	--> Zielatztribut existiert nur für Lod1 und erwartet da Eintrag aus Codeliste: http://inspire.ec.europa.eu/codeList/ElevationReferenceValue
+	--> kann es sein, dass name = 'Bezugspunkt Dach' gemeint ist? Kommt in Beispieldaten vor, 'Bezugspunkt Dachhoehe' nicht --> es ist Dach gemeint
+	--> Herr Gruber 21.03: "Eine Abbildung auf das angegebene Attribut ist nicht möglich. Eine Zuordnung ist nur auf eine nationale Erweiterung der Codewerte möglich." --> soll es eine solche Erweiterung geben?
+
+-TUM schlägt Mapping aus genericAttribute-stringAttribut mit name=BezugspunktDach und name=DatenquelleBodenhoehe in heightAboveGround:heightReference und lowReference vor (building&buildingPart)
+	--> wurde das in Betracht gezogen?
+	--> Abbildung für BezugspunktDach --> heightReference derzeit in Mapping umgesetzt - müsste gelöscht werden
+	--> Abbildung für DatenquelleBodenhoehe --> lowReference fehlt (Werte in Testdaten sind 1100, 1200, 1300, 1500) --> derzeit Rename eingefügt als Platzhalter --> ggf. löschen
+
+-TUM schlägt Mapping aus genericAttribute-stringAttribut mit name=DatenquelleDachhoehe und name=DatenquelleBodenhoehe in heightAboveGround:status vor (building&buildingPart)
+	--> wurde das in Betracht gezogen?
+	--> Abbildung für DatenquelleDachhoehe --> status derzeit in Mapping umgesetzt - müsste gelöscht werden
+	--> Abbildung für DatenquelleBodenhoehe --> status fehlt (Werte in Testdaten sind 1100, 1200, 1300, 1500) --> derzeit Rename eingefügt als Platzhalter --> ggf. löschen
+
+-wie function (dahinter verbergen sich Codes zu gebaeudefunktion/bauwerksfunktion aus ALKIS) in BuildingNature (http://inspire.ec.europa.eu/codelist/BuildingNatureValue) überführen? (für Building und BuildingPart, ggf. aus Abstract mappen)
+	--> Codeabbildung gemeinsam mit Buildings2D sinnvoll?
+	--> Herr Gruber 21.03. TUM hat Vorschlag dazu gemacht --> dieser derzeit umgesetzt --> muss von AdV bestätigt werden
+	--> TUM halt alternativ vorgeschlagen, das Attribut auf currentUse zu mappen - wurde das in Betracht gezogen?
+
+-GELÖST: wie usage in CurrentUse überführen? (für Building und BuildingPart, ggf. aus Abstract mappen)
+	--> braucht CodeAbbildung auf Attributebene
+	--> Herr Gruber 21.03.: "usage ist im AdV-Profil nicht vorgesehen und kann daher nicht umgesetzt werden."
+
+-GELÖST: ist mit den Angaben "BuildingGeometry3DLoD1/2:" im Zielmodell gemeint, dass das entsprechende Quellattribut in geometry3DLoD1 und in geometry3DLoD2 geschrieben werden soll?
+	--> Herr Gruber 21.03: ja
+
+-GELÖST: was ist mit Mapping aus _AbstractBuilding::lod2MultiCurve in Buildings3D::geometry3DLoD2 gemeint inkl. Kommentar gemeint. Fällt dieses Attribut weg, weil MultiCurves in diesem Zusammenhang nicht genutzt?
+	(für Building und BuildingPart)
+	--> Herr Guber 21.03.  "Die Nutzung in der AdV ist optional,das Mapping ist aber möglich. TerrainIntersectionCurves gibt es z.B. in den Daten von NRW."
+	--> bedeutet für mich, dass nur TerrainItnersectionCurves genutzt werden, nicht das lod2MultiCurve-.Attribut
+
+
+
+
+
+erstmal rauslassen:
+-was bedeuten die grauen Blöcke auf Zielschemaseite, die ab bldg:CeilingSurface und dann immer wieder FeatureTypes füllen?
+-zum Quellattribut AbstraceBuilding:class gibt es kein Zielattribut, aber eine Beschreibung auf Zielseite. Soll das Attribut irgendwie verwendet werden? (für Building und BuildingPart, ggf. aus Abstract mappen)
+-(FYI) Informationen aus folgenden Attributen des Quellschemas fallen weg, weil nicht (mehr) in Zielmodell vorhanden --> in MappingTabelle rot markiert
+	-_AbstractBuilding::_Site::_CityObject::appearance::Appearance
+	-_AbstractBuilding::consistsOfBuildingPart
+	-_AbstractBuilding::roofType
+	-_AbstractBuilding::storeysBelowGround
+	-_AbstractBuilding::storeysHeightsAboveGround
+	-_AbstractBuilding::storeysHeightsBelowGround
+	-_AbstractBuilding::adress::core:Adress
+	-_AbstractBuilding::outerBuildingInstallation
+-(FYI) Informationen aus folgenden FeatureTypes des Quellschemas fallen weg, weil nicht (mehr) in Zielmodell vorhanden --> in MappingTabelle rot markiert
+	-bldg:RoofSurface
+	-bldg:WallSurface
+	-bldg:BuildingInstallation
+	-bldg:GroundSurface
+	-bldg:ClosureSurface
+	-bldg:BuildingInstallation
+	-app:ParameterizedTextur
+	-app:TexCoordList
+
+
+Fragen Simon
+
+-auf welcher Ebene Geometrie Mapping ansetzen?
+	--> Können untergeordnete Attribute erkannt werden, wenn die eine Struktur MultiSurface --> surfaceMember --> _Surface --> Polygon (lod2MultiSurface aus boundedBy) hat und die andere
+		MultiSurface --> surfaceMember --> AbstractSurface --> Polygon (geometryMultiSurface aus geometry3DloD2) - z.B. id wird offensichtlich nicht mitgenommen
+-Wie mit boundedBy-Mapping ummgehen? --> Tabelle will es aus BoundarySurface, aber boundedBy, das es noch gibt, ist gml:boundedBy, scheinbar aus Extended, aber enthält mitunter Geometrien
+	--> hängt zusammen mit dem Konstrukt, dass LOD2-Solids zusammengesetzt werden, indem auf Surfaces verwiesen wird, die als WallSurface usw. Teil des Buildings sind --> dieses Konstrukt ist in INSPIRE so nicht vorgesehen
+	--> kann man Referenzen irgendwie so auflösen, dass Geometrien selbst in Solid auf INSPIRE-Seite landen oder Geometrien gleich aus boundedBy mappen?
+	--> Geometrien von lod2-Instanzen liegen in boundedBy und sind in Solids verlinkt (für lod1 darf es gar kein boundedBy geben), für lod1-Instanzen liegen sie im Solid selbst,
+		MultiSurfaces werden momentan auf Quellseite gar nicht genutzt
+	--> müsste bei Füllung der Zielgeometrie geprüft werden, ob Quelle jeweils Geometrie enthält?
+	--> BuildingParts können Geometrie auch wiederum in boundedBy haben --> alle Infos aus boundedBy werden derzeit in lod2MultiSurface geschrieben (für Building und BuilindPart)
+
+	--> vielleicht sind Geometrien nicht in allen Bundesländern an den gleichen Stellen in gleicher Form gespeichert?
+	--> Zusammensetzung von boundedBy getrennt nach GroundSurface usw. --> wie in Zielgeometrie handhaben? Als surface Members in Solid schreiben oder als MultiSurface?
+-wie ist mit den LoD1- und LoD2-Geometrien innerhalb der LoD3-Geometrien umzugehen? --> z.B. LoD3-MultiSurface & LoD3-Solid dann in alle 3 oder nur in den obersten?
+-wie kann inline-Transformation beschleunigt werden?
+
+--> Simon 15.03. Geometrien am besten in groovy Script in der FeatureType-Transformation auslesen und an richtige Stellen schreiben --> ganze Geometrieobjekte anfassen und zuordnen
+
+04.06.: (Besprechung mit Simon)
+-3D-Deadline ignorieren, weil zu viele offene Punkte, die in anschließendem Workshop zu klären
+-Validator:
+	--> bei Gelegenheit seltsame Geometries aus Clemens Porteles github Antwort untersuchen
+	--> 3D-Zielsystem nutzen geht nicht, weil Quellsystem auch nur 2D
+	--> abschließende Klärung Geometrie-Validierung in Testing-Phase
+	--> 2D CRS mit srsDimension 3 ist gängige Praxis. Referenzsystem für Höhe fehlt - ist nicht klar interpretierbar, deswegen 3D-CRS nicht eindeutig festzulegen. Validator ignoriert scheinbar srsDimension und kennt nicht jedes 3D-CRS --> nimmt dann einfach beliebiges 2D-Referenzsystem, das zwangsweise zu Fehlern wegen der Ordinaten-Anzahl führt (weil ungerade Anzahl von ordinaten möglich)
+	--> bräuchten 3D CRS für Quelldateien, bevor wir eines für die Zieldaten bestimmen können
+
+Bemerkungen auf Grundlage DS
+
+-möglich: Gebäude selbst ohne Geometrie und die nur in BuidlingParts enthalten: In opposite to core 2D profile, duplication of geometry is not required in case of a building having building parts: the 3D geometry has to be provided
+	on the building parts (constraint {MandatoryGeometry}) but is optional on the building. Of course, a simple building without any building part has a mandatory geometry (constraint {GeometryWhenNoParts}). 
+
+-als Solid ODER MultiSurface: For each level of detail of CityGML, the building or building part shall be represented either as a GM_Solid or as a GM_MultiSurface --> am Ende prüfen
+
+-Konsistenz bei zusammengesetzten Gebäuden beachten: If available, the attributes numberOfDwellings and numberOfBuildingUnits may be filled on both Building and BuildingPart with the consistency rules: --> am Ende prüfen
+	o number of dwelling on Building = sum of number of dwellings of the BuildingParts composing the Building
+	o similar rule with numberOfBuildingUnit 
+
+-übergreifende Attribute nur in Building füllen: Among the other attributes: --> am Ende prüfen
+	o The specific attributes shall and can be filled only on Building Parts
+	o The common attributes should be filled only on Buildings
+
+-gleiches Gebäude darf in mehreren LoDs vorliegen
+	DS: "This means that it is possible, for instance:
+		o to choose one LoD and to use it for all buildings in the data set 
+		o to use, in same data set,  LoD1 for some buildings, LoD2 for some others and LoD3 or LoD4 for the last ones. 
+		o to have, in same data set, several representations for the same building (e.g. one in LoD2 and one in LoD3)"
+
+

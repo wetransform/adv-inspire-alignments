@@ -1,0 +1,54 @@
+EXTERN
+Mappingtabelle:
+AX_VorratsbehaelterSpeicherbauwerk (51003, nur AX_Bauwerksfunktion_VorratsbehaelterSpeicherbauwerk=1201;1203, 1205, 1206) --> soll das 1201-1203 heißen (dann wäre 1202 = Fülltrichter dabei) 
+--> Mail Herr Fuchs 05.06.: Soll ein Komma sein, Fülltrichter gehört nicht dazu
+
+"AX_Gebaeude.zustand
+AX_BauwerkOderAnlageFuerIndustrieUndGewerbe.zustand
+AX_Turm.zustand
+AX_BauwerkImGewaesserbereich.zustand
+AX_BauwerkImVerkehrsbereich.zustand"
+--> wie Codes aus Zustand in conditionOfConstruction mappen?
+--> ggf. Vorschläge aus Beispielmapping nehmen
+--> falls irgendwo ungefüllt bleibt --> voidReason vergeben
+
+zeigtAufExternes --> externalReference
+--> alle 3 Attribute müssen gefüllt werden und "Relationsbelegung bei Nachmigration" aus "name" nicht als informationSystem gültig --> uri, die evtl. mit genutzt werden soll, zumindest für Beispieldaten nicht gefüllt
+--> in BU 3D wird name auf informationSystemName, informationSystem auf informationSystem und name mit "urn:adv:oid:{name}" auf reference geschrieben --> übernehmen?
+--> geht nicht, weil kein informationSystem vorhanden
+--> analog: AA_Fachdatenvernidung:art auf reference, name auf infromationSystemName und uri auf informationSystem?
+--> Mail Herr Schliebner 27.04.: "AAA zeigtAufExternes im Buildings2D-Kontext: Keine Migration, da dessen Inhalte zu heterogen sind. Das schließt länderspez. Ergänzungsbeauftragungen nicht aus."
+
+Abbildungen auf buildingNature
+--> Abbildung für BuildingPart unklar, weil eigentlich AX_Bauteil.AX_Bauart_Bauteil nur Werte 2710, 2720
+--> 2710 ist nach meinem Verständnis gar nicht in den Daten berücksichtigt
+--> auf welche Codes werden die beiden genannten Werte abgebildet?
+
+horizontalGeometryReference: "in der Regel "footprint"; sofern sich innerhalb der Definitionsgeometrie des Gebäudes ein Bauteil mit der Bauart = (1100,1200,1300, 1400,2500,2510,2520,2720) befindet ist der Wert "combined" zu setzen;
+bei Befliegungsgebäuden kann der Wert "roofedge" gerechtfertigt sein; bei aufgeständerten Gebäuden (AX_gebaeude.lageZur Erdoberfläche=1400) der Wert "lowestFloorAboveGround)"
+--> woher weiß ich, was Befliegungsgebäude sind?
+
+BuidlingPart:geometry2D:horizontalGeometryReference und referenceGeometry sind mandatory aber in der Mappingtabelle nicht angegeben --> gleiche Werte wie für Building?
+
+
+INTERN
+Woher wissen Gebaeude und Bauteil in 3A, dass sie zueinander gehören? --> nachfragen, ob das witklich nur über räumliche Verschenidung geht --> was für Regeln sind dafür anzuwenden?`enthalten, berühren,...
+
+Abbildungen auf buildingNature
+--> wie mit zusätzlichen Werten umgehen?
+--> vor Aktiv werden mit AdV klären
+--> Codes setzen und URI über Variable festsetzen --> done
+
+Abbildungen auf currentUse?
+--> wie mit zusätzlichen Werten umgehen?
+--> vor Aktiv werden mit AdV klären
+--> Codes setzen und URI über Variable festsetzen --> done
+
+Mappingtabelle position: "Sofern eine Liniengeometrie vorliegt muss eine Fläche nach Regeln (soweit möglich in Übereinstimmung mit LoD2) konvertiert werden" --> wie Liniengeometrien in Flächen umwandeln?
+--> welche Regeln?
+
+
+TODO
+-prinzipiell: Entscheidungen in notes der Zellen dokumentieren und sichergehen, dass jedes groovy dokumentiert ist --> bis 07.06. gemacht - ggf. noch ergänzen
+
+-falls Unterschiede im Mapping von 2D und 3D auffallen --> in Workshop zumindest nennen umm MÖglichkeit für ANgleichung zu schaffen
