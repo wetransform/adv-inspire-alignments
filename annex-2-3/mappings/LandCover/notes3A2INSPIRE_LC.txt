@@ -1,0 +1,68 @@
+bereits an Dr. Lucas übermittelt:
+-was bedeuten die Abkützungen in der MappingTabelle?
+m: ist ein direktes Migrationsobjekt, w: bildet auf einen Wertebereich ab und k: bildet auf alle Objekte der Arttributart ab
+-wie kann man das entwickelte LBM in eine Codeliste überführen, um es als LandCoverNomenclature nutzbar zu machen?
+--> entsprechendes Attribut von LandCoverDataset muss in Alignment noch gefüllt werden
+
+Florian:
+-wie neue Codeliste für LC erzeugen
+--> gdi de registry ursprnglich 4 Register in Ausschreibung inkl. vorschrigft modell. Codelisten Register wurde implemenitert gemäß ausschreibung, ist aber nicht zureichend. deswegen von niemandem verwendet. bkg implementiert derzeit scheinbar eine eigene Lösung, Andreas und Florian wissen dazu gar nichts
+--> inspire registry hat sinnvolle implementierung gemacht
+	Montag Andreas zu dem Thema befragen
+	evtl. Klärung auf AdV-Ebene ansprechen
+--> Bereitstellung als gmldictioanry oder inspire registry codelisten modell--> also als xsd möglich und dann namespace für Werte nutzen
+-derzeit keine Codelistenregistreirung  möglich und auch auf absehbare Zeit nicht
+
+Andreas 01.03.
+-eigentlich soll GDI-DE Registry Codelisten-Register genutzt werden, auf die zugegriffen werden kann --> noch nicht realisiert
+-BKG nach Stand nachfragen? --> Andreas fragt am 07.03. nach
+-AdV hat git-Repository --> auch da hosten möglich
+-Frage: Format?
+-aktuelle NAS Codelisten sind GML dictionary --> entspricht nicht aktuellem Vorgehen mit linked data
+-href erwartet URI mit http:..., aber die muss nicht auflösbar sein --> Muster http://baseURL.../<code>						Projektvariable mit base URI festlegen und als Wert nutzen
+
+Simon
+-Schritte:
+	1. Codeliste erstellen --> muss auch mit der Mappingtabelle verwendbar sein, die wir haben
+	2. Codeliste in gefordertes Format überführen (je nach dem, mit welchen Veröffentlichungswerkzeug umgehen kann - SKOS, JSON,...)
+	3. Codeliste bereitstellen (GDI-DE Registry? Selbst hosten?) --> @GDI-DE: was ist die bestPractise um eine Codeliste umzusetzen? --> Veröffentlichung muss im Namen der AdV sein
+--> wir klären, was der beste Weg für Veröffentlichung und Verwendung ist, abre fachliche Klärung ist dringlicher --> welche Werte? Hierarchisch? Umfassender Wert?
+--> wir brauchen: Codeliste mit den Werten, später referenzierbare URIs
+
+weitere Fragen zu Informationsmaterialien:
+-was bedeuten durchgestrichene/markierte Zellen in der Mappingtabelle? --> welche 3A-Objektarten sollen final für das Mapping in LandCover verwendet werden?
+--> Dr. Lucas: die sind faktisch irrelevant… dabei handelt es sich um den überlagernden Bauwerksbereich…
+-DS 5.5.1.2.1:  A LandCoverUnit has a geometry (restricted to point or surface) --> gibt es FeatureTypes in den Quelldaten, die nur Lines enthalten können?
+--> z.B. AX_Strassenverkehrsanlage in Beispieldaten enthält nur CompositeCurves - gilt das für alle AX_Strassenverkehrsanlagen?
+--> FeatureTypes, die CompositeCurves enthalten, sind alle in der MappingTabelle gelb markiert/durchgestrichen --> evtl. erübrigt sich die Frage, wenn klar ist, was diese Kennzeichnugnen bedeuten
+-DS 5.2.6: "IR Requirement Article 12 Other Requirements & Rules  
+	1. The value domain of spatial properties defined in this Regulation shall be restricted to the Simple Feature spatial schema as defined in Herring, John R. (ed.), OpenGIS® Implementation Standard for Geographic information –
+	Simple feature access – Part 1: Common architecture, version 1.2.1, Open Geospatial Consortium, 2011, unless specified otherwise for a specific spatial data theme or type. 
+	NOTE 1 The specification restricts the spatial schema to 0-, 1-, 2-, and 2.5-dimensional geometries where all curve interpolations are linear and surface interpolations are performed by triangles"
+ + DS 5.3.1.1.4: "Conceptually, the geometry of a land cover dataset is a partition (in a mathematical sense) of the earth surface and should therefore be represented as a coverage (ISO 19123). The experience is, however, that the
+	land cover mapping community is unable to handle coverage structures. Simple feature points and polygons together with raster structures are therefore, as a pragmatic alternative, used as the geometrical representation of
+	land cover units in this data specification."
+--> Kann eine sichere Aussage getroffen werden, ob alle Quelldaten, die für die Transoformationen genutzt werden, nur simple Feature Geometrien enthalten?
+	(bei den verwendeten Beispieldaten kommen nur CompositeCurves, Surfaces und Points vor, aber kann es für andere Bundesländer anders sein?)
+	prinzipiell dürfen solche in 3A verwendet werden, Hauptdokument GeoInfoDok 3.3.4.1: "Die ISO-Norm 19107 Spatial schema stellt Raumbezugsgrundformen für die Verwendung in Anwendungsschemata zur Verfügung; für AFIS, ALKIS und
+	ATKIS werden davon zur Verringerung der Komplexität ausschließlich folgende verwendet: GM_Point GM_Curve GM_PolyhedralSurface GM_CompositeCurve GM_CompositeSurface GM_MultiPoint GM_MultiCurve GM_MultiSurface TS_PointComponent
+	TS_CurveComponent TS_SurfaceComponent TS_Face TP_Complex"
+--> falls andere Geometrien vorkommen könnten --> Hilfsfunktion "toSimpleGeometries" erzeugt Liste von simple Geometrien (für gewöhnlich erwarten wir nur eine Geometrie aus jedem Feature, sodass die Liste einfach als Zieldaten genutzt
+	werden kann)
+
+04.06.
+-ZUSOs gelöscht, weil beide vorkommenden aus ATKIS und das laut Mail Herr Schliebner vom 30.05. nicht mehr berücksichtigt werden muss
+-Codelisten-Problem wurde von AdV erkannt und angegangen - nicht unsere Aufgabe
+-TO DO: Infos Herr Lucas einbauen: eine Objektart durchspielen für Entscheidung, ob alles händisch oder alles mit groovy, unklare Stellen mit Warning markieren
+-TO DO: neu hochladen, Tasks aktualisieren
+
+Doku:
+-Kanal und Wasserlauf entgegen Angabe in Excel-Liste nicht gemappt, weil ZUSO (keine Geometrie, ist aber für LandCoverUnit zwingend erforderlich)
+-BauwerkOderAnlageFuerSportFreizeitUndErholung, Hafen, Schleuse, Testgelaende, Strassenverkehrsanlage, Bahnverkehrsanlage, FLugverkehrsanlage, BauwerkImGewaesserbereich, Vegetationsmerkmal, Gewaessermerkmal, UntergeordnetesGewaesser
+	in Mappingtabelle gelb markiert/durchgestrichen
+--> lt. Mail Dr. Lucas 23.02. irrelevant --> aus Mapping genommen
+-als LandCoverClass derzeit überall beispielclass zugewiesen für Vermeidung unendlicher Fehlermeldungen
+
+
+
+-prinzipiell: Entscheidungen in notes der Zellen dokumentieren und sichergehen, dass jedes groovy dokumentiert ists
