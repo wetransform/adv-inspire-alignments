@@ -1847,8 +1847,8 @@ def erstelleRoadLink = { achse -&gt;
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
 	_target {
-		endLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.beginnt.value() )
-		beginLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.endet.value() )
+		endLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.endet.value() )
+		beginLifespanVersion( achse.p.lebenszeitintervall.AA_Lebenszeitintervall.beginnt.value() )
 		id( _id )
 		def geoms = _.geom.toSimpleGeometries(geometries: achse.p.position.first(), collections: false)
 		if (geoms.size() &gt; 1) {
