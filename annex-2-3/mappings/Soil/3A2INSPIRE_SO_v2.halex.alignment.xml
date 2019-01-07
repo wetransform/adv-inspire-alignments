@@ -2483,6 +2483,22 @@ _target(list.join(','))
         <parameter value="#SoilPlot_{id}" name="pattern"/>
         <documentation>Stellt die Verbindung zwischen dem SoilPlot und dem ObservedSoilProfile her, die beide aus dem selben GrablochDerBodenschätzung entstehen - durch den formatierten String wird eine Referenz auf den entstehenden SoilPlot hergestellt</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Ccca12ed4-0f76-4382-b8ab-d073c5451edd" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilProfileObservation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#OM_Observation_{id}" name="pattern"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd4a9c27a-49d8-4f6b-9214-9ca92534a589" priority="normal">
         <target>
             <property>
@@ -2878,6 +2894,54 @@ _target(list.join(','))
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C46a6a7b7-e505-491c-8c99-faacc238ce8a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilDerivedObjectObservation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#OM_Observation_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C2a2685ae-91b5-4263-92f8-56eb3046369f" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilDerivedObjectObservation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#OM_Observation_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C124957cb-fda6-4924-a2bf-ef8978c586b8" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilDerivedObjectObservation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#OM_Observation_{id}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C284c2dd5-e128-4051-8f13-f27bfa113714" priority="normal">
         <source>
