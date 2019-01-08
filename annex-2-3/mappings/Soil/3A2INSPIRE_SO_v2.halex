@@ -2,8 +2,9 @@
 <hale-project version="3.5.0.SNAPSHOT">
     <name>3A2INSPIRE_SO</name>
     <author>Johanna Ott</author>
+    <description>Die Überführung der Bodenschätzungsdaten in das INSPIRE Soil Schema hat sich als schwierig erwiesen, da derartige Daten bei der Entwicklung des Schemas nicht berücksichtigt wurden. Daraus resultiert, dass beispielsweise die Attribute resultTime und phenomenonTime ungefüllt bleiben, obwohl das in der textlichen Beschreibung der Datenspezifikation nicht vorgesehen ist.</description>
     <created>2018-04-24T15:58:22.449+02:00</created>
-    <modified>2019-01-02T10:40:16.750+01:00</modified>
+    <modified>2019-01-08T15:48:51.751+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -63,6 +64,21 @@
         <setting name="resourceId">d9e2ce9d-3980-43a7-a832-16b93d7e4575</setting>
         <setting name="source">http://inspire.ec.europa.eu/codelist/SoilPlotTypeValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">19c95fcc-32e8-4fc1-a472-dd6001f5aa1d</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_NeuwScharh_0003.xml.gz</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
