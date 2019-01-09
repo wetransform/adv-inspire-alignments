@@ -552,6 +552,8 @@ _target {&#xD;
             </property>
         </target>
         <parameter value="other:unpopulated" name="value"/>
+        <documentation>Das Attribut phenomenonTime bleibt ungefüllt, obwohl das in der textlichen Beschreibung der Datenspezifikation nicht vorgesehen ist. In den Quelldaten lassen sich für dessen Füllung keine sinnvollen Informationen finden.&#xD;
+Beim Schreiben der Daten werden diesbezüglich Warnungen ausgelöst.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C5cdc11e3-8b4d-4d2f-9cd4-7abfded8d45b" priority="normal">
         <target>
@@ -2336,6 +2338,8 @@ _target(list.join(','))
             </property>
         </target>
         <parameter value="other:unpopulated" name="value"/>
+        <documentation>Das Attribut resultTime bleibt ungefüllt, obwohl das in der textlichen Beschreibung der Datenspezifikation nicht vorgesehen ist. In den Quelldaten lassen sich für dessen Füllung keine sinnvollen Informationen finden.&#xD;
+Beim Schreiben der Daten werden diesbezüglich Warnungen ausgelöst.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce64e9c79-41cb-4131-b549-60189b1f3130" priority="normal">
         <source>
