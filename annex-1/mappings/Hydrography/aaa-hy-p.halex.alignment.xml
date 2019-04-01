@@ -2306,6 +2306,42 @@ if (!hatLinienhaft &amp;&amp; !hatFlaechenhaft) {&#xD;
 	throw new NoResultException('Kann kein Watercourse-Objekt ohne Geometrie erstellen')&#xD;
 }&#xD;
 &#xD;
+def breiteMax&#xD;
+def breiteMin&#xD;
+	&#xD;
+_source.links.AX_Gewaesserachse.each {&#xD;
+	achse -&gt;&#xD;
+	def value = achse.p.breiteDesGewaessers.value()&#xD;
+	if (value){	&#xD;
+		if (!breiteMax || value &gt; breiteMax){&#xD;
+			breiteMax = value&#xD;
+		}&#xD;
+		if (!breiteMin || value &lt; breiteMin){&#xD;
+			breiteMin = value&#xD;
+		}&#xD;
+	}	&#xD;
+}&#xD;
+&#xD;
+switch (breiteMin){&#xD;
+	case 3:&#xD;
+		breiteMin = 0&#xD;
+		break&#xD;
+	case 6:&#xD;
+		breiteMin = 3&#xD;
+		break&#xD;
+	case 12:&#xD;
+		breiteMin = 6&#xD;
+		break&#xD;
+	case 18:&#xD;
+		breiteMin = 12&#xD;
+		break&#xD;
+	case 30:&#xD;
+		breiteMin = 18&#xD;
+		break&#xD;
+	case 42:&#xD;
+		breiteMin = 30&#xD;
+		break&#xD;
+}&#xD;
 &#xD;
 def createWatercourse = { aggregate -&gt; &#xD;
 	if (aggregate) {&#xD;
@@ -2321,6 +2357,19 @@ def createWatercourse = { aggregate -&gt; &#xD;
 			}&#xD;
 			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + localID : localID ) {&#xD;
 				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+			}&#xD;
+			width {&#xD;
+				if (hatLinienhaft &amp;&amp; breiteMax){&#xD;
+					WidthRange {&#xD;
+						lower( breiteMin ) {&#xD;
+							uom( 'm' )&#xD;
+						}&#xD;
+						upper( breiteMax ) {&#xD;
+							uom( 'm' )&#xD;
+						}&#xD;
+					}&#xD;
+				}&#xD;
+					nilReason ('unknown')&#xD;
 			}&#xD;
 		}&#xD;
 	}&#xD;
@@ -2349,10 +2398,7 @@ if (hatFlaechenhaft) {&#xD;
 	geoms.each { geom -&gt;&#xD;
 		createWatercourse(geom)&#xD;
 	}&#xD;
-}&#xD;
-&#xD;
-&#xD;
-
+}
 </core:text>
         </complexParameter>
     </cell>
@@ -2435,54 +2481,40 @@ if (!hatLinienhaft &amp;&amp; !hatFlaechenhaft) {&#xD;
 &#xD;
 def breiteMax&#xD;
 def breiteMin&#xD;
-&#xD;
-if (hatLinienhaft){	&#xD;
-	_source.links.AX_Gewaesserachse.each {&#xD;
-		achse -&gt;&#xD;
-		def value = achse.p.breiteDesGewaessers.value()&#xD;
-		if (value){	&#xD;
-			if (!breiteMax || value &gt; breiteMax){&#xD;
-				breiteMax = value&#xD;
-			}&#xD;
-			if (!breiteMin || value &lt; breiteMin){&#xD;
-				breiteMin = value&#xD;
-			}&#xD;
+	&#xD;
+_source.links.AX_Gewaesserachse.each {&#xD;
+	achse -&gt;&#xD;
+	def value = achse.p.breiteDesGewaessers.value()&#xD;
+	if (value){	&#xD;
+		if (!breiteMax || value &gt; breiteMax){&#xD;
+			breiteMax = value&#xD;
 		}&#xD;
-		&#xD;
+		if (!breiteMin || value &lt; breiteMin){&#xD;
+			breiteMin = value&#xD;
+		}&#xD;
 	}&#xD;
 	&#xD;
-	switch (breiteMin){&#xD;
-		case 3:&#xD;
-			breiteMin = 0&#xD;
-			break&#xD;
-		case 6:&#xD;
-			breiteMin = 3&#xD;
-			break&#xD;
-		case 12:&#xD;
-			breiteMin = 6&#xD;
-			break&#xD;
-		case 18:&#xD;
-			breiteMin = 12&#xD;
-			break&#xD;
-		case 30:&#xD;
-			breiteMin = 18&#xD;
-			break&#xD;
-		case 42:&#xD;
-			breiteMin = 30&#xD;
-			break&#xD;
-		default: &#xD;
-			breiteMin = 0&#xD;
-			_log.warn ("Für Watercourse konnte keine minimale Breite ermittelt werden. Es wurde der Wert 0 m zugewiesen.")&#xD;
-	}&#xD;
-&#xD;
-	if(!breiteMax){&#xD;
-		_log.warn ("Keine maximale Breita da")&#xD;
-	}&#xD;
 }&#xD;
 &#xD;
-else {&#xD;
-	breiteMax = 10000&#xD;
-	breiteMin = 10000&#xD;
+switch (breiteMin){&#xD;
+	case 3:&#xD;
+		breiteMin = 0&#xD;
+		break&#xD;
+	case 6:&#xD;
+		breiteMin = 3&#xD;
+		break&#xD;
+	case 12:&#xD;
+		breiteMin = 6&#xD;
+		break&#xD;
+	case 18:&#xD;
+		breiteMin = 12&#xD;
+		break&#xD;
+	case 30:&#xD;
+		breiteMin = 18&#xD;
+		break&#xD;
+	case 42:&#xD;
+		breiteMin = 30&#xD;
+		break&#xD;
 }&#xD;
 &#xD;
 def createWatercourse = { aggregate -&gt; &#xD;
@@ -2501,14 +2533,17 @@ def createWatercourse = { aggregate -&gt; &#xD;
 				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
 			}&#xD;
 			width {&#xD;
-				WidthRange {&#xD;
-					lower( breiteMin ) {&#xD;
-						uom( 'm' )&#xD;
-					}&#xD;
-					upper( breiteMax ) {&#xD;
-						uom( 'm' )&#xD;
+				if (hatLinienhaft &amp;&amp; breiteMax){&#xD;
+					WidthRange {&#xD;
+						lower( breiteMin ) {&#xD;
+							uom( 'm' )&#xD;
+						}&#xD;
+						upper( breiteMax ) {&#xD;
+							uom( 'm' )&#xD;
+						}&#xD;
 					}&#xD;
 				}&#xD;
+					nilReason ('unknown')&#xD;
 			}&#xD;
 		}&#xD;
 	}&#xD;
@@ -3577,6 +3612,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <disable-for parent="C4c0212ea-a994-4344-9aec-580c1420ba86"/>
     </modifier>
     <modifier cell="C09a6b91a-b641-490e-bf2e-c318ce2a1ec0">
+        <disable-for parent="Cf28c2a3a-1f66-4f1f-b279-b5c3d56d4c21"/>
         <disable-for parent="Cf1dd9bd5-614f-4cb7-869d-613bdbcb7ce3"/>
     </modifier>
     <modifier cell="C140bf801-ace9-4ad1-9966-5ad0890a5734">
@@ -3609,9 +3645,11 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <disable-for parent="C76a01cce-00b7-4705-8a54-109506ab4fdb"/>
     </modifier>
     <modifier cell="Cad422635-0cbb-403b-901f-90c31eed4566">
+        <disable-for parent="Cf28c2a3a-1f66-4f1f-b279-b5c3d56d4c21"/>
         <disable-for parent="Cf1dd9bd5-614f-4cb7-869d-613bdbcb7ce3"/>
     </modifier>
     <modifier cell="Cb6a3be00-a71e-4d27-9040-df087e8288f7">
+        <disable-for parent="Cf28c2a3a-1f66-4f1f-b279-b5c3d56d4c21"/>
         <disable-for parent="Cf1dd9bd5-614f-4cb7-869d-613bdbcb7ce3"/>
     </modifier>
     <modifier cell="Cb8460d08-86f3-41ec-afe4-7bd999be3b0c">
@@ -3630,10 +3668,8 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <disable-for parent="Cf28c2a3a-1f66-4f1f-b279-b5c3d56d4c21"/>
         <disable-for parent="Cf1dd9bd5-614f-4cb7-869d-613bdbcb7ce3"/>
     </modifier>
-    <modifier cell="Cf28c2a3a-1f66-4f1f-b279-b5c3d56d4c21">
-        <transformation mode="disabled"/>
-    </modifier>
     <modifier cell="Cfb32842a-8e05-4d71-8b79-22fa734f20e3">
+        <disable-for parent="Cf28c2a3a-1f66-4f1f-b279-b5c3d56d4c21"/>
         <disable-for parent="Cf1dd9bd5-614f-4cb7-869d-613bdbcb7ce3"/>
     </modifier>
 </alignment>
