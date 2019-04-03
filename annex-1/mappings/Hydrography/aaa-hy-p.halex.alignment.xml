@@ -105,7 +105,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                     <property>
-                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                 </jp:condition>
@@ -118,7 +118,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                     <property>
-                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                 </jp:condition>
@@ -2267,7 +2267,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
@@ -2278,7 +2278,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
@@ -2306,10 +2306,50 @@ if (!hatLinienhaft &amp;&amp; !hatFlaechenhaft) {&#xD;
 	throw new NoResultException('Kann kein Watercourse-Objekt ohne Geometrie erstellen')&#xD;
 }&#xD;
 &#xD;
+def breiteMax&#xD;
+def breiteMin&#xD;
+	&#xD;
+_source.links.AX_Gewaesserachse.each {&#xD;
+	achse -&gt;&#xD;
+	def value = achse.p.breiteDesGewaessers.value()&#xD;
+	if (value){	&#xD;
+		if (!breiteMax || value &gt; breiteMax){&#xD;
+			breiteMax = value&#xD;
+		}&#xD;
+		if (!breiteMin || value &lt; breiteMin){&#xD;
+			breiteMin = value&#xD;
+		}&#xD;
+	}	&#xD;
+}&#xD;
+&#xD;
+switch (breiteMin){&#xD;
+	case 3:&#xD;
+		breiteMin = 0&#xD;
+		break&#xD;
+	case 6:&#xD;
+		breiteMin = 3&#xD;
+		break&#xD;
+	case 12:&#xD;
+		breiteMin = 6&#xD;
+		break&#xD;
+	case 18:&#xD;
+		breiteMin = 12&#xD;
+		break&#xD;
+	case 30:&#xD;
+		breiteMin = 18&#xD;
+		break&#xD;
+	case 42:&#xD;
+		breiteMin = 30&#xD;
+		break&#xD;
+}&#xD;
 &#xD;
 def createWatercourse = { aggregate -&gt; &#xD;
 	if (aggregate) {&#xD;
 		def localID = 'Watercourse_' + kanalId + '_' + counter++&#xD;
+		def laenge&#xD;
+		if (hatLinienhaft) {&#xD;
+			laenge = aggregate.getGeometry().getLength()&#xD;
+		}&#xD;
 		_target {&#xD;
 			geometry(aggregate)&#xD;
 			id( localID )&#xD;
@@ -2321,6 +2361,23 @@ def createWatercourse = { aggregate -&gt; &#xD;
 			}&#xD;
 			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + localID : localID ) {&#xD;
 				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+			}&#xD;
+			length( laenge) {&#xD;
+				nilReason ('unknwon')&#xD;
+				uom( 'm' )&#xD;
+			}&#xD;
+			width {&#xD;
+				if (hatLinienhaft &amp;&amp; breiteMax){&#xD;
+					WidthRange {&#xD;
+						lower( breiteMin ) {&#xD;
+							uom( 'm' )&#xD;
+						}&#xD;
+						upper( breiteMax ) {&#xD;
+							uom( 'm' )&#xD;
+						}&#xD;
+					}&#xD;
+				}&#xD;
+					nilReason ('unknown')&#xD;
 			}&#xD;
 		}&#xD;
 	}&#xD;
@@ -2349,10 +2406,7 @@ if (hatFlaechenhaft) {&#xD;
 	geoms.each { geom -&gt;&#xD;
 		createWatercourse(geom)&#xD;
 	}&#xD;
-}&#xD;
-&#xD;
-&#xD;
-
+}
 </core:text>
         </complexParameter>
     </cell>
@@ -2433,10 +2487,51 @@ if (!hatLinienhaft &amp;&amp; !hatFlaechenhaft) {&#xD;
 	throw new NoResultException('Kann kein Watercourse-Objekt ohne Geometrie erstellen')&#xD;
 }&#xD;
 &#xD;
+def breiteMax&#xD;
+def breiteMin&#xD;
+	&#xD;
+_source.links.AX_Gewaesserachse.each {&#xD;
+	achse -&gt;&#xD;
+	def value = achse.p.breiteDesGewaessers.value()&#xD;
+	if (value){	&#xD;
+		if (!breiteMax || value &gt; breiteMax){&#xD;
+			breiteMax = value&#xD;
+		}&#xD;
+		if (!breiteMin || value &lt; breiteMin){&#xD;
+			breiteMin = value&#xD;
+		}&#xD;
+	}&#xD;
+	&#xD;
+}&#xD;
+&#xD;
+switch (breiteMin){&#xD;
+	case 3:&#xD;
+		breiteMin = 0&#xD;
+		break&#xD;
+	case 6:&#xD;
+		breiteMin = 3&#xD;
+		break&#xD;
+	case 12:&#xD;
+		breiteMin = 6&#xD;
+		break&#xD;
+	case 18:&#xD;
+		breiteMin = 12&#xD;
+		break&#xD;
+	case 30:&#xD;
+		breiteMin = 18&#xD;
+		break&#xD;
+	case 42:&#xD;
+		breiteMin = 30&#xD;
+		break&#xD;
+}&#xD;
 &#xD;
 def createWatercourse = { aggregate -&gt; &#xD;
 	if (aggregate) {&#xD;
 		def localID = 'Watercourse_' + wasserlaufId + '_' + counter++&#xD;
+		def laenge&#xD;
+		if (hatLinienhaft) {&#xD;
+			laenge = aggregate.getGeometry().getLength()&#xD;
+		}&#xD;
 		_target {&#xD;
 			geometry(aggregate)&#xD;
 			id( localID )&#xD;
@@ -2448,6 +2543,23 @@ def createWatercourse = { aggregate -&gt; &#xD;
 			}&#xD;
 			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + localID : localID ) {&#xD;
 				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+			}&#xD;
+			length( laenge) {&#xD;
+				nilReason ('unknwon')&#xD;
+				uom( 'm' )&#xD;
+			}&#xD;
+			width {&#xD;
+				if (hatLinienhaft &amp;&amp; breiteMax){&#xD;
+					WidthRange {&#xD;
+						lower( breiteMin ) {&#xD;
+							uom( 'm' )&#xD;
+						}&#xD;
+						upper( breiteMax ) {&#xD;
+							uom( 'm' )&#xD;
+						}&#xD;
+					}&#xD;
+				}&#xD;
+					nilReason ('unknown')&#xD;
 			}&#xD;
 		}&#xD;
 	}&#xD;
@@ -2791,30 +2903,6 @@ if (hatFlaechenhaft) {&#xD;
         <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
         <documentation>**Hier sollte wahrscheinlich ein anderer Namespace als der INSPIRE Namespace verwendet werden.**</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.geometric.calculatelength" id="Cbf9b8160-5100-4c0f-9a0f-da4f773aba4d" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="length" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C728e8e36-3439-4f0b-a5f1-c68295d9c9c3" priority="normal">
-        <target>
-            <property>
-                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="length" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="uom"/>
-            </property>
-        </target>
-        <parameter value="m" name="value"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C99235916-bba1-4542-a48f-32c839385a66" priority="normal">
         <source>
             <property>
@@ -2826,7 +2914,7 @@ if (hatFlaechenhaft) {&#xD;
             <property>
                 <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                 <child name="localType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
             </property>
         </target>
         <complexParameter name="lookupTable">
@@ -2851,7 +2939,7 @@ if (hatFlaechenhaft) {&#xD;
             <property>
                 <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
                 <child name="localType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
             </property>
         </target>
         <complexParameter name="lookupTable">
@@ -2864,6 +2952,22 @@ if (hatFlaechenhaft) {&#xD;
         </complexParameter>
         <parameter value="fixed:Wasserlauf" name="notClassifiedAction"/>
         <documentation>Die Klassifikationsfunktion wird verwendet, da somit unterschieden werden kann, ob ein Join zu einem Kanal oder einem Wasserlauf erfolgte. Alternativ müssten zwei Bound Assigns verwendet werden.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C798f4a2e-c841-49c6-ac4d-f97cae4e79a0" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="localType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="LocalisedCharacterString" ns="http://www.isotc211.org/2005/gmd"/>
+            </property>
+        </target>
+        <parameter value="Wasserlauf" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca6fd253b-5cd2-4b59-93e3-572c96bd73c4" priority="normal">
         <source name="anchor">
@@ -2965,105 +3069,6 @@ if (hatFlaechenhaft) {&#xD;
             </property>
         </target>
         <parameter value="false" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cb6a3be00-a71e-4d27-9040-df087e8288f7" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="breiteDesGewaessers" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="width" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="WidthRange" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="lower" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="3"/>
-                    <value value="0.0"/>
-                </entry>
-                <entry>
-                    <key value="6"/>
-                    <value value="3.0"/>
-                </entry>
-                <entry>
-                    <key value="12"/>
-                    <value value="6.0"/>
-                </entry>
-                <entry>
-                    <key value="18"/>
-                    <value value="12.0"/>
-                </entry>
-                <entry>
-                    <key value="30"/>
-                    <value value="18.0"/>
-                </entry>
-                <entry>
-                    <key value="42"/>
-                    <value value="30.0"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="null" name="notClassifiedAction"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cfb32842a-8e05-4d71-8b79-22fa734f20e3" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="breiteDesGewaessers" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="width" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="WidthRange" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="lower" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="uom"/>
-            </property>
-        </target>
-        <parameter value="m" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cad422635-0cbb-403b-901f-90c31eed4566" priority="normal">
-        <source>
-            <property>
-                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="breiteDesGewaessers" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="width" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="WidthRange" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="upper" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C09a6b91a-b641-490e-bf2e-c318ce2a1ec0" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="breiteDesGewaessers" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="width" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="WidthRange" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="upper" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="uom"/>
-            </property>
-        </target>
-        <parameter value="m" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C4c0212ea-a994-4344-9aec-580c1420ba86" priority="normal">
         <source>
