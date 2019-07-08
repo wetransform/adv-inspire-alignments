@@ -141,7 +141,7 @@
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def candidates = _.geom.spatialIndexQuery(geometry: _source.p.position.first())&#xD;
+def candidates = _.geom.spatialIndexQuery(geometry: _source.p.position.first(), types: 'AX_Gebaeude')&#xD;
 if (!candidates){&#xD;
 	_log.warn("keine Kandidaten")&#xD;
 }&#xD;
@@ -150,6 +150,7 @@ if (!candidates){&#xD;
 //Geometrie des Bauteils auslesen&#xD;
 def baugeom = (_.geom.find(_source.p.position.first())).geometry&#xD;
 &#xD;
+//Hinweis: Ab hale 4 Gebäude schon oben vorgefiltert, dieser Teil wird für Rückwärtskompatibilität beibehalten:&#xD;
 //Liste von allen Gebäuden erzeugen, die mit der Bauteil-Geometrie in irgendeiner Beziehung stehen&#xD;
 def gebaeude = candidates.findAll{ geb -&gt;&#xD;
 //Geometrie jedes potentiellen Gebäudes auslesen&#xD;
