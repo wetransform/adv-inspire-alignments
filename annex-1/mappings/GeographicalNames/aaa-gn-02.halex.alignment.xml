@@ -3139,6 +3139,44 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
             </property>
         </target>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C32b730a3-1eed-4d72-8c08-a83719c6ddbd" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C6290e0ff-d811-492f-8a2e-d4cba27e6c65" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca36557b7-7666-4dde-a63b-9e52c34d210f" priority="normal">
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ceb45feb4-16a2-492c-a3c0-58dc956e8005" priority="normal">
         <source name="id">
             <property>
@@ -7999,6 +8037,9 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
     </cell>
     <modifier cell="C09d71e6c-a2f3-4f7e-9ded-0f703cb30bd5">
         <transformation mode="disabled"/>
+    </modifier>
+    <modifier cell="C32b730a3-1eed-4d72-8c08-a83719c6ddbd">
+        <disable-for parent="C0607871a-8806-4d7e-bfe2-163ee53a0c07"/>
     </modifier>
     <modifier cell="C6ffe1102-f993-49da-bc1e-7c25ed40b8d2">
         <transformation mode="disabled"/>
