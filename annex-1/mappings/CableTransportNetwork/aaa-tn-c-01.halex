@@ -7,6 +7,7 @@
 #### Allgemeine Anmerkungen
 
 - Eingabedaten für die Transformation werden als ein *TransportNetwork* behandelt (die ID des Netzwerks kann über Projekt-Variablen angepasst werden)
+- Die Projektvariable THEME_DISTINGUISHER muss nur dann gef�llt werden, wenn Transport-Objekte zu mehreren Transport-Arten (air, cable, road, water, railway) in einem gemeinsamen INSPIRE-Datensatz abgelegt werden sollen. Wenn die Netzwerke separat gespeichert werden sollen, kann die Projektvariable leer bleiben. Wenn die verschiedenen Objekte gemeinsam gespeichert werden sollen, muss sie einen der Werte "air", "cable", "railway", "road" oder "water" annehmen.
 - Um einen komplexen und speicherintensiven Join über alle erstellten Objekte zu vermeiden, wird bei der Erstellung jedes `NetworkElement` dessen ID mit den anderen gesammelt. Aus den gesammelten IDs werden dann am Ende die Referenzen des `TransportNetwork` auf die `NetworkElement`s gebildet
 - Optionale Objektarten und Bestandteile die in der Mapping-Tabelle als *nicht geführt* deklariert sind wurden nicht gebildet
 - Bei der Abbildung `AX_SeilbahnSchwebebahn` nach `CablewayLink` werden Objekte anhand ihrer (Mehrfach-)Geometrie in mehrere Ziel-Objekte aufgeteilt werden. Hier wurde die ID des Zielobjekts jeweils mit der entsprechenden Nummer der Geometrie (1., 2., etc. Geometrie) als Suffix angehängt.
