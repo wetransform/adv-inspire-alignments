@@ -135,6 +135,19 @@
         <setting name="source">http://inspire.ec.europa.eu/codelist/NativenessValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
+    <export-config name="hale-connect">
+        <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
+            <setting name="charset">UTF-8</setting>
+            <setting name="meta.description"></setting>
+            <setting name="geometry.unifyWindingOrder">counterClockwise</setting>
+            <setting name="gml.geometry.simplify">true</setting>
+            <setting name="crs">code:EPSG:4258</setting>
+            <setting name="crs.epsg.prefix">http://www.opengis.net/def/crs/EPSG/0/</setting>
+            <setting name="contentType">eu.esdihumboldt.hale.io.gml</setting>
+            <setting name="xml.notNil.omitNilReason">true</setting>
+            <setting name="xml.pretty">true</setting>
+        </configuration>
+    </export-config>
     <file name="alignment.xml" location="aaa-ad-01.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-ad-01.halex.styles.sld"/>
     <complex-property name="codelists">
@@ -1679,7 +1692,7 @@
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="INSPIRE_NAMESPACE">
-                <core:value value="https://registry.gdi-de.org/id/de.REPLACE_ME"/>
+                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
             </core:property>
         </core:properties>
     </complex-property>
