@@ -677,6 +677,267 @@ _target {
         </target>
         <parameter value="AdminUnitName_{a}{b}" name="pattern"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C0ba00179-8337-4923-94bd-d18ebead9116" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="d"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{a}{b}{c}{d}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cbafec3b3-9425-403f-b12b-288ed0fa9944" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{a}{b}{c}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cde062b5b-b2ee-4bc2-a76d-8fbdedce7cd4" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{a}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C06f0c242-f9ec-4979-9110-3fb5f0b4d9d4" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{a}{b}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C704a0f7b-af0f-4ee3-b876-c5364c671c46" priority="normal">
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C45bec584-1e2c-4886-a565-f3844d87b6b5" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="d"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'G'</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitName_{a}{b}{c}{d}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C91ad41be-0a13-43f0-8dd4-8d4bb59b2041" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                </type>
+                <child name="c"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitName_{a}{b}{c}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C13781cba-f1cd-4ff5-8d8d-1cbc77255752" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitName_{a}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C171b467b-ad6e-4bca-8045-3b63647a2073" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                </type>
+                <child name="b"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Schlüssel">
+                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                </type>
+                <child name="a"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitName_{a}{b}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C71e8142f-7490-4a0b-8141-3c859c2ade16" priority="normal">
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C95786a23-4df6-4327-88c9-85193bb8ba80" priority="normal">
         <source name="anchor">
             <property>
@@ -878,6 +1139,59 @@ _target {
         </target>
         <parameter value="PostalDescriptor_{PLZ}" name="pattern"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C7cf90fe1-d99d-41aa-bcad-40d706d82177" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="PLZ"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}PostalDescriptor_{PLZ}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc76aa573-731b-4266-953c-853a2ba8ed75" priority="normal">
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C8053d000-fde1-444d-a942-5e9ba2cd17a1" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="PLZ"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="PostalDescriptor_{PLZ}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C35a8cd1b-5de8-4f35-a07a-a93f97235f36" priority="normal">
+        <target>
+            <property>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C6d95c1a8-5594-4d95-919c-d378d394cceb" priority="normal">
         <source>
             <property>
@@ -978,6 +1292,121 @@ def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C2526c237-63b3-42a1-87b2-d2e2b4971d65" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="KRS"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="GMD"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="RBZ"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="SSS"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="LAN"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#xD;
+&#xD;
+return _project.vars.INSPIRE_NAMESPACE + "ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cef736a1f-4184-4d04-92ba-0f0abed1b76f" priority="normal">
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C32f92c04-62b3-4e8f-b335-1fc478b5c95b" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="KRS"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="GMD"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="RBZ"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="SSS"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten"/>
+                <child name="LAN"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#xD;
+&#xD;
+"ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2acea461-6f45-4867-b24c-99244cc65079" priority="normal">
+        <target>
+            <property>
+                <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C26a26d1a-7e30-49f9-b519-94a95d0c158f" priority="normal">
         <source name="spelling">
