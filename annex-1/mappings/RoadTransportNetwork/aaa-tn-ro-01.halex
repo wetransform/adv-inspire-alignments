@@ -7,7 +7,8 @@
 #### Allgemeine Anmerkungen
 
 - Eingabedaten für die Transformation werden als ein *TransportNetwork* behandelt (die ID des Netzwerks kann über Projekt-Variablen angepasst werden)
-    - Um einen komplexen und speicherintensiven Join über alle erstellten Objekte zu vermeiden, wird bei der Erstellung jedes `NetworkElement` dessen ID mit den anderen gesammelt. Aus den gesammelten IDs werden dann am Ende die Referenzen des `TransportNetwork` auf die `NetworkElement`s gebildet
+- Die Projektvariable THEME_DISTINGUISHER muss nur dann gef�llt werden, wenn Transport-Objekte zu mehreren Transport-Arten (air, cable, road, water, railway) in einem gemeinsamen INSPIRE-Datensatz abgelegt werden sollen. Wenn die Netzwerke separat gespeichert werden sollen, kann die Projektvariable leer bleiben. Wenn die verschiedenen Objekte gemeinsam gespeichert werden sollen, muss sie einen der Werte "air", "cable", "railway", "road" oder "water" annehmen.    
+- Um einen komplexen und speicherintensiven Join über alle erstellten Objekte zu vermeiden, wird bei der Erstellung jedes `NetworkElement` dessen ID mit den anderen gesammelt. Aus den gesammelten IDs werden dann am Ende die Referenzen des `TransportNetwork` auf die `NetworkElement`s gebildet
 - Optionale Objektarten und Bestandteile die in der Mapping-Tabelle als *nicht geführt* deklariert sind wurden nicht gebildet
 - In diesem Modell werden einige Objekt-Eigenschaften nicht als Attribute am Objekt, sondern als eigene Objekte mit Verweis auf die zu beschreibenden Objekte gebildet ( sogenannte *TransportProperty*-Objekte, z.B. `FormOfWay` oder `ConditionOfFacility`) -- dazu weiter unten mehr
 - In ein paar Fällen (z.B. `AX_WegPfadSteig` nach `RoadLink`) können Objekte anhand ihrer (Mehrfach-)Geometrie in mehrere Ziel-Objekte aufgeteilt werden. Hier wurde die ID des Zielobjekts jeweils mit der entsprechenden Nummer der Geometrie (1., 2., etc. Geometrie) als Suffix angehängt. Beispiel-ID: `RoadLink_DEHHATKA10000IFR_1`
@@ -70,6 +71,19 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
         <setting name="source">http://inspire.ec.europa.eu/codelist/ServiceFacilityValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
+    <export-config name="hale-connect">
+        <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
+            <setting name="charset">UTF-8</setting>
+            <setting name="meta.description"></setting>
+            <setting name="geometry.unifyWindingOrder">counterClockwise</setting>
+            <setting name="gml.geometry.simplify">true</setting>
+            <setting name="crs">code:EPSG:4258</setting>
+            <setting name="crs.epsg.prefix">http://www.opengis.net/def/crs/EPSG/0/</setting>
+            <setting name="contentType">eu.esdihumboldt.hale.io.gml</setting>
+            <setting name="xml.notNil.omitNilReason">true</setting>
+            <setting name="xml.pretty">true</setting>
+        </configuration>
+    </export-config>
     <file name="alignment.xml" location="aaa-tn-ro-01.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-tn-ro-01.halex.styles.sld"/>
     <complex-property name="codelists">

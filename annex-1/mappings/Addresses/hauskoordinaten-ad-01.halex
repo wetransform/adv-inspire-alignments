@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.4.0.qualifier">
+<hale-project version="4.0.0.SNAPSHOT">
     <name>[Annex I] AdV Hauskoordinaten zu INSPIRE Addresses</name>
     <author>Thorsten Reitz</author>
     <description>Bei diesem Projekt werden eine Schlüsseldatei sowie eine Datei mit Hauskoordinaten im CSV-Format (und in UTF-8 kodiert) verwendet, um INSPIRE AD4.0-GML zu erzeugen.&#xD;
@@ -10,12 +10,12 @@ Anmerkungen:&#xD;
 &#xD;
 2. Um die Koordinaten formatiert (z.B. 00000000.000) auszugeben, ist die Verwendung von hale studio 3.1.0 erforderlich.</description>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2017-07-03T14:23:35.756+02:00</modified>
+    <modified>2019-07-15T17:03:32.641+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/home/simon/repos/inspire-alignements/annex-1/mappings/Addresses/hauskoordinaten-ad-01.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna/git/adv-inspire-alignments/annex-1/mappings/Addresses/hauskoordinaten-ad-01.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
         <setting name="charset">ISO-8859-1</setting>
@@ -23,7 +23,7 @@ Anmerkungen:&#xD;
         <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Double,java.lang.Double,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String</setting>
         <setting name="quote">"</setting>
         <setting name="skip">True</setting>
-        <setting name="source">file:/home/simon/repos/inspire-alignements/testdaten/Hauskoordinaten/kopfzeile_test.csv</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hauskoordinaten/kopfzeile_test.csv</setting>
         <setting name="decimal">,</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
         <setting name="separator">;</setting>
@@ -454,6 +454,19 @@ Anmerkungen:&#xD;
         <setting name="escape">\</setting>
         <setting name="typename">Schlüssel</setting>
     </resource>
+    <export-config name="hale-connect">
+        <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
+            <setting name="charset">UTF-8</setting>
+            <setting name="meta.description"></setting>
+            <setting name="geometry.unifyWindingOrder">counterClockwise</setting>
+            <setting name="gml.geometry.simplify">true</setting>
+            <setting name="crs">code:EPSG:4258</setting>
+            <setting name="crs.epsg.prefix">http://www.opengis.net/def/crs/EPSG/0/</setting>
+            <setting name="contentType">eu.esdihumboldt.hale.io.gml</setting>
+            <setting name="xml.notNil.omitNilReason">true</setting>
+            <setting name="xml.pretty">true</setting>
+        </configuration>
+    </export-config>
     <file name="alignment.xml" location="hauskoordinaten-ad-01.halex.alignment.xml"/>
     <file name="styles.sld" location="hauskoordinaten-ad-01.halex.styles.sld"/>
     <complex-property name="codelists">
@@ -1080,7 +1093,7 @@ Anmerkungen:&#xD;
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="INSPIRE_NAMESPACE">
-                <core:value value="https://registry.gdi-de.org/id/de.rp/"/>
+                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
             </core:property>
         </core:properties>
     </complex-property>

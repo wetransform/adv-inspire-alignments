@@ -42,6 +42,19 @@ Enthält neben dem kompletten Mapping für `AdministrativeBoundary` und `Condomi
         <setting name="ignoreNamespaces">false</setting>
         <setting name="ignoreRoot">true</setting>
     </resource>
+    <export-config name="hale-connect">
+        <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
+            <setting name="charset">UTF-8</setting>
+            <setting name="meta.description"></setting>
+            <setting name="geometry.unifyWindingOrder">counterClockwise</setting>
+            <setting name="gml.geometry.simplify">true</setting>
+            <setting name="crs">code:EPSG:4258</setting>
+            <setting name="crs.epsg.prefix">http://www.opengis.net/def/crs/EPSG/0/</setting>
+            <setting name="contentType">eu.esdihumboldt.hale.io.gml</setting>
+            <setting name="xml.notNil.omitNilReason">true</setting>
+            <setting name="xml.pretty">true</setting>
+        </configuration>
+    </export-config>
     <file name="alignment.xml" location="aaa-au-basis.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-au-basis.halex.styles.sld"/>
     <complex-property name="codelists">
