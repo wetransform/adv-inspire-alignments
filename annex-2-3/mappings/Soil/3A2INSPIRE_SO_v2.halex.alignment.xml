@@ -316,6 +316,150 @@ _target {&#xD;
         </target>
         <parameter value="http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C988cdb08-aa85-4996-8117-4cbf041b86e1" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="AX_Bodenschätzung" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbe3f94f9-e9a6-4e2f-bc24-622c342f08b8" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="AX_GrablochDerBodenschaetzung" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cedf2320a-ae53-45df-baa8-9a3d24ed018b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="AX_MusterLandesmusterUndVergleichsstueck" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc43936bc-c747-4c40-9621-c4ede224546a" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="AX_Tagesabschnitt" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc54089c2-ef50-4a30-9aa0-dfb3fb8cfc03" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="merkmal" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0">
+                    <context>0</context>
+                </child>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="merkmal" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C30042c7e-ede7-4b17-881c-4e92566170ad" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="merkmal" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0">
+                    <context>0</context>
+                </child>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3dfad4a8-04ee-40cb-8a0c-808a08f78eb5" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0">
+                    <context>1</context>
+                </child>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="nummer" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C042fba8e-a6b6-46c2-b337-696e9174a98e" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0">
+                    <context>1</context>
+                </child>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd1b953aa-9606-452f-a7d8-524e46101dcd" priority="normal">
         <source name="anchor">
             <property>
@@ -371,42 +515,6 @@ _target {&#xD;
             </property>
         </target>
         <parameter value="kulturart" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc54089c2-ef50-4a30-9aa0-dfb3fb8cfc03" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="merkmal" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
-                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
-                <child name="name" ns="http://www.opengis.net/om/2.0"/>
-                <child name="title" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="merkmal" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3dfad4a8-04ee-40cb-8a0c-808a08f78eb5" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="nummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
-                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
-                <child name="name" ns="http://www.opengis.net/om/2.0"/>
-                <child name="title" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="nummer" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0bc93f73-36a8-4016-90b2-73ca445b2a76" priority="normal">
         <source name="anchor">
@@ -476,42 +584,6 @@ _target {&#xD;
             <property>
                 <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="kulturart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
-                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
-                <child name="value" ns="http://www.opengis.net/om/2.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C30042c7e-ede7-4b17-881c-4e92566170ad" priority="normal">
-        <source>
-            <property>
-                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="merkmal" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
-                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
-                <child name="value" ns="http://www.opengis.net/om/2.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C042fba8e-a6b6-46c2-b337-696e9174a98e" priority="normal">
-        <source>
-            <property>
-                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="nummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
         <target>
