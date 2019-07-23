@@ -671,17 +671,19 @@ union = new DefaultGeometryProperty(union.CRSDefinition, g)
 // speichere aggregierte Geometrie für Bildung von Regierungsbezirk/Land
 collect.LowerLevelGeometrien[upperLevelUnit] &lt;&lt; union
 
-_target{
-	geometry {
-		MultiSurface( union )
-	}
-	_b.upperLevelUnit {
-		href( "#$upperLevelUnit" )
-	}
-	// gesammelte lowerLevelUnits
-	collect.kreis[_id].each { lowerId -&gt;
-		lowerLevelUnit {
-			href( "#$lowerId" )
+if(_source.p.schluessel.AX_Kreis_Schluessel.kreis.value() != '00'){
+	_target{
+		geometry {
+			MultiSurface( union )
+		}
+		_b.upperLevelUnit {
+			href( "#$upperLevelUnit" )
+		}
+		// gesammelte lowerLevelUnits
+		collect.kreis[_id].each { lowerId -&gt;
+			lowerLevelUnit {
+				href( "#$lowerId" )
+			}
 		}
 	}
 }
@@ -801,17 +803,19 @@ union = new DefaultGeometryProperty(union.CRSDefinition, g)
 // speichere aggregierte Geometrie für Bildung von Land
 collect.LowerLevelGeometrien[upperLevelUnit] &lt;&lt; union
 
-_target{
-	geometry {
-		MultiSurface( union )
-	}
-	_b.upperLevelUnit {
-		href( "#$upperLevelUnit" )
-	}
-	// gesammelte lowerLevelUnits
-	collect.regBezirk[_id].each { lowerId -&gt;
-		lowerLevelUnit {
-			href( "#$lowerId" )
+if(_source.p.schluessel.AX_Regierungsbezirk_Schluessel.regierungsbezirk.value() != '0'){
+	_target{
+		geometry {
+			MultiSurface( union )
+		}
+		_b.upperLevelUnit {
+			href( "#$upperLevelUnit" )
+		}
+		// gesammelte lowerLevelUnits
+		collect.regBezirk[_id].each { lowerId -&gt;
+			lowerLevelUnit {
+				href( "#$lowerId" )
+			}
 		}
 	}
 }
