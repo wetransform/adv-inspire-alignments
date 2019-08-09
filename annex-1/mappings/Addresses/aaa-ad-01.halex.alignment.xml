@@ -64,8 +64,8 @@
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="zeigtAuf" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -75,8 +75,8 @@
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="zeigtAuf" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -86,6 +86,7 @@
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def positionAdresse = _source.links.AX_GeoreferenzierteGebaeudeadresse.p.position.first()&#xD;
 def pointId = ""&#xD;
+def c = _.context.collector()&#xD;
 if (!positionAdresse) {&#xD;
 	positionAdresse = _source.links.AP_PTO.p.position.first()&#xD;
 	if (positionAdresse) {&#xD;
@@ -99,6 +100,29 @@ if (!positionAdresse) {&#xD;
 		positionAdresse = _.geom.centroid(_.geom.find(positionAdresse))&#xD;
 	}&#xD;
 }&#xD;
+&#xD;
+def parcels = new HashSet()&#xD;
+_source.p.gehoertZu.each {&#xD;
+	instance -&gt;&#xD;
+	if (c.flurstueck[instance.p.href.value()].value()){&#xD;
+		parcels &lt;&lt; c.flurstueck[instance.p.href.value()].value()&#xD;
+	}&#xD;
+}&#xD;
+c.weistAuf[ _source.p.identifier.value()].values.each{ value -&gt;&#xD;
+	parcels &lt;&lt; value&#xD;
+}&#xD;
+&#xD;
+def buildings = new HashSet()&#xD;
+_source.p.beziehtSichAuf.each {&#xD;
+	instance -&gt;&#xD;
+	if (c.gebaeude[instance.p.href.value()].value()){&#xD;
+		buildings &lt;&lt; c.gebaeude[instance.p.href.value()].value()&#xD;
+	}&#xD;
+}&#xD;
+c.gebZeigtAuf[ _source.p.identifier.value()].values.each{ value -&gt;&#xD;
+	buidlings &lt;&lt; value&#xD;
+}&#xD;
+&#xD;
 if (positionAdresse) {&#xD;
 	_target {&#xD;
 		position {&#xD;
@@ -120,6 +144,16 @@ if (positionAdresse) {&#xD;
 					title( 'by administrator' )&#xD;
 				}&#xD;
 				'default'( 'true' )&#xD;
+			}&#xD;
+		}&#xD;
+		parcels.each{ value -&gt;&#xD;
+			parcel {&#xD;
+				href(  _project.vars.CROSSTHEME_CADASTRALPARCELS_URL + '&amp;featureID=CadastralParcel_' + value )&#xD;
+			}&#xD;
+		}&#xD;
+		buildings.each{ value -&gt;&#xD;
+			building {&#xD;
+				href(  _project.vars.CROSSTHEME_BUILDINGS_URL + '&amp;featureID=Building_' + value )&#xD;
 			}&#xD;
 		}&#xD;
 	}&#xD;
@@ -190,8 +224,8 @@ if (positionAdresse) {&#xD;
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="zeigtAuf" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -201,8 +235,8 @@ if (positionAdresse) {&#xD;
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="zeigtAuf" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="hatAuch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -212,7 +246,7 @@ if (positionAdresse) {&#xD;
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def positionAdresse = _source.links.AX_GeoreferenzierteGebaeudeadresse.p.position.first()&#xD;
 def pointId = ""&#xD;
-&#xD;
+def c = _.context.collector()&#xD;
 if (!positionAdresse) {&#xD;
 	positionAdresse = _source.links.AP_PTO.p.position.first()&#xD;
 	if (positionAdresse) {&#xD;
@@ -227,10 +261,18 @@ if (!positionAdresse) {&#xD;
 	}&#xD;
 }&#xD;
  &#xD;
+def parcels = new HashSet()&#xD;
+_source.p.gehoertZu.each {&#xD;
+	instance -&gt;&#xD;
+	if (c.flurstueck[instance.p.href.value()].value()){&#xD;
+		parcels &lt;&lt; c.flurstueck[instance.p.href.value()].value()&#xD;
+	}&#xD;
+}&#xD;
+c.zeigtAuf[ _source.p.identifier.value()].values.each{ value -&gt;&#xD;
+	parcels &lt;&lt; value&#xD;
+}&#xD;
 &#xD;
 if (positionAdresse) {&#xD;
-	&#xD;
-&#xD;
 	_target {&#xD;
 		position {&#xD;
 			GeographicPosition {&#xD;
@@ -250,10 +292,70 @@ if (positionAdresse) {&#xD;
 					href( 'http://inspire.ec.europa.eu/codelist/GeometryMethodValue/byAdministrator' )&#xD;
 					title( 'by administrator' )&#xD;
 				}&#xD;
+				parcels.each{ value -&gt;&#xD;
+					parcel {&#xD;
+						href(  _project.vars.CROSSTHEME_CADASTRALPARCELS_URL + '&amp;featureID=CadastralParcel_' + value )&#xD;
+					}&#xD;
+				}&#xD;
 				'default'( 'true' )&#xD;
 			}&#xD;
 		}&#xD;
 	}&#xD;
+}&#xD;
+
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C39e4c919-cee5-4735-9fd9-cdabee74a901" priority="highest">
+        <source>
+            <class>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//Das ist eine Dummy Groovy Retype-Funktion. Sie dient dazu, alle relevanten Informationen aus AX_Flurstueck in einem Kollektor zu sammeln, die für den Verweis auf ein Flurstück in Address.parcel benötigt werden.&#xD;
+&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+c.flurstueck[_source.p.identifier.value()] &lt;&lt; _source.p.flurstueckskennzeichen.value()&#xD;
+&#xD;
+_source.p.weistAuf.each { instance -&gt;&#xD;
+	c.weistAuf[instance.p.href.value()] &lt;&lt; _source.p.flurstueckskennzeichen.value()&#xD;
+}&#xD;
+&#xD;
+_source.p.zeigtAuf.each { instance -&gt;&#xD;
+	c.zeigtAuf[instance.p.href.value()] &lt;&lt; _source.p.flurstueckskennzeichen.value()&#xD;
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C410518b8-b9ce-49c9-afd4-8362027a2ff4" priority="highest">
+        <source>
+            <class>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//Das ist eine Dummy Groovy Retype-Funktion. Sie dient dazu, alle relevanten Informationen aus AX_Gebaeude in einem Kollektor zu sammeln, die für den Verweis auf ein Gebäude in Address.building benötigt werden.&#xD;
+&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+c.gebaeude[_source.p.identifier.value()] &lt;&lt; _source.p.id.value()&#xD;
+&#xD;
+_source.p.zeigtAuf.each { instance -&gt;&#xD;
+	c.gebZeigtAuf[instance.p.href.value()] &lt;&lt; _source.p.id.value()&#xD;
 }&#xD;
 
 </core:text>
@@ -413,7 +515,7 @@ if (positionAdresse) {&#xD;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="#PostalDescriptor_{postalischeAdresse.AX_Post.postleitzahl}" name="pattern"/>
+        <parameter value="#PostalDescriptor_{postleitzahl}" name="pattern"/>
         <documentation>Erzeugt die Referenz auf das passende Objekt vom Typ `PostalDescriptor`.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9c13ab33-02fc-4914-8236-c04b84052656" priority="normal">
@@ -756,6 +858,70 @@ else {
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C847c7f67-397e-4372-97ca-293127298fd1" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}&amp;featureID=AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C54014c56-b10e-4977-add0-24d5ba8d397e" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}&amp;featureID=AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C2140242a-bc85-46bd-a704-a96ea91c8aeb" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}&amp;featureID=AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C09ee835b-20d0-486a-be5e-a2fa5af5d35d" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}&amp;featureID=AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb184f148-a9ee-4170-a5da-e425a0fe2cc2" priority="normal">
         <source>
