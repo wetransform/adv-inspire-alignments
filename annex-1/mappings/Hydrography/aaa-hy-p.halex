@@ -3,7 +3,7 @@
     <name>[Annex I] AdV 3A zu INSPIRE Hydro-Physical Waters</name>
     <author>Thorsten Reitz</author>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2019-04-02T12:07:57.888+02:00</modified>
+    <modified>2019-07-24T11:00:44.822+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -61,6 +61,21 @@
         <setting name="paginateRequest">true</setting>
         <setting name="featuresPerWfsRequest">1000</setting>
         <setting name="ignoreRoot">true</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">a1ba3963-d450-4f30-a071-7620b65271b6</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_NeuwScharh_0008.xml.gz</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
@@ -1566,6 +1581,7 @@
     <property name="mappableSourceType/15">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FliessgewaesserType</property>
     <property name="mappableSourceType/16">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WasserlaufType</property>
     <property name="mappableSourceType/17">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KanalType</property>
+    <property name="mappableSourceType/18">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_UntergeordnetesGewaesserType</property>
     <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_DammWallDeichType</property>
     <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType</property>
     <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_MeerType</property>
@@ -1574,7 +1590,7 @@
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaessermerkmalType</property>
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrsanlageType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaesserachseType</property>
-    <property name="mappableSourceType/count">17</property>
+    <property name="mappableSourceType/count">18</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RapidsType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}EmbankmentType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WetlandType</property>
@@ -1761,7 +1777,7 @@
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="INSPIRE_NAMESPACE">
-				<core:value value="https://registry.gdi-de.org/id/de.____/"/>
+                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
             </core:property>
         </core:properties>
     </complex-property>
