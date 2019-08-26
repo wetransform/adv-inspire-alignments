@@ -1598,6 +1598,83 @@ else {
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C82fe07db-c91f-4c32-8f77-0f3b64f8eebe" priority="normal">
+        <target>
+            <class>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def c = _.context.collector()&#xD;
+&#xD;
+c.PLZcollection.each{ key -&gt;&#xD;
+	_target{&#xD;
+		inspireId {&#xD;
+		Identifier {&#xD;
+				namespace( _project.vars.INSPIRE_NAMESPACE )&#xD;
+				localId( 'PostalDescriptor_' + key )&#xD;
+			}&#xD;
+		}&#xD;
+		id( 'PostalDescriptor_' + key )&#xD;
+		validFrom( ) {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		postCode( key )&#xD;
+		beginLifespanVersion( ) {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		identifier( _project.vars.INSPIRE_NAMESPACE + 'PostalDescriptor_' + key ) {&#xD;
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+		}&#xD;
+		postName {&#xD;
+		GeographicalName {&#xD;
+			sourceOfName( ) {&#xD;
+				nilReason( 'other:unpopulated' )&#xD;
+			}&#xD;
+			spelling {&#xD;
+				SpellingOfName {&#xD;
+					text( value )&#xD;
+					script( 'Latn' )&#xD;
+				}&#xD;
+			}&#xD;
+			pronunciation {&#xD;
+				nilReason( 'other:unpopulated' )&#xD;
+			}&#xD;
+			language( 'deu' )&#xD;
+			nameStatus {&#xD;
+				href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/official' )&#xD;
+			}&#xD;
+			nativeness {&#xD;
+				href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C87b61cfd-9c1f-408a-8bb5-d150f2ef638e" priority="highest">
+        <source>
+            <class>
+                <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def c = _.context.collector()&#xD;
+def PLZ = _source.p.postalischeAdresse.AX_Post.postleitzahl.value()&#xD;
+&#xD;
+c.PLZcollection[_source.p.postalischeAdresse.AX_Post.postleitzahl.value()] &lt;&lt; _source.p.postalischeAdresse.AX_Post.ortsnamePost.value()
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.merge" id="C853700b9-c520-4c5c-9e2c-105f697c6d50" priority="normal">
         <source>
             <class>
@@ -1931,4 +2008,7 @@ def id = schluesselGesamt.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
+    <modifier cell="C853700b9-c520-4c5c-9e2c-105f697c6d50">
+        <transformation mode="disabled"/>
+    </modifier>
 </alignment>
