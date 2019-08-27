@@ -443,6 +443,18 @@ _target {
             </property>
         </target>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca460b1ab-ea24-4225-ae73-5be9c04ef9ff" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="position" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicPosition" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="method" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/GeometryMethodValue/byAdministrator" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="Cd80f7ca6-c124-4145-bf5f-2011d63c3b90" priority="normal">
         <source>
             <property>
