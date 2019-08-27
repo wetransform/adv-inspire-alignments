@@ -2193,6 +2193,16 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <parameter value="m2" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd7639737-bba1-40a1-a32c-5d4dcb9fe8b4" priority="normal">
+        <target>
+            <property>
+                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="tidal" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce23bc678-70b8-4cf5-b71e-942fa3527f6b" priority="normal">
         <source>
             <property>
@@ -3754,9 +3764,6 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
     <modifier cell="Ce23bc678-70b8-4cf5-b71e-942fa3527f6b">
         <disable-for parent="Cf28c2a3a-1f66-4f1f-b279-b5c3d56d4c21"/>
         <disable-for parent="Cb6a3be00-a71e-4d27-9040-df087e8288f7"/>
-    </modifier>
-    <modifier cell="Cea684f74-0b5b-4bfd-bcbd-0dd7067ba5eb">
-        <disable-for parent="Cd0acd832-831a-46d2-971e-cd17753d7304"/>
     </modifier>
     <modifier cell="Cf291512d-e7eb-451e-b61a-ddd090043c34">
         <disable-for parent="C4c2ee7db-fc9f-4442-8fca-84f1bcbd4c32"/>
