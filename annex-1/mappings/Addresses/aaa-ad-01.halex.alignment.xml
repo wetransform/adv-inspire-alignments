@@ -1,6 +1,88 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba1" location="../base-functions.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C39e4c919-cee5-4735-9fd9-cdabee74a901" priority="highest">
+        <source>
+            <class>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AbstractObject_Type" ns="http://www.isotc211.org/2005/gco"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//Das ist eine Dummy Groovy Retype-Funktion. Sie dient dazu, alle relevanten Informationen aus AX_Flurstueck in einem Kollektor zu sammeln, die für den Verweis auf ein Flurstück in Address.parcel benötigt werden.&#xD;
+&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+//Kollektor wird lt. Aussage Herr Weichand in zugehöriger haleconnect Aufgabe nicht benötigt - Verweis nur von Flurstück auf Lagebezeichnung (nicht anders herum)&#xD;
+//c.flurstueck[_source.p.identifier.value()] &lt;&lt; _source.p.flurstueckskennzeichen.value()&#xD;
+&#xD;
+_source.p.weistAuf.each { instance -&gt;&#xD;
+	c.weistAuf[instance.p.href.value() as String] &lt;&lt; _source.p.flurstueckskennzeichen.value()&#xD;
+	//_log.info(instance.p.href.value() as String)&#xD;
+	//_log.info(_source.p.flurstueckskennzeichen.value())&#xD;
+}&#xD;
+&#xD;
+_source.p.zeigtAuf.each { instance -&gt;&#xD;
+	c.zeigtAuf[instance.p.href.value() as String] &lt;&lt; _source.p.flurstueckskennzeichen.value()&#xD;
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C410518b8-b9ce-49c9-afd4-8362027a2ff4" priority="highest">
+        <source>
+            <class>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AbstractObject_Type" ns="http://www.isotc211.org/2005/gco"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//Das ist eine Dummy Groovy Retype-Funktion. Sie dient dazu, alle relevanten Informationen aus AX_Gebaeude in einem Kollektor zu sammeln, die für den Verweis auf ein Gebäude in Address.building benötigt werden.&#xD;
+&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+//dieser Kollektor betrifft die inverse Relationsrichtung und muss daher lt. Kommentar von Herrn Weichand zur entsprechenden hale connect-Aufgabe nicht berücksichtigt werden&#xD;
+//c.gebaeude[_source.p.identifier.value()] &lt;&lt; _source.p.id.value()&#xD;
+&#xD;
+_source.p.zeigtAuf.each { instance -&gt;&#xD;
+	c.gebZeigtAuf[instance.p.href.value() as String] &lt;&lt; _source.p.id.value()&#xD;
+}&#xD;
+
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C87b61cfd-9c1f-408a-8bb5-d150f2ef638e" priority="highest">
+        <source>
+            <class>
+                <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AbstractObject_Type" ns="http://www.isotc211.org/2005/gco"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def c = _.context.collector()&#xD;
+&#xD;
+&#xD;
+c.PLZcollection[_source.p.postalischeAdresse.AX_Post.postleitzahl.value()] &lt;&lt; _source.p.postalischeAdresse.AX_Post.ortsnamePost.value()&#xD;
+&#xD;
+_log.info(_source.p.postalischeAdresse.AX_Post.postleitzahl.value())&#xD;
+_log.info(_source.p.postalischeAdresse.AX_Post.ortsnamePost.value())
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cd5bb8841-8c5f-4712-bd15-03c3cf5d80ca" priority="normal">
         <source name="types">
             <class>
@@ -102,25 +184,28 @@ if (!positionAdresse) {&#xD;
 }&#xD;
 &#xD;
 def parcels = new HashSet()&#xD;
-_source.p.gehoertZu.each {&#xD;
+//lt. Kommentar Herr Weichand zu entpsrechender Aufgabe in haleconnect wird diese Richtung des Verweises nicht genutzt&#xD;
+/*_source.p.gehoertZu.each {&#xD;
 	instance -&gt;&#xD;
 	if (c.flurstueck[instance.p.href.value()].value()){&#xD;
 		parcels &lt;&lt; c.flurstueck[instance.p.href.value()].value()&#xD;
 	}&#xD;
-}&#xD;
-c.weistAuf[ _source.p.identifier.value()].values.each{ value -&gt;&#xD;
+}*/&#xD;
+c.weistAuf[ _source.p.identifier.value() as String].each{ value -&gt;&#xD;
+	//_log.info(value)&#xD;
 	parcels &lt;&lt; value&#xD;
 }&#xD;
 &#xD;
 def buildings = new HashSet()&#xD;
-_source.p.beziehtSichAuf.each {&#xD;
+//lt. Kommentar Herr Weichand zu entpsrechender Aufgabe in haleconnect wird diese Richtung des Verweises nicht genutzt&#xD;
+/*_source.p.beziehtSichAuf.each {&#xD;
 	instance -&gt;&#xD;
 	if (c.gebaeude[instance.p.href.value()].value()){&#xD;
 		buildings &lt;&lt; c.gebaeude[instance.p.href.value()].value()&#xD;
 	}&#xD;
-}&#xD;
-c.gebZeigtAuf[ _source.p.identifier.value()].values.each{ value -&gt;&#xD;
-	buidlings &lt;&lt; value&#xD;
+}*/&#xD;
+c.gebZeigtAuf[ _source.p.identifier.value() as String].each{ value -&gt;&#xD;
+	buildings &lt;&lt; value&#xD;
 }&#xD;
 &#xD;
 if (positionAdresse) {&#xD;
@@ -148,12 +233,12 @@ if (positionAdresse) {&#xD;
 		}&#xD;
 		parcels.each{ value -&gt;&#xD;
 			parcel {&#xD;
-				href(  _project.vars.CROSSTHEME_CADASTRALPARCELS_URL + '&amp;featureID=CadastralParcel_' + value )&#xD;
+				href(  _project.vars.CROSSTHEME_CADASTRALPARCELS_URL + 'CadastralParcel_' + value )&#xD;
 			}&#xD;
 		}&#xD;
 		buildings.each{ value -&gt;&#xD;
 			building {&#xD;
-				href(  _project.vars.CROSSTHEME_BUILDINGS_URL + '&amp;featureID=Building_' + value )&#xD;
+				href(  _project.vars.CROSSTHEME_BUILDINGS_URL + 'Building_' + value )&#xD;
 			}&#xD;
 		}&#xD;
 	}&#xD;
@@ -262,13 +347,14 @@ if (!positionAdresse) {&#xD;
 }&#xD;
  &#xD;
 def parcels = new HashSet()&#xD;
-_source.p.gehoertZu.each {&#xD;
+//lt. Kommentar Herr Weichand zu entpsrechender Aufgabe in haleconnect wird diese Richtung des Verweises nicht genutzt&#xD;
+/*_source.p.gehoertZu.each {&#xD;
 	instance -&gt;&#xD;
 	if (c.flurstueck[instance.p.href.value()].value()){&#xD;
 		parcels &lt;&lt; c.flurstueck[instance.p.href.value()].value()&#xD;
 	}&#xD;
-}&#xD;
-c.zeigtAuf[ _source.p.identifier.value()].values.each{ value -&gt;&#xD;
+}*/&#xD;
+c.zeigtAuf[ _source.p.identifier.value() as String].each{ value -&gt;&#xD;
 	parcels &lt;&lt; value&#xD;
 }&#xD;
 &#xD;
@@ -294,68 +380,13 @@ if (positionAdresse) {&#xD;
 				}&#xD;
 				parcels.each{ value -&gt;&#xD;
 					parcel {&#xD;
-						href(  _project.vars.CROSSTHEME_CADASTRALPARCELS_URL + '&amp;featureID=CadastralParcel_' + value )&#xD;
+						href(  _project.vars.CROSSTHEME_CADASTRALPARCELS_URL + 'CadastralParcel_' + value )&#xD;
 					}&#xD;
 				}&#xD;
 				'default'( 'true' )&#xD;
 			}&#xD;
 		}&#xD;
 	}&#xD;
-}&#xD;
-
-</core:text>
-        </complexParameter>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C39e4c919-cee5-4735-9fd9-cdabee74a901" priority="highest">
-        <source>
-            <class>
-                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-//Das ist eine Dummy Groovy Retype-Funktion. Sie dient dazu, alle relevanten Informationen aus AX_Flurstueck in einem Kollektor zu sammeln, die für den Verweis auf ein Flurstück in Address.parcel benötigt werden.&#xD;
-&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
-c.flurstueck[_source.p.identifier.value()] &lt;&lt; _source.p.flurstueckskennzeichen.value()&#xD;
-&#xD;
-_source.p.weistAuf.each { instance -&gt;&#xD;
-	c.weistAuf[instance.p.href.value()] &lt;&lt; _source.p.flurstueckskennzeichen.value()&#xD;
-}&#xD;
-&#xD;
-_source.p.zeigtAuf.each { instance -&gt;&#xD;
-	c.zeigtAuf[instance.p.href.value()] &lt;&lt; _source.p.flurstueckskennzeichen.value()&#xD;
-}
-</core:text>
-        </complexParameter>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C410518b8-b9ce-49c9-afd4-8362027a2ff4" priority="highest">
-        <source>
-            <class>
-                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-//Das ist eine Dummy Groovy Retype-Funktion. Sie dient dazu, alle relevanten Informationen aus AX_Gebaeude in einem Kollektor zu sammeln, die für den Verweis auf ein Gebäude in Address.building benötigt werden.&#xD;
-&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
-c.gebaeude[_source.p.identifier.value()] &lt;&lt; _source.p.id.value()&#xD;
-&#xD;
-_source.p.zeigtAuf.each { instance -&gt;&#xD;
-	c.gebZeigtAuf[instance.p.href.value()] &lt;&lt; _source.p.id.value()&#xD;
 }&#xD;
 
 </core:text>
@@ -873,7 +904,7 @@ else {
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}&amp;featureID=AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
+        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C54014c56-b10e-4977-add0-24d5ba8d397e" priority="normal">
         <source name="var">
@@ -889,7 +920,7 @@ else {
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}&amp;featureID=AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
+        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C2140242a-bc85-46bd-a704-a96ea91c8aeb" priority="normal">
         <source name="var">
@@ -905,7 +936,7 @@ else {
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}&amp;featureID=AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
+        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C09ee835b-20d0-486a-be5e-a2fa5af5d35d" priority="normal">
         <source name="var">
@@ -921,7 +952,7 @@ else {
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}&amp;featureID=AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
+        <parameter value="{{project:CROSSTHEME_ADMINISTRATIVEUNITS_URL}}AdministrativeUnit_{schluesselGesamt}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb184f148-a9ee-4170-a5da-e425a0fe2cc2" priority="normal">
         <source>
@@ -1608,7 +1639,7 @@ else {
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def c = _.context.collector()&#xD;
 &#xD;
-c.PLZcollection.each{ key -&gt;&#xD;
+c.PLZcollection.each{ key, values -&gt;&#xD;
 	_target{&#xD;
 		inspireId {&#xD;
 		Identifier {&#xD;
@@ -1628,188 +1659,34 @@ c.PLZcollection.each{ key -&gt;&#xD;
 			codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
 		}&#xD;
 		postName {&#xD;
-		GeographicalName {&#xD;
-			sourceOfName( ) {&#xD;
-				nilReason( 'other:unpopulated' )&#xD;
-			}&#xD;
-			spelling {&#xD;
-				SpellingOfName {&#xD;
-					text( value )&#xD;
-					script( 'Latn' )&#xD;
+			GeographicalName {&#xD;
+				sourceOfName( ) {&#xD;
+					nilReason( 'other:unpopulated' )&#xD;
+				}&#xD;
+				values.each{value -&gt;&#xD;
+					spelling {&#xD;
+						SpellingOfName {&#xD;
+							text( value )&#xD;
+							script( 'Latn' )&#xD;
+						}&#xD;
+					}&#xD;
+				}&#xD;
+				pronunciation {&#xD;
+					nilReason( 'other:unpopulated' )&#xD;
+				}&#xD;
+				language( 'deu' )&#xD;
+				nameStatus {&#xD;
+					href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/official' )&#xD;
+				}&#xD;
+				nativeness {&#xD;
+					href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
 				}&#xD;
 			}&#xD;
-			pronunciation {&#xD;
-				nilReason( 'other:unpopulated' )&#xD;
-			}&#xD;
-			language( 'deu' )&#xD;
-			nameStatus {&#xD;
-				href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/official' )&#xD;
-			}&#xD;
-			nativeness {&#xD;
-				href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-			}&#xD;
 		}&#xD;
-	}&#xD;
 	}&#xD;
 }
 </core:text>
         </complexParameter>
-    </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C87b61cfd-9c1f-408a-8bb5-d150f2ef638e" priority="highest">
-        <source>
-            <class>
-                <type name="AX_GeoreferenzierteGebaeudeadresseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def c = _.context.collector()&#xD;
-def PLZ = _source.p.postalischeAdresse.AX_Post.postleitzahl.value()&#xD;
-&#xD;
-c.PLZcollection[_source.p.postalischeAdresse.AX_Post.postleitzahl.value()] &lt;&lt; _source.p.postalischeAdresse.AX_Post.ortsnamePost.value()
-</core:text>
-        </complexParameter>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.merge" id="C853700b9-c520-4c5c-9e2c-105f697c6d50" priority="normal">
-        <source>
-            <class>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </class>
-        </source>
-        <target>
-            <class>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </class>
-        </target>
-        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}zusatzOrtsname" name="additional_property"/>
-        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}strassenname" name="additional_property"/>
-        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}ortsnamePost" name="additional_property"/>
-        <parameter value="false" name="auto_detect"/>
-        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}postleitzahl" name="property"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc5c40a0a-bc89-42aa-a918-7e25fb8215f5" priority="normal">
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="other:unpopulated" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9842c4bf-f94e-4cb6-ae00-86bdb2c2ca62" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="PostalDescriptor_{postleitzahl}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cde00693b-1df7-4ff4-aab6-5e4b8a7282b1" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}/PostalDescriptor_{postleitzahl}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5fd35164-5918-4189-872b-296d8225f787" priority="normal">
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-                <child name="codeSpace"/>
-            </property>
-        </target>
-        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C4877a124-a4b8-4f5b-bd65-48ed3eba8f03" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-        <parameter value="PostalDescriptor_{postleitzahl}" name="pattern"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="C5c322644-b41b-41ca-9f41-806faae001c7" priority="normal">
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C7728f074-399c-454d-837c-ac41fcbb264c" priority="normal">
-        <source>
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="postleitzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="postCode" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc9517454-0c72-414a-87ba-a1b252c7f69d" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_PostType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="ortsnamePost" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="postName" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="DLKM" name="source"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cae50d6a8-8f52-4846-8a29-b20b2e495505" priority="normal">
-        <target>
-            <property>
-                <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C9fc48689-dc97-4f8a-864a-1557dcf3c563" priority="normal">
         <source>
@@ -2008,7 +1885,4 @@ def id = schluesselGesamt.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <modifier cell="C853700b9-c520-4c5c-9e2c-105f697c6d50">
-        <transformation mode="disabled"/>
-    </modifier>
 </alignment>
