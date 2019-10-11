@@ -516,7 +516,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <source>
             <class>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2040' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2080'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2040' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060'</condition>
                 </type>
             </class>
         </source>
@@ -585,7 +585,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <source>
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2040' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2080'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2040' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060'</condition>
                 </type>
                 <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -615,7 +615,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2040' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2080'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2040' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060'</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -1692,7 +1692,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <source>
             <class>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2070'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2070' OR bauwerksfunktion = '2080'</condition>
                 </type>
             </class>
         </source>
@@ -1761,7 +1761,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <source>
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2070'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2070' OR bauwerksfunktion = '2080'</condition>
                 </type>
                 <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -1791,7 +1791,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">bauwerksfunktion = '2070'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2070' OR bauwerksfunktion = '2080'</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
