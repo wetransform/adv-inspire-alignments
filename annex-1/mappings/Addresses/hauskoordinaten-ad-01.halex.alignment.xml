@@ -939,7 +939,7 @@ _target {
         </target>
         <parameter value="AdminUnitName_{a}{b}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C71e8142f-7490-4a0b-8141-3c859c2ade16" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C71e8142f-7490-4a0b-8141-3c859c2ade16" priority="normal">
         <target>
             <property>
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -948,7 +948,6 @@ _target {
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C95786a23-4df6-4327-88c9-85193bb8ba80" priority="normal">
         <source name="anchor">
@@ -1193,7 +1192,7 @@ _target {
         </target>
         <parameter value="PostalDescriptor_{PLZ}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C35a8cd1b-5de8-4f35-a07a-a93f97235f36" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C35a8cd1b-5de8-4f35-a07a-a93f97235f36" priority="normal">
         <target>
             <property>
                 <type name="PostalDescriptorType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -1202,7 +1201,6 @@ _target {
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C6d95c1a8-5594-4d95-919c-d378d394cceb" priority="normal">
         <source>
@@ -1409,7 +1407,7 @@ def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#xD;
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2acea461-6f45-4867-b24c-99244cc65079" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C2acea461-6f45-4867-b24c-99244cc65079" priority="normal">
         <target>
             <property>
                 <type name="ThoroughfareNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -1418,7 +1416,6 @@ def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#xD;
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C26a26d1a-7e30-49f9-b519-94a95d0c158f" priority="normal">
         <source name="spelling">
