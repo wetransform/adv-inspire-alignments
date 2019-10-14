@@ -1858,6 +1858,16 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cefe22c23-667b-4189-805c-7fc14e426d68" priority="normal">
+        <target>
+            <property>
+                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="drainsBasin" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C185887cb-8dde-40f3-8efc-a145cb918b16" priority="normal">
         <target>
             <property>
