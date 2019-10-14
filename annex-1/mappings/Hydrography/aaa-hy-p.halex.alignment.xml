@@ -2490,7 +2490,9 @@ if(flaeche){&#xD;
         <source>
             <property>
                 <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="ECQL">parent.funktion = 8300</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -2503,12 +2505,12 @@ if(flaeche){&#xD;
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="2100"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/disused"/>
-                </entry>
-                <entry>
                     <key value="4000"/>
                     <value value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/underConstruction"/>
+                </entry>
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/disused"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -2518,7 +2520,9 @@ if(flaeche){&#xD;
         <source>
             <property>
                 <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="ECQL">parent.funktion = 8300</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -2531,12 +2535,12 @@ if(flaeche){&#xD;
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="2100"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/disused"/>
-                </entry>
-                <entry>
                     <key value="4000"/>
                     <value value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/underConstruction"/>
+                </entry>
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/disused"/>
                 </entry>
             </lookup-table>
         </complexParameter>
