@@ -10,7 +10,7 @@ Anmerkungen:&#xD;
 &#xD;
 2. Um die Koordinaten formatiert (z.B. 00000000.000) auszugeben, ist die Verwendung von hale studio 3.1.0 erforderlich.</description>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2019-07-15T17:03:32.641+02:00</modified>
+    <modified>2019-10-11T11:17:18.859+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -471,6 +471,15 @@ Anmerkungen:&#xD;
     <file name="styles.sld" location="hauskoordinaten-ad-01.halex.styles.sld"/>
     <complex-property name="codelists">
         <associations>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/GeometryMethodValue" namespace="http://inspire.ec.europa.eu/codelist/GeometryMethodValue">
+                <entity>
+                    <type name="AddressType" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="position" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="GeographicPosition" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="method" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue" namespace="http://inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue">
                 <entity>
                     <type name="AddressType" namespace="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
