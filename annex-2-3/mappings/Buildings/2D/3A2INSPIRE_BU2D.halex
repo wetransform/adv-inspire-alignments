@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="4.0.0.qualifier">
+<hale-project version="4.0.0.SNAPSHOT">
     <name>[Annex III] AdV 3A zu INSPIRE Building 2D</name>
     <author>Johanna Ott</author>
     <created>2018-04-10T10:51:13.547+02:00</created>
-    <modified>2019-07-08T10:12:32.213+02:00</modified>
+    <modified>2019-10-25T09:21:34.978+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/home/simon/repos/inspire-alignements/annex-2-3/mappings/Buildings/2D/3A2INSPIRE_BU2D.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna/git/adv-inspire-alignments/annex-2-3/mappings/Buildings/2D/3A2INSPIRE_BU2D.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
@@ -257,6 +257,21 @@
         <setting name="resourceId">cc797b21-5059-4e60-a6ad-9ed2e1e02d32</setting>
         <setting name="source">http://inspire.ec.europa.eu/codelist/HorizontalGeometryReferenceValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">42a007ee-3f91-4b87-8d03-e2859006521a</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_4von8_32350000_5530000.xml.gz</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
@@ -1640,6 +1655,22 @@
     <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/bu-core2d/4.0}BuildingPartType</property>
     <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/bu-core2d/4.0}BuildingType</property>
     <property name="mappableTargetType/count">3</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauteilType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}Arc">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LeitungType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SonstigesBauwerkOderSonstigeEinrichtungType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SonstigesBauwerkOderSonstigeEinrichtungType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SonstigesBauwerkOderSonstigeEinrichtungType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_TurmType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-42a007ee-3f91-4b87-8d03-e2859006521a:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_VorratsbehaelterSpeicherbauwerkType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="HORIZONTALGEOMETRYREFERENCEVALUE_AUFGESTAENDERT">
