@@ -299,13 +299,23 @@ def upperLevelUnit = collect.verwaltungsGemeinschaft[_id].value()
 if (!upperLevelUnit) {
 	// Kreis/Region
 	def land = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.land.value()
-	def regBezirk = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.regierungsbezirk.value()?:'0'
+	def regBezirk = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.regierungsbezirk.value()
 	def kreis = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.kreis.value()
-	
-	upperLevelUnit =  "AdministrativeUnit_${land}${regBezirk}${kreis}"
+
+if(regBezirk != '0' &amp;&amp; kreis != '00'){
+	upperLevelUnit =  "AdministrativeUnit_${land}${regBezirk}${kreis}" 
+}
+
+else upperLevelUnit =  "AdministrativeUnit_${land}" 
 	
 	// Sammle ID für Kreis/Region
-	collect.kreis[upperLevelUnit] &lt;&lt; _id
+	if (kreis != '00'){
+		collect.kreis[upperLevelUnit] &lt;&lt; _id
+	}
+	// Sammle ID für Bundesland (falls Kreis/Region Schlüssel 00 und Regierungsbezirk Schlüssel 0 hat)
+	if( kreis.equals('00') &amp;&amp; regBezirk.equals('0')){
+		collect.land[land] &lt;&lt; _id
+	}
 	
 	// speichere aggregierte Geometrie für Bildung von Kreis/Region
 	collect.LowerLevelGeometrien[upperLevelUnit] &lt;&lt; union
@@ -508,7 +518,16 @@ if (!geoms) {
 def gemeinden = _source.links.AX_Gemeinde.p.schluesselGesamt.values()
 
 // bestimme upperLevelUnit
-def upperLevelUnit = 'AdministrativeUnit_' + _source.p.schluesselGesamt.value()[0..4]
+
+def land = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.land.value()
+def regBezirk = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.regierungsbezirk.value()
+def kreis = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.kreis.value()
+
+if(regBezirk != '0' &amp;&amp; kreis != '00'){
+	upperLevelUnit =  "AdministrativeUnit_${land}${regBezirk}${kreis}" 
+}
+
+else upperLevelUnit =  "AdministrativeUnit_${land}" 
 
 def union = _.geom.union(geoms)
 
@@ -541,6 +560,11 @@ withTransformationContext {
 	}
 	// Sammle ID für Kreis/Region
 	collect.kreis[upperLevelUnit] &lt;&lt; _id
+	
+	// Sammle ID für Bundesland (falls Kreis/Region Schlüssel 00 und Regierungsbezirk Schlüssel 0 hat)
+	if( _source.p.schluessel.AX_Verwaltungsgemeinschaft_Schluessel.kreis.value().equals('00') &amp;&amp; _source.p.schluessel.AX_Verwaltungsgemeinschaft_Schluessel.regierungsbezirk.value().equals('0')){
+		collect.land[_source.p.schluessel.AX_Verwaltungsgemeinschaft_Schluessel.land.value()] &lt;&lt; _id
+	}
 	
 	// speichere aggregierte Geometrie für Bildung von Kreis/Region
 	collect.LowerLevelGeometrien[upperLevelUnit] &lt;&lt; union
@@ -654,11 +678,19 @@ def regBezirk = _source.p.schluessel.AX_Kreis_Schluessel.regierungsbezirk.value(
 def upperLevelUnit
 if (regBezirk &amp;&amp; regBezirk != '0') {
 	upperLevelUnit = 'AdministrativeUnit_' + land + regBezirk
-	collect.regBezirk[upperLevelUnit] &lt;&lt; _id
+	// KreisRegion mit Schlüssel 00 wird nicht als Ziel-Objekt erzeugt und darf daher auch nicht in den Kollektor aufgenommen werden
+	// Damit wird verhindert, dass aus dem AdministrativeUnit-Objekt des übergeordneten Regierungsbezirks auf ein nicht existentes AdministrativeUnit-Objekt verwiesen wird
+	if(_source.p.schluessel.AX_Kreis_Schluessel.kreis.value() != '00'){
+		collect.regBezirk[upperLevelUnit] &lt;&lt; _id
+	}
 }
 else {
 	upperLevelUnit = 'AdministrativeUnit_' + land
-	collect.land[upperLevelUnit] &lt;&lt; _id
+	// KreisRegion mit Schlüssel 00 wird nicht als Ziel-Objekt erzeugt und darf daher auch nicht in den Kollektor aufgenommen werden
+	// Damit wird verhindert, dass aus dem AdministrativeUnit-Objekt des übergeordneten Bundeslands auf ein nicht existentes AdministrativeUnit-Objekt verwiesen wird
+	if(_source.p.schluessel.AX_Kreis_Schluessel.kreis.value() != '00'){
+		collect.land[upperLevelUnit] &lt;&lt; _id
+	}
 }
 
 def union = _.geom.union(geoms)
@@ -671,6 +703,7 @@ union = new DefaultGeometryProperty(union.CRSDefinition, g)
 // speichere aggregierte Geometrie für Bildung von Regierungsbezirk/Land
 collect.LowerLevelGeometrien[upperLevelUnit] &lt;&lt; union
 
+// KreisRegion mit Schlüssel 00 soll gemäß entsprechende Aufgabe in hale connect ignoriert werden
 if(_source.p.schluessel.AX_Kreis_Schluessel.kreis.value() != '00'){
 	_target{
 		geometry {
@@ -791,7 +824,11 @@ withTransformationContext {
 
 // bestimme upperLevelUnit, sammle ID
 def upperLevelUnit = 'AdministrativeUnit_' + _source.p.schluessel.AX_Regierungsbezirk_Schluessel.land.value()
-collect.land[upperLevelUnit] &lt;&lt; _id
+// Regierungsbezirk mit Schlüssel 0 wird nicht als Ziel-Objekt erzeugt und darf daher auch nicht in den Kollektor aufgenommen werden
+// Damit wird verhindert, dass aus dem AdministrativeUnit-Objekt des übergeordneten Bundeslandes auf ein nicht existentes AdministrativeUnit-Objekt verwiesen wird
+if(_source.p.schluessel.AX_Regierungsbezirk_Schluessel.regierungsbezirk.value() != '0'){
+	collect.land[upperLevelUnit] &lt;&lt; _id
+}
 
 def union = _.geom.union(geoms)
 
@@ -803,6 +840,7 @@ union = new DefaultGeometryProperty(union.CRSDefinition, g)
 // speichere aggregierte Geometrie für Bildung von Land
 collect.LowerLevelGeometrien[upperLevelUnit] &lt;&lt; union
 
+// Regierungsbezirk mit Schlüssel 0 soll gemäß entsprechende Aufgabe in hale connect ignoriert werden
 if(_source.p.schluessel.AX_Regierungsbezirk_Schluessel.regierungsbezirk.value() != '0'){
 	_target{
 		geometry {

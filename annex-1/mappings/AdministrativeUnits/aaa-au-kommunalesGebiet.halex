@@ -2,18 +2,18 @@
 <hale-project version="4.0.0.SNAPSHOT">
     <name>[Annex I] AdV 3A zu INSPIRE Administrative Units (Variante kommunales Gebiet)</name>
     <author>Simon Templer</author>
-    <description>Alignment vom 3A-Modell zum INSPIRE Anwendungsschema Administrative Units.
-
-Variante mit Aggregation der Geometrien aus `AX_KommunalesGebiet`.
-
-Zur Bildung der Referenzen zwischen den unterschiedlichen Ebenen von Administrative Units wird eine spezifische Reihenfolge bei der Transformation der 3A-Objekte eingehalten (z.B. Gemeinden vor Kreisen). Währenddessen wird die Zugehörigkeit jeweils in einem Index hinterlegt (z.B. Gemeinde *X* gehört zu Kreis *Y*) und beim Erstellen der nächsten Ebene von Objekten abgefragt und für die Bildung der Referenzen verwendet.
-
-Diese Art der Aggregation mach es nötig, dass für eine konsistente Referenzierung jeweils alle Objekte die zu einer gemeinsamen "upperLevelUnit" gehören auch in der Transformation verfügbar sind -- andernfalls sind die Referenzen unvollständig (z.B. ein Kreis würde ggf. nicht alle seine Gemeinden als "lowerLevelUnit" auflisten).
-Ausnahme bildet hier der Nationalstaat. Eine `AdministrativeUnit` die den Nationalstaat repräsentiert wird nicht erzeugt, ebenso keine Referenzen zu  dem Nationalstaat-Objekt, da davon ausgegangen wird dass dieses ggf. auf andere Weise gebildet wird und die Vorgehensweise geklärt werden muss.
-
+    <description>Alignment vom 3A-Modell zum INSPIRE Anwendungsschema Administrative Units.&#xD;
+&#xD;
+Variante mit Aggregation der Geometrien aus `AX_KommunalesGebiet`.&#xD;
+&#xD;
+Zur Bildung der Referenzen zwischen den unterschiedlichen Ebenen von Administrative Units wird eine spezifische Reihenfolge bei der Transformation der 3A-Objekte eingehalten (z.B. Gemeinden vor Kreisen). Währenddessen wird die Zugehörigkeit jeweils in einem Index hinterlegt (z.B. Gemeinde *X* gehört zu Kreis *Y*) und beim Erstellen der nächsten Ebene von Objekten abgefragt und für die Bildung der Referenzen verwendet.&#xD;
+&#xD;
+Diese Art der Aggregation macht es nötig, dass für eine konsistente Referenzierung jeweils alle Objekte die zu einer gemeinsamen "upperLevelUnit" gehören auch in der Transformation verfügbar sind -- andernfalls sind die Referenzen unvollständig (z.B. ein Kreis würde ggf. nicht alle seine Gemeinden als "lowerLevelUnit" auflisten).&#xD;
+Ausnahme bildet hier der Nationalstaat. Eine `AdministrativeUnit` die den Nationalstaat repräsentiert wird nicht erzeugt, ebenso keine Referenzen zu  dem Nationalstaat-Objekt, da davon ausgegangen wird dass dieses ggf. auf andere Weise gebildet wird und die Vorgehensweise geklärt werden muss.&#xD;
+&#xD;
 Das gleiche gilt für die aggregierten Geometrien -- hier werden bei unvollständigen Eingangsdaten für die Transformation entsprechend unvollständige aggregierte Geometrien erzeugt.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2019-07-23T15:42:53.860+02:00</modified>
+    <modified>2019-11-11T15:42:22.575+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -26,87 +26,6 @@ Das gleiche gilt für die aggregierten Geometrien -- hier werden bei unvollstän
         <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">f7b63a48-8784-4c5e-b16f-2c41e23cee84</setting>
-        <setting name="source">../../../testdaten/NBA-Mustermonzel_20100520T144438_4von8_32350000_5530000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">498e441a-0533-4759-871b-51eafb174237</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_0von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">13144b54-522d-4eae-9d74-e330c5f4c5fc</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_1von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">0f492db6-9eda-4489-b9df-186a7c82e577</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_3von8_32345000_5530000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">7b66de48-2c3c-4b65-be52-210d1dc22cb6</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_2von8_32350000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">4417adf1-d296-44d4-8a2c-1dffeb37ffa2</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_5von8_32355000_5530000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">0b55205f-6c0e-453c-b938-f369580faaaa</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_6von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">a918d96e-dc7d-4197-9984-554d9e5ed24d</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_7von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">7abde07b-c39d-4990-9beb-194e874e5430</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_8von8_32345000_5525000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="onlyElementsMappable">true</setting>
@@ -116,12 +35,153 @@ Das gleiche gilt für die aggregierten Geometrien -- hier werden bei unvollstän
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">5986f647-da3a-402c-8f9d-7ce7cd2d3c8f</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/test_Mustermonzel_KommunalesGebiet.gml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
+        <setting name="resourceId">00bf92ee-4910-4427-9330-b25f0e10148a</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_HH_0005.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
         <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
         <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">01ea51d6-5816-46be-878a-0aad9a056aac</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_HH_0001.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">6cf1c36a-1b12-42f8-8a83-06663c3c5833</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_HH_0004.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">737b3ac9-a090-4f34-a22d-e8929aaa7f1b</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_HH_0003.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">d82dc64c-de53-4de6-82bb-f8b8466fbbea</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_HH_0007.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">61a432fc-4bc1-42f4-84c1-e28a57609c6d</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_HH_0009.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">5a39bb52-c41d-4b12-8d0b-9c43474d2220</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_HH_0010.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">d14f30f0-98bc-43ab-8436-18d04b088ec3</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_HH_0043.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">d528c7a3-704b-4ef7-9d6e-1ac0c78c038d</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_HH_0121.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">f9227807-b789-4b56-9e78-db4d4837308c</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2019-10-05/ALKIS_NeuwScharh_0008.xml</setting>
+        <setting name="interpolation.maxError">0.1</setting>
+        <setting name="interpolation.algorithm">segment</setting>
+        <setting name="ignoreNamespaces">false</setting>
+        <setting name="paginateRequest">true</setting>
+        <setting name="featuresPerWfsRequest">1000</setting>
+        <setting name="ignoreRoot">true</setting>
+        <setting name="ignoreNumberMatched">false</setting>
+        <setting name="interpolation.grid.moveAllToGrid">false</setting>
+        <setting name="strict">false</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
