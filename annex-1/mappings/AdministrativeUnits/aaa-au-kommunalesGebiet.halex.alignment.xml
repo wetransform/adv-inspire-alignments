@@ -298,11 +298,14 @@ union = new DefaultGeometryProperty(union.CRSDefinition, g)
 def upperLevelUnit = collect.verwaltungsGemeinschaft[_id].value()
 if (!upperLevelUnit) {
 	// Kreis/Region
+	
+	// regBezirk ist kein verpflichtendes Attribut von AX_Gemeindekennzeichen. Damit für den Fall, dass es nicht vorliegt, der Verweis (gesamtschluessel) auf die übergeordnete AdministrativeUnit korrekt ist, muss der Wert '0'
+	// gesetzt werden, wenn kein Wert in dem Attribut vorhanden ist.
 	def land = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.land.value()
-	def regBezirk = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.regierungsbezirk.value()
+	def regBezirk = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.regierungsbezirk.value()?:'0'
 	def kreis = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.kreis.value()
 
-if(regBezirk != '0' &amp;&amp; kreis != '00'){
+if(kreis != '00'){
 	upperLevelUnit =  "AdministrativeUnit_${land}${regBezirk}${kreis}" 
 }
 
@@ -519,11 +522,13 @@ def gemeinden = _source.links.AX_Gemeinde.p.schluesselGesamt.values()
 
 // bestimme upperLevelUnit
 
+// regBezirk ist kein verpflichtendes Attribut von AX_Gemeindekennzeichen. Damit für den Fall, dass es nicht vorliegt, der Verweis (gesamtschluessel) auf die übergeordnete AdministrativeUnit korrekt ist, muss der Wert '0'
+// gesetzt werden, wenn kein Wert in dem Attribut vorhanden ist.
 def land = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.land.value()
-def regBezirk = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.regierungsbezirk.value()
+def regBezirk = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.regierungsbezirk.value()?:'0'
 def kreis = _source.p.gemeindekennzeichen.AX_Gemeindekennzeichen.kreis.value()
 
-if(regBezirk != '0' &amp;&amp; kreis != '00'){
+if(kreis != '00'){
 	upperLevelUnit =  "AdministrativeUnit_${land}${regBezirk}${kreis}" 
 }
 
