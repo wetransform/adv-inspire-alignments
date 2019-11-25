@@ -674,7 +674,7 @@ if (point) {
         <source>
             <class>
                 <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
             </class>
         </source>
@@ -690,7 +690,7 @@ if (point) {
         <source>
             <class>
                 <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
             </class>
         </source>
@@ -1112,7 +1112,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source>
             <class>
                 <type name="AX_HafenbeckenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
             </class>
         </source>
@@ -1304,7 +1304,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source>
             <class>
                 <type name="AX_MeerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
             </class>
         </source>
@@ -1368,7 +1368,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source>
             <class>
                 <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
             </class>
         </source>
@@ -1416,7 +1416,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source>
             <class>
                 <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
             </class>
         </source>
@@ -1544,7 +1544,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source>
             <class>
                 <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
             </class>
         </source>
@@ -1560,7 +1560,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source>
             <class>
                 <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
             </class>
         </source>
@@ -1752,7 +1752,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source>
             <class>
                 <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
             </class>
         </source>
@@ -2120,7 +2120,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="geometrie">
             <property>
                 <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -2136,7 +2136,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="geometrie">
             <property>
                 <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -2380,7 +2380,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="geometrie">
             <property>
                 <type name="AX_HafenbeckenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -2554,7 +2554,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="geometrie">
             <property>
                 <type name="AX_MeerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -2664,7 +2664,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="geometrie">
             <property>
                 <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -2792,7 +2792,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="geometrie">
             <property>
                 <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -2808,7 +2808,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="geometrie">
             <property>
                 <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -3000,7 +3000,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="geometrie">
             <property>
                 <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -3578,7 +3578,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -3596,7 +3596,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -3808,7 +3808,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_HafenbeckenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -4058,7 +4058,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_MeerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -4146,7 +4146,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -4216,7 +4216,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -4396,7 +4396,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -4432,7 +4432,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -4682,7 +4682,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -4834,7 +4834,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="spelling">
             <property>
                 <type name="AX_MeerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -5347,7 +5347,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="lagebezeichnung">
             <property>
                 <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -5365,7 +5365,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="lagebezeichnung">
             <property>
                 <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -5568,7 +5568,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="lagebezeichnung">
             <property>
                 <type name="AX_HafenbeckenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -5805,7 +5805,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="lagebezeichnung">
             <property>
                 <type name="AX_MeerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -5889,7 +5889,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="lagebezeichnung">
             <property>
                 <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -5956,7 +5956,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="lagebezeichnung">
             <property>
                 <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -6127,7 +6127,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="lagebezeichnung">
             <property>
                 <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -6162,7 +6162,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="lagebezeichnung">
             <property>
                 <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -6180,7 +6180,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="spelling">
             <property>
                 <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
@@ -6417,7 +6417,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="lagebezeichnung">
             <property>
                 <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -6881,7 +6881,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -6899,7 +6899,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -7111,7 +7111,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_HafenbeckenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -7361,7 +7361,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_MeerType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -7449,7 +7449,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -7519,7 +7519,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -7699,7 +7699,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -7735,7 +7735,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -7985,7 +7985,7 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         <source name="anchor">
             <property>
                 <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
-                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
