@@ -124,7 +124,10 @@ if (!name) {
 			def collect = _.context.collector(it)
 	  
 			// Name zu Schlüssel der Lagebezeichnung aus Index holen
-			name = collect.lagebezeichnung[schluesselGesamt].value()
+			if (collect.lagebezeichnung[schluesselGesamt].value()){
+				name = collect.lagebezeichnung[schluesselGesamt].value()
+			}
+			else _log.error('Für einen Namen aus einer verschlüsselten Lagebezeichnung liegt kein Katalogeintrag vor.')
 		}
 	}
 }
@@ -221,47 +224,47 @@ else {
                 <cf:locale country="" language="" variant="">
                     <cf:template>
                         <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-Erstellt ein GeographicalName-Objekt aus einer Lagebezeichnung.
-Eine unverschlüsselte Lagebezeichnung wird direkt als Name übernommen.
-Falls stattdessen eine verschlüsselte Lagebezeichnung vorliegt (nur in ALKIS/DLKM möglich), wird versucht den Namen über den Schlüssel in einem Index nachzuschlagen.
-Trifft keiner der beiden Fälle zu, oder kann der Name nicht nachgeschlagen werden, wird kein GeographicalName erzeugt.
-
-Die Sprache des Namens wird als Deutsch angenommen.
-
-&lt;% if (_params.nameStatus) {
-  if (_params.nameStatus == 'unpopulated') {
-    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird nicht angegeben, als *nilReason* wird `other:unpopulated` angegeben."
-  }
-  else if (_params.nameStatus == 'unknown') {
-    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird nicht angegeben, als *nilReason* wird `unknown` angegeben."
-  }
-  else {
-    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als ${_params.nameStatus} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
-  }
-}
-else {
-  out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als *official* angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."
-}
-out &lt;&lt; "\n\n"
-if (_params.nativeness) {
-  if (_params.nativeness == 'unpopulated') {
-    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird nicht angegeben, als *nilReason* wird `other:unpopulated` angegeben."
-  }
-  else if (_params.nativeness == 'unknown') {
-    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird nicht angegeben, als *nilReason* wird `unknown` angegeben."
-  }
-  else {
-    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird als ${_params.nativeness} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NativenessValue&gt;)."
-  }
-}
-else {
-  out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird als *endonym* angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NativenessValue&gt;)."
-}
-out &lt;&lt; "\n\n"
-if (_params.source) {&#xD;
-  out &lt;&lt; "Die Quelle des Namens (`sourceOfName`) wird als ${_params.source} angegeben."&#xD;
-} else {&#xD;
-  out &lt;&lt; "Die Quelle des Namens (`sourceOfName`) wird aus einer Projekt-Variable (`ADV_MODELLART`) bestimmt, falls vorhanden."&#xD;
+Erstellt ein GeographicalName-Objekt aus einer Lagebezeichnung.&#xD;
+Eine unverschlüsselte Lagebezeichnung wird direkt als Name übernommen.&#xD;
+Falls stattdessen eine verschlüsselte Lagebezeichnung vorliegt (nur in ALKIS/DLKM möglich), wird versucht den Namen über den Schlüssel in einem Index nachzuschlagen.&#xD;
+Trifft keiner der beiden Fälle zu, oder kann der Name nicht nachgeschlagen werden, wird kein GeographicalName erzeugt.&#xD;
+&#xD;
+Die Sprache des Namens wird als Deutsch angenommen.&#xD;
+&#xD;
+&lt;% if (_params.nameStatus) {&#xD;
+  if (_params.nameStatus == 'unpopulated') {&#xD;
+    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird nicht angegeben, als *nilReason* wird `other:unpopulated` angegeben."&#xD;
+  }&#xD;
+  else if (_params.nameStatus == 'unknown') {&#xD;
+    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird nicht angegeben, als *nilReason* wird `unknown` angegeben."&#xD;
+  }&#xD;
+  else {&#xD;
+    out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als ${_params.nameStatus} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."&#xD;
+  }&#xD;
+}&#xD;
+else {&#xD;
+  out &lt;&lt; "Der Status des Namens (`nameStatus`) wird als *official* angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NameStatusValue&gt;)."&#xD;
+}&#xD;
+out &lt;&lt; "\n\n"&#xD;
+if (_params.nativeness) {&#xD;
+  if (_params.nativeness == 'unpopulated') {&#xD;
+    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird nicht angegeben, als *nilReason* wird `other:unpopulated` angegeben."&#xD;
+  }&#xD;
+  else if (_params.nativeness == 'unknown') {&#xD;
+    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird nicht angegeben, als *nilReason* wird `unknown` angegeben."&#xD;
+  }&#xD;
+  else {&#xD;
+    out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird als ${_params.nativeness} angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NativenessValue&gt;)."&#xD;
+  }&#xD;
+}&#xD;
+else {&#xD;
+  out &lt;&lt; "Die Ortsüblichkeit (`nativeness`) wird als *endonym* angegeben (siehe &lt;http://inspire.ec.europa.eu/codelist/NativenessValue&gt;)."&#xD;
+}&#xD;
+out &lt;&lt; "\n\n"&#xD;
+if (_params.source) {&#xD;&#xD;
+  out &lt;&lt; "Die Quelle des Namens (`sourceOfName`) wird als ${_params.source} angegeben."&#xD;&#xD;
+} else {&#xD;&#xD;
+  out &lt;&lt; "Die Quelle des Namens (`sourceOfName`) wird aus einer Projekt-Variable (`ADV_MODELLART`) bestimmt, falls vorhanden."&#xD;&#xD;
 } %&gt;
 </core:text>
                     </cf:template>
