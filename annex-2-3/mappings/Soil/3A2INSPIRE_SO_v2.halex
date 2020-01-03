@@ -4,7 +4,7 @@
     <author>Johanna Ott</author>
     <description>Die Überführung der Bodenschätzungsdaten in das INSPIRE Soil Schema hat sich als schwierig erwiesen, da derartige Daten bei der Entwicklung des Schemas nicht berücksichtigt wurden. Daraus resultiert, dass beispielsweise die Attribute resultTime und phenomenonTime ungefüllt bleiben, obwohl das in der textlichen Beschreibung der Datenspezifikation nicht vorgesehen ist.</description>
     <created>2018-04-24T15:58:22.449+02:00</created>
-    <modified>2020-01-03T09:57:04.948+01:00</modified>
+    <modified>2020-01-03T11:45:59.651+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -2190,10 +2190,16 @@
     <property name="resource-34dd6f7e-c20f-498b-9a39-f599c14d4813:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_MusterLandesmusterUndVergleichsstueckType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="URL_CODELIST_SOILDERIVEDOBJECTPARAMETERNAMEVALUE">
+                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
+            </core:property>
             <core:property name="BODSCHAETZG-ID">
                 <core:value value="BodSchaetzG"/>
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">
+                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
+            </core:property>
+            <core:property name="URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE">
                 <core:value value="https://registry.gdi-de.org/id/de.____/"/>
             </core:property>
         </core:properties>
