@@ -5,7 +5,7 @@
         <source>
             <class>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="CQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012' or bauwerksfunktion = '2013'</condition>
                 </type>
             </class>
         </source>
@@ -261,7 +261,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <source name="anchor">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="CQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012' or bauwerksfunktion = '2013'</condition>
                 </type>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -279,7 +279,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <source>
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="CQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012' or bauwerksfunktion = '2013'</condition>
                 </type>
                 <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
@@ -373,11 +373,59 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cffe8aaba-2bd5-441b-8559-f3c694c9b429" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012' or bauwerksfunktion = '2013'</condition>
+                </type>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="CrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C0664ffc1-5775-4565-b4f7-36e8ca17f5cd" priority="normal">
         <source name="spelling">
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="CQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012' or bauwerksfunktion = '2013'</condition>
                 </type>
                 <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
@@ -438,7 +486,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <source>
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="CQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '2010' or bauwerksfunktion = '2011' or bauwerksfunktion = '2012' or bauwerksfunktion = '2013'</condition>
                 </type>
                 <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
@@ -453,15 +501,19 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="2010"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/CrossingTypeValue/culvert"/>
+                    <key value="2012"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CrossingTypeValue/siphon"/>
                 </entry>
                 <entry>
                     <key value="2011"/>
                     <value value="http://inspire.ec.europa.eu/codelist/CrossingTypeValue/culvert"/>
                 </entry>
                 <entry>
-                    <key value="2012"/>
+                    <key value="2010"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CrossingTypeValue/culvert"/>
+                </entry>
+                <entry>
+                    <key value="2013"/>
                     <value value="http://inspire.ec.europa.eu/codelist/CrossingTypeValue/siphon"/>
                 </entry>
             </lookup-table>
@@ -610,6 +662,54 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </lookup-table>
         </complexParameter>
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C4c625618-7748-4992-a25d-be50177ccc99" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2040' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060'</condition>
+                </type>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="DamOrWeirType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cfabb43b6-cc38-4c8a-af50-dc45428fe9ca" priority="normal">
         <source name="spelling">
@@ -908,6 +1008,100 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C0b9f7760-3e08-4b99-9c65-b8047ca307fc" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="CQL">art = '1620'</condition>
+                </type>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="FallsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C712b1901-36f7-4bf4-a7e7-60e78c130143" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="CQL">art = '1620'</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="FallsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( zweitname )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language( 'deu' )&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C8220fe6a-8a3e-4807-9d5d-0564bb6df281" priority="normal">
         <source name="spelling">
@@ -1377,6 +1571,10 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                     <key value="2100"/>
                     <value value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/disused"/>
                 </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/underConstruction"/>
+                </entry>
             </lookup-table>
         </complexParameter>
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="notClassifiedAction"/>
@@ -1571,6 +1769,100 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cd9813168-0d9d-4a10-bbcd-076537379b2f" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="CQL">art = '1630'</condition>
+                </type>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="RapidsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Ce9e378bd-e094-44d2-aa17-56463e4c15fa" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="CQL">art = '1630'</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="RapidsType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( zweitname )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language( 'deu' )&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C5f7f4bef-d160-4d1c-ae9f-2643c2d57e5b" priority="normal">
         <source name="spelling">
             <property>
@@ -1686,6 +1978,54 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </lookup-table>
         </complexParameter>
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C32e41555-9ddd-4eb9-98d9-99efbc365b82" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="CQL">bauwerksfunktion = '2130' or bauwerksfunktion = '2131' or bauwerksfunktion = '2132' or bauwerksfunktion = '2133' or bauwerksfunktion = '2134' or bauwerksfunktion = '2135'  or bauwerksfunktion = '2136'</condition>
+                </type>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="ShorelineConstructionType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cbc519d88-61b1-4853-9ca9-2cc035a3eddb" priority="normal">
         <source name="spelling">
@@ -1813,6 +2153,54 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </complexParameter>
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue/functional" name="notClassifiedAction"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cec2f4b15-e92b-43c4-9453-6130fc62e104" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2070' OR bauwerksfunktion = '2080'</condition>
+                </type>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="SluiceType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C6ef68b74-d86f-48a8-b598-4f1f0a9ecfe3" priority="normal">
         <source name="spelling">
             <property>
@@ -1914,6 +2302,96 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <parameter value="m" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C4ca21b60-8b53-45d5-8280-27ac5f6a2377" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C6d32357a-148a-41ce-96ba-38d2e38222ff" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( zweitname )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language( 'deu' )&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C45a9e47b-e2c7-408a-a3b8-3e43593337e0" priority="normal">
         <source name="lagebezeichnung">
             <property>
@@ -2000,6 +2478,22 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
             </property>
         </target>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C7ce7cb76-2def-4335-a113-e2ed9d945be3" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_HafenbeckenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="seekennzahl" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="hydroId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="HydroIdentifier" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C805e9253-34b1-44d6-9a16-310ebe798975" priority="highest">
         <source name="id">
             <property>
@@ -2015,6 +2509,23 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <child name="localId" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
             </property>
         </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cced3a202-fd04-4d90-9482-c7f13f48ba9c" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_HafenbeckenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="seekennzahl" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="hydroId" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="HydroIdentifier" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/hy/4.0"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C13745c24-7740-4e72-83f8-b2767eac21b6" priority="normal">
         <source name="anchor">
@@ -2130,6 +2641,22 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C2780e8a8-0ec7-412b-afcd-49aa1b2fbbb2" priority="normal">
+        <source>
+            <property>
+                <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="wasserspiegelhoeheInStehendemGewaesser" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="StandingWaterType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="meanDepth" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce2c159ed-7dc2-4629-967c-2f2eff39aab4" priority="normal">
         <target>
             <property>
@@ -2138,7 +2665,7 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
                 <child name="nilReason"/>
             </property>
         </target>
-        <parameter value="other:unpopulated" name="value"/>
+        <parameter value="unknown" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb8e38300-1f13-4475-b6ba-2c2534cea851" priority="normal">
         <target>
@@ -2741,6 +3268,98 @@ _target{&#xD;
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C1ec20802-867e-47e7-8c4e-39cad899ee63" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C645c3ee1-4fa0-402a-be4e-3f0e7c2c70c8" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>2</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ce4a48e2b-84e1-41be-9c32-9cab71cfa1d6" priority="normal">
         <source name="spelling">
             <property>
@@ -3152,7 +3771,7 @@ if(linie){&#xD;
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C798f4a2e-c841-49c6-ac4d-f97cae4e79a0" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C798f4a2e-c841-49c6-ac4d-f97cae4e79a0" priority="low">
         <source name="anchor">
             <property>
                 <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
@@ -3671,6 +4290,100 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C8b9a0043-41fe-49af-8336-1cbdc6a36681" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="CQL">art = '1650'</condition>
+                </type>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="WetlandType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( regionalsprache )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cd13280ca-32e9-41e8-85f7-052c8da792d8" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GewaessermerkmalType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="CQL">art = '1650'</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="WetlandType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	GeographicalName {&#xD;
+		sourceOfName{&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		spelling {&#xD;
+			SpellingOfName {&#xD;
+				text( zweitname )&#xD;
+				script( 'Latn' )&#xD;
+			}&#xD;
+		}&#xD;
+		pronunciation {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		language( 'deu' )&#xD;
+		nameStatus {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
+		}&#xD;
+		nativeness {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cd97765cc-c225-4d5a-8f97-2aeaf227b592" priority="normal">
         <source name="spelling">
