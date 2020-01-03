@@ -958,23 +958,7 @@ Beim Schreiben der Daten werden diesbezüglich Warnungen ausgelöst.</documentat
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Ca15418a8-6d57-4bc2-b12c-06f08623700a" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="nummerDesGrablochs" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="nummerierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Ca15418a8-6d57-4bc2-b12c-06f08623700a" priority="normal">
         <source name="var">
             <property>
                 <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -991,13 +975,55 @@ Beim Schreiben der Daten werden diesbezüglich Warnungen ausgelöst.</documentat
                 <child name="gemarkungsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
-        <target>
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummerDesGrablochs" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummerierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
             <property>
                 <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
                 <child name="localIdentifier" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
             </property>
         </target>
-        <parameter value="{land}_{gemarkungsnummer}_{nummerierungsbezirk}_{nummerDesGrablochs}" name="pattern"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//{land}_{gemarkungsnummer}_{nuzmmerierungsbezirk}_{nummerDesGrablochs}&#xD;
+def land = kennziffer_AX_KennzifferGrabloch_land&#xD;
+def gemnr = kennziffer_AX_KennzifferGrabloch_gemarkungsnummer&#xD;
+def numbez = kennziffer_AX_KennzifferGrabloch_nummerierungsbezirk&#xD;
+def numgl = kennziffer_AX_KennzifferGrabloch_nummerDesGrablochs&#xD;
+&#xD;
+&#xD;
+if (land &amp;&amp; gemnr &amp;&amp; numbez) {&#xD;
+	return land + '_' + gemnr + '_' + numbez + '_' + numgl&#xD;
+}&#xD;
+&#xD;
+else if (land &amp;&amp; gemnr){&#xD;
+	return land + '_' + gemnr + '__' + numgl&#xD;
+}&#xD;
+&#xD;
+else if (land &amp;&amp; numbez){&#xD;
+	return land + '__' + numbez + '_' + numgl&#xD;
+}&#xD;
+&#xD;
+else if (gemnr &amp;&amp; numbez){&#xD;
+	return '_' + gemnr + '_' + numbez + '_' + numgl&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cc6a6b5d0-bfa7-4592-b714-4a1bed38595b" priority="normal">
         <source name="var">
