@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.5.0.release">
+<hale-project version="4.0.0.SNAPSHOT">
     <name>[Annex III] AdV 3A zu INSPIRE Soil</name>
     <author>Johanna Ott</author>
     <description>Die Überführung der Bodenschätzungsdaten in das INSPIRE Soil Schema hat sich als schwierig erwiesen, da derartige Daten bei der Entwicklung des Schemas nicht berücksichtigt wurden. Daraus resultiert, dass beispielsweise die Attribute resultTime und phenomenonTime ungefüllt bleiben, obwohl das in der textlichen Beschreibung der Datenspezifikation nicht vorgesehen ist.</description>
     <created>2018-04-24T15:58:22.449+02:00</created>
-    <modified>2019-08-26T16:50:47.253+02:00</modified>
+    <modified>2020-01-03T11:58:16.322+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -64,8 +64,8 @@
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">19c95fcc-32e8-4fc1-a472-dd6001f5aa1d</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_NeuwScharh_0003.xml.gz</setting>
+        <setting name="resourceId">341e12af-58a7-4b68-858f-6da7580d9bdf</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hessen/GID6_AllgemeineBestandsdatenausgabe_mitBodenschaetzung/GID6_AllgemeineBestandsdatenausgabe.xml</setting>
         <setting name="interpolation.maxError">0.1</setting>
         <setting name="interpolation.algorithm">segment</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -75,7 +75,7 @@
         <setting name="ignoreNumberMatched">false</setting>
         <setting name="interpolation.grid.moveAllToGrid">false</setting>
         <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
@@ -2146,7 +2146,7 @@
     <property name="defaultGeometry:{http://www.opengis.net/samplingSpecimen/2.0}SF_SpecimenType/count">2</property>
     <property name="haleconnect.lastModified">1538722672000</property>
     <property name="haleconnect.urn">hc:project:org:163:6f2e9418-d94f-4656-a217-ecef80188e2d</property>
-    <property name="instances.sampling.enabled">true</property>
+    <property name="instances.sampling.enabled">false</property>
     <property name="instances.sampling.sampler">first</property>
     <property name="instances.sampling.settings.first">20</property>
     <property name="instances.sampling.settings.skip">10</property>
@@ -2190,10 +2190,16 @@
     <property name="resource-34dd6f7e-c20f-498b-9a39-f599c14d4813:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_MusterLandesmusterUndVergleichsstueckType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="URL_CODELIST_SOILDERIVEDOBJECTPARAMETERNAMEVALUE">
+                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
+            </core:property>
             <core:property name="BODSCHAETZG-ID">
                 <core:value value="BodSchaetzG"/>
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">
+                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
+            </core:property>
+            <core:property name="URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE">
                 <core:value value="https://registry.gdi-de.org/id/de.____/"/>
             </core:property>
         </core:properties>
