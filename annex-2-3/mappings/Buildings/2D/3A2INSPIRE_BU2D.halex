@@ -3,7 +3,7 @@
     <name>[Annex III] AdV 3A zu INSPIRE Building 2D</name>
     <author>Johanna Ott</author>
     <created>2018-04-10T10:51:13.547+02:00</created>
-    <modified>2019-10-25T09:21:34.978+02:00</modified>
+    <modified>2020-01-27T09:58:21.721+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -260,8 +260,8 @@
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">42a007ee-3f91-4b87-8d03-e2859006521a</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/NBA-Mustermonzel_20100520T144438_4von8_32350000_5530000.xml.gz</setting>
+        <setting name="resourceId">dda72806-dc87-4d28-a328-cb1c8271c5b0</setting>
+        <setting name="source">file:/C:/Users/Johanna/Box%20Sync/My%20Box%20Notes/AdV/Testdaten/Berlin/No_geometrie.xml</setting>
         <setting name="interpolation.maxError">0.1</setting>
         <setting name="interpolation.algorithm">segment</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -271,7 +271,7 @@
         <setting name="ignoreNumberMatched">false</setting>
         <setting name="interpolation.grid.moveAllToGrid">false</setting>
         <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
+        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
