@@ -10,6 +10,16 @@
         <parameter value="1" name="number"/>
         <documentation>Es wird ein LandCoverDataset erzeugt, dem alle LandCoverUnits aus dem entpsrechenden Transformationsdurchlauf zugeordnet werden. Die Transformation hat eine niedrigere Priorität als die Transformation der LandCoverUnits, weil bei letzterer die IDs udn Boundingbox der im LandCoverDataset enthaltenen LandCoverUnits gesammelt werden und dem LandCoverDataset in der niedriger priorisierten Transformation zugeordnet werden.</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C76a29596-6396-4598-aa91-f4f03ef6ca95" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cbd1f9bc7-1f3f-4459-8eab-c7a4cbb7593a" priority="normal">
         <target name="result">
             <property>
@@ -94,7 +104,7 @@ return c.extent.value()
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+        <parameter value="{{project:LANCOVER_DATASET}}" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C7ec449a1-9476-4a2b-b3ac-854acbd448fe" priority="normal">
         <target>
@@ -6323,6 +6333,32 @@ return objid
             </property>
         </target>
         <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C832ce3bf-a387-4f37-b4e2-857eaeb2edb5" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="mosaic" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverValue" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="coveredPercentage" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C6cc5e465-ad04-4b50-bccc-b5905377d7ad" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="mosaic" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfee89303-7599-416b-b247-72a861922d6b" priority="normal">
         <target>
