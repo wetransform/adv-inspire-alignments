@@ -171,6 +171,8 @@ gebaeude.each { geb -&gt;&#xD;
 	gebgeom = (_.geom.find(geb.p.position.first())).geometry&#xD;
 	//für jedes potentielle Gebäude prüfen, ob das Bauteil innerhalb des Gebäudes liegt --&gt; Zuordnung&#xD;
 	if (baugeom.coveredBy(gebgeom)){&#xD;
+	/*if (baugeom.overlaps(gebgeom)){&#xD;
+		_log.info('Baugeom overlaps gebgeom')*/&#xD;
 		geb_id = geb.p.id.value()&#xD;
 	}&#xD;
 	//für lageZurErdoberfläche = 1200 (unter der Erdoberfläche) prüfen, mit welchem das Gebäude das Bauteil die größte gemeinsame Überschneidungsfläche hat --&gt; dieses&#xD;
@@ -189,7 +191,7 @@ gebaeude.each { geb -&gt;&#xD;
 //in einem Kollektor wird über die Gebäude-ID als Schlüssel gespeichert, welche Bauteile diesem zugehören und welche Bauarten diese Bauteile haben. Bei der späteren Erzeugung der Gebäude wird&#xD;
 //auf diese Informationen zugegriffen&#xD;
 def c = _.context.collector()&#xD;
-_log.info('in den Kollektor gehen ' + _source.p.id.value() + ' und ' + _source.p.bauart.value())&#xD;
+_log.info('in den Kollektor gehen für ' + geb_id + ' die Gebäudeteile: ' + _source.p.id.value() + ' mit Bauart ' + _source.p.bauart.value())&#xD;
 c.bauid[geb_id] &lt;&lt; _source.p.id.value()&#xD;
 c.bauart[geb_id] &lt;&lt; _source.p.bauart.value()&#xD;
 &#xD;
@@ -3622,6 +3624,18 @@ _target{&#xD;
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9fbf711b-1294-4e75-9fcf-c187e1d85801" priority="normal">
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.string.dateextraction" id="Cc0f34710-bbe0-494f-a9ec-b6ab160f7d58" priority="normal">
         <source>
