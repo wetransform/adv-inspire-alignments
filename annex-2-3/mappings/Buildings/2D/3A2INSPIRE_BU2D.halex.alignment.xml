@@ -239,8 +239,8 @@ _target{}
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.string.dateextraction" id="C58802391-56d2-4209-88d4-d428092c0d3e" priority="normal">
-        <source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C58802391-56d2-4209-88d4-d428092c0d3e" priority="normal">
+        <source name="var">
             <property>
                 <type name="AX_BauteilType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="ECQL">bauart = '1100' or bauart = '1200' or bauart = '1300' or bauart = '1400' or bauart = '2500' or bauart = '2510' or bauart = '2520' or bauart = '2710' or bauart = '2720'</condition>
@@ -248,7 +248,7 @@ _target{}
                 <child name="baujahr" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="BuildingPartType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
                 <child name="dateOfConstruction" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
@@ -256,10 +256,28 @@ _target{}
                 <child name="end" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
             </property>
         </target>
-        <parameter value="yyyy" name="dateFormat"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (baujahr){&#xD;
+	def construction = baujahr.p.value()&#xD;
+	&#xD;
+	baujahr.p.each {bauj -&gt;&#xD;
+		if (bauj &lt; construction){&#xD;
+			construction = bauj&#xD;
+		}&#xD;
+	}&#xD;
+	&#xD;
+		&#xD;
+	construction = new java.text.SimpleDateFormat('yyyy', Locale.US).parse(construction.toString())&#xD;
+	&#xD;
+	return construction&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.string.dateextraction" id="C4fc5dfde-fa74-4ae0-823b-32ab44fcfab4" priority="normal">
-        <source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C4fc5dfde-fa74-4ae0-823b-32ab44fcfab4" priority="normal">
+        <source name="var">
             <property>
                 <type name="AX_BauteilType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
                     <condition lang="ECQL">bauart = '1100' or bauart = '1200' or bauart = '1300' or bauart = '1400' or bauart = '2500' or bauart = '2510' or bauart = '2520' or bauart = '2710' or bauart = '2720'</condition>
@@ -267,7 +285,7 @@ _target{}
                 <child name="baujahr" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="BuildingPartType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
                 <child name="dateOfRenovation" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
@@ -275,7 +293,26 @@ _target{}
                 <child name="end" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
             </property>
         </target>
-        <parameter value="yyyy" name="dateFormat"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (baujahr){&#xD;
+	if (baujahr.p.values().size() &gt; 1){&#xD;
+		def renovation = baujahr.p.value()&#xD;
+		&#xD;
+		baujahr.p.each {bauj -&gt;&#xD;
+			if (bauj &gt; renovation){&#xD;
+				renovation = bauj&#xD;
+			}&#xD;
+		}&#xD;
+	&#xD;
+		renovation = new java.text.SimpleDateFormat('yyyy', Locale.US).parse(renovation.toString())&#xD;
+	&#xD;
+		return renovation&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="custom:alignment:adv.geometry.simplefeature.multi" id="C6920b973-c8d1-4420-be3b-b6b061835975" priority="normal">
         <source name="geometrie">
@@ -3637,14 +3674,14 @@ _target{&#xD;
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.string.dateextraction" id="Cc0f34710-bbe0-494f-a9ec-b6ab160f7d58" priority="normal">
-        <source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="Cc0f34710-bbe0-494f-a9ec-b6ab160f7d58" priority="normal">
+        <source name="var">
             <property>
                 <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="baujahr" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
                 <child name="dateOfConstruction" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
@@ -3652,16 +3689,33 @@ _target{&#xD;
                 <child name="end" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
             </property>
         </target>
-        <parameter value="yyyy" name="dateFormat"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (baujahr){&#xD;
+	def construction = baujahr.p.value()&#xD;
+	&#xD;
+	baujahr.p.each {bauj -&gt;&#xD;
+		if (bauj &lt; construction){&#xD;
+			construction = bauj&#xD;
+		}&#xD;
+	}&#xD;
+&#xD;
+	construction = new java.text.SimpleDateFormat('yyyy', Locale.US).parse(construction.toString())&#xD;
+	&#xD;
+	return construction&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.string.dateextraction" id="Cc4daaeb6-c700-4644-abba-e2842c1f8180" priority="normal">
-        <source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="Cc4daaeb6-c700-4644-abba-e2842c1f8180" priority="normal">
+        <source name="var">
             <property>
                 <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="baujahr" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
                 <child name="dateOfRenovation" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
@@ -3669,7 +3723,26 @@ _target{&#xD;
                 <child name="end" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
             </property>
         </target>
-        <parameter value="yyyy" name="dateFormat"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (baujahr){&#xD;
+	if (baujahr.p.values().size() &gt; 1){&#xD;
+		def renovation = baujahr.p.value()&#xD;
+		&#xD;
+		baujahr.p.each {bauj -&gt;&#xD;
+			if (bauj &gt; renovation){&#xD;
+				renovation = bauj&#xD;
+			}&#xD;
+		}&#xD;
+		&#xD;
+		renovation = new java.text.SimpleDateFormat('yyyy', Locale.US).parse(renovation.toString())&#xD;
+		&#xD;
+		return renovation&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ccb0f04c8-72cb-4738-98e3-5849cb22e9d3" priority="normal">
         <source name="anchor">
