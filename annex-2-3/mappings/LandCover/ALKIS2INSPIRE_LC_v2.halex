@@ -5,9 +5,14 @@
     <description>Transformationsprojekt für die Transformation von Daten aus ALKIS nach INSPIRE LandCover.&#xD;
 &#xD;
 ATKIS als Quelle derzeit ausgeschlossen&#xD;
-(Begründung aus Email Herr Schliebner 30.05.2018: "Keine Verflächung von linienhaften Elementen. Zum AdV-Plenums-Beschluss 127/7 soll ein entsprechendes Änderungsersuchen gestellt werden, was Herr Dr. Seifert am 05.-06.Juni 2018 bei der AK IK-Tagung thematisieren wird. Diese Änderung kann hieb- und stichfest damit begründet werden, dass zur Schaffung von INSPIRE-Daten aus ATKIS erheblicher Aufwand anfiele.")</description>
+(Begründung aus Email Herr Schliebner 30.05.2018: "Keine Verflächung von linienhaften Elementen. Zum AdV-Plenums-Beschluss 127/7 soll ein entsprechendes Änderungsersuchen gestellt werden, was Herr Dr. Seifert am 05.-06.Juni 2018 bei der AK IK-Tagung thematisieren wird. Diese Änderung kann hieb- und stichfest damit begründet werden, dass zur Schaffung von INSPIRE-Daten aus ATKIS erheblicher Aufwand anfiele.")&#xD;
+&#xD;
+Hinweis zur Nutzung der Projektvariablen:&#xD;
+      LANDCOVER_OBSERVATION_CODELIST: URL mit der von Herrn Dr. Lucas entwickelten Codeliste, sobald dieser veröffentlicht wurde&#xD;
+	LANDCOVER_DATASET: id des LandCoverDatasets --&gt; kann nach Wunsch verändert werden&#xD;
+	INSPIRE-NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2018-02-21T09:31:57.934+01:00</created>
-    <modified>2020-01-31T09:42:33.471+01:00</modified>
+    <modified>2020-02-26T14:10:09.345+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>

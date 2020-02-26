@@ -2,9 +2,13 @@
 <hale-project version="4.0.0.SNAPSHOT">
     <name>[Annex III] AdV 3A zu INSPIRE Soil</name>
     <author>Johanna Ott</author>
-    <description>Die Überführung der Bodenschätzungsdaten in das INSPIRE Soil Schema hat sich als schwierig erwiesen, da derartige Daten bei der Entwicklung des Schemas nicht berücksichtigt wurden. Daraus resultiert, dass beispielsweise die Attribute resultTime und phenomenonTime ungefüllt bleiben, obwohl das in der textlichen Beschreibung der Datenspezifikation nicht vorgesehen ist.</description>
+    <description>Die Überführung der Bodenschätzungsdaten in das INSPIRE Soil Schema hat sich als schwierig erwiesen, da derartige Daten bei der Entwicklung des Schemas nicht berücksichtigt wurden. Daraus resultiert, dass beispielsweise die Attribute resultTime und phenomenonTime ungefüllt bleiben, obwohl das in der textlichen Beschreibung der Datenspezifikation nicht vorgesehen ist.&#xD;
+&#xD;
+Hinweis zur Nutzung der Projektvariablen:&#xD;
+       INSPIRE-NAMESPACE: gewünschten Namespace eingeben&#xD;
+	BODSCHAETZG-ID: gewünschte ID für die Angabe des Bodenschaetzungsgesetzes eingeben</description>
     <created>2018-04-24T15:58:22.449+02:00</created>
-    <modified>2020-01-03T11:58:16.322+01:00</modified>
+    <modified>2020-02-26T14:14:00.701+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
