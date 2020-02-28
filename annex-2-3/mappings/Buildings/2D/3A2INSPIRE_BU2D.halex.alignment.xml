@@ -171,8 +171,6 @@ gebaeude.each { geb -&gt;&#xD;
 	gebgeom = (_.geom.find(geb.p.position.first())).geometry&#xD;
 	//für jedes potentielle Gebäude prüfen, ob das Bauteil innerhalb des Gebäudes liegt --&gt; Zuordnung&#xD;
 	if (baugeom.coveredBy(gebgeom)){&#xD;
-	/*if (baugeom.overlaps(gebgeom)){&#xD;
-		_log.info('Baugeom overlaps gebgeom')*/&#xD;
 		geb_id = geb.p.id.value()&#xD;
 	}&#xD;
 	//für lageZurErdoberfläche = 1200 (unter der Erdoberfläche) prüfen, mit welchem das Gebäude das Bauteil die größte gemeinsame Überschneidungsfläche hat --&gt; dieses&#xD;

@@ -10,7 +10,7 @@ ATKIS als Quelle derzeit ausgeschlossen&#xD;
 Hinweis zur Nutzung der Projektvariablen:&#xD;
       LANDCOVER_OBSERVATION_CODELIST: URL mit der von Herrn Dr. Lucas entwickelten Codeliste, sobald dieser veröffentlicht wurde&#xD;
 	LANDCOVER_DATASET: id des LandCoverDatasets --&gt; kann nach Wunsch verändert werden&#xD;
-	INSPIRE-NAMESPACE: gewünschten Namespace eingeben</description>
+	INSPIRE_NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2018-02-21T09:31:57.934+01:00</created>
     <modified>2020-02-26T14:10:09.345+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
@@ -1483,7 +1483,7 @@ Hinweis zur Nutzung der Projektvariablen:&#xD;
             <core:property name="LANDCOVER_OBSERVATION_CODELIST">
                 <core:value value="http://baseURL.../"/>
             </core:property>
-            <core:property name="LANCOVER_DATASET">
+            <core:property name="LANDCOVER_DATASET">
                 <core:value value="LandCoverDataset"/>
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">
