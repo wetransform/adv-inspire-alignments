@@ -3225,6 +3225,16 @@ Groovy-Script bildet BoundingBox von allen verwendeten Geometrien, die in einer 
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C90a61f70-5051-4512-b401-f459daf4e506" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsPresence" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C9bdaee38-f838-4c25-bc06-1a1a598de4ba" priority="normal">
         <source name="id">
             <property>
@@ -3326,5 +3336,35 @@ else {&#xD;
         <documentation>Mapping auf Ebene von AX_Tatsaechliche Nutzung, weil alle verwendeten Polygon-FeatureTypes davon abgeleitet sind.&#xD;
 Der nilReason wird abhängig von der Angabe in der Projektvariablen gefüllt.  Eingabe von "other:unpopulated" für alle ATKIS-Datensätze und solche ALKIS-Datensätze, in denen datumDerLetztenUeberpruefung nie gefüllt ist, Eingabe von "unknown" für ALKIS-Datensätze, in denen es manchmal gefüllt ist.&#xD;
 Liegt ein Wert für datumDerLetztenUeberpruefung vor, wird dieser in observationDate geschrieben.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ccf199819-cd03-42f1-87c7-4e2e80295313" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="observationDate" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cbb066412-8da9-4c8c-bb51-dec8a26af4f2" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="specificLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C15c43f77-4f1c-4c95-ad52-df6ff273768f" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="specificPresence" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
 </alignment>

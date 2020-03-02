@@ -2,8 +2,14 @@
 <hale-project version="4.0.0.SNAPSHOT">
     <name>[Annex III] AdV 3A zu INSPIRE Building 2D</name>
     <author>Johanna Ott</author>
+    <description>Hinweis zur Nutzung der Projektvariablen:&#xD;
+    BUILDINGNATURE: URL mit den von Herrn Fuchs und Herrn Schlegel entwickelten Erweiterungen der INSPIRE Codeliste, sobald diese veröffentlicht wurden&#xD;
+    CURRENTUSE: URL mit den von Herrn Fuchs und Herrn Schlegel entwickelten Erweiterungen der INSPIRE Codeliste, sobald diese veröffentlicht wurden&#xD;
+    HORIZONTALGEOMETRYREFERENCEVALUE_AUFGESTAENDERT: default ist "footprint", falls anderer Wert aus der Codeliste (http://inspire.ec.europa.eu/codelist/HorizontalGeometryReferenceValue) erwünscht --&gt; angeben&#xD;
+    HORIZONTALGEOMETRYREFERENCEVALUE_BEFLIEGUNGSGEBAEUDE: default ist "footprint", falls anderer Wert aus der Codeliste (http://inspire.ec.europa.eu/codelist/HorizontalGeometryReferenceValue) erwünscht --&gt; angeben&#xD;
+    INSPIRE_NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2018-04-10T10:51:13.547+02:00</created>
-    <modified>2020-01-27T09:58:21.721+01:00</modified>
+    <modified>2020-02-28T08:37:16.809+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -260,8 +266,8 @@
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
         <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">dda72806-dc87-4d28-a328-cb1c8271c5b0</setting>
-        <setting name="source">file:/C:/Users/Johanna/Box%20Sync/My%20Box%20Notes/AdV/Testdaten/Berlin/No_geometrie.xml</setting>
+        <setting name="resourceId">12a59ca7-fa6c-43e1-a6fd-b4a33633d954</setting>
+        <setting name="source">file:/C:/Users/Johanna/Box%20Sync/My%20Box%20Notes/AdV/Testdaten/Berlin/Bauteil_ohne_bezug_mitBaujahr.xml</setting>
         <setting name="interpolation.maxError">0.1</setting>
         <setting name="interpolation.algorithm">segment</setting>
         <setting name="ignoreNamespaces">false</setting>
@@ -709,8 +715,7 @@
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FriedhofType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FriedhofType/count">2</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
-    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
-    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeType/count">1</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeausgestaltungType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}position</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeausgestaltungType/2">{http://www.opengis.net/gml/3.2}MultiCurve</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GebaeudeausgestaltungType/count">2</property>
