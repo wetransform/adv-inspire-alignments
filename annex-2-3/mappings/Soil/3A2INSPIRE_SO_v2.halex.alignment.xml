@@ -118,7 +118,7 @@ _target {&#xD;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.join" id="Cb4ffb271-c1bc-4821-9a06-f120eae6e556" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb4ffb271-c1bc-4821-9a06-f120eae6e556" priority="high">
         <source name="types">
             <class>
                 <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -155,6 +155,147 @@ _target {&#xD;
                 </jp:condition>
             </jp:join-parameter>
         </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def c = _.context.collector()&#xD;
+&#xD;
+if (_source.p.bodenzahlOderGruenlandgrundzahl.value() || _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value()){&#xD;
+	_target {&#xD;
+		procedure {&#xD;
+			href( '#Process_' + _project.vars['BODSCHAETZG-ID'] )&#xD;
+		}&#xD;
+		phenomenonTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		resultTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		if(_source.p.bodenzahlOderGruenlandgrundzahl.value()){&#xD;
+			result {&#xD;
+				CharacterString('This field contains information about AX_GrablochDerBodenschaetzung - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about bodenzahlOderGruenlandgrundzahl: ' + _source.p.bodenzahlOderGruenlandgrundzahl.value())&#xD;
+			}&#xD;
+			featureOfInterest {&#xD;
+				href( '#ObservedSoilProfile_' +  _source.p.id.value())&#xD;
+			}&#xD;
+			identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.p.id.value()) {&#xD;
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+			}&#xD;
+			observedProperty {&#xD;
+				title( 'AX_GrablochDerBodenschaetzung ' )&#xD;
+				href( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_GrablochDerBodenschaetzung' )&#xD;
+			}&#xD;
+			id( 'OM_Observation_' +  _source.p.id.value() )&#xD;
+			c.GLobs &lt;&lt; '#' + _id&#xD;
+			parameter {&#xD;
+				NamedValue {&#xD;
+					name {&#xD;
+						title( 'inGemarkung: land_gemarkungsnummer' )&#xD;
+					}&#xD;
+					value( _source.p.inGemarkung.AX_Gemarkung_Schluessel.land.value() + '_' + _source.p.inGemarkung.AX_Gemarkung_Schluessel.gemarkungsnummer.value())&#xD;
+				}&#xD;
+			}&#xD;
+&#xD;
+		}&#xD;
+		if(_source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value()){&#xD;
+			result{&#xD;
+				CharacterString('This field contains information about AX_Tagesabschnitt - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about tagesabschnittsnummer: ' + _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value())&#xD;
+			}&#xD;
+			featureOfInterest {&#xD;
+				href( '#ObservedSoilProfile_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
+			}&#xD;
+			identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value()) {&#xD;
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+			}&#xD;
+			observedProperty {&#xD;
+				title( 'AX_Tagesabschnitt ' )&#xD;
+				href( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_Tagesabschnitt' )&#xD;
+			}&#xD;
+			id ('OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
+			c.GLobs &lt;&lt; '#' + _id&#xD;
+			parameter {&#xD;
+				NamedValue {&#xD;
+					name {&#xD;
+						title( 'tagesabschnittsnummer' )&#xD;
+					}&#xD;
+					value( _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value())&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+}&#xD;
+&#xD;
+if (_source.p.bodenzahlOderGruenlandgrundzahl.value() &amp;&amp; _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value()){&#xD;
+	_target {&#xD;
+		procedure {&#xD;
+			href( '#Process_' + _project.vars['BODSCHAETZG-ID'] )&#xD;
+		}&#xD;
+		phenomenonTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		resultTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		result {&#xD;
+			CharacterString ('This field contains information about AX_GrablochDerBodenschaetzung - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about bodenzahlOderGruenlandgrundzahl: ' + _source.p.bodenzahlOderGruenlandgrundzahl.value())&#xD;
+		}&#xD;
+		featureOfInterest {&#xD;
+			href( '#ObservedSoilProfile_' +  _source.p.id.value())&#xD;
+		}&#xD;
+		identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.p.id.value()) {&#xD;
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+		}&#xD;
+		observedProperty {&#xD;
+			title( 'AX_GrablochDerBodenschaetzung ' )&#xD;
+			href( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_GrablochDerBodenschaetzung' )&#xD;
+		}&#xD;
+		id( 'OM_Observation_' +  _source.p.id.value() )&#xD;
+		c.GLobs &lt;&lt; '#' + _id&#xD;
+		parameter {&#xD;
+			NamedValue {&#xD;
+				name {&#xD;
+					title( 'inGemarkung: land_gemarkungsnummer' )&#xD;
+				}&#xD;
+				value( _source.p.inGemarkung.AX_Gemarkung_Schluessel.land.value() + '_' + _source.p.inGemarkung.AX_Gemarkung_Schluessel.gemarkungsnummer.value())&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+	_target{&#xD;
+		procedure {&#xD;
+			href( '#Process_' + _project.vars['BODSCHAETZG-ID'] )&#xD;
+		}&#xD;
+		phenomenonTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		resultTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		result {&#xD;
+			CharacterString ('This field contains information about AX_Tagesabschnitt - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about tagesabschnittsnummer: ' + _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value())&#xD;
+		}&#xD;
+		featureOfInterest {&#xD;
+			href( '#ObservedSoilProfile_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
+		}&#xD;
+		identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value()) {&#xD;
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+		}&#xD;
+		observedProperty {&#xD;
+			title( 'AX_Tagesabschnitt ' )&#xD;
+			href ( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_Tagesabschnitt' )&#xD;
+		}&#xD;
+		id ('OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
+		c.GLobs &lt;&lt; '#' + _id&#xD;
+		parameter {&#xD;
+			NamedValue {&#xD;
+				name {&#xD;
+					title( 'tagesabschnittsnummer' )&#xD;
+				}&#xD;
+				value( _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value())&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+}	
+</core:text>
+        </complexParameter>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Cbabbca51-7f1a-4300-be6f-6a0c120b141f" priority="normal">
         <source>
@@ -170,7 +311,7 @@ _target {&#xD;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C06c52e7f-40e1-483f-a9fa-88f86e1d40e0" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C06c52e7f-40e1-483f-a9fa-88f86e1d40e0" priority="normal">
         <source>
             <class>
                 <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
@@ -181,8 +322,43 @@ _target {&#xD;
                 <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	procedure {&#xD;
+		href( '#Process_' + _project.vars['BODSCHAETZG-ID'] )&#xD;
+	}&#xD;
+	phenomenonTime {&#xD;
+		nilReason( 'other:unpopulated' )&#xD;
+	}&#xD;
+	resultTime {&#xD;
+		nilReason( 'other:unpopulated' )&#xD;
+	}&#xD;
+	result {&#xD;
+		CharacterString ('This field contains information about AX_Tagesabschnitt - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about tagesabschnittsnummer: ' + _source.p.tagesabschnittsnummer.value())&#xD;
+	}&#xD;
+	featureOfInterest {&#xD;
+		href( '#ObservedSoilProfile_' +  _source.p.id.value())&#xD;
+	}&#xD;
+	identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.p.id.value()) {&#xD;
+		codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+	}&#xD;
+	observedProperty {&#xD;
+		title( 'AX_Tagesabschnitt ' )&#xD;
+		href ( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_Tagesabschnitt' )&#xD;
+	}&#xD;
+	id ('OM_Observation_' +  _source.p.id.value())&#xD;
+	parameter {&#xD;
+		NamedValue {&#xD;
+			name {&#xD;
+				title( 'tagesabschnittsnummer' )&#xD;
+			}&#xD;
+			value( _source.p.tagesabschnittsnummer.value())&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cbef5626f-a138-4749-9134-45e94f9e2fd1" priority="normal">
         <source name="var">
@@ -200,42 +376,10 @@ _target {&#xD;
         </target>
         <parameter value="#SoilDerivedObject_{id}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C6b09c1fa-b2e6-4bbb-9e2a-61c49d91335c" priority="high">
-        <source name="var">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="featureOfInterest" ns="http://www.opengis.net/om/2.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#ObservedSoilProfile_{id}" name="pattern"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C105af74b-468f-49b9-ad71-acc2978deb16" priority="normal">
         <source name="var">
             <property>
                 <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="featureOfInterest" ns="http://www.opengis.net/om/2.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="#SoilDerivedObject_{id}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C27f748e1-b7dc-425c-be8b-df11b8968ae2" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -262,38 +406,10 @@ _target {&#xD;
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C0bddb4f3-8d2c-49b8-8de8-694854abefe3" priority="high">
-        <source name="id">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ca3763a17-7a9e-45e2-b9e5-c9d4706042f4" priority="normal">
         <source name="id">
             <property>
                 <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.id.default" id="C519a58df-8a70-45e1-ba45-26d796943604" priority="normal">
-        <source name="id">
-            <property>
-                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -318,20 +434,6 @@ _target {&#xD;
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.identifier" id="C2c132feb-fdd4-4d77-b817-9e5673dc4f0a" priority="high">
-        <source name="id">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-    </cell>
     <cell relation="custom:alignment:adv.inspire.identifier" id="Ccfec527d-6180-41d4-a69c-693ae11057ed" priority="normal">
         <source name="id">
             <property>
@@ -346,10 +448,10 @@ _target {&#xD;
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.identifier" id="C7e4bd11b-53cd-4642-89c9-5a39cdde9b9f" priority="normal">
-        <source name="id">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc8ed4410-02cc-4b65-88f4-897910f9432b" priority="normal">
+        <source name="anchor">
             <property>
-                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -357,10 +459,18 @@ _target {&#xD;
             <property>
                 <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
             </property>
         </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf64418e7-c21e-4048-87b2-2d573cca3066" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf8ad251c-612d-4aa9-8a3a-f18ad0614cfc" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
@@ -386,22 +496,6 @@ _target {&#xD;
         </target>
         <parameter value="{{project:URL_CODELIST_SOILDERIVEDOBJECTPARAMETERNAMEVALUE}}http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_Bodenschätzung" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8b1e943c-a164-4f5e-800d-b067192909bc" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="{{project:URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE}}http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_GrablochDerBodenschaetzung" name="value"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb355922e-0db0-4345-b85c-376682898fb3" priority="normal">
         <source name="anchor">
             <property>
@@ -417,22 +511,6 @@ _target {&#xD;
             </property>
         </target>
         <parameter value="{{project:URL_CODELIST_SOILDERIVEDOBJECTPARAMETERNAMEVALUE}}http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_MusterLandesmusterUndVergleichsstueck" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C02effae6-d7f3-4dba-b47e-ce7b78569cb4" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="{{project:URL_CODELIST_SOILDERIVEDOBJECTPARAMETERNAMEVALUE}}http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_Tagesabschnitt" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C988cdb08-aa85-4996-8117-4cbf041b86e1" priority="normal">
         <source name="anchor">
@@ -450,22 +528,6 @@ _target {&#xD;
         </target>
         <parameter value="AX_Bodenschätzung" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbe3f94f9-e9a6-4e2f-bc24-622c342f08b8" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
-                <child name="title" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="AX_GrablochDerBodenschaetzung" name="value"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cedf2320a-ae53-45df-baa8-9a3d24ed018b" priority="normal">
         <source name="anchor">
             <property>
@@ -481,22 +543,6 @@ _target {&#xD;
             </property>
         </target>
         <parameter value="AX_MusterLandesmusterUndVergleichsstueck" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc43936bc-c747-4c40-9621-c4ede224546a" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
-                <child name="title" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="AX_Tagesabschnitt" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc54089c2-ef50-4a30-9aa0-dfb3fb8cfc03" priority="normal">
         <source name="anchor">
@@ -596,26 +642,6 @@ _target {&#xD;
         </target>
         <parameter value="kulturart" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0492ad28-c7f3-483d-8660-4e4edb131bcb" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="inGemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="gemarkungsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
-                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
-                <child name="name" ns="http://www.opengis.net/om/2.0"/>
-                <child name="title" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="inGemarkung: land_gemarkungsnummer" name="value"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5e421f40-8660-4e57-9754-5341d93841f8" priority="normal">
         <source name="anchor">
             <property>
@@ -633,24 +659,6 @@ _target {&#xD;
             </property>
         </target>
         <parameter value="kulturart" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0bc93f73-36a8-4016-90b2-73ca445b2a76" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="tagesabschnittsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
-                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
-                <child name="name" ns="http://www.opengis.net/om/2.0"/>
-                <child name="title" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <parameter value="tagesabschnittsnummer" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca497b7bb-31b6-49bc-a094-12bdc224f6fc" priority="normal">
         <source>
@@ -670,33 +678,6 @@ _target {&#xD;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C0d76d922-53ac-4891-aaf0-c4d4696688a9" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="inGemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="gemarkungsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="inGemarkung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Gemarkung_Schluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
-                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
-                <child name="value" ns="http://www.opengis.net/om/2.0"/>
-            </property>
-        </target>
-        <parameter value="{land}_{gemarkungsnummer}" name="pattern"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C14d98636-39d9-4eca-890a-809aaf9c9f37" priority="normal">
         <source>
             <property>
@@ -715,25 +696,13 @@ _target {&#xD;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd12b23d7-17cf-4147-bde0-3e7a2f6051b7" priority="normal">
-        <source>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C51c6d96c-72d4-46bb-92e7-d4a51ead3889" priority="normal">
+        <source name="anchor">
             <property>
-                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="tagesabschnittsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
-                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
-                <child name="value" ns="http://www.opengis.net/om/2.0"/>
-            </property>
-        </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3a8ab6a2-4795-4c87-8ac9-01158f9935f5" priority="normal">
         <target>
             <property>
                 <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
@@ -742,10 +711,46 @@ _target {&#xD;
             </property>
         </target>
         <parameter value="other:unpopulated" name="value"/>
-        <documentation>Das Attribut phenomenonTime bleibt ungefüllt, obwohl das in der textlichen Beschreibung der Datenspezifikation nicht vorgesehen ist. In den Quelldaten lassen sich für dessen Füllung keine sinnvollen Informationen finden.&#xD;
-Beim Schreiben der Daten werden diesbezüglich Warnungen ausgelöst.</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5cdc11e3-8b4d-4d2f-9cd4-7abfded8d45b" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C87af8e10-e610-424d-aa35-bc98ff4b1829" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="phenomenonTime" ns="http://www.opengis.net/om/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca0c2162c-e940-4e16-b807-e1c57cd40370" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="procedure" ns="http://www.opengis.net/om/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cee7718be-b9ff-4170-8b18-2578bf83bde7" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
@@ -853,23 +858,6 @@ return 'This field contains information about AX_Bodenschaetzung - more informat
 Wie die Angaben innerhalb des DataArrays voneinander getrennt werden, wird im encoding angegeben.&#xD;
 Die Werte selbst stehen im values-Attribut, das an dieser Stelle gefüllt wird.</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9b8d9ef6-dfce-4998-9b83-ecc4eaba5b66" priority="normal">
-        <source name="var">
-            <property>
-                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bodenzahlOderGruenlandgrundzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="result" ns="http://www.opengis.net/om/2.0"/>
-                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
-                <child name="CharacterString" ns="http://www.isotc211.org/2005/gco"/>
-            </property>
-        </target>
-        <parameter value="This field contains information about AX_GrablochDerBodenschaetzung - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about bodenzahlOderGruenlandgrundzahl: {bodenzahlOderGruenlandgrundzahl}" name="pattern"/>
-    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="Cf0f272a2-73ce-4ae6-ac83-fbadfb2b67e6" priority="normal">
         <source name="var">
             <property>
@@ -959,24 +947,13 @@ return 'This field contains information about AX_MusterLandesmusterUndVergleichs
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C29c0f852-b015-4af8-8a6d-37c3cd14272a" priority="normal">
-        <source name="var">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cdd824027-a4a0-4db5-b318-e23d0146c4a7" priority="normal">
+        <source name="anchor">
             <property>
-                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="tagesabschnittsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
-        <target>
-            <property>
-                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
-                <child name="result" ns="http://www.opengis.net/om/2.0"/>
-                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
-                <child name="CharacterString" ns="http://www.isotc211.org/2005/gco"/>
-            </property>
-        </target>
-        <parameter value="This field contains information about AX_Tagesabschnitt - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about tagesabschnittsnummer: {tagesabschnittsnummer}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cad0e69d2-54e8-4c0e-9fe2-8fae0c937d8e" priority="normal">
         <target>
             <property>
                 <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
@@ -985,8 +962,22 @@ return 'This field contains information about AX_MusterLandesmusterUndVergleichs
             </property>
         </target>
         <parameter value="other:unpopulated" name="value"/>
-        <documentation>Das Attribut resultTime bleibt ungefüllt, obwohl das in der textlichen Beschreibung der Datenspezifikation nicht vorgesehen ist. In den Quelldaten lassen sich für dessen Füllung keine sinnvollen Informationen finden.&#xD;
-Beim Schreiben der Daten werden diesbezüglich Warnungen ausgelöst.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf7fa538a-10f7-4611-8f63-743261103665" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="resultTime" ns="http://www.opengis.net/om/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce64e9c79-41cb-4131-b549-60189b1f3130" priority="normal">
         <source>
@@ -1160,21 +1151,30 @@ else if (gemnr &amp;&amp; numbez){&#xD;
         <parameter value="#SoilPlot_{id}" name="pattern"/>
         <documentation>Stellt die Verbindung zwischen dem SoilPlot und dem ObservedSoilProfile her, die beide aus dem selben GrablochDerBodenschätzung entstehen - durch den formatierten String wird eine Referenz auf den entstehenden SoilPlot hergestellt</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Ccca12ed4-0f76-4382-b8ab-d073c5451edd" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Ccca12ed4-0f76-4382-b8ab-d073c5451edd" priority="normal">
         <source name="var">
             <property>
                 <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
                 <child name="soilProfileObservation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="#OM_Observation_{id}" name="pattern"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def c = _.context.collector()&#xD;
+&#xD;
+c.GLobs.each{ _id -&gt;&#xD;
+	return _id&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd4a9c27a-49d8-4f6b-9214-9ca92534a589" priority="normal">
         <target>
