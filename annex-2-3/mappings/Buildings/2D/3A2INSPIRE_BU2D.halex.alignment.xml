@@ -988,9 +988,25 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def sougeom = _.geom.find(_source.p.position.first())&#xD;
 //Leitungen sollen ständardmäßig mit 0,5 m gebuffert werden&#xD;
-def targeom = _.geom.buffer(geometry: sougeom, distance: 0.5)&#xD;
+def poigeom = _.geom.findPoints(_source.p.position.first())&#xD;
+def lingeom = _.geom.findLines(_source.p.position.first())&#xD;
+def polgeom = _.geom.findPolygons(_source.p.position.first())&#xD;
+def targeom&#xD;
+&#xD;
+//wenn die Quellgeometrie ein Polygon ist, wird diese übernommen&#xD;
+if (polgeom){&#xD;
+	targeom = polgeom&#xD;
+}&#xD;
+//wenn die Quellgeometrie ein Punkt ist, wird diese übernommen&#xD;
+else if (poigeom){&#xD;
+	targeom = poigeom&#xD;
+}&#xD;
+&#xD;
+//wenn die Quellgeometrie eine Linie ist, werden Standardwerte für die Breite des Objektes verwendet&#xD;
+else if (lingeom){&#xD;
+	targeom = _.geom.buffer(geometry: lingeom, distance: 0.5)&#xD;
+}&#xD;
 &#xD;
 if(!targeom){&#xD;
 	_log.error("Dieses Objekt hat keine Geometrie: " + _source.p.id.value())&#xD;
@@ -1101,9 +1117,24 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def sougeom = _.geom.find(_source.p.position.first())&#xD;
+def poigeom = _.geom.findPoints(_source.p.position.first())&#xD;
+def lingeom = _.geom.findLines(_source.p.position.first())&#xD;
+def polgeom = _.geom.findPolygons(_source.p.position.first())&#xD;
+def targeom&#xD;
 //Pufferwert ist derzeit angenommen durch jo - auf Angaben von Gebäudeexperten wird gewartet&#xD;
-def targeom = _.geom.buffer(geometry: sougeom, distance: 0.5)&#xD;
+//wenn die Quellgeometrie ein Polygon ist, wird diese übernommen&#xD;
+if (polgeom){&#xD;
+	targeom = polgeom&#xD;
+}&#xD;
+//wenn die Quellgeometrie ein Punkt ist, wird diese übernommen&#xD;
+else if (poigeom){&#xD;
+	targeom = poigeom&#xD;
+}&#xD;
+&#xD;
+//wenn die Quellgeometrie eine Linie ist, werden Standardwerte für die Breite des Objektes verwendet&#xD;
+else if (lingeom){&#xD;
+	targeom = _.geom.buffer(geometry: lingeom, distance: 0.5)&#xD;
+}&#xD;
 &#xD;
 if(!targeom){&#xD;
 	_log.error("Dieses Objekt hat keine Geometrie: " + _source.p.id.value())&#xD;
