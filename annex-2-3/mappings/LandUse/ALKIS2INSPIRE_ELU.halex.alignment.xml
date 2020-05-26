@@ -3337,16 +3337,6 @@ else {&#xD;
 Der nilReason wird abhängig von der Angabe in der Projektvariablen gefüllt.  Eingabe von "other:unpopulated" für alle ATKIS-Datensätze und solche ALKIS-Datensätze, in denen datumDerLetztenUeberpruefung nie gefüllt ist, Eingabe von "unknown" für ALKIS-Datensätze, in denen es manchmal gefüllt ist.&#xD;
 Liegt ein Wert für datumDerLetztenUeberpruefung vor, wird dieser in observationDate geschrieben.</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ccf199819-cd03-42f1-87c7-4e2e80295313" priority="normal">
-        <target>
-            <property>
-                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="observationDate" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unknown" name="value"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cbb066412-8da9-4c8c-bb51-dec8a26af4f2" priority="normal">
         <target>
             <property>
