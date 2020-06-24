@@ -185,7 +185,7 @@ if (_source.p.bodenzahlOderGruenlandgrundzahl.value() || _source.links.AX_Tagesa
 				href( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_GrablochDerBodenschaetzung' )&#xD;
 			}&#xD;
 			id( 'OM_Observation_' +  _source.p.id.value() )&#xD;
-			c.GLobs &lt;&lt; '#' + _id&#xD;
+			c.GLobs &lt;&lt; '#OM_Observation' +  _source.p.id.value()&#xD;
 			parameter {&#xD;
 				NamedValue {&#xD;
 					name {&#xD;
@@ -211,7 +211,7 @@ if (_source.p.bodenzahlOderGruenlandgrundzahl.value() || _source.links.AX_Tagesa
 				href( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_Tagesabschnitt' )&#xD;
 			}&#xD;
 			id ('OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
-			c.GLobs &lt;&lt; '#' + _id&#xD;
+			c.GLobs &lt;&lt; '#OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value()&#xD;
 			parameter {&#xD;
 				NamedValue {&#xD;
 					name {&#xD;
@@ -249,7 +249,7 @@ if (_source.p.bodenzahlOderGruenlandgrundzahl.value() &amp;&amp; _source.links.A
 			href( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_GrablochDerBodenschaetzung' )&#xD;
 		}&#xD;
 		id( 'OM_Observation_' +  _source.p.id.value() )&#xD;
-		c.GLobs &lt;&lt; '#' + _id&#xD;
+		c.GLobs &lt;&lt; '#OM_Observation_' +  _source.p.id.value()&#xD;
 		parameter {&#xD;
 			NamedValue {&#xD;
 				name {&#xD;
@@ -283,7 +283,7 @@ if (_source.p.bodenzahlOderGruenlandgrundzahl.value() &amp;&amp; _source.links.A
 			href ( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'http://www.adv-online.de/AAA-Modell/Dokumente-der-GeoInfoDok/GeoInfoDok-6.0/AX_Tagesabschnitt' )&#xD;
 		}&#xD;
 		id ('OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
-		c.GLobs &lt;&lt; '#' + _id&#xD;
+		c.GLobs &lt;&lt; '#OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value()&#xD;
 		parameter {&#xD;
 			NamedValue {&#xD;
 				name {&#xD;
