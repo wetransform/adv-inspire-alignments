@@ -141,6 +141,7 @@
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//identifiziert alle Quellobjekte vom Typ AX_Gebäude, deren BoundingBox nicht mit der BoundingBox der untersuchten Geometrie disjunkt ist&#xD;
 def candidates = _.geom.spatialIndexQuery(geometry: _source.p.position.first(), types: 'AX_Gebaeude')&#xD;
 if (!candidates){&#xD;
 	_log.warn("keine Kandidaten")&#xD;
