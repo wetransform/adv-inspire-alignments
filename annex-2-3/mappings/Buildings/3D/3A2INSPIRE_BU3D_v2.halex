@@ -7,9 +7,9 @@
     CURRENTUSE: URL mit den von Herrn Fuchs und Herrn Schlegel entwickelten Erweiterungen der INSPIRE Codeliste, sobald diese veröffentlicht wurden&#xD;
     INSPIRE_NAMESPACE: gewünschten Namespace eingeben&#xD;
 &#xD;
-Derzeit unterstützt hale studio keine Transformation aus einem zusammengesetzten (Lage- + Höhensystem) AdV-Koordinatensystem, da das hier eingesetzte Geotools keine Konvertierungsregeln in eines der seitens INSPIRE zulässigen 3D-Koordinatensysteme bereitstellt. Es liegt mit https://github.com/halestudio/hale/issues/628 ein Ticket vor, um das langfristig zu ermöglichen. Bis zu dessen Bearbeitung wird empfohlen, die Quelldaten vor der Transformation mit hale studio in ein seitens INSPIRE zulässiges 3D-CRS zu konvertieren.</description>
+Derzeit unterstützt hale studio keine Transformation aus einem zusammengesetzten (Lage- + Höhensystem) AdV-Koordinatensystem, da das hier eingesetzte Geotools keine Konvertierungsregeln in eines der seitens INSPIRE zulässigen 3D-Koordinatensysteme bereitstellt. Es liegt mit https://github.com/halestudio/hale/issues/628 ein Ticket vor, um das langfristig zu ermöglichen. Bis zu dessen Bearbeitung wird empfohlen, die Quelldaten vor der Transformation mit hale studio in ein seitens INSPIRE zulässiges 3D-CRS (EPSG:4936, EPSG:4937) bzw. zusammengesetztes CRS (EPSG:7409) zu konvertieren.</description>
     <created>2018-02-22T15:22:03.579+01:00</created>
-    <modified>2020-06-17T14:28:10.414+02:00</modified>
+    <modified>2020-08-21T08:12:10.953+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
