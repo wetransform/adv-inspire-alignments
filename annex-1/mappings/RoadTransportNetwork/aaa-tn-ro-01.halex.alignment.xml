@@ -2715,6 +2715,108 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cab1f0844-ca2a-404f-818b-c72553e7a069" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="ECQL">funktion = 1200</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect&#xD;
+withTransformationContext {&#xD;
+	collect = _.context.collector(it)&#xD;
+}&#xD;
+&#xD;
+def _id = 'RoadServiceArea_' + _source.p.id.value()&#xD;
+&#xD;
+_target {&#xD;
+}&#xD;
+// bestimme ConditionOfFacility&#xD;
+def conditionOfFacility = 'functional'&#xD;
+switch (_source.p.zustand.value()) {&#xD;
+case '2100': // Außer Betrieb, stillgelegt, verlassen&#xD;
+	conditionOfFacility = 'disused'&#xD;
+	break&#xD;
+}&#xD;
+&#xD;
+/*&#xD;
+ * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition&#xD;
+ */&#xD;
+def untenRefs = _source.p.hatDirektUnten.href.values()&#xD;
+def verticalPositions = untenRefs.findResults { identifier -&gt;&#xD;
+	def bwf = collect.bauwerksfunktion[identifier].value()&#xD;
+	if (bwf) {&#xD;
+		switch (bwf) {&#xD;
+		// AX_BauwerkImVerkehrsbereich&#xD;
+		case '1800': // Brücke&#xD;
+		case '1801': // Mehrstöckige Brücke&#xD;
+		case '1802': // Bogenbrücke&#xD;
+		case '1803': // Fachwerkbrücke&#xD;
+		case '1804': // Hängebrücke&#xD;
+		case '1805': // Pontonbrücke&#xD;
+		case '1806': // Drehbrücke&#xD;
+		case '1807': // Hebebrücke&#xD;
+		case '1808': // Zugbrücke&#xD;
+		case '1820': // Steg&#xD;
+		case '1830': // Hochbahn, Hochstraße&#xD;
+		case '1890': // Schleusenkammer&#xD;
+		// AX_BauwerkImGewaesserbereich&#xD;
+		case '2030': // Staumauer&#xD;
+		case '2040': // Staudamm&#xD;
+		case '2050': // Wehr&#xD;
+		case '2060': // Sicherheitstor&#xD;
+		case '2080': // Sperrwerk&#xD;
+			return 'suspendedOrElevated'&#xD;
+		// AX_BauwerkImVerkehrsbereich&#xD;
+		case '1870': // Tunnel, Unterführung&#xD;
+		// AX_BauwerkImGewaesserbereich&#xD;
+		case '2010': // Durchlass&#xD;
+		case '2011': // Rohrdurchlass&#xD;
+		case '2012': // Düker&#xD;
+		case '2070': // Siel&#xD;
+		case '2090': // Schöpfwerk&#xD;
+			return 'underground'&#xD;
+		}&#xD;
+	}&#xD;
+	else {&#xD;
+		null&#xD;
+	}&#xD;
+} as Set&#xD;
+&#xD;
+def verticalPosition&#xD;
+if (!verticalPositions) {&#xD;
+	verticalPosition = 'onGroundSurface'&#xD;
+}&#xD;
+else {&#xD;
+	verticalPosition = verticalPositions.iterator().next()&#xD;
+	if (verticalPositions.size() &gt; 1) {&#xD;
+		_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)&#xD;
+	}&#xD;
+}&#xD;
+&#xD;
+// Sammle ID für Netzwerk&#xD;
+collect.network &lt;&lt; _id&#xD;
+&#xD;
+// Sammle ID für RoadServiceType&#xD;
+collect.roadServiceTypeParking &lt;&lt; _id&#xD;
+&#xD;
+&#xD;
+// Sammle ID für ConditionOfFacility&#xD;
+collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id&#xD;
+&#xD;
+// Sammle ID für VerticalPosition&#xD;
+collect.verticalPosition[verticalPosition] &lt;&lt; _id
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2676fc94-d50d-4c45-b5b1-e4301a9cfe4a" priority="normal">
         <source>
             <class>
@@ -3035,6 +3137,23 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C29af463b-32e7-4faf-9c91-7d222cbc6030" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="ECQL">funktion = 1200</condition>
+                </type>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C99266668-af5a-41d1-8c0f-761ef6877469" priority="normal">
         <source name="lagebezeichnung">
             <property>
@@ -3048,6 +3167,22 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
                 <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
                 <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.geometry.simplefeature" id="C073255ea-ac1a-4066-965a-7aa87cc9babc" priority="normal">
+        <source name="geometrie">
+            <property>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="ECQL">funktion = 1200</condition>
+                </type>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
             </property>
         </target>
     </cell>
@@ -3145,7 +3280,57 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.merge" id="C7167685d-1927-4e65-82f3-b01258f955b4" priority="normal">
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Ca30ad72d-b136-4147-b4a6-21e3a41ac5fd" priority="lower">
+        <target>
+            <class>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect&#xD;
+withTransformationContext {&#xD;
+	collect = _.context.collector(it)&#xD;
+}&#xD;
+&#xD;
+//collect.roadServiceType &lt;&lt; _source.p.funktion.value()&#xD;
+&#xD;
+if (!collect.roadServiceType.values().contains('5310')){&#xD;
+	_target {&#xD;
+		beginLifespanVersion( ) {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		id( 'RoadServiceType_parking' )&#xD;
+		validFrom( ) {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		collect.roadServiceTypeParking.each { flaeche -&gt;&#xD;
+			networkRef {&#xD;
+				NetworkReference{&#xD;
+					element {&#xD;
+						href('#' + flaeche)&#xD;
+					}&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+		identifier( _project.vars.INSPIRE_NAMESPACE + 'RoadServiceType_parking' ) {&#xD;
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+		}&#xD;
+		inspireId {&#xD;
+			Identifier {&#xD;
+				namespace( _project.vars.INSPIRE_NAMESPACE )&#xD;
+				localId( 'RoadServiceType_parking' )&#xD;
+			}&#xD;
+		}&#xD;
+		type {&#xD;
+			href( 'http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/parking' )&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.merge" id="C7167685d-1927-4e65-82f3-b01258f955b4" priority="low">
         <source>
             <class>
                 <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
@@ -3160,6 +3345,18 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <parameter value="false" name="auto_detect"/>
         <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}funktion" name="property"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect&#xD;
+withTransformationContext {&#xD;
+	collect = _.context.collector(it)&#xD;
+}&#xD;
+&#xD;
+collect.roadServiceType &lt;&lt; _source.p.funktion.value()&#xD;
+&#xD;
+_target{}
+</core:text>
+        </complexParameter>
         <documentation>`AX_Platz` mit gleicher `funktion` werden zusammengefasst um den `RoadServiceType` für die entsprechenden `RoadServiceArea`s zu bilden.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cccc9812b-cbe4-47a6-ab03-5e4e8e237b2f" priority="normal">
@@ -3280,6 +3477,22 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue/picnicArea" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C16d977ed-3a0e-450d-9304-e5b9ab61d589" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C06c4fa21-f02d-428e-9a48-6de08e035852" priority="normal">
         <source name="var">
             <property>
@@ -3347,6 +3560,81 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
             </property>
         </target>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb23dec73-0344-4ce3-8680-f66ef3dd2625" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C5751a76b-1feb-4a49-9cd3-1eec3fe57799" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="ECQL">value = '5310'</condition>
+                </child>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="networkRef" ns="http://inspire.ec.europa.eu/schemas/net/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if(!funktion){&#xD;
+	throw new NoResultException()&#xD;
+}&#xD;
+&#xD;
+def collect&#xD;
+withTransformationContext {&#xD;
+	collect = _.context.collector(it)&#xD;
+}&#xD;
+&#xD;
+//_ids = ['RoadArea_1', 'RoadArea_2']&#xD;
+&#xD;
+collect.roadServiceTypeParking.each { flaeche -&gt;&#xD;
+//_ids.each { flaeche -&gt;&#xD;
+_log.info('Schleife läuft für ' + flaeche)&#xD;
+	_target {&#xD;
+		NetworkReference {&#xD;
+			//NetworkReference{	&#xD;
+				element {&#xD;
+					href ('#' + flaeche)&#xD;
+					_log.info('href erzeugt für ' + flaeche)&#xD;
+				}&#xD;
+			//}&#xD;
+		}&#xD;
+	}&#xD;
+}&#xD;
+&#xD;
+/*_target {&#xD;
+		NetworkReference {&#xD;
+			//NetworkReference{	&#xD;
+				element {&#xD;
+					href ('#id')&#xD;
+				}&#xD;
+			//}&#xD;
+		}&#xD;
+	}*/
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C52ac1d6a-4b79-4afa-988a-ff6f351d3c52" priority="normal">
         <source name="var">
             <property>
@@ -3397,6 +3685,22 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C76b7838c-63ba-405d-b3d8-4e82221002a8" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C58fab7dc-5037-41c6-97cd-b69550c0ec51" priority="low">
         <target>
@@ -4156,6 +4460,10 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
         <disable-for parent="C2581bae5-bd09-416c-948e-bcb8b5835ca3"/>
         <disable-for parent="C2827fa08-a3dd-4539-83de-413c6b922f47"/>
     </modifier>
+    <modifier cell="C926d15b8-a481-4947-a796-ae74e3d6e3d7">
+        <disable-for parent="Ca30ad72d-b136-4147-b4a6-21e3a41ac5fd"/>
+        <disable-for parent="C7167685d-1927-4e65-82f3-b01258f955b4"/>
+    </modifier>
     <modifier cell="Ca75e7935-ff63-4356-909a-b59d866bc062">
         <disable-for parent="C3296f18d-e980-40cf-a9f3-9e5187ecf16a"/>
         <disable-for parent="Cc8dfcac2-f330-4946-b4d6-8e1a87136c04"/>
@@ -4166,5 +4474,13 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     </modifier>
     <modifier cell="ba2:C03716a0b-a2f7-4f4b-8d93-13d186c7af73">
         <disable-for parent="Cb090758a-65b1-49f7-a92e-42ef7d8afb04"/>
+    </modifier>
+    <modifier cell="ba2:C6563043b-57b7-4264-b3ff-6264b547216f">
+        <disable-for parent="Ca30ad72d-b136-4147-b4a6-21e3a41ac5fd"/>
+        <disable-for parent="C7167685d-1927-4e65-82f3-b01258f955b4"/>
+    </modifier>
+    <modifier cell="ba2:C9fbdcf9a-e35a-4f33-b915-77155350de27">
+        <disable-for parent="Ca30ad72d-b136-4147-b4a6-21e3a41ac5fd"/>
+        <disable-for parent="C7167685d-1927-4e65-82f3-b01258f955b4"/>
     </modifier>
 </alignment>
