@@ -9,7 +9,7 @@
 &#xD;
 Derzeit unterstützt hale studio keine Transformation aus einem zusammengesetzten (Lage- + Höhensystem) AdV-Koordinatensystem, da das hier eingesetzte Geotools keine Konvertierungsregeln in eines der seitens INSPIRE zulässigen 3D-Koordinatensysteme bereitstellt. Es liegt mit https://github.com/halestudio/hale/issues/628 ein Ticket vor, um das langfristig zu ermöglichen. Bis zu dessen Bearbeitung wird empfohlen, die Quelldaten vor der Transformation mit hale studio in ein seitens INSPIRE zulässiges 3D-CRS (EPSG:4936, EPSG:4937) bzw. zusammengesetztes CRS (EPSG:7409) zu konvertieren.</description>
     <created>2018-02-22T15:22:03.579+01:00</created>
-    <modified>2020-08-21T08:12:10.953+02:00</modified>
+    <modified>2020-09-15T11:38:45.453+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1840,13 +1840,13 @@ Derzeit unterstützt hale studio keine Transformation aus einem zusammengesetzte
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="BUILDINGNATURE">
-                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
+                <core:value value="https://registry.gdi-de.org/codelist/de.adv-online.inspire/BuildingNatureValue/"/>
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">
                 <core:value value="https://registry.gdi-de.org/id/de.____/"/>
             </core:property>
             <core:property name="CURRENTUSE">
-                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
+                <core:value value="https://registry.gdi-de.org/codelist/de.adv-online.inspire/CurrentUseValue/"/>
             </core:property>
         </core:properties>
     </complex-property>

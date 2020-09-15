@@ -9,7 +9,7 @@
     HORIZONTALGEOMETRYREFERENCEVALUE_BEFLIEGUNGSGEBAEUDE: default ist "footprint", falls anderer Wert aus der Codeliste (http://inspire.ec.europa.eu/codelist/HorizontalGeometryReferenceValue) erwünscht --&gt; angeben&#xD;
     INSPIRE_NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2018-04-10T10:51:13.547+02:00</created>
-    <modified>2020-02-28T08:37:16.809+01:00</modified>
+    <modified>2020-09-15T11:37:36.107+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -296,31 +296,10 @@
     <file name="styles.sld" location="3A2INSPIRE_BU2D.halex.styles.sld"/>
     <complex-property name="codelists">
         <associations>
-            <codeList identifier="//inspire.ec.europa.eu/codelist/CurrentUseValue" namespace="http://inspire.ec.europa.eu/codelist/CurrentUseValue">
-                <entity>
-                    <type name="BuildingType" namespace="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
-                    <property name="currentUse" namespace="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
-                    <property name="CurrentUse" namespace="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
-                    <property name="currentUse" namespace="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
-                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
-                </entity>
-            </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/ConditionOfConstructionValue" namespace="http://inspire.ec.europa.eu/codelist/ConditionOfConstructionValue">
                 <entity>
                     <type name="BuildingType" namespace="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
                     <property name="conditionOfConstruction" namespace="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
-                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
-                </entity>
-            </codeList>
-            <codeList identifier="//inspire.ec.europa.eu/codelist/BuildingNatureValue" namespace="http://inspire.ec.europa.eu/codelist/BuildingNatureValue">
-                <entity>
-                    <type name="BuildingType" namespace="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
-                    <property name="buildingNature" namespace="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
-                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
-                </entity>
-                <entity>
-                    <type name="BuildingPartType" namespace="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
-                    <property name="buildingNature" namespace="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>
@@ -1682,13 +1661,13 @@
                 <core:value value="footPrint"/>
             </core:property>
             <core:property name="BUILDINGNATURE">
-                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
+                <core:value value="https://registry.gdi-de.org/codelist/de.adv-online.inspire/BuildingNatureValue/"/>
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">
                 <core:value value="https://registry.gdi-de.org/id/de.____/"/>
             </core:property>
             <core:property name="CURRENTUSE">
-                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
+                <core:value value="https://registry.gdi-de.org/codelist/de.adv-online.inspire/CurrentUseValue/"/>
             </core:property>
             <core:property name="HORIZONTALGEOMETRYREFERENCEVALUE_BEFLIEGUNGSGEBAEUDE">
                 <core:value value="footPrint"/>
