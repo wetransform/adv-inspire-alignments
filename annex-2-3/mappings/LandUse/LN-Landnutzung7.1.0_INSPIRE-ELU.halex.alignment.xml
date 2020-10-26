@@ -1,0 +1,2071 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+    <base prefix="ba1" location="file:/C:/Users/Johanna/git/adv-inspire-alignments/annex-1/mappings/base-functions.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.hale.align.create" id="C08c1e94f-3a0f-498a-88ae-e45d20b1c51c" priority="lowest">
+        <target>
+            <class>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="1" name="number"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C514062d5-aac2-43f2-9e2f-ec5bb9366e56" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C35de407e-5901-49af-998e-573a4a8fff35" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:DATASET}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf98b4258-90f4-4887-9944-d4458dba6922" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}{{project:DATASET}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C82c1cafa-8b2d-4238-a8c0-e53f4efc2a19" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C16b20297-6951-4ff8-8a89-4830a1dabba4" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:DATASET}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd10215b0-e8fe-4021-af30-94580f207655" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.collector.assign" id="C0945c61d-e47c-4aaf-bb37-fe65edb89ee9" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="member" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </property>
+        </target>
+        <parameter value="landUseObjects" name="collector"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cec7a43cc-e97f-498d-9788-de255f5d7087" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </property>
+        </target>
+        <parameter value="{{project:DATASET}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb638f21b-1a53-4fc1-b86d-facda86415bf" priority="normal">
+        <source>
+            <class>
+                <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cc87e423a-97bd-4a0c-8912-7e276c63c790" priority="normal">
+        <source>
+            <class>
+                <type name="LN_AquakulturUndFischereiwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C7f0e9715-e83e-41bb-b611-524d488dbc74" priority="normal">
+        <source>
+            <class>
+                <type name="LN_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cdc093a53-115e-42b8-8c75-f7d4a7eb64ee" priority="normal">
+        <source>
+            <class>
+                <type name="LN_BestattungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C84e30da9-62b5-438b-87cc-f05242f60845" priority="normal">
+        <source>
+            <class>
+                <type name="LN_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C94146850-27e1-4122-a80c-0cfcb3fc9a64" priority="normal">
+        <source>
+            <class>
+                <type name="LN_ForstwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C989c991b-e49c-482e-90a4-7aa32d8abae2" priority="normal">
+        <source>
+            <class>
+                <type name="LN_FreiluftUndNaherholungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cf47cc53c-1b54-474d-85a7-b09bafc44596" priority="normal">
+        <source>
+            <class>
+                <type name="LN_FreizeitanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C16d116ff-414a-4b49-bf30-228b35261db0" priority="normal">
+        <source>
+            <class>
+                <type name="LN_GewerblicheDienstleistungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C024fe812-2a68-455e-ba08-65d67e54b24f" priority="normal">
+        <source>
+            <class>
+                <type name="LN_IndustrieUndVerarbeitendesGewerbeType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cf7b1fff8-c11c-4dba-a6c2-646665cea7ad" priority="normal">
+        <source>
+            <class>
+                <type name="LN_KulturUndUnterhaltungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C6e1582a9-f404-4e1c-b502-fa721187d8fc" priority="normal">
+        <source>
+            <class>
+                <type name="LN_LagerungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C9213f4e1-759c-450e-9458-a7fef078c736" priority="normal">
+        <source>
+            <class>
+                <type name="LN_LandwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C9367527d-dbdf-4a44-ac11-c551adcdda71" priority="normal">
+        <source>
+            <class>
+                <type name="LN_OeffentlicheEinrichtungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C4f06c9fb-4de0-43a1-8ed9-f351a889a529" priority="normal">
+        <source>
+            <class>
+                <type name="LN_OhneNutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cbb0cb5e2-8a2a-46c9-84f7-b51e2127ea66" priority="normal">
+        <source>
+            <class>
+                <type name="LN_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cc432605f-0572-4bbb-b544-8f65584f8038" priority="normal">
+        <source>
+            <class>
+                <type name="LN_SchutzanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce8fee0a1-5285-47cd-b126-13b8c8ec72cd" priority="normal">
+        <source>
+            <class>
+                <type name="LN_SportanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C87974810-7708-4f13-ae33-6351257ac898" priority="normal">
+        <source>
+            <class>
+                <type name="LN_StrassenUndWegeverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C295fbe88-c7cd-4798-8b64-a6bb78f2377c" priority="normal">
+        <source>
+            <class>
+                <type name="LN_VersorgungUndEntsorgungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C6cfb139c-5121-47aa-a826-66a0625e4f10" priority="normal">
+        <source>
+            <class>
+                <type name="LN_WasserwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C63844ce4-9d15-4b6e-ab75-461d5d3ad3c6" priority="normal">
+        <source>
+            <class>
+                <type name="LN_WohnnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce54be925-53a8-4798-970c-885feec5d244" priority="normal">
+        <source>
+            <property>
+                <type name="LN_LandnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C928afd52-48b5-4957-9fa5-c23d6965a2fc" priority="normal">
+        <source>
+            <property>
+                <type name="LN_LandnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C9f4071dc-d978-4f08-95fd-d96ceb9145ac" priority="normal">
+        <source>
+            <property>
+                <type name="LN_LandnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C5556b28c-6231-474c-9bf5-e661c9d19ca7" priority="higher">
+        <source>
+            <property>
+                <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="abbaugut" ns="http://www.adv-online.de/namespaces/adv/ln/1.0">
+                    <condition lang="ECQL">parent.art = 3110</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C8c29c9a2-a97f-416c-98eb-a8f1e00795d1" priority="higher">
+        <source>
+            <property>
+                <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="abbaugut" ns="http://www.adv-online.de/namespaces/adv/ln/1.0">
+                    <condition lang="ECQL">parent.art = 3320</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C18c178fb-fded-4d64-978f-fb4eb3f856c5" priority="high">
+        <source>
+            <property>
+                <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="3200"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
+                </entry>
+                <entry>
+                    <key value="3120"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="3110"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Ce0bced1c-4283-4aa7-8562-ad4ffb857085" priority="higher">
+        <source>
+            <property>
+                <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="foerdergut" ns="http://www.adv-online.de/namespaces/adv/ln/1.0">
+                    <condition lang="ECQL">parent.art = 3200</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_4_RenewableEnergyProduction"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cb2b8f3e6-2826-4279-a209-e91b075d3a30" priority="highest">
+        <source>
+            <property>
+                <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C8ede587d-5d20-4d8c-af9b-e56a7534c7ac" priority="high">
+        <source>
+            <property>
+                <type name="LN_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="5210"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_2_RailwayTransport"/>
+                </entry>
+                <entry>
+                    <key value="5212"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_2_RailwayTransport"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C76dd2389-fa4c-43df-8378-a7d02b173118" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_2_RailwayTransport" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cc0b841c1-6e35-4904-93aa-57a12531de88" priority="highest">
+        <source>
+            <property>
+                <type name="LN_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C2702ea0c-82a2-4956-8d30-1be2835ff694" priority="high">
+        <source>
+            <property>
+                <type name="LN_BestattungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="artDerBestattungsflaeche" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_4_ReligiousServices"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_4_ReligiousServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb3016dc8-02a7-4546-b5c3-8cbedfd7cf8f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_BestattungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_4_ReligiousServices" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Ca5925186-167d-4552-aacf-8551c5bc2b8e" priority="high">
+        <source>
+            <property>
+                <type name="LN_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="5310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_3_AirTransport"/>
+                </entry>
+                <entry>
+                    <key value="5320"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_3_AirTransport"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6c0de525-bff0-4a72-98e8-04c00b95ff37" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_3_AirTransport" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C78ad4651-7dfc-42e7-af78-4dc5938e36eb" priority="highest">
+        <source>
+            <property>
+                <type name="LN_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Caf22f8ee-0fcf-4fd2-92c9-44526bec210e" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_ForstwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_2_Forestry" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C1dd98d64-69ed-452d-9ef8-88851f8a874f" priority="high">
+        <source>
+            <property>
+                <type name="LN_FreiluftUndNaherholungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="4400"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+                <entry>
+                    <key value="4410"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+                <entry>
+                    <key value="4420"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+                <entry>
+                    <key value="4430"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
+                </entry>
+                <entry>
+                    <key value="4440"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+                <entry>
+                    <key value="4450"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+                <entry>
+                    <key value="4470"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1e23f065-4f42-473b-b3a1-c0490dc437aa" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_FreiluftUndNaherholungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_CulturalEntertainmentAndRecreationalServices" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C9b14e838-e203-4abd-bff3-540024bcf0ed" priority="high">
+        <source>
+            <property>
+                <type name="LN_FreizeitanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="4210"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
+                </entry>
+                <entry>
+                    <key value="4220"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
+                </entry>
+                <entry>
+                    <key value="4230"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
+                </entry>
+                <entry>
+                    <key value="4240"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
+                </entry>
+                <entry>
+                    <key value="4250"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
+                </entry>
+                <entry>
+                    <key value="4260"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
+                </entry>
+                <entry>
+                    <key value="4270"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure"/>
+                </entry>
+                <entry>
+                    <key value="4320"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure"/>
+                </entry>
+                <entry>
+                    <key value="4330"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
+                </entry>
+                <entry>
+                    <key value="4310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2cbe4835-0d32-42e6-883a-6f3da0e97144" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_FreizeitanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C85fb0537-843c-4dd6-8bd6-412971d0e95d" priority="high">
+        <source>
+            <property>
+                <type name="LN_GewerblicheDienstleistungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1520"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_1_FinancialAndInsuranceServices"/>
+                </entry>
+                <entry>
+                    <key value="1530"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
+                </entry>
+                <entry>
+                    <key value="1540"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_5_OtherFinancialProfessionalAndInformationServices"/>
+                </entry>
+                <entry>
+                    <key value="1570"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
+                </entry>
+                <entry>
+                    <key value="1560"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
+                </entry>
+                <entry>
+                    <key value="1550"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
+                </entry>
+                <entry>
+                    <key value="1310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_SecondaryProduction"/>
+                </entry>
+                <entry>
+                    <key value="1330"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_1_PublicAdministrationDefenceAndSocialSecurityServices"/>
+                </entry>
+                <entry>
+                    <key value="1320"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
+                </entry>
+                <entry>
+                    <key value="1410"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_2_ProfessionalTechnicalAndScientificServices"/>
+                </entry>
+                <entry>
+                    <key value="1600"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_2_EducationalServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf8da602c-2a7d-451f-81e0-d27536d4fd3c" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_GewerblicheDienstleistungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_TertiaryProduction" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C45808cb6-3fae-4bfc-941e-4dc151c05933" priority="highest">
+        <source>
+            <property>
+                <type name="LN_GewerblicheDienstleistungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C642768df-a4e3-4a1c-991f-1cfa5f6962d6" priority="high">
+        <source>
+            <property>
+                <type name="LN_IndustrieUndVerarbeitendesGewerbeType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1811"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_2_2_ManufacturingOfVehiclesAndTransportEquipment"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2e854d58-1f4a-4501-8716-008bf7413a60" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_IndustrieUndVerarbeitendesGewerbeType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_SecondaryProduction" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C68925089-2278-475e-8ace-ead3319e16fe" priority="highest">
+        <source>
+            <property>
+                <type name="LN_IndustrieUndVerarbeitendesGewerbeType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C5894062c-e3f0-4931-8800-7a76a5605b00" priority="high">
+        <source>
+            <property>
+                <type name="LN_KulturUndUnterhaltungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1210"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C177d9358-5949-4675-a704-03dd3a3e3846" priority="highest">
+        <source>
+            <property>
+                <type name="LN_KulturUndUnterhaltungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C4088cb1c-012f-460e-9507-12c6c96f57c6" priority="high">
+        <source>
+            <property>
+                <type name="LN_LagerungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="8100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_3_WasteTreatment"/>
+                </entry>
+                <entry>
+                    <key value="8200"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca2cc78d8-db92-4c1b-af75-1ad4f77b354f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_LagerungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C26832c90-b427-4f3d-89ae-d7fee2745920" priority="higher">
+        <source>
+            <property>
+                <type name="LN_LagerungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="lagergut" ns="http://www.adv-online.de/namespaces/adv/ln/1.0">
+                    <condition lang="ECQL">parent.funktion = 8300</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="5000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_3_WasteTreatment"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_3_WasteTreatment"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="fixed:http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C797b24c9-39a2-4265-a081-848a5878dabe" priority="highest">
+        <source>
+            <property>
+                <type name="LN_LagerungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C3b8b75fc-0360-4daf-bbc3-857826a2eddc" priority="higher">
+        <source>
+            <property>
+                <type name="LN_LandwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="bewirtschaftung" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1300"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_2_FarmingInfrastructure"/>
+                </entry>
+                <entry>
+                    <key value="1010"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+                <entry>
+                    <key value="1011"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+                <entry>
+                    <key value="1012"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+                <entry>
+                    <key value="1013"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+                <entry>
+                    <key value="1030"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+                <entry>
+                    <key value="1040"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+                <entry>
+                    <key value="1050"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+                <entry>
+                    <key value="1070"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+                <entry>
+                    <key value="1200"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9ae73914-e590-4224-98a2-37105df82097" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_LandwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C10ad58c1-52c0-4177-bc01-3421b3b652b7" priority="higher">
+        <source>
+            <property>
+                <type name="LN_OeffentlicheEinrichtungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1110"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_1_PublicAdministrationDefenceAndSocialSecurityServices"/>
+                </entry>
+                <entry>
+                    <key value="1120"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_2_EducationalServices"/>
+                </entry>
+                <entry>
+                    <key value="1140"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_4_ReligiousServices"/>
+                </entry>
+                <entry>
+                    <key value="1150"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_3_HealthAndSocialServices"/>
+                </entry>
+                <entry>
+                    <key value="1160"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_3_HealthAndSocialServices"/>
+                </entry>
+                <entry>
+                    <key value="1170"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_1_PublicAdministrationDefenceAndSocialSecurityServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca54fbc68-00f8-4e6b-b454-4925e23dc448" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_OeffentlicheEinrichtungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_TertiaryProduction" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C71ce22fc-a777-40a2-91e1-f3539006b64b" priority="highest">
+        <source>
+            <property>
+                <type name="LN_OeffentlicheEinrichtungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C8eb51619-7045-4780-af70-3184e7298159" priority="high">
+        <source>
+            <property>
+                <type name="LN_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="5420"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
+                </entry>
+                <entry>
+                    <key value="5421"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
+                </entry>
+                <entry>
+                    <key value="5422"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
+                </entry>
+                <entry>
+                    <key value="5423"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
+                </entry>
+                <entry>
+                    <key value="5424"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
+                </entry>
+                <entry>
+                    <key value="5411"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8489a584-3a93-4eac-9ef2-882aeb20aaa9" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C1967f835-18b2-4ba6-91a1-86193ed2c8ce" priority="highest">
+        <source>
+            <property>
+                <type name="LN_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6bdadfb1-cf90-43f9-881c-5a593a54e87d" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_SportanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C68b8a545-4a6a-4bad-a1bd-6185e41a131b" priority="high">
+        <source>
+            <property>
+                <type name="LN_StrassenUndWegeverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="5110"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport"/>
+                </entry>
+                <entry>
+                    <key value="5112"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport"/>
+                </entry>
+                <entry>
+                    <key value="5120"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport"/>
+                </entry>
+                <entry>
+                    <key value="5140"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport"/>
+                </entry>
+                <entry>
+                    <key value="5150"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
+                </entry>
+                <entry>
+                    <key value="5160"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
+                </entry>
+                <entry>
+                    <key value="5130"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C120f5c59-23c5-48ff-9aa6-2009ab87e08c" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_StrassenUndWegeverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cc8decb2c-00a5-4fd3-b450-9557f318cc20" priority="highest">
+        <source>
+            <property>
+                <type name="LN_StrassenUndWegeverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C9e06f562-d2c3-4ac0-bcff-f575b39ce807" priority="high">
+        <source>
+            <property>
+                <type name="LN_VersorgungUndEntsorgungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2520"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure"/>
+                </entry>
+                <entry>
+                    <key value="2530"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_EnergyProduction"/>
+                </entry>
+                <entry>
+                    <key value="2540"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_1_ElectricityGasAndThermalPowerDistributionServices"/>
+                </entry>
+                <entry>
+                    <key value="2570"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_EnergyProduction"/>
+                </entry>
+                <entry>
+                    <key value="2580"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_3_InformationAndCommunicationServices"/>
+                </entry>
+                <entry>
+                    <key value="2610"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure"/>
+                </entry>
+                <entry>
+                    <key value="2620"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_3_WasteTreatment"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8c2fa042-4433-4412-b13e-a41de6439011" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_VersorgungUndEntsorgungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_Utilities" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C87714d1c-472f-40c2-8960-7fa74fa780ce" priority="higher">
+        <source>
+            <property>
+                <type name="LN_VersorgungUndEntsorgungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="primaerenergie" ns="http://www.adv-online.de/namespaces/adv/ln/1.0">
+                    <condition lang="ECQL">parent.art = 2530 or parent.art = 2570</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_1_NuclearBasedEnergyProduction"/>
+                </entry>
+                <entry>
+                    <key value="7100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_2_FossilFuelBasedEnergyProduction"/>
+                </entry>
+                <entry>
+                    <key value="7200"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_2_FossilFuelBasedEnergyProduction"/>
+                </entry>
+                <entry>
+                    <key value="7300"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_2_FossilFuelBasedEnergyProduction"/>
+                </entry>
+                <entry>
+                    <key value="7400"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_EnergyProduction"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="fixed:http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_4_RenewableEnergyProduction" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C0d904e50-0ec8-43d5-aab2-0f6cc5e531d0" priority="highest">
+        <source>
+            <property>
+                <type name="LN_VersorgungUndEntsorgungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C83c9adfc-d816-4479-9a3d-b231d58d94fb" priority="high">
+        <source>
+            <property>
+                <type name="LN_WasserwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="7100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure"/>
+                </entry>
+                <entry>
+                    <key value="7110"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cf5efe004-a4a3-4364-ad0d-8109096263ba" priority="highest">
+        <source>
+            <property>
+                <type name="LN_WasserwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C67acf75d-c253-4418-8a7c-8c6363a7c851" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_WohnnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/5_1_PermanentResidentialUse" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C97d81d41-3d94-4918-999f-a6c9d3535ada" priority="higher">
+        <source>
+            <property>
+                <type name="LN_WohnnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zeitlichkeit" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/5_2_ResidentialUseWithOtherCompatibleUses"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C006a3267-f66e-46cd-b6b8-084f63d38396" priority="highest">
+        <source>
+            <property>
+                <type name="LN_WohnnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_1_TransitionalAreas"/>
+                </entry>
+                <entry>
+                    <key value="8000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_2_AbandonedAreas"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cec76ee45-e699-4f57-8346-a1dde9eb36d0" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsPresence" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C073bd536-ae6f-4096-80e1-7a25e3be2656" priority="normal">
+        <source name="id">
+            <property>
+                <type name="LN_LandnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="landUseObjects" name="collectorName"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Ce57db2df-4dd3-4ea0-ae35-b80957e920e9" priority="normal">
+        <source name="id">
+            <property>
+                <type name="LN_LandnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C5aee3c5f-cd8c-42a7-818e-2790b5530538" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C65c0de5c-e749-44b2-8363-20d600b327be" priority="normal">
+        <source name="id">
+            <property>
+                <type name="LN_LandnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cc04746e9-d552-4c35-9dad-6ab40bc52921" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C67a259a5-e27b-45e5-a5ed-cb0a2da5014f" priority="normal">
+        <source name="var">
+            <property>
+                <type name="LN_LandnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="datumDerLetztenUeberpruefung" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="observationDate" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (!datumDerLetztenUeberpruefung) {&#xD;
+	_target {&#xD;
+		nilReason( _project.vars.VOID_REASON_OBSERVATIONDATE )&#xD;
+	}&#xD;
+}&#xD;
+&#xD;
+else {&#xD;
+	_target (datumDerLetztenUeberpruefung)&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C80bb8e47-8fd2-4bba-8d20-1c00ea2cd29d" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="specificLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C6e64b250-dccb-4f0a-b9a1-c68b45069368" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="specificPresence" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+</alignment>
