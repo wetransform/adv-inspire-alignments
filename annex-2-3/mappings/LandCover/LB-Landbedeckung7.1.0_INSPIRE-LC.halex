@@ -3,7 +3,7 @@
     <name>LB-Landbedeckung7.1.0_INSPIRE-LC</name>
     <author>Johanna Ott (wetransform)</author>
     <created>2020-10-29T16:13:28.631+01:00</created>
-    <modified>2020-10-29T16:17:09.821+01:00</modified>
+    <modified>2020-11-06T09:27:04.832+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -38,6 +38,18 @@
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/lcv/4.0}LandCoverUnitType/1">{http://inspire.ec.europa.eu/schemas/lcv/4.0}geometry</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/lcv/4.0}LandCoverUnitType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/lcv/4.0}LandCoverUnitType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}AA_ObjektType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}AA_ObjektType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}AA_ObjektType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}AA_REOType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}AA_REOType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}AA_REOType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}AG_ObjektMitGemeinsamerGeometrieType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}AG_ObjektMitGemeinsamerGeometrieType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}AG_ObjektMitGemeinsamerGeometrieType/count">2</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}TA_SurfaceComponentType/1">{http://www.adv-online.de/namespaces/adv/gid/7.1}position</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}TA_SurfaceComponentType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
+    <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/gid/7.1}TA_SurfaceComponentType/count">2</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/lb/1.0}LB_BinnengewaesserType/1">{http://www.adv-online.de/namespaces/adv/gid/7.1}position</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/lb/1.0}LB_BinnengewaesserType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/lb/1.0}LB_BinnengewaesserType/count">2</property>
@@ -68,4 +80,20 @@
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/lb/1.0}LB_TiefbauType/1">{http://www.adv-online.de/namespaces/adv/gid/7.1}position</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/lb/1.0}LB_TiefbauType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
     <property name="defaultGeometry:{http://www.adv-online.de/namespaces/adv/lb/1.0}LB_TiefbauType/count">2</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}AbstractFeatureType/count">2</property>
+    <complex-property name="variables">
+        <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="LANDCOVER_OBSERVATION_CODELIST">
+                <core:value value="https://registry.gdi-de.org/codelist/de.adv-online.inspire/LandCoverClassValue/"/>
+            </core:property>
+            <core:property name="LANDCOVER_DATASET">
+                <core:value value="LandCoverDataset"/>
+            </core:property>
+            <core:property name="INSPIRE_NAMESPACE">
+                <core:value value="www.default.de/"/>
+            </core:property>
+        </core:properties>
+    </complex-property>
 </hale-project>
