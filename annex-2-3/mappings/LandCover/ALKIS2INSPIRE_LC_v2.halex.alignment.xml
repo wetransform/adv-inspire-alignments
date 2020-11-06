@@ -76,7 +76,7 @@ return c.extent.value()
         </target>
         <parameter value="{{project:LANDCOVER_DATASET}}" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd57ad483-5b53-4a45-a1e0-b04ce2dd8d45" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cd57ad483-5b53-4a45-a1e0-b04ce2dd8d45" priority="normal">
         <target>
             <property>
                 <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
@@ -85,7 +85,6 @@ return c.extent.value()
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.collector.assign" id="C291e909f-6406-4b56-bba1-a37ccb680902" priority="normal">
         <target>
@@ -750,7 +749,7 @@ return targeom
         <parameter value="dataset" name="collectorName"/>
         <documentation>Da alle FeatureTypes, die für das Mapping verwendet werden, von AA_Objekt erben, wird das Mapping der id auf dieser Ebene durchgeführt. IDs der erzeugten LandCoverUnits werden mit Hilfe des GroovyScripts gesammelt um sie in einer niedriger priorisierten Transformation dem zugehörigen LandCoverDataset zuzuweisen</documentation>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb9458b98-5679-4c9a-81c0-d2bb1645f46f" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cb9458b98-5679-4c9a-81c0-d2bb1645f46f" priority="normal">
         <target>
             <property>
                 <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
@@ -759,7 +758,6 @@ return targeom
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
         <documentation>namespace wird aus Projektvariabler gefüllt, muss bei Ausführung der Transformation entsprechend angegeben werden</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C6f046633-a0c0-411f-8e21-48932ee09386" priority="normal">
