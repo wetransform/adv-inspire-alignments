@@ -128,6 +128,363 @@ return c.extent.value()
             </property>
         </target>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C4bbd14fb-ce72-4fe6-b705-446bf90091a1" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="nomenclatureCodeList" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C8c21572c-4098-491e-b4a0-d7a6ba261439" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="language" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="deu" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc3453039-23fc-4080-8561-d4f5bc73a045" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3c4a5cda-b6b6-4c94-ac3a-5539c6b11aeb" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nativeness" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C88d1b920-78bc-4c43-9779-5fe69cde8596" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="pronunciation" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C67c0d4db-23f7-4d31-b373-14dd1c2546ba" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="sourceOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C630655c7-5e1b-4fc4-b07d-bdc5810ab3bc" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="script" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="Latn" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cbd69fc28-08d4-4a97-9d50-31149d7d89c8" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="München" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C32cc8623-25ad-4dc9-a0b2-d9927137a999" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="locatorDesignator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="4" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C8fdf481a-b0ae-49df-bdc2-0d8b9eb645fa" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="postCode" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="D-80538" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2a93b4cf-98a3-410a-b837-5bb704e2452a" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="language" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="deu" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C90a05e4e-0eaf-4b12-9f56-964f5c92fadb" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C683b2670-4804-45ec-a795-bfe5dab62be6" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nativeness" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfb155c36-25fb-47a1-afaa-03a92e651080" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="pronunciation" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7f4ed309-9be3-4cc2-b5ca-99495edcb4f5" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="sourceOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cbfcbfd71-951d-4ac5-a8f0-28be95e0a7dd" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="script" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="Latn" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cced6ec47-e0cb-4769-8d57-2d1553f2ffe9" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="Alexandrastraße" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2225fc74-d148-47e4-b8c1-51500d43c6cc" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="website" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="http://www.adv-online.de/Startseite/" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C308cf51c-74a2-45d9-92ee-115e622b7700" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="organisationName" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="choice" ns="http://www.isotc211.org/2005/gco/CharacterString"/>
+                <child name="CharacterString" ns="http://www.isotc211.org/2005/gco"/>
+            </property>
+        </target>
+        <parameter value="Arbeitsgemeinschaft der Vermessungsverwaltungen der Länder der Bundesrepublik Deutschland (AdV)" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="C6017aba7-914c-4503-9402-53954be932ea" priority="normal">
         <source>
             <class>
@@ -393,6 +750,1568 @@ return targeom
             </property>
         </target>
         <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cab9847fb-7992-47ed-acff-8b6af247bbee" priority="high">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="fliesseigenschaft" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cae85d578-799f-4645-a066-6ddde542bfd6" priority="higher">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="fliesseigenschaft" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wasserfuehrung = 1000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---0-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---0-1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C6ff42a0e-de9d-4b6f-8c1e-7f394f1b3b1b" priority="higher">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="fliesseigenschaft" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wasserfuehrung = 2000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---0-2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---0-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cf4bc04cb-a1e6-4844-a04f-041771313bd6" priority="high">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="gewaesserart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---1"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---3"/>
+                </entry>
+                <entry>
+                    <key value="3010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---4"/>
+                </entry>
+                <entry>
+                    <key value="3020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---5"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---6"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---7"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C04c41eac-9280-480e-ba6d-964488f2003b" priority="higher">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="gewaesserart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.fliesseigenschaft = 1000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---1"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---3"/>
+                </entry>
+                <entry>
+                    <key value="3010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---4"/>
+                </entry>
+                <entry>
+                    <key value="3020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---5"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---6"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---7"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C1fc9f98b-48a4-41e5-a029-9be1c88b652e" priority="highest">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="gewaesserart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.fliesseigenschaft = 1000 and parent.wasserfuehrung = 1000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---1-1"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---2-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---3-1"/>
+                </entry>
+                <entry>
+                    <key value="3010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---4-1"/>
+                </entry>
+                <entry>
+                    <key value="3020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---5-1"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---6-1"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---7-1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cf86a525b-4bff-4e07-a65e-11df57811d76" priority="highest">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="gewaesserart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.fliesseigenschaft = 1000 and parent.wasserfuehrung = 2000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---1-2"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---2-2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---3-2"/>
+                </entry>
+                <entry>
+                    <key value="3010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---4-2"/>
+                </entry>
+                <entry>
+                    <key value="3020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---5-2"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---6-2"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--1---7-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C93a9c3b8-5a8d-40a0-a7a0-28f4f7f02e54" priority="higher">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="gewaesserart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.fliesseigenschaft = 2000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---1"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---3"/>
+                </entry>
+                <entry>
+                    <key value="3010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---4"/>
+                </entry>
+                <entry>
+                    <key value="3020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---5"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---6"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---7"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cf03ed66f-eb1b-446e-a5dd-a8e7a59d18ef" priority="highest">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="gewaesserart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.fliesseigenschaft = 2000 and parent.wasserfuehrung = 1000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---1-1"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---2-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---3-1"/>
+                </entry>
+                <entry>
+                    <key value="3010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---4-1"/>
+                </entry>
+                <entry>
+                    <key value="3020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---5-1"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---6-1"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---7-1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cda437789-d4b6-43b3-8ced-fe1746c933ce" priority="highest">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="gewaesserart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.fliesseigenschaft = 2000 and parent.wasserfuehrung = 2000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---1-2"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---2-2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---3-2"/>
+                </entry>
+                <entry>
+                    <key value="3010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---4-2"/>
+                </entry>
+                <entry>
+                    <key value="3020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---5-2"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---6-2"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--2---7-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C5f8ac639-fcd5-4e23-9333-723eda7cf92c" priority="higher">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="gewaesserart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wasserfuehrung = 1000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---1-1"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---2-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---3-1"/>
+                </entry>
+                <entry>
+                    <key value="3010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---4-1"/>
+                </entry>
+                <entry>
+                    <key value="3020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---5-1"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---6-1"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---7-1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C8029a9a7-0754-47e1-a7ec-1b8407cad072" priority="higher">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="gewaesserart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wasserfuehrung = 2000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---1-2"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---2-2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---3-2"/>
+                </entry>
+                <entry>
+                    <key value="3010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---4-2"/>
+                </entry>
+                <entry>
+                    <key value="3020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---5-2"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---6-2"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---7-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2ffbed5b-9023-45b7-b47f-51a070632d9d" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C83173775-de97-4dd1-b158-f6e37414d0b2" priority="high">
+        <source>
+            <property>
+                <type name="LB_BinnengewaesserType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="wasserfuehrung" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---0-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2--0---0-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cda6ddeda-cf45-4e56-a2dd-91cd76354c34" priority="highest">
+        <source>
+            <property>
+                <type name="LB_EisType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="eisart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-3--1"/>
+                </entry>
+                <entry>
+                    <key value="2020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-3--2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce6d6e8b4-48e9-4fec-8429-d125e445364e" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LB_EisType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-3" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca79e67a2-772d-42c8-8fdd-7fbb94a3b3ee" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LB_FestgesteinType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-1" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C26fe8644-21ce-4e14-bf5d-b4e0db3a020f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LB_HochbauUndBaulicheNebenflaecheType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C195a0bc4-3e42-4f48-8fe1-348af9fe0eed" priority="low">
+        <source name="anchor">
+            <property>
+                <type name="LB_HolzigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C1d1014e2-1eae-42d7-9bd0-d593b8e8f412" priority="normal">
+        <source>
+            <property>
+                <type name="LB_HolzigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--1"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--2"/>
+                </entry>
+                <entry>
+                    <key value="6000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--3"/>
+                </entry>
+                <entry>
+                    <key value="7000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--4"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ccf7f07d8-4f70-4108-9b2c-d8b4f724e06b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cdca849ec-6da6-4bab-bc78-c1f74bae851b" priority="high">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="salzigerStandort" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="true"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--0---0-1"/>
+                </entry>
+                <entry>
+                    <key value="false"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--0---0-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C2e1234ff-1371-40a5-b1ac-5153e02d7ef2" priority="high">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--2"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C32ab91e3-991b-49da-935d-873a851c3e83" priority="higher">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.salzigerStandort = false</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1---0-2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--2---0-2"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3---0-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cb882b98d-0034-4cb3-8c55-38d0da510ad5" priority="higher">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.salzigerStandort = true</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1---0-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--2---0-1"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3---0-1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cbb386330-06b1-4f49-9fb7-a120c1939eca" priority="higher">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wassersaettigung = 1000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1---1-0"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--2---1-0"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3---1-0"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cd870e353-fd90-4fc9-984b-331f855da5a5" priority="highest">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wassersaettigung = 1000 and parent.salzigerStandort = false</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1---1-2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--2---1-2"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3---1-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cb0e95c01-75a2-4b50-92e3-5a43b31918bf" priority="highest">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wassersaettigung = 1000 and parent.salzigerStandort = true</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1---1-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--2---1-1"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3---1-1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C0362cbc6-3463-4b6e-9161-bda4945df8de" priority="higher">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wassersaettigung = 2000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1---2-0"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--2---2-0"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3---2-0"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C694a2607-21e1-4e47-b453-00c2b4dc0894" priority="highest">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wassersaettigung = 2000 and parent.salzigerStandort = false</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1---2-2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--2---2-2"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3---2-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C36f55b6b-78d7-48b5-a83b-0e28c8ab311a" priority="highest">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="vegetationsmerkmal" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wassersaettigung = 2000 and parent.salzigerStandort = true</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1---2-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--2---2-1"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3---2-1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C88781f0b-795c-433f-ae65-75ca6023c420" priority="high">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="wassersaettigung" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--0---1-0"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--0---2-0"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C2839ca15-7de6-4ac1-b3f0-3bc6cc9f8fef" priority="higher">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="wassersaettigung" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.salzigerStandort = false</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--0---2-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--0---2-2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C86abff74-26ba-4c22-86e6-5c1ce9d7b1a9" priority="higher">
+        <source>
+            <property>
+                <type name="LB_KrautigeVegetationType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="wassersaettigung" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.salzigerStandort = true</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--0---1-1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--0---2-1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc4726050-c1f1-4ae6-9733-ee936bcc34cb" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LB_LockermaterialType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C7820c0d5-d88c-4a93-8048-0aa3daec1517" priority="higher">
+        <source>
+            <property>
+                <type name="LB_LockermaterialType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="oberflaechenmaterial" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--2"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--3"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--4"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--5"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cd7f5b3d8-5210-4765-9b10-b6227977faac" priority="highest">
+        <source>
+            <property>
+                <type name="LB_LockermaterialType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="oberflaechenmaterial" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wassersaettigung = 1000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--1---1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--2---1"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--3---1"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--4---1"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--5---1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C8fef6965-71de-4436-995a-bac7bda22de4" priority="highest">
+        <source>
+            <property>
+                <type name="LB_LockermaterialType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="oberflaechenmaterial" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.wassersaettigung = 2000</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--1---2"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--2---2"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--3---2"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--4---2"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--5---2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C97bc32d6-13e6-4eaa-ae0a-1325e8d7baa1" priority="higher">
+        <source>
+            <property>
+                <type name="LB_LockermaterialType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="wassersaettigung" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--0---1"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--0---1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8c78757c-e7da-4e2a-8f3b-3e9527a9f636" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LB_MeerType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cbef62116-9503-48d5-ac35-1e6b40ddc94b" priority="higher">
+        <source>
+            <property>
+                <type name="LB_MeerType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="meerart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--1"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--2"/>
+                </entry>
+                <entry>
+                    <key value="1030"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--3"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cbe27a727-9908-4449-9e46-a5306081d072" priority="highest">
+        <source>
+            <property>
+                <type name="LB_MeerType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="meerart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.tideeinfluss = false</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--1---2"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--2---2"/>
+                </entry>
+                <entry>
+                    <key value="1030"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--3---2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Ca392d47e-d156-4454-851e-83ee43845be0" priority="highest">
+        <source>
+            <property>
+                <type name="LB_MeerType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="meerart" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
+                    <condition lang="ECQL">parent.tideeinfluss = true</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="1010"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--1---1"/>
+                </entry>
+                <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--2---1"/>
+                </entry>
+                <entry>
+                    <key value="1030"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--3---1"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cfdd8761b-d469-4fe3-b58c-498d3bc010c0" priority="higher">
+        <source>
+            <property>
+                <type name="LB_MeerType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="tideeinfluss" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="true"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--0---1"/>
+                </entry>
+                <entry>
+                    <key value="false"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-1--0---2"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2e333280-198e-45c3-80b3-1765f0933d16" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LB_TiefbauType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb3e1d591-6efa-4bca-bdda-7265bf03e9e5" priority="normal">
         <target>
