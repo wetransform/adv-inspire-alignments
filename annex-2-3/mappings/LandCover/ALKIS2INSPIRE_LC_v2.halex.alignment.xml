@@ -732,14 +732,14 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C82fd83d1-8439-4fc2-a0d8-41661568d16b" priority="normal">
-        <source name="var">
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C82fd83d1-8439-4fc2-a0d8-41661568d16b" priority="normal">
+        <source name="id">
             <property>
                 <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
-        <target name="result">
+        <target>
             <property>
                 <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
                 <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
@@ -747,19 +747,7 @@ return targeom
                 <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <complexParameter name="script">
-            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def objid = 'LandCoverUnit_' + id&#xD;
-&#xD;
-withTransformationContext {&#xD;
-  def c = _.context.collector(it)&#xD;
-  c.dataset &lt;&lt; objid&#xD;
-}&#xD;
-&#xD;
-return objid
-</core:text>
-        </complexParameter>
-        <parameter value="false" name="variablesAsInstances"/>
+        <parameter value="dataset" name="collectorName"/>
         <documentation>Da alle FeatureTypes, die für das Mapping verwendet werden, von AA_Objekt erben, wird das Mapping der id auf dieser Ebene durchgeführt. IDs der erzeugten LandCoverUnits werden mit Hilfe des GroovyScripts gesammelt um sie in einer niedriger priorisierten Transformation dem zugehörigen LandCoverDataset zuzuweisen</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb9458b98-5679-4c9a-81c0-d2bb1645f46f" priority="normal">
