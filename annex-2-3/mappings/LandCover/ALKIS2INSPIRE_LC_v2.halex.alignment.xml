@@ -141,6 +141,126 @@ return c.extent.value()
         </target>
         <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C4c25f9b4-4e2f-49c1-a8e9-6124ae576afa" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="language" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="deu" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3d591d81-2f5f-44bd-bd0a-ba8ba26373ba" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd05c16a3-3ad7-4ad5-b762-392bd369884a" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nativeness" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7ab53b8b-e157-47c2-b292-76a8e91bf76d" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="pronunciation" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C76b79557-491a-4511-b59c-e0aba5893612" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="sourceOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2b881aa3-f9eb-4994-b9d3-0a243a18cfc4" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="adminUnit" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="script" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="Latn" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdda36893-c982-414e-aff1-679eb992a609" priority="normal">
         <target>
             <property>
@@ -162,6 +282,23 @@ return c.extent.value()
         </target>
         <parameter value="München" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd1078fb8-29c8-4ad6-827a-2e438353ce75" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="locatorDesignator" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </property>
+        </target>
+        <parameter value="4" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cde0aa33b-26c8-45c5-b63a-ac016a46dbe4" priority="normal">
         <target>
             <property>
@@ -178,6 +315,126 @@ return c.extent.value()
             </property>
         </target>
         <parameter value="D-80538" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf4b7e9be-c81b-4aaf-ba30-cd72c3b76535" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="language" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="deu" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C162b33b7-9c2a-478d-adbf-fabb57a4d205" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc0a17225-dd35-4f9f-8189-bfa18cdf3588" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nativeness" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce0d7534a-d6ba-44e7-a468-a0a76365ee54" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="pronunciation" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3717e816-ccce-4fd5-a0dc-aba6e7fb50e8" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="sourceOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C356b831a-07b2-4fdb-9af3-d202ffe54024" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="address" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="AddressRepresentation" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="thoroughfare" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="script" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="Latn" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C7f855b61-06a4-4756-89a8-81479fa1f04b" priority="normal">
         <target>
@@ -198,7 +455,7 @@ return c.extent.value()
                 <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="Alexandrastraße 4" name="value"/>
+        <parameter value="Alexandrastraße" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C1faf8599-415a-4728-8575-30834238e13f" priority="normal">
         <target>
