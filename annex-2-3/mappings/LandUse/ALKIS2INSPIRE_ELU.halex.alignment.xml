@@ -552,6 +552,8 @@ return c.extent.value()
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.Geometry&#xD;
+&#xD;
 def c = _.context.collector()&#xD;
 &#xD;
 def geom = _.geom.find(position.p.first())&#xD;
@@ -560,7 +562,7 @@ if (!geom) {&#xD;
   return&#xD;
 }&#xD;
 &#xD;
-withTransformationContext {&#xD;
+/*withTransformationContext {&#xD;
 	if(c.extent.value()){&#xD;
 		def ext= _.geom.union([c.extent.value(), geom])&#xD;
 		c.extent = ext&#xD;
@@ -568,8 +570,28 @@ withTransformationContext {&#xD;
 	else {&#xD;
 		c.extent = _.geom.union(geom)&#xD;
 	}&#xD;
-}&#xD;
+}*/&#xD;
 &#xD;
+&#xD;
+/*withTransformationContext {&#xD;
+	if(c.extent.value()){&#xD;
+		def ext= geom.geometry.union(c.extent.value())&#xD;
+		c.extent = ext&#xD;
+	}&#xD;
+	else {&#xD;
+		c.extent = geom.geometry.union()&#xD;
+	}&#xD;
+}*/&#xD;
+&#xD;
+withTransformationContext {&#xD;
+	if(c.extent.value()){&#xD;
+		def ext= _.geom.convexHull([c.extent.value(), geom])&#xD;
+		c.extent = ext&#xD;
+	}&#xD;
+	else {&#xD;
+		c.extent = _.geom.convexHull(geom)&#xD;
+	}&#xD;
+}&#xD;
 &#xD;
 targeom = _.geom.toSimpleGeometries(geometries:geom, collections:true)&#xD;
 return targeom
