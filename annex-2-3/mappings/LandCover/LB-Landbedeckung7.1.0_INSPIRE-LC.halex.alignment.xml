@@ -658,6 +658,8 @@ return c.extent.value()
             <property>
                 <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Surface" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
         <complexParameter name="script">
