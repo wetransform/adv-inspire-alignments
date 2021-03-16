@@ -103,6 +103,98 @@ return c.extent.value()
         </target>
         <parameter value="{{project:LANDCOVER_DATASET}}" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce5c0e071-9847-4d36-9155-4a2153e8b4c5" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="DocumentCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="date" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdbd48486-f56d-4ab9-a5d9-2ec7288946e7" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="DocumentCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="link" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="http://www.adv-online.de/GeoInfoDok/GeoInfoDok-NEU/Landbedeckung/binarywriterservlet?imgUid=76e2d078-9d3f-5711-1fea-f5203b36c4c2&amp;uBasVariant=11111111-1111-1111-1111-111111111111" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3998bcc7-18fd-45ea-ac57-64548397dc19" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="DocumentCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="Erläuterungen zum Anwendungsschema Landbedeckung (LB)" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce8aeacf7-ca24-44e9-af9a-dc005abdf2e6" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="DocumentCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="date" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2b594215-7c1d-4ee9-90fe-1d30634846b4" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="DocumentCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="link" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="http://www.adv-online.de/GeoInfoDok/GeoInfoDok-NEU/Landbedeckung/binarywriterservlet?imgUid=39e40780-c5f2-bc61-f27f-31c403b36c4c&amp;uBasVariant=11111111-1111-1111-1111-111111111111" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce42bacc3-71f9-48a6-9785-359e57512dbe" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="DocumentCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="GeoBasis-DE-Objektartenkatalog LB" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C6ecc20c1-5d96-4d77-bc0a-92a588cbde8d" priority="normal">
         <target>
             <property>
