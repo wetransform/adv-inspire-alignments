@@ -2407,18 +2407,14 @@ return targeom
         </target>
         <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C9c75ebcf-3661-4d05-9dc9-cfb474ecddaf" priority="normal">
-        <source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C9c75ebcf-3661-4d05-9dc9-cfb474ecddaf" priority="normal">
+        <source name="var">
             <property>
                 <type name="LB_LandbedeckungType" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
                 <child name="aktualitaetsstand" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
-                <child name="LB_Aktualitaetsstand_Landbedeckung" ns="http://www.adv-online.de/namespaces/adv/lb/1.0"/>
-                <child name="datumDerAktualitaet" ns="http://www.adv-online.de/namespaces/adv/lb/1.0">
-                    <condition lang="ECQL">parent.artDerAktualitaet = 1000 OR parent.artDerAktualitaet = 2000</condition>
-                </child>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
                 <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
@@ -2426,8 +2422,21 @@ return targeom
                 <child name="observationDate" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if(aktualitaetsstand.p.LB_Aktualitaetsstand_Landbedeckung.datumDerAktualitaet.value()){&#xD;
+	def datum = aktualitaetsstand.p.LB_Aktualitaetsstand_Landbedeckung.datumDerAktualitaet.value()&#xD;
+	aktualitaetsstand.p.LB_Aktualitaetsstand_Landbedeckung.datumDerAktualitaet.each {&#xD;
+		value -&gt;&#xD;
+			if(value &gt; datum){&#xD;
+				datum = value&#xD;
+			}&#xD;
+	}&#xD;
+	return datum&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="true" name="variablesAsInstances"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb3e1d591-6efa-4bca-bdda-7265bf03e9e5" priority="normal">
         <target>
