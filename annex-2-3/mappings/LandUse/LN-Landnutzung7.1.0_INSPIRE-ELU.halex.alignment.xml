@@ -58,7 +58,7 @@
         </target>
         <parameter value="{{project:DATASET}}" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd10215b0-e8fe-4021-af30-94580f207655" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cd10215b0-e8fe-4021-af30-94580f207655" priority="normal">
         <target>
             <property>
                 <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
@@ -67,7 +67,6 @@
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.collector.assign" id="C0945c61d-e47c-4aaf-bb37-fe65edb89ee9" priority="normal">
         <target>
@@ -2042,7 +2041,7 @@ if (!datumDerLetztenUeberpruefung) {&#xD;
 }&#xD;
 &#xD;
 else {&#xD;
-	_target (datumDerLetztenUeberpruefung)&#xD;
+	return datumDerLetztenUeberpruefung&#xD;
 }
 </core:text>
         </complexParameter>
