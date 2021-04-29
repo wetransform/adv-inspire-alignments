@@ -2,9 +2,21 @@
 <hale-project version="4.1.0.SNAPSHOT">
     <name>[Annex III] AdV LN 7.1.0 zu INSPIRE Existing Land Use</name>
     <author>Johanna Ott (wetransform)</author>
-    <description>Das Transformationsprojekt ist noch in Entwicklung befindlich.</description>
+    <description>Transformationsprojekt für die Transformation von Daten aus LN_Landnutzung nach INSPIRE ExistingLandUse&#xD;
+&#xD;
+Das Transformationsprojekt ist noch in Entwicklung befindlich.&#xD;
+&#xD;
+Hinweis zur Angabe einer WKT-Geometrie des Bundeslandes zur korrekten HAnhabung von ExistingLandUseDataSet.extent:&#xD;
+	Mit der Transformation wird die Datei "extentBundesland.groovy" bereitgestellt. Um den INSPIRE-Datensatz vollständig korrekt zu erzeugen, muss dort der Platzhalter [..] mit einer WKT-Geometrie Ihres Bundeslandes ersetzt werden (die Anführungszeichen nicht ersetzen). Machen Sie dort keine Angabe, wird die konvexe Hülle der Ausgangsdaten dort verwendet, was aber nicht den INSPIRE-Anforderungen entspricht.&#xD;
+&#xD;
+Hinweis zur Nutzung der Projektvariablen:&#xD;
+    VOID_REASON_OBSERVATIONDATE&#xD;
+        bei ALKIS-Datensätzen, in denen "datumDerLetztenUeberpruefung" nie gefüllt ist: Eingabe von "other:unpopulated"&#xD;
+        bei ALKIS-Datensätzen, in denen "datumDerLetztenUeberpruefung" manchmal gefüllt ist: Eingabe von "unknown"&#xD;
+    DATASET: id des ExistingLandUseDatasets --&gt; kann nach Wunsch verändert werden&#xD;
+    INSPIRE_NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2020-10-14T14:40:19.238+02:00</created>
-    <modified>2021-03-23T17:29:22.708+01:00</modified>
+    <modified>2021-04-29T08:22:33.258+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1204,7 +1216,7 @@
                 <core:value value="ExistingLandUseDataSet"/>
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">
-                <core:value value="www.default.de/"/>
+                <core:value value="https://registry.gdi-de.org/id/de.____/"/>
             </core:property>
         </core:properties>
     </complex-property>

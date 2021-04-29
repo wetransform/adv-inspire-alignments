@@ -19,6 +19,28 @@
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C60b57fbe-73db-4983-90aa-e2fdee2a28e8" priority="normal">
+        <target name="result">
+            <property>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="extent" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="MultiSurface" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (_snippets.extentBundesland()){&#xD;
+	return _snippets.extentBundesland()&#xD;
+}&#xD;
+&#xD;
+else{&#xD;
+	def c = _.context.collector()&#xD;
+	return c.extent.value()&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C35de407e-5901-49af-998e-573a4a8fff35" priority="normal">
         <target>
             <property>
@@ -430,21 +452,46 @@
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C9f4071dc-d978-4f08-95fd-d96ceb9145ac" priority="normal">
-        <source>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C9f4071dc-d978-4f08-95fd-d96ceb9145ac" priority="normal">
+        <source name="var">
             <property>
                 <type name="LN_LandnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
                 <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
-        <target>
+        <target name="result">
             <property>
                 <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
                 <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.Geometry&#xD;
+&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+def geom = _.geom.find(position.p.first())&#xD;
+if (!geom) {&#xD;
+  _log.error('No geometry found')&#xD;
+  return&#xD;
+}&#xD;
+&#xD;
+withTransformationContext {&#xD;
+	if(c.extent.value()){&#xD;
+		def ext= _.geom.convexHull([c.extent.value(), geom])&#xD;
+		c.extent = ext&#xD;
+	}&#xD;
+	else {&#xD;
+		c.extent = _.geom.convexHull(geom)&#xD;
+	}&#xD;
+}&#xD;
+&#xD;
+targeom = _.geom.toSimpleGeometries(geometries:geom, collections:true)&#xD;
+return targeom
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C5556b28c-6231-474c-9bf5-e661c9d19ca7" priority="higher">
         <source>

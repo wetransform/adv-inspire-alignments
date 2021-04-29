@@ -40,9 +40,14 @@
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def c = _.context.collector()&#xD;
+if (_snippets.extentBundesland()){&#xD;
+	return _snippets.extentBundesland()&#xD;
+}&#xD;
 &#xD;
-return c.extent.value()
+else{&#xD;
+	def c = _.context.collector()&#xD;
+	return c.extent.value()&#xD;
+}
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
