@@ -9,6 +9,27 @@
         </target>
         <parameter value="1" name="number"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C4babdf54-e515-4d75-86c6-b93956cab246" priority="normal">
+        <source>
+            <class>
+                <type name="extentBundesland"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//Dummy-Funktion, um die in der zusätzlichen Datei bereitgestellte Bundesland-Geometrie in einem Kollektor zu speichern&#xD;
+&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+c.wkt &lt;&lt; _source.p.WKT.value()
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C514062d5-aac2-43f2-9e2f-ec5bb9366e56" priority="normal">
         <target>
             <property>
@@ -29,12 +50,13 @@
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-if (_snippets.extentBundesland()){&#xD;
-	return _snippets.extentBundesland()&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+if (!(c.wkt.value().equals('MULTIPOLYGON ((()))'))){&#xD;
+	return _.geom.with(geometry: c.wkt.value(), crs:"EPSG:25832")	&#xD;
 }&#xD;
 &#xD;
 else{&#xD;
-	def c = _.context.collector()&#xD;
 	return c.extent.value()&#xD;
 }
 </core:text>

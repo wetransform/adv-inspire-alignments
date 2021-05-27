@@ -16,7 +16,7 @@ Hinweis zur Nutzung der Projektvariablen:&#xD;
     DATASET: id des ExistingLandUseDatasets --&gt; kann nach Wunsch verändert werden&#xD;
     INSPIRE_NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2020-10-14T14:40:19.238+02:00</created>
-    <modified>2021-04-29T08:22:33.258+02:00</modified>
+    <modified>2021-05-27T17:17:16.087+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -42,6 +42,52 @@ Hinweis zur Nutzung der Projektvariablen:&#xD;
         <setting name="resourceId">392b3b78-30d5-49f4-8b3d-18b7de65875b</setting>
         <setting name="source">http://inspire.ec.europa.eu/codelist/HILUCSValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">ef615db9-5b33-43f4-ae6f-4ee2d379a91d</setting>
+        <setting name="types">java.lang.String</setting>
+        <setting name="quote">"</setting>
+        <setting name="skip">True</setting>
+        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/annex-2-3/mappings/LandUse/SchemaExtentBundesland.csv</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
+        <setting name="separator">	</setting>
+        <setting name="escape">\</setting>
+        <setting name="typename">extentBundesland</setting>
+        <setting name="properties">WKT</setting>
+        <cache>
+            <hsd:schema xmlns:hsd="http://www.esdi-humboldt.eu/hale/schema" namespace="http://www.esdi-humboldt.eu/hale/csv">
+                <hsd:type-index>
+                    <hsd:entry index="0">
+                        <hsd:name>extentBundesland</hsd:name>
+                    </hsd:entry>
+                </hsd:type-index>
+                <hsd:mapping-relevant>0</hsd:mapping-relevant>
+                <hsd:types>
+                    <hsd:type index="0">
+                        <hsd:name>extentBundesland</hsd:name>
+                        <hsd:constraint type="abstract" value="false"/>
+                        <hsd:constraint type="has-value" value="false"/>
+                        <hsd:constraint type="mappable" value="true"/>
+                        <hsd:constraint type="mapping-relevant" value="true"/>
+                        <hsd:declares>
+                            <hsd:property>
+<hsd:name>WKT</hsd:name>
+<hsd:constraint type="cardinality" value="1..1"/>
+<hsd:constraint type="nillable" value="true"/>
+<hsd:propertyType>
+    <hsd:type>
+        <hsd:name>java.lang.String</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.String"/>
+        <hsd:constraint type="has-value" value="true"/>
+    </hsd:type>
+</hsd:propertyType>
+                            </hsd:property>
+                        </hsd:declares>
+                    </hsd:type>
+                </hsd:types>
+            </hsd:schema>
+        </cache>
     </resource>
     <file name="alignment.xml" location="LN-Landnutzung7.1.0_INSPIRE-ELU.halex.alignment.xml"/>
     <file name="styles.sld" location="LN-Landnutzung7.1.0_INSPIRE-ELU.halex.styles.sld"/>
