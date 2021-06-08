@@ -515,50 +515,62 @@ return targeom
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C5556b28c-6231-474c-9bf5-e661c9d19ca7" priority="higher">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C020bf0d9-37d3-4c66-afeb-1cf5c05cb824" priority="normal">
         <source>
             <property>
-                <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-                <child name="abbaugut" ns="http://www.adv-online.de/namespaces/adv/ln/1.0">
-                    <condition lang="ECQL">parent.art = 3110</condition>
-                </child>
+                <type name="LN_IndustrieUndVerarbeitendesGewerbeType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
             </property>
         </source>
         <target>
             <property>
                 <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0">
+                    <context>0</context>
+                </child>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="1000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                    <key value="1802"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_3_2_ManufacturingOfClothesAndLeather"/>
                 </entry>
                 <entry>
-                    <key value="2000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
-                </entry>
-                <entry>
-                    <key value="4000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
-                </entry>
-                <entry>
-                    <key value="5000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                    <key value="1803"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_1_3_ManufacturingOfPulpPaperAndPaperProducts"/>
                 </entry>
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C8c29c9a2-a97f-416c-98eb-a8f1e00795d1" priority="higher">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ccc8d3808-9509-42c5-88d7-899d60d2228d" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_VersorgungUndEntsorgungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.art is null AND parent.primaerenergie is null AND parent.zustand is null</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0">
+                    <context>0</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_TransportNetworksLogisticsAndUtilities" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C5556b28c-6231-474c-9bf5-e661c9d19ca7" priority="higher">
         <source>
             <property>
                 <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
                 <child name="abbaugut" ns="http://www.adv-online.de/namespaces/adv/ln/1.0">
-                    <condition lang="ECQL">parent.art = 3320</condition>
+                    <condition lang="ECQL">parent.art = 3110 or parent.art = 3120</condition>
                 </child>
             </property>
         </source>
@@ -572,6 +584,14 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
+                    <key value="5000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
+                </entry>
+                <entry>
                     <key value="1000"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
                 </entry>
@@ -580,12 +600,8 @@ return targeom
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
                 </entry>
                 <entry>
-                    <key value="4000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
-                </entry>
-                <entry>
-                    <key value="5000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                    <key value="3000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -642,28 +658,44 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="1000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
-                </entry>
-                <entry>
-                    <key value="2000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
-                </entry>
-                <entry>
-                    <key value="3000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
+                    <key value="5000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_4_RenewableEnergyProduction"/>
                 </entry>
                 <entry>
                     <key value="4000"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
                 </entry>
                 <entry>
-                    <key value="5000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_4_RenewableEnergyProduction"/>
+                    <key value="1000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="2000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying"/>
                 </entry>
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc3b11a98-3f22-41dc-adb2-01f23f70266f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="Cb2b8f3e6-2826-4279-a209-e91b075d3a30" priority="highest">
         <source>
@@ -693,11 +725,11 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C8ede587d-5d20-4d8c-af9b-e56a7534c7ac" priority="high">
-        <source>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C76491412-8934-481f-a446-541373582247" priority="normal">
+        <source name="anchor">
             <property>
-                <type name="LN_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <type name="LN_AquakulturUndFischereiwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
@@ -707,19 +739,7 @@ return targeom
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="5210"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_2_RailwayTransport"/>
-                </entry>
-                <entry>
-                    <key value="5212"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_2_RailwayTransport"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="null" name="notClassifiedAction"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_4_AquacultureAndFishing" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C76dd2389-fa4c-43df-8378-a7d02b173118" priority="normal">
         <source name="anchor">
@@ -769,38 +789,6 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C2702ea0c-82a2-4956-8d30-1be2835ff694" priority="high">
-        <source>
-            <property>
-                <type name="LN_BestattungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-                <child name="artDerBestattungsflaeche" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="1000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_4_ReligiousServices"/>
-                </entry>
-                <entry>
-                    <key value="3000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
-                </entry>
-                <entry>
-                    <key value="4000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_4_ReligiousServices"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="null" name="notClassifiedAction"/>
-    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb3016dc8-02a7-4546-b5c3-8cbedfd7cf8f" priority="normal">
         <source name="anchor">
             <property>
@@ -815,35 +803,7 @@ return targeom
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_4_ReligiousServices" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="Ca5925186-167d-4552-aacf-8551c5bc2b8e" priority="high">
-        <source>
-            <property>
-                <type name="LN_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="5310"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_3_AirTransport"/>
-                </entry>
-                <entry>
-                    <key value="5320"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_3_AirTransport"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="null" name="notClassifiedAction"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_5_OtherCommunityServices" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6c0de525-bff0-4a72-98e8-04c00b95ff37" priority="normal">
         <source name="anchor">
@@ -926,23 +886,7 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="4400"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
-                </entry>
-                <entry>
-                    <key value="4410"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
-                </entry>
-                <entry>
-                    <key value="4420"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
-                </entry>
-                <entry>
-                    <key value="4430"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
-                </entry>
-                <entry>
-                    <key value="4440"/>
+                    <key value="4470"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
                 </entry>
                 <entry>
@@ -950,7 +894,27 @@ return targeom
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
                 </entry>
                 <entry>
-                    <key value="4470"/>
+                    <key value="4440"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+                <entry>
+                    <key value="4430"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
+                </entry>
+                <entry>
+                    <key value="4420"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+                <entry>
+                    <key value="4410"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+                <entry>
+                    <key value="4400"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
+                </entry>
+                <entry>
+                    <key value="4480"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_4_OpenAirRecreationalAreas"/>
                 </entry>
             </lookup-table>
@@ -990,11 +954,15 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="4210"/>
+                    <key value="4260"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
+                </entry>
+                <entry>
+                    <key value="4250"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
                 </entry>
                 <entry>
-                    <key value="4220"/>
+                    <key value="4240"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
                 </entry>
                 <entry>
@@ -1002,31 +970,39 @@ return targeom
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
                 </entry>
                 <entry>
-                    <key value="4240"/>
+                    <key value="4220"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
-                </entry>
-                <entry>
-                    <key value="4250"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
-                </entry>
-                <entry>
-                    <key value="4260"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
-                </entry>
-                <entry>
-                    <key value="4270"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure"/>
-                </entry>
-                <entry>
-                    <key value="4320"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure"/>
                 </entry>
                 <entry>
                     <key value="4330"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
                 </entry>
                 <entry>
+                    <key value="4210"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
+                </entry>
+                <entry>
+                    <key value="4320"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure"/>
+                </entry>
+                <entry>
                     <key value="4310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
+                </entry>
+                <entry>
+                    <key value="4270"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
+                </entry>
+                <entry>
+                    <key value="4340"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure"/>
+                </entry>
+                <entry>
+                    <key value="4350"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure"/>
+                </entry>
+                <entry>
+                    <key value="4360"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
                 </entry>
             </lookup-table>
@@ -1047,7 +1023,7 @@ return targeom
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices" name="value"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_CulturalEntertainmentAndRecreationalServices" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C85fb0537-843c-4dd6-8bd6-412971d0e95d" priority="high">
         <source>
@@ -1066,48 +1042,52 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
+                    <key value="1600"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_5_OtherServices"/>
+                </entry>
+                <entry>
                     <key value="1520"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_1_FinancialAndInsuranceServices"/>
-                </entry>
-                <entry>
-                    <key value="1530"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
-                </entry>
-                <entry>
-                    <key value="1540"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_5_OtherFinancialProfessionalAndInformationServices"/>
-                </entry>
-                <entry>
-                    <key value="1570"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
-                </entry>
-                <entry>
-                    <key value="1560"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
-                </entry>
-                <entry>
-                    <key value="1550"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
-                </entry>
-                <entry>
-                    <key value="1310"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_SecondaryProduction"/>
-                </entry>
-                <entry>
-                    <key value="1330"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_1_PublicAdministrationDefenceAndSocialSecurityServices"/>
-                </entry>
-                <entry>
-                    <key value="1320"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
                 </entry>
                 <entry>
                     <key value="1410"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_2_ProfessionalTechnicalAndScientificServices"/>
                 </entry>
                 <entry>
-                    <key value="1600"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_2_EducationalServices"/>
+                    <key value="1530"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
+                </entry>
+                <entry>
+                    <key value="1310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_5_OtherServices"/>
+                </entry>
+                <entry>
+                    <key value="1540"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
+                </entry>
+                <entry>
+                    <key value="1320"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
+                </entry>
+                <entry>
+                    <key value="1550"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
+                </entry>
+                <entry>
+                    <key value="1330"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
+                </entry>
+                <entry>
+                    <key value="1560"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
+                </entry>
+                <entry>
+                    <key value="1570"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
+                </entry>
+                <entry>
+                    <key value="1510"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_5_OtherFinancialProfessionalAndInformationServices"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -1177,6 +1157,50 @@ return targeom
                     <key value="1811"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_2_2_ManufacturingOfVehiclesAndTransportEquipment"/>
                 </entry>
+                <entry>
+                    <key value="1801"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_3_1_ManufacturingOfFoodBeveragesAndTobaccoProducts"/>
+                </entry>
+                <entry>
+                    <key value="1802"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_1_1_ManufacturingOfTextileProducts"/>
+                </entry>
+                <entry>
+                    <key value="1803"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_1_2_ManufacturingOfWoodAndWoodBasedProducts"/>
+                </entry>
+                <entry>
+                    <key value="1804"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_3_3_PublishingAndPrinting"/>
+                </entry>
+                <entry>
+                    <key value="1805"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_1_4_ManufacturingOfCokeRefinedPetroleumProductsAndNuclearFuel"/>
+                </entry>
+                <entry>
+                    <key value="1806"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_1_5_ManufacturingOfChemicalsChemicalProductsManMadeFibers"/>
+                </entry>
+                <entry>
+                    <key value="1807"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_1_7_ManufacturingOfNonMetallicMineralProducts"/>
+                </entry>
+                <entry>
+                    <key value="1808"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_1_6_ManufacturingOfBasicMetalsAndFabricatedMetals"/>
+                </entry>
+                <entry>
+                    <key value="1809"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_3_4_ManufacturingOfElectricalAndOpticalEquipment"/>
+                </entry>
+                <entry>
+                    <key value="1810"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_2_1_ManufacturingOfMachinery"/>
+                </entry>
+                <entry>
+                    <key value="1812"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_3_5_ManufacturingOfOtherLightEndProducts"/>
+                </entry>
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
@@ -1245,9 +1269,33 @@ return targeom
                     <key value="1210"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_1_CulturalServices"/>
                 </entry>
+                <entry>
+                    <key value="1220"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_3_InformationAndCommunicationServices"/>
+                </entry>
+                <entry>
+                    <key value="1230"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_2_EntertainmentServices"/>
+                </entry>
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3b1de974-1c71-4b0a-aa2d-d569a1936cba" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_KulturUndUnterhaltungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_TertiaryProduction" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C177d9358-5949-4675-a704-03dd3a3e3846" priority="highest">
         <source>
@@ -1294,11 +1342,15 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
+                    <key value="8200"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
+                </entry>
+                <entry>
                     <key value="8100"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_3_WasteTreatment"/>
                 </entry>
                 <entry>
-                    <key value="8200"/>
+                    <key value="8300"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
                 </entry>
             </lookup-table>
@@ -1379,11 +1431,13 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C3b8b75fc-0360-4daf-bbc3-857826a2eddc" priority="higher">
-        <source>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd5236253-51d0-4b50-a21c-4d6e898aceaf" priority="normal">
+        <source name="anchor">
             <property>
                 <type name="LN_LandwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-                <child name="bewirtschaftung" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="bewirtschaftung" ns="http://www.adv-online.de/namespaces/adv/ln/1.0">
+                    <condition lang="ECQL">value is not null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -1393,55 +1447,7 @@ return targeom
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="1300"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_2_FarmingInfrastructure"/>
-                </entry>
-                <entry>
-                    <key value="1010"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-                <entry>
-                    <key value="1011"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-                <entry>
-                    <key value="1012"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-                <entry>
-                    <key value="1013"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-                <entry>
-                    <key value="1020"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-                <entry>
-                    <key value="1030"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-                <entry>
-                    <key value="1040"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-                <entry>
-                    <key value="1050"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-                <entry>
-                    <key value="1070"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-                <entry>
-                    <key value="1200"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="null" name="notClassifiedAction"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9ae73914-e590-4224-98a2-37105df82097" priority="normal">
         <source name="anchor">
@@ -1457,7 +1463,7 @@ return targeom
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction" name="value"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_Agriculture" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C10ad58c1-52c0-4177-bc01-3421b3b652b7" priority="higher">
         <source>
@@ -1517,7 +1523,7 @@ return targeom
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_TertiaryProduction" name="value"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_CommunityServices" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C71ce22fc-a777-40a2-91e1-f3539006b64b" priority="highest">
         <source>
@@ -1547,11 +1553,11 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C8eb51619-7045-4780-af70-3184e7298159" priority="high">
-        <source>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2050d8ed-8aef-4199-8fdb-6f51436eeb8b" priority="normal">
+        <source name="anchor">
             <property>
-                <type name="LN_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <type name="LN_OhneNutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
@@ -1561,35 +1567,7 @@ return targeom
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="5420"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
-                </entry>
-                <entry>
-                    <key value="5421"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
-                </entry>
-                <entry>
-                    <key value="5422"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
-                </entry>
-                <entry>
-                    <key value="5423"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
-                </entry>
-                <entry>
-                    <key value="5424"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
-                </entry>
-                <entry>
-                    <key value="5411"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="null" name="notClassifiedAction"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_3_NaturalAreasNotInOtherEconomicUse" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8489a584-3a93-4eac-9ef2-882aeb20aaa9" priority="normal">
         <source name="anchor">
@@ -1639,6 +1617,22 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca07e7879-5736-4e02-84f3-59671b13159d" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="LN_SchutzanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_5_OtherServices" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6bdadfb1-cf90-43f9-881c-5a593a54e87d" priority="normal">
         <source name="anchor">
             <property>
@@ -1654,54 +1648,6 @@ return targeom
             </property>
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure" name="value"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C68b8a545-4a6a-4bad-a1bd-6185e41a131b" priority="high">
-        <source>
-            <property>
-                <type name="LN_StrassenUndWegeverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="5110"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport"/>
-                </entry>
-                <entry>
-                    <key value="5112"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport"/>
-                </entry>
-                <entry>
-                    <key value="5120"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport"/>
-                </entry>
-                <entry>
-                    <key value="5140"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport"/>
-                </entry>
-                <entry>
-                    <key value="5150"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
-                </entry>
-                <entry>
-                    <key value="5160"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_1_WholesaleAndRetailTradeAndRepairOfVehiclesAndPersonalAndHouseholdGoods"/>
-                </entry>
-                <entry>
-                    <key value="5130"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C120f5c59-23c5-48ff-9aa6-2009ab87e08c" priority="normal">
         <source name="anchor">
@@ -1768,6 +1714,14 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
+                    <key value="2610"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure"/>
+                </entry>
+                <entry>
+                    <key value="2620"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_3_WasteTreatment"/>
+                </entry>
+                <entry>
                     <key value="2520"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure"/>
                 </entry>
@@ -1785,15 +1739,7 @@ return targeom
                 </entry>
                 <entry>
                     <key value="2580"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_2_3_InformationAndCommunicationServices"/>
-                </entry>
-                <entry>
-                    <key value="2610"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure"/>
-                </entry>
-                <entry>
-                    <key value="2620"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_3_WasteTreatment"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_4_OtherUtilities"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -1834,24 +1780,28 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="2000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_1_NuclearBasedEnergyProduction"/>
+                    <key value="7200"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_2_FossilFuelBasedEnergyProduction"/>
                 </entry>
                 <entry>
                     <key value="7100"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_2_FossilFuelBasedEnergyProduction"/>
                 </entry>
                 <entry>
-                    <key value="7200"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_2_FossilFuelBasedEnergyProduction"/>
+                    <key value="7400"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_EnergyProduction"/>
                 </entry>
                 <entry>
                     <key value="7300"/>
                     <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_2_FossilFuelBasedEnergyProduction"/>
                 </entry>
                 <entry>
-                    <key value="7400"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_EnergyProduction"/>
+                    <key value="2000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_1_NuclearBasedEnergyProduction"/>
+                </entry>
+                <entry>
+                    <key value="7500"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_3_BiomassBasedEnergyProduction"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -1885,11 +1835,11 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C83c9adfc-d816-4479-9a3d-b231d58d94fb" priority="high">
-        <source>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1e316f65-93f9-44ed-ba54-928ca3ef1924" priority="normal">
+        <source name="anchor">
             <property>
                 <type name="LN_WasserwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-                <child name="art" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
         <target>
@@ -1899,19 +1849,7 @@ return targeom
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="7100"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure"/>
-                </entry>
-                <entry>
-                    <key value="7110"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="null" name="notClassifiedAction"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="Cf5efe004-a4a3-4364-ad0d-8109096263ba" priority="highest">
         <source>
@@ -1955,7 +1893,7 @@ return targeom
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/5_1_PermanentResidentialUse" name="value"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/5_ResidentialUse" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C97d81d41-3d94-4918-999f-a6c9d3535ada" priority="higher">
         <source>
@@ -1975,11 +1913,11 @@ return targeom
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
                     <key value="1000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/5_2_ResidentialUseWithOtherCompatibleUses"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/5_1_PermanentResidentialUse"/>
                 </entry>
                 <entry>
                     <key value="2000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_1_3_AccommodationAndFoodServices"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/5_3_OtherResidentialUse"/>
                 </entry>
             </lookup-table>
         </complexParameter>
