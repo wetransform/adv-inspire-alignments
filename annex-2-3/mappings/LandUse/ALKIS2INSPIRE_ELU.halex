@@ -5,7 +5,7 @@
     <description>Transformationsprojekt für die Transformation von Daten aus ALKIS nach INSPIRE ExistingLandUse.&#xD;
 &#xD;
 Hinweis zur Angabe einer WKT-Geometrie des Bundeslandes zur korrekten Handhabung von ExistingLandUseDataSet.extent:&#xD;
-	Im Ordner "quelldaten" wird die Datei "extentBundesland.csv" bereitgestellt. Um den INSPIRE-Datensatz vollständig korrekt zu erzeugen, muss dort der Platzhalter "MULTIPOLYGON ((()))" mit einer WKT-Geometrie Ihres Bundeslandes ersetzt werden. Alternativ kann die Datei "extentBudesland" woanders gespeichert werden - dann muss der Pfad in "gradle.properties" angepasst werrden. Machen Sie keine entsprechende Angabe, wird die konvexe Hülle der Ausgangsdaten verwendet, was aber nicht den INSPIRE-Anforderungen entspricht.&#xD;
+	Im Ordner "testdaten" wird die Datei "extentBundesland.csv" bereitgestellt. Um den INSPIRE-Datensatz vollständig korrekt zu erzeugen, muss dort der Platzhalter "MULTIPOLYGON ((()))" mit einer WKT-Geometrie Ihres Bundeslandes ersetzt, die Datei in den Ordner "quelldaten" kopiert und die Konfigurationseinstellung "extentBundesland" in "gradle.properties" aktiviert werden. Machen Sie keine entsprechende Angabe, wird die konvexe Hülle der Ausgangsdaten verwendet, was aber nicht den INSPIRE-Anforderungen entspricht.&#xD;
 &#xD;
 Hinweis zur Nutzung der Projektvariablen:&#xD;
     VOID_REASON_OBSERVATIONDATE&#xD;
