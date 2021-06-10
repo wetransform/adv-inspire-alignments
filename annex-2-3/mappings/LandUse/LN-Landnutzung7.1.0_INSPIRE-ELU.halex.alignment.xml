@@ -52,11 +52,11 @@ c.wkt &lt;&lt; _source.p.WKT.value()
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def c = _.context.collector()&#xD;
 &#xD;
-if (!(c.wkt.value().equals('MULTIPOLYGON ((()))'))){&#xD;
+if (c.wkt.value() &amp;&amp; !(c.wkt.value().equals('MULTIPOLYGON ((()))'))) {&#xD;
 	return _.geom.with(geometry: c.wkt.value(), crs:"EPSG:25832")	&#xD;
 }&#xD;
 &#xD;
-else{&#xD;
+else {&#xD;
 	return c.extent.value()&#xD;
 }
 </core:text>
