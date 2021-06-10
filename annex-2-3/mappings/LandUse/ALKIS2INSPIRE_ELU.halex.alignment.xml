@@ -10,6 +10,27 @@
         <parameter value="1" name="number"/>
         <documentation>Es wird ein ExistingLandUseDataSet erzeugt, das aus allen in diesem Alignment erzeugten ExistingLandUseObjects besteht. Die Erzeugung ist niedriger priorisiert als die der ExistingLandUseObjects, da dabei in Collectoren gesammelte Informationen für die Erzegung des ExistingLandUseDataSets Verwendung finden.</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C40961cf5-b96a-4105-a945-d0b32805f640" priority="normal">
+        <source>
+            <class>
+                <type name="extentBundesland"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//Dummy-Funktion, um die in der zusätzlichen Datei bereitgestellte Bundesland-Geometrie in einem Kollektor zu speichern&#xD;
+&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+c.wkt &lt;&lt; _source.p.WKT.value()
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C98668671-5805-4f8f-beb5-ecf1cae9c40b" priority="normal">
         <target>
             <property>
@@ -42,7 +63,12 @@
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def c = _.context.collector()&#xD;
 &#xD;
-return c.extent.value()
+if (c.wkt.value() &amp;&amp; !c.wkt.value().equals('MULTIPOLYGON ((()))')) {&#xD;
+	return _.geom.with(geometry: c.wkt.value(), crs:"EPSG:25832")	&#xD;
+}&#xD;
+else {&#xD;
+	return c.extent.value()&#xD;
+}
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>

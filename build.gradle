@@ -27,7 +27,7 @@ apply plugin: 'to.wetransform.hale'
 
 hale {
   //cliVersion = '3.3.0'
-  cliVersion = '3.5.0-SNAPSHOT' // for update to hale-connect
+  cliVersion = '4.1.0-SNAPSHOT' // for update to hale-connect
 }
 
 configurations.all {
@@ -324,6 +324,13 @@ transformations.each { name, config ->
         }
       }
 
+      if (config.extentBundesland) {
+        // If the transformation imports a Bundesland extent from a CSV file,
+        // also accept the imported extent
+        filterArgs << '-filter'
+        filterArgs << "CQL:WKT <> ''"
+      }
+
       // add project variable
       projectVariables['ADV_MODELLART'] = config.model
     }
@@ -392,6 +399,19 @@ transformations.each { name, config ->
         setting 'contentType', 'org.eclipse.core.runtime.xml'
         if (sourceCRS) {
           setting 'defaultSrs', "code:${sourceCRS}"
+        }
+      }
+
+      if (config.extentBundesland && project.hasProperty('extentBundesland')) {
+        source(project.getProperty('extentBundesland')) {
+          provider 'eu.esdihumboldt.hale.io.csv.reader.instance'
+          setting 'skip', true
+          setting 'typename', 'extentBundesland'
+          setting 'separator', ';'
+          setting 'decimal', '.'
+          setting 'quote', '"'
+          setting 'contentType', 'eu.esdihumboldt.hale.io.csv'
+          setting 'charset', 'UTF-8'
         }
       }
 
