@@ -10,7 +10,7 @@ buildscript {
   }
   dependencies {
     // Gradle plugin
-    classpath 'to.wetransform.hale:gradle-hale-plugin:1.1.3'
+    classpath 'to.wetransform.hale:gradle-hale-plugin:1.2.0-SNAPSHOT'
 
     // for Config class
     classpath 'eu.esdihumboldt.hale:eu.esdihumboldt.util.config:3.5.0-SNAPSHOT'
@@ -27,7 +27,7 @@ apply plugin: 'to.wetransform.hale'
 
 hale {
   //cliVersion = '3.3.0'
-  cliVersion = '3.5.0-SNAPSHOT' // for update to hale-connect
+  cliVersion = '4.1.0-SNAPSHOT' // for update to hale-connect
 }
 
 configurations.all {
@@ -308,8 +308,10 @@ transformations.each { name, config ->
 
     // special case: Hauskoordinaten mapping
     boolean isHauskoordinaten = (name == 'ad-hk')
+    // special case: CityGML
+    boolean isCityGML = (config.model == 'CityGML')
 
-    if (config.model && !isHauskoordinaten) {
+    if (config.model && !isHauskoordinaten && !isCityGML) {
       // restrict to a specific model -> add generic filter
       filterArgs << '-filter'
       filterArgs << "CQL:modellart.AA_Modellart.advStandardModell = '${config.model}'"
@@ -320,6 +322,13 @@ transformations.each { name, config ->
           filterArgs << '-filter'
           filterArgs << "CQL:modellart.AA_Modellart.advStandardModell = '${modelName}'"
         }
+      }
+
+      if (config.extentBundesland) {
+        // If the transformation imports a Bundesland extent from a CSV file,
+        // also accept the imported extent
+        filterArgs << '-filter'
+        filterArgs << "CQL:WKT <> ''"
       }
 
       // add project variable
@@ -390,6 +399,19 @@ transformations.each { name, config ->
         setting 'contentType', 'org.eclipse.core.runtime.xml'
         if (sourceCRS) {
           setting 'defaultSrs', "code:${sourceCRS}"
+        }
+      }
+
+      if (config.extentBundesland && project.hasProperty('extentBundesland')) {
+        source(project.getProperty('extentBundesland')) {
+          provider 'eu.esdihumboldt.hale.io.csv.reader.instance'
+          setting 'skip', true
+          setting 'typename', 'extentBundesland'
+          setting 'separator', ';'
+          setting 'decimal', '.'
+          setting 'quote', '"'
+          setting 'contentType', 'eu.esdihumboldt.hale.io.csv'
+          setting 'charset', 'UTF-8'
         }
       }
 

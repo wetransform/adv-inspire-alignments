@@ -10,6 +10,27 @@
         <parameter value="1" name="number"/>
         <documentation>Es wird ein ExistingLandUseDataSet erzeugt, das aus allen in diesem Alignment erzeugten ExistingLandUseObjects besteht. Die Erzeugung ist niedriger priorisiert als die der ExistingLandUseObjects, da dabei in Collectoren gesammelte Informationen für die Erzegung des ExistingLandUseDataSets Verwendung finden.</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C40961cf5-b96a-4105-a945-d0b32805f640" priority="normal">
+        <source>
+            <class>
+                <type name="extentBundesland"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ExistingLandUseDataSetType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//Dummy-Funktion, um die in der zusätzlichen Datei bereitgestellte Bundesland-Geometrie in einem Kollektor zu speichern&#xD;
+&#xD;
+def c = _.context.collector()&#xD;
+&#xD;
+c.wkt &lt;&lt; _source.p.WKT.value()
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C98668671-5805-4f8f-beb5-ecf1cae9c40b" priority="normal">
         <target>
             <property>
@@ -42,7 +63,12 @@
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def c = _.context.collector()&#xD;
 &#xD;
-return c.extent.value()
+if (c.wkt.value() &amp;&amp; !c.wkt.value().equals('MULTIPOLYGON ((()))')) {&#xD;
+	return _.geom.with(geometry: c.wkt.value(), crs:"EPSG:25832")	&#xD;
+}&#xD;
+else {&#xD;
+	return c.extent.value()&#xD;
+}
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
@@ -552,6 +578,8 @@ return c.extent.value()
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+import com.vividsolutions.jts.geom.Geometry&#xD;
+&#xD;
 def c = _.context.collector()&#xD;
 &#xD;
 def geom = _.geom.find(position.p.first())&#xD;
@@ -560,16 +588,36 @@ if (!geom) {&#xD;
   return&#xD;
 }&#xD;
 &#xD;
-withTransformationContext {&#xD;
+/*withTransformationContext {&#xD;
 	if(c.extent.value()){&#xD;
-		def ext= _.geom.bbox([c.extent.value(), geom])&#xD;
+		def ext= _.geom.union([c.extent.value(), geom])&#xD;
 		c.extent = ext&#xD;
 	}&#xD;
 	else {&#xD;
-		c.extent = _.geom.bbox(geom)&#xD;
+		c.extent = _.geom.union(geom)&#xD;
+	}&#xD;
+}*/&#xD;
+&#xD;
+&#xD;
+/*withTransformationContext {&#xD;
+	if(c.extent.value()){&#xD;
+		def ext= geom.geometry.union(c.extent.value())&#xD;
+		c.extent = ext&#xD;
+	}&#xD;
+	else {&#xD;
+		c.extent = geom.geometry.union()&#xD;
+	}&#xD;
+}*/&#xD;
+&#xD;
+withTransformationContext {&#xD;
+	if(c.extent.value()){&#xD;
+		def ext= _.geom.convexHull([c.extent.value(), geom])&#xD;
+		c.extent = ext&#xD;
+	}&#xD;
+	else {&#xD;
+		c.extent = _.geom.convexHull(geom)&#xD;
 	}&#xD;
 }&#xD;
-&#xD;
 &#xD;
 targeom = _.geom.toSimpleGeometries(geometries:geom, collections:true)&#xD;
 return targeom
@@ -3225,6 +3273,16 @@ Groovy-Script bildet BoundingBox von allen verwendeten Geometrien, die in einer 
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C90a61f70-5051-4512-b401-f459daf4e506" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="hilucsPresence" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="C9bdaee38-f838-4c25-bc06-1a1a598de4ba" priority="normal">
         <source name="id">
             <property>
@@ -3326,5 +3384,25 @@ else {&#xD;
         <documentation>Mapping auf Ebene von AX_Tatsaechliche Nutzung, weil alle verwendeten Polygon-FeatureTypes davon abgeleitet sind.&#xD;
 Der nilReason wird abhängig von der Angabe in der Projektvariablen gefüllt.  Eingabe von "other:unpopulated" für alle ATKIS-Datensätze und solche ALKIS-Datensätze, in denen datumDerLetztenUeberpruefung nie gefüllt ist, Eingabe von "unknown" für ALKIS-Datensätze, in denen es manchmal gefüllt ist.&#xD;
 Liegt ein Wert für datumDerLetztenUeberpruefung vor, wird dieser in observationDate geschrieben.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cbb066412-8da9-4c8c-bb51-dec8a26af4f2" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="specificLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C15c43f77-4f1c-4c95-ad52-df6ff273768f" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="specificPresence" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
 </alignment>
