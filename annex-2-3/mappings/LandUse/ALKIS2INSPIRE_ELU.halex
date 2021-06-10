@@ -5,7 +5,7 @@
     <description>Transformationsprojekt für die Transformation von Daten aus ALKIS nach INSPIRE ExistingLandUse.&#xD;
 &#xD;
 Hinweis zur Angabe einer WKT-Geometrie des Bundeslandes zur korrekten Handhabung von ExistingLandUseDataSet.extent:&#xD;
-	Mit der Transformation wird die Datei "extentBundesland.groovy" bereitgestellt. Um den INSPIRE-Datensatz vollständig korrekt zu erzeugen, muss dort der Platzhalter [..] mit einer WKT-Geometrie Ihres Bundeslandes ersetzt werden (die Anführungszeichen nicht ersetzen). Machen Sie dort keine Angabe, wird die konvexe Hülle der Ausgangsdaten verwendet, was aber nicht den INSPIRE-Anforderungen entspricht.&#xD;
+	Im Ordner "quelldaten" wird die Datei "extentBundesland.csv" bereitgestellt. Um den INSPIRE-Datensatz vollständig korrekt zu erzeugen, muss dort der Platzhalter "MULTIPOLYGON ((()))" mit einer WKT-Geometrie Ihres Bundeslandes ersetzt werden. Alternativ kann die Datei "extentBudesland" woanders gespeichert werden - dann muss der Pfad in "gradle.properties" angepasst werrden. Machen Sie keine entsprechende Angabe, wird die konvexe Hülle der Ausgangsdaten verwendet, was aber nicht den INSPIRE-Anforderungen entspricht.&#xD;
 &#xD;
 Hinweis zur Nutzung der Projektvariablen:&#xD;
     VOID_REASON_OBSERVATIONDATE&#xD;
@@ -17,7 +17,7 @@ Hinweis zur Nutzung der Projektvariablen:&#xD;
 ATKIS als Quelle derzeit ausgeschlossen&#xD;
 (Begründung aus Email Herr Schliebner 30.05.2018: "Keine Verflächung von linienhaften Elementen. Zum AdV-Plenums-Beschluss 127/7 soll ein entsprechendes Änderungsersuchen gestellt werden, was Herr Dr. Seifert am 05.-06.Juni 2018 bei der AK IK-Tagung thematisieren wird. Diese Änderung kann hieb- und stichfest damit begründet werden, dass zur Schaffung von INSPIRE-Daten aus ATKIS erheblicher Aufwand anfiele.")</description>
     <created>2018-02-16T08:44:39.500+01:00</created>
-    <modified>2021-06-09T20:21:17.725+02:00</modified>
+    <modified>2021-06-10T08:17:09.993+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
