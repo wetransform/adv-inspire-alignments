@@ -667,21 +667,21 @@ return targeom
                 </entry>
                 <entry>
                     <key value="1000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
                 </entry>
                 <entry>
                     <key value="2000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_1_MiningOfEnergyProducingMaterials"/>
                 </entry>
                 <entry>
                     <key value="3000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_3_OtherMiningAndQuarrying"/>
                 </entry>
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc3b11a98-3f22-41dc-adb2-01f23f70266f" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc3b11a98-3f22-41dc-adb2-01f23f70266f" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -697,7 +697,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_3_MiningAndQuarrying" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cb2b8f3e6-2826-4279-a209-e91b075d3a30" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cb2b8f3e6-2826-4279-a209-e91b075d3a30" priority="normal">
         <source>
             <property>
                 <type name="LN_AbbauType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -725,7 +725,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C76491412-8934-481f-a446-541373582247" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C76491412-8934-481f-a446-541373582247" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_AquakulturUndFischereiwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -741,7 +741,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_4_AquacultureAndFishing" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C76dd2389-fa4c-43df-8378-a7d02b173118" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C76dd2389-fa4c-43df-8378-a7d02b173118" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -757,7 +757,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_2_RailwayTransport" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cc0b841c1-6e35-4904-93aa-57a12531de88" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cc0b841c1-6e35-4904-93aa-57a12531de88" priority="normal">
         <source>
             <property>
                 <type name="LN_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -789,7 +789,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb3016dc8-02a7-4546-b5c3-8cbedfd7cf8f" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb3016dc8-02a7-4546-b5c3-8cbedfd7cf8f" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_BestattungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -805,7 +805,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_5_OtherCommunityServices" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6c0de525-bff0-4a72-98e8-04c00b95ff37" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6c0de525-bff0-4a72-98e8-04c00b95ff37" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -821,7 +821,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_3_AirTransport" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C78ad4651-7dfc-42e7-af78-4dc5938e36eb" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C78ad4651-7dfc-42e7-af78-4dc5938e36eb" priority="normal">
         <source>
             <property>
                 <type name="LN_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -853,7 +853,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Caf22f8ee-0fcf-4fd2-92c9-44526bec210e" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Caf22f8ee-0fcf-4fd2-92c9-44526bec210e" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_ForstwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -921,7 +921,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1e23f065-4f42-473b-b3a1-c0490dc437aa" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1e23f065-4f42-473b-b3a1-c0490dc437aa" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_FreiluftUndNaherholungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1009,7 +1009,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2cbe4835-0d32-42e6-883a-6f3da0e97144" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2cbe4835-0d32-42e6-883a-6f3da0e97144" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_FreizeitanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1093,7 +1093,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf8da602c-2a7d-451f-81e0-d27536d4fd3c" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf8da602c-2a7d-451f-81e0-d27536d4fd3c" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_GewerblicheDienstleistungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1109,7 +1109,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_TertiaryProduction" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C45808cb6-3fae-4bfc-941e-4dc151c05933" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C45808cb6-3fae-4bfc-941e-4dc151c05933" priority="normal">
         <source>
             <property>
                 <type name="LN_GewerblicheDienstleistungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1205,7 +1205,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2e854d58-1f4a-4501-8716-008bf7413a60" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2e854d58-1f4a-4501-8716-008bf7413a60" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_IndustrieUndVerarbeitendesGewerbeType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1281,7 +1281,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3b1de974-1c71-4b0a-aa2d-d569a1936cba" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3b1de974-1c71-4b0a-aa2d-d569a1936cba" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_KulturUndUnterhaltungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1297,7 +1297,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_TertiaryProduction" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C177d9358-5949-4675-a704-03dd3a3e3846" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C177d9358-5949-4675-a704-03dd3a3e3846" priority="normal">
         <source>
             <property>
                 <type name="LN_KulturUndUnterhaltungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1357,7 +1357,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca2cc78d8-db92-4c1b-af75-1ad4f77b354f" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca2cc78d8-db92-4c1b-af75-1ad4f77b354f" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_LagerungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1373,37 +1373,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C26832c90-b427-4f3d-89ae-d7fee2745920" priority="higher">
-        <source>
-            <property>
-                <type name="LN_LagerungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
-                <child name="lagergut" ns="http://www.adv-online.de/namespaces/adv/ln/1.0">
-                    <condition lang="ECQL">parent.funktion = 8300</condition>
-                </child>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="hilucsLandUse" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
-                <child name="href" ns="http://www.w3.org/1999/xlink"/>
-            </property>
-        </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
-                <entry>
-                    <key value="5000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_3_WasteTreatment"/>
-                </entry>
-                <entry>
-                    <key value="8000"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_3_WasteTreatment"/>
-                </entry>
-            </lookup-table>
-        </complexParameter>
-        <parameter value="fixed:http://inspire.ec.europa.eu/codelist/HILUCSValue/4_2_LogisticalAndStorageServices" name="notClassifiedAction"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C797b24c9-39a2-4265-a081-848a5878dabe" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C797b24c9-39a2-4265-a081-848a5878dabe" priority="normal">
         <source>
             <property>
                 <type name="LN_LagerungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1431,7 +1401,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd5236253-51d0-4b50-a21c-4d6e898aceaf" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd5236253-51d0-4b50-a21c-4d6e898aceaf" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_LandwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1449,7 +1419,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/1_1_1_CommercialAgriculturalProduction" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9ae73914-e590-4224-98a2-37105df82097" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9ae73914-e590-4224-98a2-37105df82097" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_LandwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1509,7 +1479,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca54fbc68-00f8-4e6b-b454-4925e23dc448" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca54fbc68-00f8-4e6b-b454-4925e23dc448" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_OeffentlicheEinrichtungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1525,7 +1495,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_3_CommunityServices" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C71ce22fc-a777-40a2-91e1-f3539006b64b" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C71ce22fc-a777-40a2-91e1-f3539006b64b" priority="normal">
         <source>
             <property>
                 <type name="LN_OeffentlicheEinrichtungenType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1553,7 +1523,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2050d8ed-8aef-4199-8fdb-6f51436eeb8b" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2050d8ed-8aef-4199-8fdb-6f51436eeb8b" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_OhneNutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1569,7 +1539,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/6_3_NaturalAreasNotInOtherEconomicUse" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8489a584-3a93-4eac-9ef2-882aeb20aaa9" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8489a584-3a93-4eac-9ef2-882aeb20aaa9" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1585,7 +1555,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_4_WaterTransport" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C1967f835-18b2-4ba6-91a1-86193ed2c8ce" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C1967f835-18b2-4ba6-91a1-86193ed2c8ce" priority="normal">
         <source>
             <property>
                 <type name="LN_SchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1617,7 +1587,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca07e7879-5736-4e02-84f3-59671b13159d" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca07e7879-5736-4e02-84f3-59671b13159d" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_SchutzanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1633,7 +1603,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_5_OtherServices" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6bdadfb1-cf90-43f9-881c-5a593a54e87d" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6bdadfb1-cf90-43f9-881c-5a593a54e87d" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_SportanlageType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1649,7 +1619,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/3_4_3_SportsInfrastructure" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C120f5c59-23c5-48ff-9aa6-2009ab87e08c" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C120f5c59-23c5-48ff-9aa6-2009ab87e08c" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_StrassenUndWegeverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1665,7 +1635,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_1_1_RoadTransport" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cc8decb2c-00a5-4fd3-b450-9557f318cc20" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cc8decb2c-00a5-4fd3-b450-9557f318cc20" priority="normal">
         <source>
             <property>
                 <type name="LN_StrassenUndWegeverkehrType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1745,7 +1715,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8c2fa042-4433-4412-b13e-a41de6439011" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8c2fa042-4433-4412-b13e-a41de6439011" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_VersorgungUndEntsorgungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1807,7 +1777,7 @@ return targeom
         </complexParameter>
         <parameter value="fixed:http://inspire.ec.europa.eu/codelist/HILUCSValue/2_4_4_RenewableEnergyProduction" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C0d904e50-0ec8-43d5-aab2-0f6cc5e531d0" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C0d904e50-0ec8-43d5-aab2-0f6cc5e531d0" priority="normal">
         <source>
             <property>
                 <type name="LN_VersorgungUndEntsorgungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1835,7 +1805,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1e316f65-93f9-44ed-ba54-928ca3ef1924" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1e316f65-93f9-44ed-ba54-928ca3ef1924" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_WasserwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1851,7 +1821,7 @@ return targeom
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HILUCSValue/4_3_2_WaterAndSewageInfrastructure" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cf5efe004-a4a3-4364-ad0d-8109096263ba" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cf5efe004-a4a3-4364-ad0d-8109096263ba" priority="normal">
         <source>
             <property>
                 <type name="LN_WasserwirtschaftType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1879,7 +1849,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C67acf75d-c253-4418-8a7c-8c6363a7c851" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C67acf75d-c253-4418-8a7c-8c6363a7c851" priority="low">
         <source name="anchor">
             <property>
                 <type name="LN_WohnnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
@@ -1923,7 +1893,7 @@ return targeom
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.classification" id="C006a3267-f66e-46cd-b6b8-084f63d38396" priority="highest">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C006a3267-f66e-46cd-b6b8-084f63d38396" priority="normal">
         <source>
             <property>
                 <type name="LN_WohnnutzungType" ns="http://www.adv-online.de/namespaces/adv/ln/1.0"/>
