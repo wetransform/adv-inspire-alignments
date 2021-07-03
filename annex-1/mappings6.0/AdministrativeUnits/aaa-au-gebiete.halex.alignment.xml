@@ -527,7 +527,7 @@ if (!upperLevelUnit) {
 
 _target{
 	geometry {
-		MultiSurface( geoms[0] )
+		MultiSurface( _.geom.aggregate(geoms) )
 	}
 	_b.upperLevelUnit {
 		href( "#${upperLevelUnit}" )
