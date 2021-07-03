@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="4.0.0.SNAPSHOT">
+<hale-project version="4.1.0.SNAPSHOT">
     <name>[Annex I] AdV 3A zu INSPIRE Road Transport Network</name>
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Road Transport Network GML Anwendungsschema.
@@ -24,7 +24,7 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
 2. Ein *TransportProperty*-Objekt für alle Features die in den Quell-Daten die gleichen relevanten Informationen aufweisen. Die Identifier werden dabei basierend auf dem Quell-Wert oder -Werten gebildet. Umgesetzt wurde das so für `RoadServiceType`.
 3. Ein *TransportProperty*-Objekt für jedes Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `RoadWidth`.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2020-09-02T13:19:32.717+02:00</modified>
+    <modified>2021-07-01T07:51:32.127+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1720,10 +1720,13 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="resource-f7b63a48-8784-4c5e-b16f-2c41e23cee84:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WohnplatzType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="THEME_DISTINGUISHER">
+                <core:value value=""/>
+            </core:property>
             <core:property name="NETWORK_ID">
                 <core:value value="RoadNetwork"/>
             </core:property>
-            <core:property name="THEME_DISTINGUISHER">
+            <core:property name="LIMIT_NETWORK_REFERENCES">
                 <core:value value=""/>
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">

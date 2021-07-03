@@ -71,6 +71,8 @@ withTransformationContext {
 	collect = _.context.collector(it)
 }
 
+def _refLimit = _project.vars.LIMIT_NETWORK_REFERENCES
+
 // Erstelle ein ConditionOfFacility-Objekt für jeden vorkommenden Wert
 //
 // Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
@@ -79,27 +81,36 @@ collect.conditionOfFacility.consume { key, values -&gt;
 	def _id = 'ConditionOfFacility_' + _project.vars.THEME_DISTINGUISHER + '_' + key
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
-	_target {
-		currentStatus {
-			href( "$codeList/$key" )
+	def valueGroups = _refLimit ? values.collate(_refLimit as int) : [values]
+	def i = 1
+	valueGroups.each { valueGroup -&gt;
+		def _id2 = _id
+		if (valueGroup.size &gt; 1) {
+			// Gruppennummer anhängen, falls es mehr als eine Gruppe gibt
+			_id2 += '_' + i++
 		}
-		id( _id )
-		inspireId {
-			Identifier {
-				namespace( _ns )
-				localId( _id )
+		_target {
+			currentStatus {
+				href( "$codeList/$key" )
 			}
-		}
-		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
-			codeSpace( 'http://inspire.ec.europa.eu/ids' )
-		}
-		
-		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
-		values.each { linkId -&gt;
-			networkRef {
-				NetworkReference {
-					element {
-						href( "#$linkId" )
+			id( _id2 )
+			inspireId {
+				Identifier {
+					namespace( _ns )
+					localId( _id2 )
+				}
+			}
+			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id2 : _id2 ) {
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )
+			}
+			
+			// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+			valueGroup.each { linkId -&gt;
+				networkRef {
+					NetworkReference {
+						element {
+							href( "#$linkId" )
+						}
 					}
 				}
 			}
@@ -143,11 +154,16 @@ withTransformationContext {
 	collector = _.context.collector(it)
 }
 
+def _refLimit = _project.vars.LIMIT_NETWORK_REFERENCES
+
 _target {
-	// Verknüpfung zu gesammelten Netzwerk-Elementen
-	collector.network.each { id -&gt;
-		elements {
-			href( "#$id" )
+	// Referenzen im TransportNetwork-Objekt nur erzeugen, wenn LIMIT_NETWORK_REFERENCES nicht verwendet wird
+	if (!_refLimit) {
+		// Verknüpfung zu gesammelten Netzwerk-Elementen
+		collector.network.each { id -&gt;
+			elements {
+				href( "#$id" )
+			}
 		}
 	}
 }
@@ -375,6 +391,8 @@ withTransformationContext {
 	collect = _.context.collector(it)
 }
 
+def _refLimit = _project.vars.LIMIT_NETWORK_REFERENCES
+
 // Erstelle ein VerticalPosition-Objekt für jeden vorkommenden Wert
 //
 // Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
@@ -383,25 +401,34 @@ collect.verticalPosition.consume { key, values -&gt;
 	def _id = 'VerticalPosition_' + _project.vars.THEME_DISTINGUISHER + '_' + key
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
-	_target {
-		verticalPosition( key )
-		id( _id )
-		inspireId {
-			Identifier {
-				namespace( _ns )
-				localId( _id )
+	def valueGroups = _refLimit ? values.collate(_refLimit as int) : [values]
+	def i = 1
+	valueGroups.each { valueGroup -&gt;
+		def _id2 = _id
+		if (valueGroups.size &gt; 1) {
+			// Gruppennummer anhängen, falls es mehr als eine Gruppe gibt
+			_id2 += '_' + i++
+		}
+		_target {
+			verticalPosition( key )
+			id( _id2 )
+			inspireId {
+				Identifier {
+					namespace( _ns )
+					localId( _id2 )
+				}
 			}
-		}
-		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
-			codeSpace( 'http://inspire.ec.europa.eu/ids' )
-		}
-		
-		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
-		values.each { linkId -&gt;
-			networkRef {
-				NetworkReference {
-					element {
-						href( "#$linkId" )
+			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id2 : _id2 ) {
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )
+			}
+			
+			// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+			valueGroup.each { linkId -&gt;
+				networkRef {
+					NetworkReference {
+						element {
+							href( "#$linkId" )
+						}
 					}
 				}
 			}
