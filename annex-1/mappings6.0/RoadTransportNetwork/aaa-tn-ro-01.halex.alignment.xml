@@ -206,32 +206,43 @@ withTransformationContext {
 	collect = _.context.collector(it)
 }
 
+def _refLimit = _project.vars.LIMIT_NETWORK_REFERENCES
+
 // Erstelle ein FormOfWay-Objekt für jeden vorkommenden Wert
 collect.formOfWay.consume { key, values -&gt;
 	def _id = 'FormOfWay_' + key
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
-	_target {
-		formOfWay {
-			href( "$codeList/$key" )
+	def valueGroups = _refLimit ? values.collate(_refLimit as int) : [values]
+	def i = 1
+	valueGroups.each { valueGroup -&gt;
+		def _id2 = _id
+		if (valueGroups.size &gt; 1) {
+			// Gruppennummer anhängen, falls es mehr als eine Gruppe gibt
+			_id2 += '_' + i++
 		}
-		id( _id )
-		inspireId {
-			Identifier {
-				namespace( _ns )
-				localId( _id )
+		_target {
+			formOfWay {
+				href( "$codeList/$key" )
 			}
-		}
-		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
-			codeSpace( 'http://inspire.ec.europa.eu/ids' )
-		}
-		
-		// Referenz zu gesammelten RoadLinks mit dieser Eigenschaft
-		values.each { linkId -&gt;
-			networkRef {
-				NetworkReference {
-					element {
-						href( "#$linkId" )
+			id( _id2 )
+			inspireId {
+				Identifier {
+					namespace( _ns )
+					localId( _id2 )
+				}
+			}
+			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id2 : _id2 ) {
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )
+			}
+			
+			// Referenz zu gesammelten RoadLinks mit dieser Eigenschaft
+			valueGroup.each { linkId -&gt;
+				networkRef {
+					NetworkReference {
+						element {
+							href( "#$linkId" )
+						}
 					}
 				}
 			}
@@ -259,30 +270,41 @@ withTransformationContext {
 	collect = _.context.collector(it)
 }
 
+def _refLimit = _project.vars.LIMIT_NETWORK_REFERENCES
+
 // Erstelle ein FunctionalRoadClass-Objekt für jeden vorkommenden Wert
 collect.functionalClass.consume { key, values -&gt;
 	def _id = 'FunctionalRoadClass_' + key
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
-	_target {
-		functionalClass( key )
-		id( _id )
-		inspireId {
-			Identifier {
-				namespace( _ns )
-				localId( _id )
+	def valueGroups = _refLimit ? values.collate(_refLimit as int) : [values]
+	def i = 1
+	valueGroups.each { valueGroup -&gt;
+		def _id2 = _id
+		if (valueGroups.size &gt; 1) {
+			// Gruppennummer anhängen, falls es mehr als eine Gruppe gibt
+			_id2 += '_' + i++
+		}
+		_target {
+			functionalClass( key )
+			id( _id2 )
+			inspireId {
+				Identifier {
+					namespace( _ns )
+					localId( _id2 )
+				}
 			}
-		}
-		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
-			codeSpace( 'http://inspire.ec.europa.eu/ids' )
-		}
-		
-		// Referenz zu gesammelten RoadLinks/RoadAreas mit dieser Eigenschaft
-		values.each { linkId -&gt;
-			networkRef {
-				NetworkReference {
-					element {
-						href( "#$linkId" )
+			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id2 : _id2 ) {
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )
+			}
+			
+			// Referenz zu gesammelten RoadLinks/RoadAreas mit dieser Eigenschaft
+			valueGroup.each { linkId -&gt;
+				networkRef {
+					NetworkReference {
+						element {
+							href( "#$linkId" )
+						}
 					}
 				}
 			}
@@ -622,6 +644,8 @@ withTransformationContext {
 	collect = _.context.collector(it)
 }
 
+def _refLimit = _project.vars.LIMIT_NETWORK_REFERENCES
+
 // Erstelle NumberOfLanes-Objekt für jede Kombination von _numberOfLanes und _direction
 collect.numberOfLanes.eachCollector { _numberOfLanes, next -&gt;
 	next.consume { _direction, linkIds -&gt;
@@ -630,28 +654,37 @@ collect.numberOfLanes.eachCollector { _numberOfLanes, next -&gt;
 		
 		def directionRef = "http://inspire.ec.europa.eu/codelist/LinkDirectionValue/$_direction"
 		
-		_target {
-			numberOfLanes( _numberOfLanes )
-			direction {
-				href( directionRef )
+		def valueGroups = _refLimit ? linkIds.collate(_refLimit as int) : [linkIds]
+		def i = 1
+		valueGroups.each { valueGroup -&gt;
+			def _id2 = _id
+			if (valueGroups.size &gt; 1) {
+				// Gruppennummer anhängen, falls es mehr als eine Gruppe gibt
+				_id2 += '_' + i++
 			}
-			id( _id )
-			inspireId {
-				Identifier {
-					namespace( _ns )
-					localId( _id )
+			_target {
+				numberOfLanes( _numberOfLanes )
+				direction {
+					href( directionRef )
 				}
-			}
-			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
-				codeSpace( 'http://inspire.ec.europa.eu/ids' )
-			}
-			
-			// Referenzen zu RoadLinks
-			linkIds.each { linkId -&gt;
-				networkRef {
-					NetworkReference {
-						element {
-							href( '#' + linkId )
+				id( _id2 )
+				inspireId {
+					Identifier {
+						namespace( _ns )
+						localId( _id2 )
+					}
+				}
+				identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id2 : _id2 ) {
+					codeSpace( 'http://inspire.ec.europa.eu/ids' )
+				}
+				
+				// Referenzen zu RoadLinks
+				valueGroup.each { linkId -&gt;
+					networkRef {
+						NetworkReference {
+							element {
+								href( '#' + linkId )
+							}
 						}
 					}
 				}
@@ -3718,32 +3751,43 @@ withTransformationContext {
 	collect = _.context.collector(it)
 }
 
+def _refLimit = _project.vars.LIMIT_NETWORK_REFERENCES
+
 // Erstelle ein RoadSurfaceCategory-Objekt für jeden vorkommenden Wert
 collect.surfaceCategory.consume { key, values -&gt;
 	def _id = 'RoadSurfaceCategory_' + key
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
-	_target {
-		surfaceCategory {
-			href( "$codeList/$key" )
+	def valueGroups = _refLimit ? values.collate(_refLimit as int) : [values]
+	def i = 1
+	valueGroups.each { valueGroup -&gt;
+		def _id2 = _id
+		if (valueGroups.size &gt; 1) {
+			// Gruppennummer anhängen, falls es mehr als eine Gruppe gibt
+			_id2 += '_' + i++
 		}
-		id( _id )
-		inspireId {
-			Identifier {
-				namespace( _ns )
-				localId( _id )
+		_target {
+			surfaceCategory {
+				href( "$codeList/$key" )
 			}
-		}
-		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
-			codeSpace( 'http://inspire.ec.europa.eu/ids' )
-		}
-		
-		// Referenz zu gesammelten RoadLinks mit dieser Eigenschaft
-		values.each { linkId -&gt;
-			networkRef {
-				NetworkReference {
-					element {
-						href( "#$linkId" )
+			id( _id2 )
+			inspireId {
+				Identifier {
+					namespace( _ns )
+					localId( _id2 )
+				}
+			}
+			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id2 : _id2 ) {
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )
+			}
+			
+			// Referenz zu gesammelten RoadLinks mit dieser Eigenschaft
+			valueGroup.each { linkId -&gt;
+				networkRef {
+					NetworkReference {
+						element {
+							href( "#$linkId" )
+						}
 					}
 				}
 			}
