@@ -2,7 +2,7 @@
   "ad-hk": {
     "project": "annex-1/mappings6.0/Addresses/hauskoordinaten-ad-01.halex",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME"
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.ad.hk/"
     },
     "deriveProject": false
   },
@@ -21,14 +21,14 @@
     "project": "annex-1/mappings6.0/GeographicalNames/aaa-gn-02.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME"
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.gn.alkis"
     }
   },
   "gn-basis-dlm": {
     "project": "annex-1/mappings6.0/GeographicalNames/aaa-gn-02.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME"
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.gn.atkis-basis-dlm"
     }
   },
   "gn-dlm50": {
@@ -56,7 +56,7 @@
     "project": "annex-1/mappings6.0/CadastralParcels/aaa-cp-01.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME"
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.cp.alkis"
     },
     "deriveProject": false
   },
@@ -64,14 +64,14 @@
     "project": "annex-1/mappings6.0/Hydrography/aaa-hy-p.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME"
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.hy-p.atkis-basis-dlm/"
     }
   },
   "hy-p-dlkm": {
     "project": "annex-1/mappings6.0/Hydrography/aaa-hy-p.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME"
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.hy-p.alkis/"
     }
   },
   "hy-p-dlm50": {
@@ -99,7 +99,7 @@
     "project": "annex-1/mappings6.0/Hydrography/aaa-hy-n.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.hy-n.atkis-basis-dlm/",
       "NETWORK_ID": "HydroNetwork"
     }
   },
@@ -107,7 +107,7 @@
     "project": "annex-1/mappings6.0/Hydrography/aaa-hy-n.halex",
     "model": "DLM50",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.hy-n.atkis-dlm50/",
       "NETWORK_ID": "HydroNetwork"
     }
   },
@@ -131,9 +131,11 @@
     "project": "annex-1/mappings6.0/RoadTransportNetwork/aaa-tn-ro-01.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-ro.alkis/",
       "NETWORK_ID": "RoadNetwork",
-      "NETWORK_NAME": "Straßen-Verkehrsnetz"
+      "NETWORK_NAME": "Straßen-Verkehrsnetz",
+      "LIMIT_NETWORK_REFERENCES": "1000",
+      "THEME_DISTINGUISHER": "Road"
     },
     "deriveFilter": {
       "exclude": [
@@ -176,9 +178,11 @@
     "project": "annex-1/mappings6.0/RoadTransportNetwork/aaa-tn-ro-01.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-ro.atkis-basis-dlm/",
       "NETWORK_ID": "RoadNetwork",
-      "NETWORK_NAME": "Straßen-Verkehrsnetz"
+      "NETWORK_NAME": "Straßen-Verkehrsnetz",
+      "LIMIT_NETWORK_REFERENCES": "1000",
+      "THEME_DISTINGUISHER": "Road"
     },
     "deriveFilter": {
       "exclude": [
@@ -207,9 +211,11 @@
     "project": "annex-1/mappings6.0/RoadTransportNetwork/aaa-tn-ro-01.halex",
     "model": "DLM50",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-ro.atkis-dlm50/",
       "NETWORK_ID": "RoadNetwork",
-      "NETWORK_NAME": "Straßen-Verkehrsnetz"
+      "NETWORK_NAME": "Straßen-Verkehrsnetz",
+      "LIMIT_NETWORK_REFERENCES": "1000",
+      "THEME_DISTINGUISHER": "Road"
     },
     "deriveFilter": {
       "exclude": [
@@ -306,21 +312,21 @@
     "project": "annex-1/mappings6.0/AdministrativeUnits/aaa-au-kommunalesGebiet.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME"
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.au.alkis"
     }
   },
   "au-basis-dlm-kommunalesGebiet": {
     "project": "annex-1/mappings6.0/AdministrativeUnits/aaa-au-kommunalesGebiet.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME"
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.au.atkis-basis-dlm"
     }
   },
   "au-dlm50-kommunalesGebiet": {
     "project": "annex-1/mappings6.0/AdministrativeUnits/aaa-au-kommunalesGebiet.halex",
     "model": "DLM50",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME"
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.au.atkis-dlm50"
     }
   },
   "au-dlm250-kommunalesGebiet": {
@@ -369,18 +375,20 @@
     "project": "annex-1/mappings6.0/RailroadTransportNetwork/aaa-tn-ra-01.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-ra.alkis/",
       "NETWORK_ID": "RailwayNetwork",
-      "NETWORK_NAME": "Eisenbahn-Verkehrsnetz"
+      "NETWORK_NAME": "Eisenbahn-Verkehrsnetz",
+      "THEME_DISTINGUISHER": "Railway"
     }
   },
   "tn-ra-basis-dlm": {
     "project": "annex-1/mappings6.0/RailroadTransportNetwork/aaa-tn-ra-01.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-ra.atkis-basis-dlm/",
       "NETWORK_ID": "RailwayNetwork",
-      "NETWORK_NAME": "Eisenbahn-Verkehrsnetz"
+      "NETWORK_NAME": "Eisenbahn-Verkehrsnetz",
+      "THEME_DISTINGUISHER": "Railway"
     }
   },
   "tn-ra-dlm50": {
@@ -414,18 +422,20 @@
     "project": "annex-1/mappings6.0/CableTransportNetwork/aaa-tn-c-01.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-c.alkis/",
       "NETWORK_ID": "CableTransportNetwork",
-      "NETWORK_NAME": "Kabel-Verkehrsnetz"
+      "NETWORK_NAME": "Kabel-Verkehrsnetz",
+      "THEME_DISTINGUISHER": "Cable"
     }
   },
   "tn-c-basis-dlm": {
     "project": "annex-1/mappings6.0/CableTransportNetwork/aaa-tn-c-01.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-c.atkis-basis-dlm/",
       "NETWORK_ID": "CableTransportNetwork",
-      "NETWORK_NAME": "Kabel-Verkehrsnetz"
+      "NETWORK_NAME": "Kabel-Verkehrsnetz",
+      "THEME_DISTINGUISHER": "Cable"
     }
   },
   "tn-c-dlm50": {
@@ -459,18 +469,20 @@
     "project": "annex-1/mappings6.0/AirTransportNetwork/aaa-tn-a-01.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-a.alkis/",
       "NETWORK_ID": "AirTransportNetwork",
-      "NETWORK_NAME": "Luft-Verkehrsnetz"
+      "NETWORK_NAME": "Luft-Verkehrsnetz",
+      "THEME_DISTINGUISHER": "Air"
     }
   },
   "tn-a-basis-dlm": {
     "project": "annex-1/mappings6.0/AirTransportNetwork/aaa-tn-a-01.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-a.atkis-basis-dlm/",
       "NETWORK_ID": "AirTransportNetwork",
-      "NETWORK_NAME": "Luft-Verkehrsnetz"
+      "NETWORK_NAME": "Luft-Verkehrsnetz",
+      "THEME_DISTINGUISHER": "Air"
     }
   },
   "tn-a-dlm50": {
@@ -504,18 +516,20 @@
     "project": "annex-1/mappings6.0/WaterTransportNetwork/aaa-tn-w-01.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-w.alkis/",
       "NETWORK_ID": "WaterTransportNetwork",
-      "NETWORK_NAME": "Wasser-Verkehrsnetz"
+      "NETWORK_NAME": "Wasser-Verkehrsnetz",
+      "THEME_DISTINGUISHER": "Water"
     }
   },
   "tn-w-basis-dlm": {
     "project": "annex-1/mappings6.0/WaterTransportNetwork/aaa-tn-w-01.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.tn-w.atkis-basis-dlm/",
       "NETWORK_ID": "WaterTransportNetwork",
-      "NETWORK_NAME": "Wasser-Verkehrsnetz"
+      "NETWORK_NAME": "Wasser-Verkehrsnetz",
+      "THEME_DISTINGUISHER": "Water"
     }
   },
   "tn-w-dlm50": {
@@ -549,7 +563,7 @@
     "project": "annex-2-3/mappings6.0/Soil/3A2INSPIRE_SO_v2.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.so.alkis",
       "BODSCHAETZG-ID": "BodSchaetzG"
     }
   },
@@ -557,9 +571,9 @@
     "project": "annex-2-3/mappings6.0/Buildings/2D/3A2INSPIRE_BU2D.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
-      "BUILDINGNATURE": "https://registry.gdi-de.org/codelist/REPLACEME",
-      "CURRENTUSE": "https://registry.gdi-de.org/codelist/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.bu-2d.alkis",
+      "BUILDINGNATURE": "https://registry.gdi-de.org/codelist/de.adv-online.inspire/BuildingNatureValue/",
+      "CURRENTUSE": "https://registry.gdi-de.org/codelist/de.adv-online.inspire/CurrentUseValue/",
       "HORIZONTALGEOMETRYREFERENCEVALUE_AUFGESTAENDERT": "footPrint",
       "HORIZONTALGEOMETRYREFERENCEVALUE_BEFLIEGUNGSGEBAEUDE": "footPrint"
     }
@@ -568,9 +582,9 @@
     "project": "annex-2-3/mappings6.0/Buildings/2D/3A2INSPIRE_BU2D.halex",
     "model": "Basis-DLM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
-      "BUILDINGNATURE": "https://registry.gdi-de.org/codelist/REPLACEME",
-      "CURRENTUSE": "https://registry.gdi-de.org/codelist/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.bu-2d.atkis-basis-dlm",
+      "BUILDINGNATURE": "https://registry.gdi-de.org/codelist/de.adv-online.inspire/BuildingNatureValue/",
+      "CURRENTUSE": "https://registry.gdi-de.org/codelist/de.adv-online.inspire/CurrentUseValue/",
       "HORIZONTALGEOMETRYREFERENCEVALUE_AUFGESTAENDERT": "footPrint",
       "HORIZONTALGEOMETRYREFERENCEVALUE_BEFLIEGUNGSGEBAEUDE": "footPrint"
     }
@@ -621,9 +635,9 @@
     "project": "annex-2-3/mappings6.0/LandCover/ALKIS2INSPIRE_LC_v2.halex",
     "model": "DLKM",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.lcv.alkis",
       "LANDCOVER_DATASET": "LandCoverDataset",
-      "LANDCOVER_OBSERVATION_CODELIST": "https://registry.gdi-de.org/codelist/REPLACEME"
+      "LANDCOVER_OBSERVATION_CODELIST": "https://registry.gdi-de.org/codelist/de.adv-online.inspire/LandCoverClassValue/"
     }
   },
   "elu": {
@@ -631,7 +645,7 @@
     "model": "DLKM",
     "extentBundesland": "true",
     "variables": {
-      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/REPLACEME",
+      "INSPIRE_NAMESPACE": "https://registry.gdi-de.org/id/de.he.0462.DE7.elu.alkis",
       "DATASET": "ExistingLandUseDataSet",
       "VOID_REASON_OBSERVATIONDATE": "unknown"
     }
