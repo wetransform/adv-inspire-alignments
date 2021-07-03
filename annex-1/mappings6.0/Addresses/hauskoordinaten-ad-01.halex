@@ -10,7 +10,7 @@ Anmerkungen:&#13;
 &#13;
 2. Um die Koordinaten formatiert (z.B. 00000000.000) auszugeben, ist die Verwendung von hale studio 3.1.0 erforderlich.</description>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2023-04-04T16:43:38.713+02:00</modified>
+    <modified>2023-04-04T17:26:45.200+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1101,6 +1101,9 @@ Anmerkungen:&#13;
     <property name="defaultGeometry:{http://www.opengis.net/gml/3.2}ValuePropertyType/count">1</property>
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
+            <core:property name="COUNTRY_ADMIN_UNIT_NAME">
+                <core:value value=""/>
+            </core:property>
             <core:property name="INSPIRE_NAMESPACE">
                 <core:value value="https://registry.gdi-de.org/id/de.____/"/>
             </core:property>
