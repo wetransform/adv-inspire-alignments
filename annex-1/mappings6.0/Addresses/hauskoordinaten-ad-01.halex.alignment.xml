@@ -250,6 +250,18 @@ else {
         </target>
         <parameter value="#AdminUnitName_{LAN}{RBZ}{KRS}{GMD}" name="pattern"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9920280b-6948-4068-9655-c3880fa0e32e" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>5</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#AdminUnitName_00000000" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cbfb7b3cb-018e-44ce-b36d-63d8f2e63d99" priority="normal">
         <source name="var">
             <property>
@@ -499,6 +511,51 @@ _target {
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Ca3f006f1-dd2d-48f6-bb43-bea37b929898" priority="normal">
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def ins = _project.vars.INSPIRE_NAMESPACE
+if (ins &amp;&amp; !ins.endsWith('/')) {
+	ins += '/'
+}
+
+_target {
+	adminUnit {
+		nilReason('other:unpopulated')
+	}
+	id('AdminUnitName_00000000')
+	name(namespace: 'http://inspire.ec.europa.eu/schemas/ad/4.0')  {
+		GeographicalName {
+			language('ger')
+			nameStatus {
+				href('http://inspire.ec.europa.eu/codelist/NameStatusValue/official')
+			}
+			nativeness {
+				href('http://inspire.ec.europa.eu/codelist/NativenessValue/endonym')
+			}
+			pronunciation {
+				nilReason('other:unpopulated')
+			}
+			sourceOfName {
+				nilReason('other:unpopulated')
+			}
+			spelling {
+				SpellingOfName {
+					script('Latn')
+					text('Deutschland')
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb411eac2-d187-4ac9-a98e-af88c5ee6ec2" priority="normal">
         <source>
             <class>
@@ -689,6 +746,15 @@ _target {
         </target>
         <parameter value="AdminUnitName_{a}{b}" name="pattern"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C760e0264-e150-4b9d-9c9a-913231fa22d9" priority="lowest">
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}AdministrativeUnit_00000000" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C0ba00179-8337-4923-94bd-d18ebead9116" priority="normal">
         <source name="var">
             <property>
@@ -814,6 +880,17 @@ _target {
             </property>
         </target>
         <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C67bf4528-d478-4434-8318-53f3db7c9cb8" priority="lowest">
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="AdministrativeUnit_00000000" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C45bec584-1e2c-4886-a565-f3844d87b6b5" priority="normal">
         <source name="var">
@@ -948,6 +1025,16 @@ _target {
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3d5678ce-d39f-401a-b641-8ed243d10771" priority="lowest">
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/1stOrder" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C95786a23-4df6-4327-88c9-85193bb8ba80" priority="normal">
         <source name="anchor">
