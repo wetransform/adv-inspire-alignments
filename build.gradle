@@ -607,7 +607,7 @@ tasks.docHtml.doLast {
   print 'Use https URLs to load halejs...'
 
   // find documentation files
-  def files = fileTree(dir: projectDir, include: 'annex*/mappings/**/*.halex.svg.html')
+  def files = fileTree(dir: projectDir, include: 'annex*/mappings6.0/**/*.halex.svg.html')
 
   files.each { file ->
     def text = file.text
