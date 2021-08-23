@@ -4,12 +4,12 @@
     <author>Johanna Ott</author>
     <description></description>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2021-06-10T15:57:33.079+02:00</modified>
+    <modified>2021-08-23T17:10:20.684+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna/git/adv-inspire-alignments/annex-1/mappings%207.1.0/Hydrography/aaa-hy-p.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna/git/adv-inspire-alignments/annex-1/mappings7.1/Hydrography/aaa-hy-p.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
@@ -48,35 +48,6 @@
         <setting name="resourceId">8b048bf8-a936-4aa2-a16f-e69fcf64e373</setting>
         <setting name="source">http://inspire.ec.europa.eu/codelist/NameStatusValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">aba65a39-a58c-41cb-a8a8-08206e3da90a</setting>
-        <setting name="interpolation.grid.moveAllToGrid">false</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ATKIS/ATKIS_HH_0007.xml.gz</setting>
-        <setting name="interpolation.maxError">0.1</setting>
-        <setting name="strict">false</setting>
-        <setting name="interpolation.algorithm">segment</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="paginateRequest">true</setting>
-        <setting name="featuresPerWfsRequest">1000</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">a1ba3963-d450-4f30-a071-7620b65271b6</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_NeuwScharh_0008.xml.gz</setting>
-        <setting name="interpolation.maxError">0.1</setting>
-        <setting name="interpolation.algorithm">segment</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="paginateRequest">true</setting>
-        <setting name="featuresPerWfsRequest">1000</setting>
-        <setting name="ignoreRoot">true</setting>
-        <setting name="ignoreNumberMatched">false</setting>
-        <setting name="interpolation.grid.moveAllToGrid">false</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
@@ -1775,6 +1746,24 @@
     <property name="resource-dab30e29-2dfc-4242-9faa-3f369e08dd70:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_PunktortAGType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-dab30e29-2dfc-4242-9faa-3f369e08dd70:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-dab30e29-2dfc-4242-9faa-3f369e08dd70:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_PunktortTAType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_BauwerkImVerkehrsbereichType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_FliessgewaesserType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_FliessgewaesserType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_GewaesserachseType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_GewaessermerkmalType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_HafenbeckenType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_HistorischesBauwerkOderHistorischeEinrichtungType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_HistorischesBauwerkOderHistorischeEinrichtungType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_SonstigesBauwerkOderSonstigeEinrichtungType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_SonstigesBauwerkOderSonstigeEinrichtungType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_StehendesGewaesserType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_StrassenverkehrsanlageType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_VegetationsmerkmalType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_VegetationsmerkmalType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:4258</property>
+    <property name="resource-fbb27a8b-d151-41fd-b832-5c26b75a52f6:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_VegetationsmerkmalType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
     <complex-property name="variables">
         <core:properties xmlns:core="http://www.esdi-humboldt.eu/hale/core">
             <core:property name="INSPIRE_NAMESPACE">
