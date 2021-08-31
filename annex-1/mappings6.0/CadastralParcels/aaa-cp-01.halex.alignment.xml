@@ -92,6 +92,42 @@
         <parameter value="true" name="ignoreNamespaces"/>
         <parameter value="true" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf43f2fcb-1700-4d7f-aabd-ec296df5c219" priority="high">
+        <source>
+            <property>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="MultiSurface" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C928be987-1ca8-473c-915b-f1d68f35090d" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Surface" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CadastralParcelType" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/cp/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ce6bf7947-2b16-446e-b4c9-5d0e39e5c0c8" priority="normal">
         <source name="id">
             <property>
@@ -1318,4 +1354,7 @@ Falls Flurstücke vorhanden sind werden die Geometrien der Flurstücke für die 
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
+    <modifier cell="Cab00243d-d276-44ff-aff0-9049cefb1a6d">
+        <disable-for parent="C1adf2663-91d3-4e63-99b0-2806db5d9191"/>
+    </modifier>
 </alignment>
