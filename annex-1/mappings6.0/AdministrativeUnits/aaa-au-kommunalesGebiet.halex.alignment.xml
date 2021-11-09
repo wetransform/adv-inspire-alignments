@@ -268,7 +268,6 @@ class Processor {
 
 }
 
-
 // alle Eigenschaften mit Geometrien aus Kommunalem Gebiet
 def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())
 
@@ -317,7 +316,7 @@ else upperLevelUnit =  "AdministrativeUnit_${land}"
 	}
 	// Sammle ID für Bundesland (falls Kreis/Region Schlüssel 00 und Regierungsbezirk Schlüssel 0 hat)
 	if( kreis.equals('00') &amp;&amp; regBezirk.equals('0')){
-		collect.land[land] &lt;&lt; _id
+		collect.land[upperLevelUnit] &lt;&lt; _id
 	}
 	
 	// speichere aggregierte Geometrie für Bildung von Kreis/Region
@@ -568,7 +567,7 @@ withTransformationContext {
 	
 	// Sammle ID für Bundesland (falls Kreis/Region Schlüssel 00 und Regierungsbezirk Schlüssel 0 hat)
 	if( _source.p.schluessel.AX_Verwaltungsgemeinschaft_Schluessel.kreis.value().equals('00') &amp;&amp; _source.p.schluessel.AX_Verwaltungsgemeinschaft_Schluessel.regierungsbezirk.value().equals('0')){
-		collect.land[_source.p.schluessel.AX_Verwaltungsgemeinschaft_Schluessel.land.value()] &lt;&lt; _id
+		collect.land[upperLevelUnit] &lt;&lt; _id
 	}
 	
 	// speichere aggregierte Geometrie für Bildung von Kreis/Region
@@ -708,7 +707,7 @@ union = new DefaultGeometryProperty(union.CRSDefinition, g)
 // speichere aggregierte Geometrie für Bildung von Regierungsbezirk/Land
 collect.LowerLevelGeometrien[upperLevelUnit] &lt;&lt; union
 
-// KreisRegion mit Schlüssel 00 soll gemäß entsprechende Aufgabe in hale connect ignoriert werden
+// KreisRegion mit Schlüssel 00 soll gemäß entsprechender Aufgabe in hale connect ignoriert werden
 if(_source.p.schluessel.AX_Kreis_Schluessel.kreis.value() != '00'){
 	_target{
 		geometry {
@@ -845,7 +844,7 @@ union = new DefaultGeometryProperty(union.CRSDefinition, g)
 // speichere aggregierte Geometrie für Bildung von Land
 collect.LowerLevelGeometrien[upperLevelUnit] &lt;&lt; union
 
-// Regierungsbezirk mit Schlüssel 0 soll gemäß entsprechende Aufgabe in hale connect ignoriert werden
+// Regierungsbezirk mit Schlüssel 0 soll gemäß entsprechender Aufgabe in hale connect ignoriert werden
 if(_source.p.schluessel.AX_Regierungsbezirk_Schluessel.regierungsbezirk.value() != '0'){
 	_target{
 		geometry {
