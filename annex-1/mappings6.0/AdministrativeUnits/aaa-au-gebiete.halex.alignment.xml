@@ -381,9 +381,9 @@ _target{
 		MultiSurface( geoms[0] )
 	}
 	// Verweis auf Gemeinden
-	gemeinden.each {
+	gemeinden.each { gem -&gt;
 		lowerLevelUnit {
-			href( "#AdministrativeUnit_$it" )
+			href( "#AdministrativeUnit_$gem" )
 		}
 	}
 	_b.upperLevelUnit {
