@@ -387,6 +387,8 @@ transformations.each { name, config ->
         provider 'eu.esdihumboldt.hale.io.gml.reader'
         include '*.gz'
         setting 'contentType', 'eu.esdihumboldt.hale.io.xml.gzip'
+        setting 'interpolation.algorithm', 'segment'
+        setting 'interpolation.maxError', '0.05'
         if (sourceCRS) {
           setting 'defaultSrs', "code:${sourceCRS}"
         }
@@ -397,6 +399,8 @@ transformations.each { name, config ->
         include '*.gml'
         include '*.xml'
         setting 'contentType', 'org.eclipse.core.runtime.xml'
+        setting 'interpolation.algorithm', 'segment'
+        setting 'interpolation.maxError', '0.05'
         if (sourceCRS) {
           setting 'defaultSrs', "code:${sourceCRS}"
         }
