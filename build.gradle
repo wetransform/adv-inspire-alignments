@@ -492,6 +492,7 @@ transformations.each { name, config ->
       setting 'crs.epsg.prefix', 'http://www.opengis.net/def/crs/EPSG/0/'
       setting 'crs', targetCrs
       setting 'skipFeatureCount', true
+      setting 'instancesPerFile', project.hasProperty('instancesPerFile') ? project.getProperty('instancesPerFile') : 0
     }
     
     // XML schema validation
