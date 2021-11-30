@@ -37,7 +37,7 @@ class Processor {
                 try {
                     double area = CGAlgorithms.signedArea(hole.coordinates)
                     // println "Area of hole: $area"
-                    if (area &gt; areaThreshold) {
+                    if (Math.abs(area) &gt; areaThreshold) {
                         // keep hole
                         holes &lt;&lt; hole
                         _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
@@ -226,7 +226,7 @@ class Processor {
                 try {
                     double area = CGAlgorithms.signedArea(hole.coordinates)
                     // println "Area of hole: $area"
-                    if (area &gt; areaThreshold) {
+                    if (Math.abs(area) &gt; areaThreshold) {
                         // keep hole
                         holes &lt;&lt; hole
                         _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
@@ -450,7 +450,7 @@ class Processor {
                 try {
                     double area = CGAlgorithms.signedArea(hole.coordinates)
                     // println "Area of hole: $area"
-                    if (area &gt; areaThreshold) {
+                    if (Math.abs(area) &gt; areaThreshold) {
                         // keep hole
                         holes &lt;&lt; hole
                         _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
@@ -601,7 +601,7 @@ class Processor {
                 try {
                     double area = CGAlgorithms.signedArea(hole.coordinates)
                     // println "Area of hole: $area"
-                    if (area &gt; areaThreshold) {
+                    if (Math.abs(area) &gt; areaThreshold) {
                         // keep hole
                         holes &lt;&lt; hole
                         _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
@@ -740,7 +740,7 @@ class Processor {
                 try {
                     double area = CGAlgorithms.signedArea(hole.coordinates)
                     // println "Area of hole: $area"
-                    if (area &gt; areaThreshold) {
+                    if (Math.abs(area) &gt; areaThreshold) {
                         // keep hole
                         holes &lt;&lt; hole
                         _log.info("Loch in AdministrativeUnit mit Fläche ${area} beibehalten")
