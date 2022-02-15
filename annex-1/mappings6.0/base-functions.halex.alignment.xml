@@ -127,7 +127,7 @@ if (!name) {
 			if (collect.lagebezeichnung[schluesselGesamt].value()){
 				name = collect.lagebezeichnung[schluesselGesamt].value()
 			}
-			else _log.error('Für einen Namen aus einer verschlüsselten Lagebezeichnung mit Schlüssel ${schluesselGesamt} liegt kein Katalogeintrag vor.')
+			else _log.error("Für einen Namen aus einer verschlüsselten Lagebezeichnung mit Schlüssel ${schluesselGesamt} liegt kein Katalogeintrag vor.")
 		}
 	}
 }
