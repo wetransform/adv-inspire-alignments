@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
     <base prefix="ba1" location="../base-functions.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cd774e135-98e1-4e26-bbbe-25260ca655f5" priority="highest">
+        <source>
+            <class>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def name = _source.p.bezeichnung.value()&#xD;
+def schluessel = _source.p.schluesselGesamt.value()&#xD;
+&#xD;
+withTransformationContext {&#xD;
+  def collect = _.context.collector(it)&#xD;
+  &#xD;
+  // Name zu Schlüssel der Lagebezeichnung im Index ablegen&#xD;
+  collect.lagebezeichnung[schluessel] = name&#xD;
+}
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C7062dc56-15a8-4b8e-a5d7-2b9aef459001" priority="normal">
         <source>
             <class>

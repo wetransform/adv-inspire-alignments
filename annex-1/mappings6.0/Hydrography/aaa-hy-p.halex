@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="4.0.0.SNAPSHOT">
+<hale-project version="4.2.0.SNAPSHOT">
     <name>[Annex I] AdV 3A zu INSPIRE Hydro-Physical Waters</name>
     <author>Thorsten Reitz</author>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2019-10-14T09:30:10.249+02:00</modified>
+    <modified>2022-02-18T13:27:59.099+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna/git/adv-inspire-alignments/annex-1/mappings6.0/Hydrography/aaa-hy-p.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-1/mappings6.0/Hydrography/aaa-hy-p.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
@@ -47,35 +47,6 @@
         <setting name="resourceId">8b048bf8-a936-4aa2-a16f-e69fcf64e373</setting>
         <setting name="source">http://inspire.ec.europa.eu/codelist/NameStatusValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">aba65a39-a58c-41cb-a8a8-08206e3da90a</setting>
-        <setting name="interpolation.grid.moveAllToGrid">false</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ATKIS/ATKIS_HH_0007.xml.gz</setting>
-        <setting name="interpolation.maxError">0.1</setting>
-        <setting name="strict">false</setting>
-        <setting name="interpolation.algorithm">segment</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="paginateRequest">true</setting>
-        <setting name="featuresPerWfsRequest">1000</setting>
-        <setting name="ignoreRoot">true</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">a1ba3963-d450-4f30-a071-7620b65271b6</setting>
-        <setting name="source">file:/C:/Users/Johanna/git/adv-inspire-alignments/testdaten/Hamburg/ALKIS_NeuwScharh_0008.xml.gz</setting>
-        <setting name="interpolation.maxError">0.1</setting>
-        <setting name="interpolation.algorithm">segment</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="paginateRequest">true</setting>
-        <setting name="featuresPerWfsRequest">1000</setting>
-        <setting name="ignoreRoot">true</setting>
-        <setting name="ignoreNumberMatched">false</setting>
-        <setting name="interpolation.grid.moveAllToGrid">false</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
@@ -1582,6 +1553,7 @@
     <property name="mappableSourceType/16">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_WasserlaufType</property>
     <property name="mappableSourceType/17">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_KanalType</property>
     <property name="mappableSourceType/18">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_UntergeordnetesGewaesserType</property>
+    <property name="mappableSourceType/19">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungKatalogeintragType</property>
     <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_DammWallDeichType</property>
     <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType</property>
     <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_MeerType</property>
@@ -1590,7 +1562,7 @@
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaessermerkmalType</property>
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_StrassenverkehrsanlageType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_GewaesserachseType</property>
-    <property name="mappableSourceType/count">18</property>
+    <property name="mappableSourceType/count">19</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RapidsType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}EmbankmentType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WetlandType</property>
@@ -1599,6 +1571,7 @@
     <property name="mappableTargetType/14">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}StandingWaterType</property>
     <property name="mappableTargetType/15">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FallsType</property>
     <property name="mappableTargetType/16">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}LockType</property>
+    <property name="mappableTargetType/17">{http://www.opengis.net/gml/3.2}AbstractFeatureType</property>
     <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}CrossingType</property>
     <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WatercourseType</property>
     <property name="mappableTargetType/4">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}DamOrWeirType</property>
@@ -1607,7 +1580,7 @@
     <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ShoreType</property>
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RiverBasinType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}SluiceType</property>
-    <property name="mappableTargetType/count">16</property>
+    <property name="mappableTargetType/count">17</property>
     <property name="resource-095e09bb-d0af-4258-8946-430809bdbab2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FliessgewaesserType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-095e09bb-d0af-4258-8946-430809bdbab2:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_FliessgewaesserType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}interior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-1d2243fe-14cb-409f-b1c1-a1f06e6bcfce:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/6.0}AP_LPOType/{http://www.adv-online.de/namespaces/adv/gid/6.0}position/{http://www.opengis.net/gml/3.2}MultiCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
