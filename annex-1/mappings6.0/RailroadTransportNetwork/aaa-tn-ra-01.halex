@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="3.5.0.SNAPSHOT">
+<hale-project version="4.2.0.SNAPSHOT">
     <name>[Annex I] AdV 3A zu INSPIRE Railway Transport Network</name>
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Railway Transport Network GML Anwendungsschema.
@@ -22,17 +22,17 @@ Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für
 
 Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für alle Features die auf die gleichen Werte abgebildet werden (z.B. gleicher Zustand für `ConditionOfFacility`). Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2018-10-12T11:52:30.572+02:00</modified>
+    <modified>2022-02-21T17:13:09.499+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna%20Ott/eclipse/workspace/gits/adv-inspire-alignments/annex-1/mappings6.0/RailroadTransportNetwork/aaa-tn-ra-01.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-1/mappings6.0/RailroadTransportNetwork/aaa-tn-ra-01.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">fe9e4898-e2ab-4559-bec6-c92a9e455eef</setting>
-        <setting name="source">file:/C:/Users/Johanna%20Ott/eclipse/workspace/gits/adv-inspire-alignments/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/schemas/NAS_6.0.1/schema/aaa.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
@@ -1366,14 +1366,13 @@ Im Alignment wird ein *TransportProperty*-Objekt erstellt zusammenfassend für a
     <property name="instances.sampling.sampler">first</property>
     <property name="instances.sampling.settings.first">1</property>
     <property name="instances.sampling.settings.skip">10</property>
-    <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_LagebezeichnungKatalogeintragType</property>
-    <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BahnstreckeType</property>
-    <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SeilbahnSchwebebahnType</property>
-    <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BahnverkehrType</property>
-    <property name="mappableSourceType/5">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BahnverkehrsanlageType</property>
-    <property name="mappableSourceType/6">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType</property>
-    <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType</property>
-    <property name="mappableSourceType/count">7</property>
+    <property name="mappableSourceType/1">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BahnstreckeType</property>
+    <property name="mappableSourceType/2">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_SeilbahnSchwebebahnType</property>
+    <property name="mappableSourceType/3">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BahnverkehrType</property>
+    <property name="mappableSourceType/4">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BahnverkehrsanlageType</property>
+    <property name="mappableSourceType/5">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImVerkehrsbereichType</property>
+    <property name="mappableSourceType/6">{http://www.adv-online.de/namespaces/adv/gid/6.0}AX_BauwerkImGewaesserbereichType</property>
+    <property name="mappableSourceType/count">6</property>
     <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportNetworkType</property>
     <property name="mappableTargetType/10">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayElectrificationType</property>
     <property name="mappableTargetType/11">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}NominalTrackGaugeType</property>
