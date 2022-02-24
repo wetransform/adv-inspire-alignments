@@ -419,26 +419,42 @@ transformations.each { name, config ->
         }
       }
 
+      def idExcludeList = []
+      def excludeFile = new File("exclude-ids.txt")
+      if (excludeFile.exists()) {
+        excludeFile.eachLine { line ->
+          if (!line.startsWith('#')) {
+            idExcludeList << "\"${line}\""
+          }
+        }
+      }
+
       // filter duplicate objects based on GML ID (= AAA-ObjektID)
       filterArgs << '-exclude'
-      filterArgs << '''groovy:
+      filterArgs << """groovy:
         def id = instance.p.id.value();
+        def excludedIds = [${idExcludeList.join(',')}]
         boolean rejected = false;
         if (id) {
-          withContext {
-            def collect = _.context.collector(it);
-            if (collect.ids.values().contains(id)) {
-              _log.warn(\'Rejecting feature with duplicate id \' + id);
-              rejected = true;
-            }
-            else {
-              collect.ids << id;
+          if (excludedIds.contains(id)) {
+            _log.info(\'Rejecting feature with excluded id \' + id);
+            rejected = true
+          }
+          else {
+            withContext {
+              def collect = _.context.collector(it);
+              if (collect.ids.values().contains(id)) {
+                _log.warn(\'Rejecting feature with duplicate id \' + id);
+                rejected = true;
+              }
+              else {
+                collect.ids << id;
+              }
             }
           }
         }
-
         rejected;
-      '''
+      """
       // enable global filter context (to allow filtering duplicates across files)
       overallFilterContext = true 
     }
