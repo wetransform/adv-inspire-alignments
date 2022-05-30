@@ -405,7 +405,7 @@ transformations.each { name, config ->
       if (config.extentBundesland && project.hasProperty('extentBundesland')) {
         source(project.getProperty('extentBundesland')) {
           provider 'eu.esdihumboldt.hale.io.csv.reader.instance'
-          setting 'skip', true
+          setting 'skip', false
           setting 'typename', 'extentBundesland'
           setting 'separator', ';'
           setting 'decimal', '.'
