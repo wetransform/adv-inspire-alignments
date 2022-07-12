@@ -1512,11 +1512,24 @@ def _id = "PortArea_$sourceId"
 _target {
 }
 
+// bestimme ConditionOfWaterFacility
+def conditionOfFacility = 'functional'
+switch (_source.p.zustand.value()) {
+	case '2100': // Außer Betrieb, stillgelegt, verlassen
+		conditionOfFacility = 'disused'
+		break
+	case '4000': // Im Bau
+		conditionOfFacility = 'underConstruction'
+		break
+}
+
 def collect
 withTransformationContext {
 	collect = _.context.collector(it)
 	// Sammle ID für Netzwerk	
 	collect.network &lt;&lt; _id
+	// Sammle ID für ConditionOfWaterFacility
+	collect.conditionOfWaterFacility[conditionOfFacility] &lt;&lt; _id
 }
 
 /*
@@ -1820,7 +1833,7 @@ if (parentId) {
 	_target {
 	}
 	
-	// bestimme ConditionOfWaterFacility
+	// bestimme ConditionOfFacility
 	def conditionOfFacility = 'functional'
 	switch (_source.p.zustand.value()) {
 	case '2100': // Außer Betrieb, stillgelegt, verlassen
@@ -1830,7 +1843,7 @@ if (parentId) {
 		conditionOfFacility = 'underConstruction'
 		break
 	}
-	
+
 	def collect
 	withTransformationContext {
 		collect = _.context.collector(it)
@@ -1839,7 +1852,7 @@ if (parentId) {
 		// Sammle ID für Liste von WaterwayLinks für den Kanal
 		collect.AX_Kanal[parentId].links &lt;&lt; _id
 		// Sammle ID für ConditionOfWaterFacility
-		collect.conditionOfWaterFacility[conditionOfFacility] &lt;&lt; _id
+		collect.conditionOfFacility[conditionOfFacility] &lt;&lt; _id
 	}
 	
 	/*
@@ -2761,7 +2774,4 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <modifier cell="ba1:C1eb2d011-34d1-4077-8388-f7fbdb1659b9">
-        <transformation mode="disabled"/>
-    </modifier>
 </alignment>
