@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_PS_v3.1.pdf
+
+   XML is valid against StyledLayerDescriptor.xsd! 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:24)
+-->
+<!-- FBurkamp: Kontent der SLD nach Abstract ergänzt. (2017-06-01 08:19) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>PS.ProtectedSites</se:Name>
+    <se:Description>
+		<se:Title>Protected Sites</se:Title>
+	</se:Description>
+    <sld:UserStyle>
+      <se:Name>PS.ProtectedSites.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle xmlns:PS="urn:xinspire:specification:ProtectedSites:3.1" version="1.1.0" xmlns:ps="http://inspire.ec.europa.eu/schemas/ps/4.0">
+        <se:Description>
+          <se:Title>Protected Sites Default Style</se:Title>
+          <se:Abstract>Point geometries are rendered as a square with a size of 6 pixels, with a 50% grey (#808080) fill and a black (#000000) outline. Line geometries are rendered as a solid black line with a stroke width of 1 pixel. Polygon geometries are rendered using a 50% grey (#808080) fill and a solid black outline with a stroke width of 1 pixel.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>ps:ProtectedSites</se:FeatureTypeName>
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>protected sites: polygon</se:Title>
+        </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ps:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#808080</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Line -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>protected sites: line</se:Title>
+        </se:Description>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ps:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#808080</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>protected sites: point</se:Title>
+        </se:Description>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ps:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#808080</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>6</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

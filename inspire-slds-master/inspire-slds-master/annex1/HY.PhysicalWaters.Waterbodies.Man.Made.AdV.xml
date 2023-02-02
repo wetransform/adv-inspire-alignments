@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent der SLD nach Abstract ergänzt. Fehler: bei standing waters ist die Linienfarbe nur als folgender Wert angegeben: #0000 -> soll dies schwarz sein? (2017-06-01 08:25)-->
+<sld:StyledLayerDescriptor version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd" xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sld:NamedLayer>
+    <se:Name>HY.PhysicalWaters.Waterbodies.Man.Made.Natural</se:Name>
+    <se:Description>
+		<se:Title>Man-made Object (Natural)</se:Title>
+	</se:Description>
+    <sld:UserStyle>
+      <se:Name>HY.PhysicalWaters.Waterbodies.Man.Made.Natural.Default</se:Name>
+        <sld:IsDefault>1</sld:IsDefault>
+        <se:FeatureTypeStyle version="1.1.0" xmlns:hy-p="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+          <se:Description>
+          <se:Title>Waterbodies Man-Made Default Style</se:Title>
+          <se:Abstract>Physical waters as watercourses or standing water are depicted taking into account if they are natural or man-made. Natural water bodies are depicted using a light blue (#CCFFFF) filled polygon and a solid blue (#33CCFF) border with stroke width of 1 pixel.Man-made water bodies are depicted using a light blue (#CCFFFF) filled polygon and a solid blue (#0066FF) border with stroke width of 1 pixel.Natural standing waters are rendered by 6 pixel size filled blue circles (#0066FF) on a light blue (#CCFFFF) filled polygon.Man-made standing waters are rendered by 6 pixel size filled blue circles (#0066FF) with a black (?) (#0000) border on a light blue (#0000) filled polygon with a black (?) (#0000) border and a stroke width of 1 pixel.</se:Abstract>
+          
+          <!-- Delineation is known, NATURAL  -->
+          </se:Description>  
+          <se:FeatureTypeName>hy-p:Watercourse</se:FeatureTypeName>
+          <se:Rule>
+            <se:Description>
+              <se:Title>waterbodies natural</se:Title>
+            </se:Description>
+              <ogc:Filter>
+              <ogc:Or>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>hy-p:delineationKnown</ogc:PropertyName>
+                  <ogc:Literal>true</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>hy-p:origin</ogc:PropertyName>
+                  <ogc:Literal>natural</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+              </ogc:Or>
+              </ogc:Filter>
+            <se:LineSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+              </se:Geometry>
+              <se:Stroke>
+                <se:SvgParameter name="stroke">#33CCFF</se:SvgParameter>
+                <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+              </se:Stroke>
+            </se:LineSymbolizer>
+            <se:PolygonSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+                  </se:Geometry>
+                    <se:Fill>
+                      <se:SvgParameter name="fill">#CCFFFF</se:SvgParameter>
+                    </se:Fill>
+            </se:PolygonSymbolizer>
+          </se:Rule>
+          <se:Rule>
+          <se:Description>
+            <se:Title>waterbodies man-made</se:Title>
+          </se:Description>
+            <ogc:Filter>
+            <ogc:Or>
+              <!-- Delineation is known, MANMADE  -->
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>hy-p:delineationKnown</ogc:PropertyName>
+                <ogc:Literal>true</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>hy-p:origin</ogc:PropertyName>
+                <ogc:Literal>manMade</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:Or>
+            </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#0066FF</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#CCFFFF</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+          </se:Rule>
+        </se:FeatureTypeStyle>
+        <se:FeatureTypeStyle version="1.1.0" xmlns:hy-p="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+          <se:Description>
+	          <se:Title>Waterbodies Man-Made Default Style</se:Title>
+    	      <se:Abstract>Physical waters as watercourses or standing water are depicted taking into account if they are natural or man-made. Natural water bodies are depicted using a light blue (#CCFFFF) filled polygon and a solid blue (#33CCFF) border with stroke width of 1 pixel.Man-made water bodies are depicted using a light blue (#CCFFFF) filled polygon and a solid blue (#0066FF) border with stroke width of 1 pixel.Natural standing waters are rendered by 6 pixel size filled blue circles (#0066FF) on a light blue (#CCFFFF) filled polygon.Man-made standing waters are rendered by 6 pixel size filled blue circles (#0066FF) with a black (?) (#0000) border on a light blue (#0000) filled polygon with a black (?) (#0000) border and a stroke width of 1 pixel.</se:Abstract>
+          <!-- Delineation is known, NATURAL  -->
+          </se:Description>  
+          <se:FeatureTypeName>hy-p:StandingWater</se:FeatureTypeName>
+          <se:Rule>
+            <se:Description>
+              <se:Title>standing waters natural</se:Title>
+            </se:Description>
+            <ogc:Filter>
+              <!-- NATURAL -->
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>hy-p:origin</ogc:PropertyName>
+                <ogc:Literal>natural</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:Filter>
+            <se:PointSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+              </se:Geometry>
+              <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>hy-p:circle</se:WellKnownName>
+                  <se:Fill>
+                    <se:SvgParameter name="fill">#0066FF</se:SvgParameter>
+                  </se:Fill>
+              </se:Mark>
+                <se:Size>6</se:Size>
+              </se:Graphic>
+            </se:PointSymbolizer>
+            <se:PolygonSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+              </se:Geometry>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#CCFFFF</se:SvgParameter>
+                </se:Fill>
+            </se:PolygonSymbolizer>
+          </se:Rule>
+          <se:Rule>
+            <se:Description>
+              <se:Title>standing waters man-made</se:Title>
+            </se:Description>
+            <ogc:Filter>
+              <!-- MAN-MADE -->
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>hy-p:origin</ogc:PropertyName>
+                <ogc:Literal>manMade</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:Filter>
+            <se:PointSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+              </se:Geometry>
+              <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+              <se:Fill>
+                <se:SvgParameter name="fill">#0066FF</se:SvgParameter>
+              </se:Fill>
+              <se:Stroke>
+                <se:SvgParameter name="stroke">#0000</se:SvgParameter>
+              </se:Stroke>
+              </se:Mark>
+              <se:Size>6</se:Size>
+              </se:Graphic>
+            </se:PointSymbolizer>
+            <se:PolygonSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+              </se:Geometry>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#CCFFFF</se:SvgParameter>
+                </se:Fill>
+              <se:Stroke>
+                <se:SvgParameter name="stroke">#0000</se:SvgParameter>
+                <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+              </se:Stroke>
+            </se:PolygonSymbolizer>
+          </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

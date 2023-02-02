@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent der SLD nach US-Specification ergänzt. (2017-07-17 17:00) -->
+<sld:StyledLayerDescriptor version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd" xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <sld:NamedLayer>
+    <se:Name>US.EnvironmentalManagementInstallation</se:Name>
+    <sld:UserStyle>
+      <se:Name>US.EnvironmentalManagementInstallation.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+        <se:FeatureTypeStyle xmlns:US="urn:xinspire: specification:EnvironmentalManagementFacility:3.1" version="1.1.0" xmlns:us="http://inspire.ec.europa.eu/schemas/us/4.0">
+        <se:Description>
+          <se:Title>Environmental Management Installation Default Style </se:Title>
+          <se:Abstract>Point geometries are rendered as a triangle with a size of 5 pixel, with a 50% grey (#808080) fill and a black outline.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>us:EnvironmentalManagementInstallation</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>environmental management facility: installation</se:Title>
+        </se:Description>
+        <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>us:Type</ogc:PropertyName>
+              <ogc:Literal>installation</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+        </ogc:Filter>
+          <se:MinScaleDenominator>20000</se:MinScaleDenominator>
+          <se:MaxScaleDenominator>50000</se:MaxScaleDenominator>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>us:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>triangle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#808080</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

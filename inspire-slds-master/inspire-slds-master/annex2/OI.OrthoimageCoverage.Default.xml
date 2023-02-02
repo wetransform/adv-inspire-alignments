@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_OI_v3.0.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/se}OverlapBehavior': [facet 'enumeration'] The value ' LATEST_ON_TOP ' is not an element of the set {'LATEST_ON_TOP', 'EARLIEST_ON_TOP', 'AVERAGE', 'RANDOM'}., line 21 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:27)
+-->
+<!-- Source http://inspire.ec.europa.eu/id/document/tg/oi
+The other parameters supplied by the raster symbolizer are data-dependent. For instance, the se:ColorMap element, which defines how to allocate the range values of the coverage to colours, is built on the interval of allowed values that can vary from one orthoimage coverage to another (e.g. 8 bits vs. 16 bits rasters). Similarly, the se:ChannelSelection element, which determines the mapping of the orthoimage bands on the red, green and blue channels, or on the single gray channel of the output device, depends obviously on the number of bands in the orthoimage and their characteristics.
+
+In consequence, this data specification cannot be expected to set default values for such parameters, that must be specified for each INSPIRE view service instead.
+ -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>OI.OrthoimageCoverage</se:Name>
+    <sld:UserStyle>
+      <se:Name>OI.OrthoimageCoverage.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:CoverageStyle version="1.1.0" xmlns:oi="http://inspire.ec.europa.eu/schemas/oi/4.0">
+        <se:Description>
+          <se:Title>Orthoimage Coverage Default Style </se:Title>
+          <se:Abstract>Orthoimage coverages are rendered as opaque raster data. When coverages overlap in a same layer, the coverage the acquisition time of which is the latest is placed on top.</se:Abstract>
+        </se:Description>
+        <se:CoverageName>oi:OrthoimageCoverage</se:CoverageName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>orthoimage coverage</se:Title>
+        </se:Description>
+          <se:RasterSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>oi:domainSet</ogc:PropertyName>
+            </se:Geometry>
+            <se:Opacity>1.0</se:Opacity>
+            <se:OverlapBehavior>LATEST_ON_TOP</se:OverlapBehavior>
+          </se:RasterSymbolizer>
+        </se:Rule>
+      </se:CoverageStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

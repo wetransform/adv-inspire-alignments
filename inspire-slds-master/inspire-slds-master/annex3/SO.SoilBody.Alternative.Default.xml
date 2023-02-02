@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent nach SO-Specification ergänzt. (2017-07-07 09:04) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>SO.SoilBody.Alternative</se:Name>
+    <sld:UserStyle>
+      <se:Name>SO.SoilBody.Alternative.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:so="http://inspire.ec.europa.eu/schemas/so/4.0">
+        <se:Description>
+          <se:Title>Soil Body Alternative Default Style</se:Title>
+          <se:Abstract>This style is for visualising the boundaries of soil bodies (polygon geometry) using a solid yellow outline with a stroke width of 1 pixel. Each polygon can be labelled with a value that links it unambiguously to its soilBodyLabel (e.g. the value of the soilBodyLabel itself); the label should be in yellow colour using a halo to be readable on dark solid fills and only appears at a certain level of detail centred on the polygon centroid with a size of 10 pt. The same label should appear in the legend with the soilBodyLabel text. This style can be used when overlaying this layer on dark coloured backgrounds.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>so:SoilBodyAlternative</se:FeatureTypeName>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>soil body alternative</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>so:SoilBodyAlternative</ogc:PropertyName>
+              <ogc:Literal>Polygon</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>so:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#ffff00</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>label: soil body alternative</se:Title>
+        </se:Description>
+          <se:TextSymbolizer>
+            <se:Label>
+              <ogc:PropertyName>so:label</ogc:PropertyName>
+            </se:Label>
+            <se:Font>
+              <se:SvgParameter name="font-family">Arial</se:SvgParameter>
+              <se:SvgParameter name="font-size">10</se:SvgParameter>
+            </se:Font>
+            <se:Halo>
+              <se:Fill>
+              <se:SvgParameter name="fill">#000000</se:SvgParameter>
+            </se:Fill>
+            </se:Halo>
+            <se:Fill>
+              <se:SvgParameter name="fill">#ffff00</se:SvgParameter>
+            </se:Fill>
+          </se:TextSymbolizer>
+        </se:Rule>
+        
+       </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

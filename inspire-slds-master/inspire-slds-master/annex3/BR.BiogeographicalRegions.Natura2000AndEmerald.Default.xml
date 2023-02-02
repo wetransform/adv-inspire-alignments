@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach BR-Specification ergänzt. (2017-06-12 14:42) -->
+<sld:StyledLayerDescriptor version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd" xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sld:NamedLayer>
+    <se:Name>BR.BiogeographicalRegions.Natura2000andEmerald</se:Name>
+    <sld:UserStyle>
+      <se:Name>BR.BiogeographicalRegions.Natura2000andEmerald.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:br="http://inspire.ec.europa.eu/schemas/br/4.0">
+        <se:Description>
+          <se:Title>Biogeographical Regions Natura 2000 and Emerald Biogeographical Regions Default Style</se:Title>
+          <se:Abstract>This style is to be used when visualising the Regions covered under the Natura2000 and Emerald biogeographical regions code lists. This style in inherited from the paper maps used by the Council of Europe and Habitats Committee for visualisg and adopting the Biogeographical regions outlined in the Habitats Directive and expanded by the Bern Convention under the Emerald network. Where 'alpine' is selected in the code list the geometry is rendered using a pink (#FF73DF) fill and a pink (#FF73DF) outline with a stroke width of 1 pixel. Where 'atlantic' is selected in the code list the geometry is rendered using a blue (#00C5FF) fill and a blue (#00C5FF) outline with a stroke width of 1 pixel. Where 'boreal' is selected in the code list the geometry is rendered using a dark blue (#0070FF) fill and a dark blue (#0070FF) outline with a stroke width of 1 pixel. Where 'continental' is selected in the code list the geometry is rendered using a green (#4CE600) fill and a green (#4CE600) outline with a stroke width of 1 pixel. Where 'macaronesian' is selected in the code list the geometry is rendered using a yellow (#FFFF73) fill and a yellow (#FFFF73) outline with a stroke width of 1 pixel. Where 'mediterranean' is selected in the code list the geometry is rendered using a orange (#FFAA00) fill and a orange (#FFAA00) outline with a stroke width of 1 pixel. Where 'arctic' is selected in the code list the geometry is rendered using a pale blue (#CAFCFD) fill and a pale blue (#CAFCFD) outline with a stroke width of 1 pixel. Where 'pannonian' is selected in the code list the geometry is rendered using a brown (#734C00) fill and a brown (#734C00) outline with a stroke width of 1 pixel. Where 'steppic' is selected in the code list the geometry is rendered using a beige (#FFCB94) fill and a beige (#FFCB94) outline with a stroke width of 1 pixel. Where 'blackSea' is selected in the code list the geometry is rendered using a pink (#FFAAC6) fill and a pink (#FFAAC6) outline with a stroke width of 1 pixel. Where 'anatolian' is selected in the code list the geometry is rendered using a purple (#ED52B0) fill and a purple (#ED52B0) outline with a stroke width of 1 pixel.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>br:BiogeographicalRegions.Natura2000andEmerald</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: alpine</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>alpine</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FF73DF</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#FF73DF</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: anatolian</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>anatolian</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#ED52B0</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#ED52B0</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: arctic</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>arctic</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#CAFCFD</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#CAFCFD</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: atlantic</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>atlantic</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#00C5FF</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#00C5FF</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: black sea</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>BlackSea</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FFAAC6</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#FFAAC6</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: boreal</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>boreal</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#0070FF</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#0070FF</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: continental</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>continental</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#4CE600</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#4CE600</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: macaronesian</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>macaronesian</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FFFF73</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#FFFF73</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: mediterranean</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>mediterranean</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FFAA00</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#FFAA00</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: pannonian</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>pannonian</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#734C00</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#734C00</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>natura2000 and emerald: steppic</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>br:Natura2000AndEmerald</ogc:PropertyName>
+              <ogc:Literal>steppic</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>br:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FFCB94</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#FFCB94</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>
