@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach NZ-Specification ergänzt. (2017-06-21 18:04) 
+
+TEMPLATE: dies ein Template, alle Mineralien, Metalle oder Substanzen die dem Thema "level of risk - "source of risk" landslides" zugeordnet werden können, können dieses Modell verwenden.
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>NZ.RiskZone.LevelOfRisk.SourceOfRiskLandslides</se:Name>
+    <sld:UserStyle>
+      <se:Name>NZ.RiskZone.LevelOfRisk.SourceOfRiskLandslides.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:nz="http://inspire.ec.europa.eu/schemas/nz/4.0">
+        <se:Description>
+          <se:Title>Source Of Risk Landslides Default Style</se:Title>
+          <se:Abstract>This style is for the representation of risk levels data as polygons or grid cells (coverage). The risk categories are usually represented using a colour ramp from clear to darker (low risk to high risk) depending on the attribute included in "levelOfRisk". The example below shows a coastal flood risk map from The Netherlands.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>nz:LevelOfRisk</se:FeatureTypeName>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>"source of risk" landslides: low</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>LevelOfRisk</ogc:PropertyName>
+              <ogc:Literal>Low</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>nz:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#009100</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.5</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>"source of risk" landslides: intermediate</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>LevelOfRisk</ogc:PropertyName>
+              <ogc:Literal>Intermediate</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>nz:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FFFF00</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.5</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>"source of risk" landslides: high</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>LevelOfRisk</ogc:PropertyName>
+              <ogc:Literal>High</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>nz:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FF0000</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.5</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

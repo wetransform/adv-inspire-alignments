@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- TEMPLATE: dies ein Template, alle Mineralien, Metalle oder Substanzen die dem Thema "observed event" zugeordnet werden können, können dieses Modell verwenden. -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>NZ.ExposedElement</se:Name>
+    <sld:UserStyle>
+      <se:Name>NZ.ExposedElement.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:nz="http://inspire.ec.europa.eu/schemas/nz/4.0">
+        <se:Description>
+          <se:Title>Exposed Element Default Style</se:Title>
+          <se:Abstract>This style is for the representation of exposed elements data as points, lines, polygons or grid cells (coverage). Exposed elements are usually represented using a single colour coding. The example of exposed buildings in the figure of LAWA (2010: Recommendations for the Establishment of Flood Hazard Maps and Flood Risk Maps. German Working Group on Water Issues of the Federal States and the Federal Government, Dresden) shows buildings exposed to floods in grey fill and bold blue contour line. Buildings not exposed follow the same filling without the bold contour line.</se:Abstract>
+        </se:Description>
+
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>exposed element: polygon</se:Title>
+        </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>nz:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#...</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#...</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">...</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Line -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>exposed element: line</se:Title>
+        </se:Description>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>nz:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#...</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">...</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>exposed element: point</se:Title>
+        </se:Description>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>nz:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square/circle/cross/x/triangle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#...</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#...</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">...</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>6</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

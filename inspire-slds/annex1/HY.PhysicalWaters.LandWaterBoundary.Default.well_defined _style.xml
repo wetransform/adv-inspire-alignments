@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_HY_v3.1.pdf
+
+   XML is valid against StyledLayerDescriptor.xsd! 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:23)
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>HY.PhysicalWaters.LandWaterBoundary</se:Name>
+    <se:Description>
+		<se:Title>Land water boundary</se:Title>
+	</se:Description>
+    <sld:UserStyle>
+      <se:Name>HY.PhysicalWaters.LandWaterBoundary.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:hy-p="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+        <se:Description>
+          <se:Title>Land Water Boundary Default Style</se:Title>
+          <se:Abstract>The contact line between a land mass and a water body is portrayed by a solid blue (#33CCFF) if its origin is natural if not will be a solid black (#000000) line with stroke width of 1 pixel.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>hy-p:LandWaterBoundary</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>land water boundary: natural</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hy-p:origin</ogc:PropertyName>
+              <ogc:Literal>natural</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:MinScaleDenominator>1</se:MinScaleDenominator>
+          <se:MaxScaleDenominator>500000</se:MaxScaleDenominator>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#33CCFF</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>land water boundary: man-made</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hy-p:origin</ogc:PropertyName>
+              <ogc:Literal>man-made</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

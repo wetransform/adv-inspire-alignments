@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_HH_v3.0.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element 'Rule': This element is not expected. Expected is one of ( {http://www.opengis.net/se}SemanticTypeIdentifier, {http://www.opengis.net/se}Rule, {http://www.opengis.net/se}OnlineResource )., line 12 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:38)
+-->
+<!-- FBurkamp: Abstract der SLD nach Kontent ergänzt. (2017-06-02 14:00) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>HH.HealthDeterminantMeasure</se:Name>
+    <sld:UserStyle>
+      <se:Name>HH.HealthDeterminantMeasure.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:hh="http://inspire.ec.europa.eu/schemas/hh/4.0">
+        <se:Description>
+          <se:Title>Health DeterminantMeasure Default</se:Title>
+          <se:Abstract>Polygon geometries are rendered using a no fill and a blue (#0000FF) outline with a stroke width of 3 pixel. Line geometries are rendered as a blue line (#0000FF) with a stroke width of 3 pixel. Point geometries are rendered as a circle with a size of 3 pixel, with a blue (#0000FF) fill.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>hh:HealthDeterminantMeasure</se:FeatureTypeName>
+        <se:Rule>
+          <se:Description>
+            <se:Title>health determinant measure: polygon</se:Title>
+          </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hh:location</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#0000ff</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+          <se:Description>
+            <se:Title>health determinant measure: line</se:Title>
+          </se:Description>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hh:location</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#0000ff</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        <se:Rule>
+          <se:Description>
+            <se:Title>health determinant measure: point</se:Title>
+          </se:Description>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hh:location</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#0000ff</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>3</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

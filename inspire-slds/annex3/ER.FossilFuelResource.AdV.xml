@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent der SLD nach Abstract udn nach ER-Specification ergänzt. (2017-06-02 08:19) -->
+<sld:StyledLayerDescriptor version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd" xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sld:NamedLayer>
+    <se:Name>ER.FossilFuelResource</se:Name>
+    <sld:UserStyle>
+      <se:Name>ER.FossilFuelResource.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+        <se:FeatureTypeStyle version="1.1.0" xmlns:er="http://inspire.ec.europa.eu/schemas/er/4.0">
+          <se:Description>
+            <se:Title>Fossil Fuel Resource Default Style </se:Title>
+            <se:Abstract>This layer type is for representation of fossil fuel data as points, curves and surfaces. The geometry is rendered as a square with a size of 6 pixels, with a 50% grey (#808080) fill and a black outline. The geometry is rendered as a solid black line with a stroke width of 1 pixel. The geometry is rendered using a 50% grey (#808080) fill and a solid black outline with a stroke width of 1 pixel. </se:Abstract>
+          </se:Description>
+          <se:FeatureTypeName>er:FossilFuelResource</se:FeatureTypeName>
+          <se:Rule>
+          <se:Description>
+            <se:Title>fossil fuel resource: point or representative point</se:Title>
+          </se:Description>
+            <se:PointSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>ef:geometry</ogc:PropertyName>
+              </se:Geometry>
+              <se:Graphic>
+                <se:Mark>
+                  <se:WellKnownName>square</se:WellKnownName>
+                  <se:Fill>
+                    <se:SvgParameter name="fill">#808080</se:SvgParameter>
+                  </se:Fill>
+                  <se:Stroke>
+                    <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                    <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                  </se:Stroke>
+                </se:Mark>
+                <se:Size>6</se:Size>
+              </se:Graphic>
+            </se:PointSymbolizer>
+          </se:Rule>
+          <se:Rule>
+          <se:Description>
+            <se:Title>fossil fuel resource: curve</se:Title>
+          </se:Description>
+            <se:LineSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>ef:geometry</ogc:PropertyName>
+              </se:Geometry>
+              <se:Stroke>
+                <se:GraphicStroke>
+                  <se:Graphic>
+                    <se:Mark>
+                      <se:WellKnownName>curve</se:WellKnownName>
+                      <se:Stroke>
+                        <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                        <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                      </se:Stroke>
+                    </se:Mark>
+                  </se:Graphic>
+                </se:GraphicStroke>
+              </se:Stroke>
+            </se:LineSymbolizer>
+          </se:Rule>
+          <se:Rule>
+          <se:Description>
+            <se:Title>fossil fuel resource: surface</se:Title>
+          </se:Description>
+            <se:PolygonSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>ef:geometry</ogc:PropertyName>
+              </se:Geometry>
+              <se:Fill>
+                <se:SvgParameter name="fill">#808080</se:SvgParameter>
+              </se:Fill>
+              <se:Stroke>
+                <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+              </se:Stroke>
+            </se:PolygonSymbolizer>
+          </se:Rule>
+          </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

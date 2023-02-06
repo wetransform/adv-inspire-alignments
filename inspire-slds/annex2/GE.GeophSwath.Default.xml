@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach GE-Specification ergänzt. (2017-06-27 18:04) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>GE.GeophSwath</se:Name>
+    <sld:UserStyle>
+      <se:Name>GE.GeophSwath.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:ge="http://inspire.ec.europa.eu/schemas/ge/4.0">
+        <se:Description>
+          <se:Title>Geoph Swath Default Style</se:Title>
+          <se:Abstract>The colours and RGB codes according to the Geological Time Scale 2008, International Commission of Stratigraphy, with the addition of 27 newly defined colours for the proposed new European Proterozoic Epochs (by the OneGeology-Europe project). Please note, the defining age for the unit is the older age.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>ge:GeophSwath</se:FeatureTypeName>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>geoph swath: radar interferometry</se:Title>
+        </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:radarInterferometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#99CC00</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>geoph swath: sonar</se:Title>
+        </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:Sonar</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FFFFFF</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>geoph swath: 3D seismics</se:Title>
+        </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:3DSeismics</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FF0000</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

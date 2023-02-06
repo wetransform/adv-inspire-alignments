@@ -1,0 +1,895 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent der SLD nach MR-Specification ergänzt. (2017-07-17 17:00) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>MR.MineralOccurrence.CommodityBaseMetals</se:Name>
+    <sld:UserStyle>
+      <se:Name>MR.MineralOccurrence.CommodityBaseMetals.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:mr="http://inspire.ec.europa.eu/schemas/mr/4.0">
+        <se:Description>
+          <se:Title>Commodity Base Metals Default Style</se:Title>
+          <se:Abstract>The size of each symbol is related to the classification defined for each commodity (or group of commodities). The classification (A, B, C, D: A=very large B=large C=Medium D = small) is defined with the commodities code-list (see Annex F).</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>mr:MineralOccurrence.CommodityBaseMetals</se:FeatureTypeName>
+
+        <!-- lead+zinc PbZn -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: lead+zinc [PbZn] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>LeadZinc</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>10000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>10</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: lead+zinc [PbZn] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>LeadZinc</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: lead+zinc [PbZn] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>LeadZinc</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>100000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: lead+zinc [PbZn] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>LeadZinc</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>10000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- lead -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: lead [Pb] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Lead</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>5000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>10</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: lead [Pb] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Lead</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>500000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: lead [Pb] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Lead</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>50000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: lead [Pb] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Lead</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>5000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- zinc -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: zinc [Zn] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Zinc</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>10000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>10</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: zinc [Zn] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Zinc</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: zinc [Zn] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Zinc</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>100000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: zinc [Zn] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Zinc</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>10000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#99CCFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- copper (mint)-->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: copper [CU] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Copper</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>10000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#CCFFCC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>10</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: copper [CU] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Copper</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#CCFFCC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: copper [CU] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Copper</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>100000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#CCFFCC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: copper [CU] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Copper</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>10000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#CCFFCC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- copper (purple)-->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: copper [CU] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Copper</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>10000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#800080</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>10</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: copper [CU] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Copper</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#800080</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: copper [CU] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Copper</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>100000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#CCFFCC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#800080</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: copper [CU] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Copper</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>10000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#CCFFCC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#800080</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <!-- Aluminium -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: aluminium [Al] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Aluminium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#FF99CC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>10</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: aluminium [Al] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Aluminium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>100000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#FF99CC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#FF99CC</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: aluminium [Al] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Aluminium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>10000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#FF99CC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#0000FF</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>commodity base metals: aluminium [Al] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:BaseMetals</ogc:PropertyName>
+              <ogc:Literal>Aluminium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>square</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#FF99CC</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#800080</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

@@ -1,0 +1,1431 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract nach HB-Specification ergänzt.  folgende Polygonbeschreibungen haben keinen Inhalt: 1340, 2310, 2330, 3150, 3260, 3270, 5130, 6110, 6130, 6230, 6410, 6520, 7140, 7150, 7210, 7220, 8150, 8160, 8220, 9110, 9130, 9150, 9170, 91D0, 91E0, 91F0 (2017-06-19 16:06) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>HB.Habitat</se:Name>
+    <sld:UserStyle>
+      <se:Name>HB.Habitat.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:hb="http://inspire.ec.europa.eu/schemas/hb/4.0">
+        <se:Description>
+          <se:Title>Habitat and Biotopes Default Style</se:Title>
+          <se:Abstract>Natura2000 habitat types in North Rhine-Westphalia, Germany are presented in maps that have commonly used these styles for the app. 40 habitat types of the Habitat Directive that occur in North Rhine-Westphalia over the past ten years. Thus this style could serve as an EXAMPLE for a style for all habitat types under the Habitat Directive. Point geometries are rendered as circles (6110, 6210, 8160, 8210, 8220, 8230) and a triangle (8310) each with a size of 18 pixels, with a pistachio green (#D7D79E - 6110), dark grass green (#619669 - 6210), light grey (#B2B2B2 - 8160), white (#FFFFFF - 8210), dark grey (#828282 - 8220, 8230), black (#000000 - 8310) fill and a black (#000000) outline except 8220 with a dark green (#00734C) outline 8230 and 8310 without an outline. Line geometries are rendered as a brown (#966E00) line with a stroke width of 1 pixel. Polygon geometries are rendered using a dark blue (#004DA8 - 3110), dark blue (#3753A7 - 3130), dark blue (#004DA8 - 3140), night blue (#002673 - 3160), light fuchsia (#E8BEFF - 4010), purple (#8400A8 - 4030), dark grass green (#619669 - 6210), yellow (#F8EC00 - 6430), light green (#AAFF00 - 6510), night blue (#004DA8 - 6510), dark red (#730000 - 7110), yellow ochre (#E0AA0F - 7120), light limegreen (#ECF593 - 7230), light grey (#E1E1E1 - 8210), dark grey (#686868 - 8230), black (#000000 - 8310), green (#38A800 - 9160), dark pistachio green (#728944 - 9180), green (#009617 - 9190), green (#009617 - 9190)  fill and a solid black (#000000 - 9160, 8230, 8210, 7230, 7120, 7110, 6510, 6430, 6210, 4030, 4010, 3160, 3140, 3110) outline with a stroke width of 0,4 pixel and with a stroke of 1 pixel (6510). Following polygons geometries have no outline color: 3130, 8310, 9180, 9190. The following polygon geometries have currently no content: 1340, 2310, 2330, 3150, 3260, 3270, 5130, 6110, 6130, 6230, 6410, ?, 6520, 7140, 7150, 7210, 7220, 8150, 8160, 8220, 9110, 9130, 9150, 9170, 91D0, 91E0 and 91F0.</se:Abstract>
+        </se:Description>
+        <!-- <se:FeatureTypeName>hb:HabitatTypeDirectivePoint</se:FeatureTypeName> -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>6110 Lückige Kalkpionierrasen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6110</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#D7D79E</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>18</se:Size>
+              <se:Rotation>0</se:Rotation>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>6210 Trespen- Schwingel Kalktrockenrasen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6210</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#619669</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>18</se:Size>
+              <se:Rotation>0</se:Rotation>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>8160 Kalkschutthalden</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8160</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#B2B2B2</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>18</se:Size>
+              <se:Rotation>0</se:Rotation>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>8210 Kalkfelsen mit Felsspaltenvegetation</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8210</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#FFFFFF</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>18</se:Size>
+              <se:Rotation>0</se:Rotation>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>        
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>8220 Silikatfelsen mit Felsspaltenvegetation</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8220</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#828282</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#00734C</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>18</se:Size>
+              <se:Rotation>0</se:Rotation>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>         
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>8230 Silikatfelskuppen mit Pioniervegetation</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8230</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#828282</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>18</se:Size>
+              <se:Rotation>0</se:Rotation>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>  
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>8310 Nicht touristich erschlossene Höhlen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8310</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>triangle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#000000</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>18</se:Size>
+              <se:Rotation>0</se:Rotation>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule> 
+
+        <!-- <se:FeatureTypeName>hb:HabitatTypeDirectiveLine</se:FeatureTypeName> -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>habitat type directive: line</se:Title>
+        </se:Description>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#966E00</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter> 
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <!-- <se:FeatureTypeName>hb:HabitatTypeDirectivePolygon</se:FeatureTypeName> -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>1340 Salzwiesen im Binnenland</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>1340</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>2310 Zwergstrauchheiden auf Binnendünen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>2310</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>2330 Sandtrockenrasen auf Binnendünen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>2330</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>3110 Oligotrophe Stillgewässer</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>3110</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#004DA8</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>3130 Oligo- bis mesotrophe Stillgewässer</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>3130</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#3753A7</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>3140 Nährstoffärmere kalkhaltige Stillgewässer</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>3140</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#004DA8</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>3150 Natürliche eutrophe Seen und Altarme</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>3150</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>3160 Moorgewässer</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>3160</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#002673</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>3260 Fließgewässer mit Unterwasservegetation</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>3260</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>3270 Flüsse mit Schlammbänken und einjähriger Vegetation</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>3270</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>4010 Feuchte Heidegebiete mit Glockenheide</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>4010</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#E8BEFF</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>4030 Zwergstrauchheiden</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>4030</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#8400A8</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>5130 Wacholderbestände auf Zwergstrauchheiden oder Kalkmagerrasen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>5130</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>6110 Lückige Kalk- Pionierrasen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6110</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>6130 Schwermetallrasen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6130</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>6210 Trespen- Schwingel Kalktrockenrasen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6210</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#619669</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>6230 Borstgrasrasen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6230</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>6410 Pfeifengraswiesen auf lehmigen oder torfigen Böden</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6410</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>  
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>6430 Feuchte Hochstaudenfluren</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6430</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#F8EC00</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>?</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>?</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+              <se:Fill>
+                <se:GraphicFill>
+                  <se:Graphic>
+                    <se:Mark>
+                      <se:WellKnownName></se:WellKnownName>
+                      <se:Fill>
+                        <se:SvgParameter name="fill">#</se:SvgParameter>
+                      </se:Fill>
+                      <se:Stroke>
+                        <se:SvgParameter name="stroke">#</se:SvgParameter>
+                        <se:SvgParameter name="stroke-width"></se:SvgParameter>
+                      </se:Stroke>
+                    </se:Mark>
+                    <se:Size></se:Size>
+                  </se:Graphic>
+                </se:GraphicFill>
+              </se:Fill>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+          
+        <se:Rule>
+        <se:Description>
+          <se:Title>6510 Glatthafer- und Wiesenknopf- Silgenwiesen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6510</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+              <se:Fill>
+                <se:GraphicFill>
+                  <se:Graphic>
+                    <se:Mark>
+                      <se:WellKnownName>cross</se:WellKnownName>
+                      <se:Fill>
+                        <se:SvgParameter name="fill">#004DA8</se:SvgParameter>
+                      </se:Fill>
+                      <se:Stroke>
+                        <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                        <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+                      </se:Stroke>
+                    </se:Mark>
+                  <se:Size>8</se:Size>
+                  </se:Graphic>
+                </se:GraphicFill>
+              </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>  
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>6520 Berg- Mähwiesen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>6520</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>  
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>7110 Lebende Hochmoore</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>7110</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#730000</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>7120 Regenerierbare Hochmoore</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>7120</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#E0AA0F</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>7140 Übergangs- und Schwingrasenmoore</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>7140</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>  
+                
+        <se:Rule>
+        <se:Description>
+          <se:Title>7150 Moorschlenken- Pioniergesellschaften</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>7150</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule> 
+                        
+        <se:Rule>
+        <se:Description>
+          <se:Title>7210 Schneiden- Röhricht</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>7210</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule> 
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>7220 Kalktuffquellen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>7220</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule> 
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>7230 Kalk- und basenreiche Niedermoore</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>7230</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#ECF593</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>8150 Silikatschutthalden</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8150</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule> 
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>8160 Kalkschutthalden</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8160</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule> 
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>8210 Kalkfelsen mit Felsspaltenvegetation</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8210</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#E1E1E1</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+                
+        <se:Rule>
+        <se:Description>
+          <se:Title>8220 Silikatfelsen mit Felsspaltenvegetation</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8220</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule> 
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>8230 Silikatfelskuppen mit Pioniervegetation</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8230</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#686868</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>8310 Nicht touristisch erschlossene Höhlen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>8310</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#000000</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+       
+        <se:Rule>
+        <se:Description>
+          <se:Title>9110 Hainsimsen- Buchenwald</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>9110</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule> 
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>9130 Waldmeister- Buchenwald</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>9130</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>9150 Orchideen- Kalk- Buchenwald</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>9150</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>9160 Stieleichen- Hainbuchenwald</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>9160</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#38A800</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">0.4</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+                
+        <se:Rule>
+        <se:Description>
+          <se:Title>9170 Labkraut- Eichen- Hainbuchenwald</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>9170</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>9180 Schlucht- und Hangmischwälder</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>9180</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#728944</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>9190 Alte bodensaure Eichenwälder auf Sandebenen</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>9190</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hb:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#009617</se:SvgParameter>
+            </se:Fill>  
+          </se:PolygonSymbolizer>
+        </se:Rule>
+                        
+        <se:Rule>
+        <se:Description>
+          <se:Title>91D0 Moorwälder</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>91D0</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+                        
+        <se:Rule>
+        <se:Description>
+          <se:Title>91E0 Erlen- Eschen- und Weichholz- Auenwälder</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>91E0</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+                        
+        <se:Rule>
+        <se:Description>
+          <se:Title>91F0 Hartholz- Auenwälder</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>hb:HabitatTypeHabitatDirective</ogc:PropertyName>
+              <ogc:Literal>91F0</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+        <se:MinScaleDenominator>100</se:MinScaleDenominator>
+        <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>
+<!--           <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>--><!--hb:geometry--><!--</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#</se:SvgParameter>
+              <se:SvgParameter name="stroke-width"></se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer> -->
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>
