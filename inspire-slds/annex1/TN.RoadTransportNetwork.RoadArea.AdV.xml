@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_TN_v3.1.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/se}FeatureTypeName': The QName value 'TN:RoadArea' has no corresponding namespace declaration in scope., line 13 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:22)
+-->
+<!-- FBurkamp: Kontent der SLD nach Abstract ergänzt. (2017-06-01 08:10)-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>TN.RoadTransportNetwork.RoadArea</se:Name>
+	<se:Description>
+		<se:Title>Road Area</se:Title>
+	</se:Description>    
+    <sld:UserStyle>
+      <se:Name>TN.RoadTransportNetwork.RoadArea.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:tn-ro="http://inspire.ec.europa.eu/schemas/tn-ro/4.0" xmlns:net="http://inspire.ec.europa.eu/schemas/net/4.0">
+        <se:Description>
+          <se:Title>Road Area Default Style</se:Title>
+          <se:Abstract>The geometry is rendered using a grey (#A9A9A9) fill and a solid black (#000000) outline with a stroke width of 1 pixel.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>tn-ro:RoadArea</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>road area</se:Title>
+        </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>net:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#A9A9A9</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

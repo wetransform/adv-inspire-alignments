@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_TN_v3.1.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/se}FeatureTypeName': The QName value 'Network:Area' has no corresponding namespace declaration in scope., line 13 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:22)
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>TN.CommonTransportElements.TransportArea</se:Name>
+	<se:Description>
+		<se:Title>Generic Transport Area</se:Title>
+	</se:Description>    
+    <sld:UserStyle>
+      <se:Name>TN.CommonTransportElements.TransportArea.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:tn="http://inspire.ec.europa.eu/schemas/tn/4.0">
+        <se:Description>
+          <se:Title>Transport Area Default Style</se:Title>
+          <se:Abstract>The geometry is rendered using a grey (#A9A9A9) fill and a solid black (#000000) outline with a stroke width of 1 pixel.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>tn:TransportArea</se:FeatureTypeName>
+        <se:Rule>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill/>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

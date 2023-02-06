@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent nach SD-Specification ergänzt. (2017-07-07 09:04) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>SD.SpeciesDistribution.ResidencyStatusDifferentiation</se:Name>
+    <sld:UserStyle>
+      <se:Name>SD.SpeciesDistribution.ResidencyStatusDifferentiation.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:sd="http://inspire.ec.europa.eu/schemas/sd/4.0">
+        <se:Description>
+          <se:Title>Species Distribution Residency Status Differentiation Default</se:Title>
+          <se:Abstract>The symbology for species occurrences aggregated in grid cells as spatial analytical units represents the differentiation regarding the residency status of the species within that unit by using different marker symbols for each possible attribute value.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>sd:SpeciesDistribution.ResidencyStatusDifferentiation</se:FeatureTypeName>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>residency status differentiation: indigen, einheimisch (I,*)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:ResidencyStatusDifferentiation</ogc:PropertyName>
+              <ogc:Literal>IndigenEinheimisch</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../SD.SpeciesDistribution.ResidencyStatusDifferentiation-IndigenEinheimisch.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>residency status differentiation: eingebügert (E)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:ResidencyStatusDifferentiation</ogc:PropertyName>
+              <ogc:Literal>Eingebuergert</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../SD.SpeciesDistribution.ResidencyStatusDifferentiation-Eingebuergert.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>residency status differentiation: sysanthrop, unbestaendig</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:ResidencyStatusDifferentiation</ogc:PropertyName>
+              <ogc:Literal>SynanthropUnbestaendig</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../SD.SpeciesDistribution.ResidencyStatusDifferentiation-SynanthropUnbestaendig.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>residency status differentiation: anges., kult. od. wiederein.</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:ResidencyStatusDifferentiation</ogc:PropertyName>
+              <ogc:Literal>AngesKultOdWiederein</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../SD.SpeciesDistribution.ResidencyStatusDifferentiation-AngesKultOdWiederein.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>residency status differentiation: ausgestorben (+)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:ResidencyStatusDifferentiation</ogc:PropertyName>
+              <ogc:Literal>Ausgestorben</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../SD.SpeciesDistribution.ResidencyStatusDifferentiation-Ausgestorben.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+       </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

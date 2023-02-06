@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_HY_v3.1.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/se}PropertyIsEqualTo': This element is not expected. Expected is one of ( {http://www.opengis.net/ogc}spatialOps, {http://www.opengis.net/ogc}Equals, {http://www.opengis.net/ogc}Disjoint, {http://www.opengis.net/ogc}Touches, {http://www.opengis.net/ogc}Within, {http://www.opengis.net/ogc}Overlaps, {http://www.opengis.net/ogc}Crosses, {http://www.opengis.net/ogc}Intersects, {http://www.opengis.net/ogc}Contains, {http://www.opengis.net/ogc}DWithin )., line 22 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:23)
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>HY.PhysicalWaters.Waterbodies</se:Name>
+    <se:Description>
+		<se:Title>Waterbody</se:Title>
+	</se:Description>
+    <sld:UserStyle>
+      <se:Name>HY.PhysicalWaters.Waterbodies.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:hy-p="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+        <se:Description>
+          <se:Title>Waterbodies Default Style</se:Title>
+          <se:Abstract>Physical waters as watercourses or standing water can be portrayed with different geometries depending on its dimensions and the level of detail or resolution. Lineal watercourses are depicted by solid blue (#33CCFF) lines with stroke width of 1 pixel and the superficial ones are depicted by filled blue light polygons (#CCFFFF) without border. Punctual standing waters are depicted by dark blue (#0066FF) circles with size of 6 pixel and the superficial ones are depicted by filled blue light polygons (#CCFFFF) without border.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>hy-p:Watercourse</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>physical waters - waterbodies: watercourse</se:Title>
+        </se:Description>
+          <ogc:Filter>
+              <!-- Delineation is known -->
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>hy-p:delineationKnown</ogc:PropertyName>
+                <ogc:Literal>true</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#33CCFF</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#CCFFFF</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:hy-p="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+        <se:Description>
+          <se:Title>Waterbodies Default Style</se:Title>
+          <se:Abstract>Physical waters as watercourses or standing water can be portrayed with different geometries depending on its dimensions and the level of detail or resolution. Lineal watercourses are depicted by solid blue (#33CCFF) lines with stroke width of 1 pixel and the superficial ones are depicted by filled blue light polygons (#CCFFFF) without border. Punctual standing waters are depicted by dark blue (#0066FF) circles with size of 6 pixel and the superficial ones are depicted by filled blue light polygons (#CCFFFF) without border.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>hy-p:StandingWater</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>physical waters - waterbodies: standing water</se:Title>
+        </se:Description>
+          <ogc:Filter>
+	          <!-- Delineation is known -->
+	          <ogc:PropertyIsEqualTo>
+	            <ogc:PropertyName>hy-p:delineationKnown</ogc:PropertyName>
+	            <ogc:Literal>true</ogc:Literal>
+	          </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#0066FF</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>6</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#CCFFFF</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

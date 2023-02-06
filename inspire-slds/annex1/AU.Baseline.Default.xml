@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_AU_v3.1.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/sld}CssParameter': This element is not expected. Expected is ( {http://www.opengis.net/se}SvgParameter )., line 24 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:18)
+-->
+
+<!-- FBurkamp: Abstract wurde um einen Satz ergänzt. -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>AU.Baseline</se:Name>
+    <se:Description>
+		<se:Title>Baseline</se:Title>
+	</se:Description>
+    <sld:UserStyle>
+      <se:Name>AU.Baseline.Default </se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:mu="http://inspire.ec.europa.eu/schemas/mu/3.0">
+        <se:Description>
+          <se:Title>Baseline Default Style</se:Title>
+          <se:Abstract>The Baseline is rendered using a dashed red (#DC143C) line. The line has a 4 pixels width and is dashed 10 to 10.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>mu:Baseline</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>baseline</se:Title>
+        </se:Description>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mu:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#DC143C</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">4</se:SvgParameter>
+              <se:SvgParameter name="stroke-dasharray">10 10</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

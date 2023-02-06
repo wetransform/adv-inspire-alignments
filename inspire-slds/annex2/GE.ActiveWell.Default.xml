@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach GE-Specification ergänzt. (2017-06-27 18:04) 
+
+Symbole sind als Bilder hinterlegt, folglich für jeden abrufbar.
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>GE.ActiveWell</se:Name>
+    <sld:UserStyle>
+      <se:Name>GE.ActiveWell.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:ge="http://inspire.ec.europa.eu/schemas/ge/4.0">
+        <se:Description>
+          <se:Title>Active Well Default Style</se:Title>
+          <se:Abstract>Style for Active Wells based on the activity type (ActiveWellTypeValue).</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>ge:ActiveWell</se:FeatureTypeName>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>active well type: exploitation</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AquiferMediaTypeValue</ogc:PropertyName>
+              <ogc:Literal>exploitation</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.ActiveWell-exploitation.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>active well type: recharge</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AquiferMediaTypeValue</ogc:PropertyName>
+              <ogc:Literal>recharge</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.ActiveWell-recharge.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>active well type: dewatering</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AquiferMediaTypeValue</ogc:PropertyName>
+              <ogc:Literal>dewatering</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.ActiveWell-dewatering.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>active well type: disposal</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AquiferMediaTypeValue</ogc:PropertyName>
+              <ogc:Literal>disposal</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.ActiveWell-disposal.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>active well type: water exploratory</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AquiferMediaTypeValue</ogc:PropertyName>
+              <ogc:Literal>waterExploratory</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.ActiveWell-waterExploratory.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>active well type: thermal</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AquiferMediaTypeValue</ogc:PropertyName>
+              <ogc:Literal>thermal</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.ActiveWell-thermal.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

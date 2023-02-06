@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_EL_v3.0.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/se}RasterSymbolizer': This element is not expected. Expected is one of ( {http://www.opengis.net/se}FeatureTypeStyle, {http://www.opengis.net/se}CoverageStyle, {http://www.opengis.net/se}OnlineResource )., line 6 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:25)
+--> 
+<!--  FBurkamp: Maßstab hinzugefügt (2017-06-14 14:57) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>EL.GridCoverage</se:Name>
+    <sld:UserStyle>
+      <se:Name>EL.GridCoverage.Default</se:Name>
+        <sld:IsDefault>1</sld:IsDefault>
+        <se:FeatureTypeStyle version="1.1.0" xmlns:el="http://inspire.ec.europa.eu/schemas/el/4.0">
+          <se:Description>
+            <se:Title>GridCoverage Default Style</se:Title>
+            <se:Abstract>Grid Coverage is symbolized raster symbolizer (values in meters).</se:Abstract>
+          </se:Description>
+          <se:FeatureTypeName>el:GridCoverage</se:FeatureTypeName>
+          <se:Rule>
+          <se:Description>
+            <se:Title>grid coverage</se:Title>
+          </se:Description>
+          <se:MinScaleDenominator>1</se:MinScaleDenominator>
+          <se:MaxScaleDenominator>3000000</se:MaxScaleDenominator>  
+            <se:RasterSymbolizer>
+            <se:Opacity>1.0</se:Opacity>
+            <se:OverlapBehavior>AVERAGE</se:OverlapBehavior>
+              <se:ColorMap>
+                <se:Categorize fallbackValue="#78c818">
+                  <se:LookupValue>Rasterdata</se:LookupValue>
+                    <se:Value>#005CE6</se:Value><se:Threshold>-100</se:Threshold>
+                    <se:Value>#28EDD6</se:Value><se:Threshold>0</se:Threshold>
+                    <se:Value>#54F76D</se:Value><se:Threshold>50</se:Threshold>
+                    <se:Value>#9AFA66</se:Value><se:Threshold>100</se:Threshold>
+                    <se:Value>#7BF23A</se:Value><se:Threshold>150</se:Threshold>
+                    <se:Value>#5DE813</se:Value><se:Threshold>200</se:Threshold>
+                    <se:Value>#70E02B</se:Value><se:Threshold>250</se:Threshold>
+                    <se:Value>#A4D453</se:Value><se:Threshold>300</se:Threshold>
+                    <se:Value>#D4C574</se:Value><se:Threshold>400</se:Threshold>
+                    <se:Value>#BFA15C</se:Value><se:Threshold>500</se:Threshold>
+                    <se:Value>#A17C3D</se:Value><se:Threshold>600</se:Threshold>
+                    <se:Value>#8A622B</se:Value><se:Threshold>700</se:Threshold>
+                    <se:Value>#94765C</se:Value><se:Threshold>800</se:Threshold>
+                    <se:Value>#968992</se:Value><se:Threshold>900</se:Threshold>
+                    <se:Value>#9B96B5</se:Value><se:Threshold>1000</se:Threshold>
+                    <se:Value>#A696B5</se:Value><se:Threshold>1500</se:Threshold>
+                    <se:Value>#B196B5</se:Value><se:Threshold>2000</se:Threshold>
+                    <se:Value>#C7AFC7</se:Value><se:Threshold>3000</se:Threshold>
+                    <se:Value>#E3D5E3</se:Value><se:Threshold>5000</se:Threshold>
+                    <se:Value>#FFFFFF</se:Value>
+                </se:Categorize>
+              </se:ColorMap>
+              <!--   by a coloured -->
+            </se:RasterSymbolizer>
+          </se:Rule>
+        </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

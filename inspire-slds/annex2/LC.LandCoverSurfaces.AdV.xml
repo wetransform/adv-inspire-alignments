@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_LC_v3.0.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/se}Graphic': This element is not expected. Expected is one of ( {http://www.opengis.net/se}Fill, {http://www.opengis.net/se}Stroke, {http://www.opengis.net/se}Displacement, {http://www.opengis.net/se}PerpendicularOffset )., line 21 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:26)
+-->
+<!-- FBurkamp: Kontent der SLD nach Abstract ergänzt. (2017-06-02 07:30) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>LC.LandCoverSurfaces</se:Name>
+    <sld:UserStyle>
+      <se:Name>LC.LandCoverSurfaces.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:lc="http://inspire.ec.europa.eu/schemas/lc/4.0">
+        <se:Description>
+          <se:Title>Land Cover Surfaces Default Style</se:Title>
+          <se:Abstract>This Style defined the default INSPIRE style for Land Cover data supported by a set of non overlapping of polygons. As there is no required nomenclature, only the geometry is represented, ie only polygons with a white (#FFFFFF) fill and a black outline (#000000) of 3 pixels width. </se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>lc:LandCoverUnit</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>land cover unit</se:Title>
+        </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>lc:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FFFFFF</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

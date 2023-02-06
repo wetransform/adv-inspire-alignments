@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_ER_v3.0.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/se}Literal': This element is not expected. Expected is one of ( {http://www.opengis.net/ogc}expression, {http://www.opengis.net/ogc}Add, {http://www.opengis.net/ogc}Sub, {http://www.opengis.net/ogc}Mul, {http://www.opengis.net/ogc}Div, {http://www.opengis.net/ogc}PropertyName, {http://www.opengis.net/ogc}Function, {http://www.opengis.net/ogc}Literal, {http://www.opengis.net/se}FormatNumber, {http://www.opengis.net/se}FormatDate )., line 20 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:48)
+-->
+<!-- FBurkamp: Abstract der SLD nach Kontent ergänzt. (2017-06-02 11:29) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>ER.EnergyStatisticalUnit</se:Name>
+    <sld:UserStyle>
+      <se:Name>ER.EnergyStatisticalUnit.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:er="http://inspire.ec.europa.eu/schemas/er/4.0">
+        <se:Description>
+          <se:Title>Energy Statistical Unit Default Style</se:Title>
+          <se:Abstract>Polygon geometries are rendered using a 80% limegreen (#E4FF00) fill and a pink (#ff00ff) outline with a stroke width of 3 pixel.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>er:EnergyStatisticalUnit</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>energy statistical unit</se:Title>
+        </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>er:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#e4ff00</se:SvgParameter>
+              <se:SvgParameter name="fill-opacity">0.2</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#ff00ff</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>
