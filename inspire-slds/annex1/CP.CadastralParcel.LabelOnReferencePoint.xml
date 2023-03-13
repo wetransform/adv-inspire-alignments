@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_CP_v3.1.pdf
+
+   XML is valid against StyledLayerDescriptor.xsd! 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:21)
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>CP.CadastralParcel</se:Name>
+    <se:Description>
+		<se:Title>Cadastral Parcel (LabelOnReferencePoint)</se:Title>
+	</se:Description>
+    <sld:UserStyle>
+      <se:Name>CP.CadastralParcel.LabelOnReferencePoint</se:Name>
+      <sld:IsDefault>0</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:cp="http://inspire.ec.europa.eu/schemas/cp/4.0">
+        <se:Description>
+          <se:Title>Cadastral Parcel with label on reference point</se:Title>
+          <se:Abstract>Parcel outline is rendered as a black (#000000 line an a 1 pixel width. Labels are rendered in Arial, font-size 10 and in black (#000000).</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>cp:CadastralParcel</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>cadastral Parcel with label on reference point</se:Title>
+        </se:Description>
+          <se:MinScaleDenominator>1</se:MinScaleDenominator>
+          <se:MaxScaleDenominator>20000</se:MaxScaleDenominator>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>cp:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>label: cadastral Parcel on reference point</se:Title>
+        </se:Description>
+          <se:MinScaleDenominator>1</se:MinScaleDenominator>
+          <se:MaxScaleDenominator>20000</se:MaxScaleDenominator>
+          <se:TextSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>cp:referencePoint</ogc:PropertyName>
+            </se:Geometry>
+            <se:Label>
+              <ogc:PropertyName>cp:label</ogc:PropertyName>
+            </se:Label>
+            <se:Font>
+              <se:SvgParameter name="font-family">Arial</se:SvgParameter>
+              <se:SvgParameter name="font-size">10</se:SvgParameter>
+            </se:Font>
+            <se:Fill>
+              <se:SvgParameter name="fill">#000000</se:SvgParameter>
+            </se:Fill>
+          </se:TextSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

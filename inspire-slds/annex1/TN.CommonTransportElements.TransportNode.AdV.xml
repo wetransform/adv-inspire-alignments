@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_TN_v3.1.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/se}FeatureTypeName': The QName value 'Network:Node' has no corresponding namespace declaration in scope., line 12 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:22)
+-->
+<!-- FBurkamp: Kontent der SLD nach Abstract ergänzt. (2017-06-01 08:14) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>TN.CommonTransportElements.TransportNode</se:Name>
+	<se:Description>
+		<se:Title>Generic Transport Node</se:Title>
+	</se:Description>     
+    <sld:UserStyle>
+      <se:Name>TN.CommonTransportElements.TransportNode.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:tn="http://inspire.ec.europa.eu/schemas/tn/4.0">
+        <se:Description>
+          <se:Title>Transport Node Default Style</se:Title>
+          <se:Abstract>The geometry is rendered as a circle with a size of 3 pixels, with a red (#FF0000) fill and a black outline (#000000).</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>tn:TransportNode</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>transport node</se:Title>
+        </se:Description>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>tn:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#FF0000</se:SvgParameter>
+                </se:Fill>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>3</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

@@ -1,0 +1,576 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach GE-Specification ergänzt. (2017-06-27 18:04) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>GE.GeomorphologicFeature.Anthropogenic</se:Name>
+    <sld:UserStyle>
+      <se:Name>GE.GeomorphologicFeature.Anthropogenic.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:ge="http://inspire.ec.europa.eu/schemas/ge/4.0">
+        <se:Description>
+          <se:Title>Geomorphologic Feature Anthropogenic Default Style</se:Title>
+          <se:Abstract>Proposal for the portrayal style for types of anthropogenic geomorphologic features based on. Color codes: Some rules consider color codes associated to the landform genesis or geomorphologic environments (References 1 and 2). In other cases (Reference 3) the color code is not directly related to any specific geomorphologic environment. </se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>ge:GeomorphologicFeatureAnthropogenic</se:FeatureTypeName>
+
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>artificial collapsed depression: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>artificialCollapsedDepression</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#AAA52D</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Line -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>artificial collapsed depression: line</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>artificialCollapsedDepression</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#AAA52D</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>artificial collapsed depression: point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>artificialCollapsedDepression</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#AAA52D</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>artificial drainage</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>artificialDrainage</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#5ADCE1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>artificial levee: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>artificialLevee</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#503C1E</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Line -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>artificial levee: line</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>artificialLevee</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#503C1E</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>dredged channel</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>dredgedChannel</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#28647D</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>dump: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>dump</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#C8AF64</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>dump: point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>dump</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#C8AF64</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>impact crater anthropogenic: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>impactCraterAnthropogenic</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#D21405</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>impact crater anthropogenic: point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>impactCraterAnthropogenic</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#D21405</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>landfill site: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>landfillSite</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FFBE00</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>landfill site: point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>landfillSite</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#FFBE00</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>levelled land</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>levelledLand</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#E6C896</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>openpit mine: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>openpitMine</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#916E2D</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>openpit mine: point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>openpitMine</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#916E2D</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>pit: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>pit</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#69641E</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>pit: point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>pit</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#69641E</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>quarry: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>quarry</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#E6E3A2</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>quarry: point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>quarry</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#E6E3A2</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>   
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>reclaimed land</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>reclaimedLand</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#FAE1FA</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>reservoir lake</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>reservoirLake</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#5ADCE1</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        
+        <!-- Polygon -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>spoil bank: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>spoilBank</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#D7692D</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <!-- Point -->
+        <se:Rule>
+        <se:Description>
+          <se:Title>spoil bank: point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>spoilBank</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#D7692D</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule> 
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>subsidence area anthropogenic</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:AnthropogenicGeomorpohologicFeature</ogc:PropertyName>
+              <ogc:Literal>subsidenceAreaAnthropogenic</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#C8C846</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

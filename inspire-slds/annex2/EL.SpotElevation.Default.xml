@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_EL_v3.0.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/ogc}Filter': This element is not expected. Expected is one of ( {http://www.opengis.net/se}Symbolizer, {http://www.opengis.net/se}LineSymbolizer, {http://www.opengis.net/se}PolygonSymbolizer, {http://www.opengis.net/se}PointSymbolizer, {http://www.opengis.net/se}TextSymbolizer, {http://www.opengis.net/se}RasterSymbolizer )., line 21 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:25)
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>EL.SpotElevation</se:Name>
+    <sld:UserStyle>
+      <se:Name>EL.SpotElevation.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:el="http://inspire.ec.europa.eu/schemas/el/4.0">
+        <se:Description>
+          <se:Title>Spot Elevation Default Style</se:Title>
+          <se:Abstract>SpotElevation is rendered depending on the type of elevation property represented: a SpotElevation representing the ’height’ property (a Spot Height) is a black(#000000) 1 pixel circle of size 10 and its Height Values are labels in Arial 10 black (#000000). A SpotElevation representing the ’depth’ property (a Depth Spot) is a blue(#0000FF) 1 pixel circle of size 10 and its Depth Values are labels in Arial 10 blue (#0000FF).</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>el:SpotElevation</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>spot elevation: spot heights</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <!-- Spot Heights -->
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>el:propertyType</ogc:PropertyName>
+              <ogc:Literal>height</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:MinScaleDenominator>1</se:MinScaleDenominator>
+          <se:MaxScaleDenominator>100000</se:MaxScaleDenominator>          
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>el:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="strokewidth">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>10</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+          <se:TextSymbolizer>
+            <se:Label>
+              <ogc:PropertyName>el:propertyValue</ogc:PropertyName>
+            </se:Label>
+            <se:Font>
+              <se:SvgParameter name="font-family">Arial</se:SvgParameter>
+              <se:SvgParameter name="font-size">10</se:SvgParameter>
+            </se:Font>
+            <se:Fill>
+              <se:SvgParameter name="fill">#000000</se:SvgParameter>
+            </se:Fill>
+          </se:TextSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>spot elevation: depth spots</se:Title>
+        </se:Description>
+          <se:MinScaleDenominator>1</se:MinScaleDenominator>
+          <se:MaxScaleDenominator>100000</se:MaxScaleDenominator>
+          <!-- Depth Spots  -->
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>el:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#0000FF</se:SvgParameter>
+                  <se:SvgParameter name="strokewidth">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>10</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+          <se:TextSymbolizer>
+            <se:Label>
+              <ogc:PropertyName>el:propertyValue</ogc:PropertyName>
+            </se:Label>
+            <se:Font>
+              <se:SvgParameter name="font-family">Arial</se:SvgParameter>
+              <se:SvgParameter name="font-size">10</se:SvgParameter>
+            </se:Font>
+            <se:Fill>
+              <se:SvgParameter name="fill">#0000FF</se:SvgParameter>
+            </se:Fill>
+          </se:TextSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent nach SO-Specification ergänzt. (2017-07-07 09:04) -->
+<!-- FBurkamp: Layernamen der SLD geändert. (2019-08-02)-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>SO.SoilObservedProfile</se:Name>
+    <sld:UserStyle>
+      <se:Name>SO.SoilObservedProfile.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:so="http://inspire.ec.europa.eu/schemas/so/4.0">
+        <se:Description>
+          <se:Title>Soil Observed Profile Soil Plot Location Default Style</se:Title>
+          <se:Abstract>This style is for visualising the location associated to instances of the ObservedSoilProfile object, provided that the soilPlotLocation attribute of the associated SoilPlot object is expressed in (X,Y) coordinates. Depending on the value of the attribute soilPlotType, the object is to be displayed differently: a solid red circle when the value is borehole, a solid blue circle when the value is trialPit, a solid green circle when the value is sample.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>so:SoilObservedProfile</se:FeatureTypeName>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>soil observed profile - soil plot: borehole</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>so:SoilPlot</ogc:PropertyName>
+              <ogc:Literal>SoilPlotLocation</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>so:SoilPlot</ogc:PropertyName>
+              <ogc:Literal>Borehole</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>so:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#FF0000</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>soil observed profile - soil plot: trial pit</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>so:SoilPlot</ogc:PropertyName>
+              <ogc:Literal>SoilPlotLocation</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>so:SoilPlot</ogc:PropertyName>
+              <ogc:Literal>TrialPit</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>so:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#0000FF</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>soil observed profile - soil plot: sample</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>so:SoilPlot</ogc:PropertyName>
+              <ogc:Literal>SoilPlotLocation</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>so:SoilPlot</ogc:PropertyName>
+              <ogc:Literal>Sample</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>so:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#008000</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>1</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

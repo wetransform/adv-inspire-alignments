@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent der SLD nach SU-Specification ergänzt. (2017-07-17 17:00) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>SU.VectorStatisticalUnits</se:Name>
+    <sld:UserStyle>
+      <se:Name>SU.VectorStatisticalUnits.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:su="http://inspire.ec.europa.eu/schemas/su/4.0">
+        <se:Description>
+          <se:Title>Vector statistical units default Style</se:Title>
+          <se:Abstract>Polygon geometries are rendered using a limegreen (#e4ff00) fill with 80% transparence and a magenta (#FF00FF) outline with a stroke width of 3 pixel. Line geometries are rendered as a solid magenta (#FF00FF) line with a stroke width of 1 pixel. Point geometries are rendered as a circle with a size of 3 pixel, with a magenta (#FF00FF) fill. </se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>su:VectorStatisticalUnits</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>vector statistical units: polygon</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:Function name="in2">
+                  <ogc:Function name="geometryType">
+                    <ogc:PropertyName>su:geometry</ogc:PropertyName>
+                  </ogc:Function>
+                  <ogc:Literal>Polygon</ogc:Literal>
+                  <ogc:Literal>MultiPolygon</ogc:Literal>
+                </ogc:Function>
+                <ogc:Literal>true</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>su:geometries.geometryDescriptor.geometryType</ogc:PropertyName>
+                <ogc:Literal>referenceGeometry</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:And>
+          </ogc:Filter>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>su:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#e4ff00</se:SvgParameter>
+              <se:SvgParameter name="fill-opacity">0.8</se:SvgParameter>
+            </se:Fill>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#ff00ff</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+            </se:Stroke>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>vector statistical units: line</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:Function name="in3">
+                  <ogc:Function name="geometryType">
+                    <ogc:PropertyName>su:geometry</ogc:PropertyName>
+                  </ogc:Function>
+                    <ogc:Literal>LineString</ogc:Literal>
+                    <ogc:Literal>LinearRing</ogc:Literal>
+                    <ogc:Literal>MultiLineString</ogc:Literal>
+                  </ogc:Function>
+                    <ogc:Literal>true</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>su:geometries.geometryDescriptor.geometryType</ogc:PropertyName>
+                <ogc:Literal>referenceGeometry</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:And>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>su:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#ff00ff</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>vector statistical units: point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:Function name="in2">
+                  <ogc:Function name="geometryType">
+                    <ogc:PropertyName>su:geometry</ogc:PropertyName>
+                  </ogc:Function>
+                  <ogc:Literal>Point</ogc:Literal>
+                  <ogc:Literal>MultiPoint</ogc:Literal>
+                </ogc:Function>
+                <ogc:Literal>true</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>su:geometries.geometryDescriptor.geometryType</ogc:PropertyName>
+                <ogc:Literal>referenceGeometry</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>su:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Fill>
+                  <se:SvgParameter name="fill">#ff00ff</se:SvgParameter>
+                </se:Fill>
+              </se:Mark>
+              <se:Size>3</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

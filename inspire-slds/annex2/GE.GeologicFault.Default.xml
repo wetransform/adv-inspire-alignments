@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach GE-Specification ergänzt. (2017-06-27 18:04) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>GE.GeologicFault</se:Name>
+    <sld:UserStyle>
+      <se:Name>GE.GeologicFault.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:ge="http://inspire.ec.europa.eu/schemas/ge/4.0">
+        <se:Description>
+          <se:Title>Geologic Fault Default Style</se:Title>
+          <se:Abstract>The lines (MappedFeatures) of Geologic Structures - faults are portrayed by their type. A proposal was created for the OneGeology_Europe project. The reverse fault-symbols in the upthrown block. (For cartographers: The line should be drawn so that the upthrown block is to the right in the drawing direction.). The thrust fault-symbols in the upthrown block. (For cartographers: The line should be drawn so that the upthrown block is to the right in the drawing direction.). The high angle reverse-symbols in the upthrown block. (For cartographers: The line should be drawn so that the upthrown block is to the right in the drawing direction.). The low angle normal fault-symbols in the downthrown block. (For cartographers: The line should be drawn so that the downthrown block is to the right in the drawing direction. The detachment fault-symbols in the downthrown block. (For cartographers: The line should be drawn so that the downthrown block is to the right in the drawing direction. The high angle normal fault-symbols in the downthrown block. (For cartographers: The line should be drawn so that the downthrown block is to the right in the drawing direction.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>ge:GeologicFault</se:FeatureTypeName>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>geologic fault</se:Title>
+        </se:Description>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>strike slip -, dextral strike slip -, sinistral strike slip - or wrench fault </se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:Or>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:strikeSlipFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:dextralStrikeSlipFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:sinistralStrikeSlipFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:wrenchFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Or>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+              <se:SvgParameter name="stroke-dasharray">8 5</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>reverse -, thrust fault or high angle reverse</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:Or>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:reverseFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:thrustFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:highAngleReverse</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Or>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+              <se:SvgParameter name="stroke-dasharray">2 2</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>normal -, low angle normal -, high angle normal - or high angle fault</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:Or>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:reverseFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:thrustFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:highAngleReverse</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Or>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+              <se:SvgParameter name="stroke-dasharray">3 3</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>low angle - or horizontal fault</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:Or>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:lowAngleFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:horizontalFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Or>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#80E64D</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+              <se:SvgParameter name="stroke-dasharray">3 3</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>oblique slip -, left normal -, right normal -, left reverse or right reverse fault</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:Or>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:obliqueSlipFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:leftNormalFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:rightNormalFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:leftReverseFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:rightReverseFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Or>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+              <se:SvgParameter name="stroke-dasharray">8 2 2 2</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>scissor fault</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:scissorFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#FF3333</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>extraction -, mixed extraction - or pure extraction fault</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:Or>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:extractionFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:mixedExtractionFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:pureExtractionFault</ogc:PropertyName>
+              <ogc:Literal>Line</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Or>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#80E64D</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

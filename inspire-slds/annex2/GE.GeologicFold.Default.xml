@@ -1,0 +1,446 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach GE-Specification ergänzt. (2017-06-27 18:04) 
+
+Die auskommentierten Abschnitte enthalten die gleiche Symbologie nur mit einem hochgeladenen Bild. (2017-07-25 14:26)
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>GE.GeologicFold</se:Name>
+    <sld:UserStyle>
+      <se:Name>GE.GeologicFold.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:ge="http://inspire.ec.europa.eu/schemas/ge/4.0">
+        <se:Description>
+          <se:Title>Geologic Fold Default Style</se:Title>
+          <se:Abstract>The lines (MappedFeatures) of Geological structures - Folds are portrayed by their type.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>ge:GeologicFold</se:FeatureTypeName>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>geologic fold: anticline</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:GeologicFold</ogc:PropertyName>
+              <ogc:Literal>anticline</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <VendorOption name="placement">centralPoint</VendorOption>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:Mark>
+                    <se:WellKnownName>triangle</se:WellKnownName>
+                    <se:Fill>
+                      <se:SvgParameter name="fill">#e60033</se:SvgParameter>
+                    </se:Fill>
+                    <se:Stroke>
+                      <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+                    </se:Stroke>
+                  </se:Mark>
+                  <se:Size>18</se:Size>
+                </se:Graphic>
+              </se:GraphicStroke>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <VendorOption name="placement">centralPoint</VendorOption>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:Mark>
+                    <se:WellKnownName>triangle</se:WellKnownName>
+                    <se:Fill>
+                      <se:SvgParameter name="fill">#e60033</se:SvgParameter>
+                    </se:Fill>
+                    <se:Stroke>
+                      <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+                    </se:Stroke>
+                  </se:Mark>
+                  <se:Size>18</se:Size>
+                  <se:Rotation>
+                    <ogc:Literal>180</ogc:Literal>
+                  </se:Rotation>
+                </se:Graphic>
+              </se:GraphicStroke>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">4</se:SvgParameter>
+              <se:SvgParameter name="stroke-linejoin">bevel</se:SvgParameter>
+              <se:SvgParameter name="stroke-linecap">square</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+<!--         <se:Rule>
+        <se:Description>
+          <se:Title>geologic fold: anticline</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:GeologicFold</ogc:PropertyName>
+              <ogc:Literal>anticline</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#E60033</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:ExternalGraphic>
+                    <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.GeologicFold-anticline.png"/>
+                    <se:Format>image/png</se:Format>
+                  </se:ExternalGraphic>           
+                  <se:Stroke>
+                    <se:SvgParameter name="stroke">#E60033</se:SvgParameter>
+                    <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                  </se:Stroke>  
+                <se:Size>10</se:Size>
+                </se:Graphic>
+                <se:Gap>
+                  <se:Literal>50</se:Literal>
+                </se:Gap>
+              </se:GraphicStroke>
+             <se:PerpendicularOffset>1</se:PerpendicularOffset>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule> -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>geologic fold: antiform</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:GeologicFold</ogc:PropertyName>
+              <ogc:Literal>antiform</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <VendorOption name="placement">centralPoint</VendorOption>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:Mark>
+                    <se:WellKnownName>triangle</se:WellKnownName>
+                    <se:Fill>
+                      <se:SvgParameter name="fill">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="fill-opacity">0.00</se:SvgParameter>
+                    </se:Fill>
+                    <se:Stroke>
+                      <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+                    </se:Stroke>
+                  </se:Mark>
+                  <se:Size>18</se:Size>
+                </se:Graphic>
+              </se:GraphicStroke>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <VendorOption name="placement">centralPoint</VendorOption>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:Mark>
+                    <se:WellKnownName>triangle</se:WellKnownName>
+                    <se:Fill>
+                      <se:SvgParameter name="fill">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="fill-opacity">0.00</se:SvgParameter>
+                    </se:Fill>
+                    <se:Stroke>
+                      <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+                    </se:Stroke>
+                  </se:Mark>
+                  <se:Size>18</se:Size>
+                  <se:Rotation>
+                    <ogc:Literal>180</ogc:Literal>
+                  </se:Rotation>
+                </se:Graphic>
+              </se:GraphicStroke>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">4</se:SvgParameter>
+              <se:SvgParameter name="stroke-linejoin">bevel</se:SvgParameter>
+              <se:SvgParameter name="stroke-linecap">square</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+<!--         <se:Rule>
+        <se:Description>
+          <se:Title>geologic fold: antiform</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:GeologicFold</ogc:PropertyName>
+              <ogc:Literal>antiform</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#E60033</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:ExternalGraphic>
+                    <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.GeologicFold-antiform.png"/>
+                    <se:Format>image/png</se:Format>
+                  </se:ExternalGraphic>           
+                  <se:Stroke>
+                    <se:SvgParameter name="stroke">#E60033</se:SvgParameter>
+                    <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                  </se:Stroke>  
+                <se:Size>10</se:Size>
+                </se:Graphic>
+                <se:Gap>
+                  <se:Literal>50</se:Literal>
+                </se:Gap>
+              </se:GraphicStroke>
+             <se:PerpendicularOffset>1</se:PerpendicularOffset>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule> -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>geologic fold: syncline</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:GeologicFold</ogc:PropertyName>
+              <ogc:Literal>syncline</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <VendorOption name="placement">centralPoint</VendorOption>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:Mark>
+                    <se:WellKnownName>triangle</se:WellKnownName>
+                    <se:Fill>
+                      <se:SvgParameter name="fill">#e60033</se:SvgParameter>
+                    </se:Fill>
+                    <se:Stroke>
+                      <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+                    </se:Stroke>
+                  </se:Mark>
+                  <se:Size>18</se:Size>
+                </se:Graphic>
+              </se:GraphicStroke>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <VendorOption name="placement">centralPoint</VendorOption>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:Mark>
+                    <se:WellKnownName>triangle</se:WellKnownName>
+                    <se:Fill>
+                      <se:SvgParameter name="fill">#e60033</se:SvgParameter>
+                    </se:Fill>
+                    <se:Stroke>
+                      <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+                    </se:Stroke>
+                  </se:Mark>
+                  <se:Size>18</se:Size>
+                  <se:Rotation>
+                    <ogc:Literal>180</ogc:Literal>
+                  </se:Rotation>
+                </se:Graphic>
+              </se:GraphicStroke>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">4</se:SvgParameter>
+              <se:SvgParameter name="stroke-linejoin">bevel</se:SvgParameter>
+              <se:SvgParameter name="stroke-linecap">square</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+<!--         <se:Rule>
+        <se:Description>
+          <se:Title>geologic fold: syncline</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:GeologicFold</ogc:PropertyName>
+              <ogc:Literal>syncline</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#E60033</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:ExternalGraphic>
+                    <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.GeologicFold-syncline.png"/>
+                    <se:Format>image/png</se:Format>
+                  </se:ExternalGraphic>           
+                  <se:Stroke>
+                    <se:SvgParameter name="stroke">#E60033</se:SvgParameter>
+                    <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                  </se:Stroke>  
+                <se:Size>10</se:Size>
+                </se:Graphic>
+                <se:Gap>
+                  <se:Literal>50</se:Literal>
+                </se:Gap>
+              </se:GraphicStroke>
+             <se:PerpendicularOffset>1</se:PerpendicularOffset>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule> -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>geologic fold: synform</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:GeologicFold</ogc:PropertyName>
+              <ogc:Literal>synform</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <VendorOption name="placement">centralPoint</VendorOption>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:Mark>
+                    <se:WellKnownName>triangle</se:WellKnownName>
+                    <se:Fill>
+                      <se:SvgParameter name="fill">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="fill-opacity">0.00</se:SvgParameter>
+                    </se:Fill>
+                    <se:Stroke>
+                      <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+                    </se:Stroke>
+                  </se:Mark>
+                  <se:Size>18</se:Size>
+                </se:Graphic>
+              </se:GraphicStroke>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <VendorOption name="placement">centralPoint</VendorOption>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:Mark>
+                    <se:WellKnownName>triangle</se:WellKnownName>
+                    <se:Fill>
+                      <se:SvgParameter name="fill">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="fill-opacity">0.00</se:SvgParameter>
+                    </se:Fill>
+                    <se:Stroke>
+                      <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+                      <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+                    </se:Stroke>
+                  </se:Mark>
+                  <se:Size>18</se:Size>
+                  <se:Rotation>
+                    <ogc:Literal>180</ogc:Literal>
+                  </se:Rotation>
+                </se:Graphic>
+              </se:GraphicStroke>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#e60033</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">4</se:SvgParameter>
+              <se:SvgParameter name="stroke-linejoin">bevel</se:SvgParameter>
+              <se:SvgParameter name="stroke-linecap">square</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        
+<!--         <se:Rule>
+        <se:Description>
+          <se:Title>geologic fold: synform</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>ge:GeologicFold</ogc:PropertyName>
+              <ogc:Literal>synform</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#E60033</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:GraphicStroke>
+                <se:Graphic>
+                  <se:ExternalGraphic>
+                    <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../GE.GeologicFold-synform.png"/>
+                    <se:Format>image/png</se:Format>
+                  </se:ExternalGraphic>           
+                  <se:Stroke>
+                    <se:SvgParameter name="stroke">#E60033</se:SvgParameter>
+                    <se:SvgParameter name="stroke-width">1</se:SvgParameter>
+                  </se:Stroke>  
+                <se:Size>10</se:Size>
+                </se:Graphic>
+                <se:Gap>
+                  <se:Literal>50</se:Literal>
+                </se:Gap>
+              </se:GraphicStroke>
+             <se:PerpendicularOffset>1</se:PerpendicularOffset>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule> -->
+        
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>
