@@ -3417,22 +3417,6 @@ _target{&#13;
         </target>
         <parameter value="unknown" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cea684f74-0b5b-4bfd-bcbd-0dd7067ba5eb" priority="normal">
-        <source name="anchor">
-            <property>
-                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                <child name="nilReason"/>
-            </property>
-        </target>
-        <parameter value="unknown" name="value"/>
-    </cell>
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="C6202185c-4c9c-4a1a-9a0c-31e279370883" priority="normal">
         <source name="geometrie">
             <property>
