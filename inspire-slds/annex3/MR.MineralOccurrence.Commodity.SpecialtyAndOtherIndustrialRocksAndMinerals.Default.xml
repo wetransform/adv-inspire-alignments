@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach MR-Specification ergänzt. (2017-07-17 17:00) 
+
+TEMPLATE: dies ein Template, alle Mineralien, Metalle oder Substanzen die dem Thema "specialty and other industrial rocks and minerals" zugeordnet werden können, können dieses Modell verwenden.
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>MR.MineralOccurrence.Commodity.SpecialtyAndOtherIndustrialRocksAndMinerals</se:Name>
+    <sld:UserStyle>
+      <se:Name>MR.MineralOccurrence.Commodity.SpecialtyAndOtherIndustrialRocksAndMinerals.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:mr="http://inspire.ec.europa.eu/schemas/mr/4.0">
+        <se:Description>
+          <se:Title>Specialty And Other Industrial Rocks And Minerals Default Style</se:Title>
+          <se:Abstract>The size of each symbol is related to the classification defined for each commodity (or group of commodities). The classification (A, B, C, D: A=very large B=large C=Medium D = small) is defined with the commodities code-list (see Annex F).</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>mr:MineralOccurrence.Commodity.SpecialtyAndOtherIndustrialRocksAndMinerals</se:FeatureTypeName>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>specialty and other industrial rocks and minerals (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SpecialtyAndOtherIndustrialRocksAndMinerals</ogc:PropertyName>
+              <ogc:Literal>Point</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>10000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.SpecialtyAndOtherIndustrialRocksAndMinerals.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>specialty and other industrial rocks and minerals (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SpecialtyAndOtherIndustrialRocksAndMinerals</ogc:PropertyName>
+              <ogc:Literal>Point</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.SpecialtyAndOtherIndustrialRocksAndMinerals.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>specialty and other industrial rocks and minerals (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SpecialtyAndOtherIndustrialRocksAndMinerals</ogc:PropertyName>
+              <ogc:Literal>Point</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>100000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.SpecialtyAndOtherIndustrialRocksAndMinerals.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>specialty and other industrial rocks and minerals (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SpecialtyAndOtherIndustrialRocksAndMinerals</ogc:PropertyName>
+              <ogc:Literal>Point</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>10000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.SpecialtyAndOtherIndustrialRocksAndMinerals.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Abstract und Kontent der SLD nach ER-Specification ergänzt. (2017-06-12 16:15) -->
+<sld:StyledLayerDescriptor version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd" xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sld:NamedLayer>
+    <se:Name>ER.TidalPotentialSurfaceCoverage.TidalPower</se:Name>
+      <sld:UserStyle>
+        <se:Name>ER.TidalPotentialSurfaceCoverage.TidalPower.Default</se:Name>
+          <sld:IsDefault>1</sld:IsDefault>
+          <se:FeatureTypeStyle version="1.1.0" xmlns:er="http://inspire.ec.europa.eu/schemas/er/4.0">
+            <se:Description>
+              <se:Title>Tidal power potential Surface Coverage</se:Title>
+              <se:Abstract>Grid Coverage is symbolized by a colored raster symbolizer (Values in kW/m2).</se:Abstract>
+            </se:Description>
+            <se:FeatureTypeName>er:GridCoverage</se:FeatureTypeName>
+            <se:Rule>
+              <se:RasterSymbolizer>
+              <se:Opacity>1.0</se:Opacity>
+              <se:OverlapBehavior>AVERAGE</se:OverlapBehavior>
+                <se:ColorMap>
+                  <se:Categorize fallbackValue="#FFFFFF">
+                    <se:LookupValue>Rasterdata</se:LookupValue>
+                      <se:Value>#9B9C9D</se:Value><se:Threshold>0.01</se:Threshold>
+                      <se:Value>#583495</se:Value><se:Threshold>0.05</se:Threshold>
+                      <se:Value>#6D429A</se:Value><se:Threshold>0.1</se:Threshold>
+                      <se:Value>#8E489C</se:Value><se:Threshold>0.25</se:Threshold>
+                      <se:Value>#B44299</se:Value><se:Threshold>0.5</se:Threshold>
+                      <se:Value>#EC148C</se:Value><se:Threshold>1</se:Threshold>
+                      <se:Value>#EC2D50</se:Value><se:Threshold>1.5</se:Threshold>
+                      <se:Value>#F46F21</se:Value><se:Threshold>2</se:Threshold>
+                      <se:Value>#F7B71B</se:Value><se:Threshold>3</se:Threshold>
+                      <se:Value>#F2EC3B</se:Value><se:Threshold>4</se:Threshold>
+                      <se:Value>#E5E03C</se:Value><se:Threshold>5</se:Threshold>
+                      <se:Value>#D2C53F</se:Value><se:Threshold>6</se:Threshold>
+                      <se:Value>#BDAB3E</se:Value><se:Threshold>8</se:Threshold>
+                      <se:Value>#AD9140</se:Value><se:Threshold>10</se:Threshold>
+                      <se:Value>#997940</se:Value><se:Threshold>20</se:Threshold>
+                      <se:Value>#866240</se:Value><se:Threshold>40</se:Threshold>
+                      <se:Value>#000000</se:Value>
+                  </se:Categorize>
+                </se:ColorMap>
+              </se:RasterSymbolizer>
+            </se:Rule>
+          </se:FeatureTypeStyle>
+      </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

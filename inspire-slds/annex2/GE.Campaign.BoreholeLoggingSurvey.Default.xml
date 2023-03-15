@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach GE-Specification ergänzt. (2017-06-27 18:04) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>GE.Campaign.BoreholeLoggingSurvey</se:Name>
+    <sld:UserStyle>
+      <se:Name>GE.Campaign.BoreholeLoggingSurvey.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:ge="http://inspire.ec.europa.eu/schemas/ge/4.0">
+        <se:Description>
+          <se:Title>Borehole Logging Survey Default Style</se:Title>
+          <se:Abstract>The symbols of Campaign are portrayed by type (surveyType). Note: One layer shall be made available for each code list value, for example: GE.groundGravitySurvey, GE.groundMagneticSurvey, GE.airborneGeophysicalSurvey, etc..</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>ge:Campaign.BoreholeLoggingSurvey</se:FeatureTypeName>
+        
+        <se:Rule>
+          <se:Description>
+            <se:Title>borehole logging survey</se:Title>
+          </se:Description>
+            <ogc:Filter>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>ge:Campaign</ogc:PropertyName>
+                <ogc:Literal>BoreholeLoggingSurvey</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:Filter>
+            <se:PolygonSymbolizer>
+              <se:Geometry>
+                <ogc:PropertyName>ge:geometry</ogc:PropertyName>
+              </se:Geometry>
+              <se:Fill>
+                <se:SvgParameter name="fill">#00FF00</se:SvgParameter>
+              </se:Fill>
+            </se:PolygonSymbolizer>
+        </se:Rule>
+
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

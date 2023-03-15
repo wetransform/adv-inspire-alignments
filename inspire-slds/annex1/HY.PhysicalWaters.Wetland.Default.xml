@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_HY_v3.1.pdf
+
+   XML is valid against StyledLayerDescriptor.xsd! 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:23)
+-->
+<!-- FBurkamp: Abstract um einen halben Satz ergänzt.(2017-06-01 08:19) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>HY.PhysicalWaters.Wetland</se:Name>
+    <se:Description>
+		<se:Title>Wetlands</se:Title>
+	</se:Description>    
+    <sld:UserStyle>
+      <se:Name>HY.PhysicalWaters.Wetland.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:hy-p="http://inspire.ec.europa.eu/schemas/hy-p/4.0">
+        <se:Description>
+          <se:Title>Wetland Default Style</se:Title>
+          <se:Abstract>Wetlands are depicted with blue-green (#00CCCC) filled polygons.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>hy-p:Wetland</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>wetlands</se:Title>
+        </se:Description>
+          <se:PolygonSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>hy-p:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Fill>
+              <se:SvgParameter name="fill">#00CCCC</se:SvgParameter>
+            </se:Fill>
+          </se:PolygonSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

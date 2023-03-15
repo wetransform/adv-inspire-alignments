@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+   Source http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_EL_v3.0.pdf
+
+   XML is invalid against StyledLayerDescriptor.xsd! 
+   Element '{http://www.opengis.net/se}SvgParameter': This element is not expected. Expected is one of ( {http://www.opengis.net/ogc}expression, {http://www.opengis.net/ogc}Add, {http://www.opengis.net/ogc}Sub, {http://www.opengis.net/ogc}Mul, {http://www.opengis.net/ogc}Div, {http://www.opengis.net/ogc}PropertyName, {http://www.opengis.net/ogc}Function, {http://www.opengis.net/ogc}Literal, {http://www.opengis.net/se}FormatNumber, {http://www.opengis.net/se}FormatDate )., line 51 
+
+   http://github.com/JuergenWeichand/inspire-styles (2016-09-18 12:48:25)
+-->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>EL.TIN</se:Name>
+    <sld:UserStyle>
+      <se:Name>EL.TIN.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:el="http://inspire.ec.europa.eu/schemas/el/4.0">
+        <se:Description>
+          <se:Title>Elevation TIN Default Style</se:Title>
+          <se:Abstract>Geometries composing an ElevationTIN are rendered according their type: stopLines are (#7F8850) 2 pixel width lines. BreakLines are (#CF7916) 2 pixel width lines. ControlPoints are black(#000000) 1 pixel circles of size 10.</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>el:ElevationTIN</se:FeatureTypeName>
+        <se:Rule>
+        <se:Description>
+          <se:Title>elevation TIN: stop line</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>el:ElevationTIN</ogc:PropertyName>
+              <ogc:Literal>StopLines</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:MinScaleDenominator>1</se:MinScaleDenominator>
+          <se:MaxScaleDenominator>100000</se:MaxScaleDenominator>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>el:stopLines</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#7F8850</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>elevation TIN: break line</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>el:ElevationTIN</ogc:PropertyName>
+              <ogc:Literal>BreakLines</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:LineSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>el:breakLines</ogc:PropertyName>
+            </se:Geometry>
+            <se:Stroke>
+              <se:SvgParameter name="stroke">#CF7916</se:SvgParameter>
+              <se:SvgParameter name="stroke-width">2</se:SvgParameter>
+            </se:Stroke>
+          </se:LineSymbolizer>
+        </se:Rule>
+        <se:Rule>
+        <se:Description>
+          <se:Title>elevation TIN: control point</se:Title>
+        </se:Description>
+          <ogc:Filter>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>el:ElevationTIN</ogc:PropertyName>
+              <ogc:Literal>ControlPoints</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:Filter>
+          <se:MinScaleDenominator>1</se:MinScaleDenominator>
+          <se:MaxScaleDenominator>100000</se:MaxScaleDenominator>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>el:controlPoint</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:Mark>
+                <se:WellKnownName>circle</se:WellKnownName>
+                <se:Stroke>
+                  <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                  <se:SvgParameter name="strokewidth">1</se:SvgParameter>
+                </se:Stroke>
+              </se:Mark>
+              <se:Size>10</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>

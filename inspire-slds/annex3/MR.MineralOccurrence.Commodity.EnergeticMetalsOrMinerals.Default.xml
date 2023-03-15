@@ -1,0 +1,629 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- FBurkamp: Kontent und Abstract der SLD nach MR-Specification ergänzt. (2017-07-17 17:00) -->
+<sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:se="http://www.opengis.net/se" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd">
+  <sld:NamedLayer>
+    <se:Name>MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals</se:Name>
+    <sld:UserStyle>
+      <se:Name>MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals.Default</se:Name>
+      <sld:IsDefault>1</sld:IsDefault>
+      <se:FeatureTypeStyle version="1.1.0" xmlns:mr="http://inspire.ec.europa.eu/schemas/mr/4.0">
+        <se:Description>
+          <se:Title>Special And Rare Metals Metals Default Style</se:Title>
+          <se:Abstract>The size of each symbol is related to the classification defined for each commodity (or group of commodities). The classification (A, B, C, D: A=very large B=large C=Medium D = small) is defined with the commodities code-list (see Annex F).</se:Abstract>
+        </se:Description>
+        <se:FeatureTypeName>mr:MineralOccurrence.Commodity.EnergeticMetalsOrMinerals</se:FeatureTypeName>
+
+        <!-- Uranium [U] -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: uranium [U] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Uranium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>100000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-UraniumThorium.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: uranium [U] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Uranium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>20000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-UraniumThorium.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: uranium [U] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Uranium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>5000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-UraniumThorium.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: uranium [U] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Uranium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>500</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-UraniumThorium.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- Thorium [Th] -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: thorium [Th] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Thorium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>100000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-UraniumThorium.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: thorium [Th] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Thorium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>10000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-UraniumThorium.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: thorium [Th] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Thorium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>1000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-UraniumThorium.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: thorium [Th] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Thorium</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>100</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-UraniumThorium.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- Coal, Lignite [Coal] -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: coal, lignite [Coal] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>CoalLignite</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>10000000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-CoalLignitePeat.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: coal, lignite [Coal] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>CoalLignite</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-CoalLignitePeat.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: coal, lignite [Coal] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>CoalLignite</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>100000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-CoalLignitePeat.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: coal, lignite [Coal] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>CoalLignite</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>5000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-CoalLignitePeat.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- Peat -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: peat [Peat] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Peat</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>500000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-CoalLignitePeat.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: peat [Peat] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Peat</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>50000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-CoalLignitePeat.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: peat [Peat] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Peat</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>5000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-CoalLignitePeat.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: peat [Peat] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>Peat</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>500000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-CoalLignitePeat.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <!-- Oil Shale -->
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: bituminous rocks - oil shale [Bitum] (very large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>OilShale</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:VeryLargeDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-OilShale.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>10.0</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: bituminous rocks - oil shale [Bitum] (large deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>OilShale</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:LargeDeposit</ogc:PropertyName>
+              <ogc:Literal>100000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-OilShale.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>7</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: bituminous rocks - oil shale [Bitum] (medium deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>OilShale</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:MediumDeposit</ogc:PropertyName>
+              <ogc:Literal>10000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-OilShale.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+        
+        <se:Rule>
+        <se:Description>
+          <se:Title>special and rare metals: bituminous rocks - oil shale [Bitum] (small deposit)</se:Title>
+        </se:Description>
+          <ogc:Filter>
+          <ogc:And>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:EnergeticMetalsOrMinerals</ogc:PropertyName>
+              <ogc:Literal>OilShale</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+            <ogc:PropertyIsEqualTo>
+              <ogc:PropertyName>mr:SmallDeposit</ogc:PropertyName>
+              <ogc:Literal>1000000</ogc:Literal>
+            </ogc:PropertyIsEqualTo>
+          </ogc:And>
+          </ogc:Filter>
+          <se:PointSymbolizer>
+            <se:Geometry>
+              <ogc:PropertyName>mr:geometry</ogc:PropertyName>
+            </se:Geometry>
+            <se:Graphic>
+              <se:ExternalGraphic>
+                <se:OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://.../MR.MineralOccurrence.Commodity.EnergeticMetalsOrMinerals-OilShale.png"/>
+                <se:Format>image/png</se:Format>
+              </se:ExternalGraphic>
+              <se:Size>2.5</se:Size>
+            </se:Graphic>
+          </se:PointSymbolizer>
+        </se:Rule>
+
+      </se:FeatureTypeStyle>
+    </sld:UserStyle>
+  </sld:NamedLayer>
+</sld:StyledLayerDescriptor>
