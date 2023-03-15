@@ -126,48 +126,48 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// Prüfen, ob tatsächlich eine AX_Gewässerachse und/oder ein AX_Fliessgewaesser zu der Relation hatDirektUnten gefunden wurde&#xD;
-&#xD;
-boolean hatReferenz = _source.links.AX_Gewaesserachse.first() || _source.links.AX_Fliessgewaesser.first()&#xD;
-&#xD;
-if (hatReferenz) {&#xD;
-&#xD;
-	// Geometrien aufteilen in einzelne Simple Feature Geometrien&#xD;
-	def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)&#xD;
-	&#xD;
-	// Identifier des Quell-Objekts&#xD;
-	def sourceId = _source.p.id.value()&#xD;
-	&#xD;
-	// Builder konfigurieren&#xD;
-	// - Zuweisung der Geometrie auf Ebene von geometry zulassen&#xD;
-	_b.strictValueFlags = false&#xD;
-	&#xD;
-	// Ziel Objekt je Geometrie erstellen&#xD;
-	int num = 1&#xD;
-	geometries.each { geom -&gt;&#xD;
-		// ID bestimmen&#xD;
-		def _id = "Crossing_${sourceId}_${num}"&#xD;
-		def _ns = _project.vars.INSPIRE_NAMESPACE&#xD;
-	&#xD;
-		// Ziel-Objekt erstellen mit IDs und Geometrie&#xD;
-		_target {&#xD;
-			id( _id )&#xD;
-			inspireId {&#xD;
-				Identifier {&#xD;
-					localId( _id )&#xD;
-					namespace( _ns )&#xD;
-				}&#xD;
-			}&#xD;
-			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {&#xD;
-				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
-			}&#xD;
-			geometry(geom)&#xD;
-		}&#xD;
-	&#xD;
-		num++&#xD;
-	}&#xD;
-	&#xD;
-&#xD;
+// Prüfen, ob tatsächlich eine AX_Gewässerachse und/oder ein AX_Fliessgewaesser zu der Relation hatDirektUnten gefunden wurde&#13;
+&#13;
+boolean hatReferenz = _source.links.AX_Gewaesserachse.first() || _source.links.AX_Fliessgewaesser.first()&#13;
+&#13;
+if (hatReferenz) {&#13;
+&#13;
+	// Geometrien aufteilen in einzelne Simple Feature Geometrien&#13;
+	def geometries = _.geom.toSimpleGeometries(geometries: _source.p.position.first(), collections: false)&#13;
+	&#13;
+	// Identifier des Quell-Objekts&#13;
+	def sourceId = _source.p.id.value()&#13;
+	&#13;
+	// Builder konfigurieren&#13;
+	// - Zuweisung der Geometrie auf Ebene von geometry zulassen&#13;
+	_b.strictValueFlags = false&#13;
+	&#13;
+	// Ziel Objekt je Geometrie erstellen&#13;
+	int num = 1&#13;
+	geometries.each { geom -&gt;&#13;
+		// ID bestimmen&#13;
+		def _id = "Crossing_${sourceId}_${num}"&#13;
+		def _ns = _project.vars.INSPIRE_NAMESPACE&#13;
+	&#13;
+		// Ziel-Objekt erstellen mit IDs und Geometrie&#13;
+		_target {&#13;
+			id( _id )&#13;
+			inspireId {&#13;
+				Identifier {&#13;
+					localId( _id )&#13;
+					namespace( _ns )&#13;
+				}&#13;
+			}&#13;
+			identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {&#13;
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#13;
+			}&#13;
+			geometry(geom)&#13;
+		}&#13;
+	&#13;
+		num++&#13;
+	}&#13;
+	&#13;
+&#13;
 }
 </core:text>
         </complexParameter>
@@ -392,30 +392,30 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -682,30 +682,30 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -1028,30 +1028,30 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -1076,28 +1076,28 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( zweitname )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language( 'deu' )&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( zweitname )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language( 'deu' )&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -1263,28 +1263,28 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( zweitname )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language( 'deu' )&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( zweitname )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language( 'deu' )&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -1788,30 +1788,30 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -1836,28 +1836,28 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( zweitname )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language( 'deu' )&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( zweitname )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language( 'deu' )&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -1998,30 +1998,30 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -2172,30 +2172,30 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -2319,30 +2319,30 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -2365,28 +2365,28 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( zweitname )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language( 'deu' )&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( zweitname )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language( 'deu' )&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -2815,13 +2815,13 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def flaechen = _.geom.findPolygons(position)&#xD;
-	&#xD;
-def flaeche = _.geom.aggregate(flaechen)&#xD;
-	&#xD;
-if(flaeche){&#xD;
-	def oberflaeche = flaeche.geometry.getArea()&#xD;
-	return oberflaeche&#xD;
+def flaechen = _.geom.findPolygons(position)&#13;
+	&#13;
+def flaeche = _.geom.aggregate(flaechen)&#13;
+	&#13;
+if(flaeche){&#13;
+	def oberflaeche = flaeche.geometry.getArea()&#13;
+	return oberflaeche&#13;
 }
 </core:text>
         </complexParameter>
@@ -3197,28 +3197,28 @@ if(flaeche){&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( zweitname )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language( 'deu' )&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( zweitname )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language( 'deu' )&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -3241,28 +3241,28 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( zweitname )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language( 'deu' )&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( zweitname )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language( 'deu' )&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -3285,30 +3285,30 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -3331,30 +3331,30 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -3643,13 +3643,13 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def linien = _.geom.findLines(position)&#xD;
-&#xD;
-def linie = _.geom.aggregate(linien)&#xD;
-&#xD;
-if(linie){&#xD;
-	def laenge = linie.geometry.getLength()&#xD;
-	return laenge&#xD;
+def linien = _.geom.findLines(position)&#13;
+&#13;
+def linie = _.geom.aggregate(linien)&#13;
+&#13;
+if(linie){&#13;
+	def laenge = linie.geometry.getLength()&#13;
+	return laenge&#13;
 }
 </core:text>
         </complexParameter>
@@ -4310,30 +4310,30 @@ Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( regionalsprache )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( regionalsprache )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -4358,28 +4358,28 @@ _target{&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-_target{&#xD;
-	GeographicalName {&#xD;
-		sourceOfName{&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		spelling {&#xD;
-			SpellingOfName {&#xD;
-				text( zweitname )&#xD;
-				script( 'Latn' )&#xD;
-			}&#xD;
-		}&#xD;
-		pronunciation {&#xD;
-			nilReason( 'other:unpopulated' )&#xD;
-		}&#xD;
-		language( 'deu' )&#xD;
-		nameStatus {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#xD;
-		}&#xD;
-		nativeness {&#xD;
-			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#xD;
-		}&#xD;
-	}&#xD;
+_target{&#13;
+	GeographicalName {&#13;
+		sourceOfName{&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		spelling {&#13;
+			SpellingOfName {&#13;
+				text( zweitname )&#13;
+				script( 'Latn' )&#13;
+			}&#13;
+		}&#13;
+		pronunciation {&#13;
+			nilReason( 'other:unpopulated' )&#13;
+		}&#13;
+		language( 'deu' )&#13;
+		nameStatus {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+		}&#13;
+		nativeness {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
