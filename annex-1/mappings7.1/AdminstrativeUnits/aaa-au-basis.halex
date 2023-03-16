@@ -7,7 +7,7 @@
 Enthält neben dem kompletten Mapping für `AdministrativeBoundary` und `Condominium` die gemeinsam verwendeten Relationen um die Attribute von `AdministrativeUnit` mit Informationen aus `AX_Nationalstaat`, `AX_Bundesland`, `AX_Regierungsbezirk`, `AX_KreisRegion`, `AX_Verwaltungsgemeinschaft` und `AX_Gemeinde` zu befüllen. Die jeweiligen Varianten unterscheiden sich maßgeblich darin wie die Geometrien bestimmt werden.&#13;
 </description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2023-03-16T10:58:16.919+01:00</modified>
+    <modified>2023-03-16T11:21:29.810+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -32,15 +32,6 @@ Enthält neben dem kompletten Mapping für `AdministrativeBoundary` und `Condomi
         <setting name="resourceId">8d40c4ad-b2bc-44c1-850c-57192939e652</setting>
         <setting name="source">http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">9a19d10b-6c26-4402-b1e6-6f626806faec</setting>
-        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/testdaten/Schleswig-Holstein/SH_01von88_32580000_5900000.xml.gz</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xml.gzip</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="ignoreRoot">true</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
