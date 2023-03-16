@@ -5,7 +5,7 @@
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ce653f33d-5e1e-4b8b-aee7-9e48ef01f113" priority="low">
         <source>
             <class>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -123,12 +123,12 @@ Die Verknüpfung zur untergeordneten Ebene von `AdministrativeUnit`s wird über 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C67bd480d-5ea0-4ef8-b84c-15b1063d2667" priority="higher">
         <source name="types">
             <class>
-                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -139,65 +139,65 @@ Die Verknüpfung zur untergeordneten Ebene von `AdministrativeUnit`s wird über 
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -328,17 +328,17 @@ Falls keine Zugehörigkeit zu einer Verwaltungsgemeinschaft besteht wird die Zug
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C153144ee-8008-471c-a689-adba7e1d10b7" priority="highest">
         <source name="types">
             <class>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -349,78 +349,78 @@ Falls keine Zugehörigkeit zu einer Verwaltungsgemeinschaft besteht wird die Zug
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                    </property>
+                    <property>
+                        <type name="AX_FlurstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindezugehoerigkeit" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -569,7 +569,7 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C20449391-5bfb-4ec5-b494-dfbac5854cc0" priority="high">
         <source>
             <class>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -708,7 +708,7 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C730641fd-b68b-4b5f-b63b-35e1c9076579" priority="normal">
         <source>
             <class>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
