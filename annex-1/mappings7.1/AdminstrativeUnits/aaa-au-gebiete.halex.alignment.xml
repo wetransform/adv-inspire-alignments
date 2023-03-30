@@ -5,12 +5,12 @@
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C4f27722b-b7cc-4398-ba92-d41c55ad5eee" priority="low">
         <source name="types">
             <class>
-                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_Gebiet_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_Gebiet_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -21,19 +21,19 @@
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_Gebiet_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_Gebiet_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_Gebiet_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_Gebiet_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -77,12 +77,12 @@ Die Verknüpfung zur untergeordneten Ebene von `AdministrativeUnit`s wird über 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cee67d256-2126-40f1-8782-bc5e35765a10" priority="high">
         <source name="types">
             <class>
-                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_Gebiet_KreisType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_Gebiet_KreisType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -93,19 +93,19 @@ Die Verknüpfung zur untergeordneten Ebene von `AdministrativeUnit`s wird über 
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_Gebiet_KreisType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_Gebiet_KreisType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_KreisRegionType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_Gebiet_KreisType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_Gebiet_KreisType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -167,12 +167,12 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C1c3a0ce9-5605-4868-a6af-c9acbc1d41f2" priority="lower">
         <source name="types">
             <class>
-                <type name="AX_Gebiet_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_Gebiet_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -183,19 +183,19 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_Gebiet_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_Gebiet_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_Gebiet_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_Gebiet_NationalstaatType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -225,12 +225,12 @@ Die Geometrie wird aus dem über den Gesamtschlüssel verknüpften `AX_Gebiet_Na
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Ce8f2105f-67d0-4cd2-87f1-77d476bc19d2" priority="normal">
         <source name="types">
             <class>
-                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_Gebiet_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_Gebiet_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -241,19 +241,19 @@ Die Geometrie wird aus dem über den Gesamtschlüssel verknüpften `AX_Gebiet_Na
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_Gebiet_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_Gebiet_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_Gebiet_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_Gebiet_RegierungsbezirkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -306,17 +306,17 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C57c48859-e9d2-433b-8286-b12437dde792" priority="highest">
         <source name="types">
             <class>
-                <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_Gebiet_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_Gebiet_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -327,33 +327,33 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_Gebiet_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_Gebiet_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_Gebiet_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_Gebiet_VerwaltungsgemeinschaftType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -414,12 +414,12 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C3823af02-cf04-4228-9345-7be0c5d0602e" priority="higher">
         <source name="types">
             <class>
-                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -430,65 +430,65 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                </jp:condition>
-                <jp:condition>
-                    <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                    </property>
-                    <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeinde" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="kreis" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                     <property>
-                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                    </property>
+                </jp:condition>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GemeindeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                    </property>
+                    <property>
+                        <type name="AX_KommunalesGebietType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="AX_Gemeindekennzeichen" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="regierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
