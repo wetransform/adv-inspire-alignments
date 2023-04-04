@@ -14,21 +14,21 @@
             </cf:output>
             <cf:definition>
                 <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// determine Zone&#xD;
-int zone = Math.floor(easting / 1000000.0);&#xD;
-String code = "EPSG:25832"&#xD;
-&#xD;
-if (zone == 31) {&#xD;
-  code = "EPSG:25831"&#xD;
-}&#xD;
-else if (zone == 33) {&#xD;
-  code = "EPSG:25833"&#xD;
-}&#xD;
-&#xD;
-def x = easting - (zone * 1000000.0)&#xD;
-def y = northing&#xD;
-&#xD;
-_.geom.with(geometry: "POINT($x $y)", crs: code)&#xD;
+// determine Zone&#13;
+int zone = Math.floor(easting / 1000000.0);&#13;
+String code = "EPSG:25832"&#13;
+&#13;
+if (zone == 31) {&#13;
+  code = "EPSG:25831"&#13;
+}&#13;
+else if (zone == 33) {&#13;
+  code = "EPSG:25833"&#13;
+}&#13;
+&#13;
+def x = easting - (zone * 1000000.0)&#13;
+def y = northing&#13;
+&#13;
+_.geom.with(geometry: "POINT($x $y)", crs: code)&#13;
 
 </core:text>
             </cf:definition>
@@ -1342,8 +1342,8 @@ def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#xD;
-&#xD;
+def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#13;
+&#13;
 return _project.vars.INSPIRE_NAMESPACE + "ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
 </core:text>
         </complexParameter>
@@ -1400,8 +1400,8 @@ return _project.vars.INSPIRE_NAMESPACE + "ThoroughfareName_${LAN}${RBZ}${KRS}${G
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#xD;
-&#xD;
+def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#13;
+&#13;
 "ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
 </core:text>
         </complexParameter>
