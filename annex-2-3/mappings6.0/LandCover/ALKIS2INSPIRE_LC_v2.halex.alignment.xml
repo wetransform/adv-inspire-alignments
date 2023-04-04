@@ -86,14 +86,30 @@ return c.extent.value()
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.cst.functions.collector.assign" id="C291e909f-6406-4b56-bba1-a37ccb680902" priority="normal">
-        <target>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C291e909f-6406-4b56-bba1-a37ccb680902" priority="normal">
+        <target name="result">
             <property>
                 <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
                 <child name="member" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
             </property>
         </target>
-        <parameter value="dataset" name="collector"/>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def c
+withTransformationContext {
+	c = _.context.collector(it)
+}
+
+if (!_project.vars.DISABLE_DATASET_MEMBERS) {
+	c.dataset.values().each { id -&gt;
+		_target {
+			href("#${id}")
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
         <documentation>Die IDs der erzeugten LandCoverUnits werden während der Erzeugung der LandCoverUnits gesammelt und hier dem LandCoverDataset zugeordnet.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C6bfd1780-4444-43a7-86bd-c482a34e99eb" priority="normal">

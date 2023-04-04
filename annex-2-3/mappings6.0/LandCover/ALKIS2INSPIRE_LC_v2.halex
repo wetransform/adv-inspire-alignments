@@ -12,7 +12,7 @@ Hinweis zur Nutzung der Projektvariablen:&#13;
 	LANDCOVER_DATASET: id des LandCoverDatasets --&gt; kann nach Wunsch verändert werden&#13;
 	INSPIRE_NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2018-02-21T09:31:57.934+01:00</created>
-    <modified>2021-03-16T16:29:49.389+01:00</modified>
+    <modified>2023-04-04T21:50:03.499+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1525,6 +1525,9 @@ Hinweis zur Nutzung der Projektvariablen:&#13;
             </core:property>
             <core:property name="INSPIRE_NAMESPACE">
                 <core:value value="https://registry.gdi-de.org/id/de.____/alkis"/>
+            </core:property>
+            <core:property name="DISABLE_DATASET_MEMBERS">
+                <core:value value=""/>
             </core:property>
         </core:properties>
     </complex-property>
