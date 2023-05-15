@@ -105,8 +105,8 @@
         </target>
         <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C041711db-6015-40e6-9198-513e210b5ef7" priority="normal">
-        <source>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C041711db-6015-40e6-9198-513e210b5ef7" priority="normal">
+        <source name="spelling">
             <property>
                 <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="name" ns="http://www.opengis.net/gml/3.2"/>
@@ -117,13 +117,8 @@
                 <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
         <documentation>wird auf Ebene von AA_Objekt durchgeführt, weil alle FeatureTypen davon erben und Abbildung für alle gültig.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C7a92c0b5-e161-4208-a6c5-ac722aeb297c" priority="normal">
