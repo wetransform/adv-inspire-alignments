@@ -4161,10 +4161,10 @@ if (baujahr){&#13;
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C306ab7e7-4fd2-4a10-a531-5f700a5255bc" priority="normal">
         <source>
             <property>
-                <type name="AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1215' or bauwerksfunktion = '1220' or bauwerksfunktion = '1250' or bauwerksfunktion = '1251' or  bauwerksfunktion = '1260' or bauwerksfunktion = '1270' or bauwerksfunktion = '1280' or bauwerksfunktion = '1290' or bauwerksfunktion = '1330' or bauwerksfunktion = '1331' or bauwerksfunktion = '1332' or bauwerksfunktion = '1333' or bauwerksfunktion = '1340' or bauwerksfunktion = '1350'</condition>
-                </type>
+                <type name="AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="uom"/>
             </property>
         </source>
@@ -4185,6 +4185,8 @@ if (baujahr){&#13;
             <property>
                 <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="uom"/>
             </property>
         </source>
@@ -4203,10 +4205,10 @@ if (baujahr){&#13;
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C574ac1a1-24a1-4653-9782-8ec97697acf1" priority="normal">
         <source>
             <property>
-                <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1610' or bauwerksfunktion = '1611' or bauwerksfunktion = '1700'</condition>
-                </type>
+                <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="uom"/>
             </property>
         </source>
@@ -4227,6 +4229,8 @@ if (baujahr){&#13;
             <property>
                 <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="uom"/>
             </property>
         </source>
@@ -4245,10 +4249,10 @@ if (baujahr){&#13;
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdc8e06fc-0a49-4f55-8ad9-5f523d9f7246" priority="normal">
         <source>
             <property>
-                <type name="AX_VorratsbehaelterSpeicherbauwerkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1201' or bauwerksfunktion = '1203' or bauwerksfunktion = '1205' or bauwerksfunktion = '1206'</condition>
-                </type>
+                <type name="AX_VorratsbehaelterSpeicherbauwerkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="uom"/>
             </property>
         </source>
