@@ -3769,6 +3769,56 @@ if (baujahr){&#13;
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cc2ab789d-9d0b-4771-a80a-9a1da8563970" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2070' or bauwerksfunktion = '2080' or bauwerksfunktion = '2090'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="heightReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C684412a9-8845-429c-9253-0fbef05ea4d4" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1800' or bauwerksfunktion = '1830' or bauwerksfunktion = '1880' or bauwerksfunktion = '1890'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="heightReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ccb0f04c8-72cb-4738-98e3-5849cb22e9d3" priority="normal">
         <source name="anchor">
             <property>
@@ -3789,6 +3839,31 @@ if (baujahr){&#13;
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/topOfConstruction" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C722f3d68-61e2-4083-bf64-4c35feb0230b" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="heightReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C92619c3e-edf7-4320-a0dc-7478ff33852c" priority="normal">
         <source name="anchor">
             <property>
@@ -3806,6 +3881,56 @@ if (baujahr){&#13;
             </property>
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/topOfConstruction" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cdecf015f-b71f-419c-99ed-7fc090be46e9" priority="normal">
+        <source>
+            <property>
+                <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">archaeologischerTyp = '1100' or archaeologischerTyp = '1110' or archaeologischerTyp = '1210' or archaeologischerTyp = '1410'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="heightReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Ca8c002d5-829e-4b08-883c-01aec48ca2ec" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchleuseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">konstruktionsmerkmalBauart = '1010' or konstruktionsmerkmalBauart = '1020'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="heightReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C474c038e-af3b-4a1f-a8b9-7052d00e3044" priority="normal">
         <source name="anchor">
@@ -3865,6 +3990,56 @@ if (baujahr){&#13;
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/topOfConstruction" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C166b7504-e12a-486b-8d82-f244197d9408" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2070' or bauwerksfunktion = '2080' or bauwerksfunktion = '2090'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="lowReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C4c9939e9-2fb5-446b-9b2f-6a414c51b83e" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1800' or bauwerksfunktion = '1830' or bauwerksfunktion = '1880' or bauwerksfunktion = '1890'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="lowReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C641e4423-1a67-4292-b814-7d376a5f7141" priority="normal">
         <source name="anchor">
             <property>
@@ -3885,6 +4060,31 @@ if (baujahr){&#13;
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalGround" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C8e7e9fa8-393b-407f-909a-0f87ab703b68" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="lowReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3b15928d-17e6-4590-b193-a22d355d048e" priority="normal">
         <source name="anchor">
             <property>
@@ -3902,6 +4102,56 @@ if (baujahr){&#13;
             </property>
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalGround" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C52732489-4260-469c-8189-b61b54ce83a0" priority="normal">
+        <source>
+            <property>
+                <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">archaeologischerTyp = '1100' or archaeologischerTyp = '1110' or archaeologischerTyp = '1210' or archaeologischerTyp = '1410'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="lowReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C448438a3-63c9-46ce-9475-765b4a0d67e6" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchleuseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">konstruktionsmerkmalBauart = '1010' or konstruktionsmerkmalBauart = '1020'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="lowReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C06ec94c5-896d-4736-9ba3-f14bafcd6c1d" priority="normal">
         <source name="anchor">
@@ -3961,6 +4211,51 @@ if (baujahr){&#13;
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalGround" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C40330ebe-c2fd-4afa-be22-67e9847b3a22" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2070' or bauwerksfunktion = '2080' or bauwerksfunktion = '2090'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="uom"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="status" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HeightStatusValue/measured" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8ed83db1-d3f0-471a-9309-40b703e5583b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1800' or bauwerksfunktion = '1830' or bauwerksfunktion = '1880' or bauwerksfunktion = '1890'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="status" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HeightStatusValue/measured" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca150e471-02ee-4ae0-9d5f-988905588650" priority="normal">
         <source name="anchor">
             <property>
@@ -3968,6 +4263,30 @@ if (baujahr){&#13;
                     <condition lang="ECQL">bauwerksfunktion = '1215' or bauwerksfunktion = '1220' or bauwerksfunktion = '1250' or bauwerksfunktion = '1251' or  bauwerksfunktion = '1260' or bauwerksfunktion = '1270' or bauwerksfunktion = '1280' or bauwerksfunktion = '1290' or bauwerksfunktion = '1330' or bauwerksfunktion = '1331' or bauwerksfunktion = '1332' or bauwerksfunktion = '1333' or bauwerksfunktion = '1340' or bauwerksfunktion = '1350'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="status" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HeightStatusValue/measured" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1d05e00c-10cb-4591-8910-fa9ce8c9236d" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3986,6 +4305,52 @@ if (baujahr){&#13;
             <property>
                 <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="status" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HeightStatusValue/measured" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8d50ad08-b1f8-45d7-af7a-7fb271330ee3" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">archaeologischerTyp = '1100' or archaeologischerTyp = '1110' or archaeologischerTyp = '1210' or archaeologischerTyp = '1410'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="status" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/HeightStatusValue/measured" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C228140eb-1245-4de6-ba57-30cc992cb22a" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_SchleuseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">konstruktionsmerkmalBauart = '1010' or konstruktionsmerkmalBauart = '1020'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4006,6 +4371,8 @@ if (baujahr){&#13;
                     <condition lang="ECQL">bauwerksfunktion = '1610' or bauwerksfunktion = '1611' or bauwerksfunktion = '1700'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4024,6 +4391,8 @@ if (baujahr){&#13;
             <property>
                 <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4044,6 +4413,8 @@ if (baujahr){&#13;
                     <condition lang="ECQL">bauwerksfunktion = '1201' or bauwerksfunktion = '1203' or bauwerksfunktion = '1205' or bauwerksfunktion = '1206'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4057,6 +4428,50 @@ if (baujahr){&#13;
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/HeightStatusValue/measured" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C587519de-4728-44b6-adc7-a5b7f57ebeea" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2070' or bauwerksfunktion = '2080' or bauwerksfunktion = '2090'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C6bf8d792-9a87-4d7b-a783-bba586ee25c0" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1800' or bauwerksfunktion = '1830' or bauwerksfunktion = '1880' or bauwerksfunktion = '1890'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C1ed98771-f7a1-4f7b-9f5c-d3c7c8b24647" priority="normal">
         <source>
             <property>
@@ -4064,6 +4479,30 @@ if (baujahr){&#13;
                     <condition lang="ECQL">bauwerksfunktion = '1215' or bauwerksfunktion = '1220' or bauwerksfunktion = '1250' or bauwerksfunktion = '1251' or  bauwerksfunktion = '1260' or bauwerksfunktion = '1270' or bauwerksfunktion = '1280' or bauwerksfunktion = '1290' or bauwerksfunktion = '1330' or bauwerksfunktion = '1331' or bauwerksfunktion = '1332' or bauwerksfunktion = '1333' or bauwerksfunktion = '1340' or bauwerksfunktion = '1350'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C313080dc-0331-419e-910e-3a83a3a9fa0a" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4082,6 +4521,52 @@ if (baujahr){&#13;
             <property>
                 <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca942cad5-a63e-48c5-b7b4-9194d6670a69" priority="normal">
+        <source>
+            <property>
+                <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">archaeologischerTyp = '1100' or archaeologischerTyp = '1110' or archaeologischerTyp = '1210' or archaeologischerTyp = '1410'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C393e5329-9da1-40ea-8aed-6408c32f57ea" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchleuseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">konstruktionsmerkmalBauart = '1010' or konstruktionsmerkmalBauart = '1020'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4102,6 +4587,8 @@ if (baujahr){&#13;
                     <condition lang="ECQL">bauwerksfunktion = '1610' or bauwerksfunktion = '1611' or bauwerksfunktion = '1700'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4120,6 +4607,8 @@ if (baujahr){&#13;
             <property>
                 <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4140,6 +4629,8 @@ if (baujahr){&#13;
                     <condition lang="ECQL">bauwerksfunktion = '1201' or bauwerksfunktion = '1203' or bauwerksfunktion = '1205' or bauwerksfunktion = '1206'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4153,10 +4644,84 @@ if (baujahr){&#13;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C78b8227b-6202-4496-9ddd-ebde60135e0a" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2070' or bauwerksfunktion = '2080' or bauwerksfunktion = '2090'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="uom"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="uom"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc8aaea0b-381b-4844-a7cf-e5ea134424f6" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1800' or bauwerksfunktion = '1830' or bauwerksfunktion = '1880' or bauwerksfunktion = '1890'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="uom"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="uom"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C306ab7e7-4fd2-4a10-a531-5f700a5255bc" priority="normal">
         <source>
             <property>
-                <type name="AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <type name="AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1215' or bauwerksfunktion = '1220' or bauwerksfunktion = '1250' or bauwerksfunktion = '1251' or  bauwerksfunktion = '1260' or bauwerksfunktion = '1270' or bauwerksfunktion = '1280' or bauwerksfunktion = '1290' or bauwerksfunktion = '1330' or bauwerksfunktion = '1331' or bauwerksfunktion = '1332' or bauwerksfunktion = '1333' or bauwerksfunktion = '1340' or bauwerksfunktion = '1350'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="uom"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="uom"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cba6f9d70-84df-430b-a084-e9859c4597e2" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
@@ -4197,10 +4762,60 @@ if (baujahr){&#13;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C0e0283b8-ab46-4f54-90ae-2cb9375bd720" priority="normal">
+        <source>
+            <property>
+                <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">archaeologischerTyp = '1100' or archaeologischerTyp = '1110' or archaeologischerTyp = '1210' or archaeologischerTyp = '1410'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="uom"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="uom"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C33b9c226-625f-4a87-93e3-37a16cebd91b" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SchleuseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">konstruktionsmerkmalBauart = '1010' or konstruktionsmerkmalBauart = '1020'</condition>
+                </type>
+                <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="uom"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="heightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="HeightAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="value" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="uom"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C574ac1a1-24a1-4653-9782-8ec97697acf1" priority="normal">
         <source>
             <property>
-                <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1610' or bauwerksfunktion = '1611' or bauwerksfunktion = '1700'</condition>
+                </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
@@ -4244,7 +4859,9 @@ if (baujahr){&#13;
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdc8e06fc-0a49-4f55-8ad9-5f523d9f7246" priority="normal">
         <source>
             <property>
-                <type name="AX_VorratsbehaelterSpeicherbauwerkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <type name="AX_VorratsbehaelterSpeicherbauwerkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1201' or bauwerksfunktion = '1203' or bauwerksfunktion = '1205' or bauwerksfunktion = '1206'</condition>
+                </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="hoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
