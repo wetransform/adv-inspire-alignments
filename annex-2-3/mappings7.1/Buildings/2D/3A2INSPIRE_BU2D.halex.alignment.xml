@@ -4268,6 +4268,156 @@ if (baujahr){&#13;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C8e0f4178-7bb6-4562-8750-4c49799ebc0a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0">
+                    <context>0</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (zweitname) {&#13;
+	zweitname.p.each { zweit -&gt;&#13;
+		_target {&#13;
+			GeographicalName {&#13;
+				sourceOfName {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				spelling {&#13;
+					SpellingOfName {&#13;
+						text( zweit )&#13;
+						script( 'Latn' )&#13;
+					}&#13;
+				}&#13;
+				pronunciation {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				language( 'deu' )&#13;
+				nameStatus {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+				}&#13;
+				nativeness {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="true" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C9208d08c-20b0-484b-b486-a8ee99e0d8c7" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2070' or bauwerksfunktion = '2080' or bauwerksfunktion = '2090'</condition>
+                </type>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (regionalsprache) {&#13;
+	regionalsprache.p.each { reg -&gt;&#13;
+		_target {&#13;
+			GeographicalName {&#13;
+				sourceOfName {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				spelling {&#13;
+					SpellingOfName {&#13;
+						text( reg )&#13;
+						script( 'Latn' )&#13;
+					}&#13;
+				}&#13;
+				pronunciation {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				language {&#13;
+					nilReason( 'unknown' )&#13;
+				}&#13;
+				nameStatus {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+				}&#13;
+				nativeness {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="true" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C1c00ec9b-3c5a-4d5d-b7c0-d542e55f2d58" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (regionalsprache) {&#13;
+	regionalsprache.p.each { reg -&gt;&#13;
+		_target {&#13;
+			GeographicalName {&#13;
+				sourceOfName {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				spelling {&#13;
+					SpellingOfName {&#13;
+						text( reg )&#13;
+						script( 'Latn' )&#13;
+					}&#13;
+				}&#13;
+				pronunciation {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				language {&#13;
+					nilReason( 'unknown' )&#13;
+				}&#13;
+				nameStatus {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+				}&#13;
+				nativeness {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="true" name="variablesAsInstances"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C064fd9e3-6530-4a08-8196-b2633fa61c85" priority="normal">
         <source>
             <property>
