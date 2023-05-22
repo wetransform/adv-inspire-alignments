@@ -4790,6 +4790,25 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         </target>
         <parameter value="other" name="nameStatus"/>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cb5561d55-cb39-4237-8a44-36dfa095ee70" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="CQL">name is not null and name &lt;&gt; ''</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cd584e5d9-2e63-4c3c-a746-26f647ea7492" priority="normal">
         <source name="spelling">
             <property>
