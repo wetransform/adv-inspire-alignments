@@ -4907,6 +4907,25 @@ else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geo
         </target>
         <parameter value="other" name="nameStatus"/>
     </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc80e6aae-9350-4b6b-b4bb-6f58d9e0fd65" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_StehendesGewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">(name.AX_Lagebezeichnung.unverschluesselt is not null and name.AX_Lagebezeichnung.unverschluesselt &lt;&gt; '') OR (name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde is not null and name.AX_Lagebezeichnung.verschluesselt.AX_VerschluesselteLagebezeichnung.gemeinde &lt;&gt; '')</condition>
+                </type>
+                <child name="zweitname" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="NamedPlaceType" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/gn/4.0">
+                    <context>0</context>
+                </child>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C1df3bfe5-aee3-45db-a90c-ecdad62c35b6" priority="normal">
         <source name="spelling">
             <property>
