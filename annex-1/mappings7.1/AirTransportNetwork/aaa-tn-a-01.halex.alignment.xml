@@ -5,7 +5,7 @@
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C558a31e8-53bb-4a3e-9b24-bf4fd7211c13" priority="highest">
         <source>
             <class>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -15,15 +15,15 @@
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def name = _source.p.bezeichnung.value()&#xD;
-def schluessel = _source.p.schluesselGesamt.value()&#xD;
-&#xD;
-withTransformationContext {&#xD;
-  def collect = _.context.collector(it)&#xD;
-  &#xD;
-  // Name zu Schlüssel der Lagebezeichnung im Index ablegen&#xD;
-  collect.lagebezeichnung[schluessel] = name&#xD;
-}&#xD;
+def name = _source.p.bezeichnung.value()&#13;
+def schluessel = _source.p.schluesselGesamt.value()&#13;
+&#13;
+withTransformationContext {&#13;
+  def collect = _.context.collector(it)&#13;
+  &#13;
+  // Name zu Schlüssel der Lagebezeichnung im Index ablegen&#13;
+  collect.lagebezeichnung[schluessel] = name&#13;
+}&#13;
 
 </core:text>
         </complexParameter>
@@ -31,7 +31,7 @@ withTransformationContext {&#xD;
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cd2d3c726-c951-484a-8bb0-c17504676eeb" priority="normal">
         <source>
             <class>
-                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -380,7 +380,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `Aerod
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca317d4ab-58b3-461c-8cec-a1cbfc9cd30e" priority="normal">
         <source>
             <class>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">art = '1330'</condition>
                 </type>
             </class>
@@ -632,7 +632,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `Aerod
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbfe48734-25e9-488c-bb87-cb9913240d13" priority="low">
         <source>
             <class>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">breiteDesObjekts is not null and (art = '1310' or art = '1320')</condition>
                 </type>
             </class>
@@ -674,7 +674,7 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
     <cell relation="custom:alignment:adv.inspire.id.default" id="C416dabd3-d1e8-4fa5-8091-ccf6f223ff82" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -688,7 +688,7 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
     <cell relation="custom:alignment:adv.inspire.identifier" id="Cab4ed7c4-66f5-4506-aff9-60d7b02f19c8" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -702,7 +702,7 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
     <cell relation="custom:alignment:adv.inspire.id.default" id="C0f4e1c8d-fcf7-4b47-b137-5aaeda71ca57" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -728,8 +728,8 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C6c636244-2269-419c-9d78-61d730a7a834" priority="normal">
         <source>
             <property>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="breiteDesObjekts" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="breiteDesObjekts" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -744,8 +744,8 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
     <cell relation="custom:alignment:adv.uom.toucum" id="Cc3659e5d-d3a3-464a-bc59-506edd1b7763" priority="normal">
         <source name="uom">
             <property>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="breiteDesObjekts" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="breiteDesObjekts" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="uom"/>
             </property>
         </source>
@@ -760,10 +760,10 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C1b49d11f-6391-4a48-b2d0-ff215716d3c2" priority="normal">
         <source>
             <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -778,10 +778,10 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C52d452c3-a4d1-41f5-b239-de1564584cdb" priority="normal">
         <source>
             <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -796,7 +796,7 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ccaa52a0b-aa46-4373-913d-d52ebe85743c" priority="normal">
         <source>
             <class>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">art = '1310' or art = '5531'</condition>
                 </type>
             </class>
@@ -989,8 +989,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd911918f-ab41-4a80-9dbb-1723e2b03b74" priority="normal">
         <source>
             <property>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1015,8 +1015,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C01820847-6dfc-48e0-9fc5-145d4a0d46c3" priority="normal">
         <source>
             <property>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="art" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1102,7 +1102,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `Runwa
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2f4ac65c-9363-468b-843d-9d629339eb39" priority="normal">
         <source>
             <class>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">art = '1320'</condition>
                 </type>
             </class>
@@ -1295,8 +1295,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C45ffdd0a-d3e1-4d96-80f1-f9e2f11f8e52" priority="normal">
         <source>
             <property>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1321,9 +1321,9 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C013ef1ce-3389-4a12-9e43-299c5877d6dd" priority="normal">
         <source name="lagebezeichnung">
             <property>
-                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1338,8 +1338,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc821f68c-572e-4c49-9b2f-c721bb98d6a5" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1363,8 +1363,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="C062492e7-ff51-4f87-9683-29be0fae5741" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1377,7 +1377,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="C1e56f083-0567-44ba-a80e-9306aa13ba62" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -1391,7 +1391,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.identifier" id="C56e7652a-27b6-4c1f-bf46-c8613c8fbee5" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -1405,7 +1405,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="C2cc0d75c-81b6-47c7-8476-a51f4bc8d872" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -1450,7 +1450,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.merge" id="Cf9468cc1-4312-4e19-af99-217d1e276e28" priority="normal">
         <source>
             <class>
-                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlugverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">nutzung = '2000'</condition>
                 </type>
             </class>
@@ -1460,9 +1460,9 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
                 <type name="UseRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
             </class>
         </target>
-        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}position" name="additional_property"/>
+        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/7.1}position" name="additional_property"/>
         <parameter value="false" name="auto_detect"/>
-        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}nutzung" name="property"/>
+        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/7.1}nutzung" name="property"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C4185fd7c-c7c8-4b51-ab7b-3667f679859e" priority="normal">
         <target>
