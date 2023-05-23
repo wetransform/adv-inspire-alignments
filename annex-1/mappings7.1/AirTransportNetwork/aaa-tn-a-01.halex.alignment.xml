@@ -250,6 +250,122 @@ bauwerksfunktion | verticalPosition
 
 Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch bei Nicht-Vorhandensein von Referenzen wird der Wert `onGroundSurface` angenommen. Bei mehreren verschiedenen Referenzen haben `suspendedOrElevated` und `underground` Vorrang vor `onGroundSurface`.</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cc7bb4b8b-965c-4b8f-8d2d-6848f95fdfe3" priority="normal">
+        <source>
+            <class>
+                <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">art = '5560'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AerodromeAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-a/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect&#13;
+withTransformationContext {&#13;
+	collect = _.context.collector(it)&#13;
+}&#13;
+&#13;
+&#13;
+def _id = 'AerodromeArea_' + _source.p.id.value() &#13;
+&#13;
+_target {&#13;
+}&#13;
+&#13;
+// bestimme AerodromeType&#13;
+def aerodromeType = 'landingSite'&#13;
+&#13;
+// bestimme ConditionOfFacility&#13;
+def conditionOfFacility = 'functional'&#13;
+switch (_source.p.zustand.value()) {&#13;
+case '2100': // Außer Betrieb, stillgelegt, verlassen&#13;
+	conditionOfFacility = 'disused'&#13;
+	break&#13;
+case '4000': // Im Bau&#13;
+	conditionOfFacility = 'underConstruction'&#13;
+	break&#13;
+case '8000': // Erweiterung, Neuansiedlung&#13;
+	conditionOfFacility = 'projected'&#13;
+	break&#13;
+}&#13;
+&#13;
+/*&#13;
+ * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition&#13;
+ */&#13;
+def untenRefs = _source.p.hatDirektUnten.href.values()&#13;
+def verticalPositions = untenRefs.findResults { identifier -&gt;&#13;
+	def bwf = collect.bauwerksfunktion[identifier].value()&#13;
+	if (bwf) {&#13;
+		switch (bwf) {&#13;
+		// AX_BauwerkImVerkehrsbereich&#13;
+		case '1800': // Brücke&#13;
+		case '1801': // Mehrstöckige Brücke&#13;
+		case '1802': // Bogenbrücke&#13;
+		case '1803': // Fachwerkbrücke&#13;
+		case '1804': // Hängebrücke&#13;
+		case '1805': // Pontonbrücke&#13;
+		case '1806': // Drehbrücke&#13;
+		case '1807': // Hebebrücke&#13;
+		case '1808': // Zugbrücke&#13;
+		case '1820': // Steg&#13;
+		case '1830': // Hochbahn, Hochstraße&#13;
+		case '1890': // Schleusenkammer&#13;
+		// AX_BauwerkImGewaesserbereich&#13;
+		case '2030': // Staumauer&#13;
+		case '2040': // Staudamm&#13;
+		case '2050': // Wehr&#13;
+		case '2060': // Sicherheitstor&#13;
+		case '2080': // Sperrwerk&#13;
+			return 'suspendedOrElevated'&#13;
+		// AX_BauwerkImVerkehrsbereich&#13;
+		case '1870': // Tunnel, Unterführung&#13;
+		// AX_BauwerkImGewaesserbereich&#13;
+		case '2010': // Durchlass&#13;
+		case '2011': // Rohrdurchlass&#13;
+		case '2012': // Düker&#13;
+		case '2070': // Siel&#13;
+		case '2090': // Schöpfwerk&#13;
+			return 'underground'&#13;
+		}&#13;
+	}&#13;
+	else {&#13;
+		null&#13;
+	}&#13;
+} as Set&#13;
+def verticalPosition&#13;
+if (!verticalPositions) {&#13;
+	verticalPosition = 'onGroundSurface'&#13;
+}&#13;
+else {&#13;
+	verticalPosition = verticalPositions.iterator().next()&#13;
+	if (verticalPositions.size() &gt; 1) {&#13;
+		_log.error('Multiple different values for vertical position of an object: ' + verticalPositions)&#13;
+	}&#13;
+}&#13;
+&#13;
+&#13;
+// Sammle ID für Netzwerk&#13;
+collect.network &lt;&lt; _id&#13;
+// Sammle ID für AerodromeCategory&#13;
+if (aerodromeCategory) {&#13;
+	collect.aerodromeCategory[aerodromeCategory] &lt;&lt; _id&#13;
+}&#13;
+// Sammle ID für AerodromeType&#13;
+if (aerodromeType) {&#13;
+	collect.aerodromeType[aerodromeType] &lt;&lt; _id&#13;
+}&#13;
+// Sammle ID für ConditionOf(Air)Facility&#13;
+collect.conditionOfAirFacility[conditionOfFacility] &lt;&lt; _id&#13;
+// Sammle ID für VerticalPosition&#13;
+collect.verticalPosition[verticalPosition] &lt;&lt; _id&#13;
+
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C1b0796d8-8a2e-48bc-b165-e88ffc8e52ae" priority="normal">
         <target>
             <property>
@@ -798,7 +914,7 @@ Die Referenzen zu den Netzwerk-Elementen mit dieser Eigenschaft wird über die G
         <source>
             <class>
                 <type name="AX_FlugverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="CQL">art = '1310' or art = '5531'</condition>
+                    <condition lang="ECQL">art = '1310' or art = '5530'</condition>
                 </type>
             </class>
         </source>
