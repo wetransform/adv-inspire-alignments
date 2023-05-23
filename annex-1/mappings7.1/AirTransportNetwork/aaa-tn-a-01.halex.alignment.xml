@@ -62,9 +62,9 @@ case '5510': // Flughafen
 	aerodromeCategory = 'domesticNational'
 	break
 case '5512': // Regionalflughafen
-case '5520': // Verkehrslandeplatz
+case '5521': // Verkehrslandeplatz
+case '5522': // Sonderlandeplatz
 case '5530': // Hubschrauberflugplatz
-case '5540': // Landeplatz, Sonderlandeplatz
 case '5550': // Segelfluggelände
 	aerodromeCategory = 'domesticRegional'
 	break
@@ -78,8 +78,9 @@ case '5511': // Internationaler Flughafen
 case '5512': // Regionalflughafen
 	aerodromeType = 'aerodromeHeliport'
 	break
-case '5520': // Verkehrslandeplatz
-case '5540': // Landeplatz, Sonderlandeplatz
+case '5513': // Sonderflughafen
+case '5521': // Verkehrslandeplatz
+case '5522': // Sonderlandeplatz
 case '5550': // Segelfluggelände
 	aerodromeType = 'landingSite'
 	break
