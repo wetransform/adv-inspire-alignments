@@ -24,7 +24,7 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
 1. Ein *TransportProperty*-Objekt für alle Features die auf die gleichen Werte abgebildet werden. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfAirFacility`, `SurfaceComposition`, `AerodromeCategory`, `AerodromeType`, und `UseRestriction`.
 2. Ein *TransportProperty*-Objekt für jedes (Quell-)Feature dass über entsprechende Eigenschaften verfügt. Dabei gibt es ggf. sehr viele redundante Informationen in den Objekten. Umgesetzt wurde das so für `ElementWidth`.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2023-05-23T15:42:27.914+02:00</modified>
+    <modified>2023-05-23T16:39:29.030+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -1670,12 +1670,13 @@ Im Projekt gibt es zwei verschiedene Herangehensweisen zur Bildung von *Transpor
     <property name="mappableTargetType/44">{http://inspire.ec.europa.eu/schemas/tn-a/4.0}AirRouteLinkType</property>
     <property name="mappableTargetType/45">{http://inspire.ec.europa.eu/schemas/tn-a/4.0}ProcedureLinkType</property>
     <property name="mappableTargetType/46">{http://inspire.ec.europa.eu/schemas/tn/4.0}VerticalPositionType</property>
+    <property name="mappableTargetType/47">{http://inspire.ec.europa.eu/schemas/tn/4.0}TransportAreaType</property>
     <property name="mappableTargetType/5">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayNodeType</property>
     <property name="mappableTargetType/6">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayStationNodeType</property>
     <property name="mappableTargetType/7">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayLinkType</property>
     <property name="mappableTargetType/8">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayStationAreaType</property>
     <property name="mappableTargetType/9">{http://inspire.ec.europa.eu/schemas/tn-ra/4.0}RailwayTypeType</property>
-    <property name="mappableTargetType/count">46</property>
+    <property name="mappableTargetType/count">47</property>
     <property name="resource-0619cfa5-eeba-4fa8-804b-324959098694:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Surface/{http://www.opengis.net/gml/3.2}patches/{http://www.opengis.net/gml/3.2}PolygonPatch/{http://www.opengis.net/gml/3.2}exterior/{http://www.opengis.net/gml/3.2}Ring/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:4258</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:31466</property>
