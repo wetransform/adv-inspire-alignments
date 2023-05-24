@@ -125,7 +125,9 @@ def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="landschl"/>
+                <child name="landschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -143,7 +145,9 @@ def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="regbezschl"/>
+                <child name="regbezschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <source name="var">
@@ -184,7 +188,9 @@ else {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="kreisschl"/>
+                <child name="kreisschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <source name="var">
@@ -231,7 +237,9 @@ else {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="gmdschl"/>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <source name="var">
@@ -267,7 +275,9 @@ else {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="postplz"/>
+                <child name="postplz">
+                    <condition lang="ECQL">value is not null and value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -1131,7 +1141,7 @@ _target {
         <source>
             <class>
                 <type name="Hauskoordinaten">
-                    <condition lang="CQL">PLZ is not null and PLZ &lt;&gt; ''</condition>
+                    <condition lang="ECQL">postplz is not null and postplz &lt;&gt; ''</condition>
                 </type>
             </class>
         </source>
