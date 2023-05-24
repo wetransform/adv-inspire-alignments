@@ -75,7 +75,7 @@ _.geom.with(geometry: "POINT($x $y)", crs: code)&#13;
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="gmd"/>
+                <child name="gmdschl"/>
             </property>
         </source>
         <source name="var">
@@ -107,9 +107,9 @@ _.geom.with(geometry: "POINT($x $y)", crs: code)&#13;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
+def sss = strschl.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
 
-"#ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
+"#ThoroughfareName_${landschl}${regbezschl}${kreisschl}${gmdschl}${sss}"
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
@@ -167,8 +167,8 @@ def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-if (RBZ) {
-	"#AdminUnitName_${LAN}${RBZ}"
+if (regbezschl) {
+	"#AdminUnitName_${landschl}${regbezschl}"
 }
 else {
 	throw new NoResultException()
@@ -216,8 +216,8 @@ else {
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-if (KRS) {
-	"#AdminUnitName_${LAN}${RBZ}${KRS}"
+if (kreisschl) {
+	"#AdminUnitName_${landschl}${regbezschl}${kreisschl}"
 }
 else {
 	throw new NoResultException()
@@ -362,14 +362,14 @@ else {
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-if (ADZ) {
+if (adz) {
 
 _target {
 	LocatorDesignator {
 		type {
 			href( 'http://inspire.ec.europa.eu/codelist/LocatorDesignatorTypeValue/addressNumberExtension' )
 		}
-		designator( ADZ )
+		designator( adz )
 	}
 }
 
@@ -1295,7 +1295,7 @@ _target {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="gmd"/>
+                <child name="gmdschl"/>
             </property>
         </source>
         <source name="var">
@@ -1324,9 +1324,9 @@ _target {
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
+def sss = strschl.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
 
-"ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
+"ThoroughfareName_${landschl}${regbezschl}${kreisschl}${gmdschl}${sss}"
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
@@ -1348,7 +1348,7 @@ def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="gmd"/>
+                <child name="gmdschl"/>
             </property>
         </source>
         <source name="var">
@@ -1377,9 +1377,9 @@ def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#13;
+def sss = strschl.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#13;
 &#13;
-return _project.vars.INSPIRE_NAMESPACE + "ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
+return _project.vars.INSPIRE_NAMESPACE + "ThoroughfareName_${landschl}${regbezschl}${kreisschl}${gmdschl}${sss}"
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
@@ -1411,7 +1411,7 @@ return _project.vars.INSPIRE_NAMESPACE + "ThoroughfareName_${LAN}${RBZ}${KRS}${G
         <source name="var">
             <property>
                 <type name="Hauskoordinaten"/>
-                <child name="gmd"/>
+                <child name="gmdschl"/>
             </property>
         </source>
         <source name="var">
@@ -1442,9 +1442,9 @@ return _project.vars.INSPIRE_NAMESPACE + "ThoroughfareName_${LAN}${RBZ}${KRS}${G
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def sss = SSS.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#13;
+def sss = strschl.replaceAll(/[^a-zA-Z_0-9\-]/, '_')&#13;
 &#13;
-"ThoroughfareName_${LAN}${RBZ}${KRS}${GMD}${sss}"
+"ThoroughfareName_${landschl}${regbezschl}${kreisschl}${gmdschl}${sss}"
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
