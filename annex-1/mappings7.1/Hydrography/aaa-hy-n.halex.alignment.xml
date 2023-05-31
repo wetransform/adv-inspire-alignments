@@ -29,19 +29,19 @@
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def collector&#xD;
-&#xD;
-withTransformationContext {&#xD;
-	collector = _.context.collector(it)&#xD;
-}&#xD;
-&#xD;
-_target {&#xD;
-	// Verknüpfung zu gesammelten Netzwerk-Elementen&#xD;
-	collector.network.each { id -&gt;;&#xD;
-		elements {&#xD;
-			href( "#$id" )&#xD;
-		}&#xD;
-	}&#xD;
+def collector&#13;
+&#13;
+withTransformationContext {&#13;
+	collector = _.context.collector(it)&#13;
+}&#13;
+&#13;
+_target {&#13;
+	// Verknüpfung zu gesammelten Netzwerk-Elementen&#13;
+	collector.network.each { id -&gt;;&#13;
+		elements {&#13;
+			href( "#$id" )&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -996,19 +996,19 @@ _target {&#xD;
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-//Alle Fliessgewässer identifizieren, die auf Brücken oder Dükern sind und Paare sammeln&#xD;
-//Kollektor hat Brücken/Düker-id als key und Fliessgewässer-id als Wert&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
-if (_source.links.AX_BauwerkImVerkehrsbereich.first()){&#xD;
-	c.crossing[_source.links.AX_BauwerkImVerkehrsbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#xD;
-}&#xD;
-&#xD;
-if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#xD;
-	c.crossing[_source.links.AX_BauwerkImGewaesserbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#xD;
-}&#xD;
-&#xD;
-//an dieser Stelle wird keine Ziel-Instanz erzeugt, sondern lediglich Wasserläufe und Brücken/Düker gesammelt, bei denen der Wasserlauf über der Brücke/dem Düker liegt&#xD;
+//Alle Fliessgewässer identifizieren, die auf Brücken oder Dükern sind und Paare sammeln&#13;
+//Kollektor hat Brücken/Düker-id als key und Fliessgewässer-id als Wert&#13;
+def c = _.context.collector()&#13;
+&#13;
+if (_source.links.AX_BauwerkImVerkehrsbereich.first()){&#13;
+	c.crossing[_source.links.AX_BauwerkImVerkehrsbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#13;
+}&#13;
+&#13;
+if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#13;
+	c.crossing[_source.links.AX_BauwerkImGewaesserbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#13;
+}&#13;
+&#13;
+//an dieser Stelle wird keine Ziel-Instanz erzeugt, sondern lediglich Wasserläufe und Brücken/Düker gesammelt, bei denen der Wasserlauf über der Brücke/dem Düker liegt&#13;
 //diese Information wird in den Groovy Retype.Funktionen mit niedrigerer Priorität genutzt, um WatercourseSeparatedCrossings zu erzeugen.
 </core:text>
         </complexParameter>
@@ -1083,19 +1083,19 @@ if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#xD;
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-//Alle Gewässerachsen identifizieren, die auf Brücken oder Dükern sind und Paare sammeln&#xD;
-//Kollektor hat Brücken/Düker-id als key und Gewässerachsen-id als Wert&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
-if (_source.links.AX_BauwerkImVerkehrsbereich.first()){&#xD;
-	c.crossing[_source.links.AX_BauwerkImVerkehrsbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#xD;
-}&#xD;
-&#xD;
-if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#xD;
-	c.crossing[_source.links.AX_BauwerkImGewaesserbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#xD;
-}&#xD;
-&#xD;
-//an dieser Stelle wird keine Ziel-Instanz erzeugt, sondern lediglich Wasserläufe und Brücken/Düker gesammelt, bei denen der Wasserlauf über der Brücke/dem Düker liegt&#xD;
+//Alle Gewässerachsen identifizieren, die auf Brücken oder Dükern sind und Paare sammeln&#13;
+//Kollektor hat Brücken/Düker-id als key und Gewässerachsen-id als Wert&#13;
+def c = _.context.collector()&#13;
+&#13;
+if (_source.links.AX_BauwerkImVerkehrsbereich.first()){&#13;
+	c.crossing[_source.links.AX_BauwerkImVerkehrsbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#13;
+}&#13;
+&#13;
+if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#13;
+	c.crossing[_source.links.AX_BauwerkImGewaesserbereich.p.id.value()] &lt;&lt; _source.p.id.value()&#13;
+}&#13;
+&#13;
+//an dieser Stelle wird keine Ziel-Instanz erzeugt, sondern lediglich Wasserläufe und Brücken/Düker gesammelt, bei denen der Wasserlauf über der Brücke/dem Düker liegt&#13;
 //diese Information wird in den Groovy Retype.Funktionen mit niedrigerer Priorität genutzt, um WatercourseSeparatedCrossings zu erzeugen.
 </core:text>
         </complexParameter>
@@ -1145,27 +1145,27 @@ if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#xD;
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def c = _.context.collector()&#xD;
-&#xD;
-def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#xD;
-&#xD;
-if(obereGewaesserAchseIDs){&#xD;
-	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#xD;
-		_source.links.AX_Gewaesserachse.p.id.each { gewaesserachseID -&gt;&#xD;
-			gewaesserachseID = 'WatercourseLink_' + gewaesserachseID&#xD;
-			_target {&#xD;
-			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#xD;
-				element {&#xD;
-					//unteres Fliessgewaesser&#xD;
-					href( "#$gewaesserachseID" )&#xD;
-					}&#xD;
-				element {&#xD;
-					// obere Gewaesserachse/Fliessgewaesser&#xD;
-					href( "#WatercourseLink_$obereGewaesserAchseID" )&#xD;
-				}&#xD;
-			}&#xD;
-		}&#xD;
-	}&#xD;
+def c = _.context.collector()&#13;
+&#13;
+def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#13;
+&#13;
+if(obereGewaesserAchseIDs){&#13;
+	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#13;
+		_source.links.AX_Gewaesserachse.p.id.each { gewaesserachseID -&gt;&#13;
+			gewaesserachseID = 'WatercourseLink_' + gewaesserachseID&#13;
+			_target {&#13;
+			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#13;
+				element {&#13;
+					//unteres Fliessgewaesser&#13;
+					href( "#$gewaesserachseID" )&#13;
+					}&#13;
+				element {&#13;
+					// obere Gewaesserachse/Fliessgewaesser&#13;
+					href( "#WatercourseLink_$obereGewaesserAchseID" )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -1216,29 +1216,29 @@ if(obereGewaesserAchseIDs){&#xD;
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-//nur Brücken betrachten, die im Kollektor sind, weil sie einen Wasserlauf oder ein Fließgewässer über sich haben&#xD;
-&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
-def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#xD;
-&#xD;
-if(obereGewaesserAchseIDs){&#xD;
-	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#xD;
-		_source.links.AX_Fliessgewaesser.p.id.each { fliessgewaesserID -&gt;&#xD;
-			fliessgewaesserID = 'WatercourseLink_' + fliessgewaesserID&#xD;
-			_target {&#xD;
-			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#xD;
-				element {&#xD;
-					//unteres Fliessgewaesser&#xD;
-					href( "#$fliessgewaesserID" )&#xD;
-					}&#xD;
-				element {&#xD;
-					// obere Gewaesserachse/Fliessgewaesser&#xD;
-					href( "#WatercourseLink_$obereGewaesserAchseID" )&#xD;
-				}&#xD;
-			}&#xD;
-		}&#xD;
-	}&#xD;
+//nur Brücken betrachten, die im Kollektor sind, weil sie einen Wasserlauf oder ein Fließgewässer über sich haben&#13;
+&#13;
+def c = _.context.collector()&#13;
+&#13;
+def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#13;
+&#13;
+if(obereGewaesserAchseIDs){&#13;
+	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#13;
+		_source.links.AX_Fliessgewaesser.p.id.each { fliessgewaesserID -&gt;&#13;
+			fliessgewaesserID = 'WatercourseLink_' + fliessgewaesserID&#13;
+			_target {&#13;
+			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#13;
+				element {&#13;
+					//unteres Fliessgewaesser&#13;
+					href( "#$fliessgewaesserID" )&#13;
+					}&#13;
+				element {&#13;
+					// obere Gewaesserachse/Fliessgewaesser&#13;
+					href( "#WatercourseLink_$obereGewaesserAchseID" )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
@@ -1289,29 +1289,29 @@ if(obereGewaesserAchseIDs){&#xD;
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-//nur Brücken betrachten, die im Kollektor sind, weil sie einen Wasserlauf oder ein Fließgewässer über sich haben&#xD;
-&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
-def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#xD;
-&#xD;
-if(obereGewaesserAchseIDs){&#xD;
-	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#xD;
-		_source.links.AX_Gewaesserachse.p.id.each { gewaesserachseID -&gt;&#xD;
-			gewaesserAchseID = 'WatercourseLink_' + gewaesserAchseID&#xD;
-			_target {&#xD;
-			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#xD;
-				element {&#xD;
-					//untere Gewaesserachse&#xD;
-					href( "#$gewaesserAchseID" )&#xD;
-					}&#xD;
-				element {&#xD;
-					// obere Gewaesserachse/Fliessgewaesser&#xD;
-					href( "#WatercourseLink_$obereGewaesserAchseID" )&#xD;
-				}&#xD;
-			}&#xD;
-		}&#xD;
-	}&#xD;
+//nur Brücken betrachten, die im Kollektor sind, weil sie einen Wasserlauf oder ein Fließgewässer über sich haben&#13;
+&#13;
+def c = _.context.collector()&#13;
+&#13;
+def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#13;
+&#13;
+if(obereGewaesserAchseIDs){&#13;
+	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#13;
+		_source.links.AX_Gewaesserachse.p.id.each { gewaesserachseID -&gt;&#13;
+			gewaesserAchseID = 'WatercourseLink_' + gewaesserAchseID&#13;
+			_target {&#13;
+			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#13;
+				element {&#13;
+					//untere Gewaesserachse&#13;
+					href( "#$gewaesserAchseID" )&#13;
+					}&#13;
+				element {&#13;
+					// obere Gewaesserachse/Fliessgewaesser&#13;
+					href( "#WatercourseLink_$obereGewaesserAchseID" )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
 }
 </core:text>
         </complexParameter>
