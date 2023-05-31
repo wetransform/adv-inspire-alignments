@@ -2,11 +2,9 @@
 <hale-project version="5.1.0.SNAPSHOT">
     <name>[Annex I] AdV 3A 7.1.2 zu INSPIRE Hydro-Network</name>
     <author>Thorsten Reitz</author>
-    <description>Aus `AX_BauwerkImGewaesserbereich` mit `bauwerksfunktion=1800` (Brücke) wurde kein `WatercourseLink` abgeleitet, da ein `WatercourseLink` stets Teil eines Gewässers sein soll, was bei Brücken nur gegeben sein kann, wenn diese Brücke ein Gewässer (Kanal) stützt.&#13;
-&#13;
-`WatercourseLinkSequence`s werden nicht gebildet, da in den Quelldaten keine Verknüpfungen zwischen den einzelnen `AX_Gewaesserachsen` existieren, die für eine zuverlässige Bildung der Sequenz herangezogen werden können. Eine geometrische Analyse kann nicht zuverlässig funktionieren.</description>
+    <description>`WatercourseLinkSequence`s werden nicht gebildet, da in den Quelldaten keine Verknüpfungen zwischen den einzelnen `AX_Gewaesserachsen` existieren, die für eine zuverlässige Bildung der Sequenz herangezogen werden können. Eine geometrische Analyse kann nicht zuverlässig funktionieren.</description>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2023-05-31T10:49:26.818+02:00</modified>
+    <modified>2023-05-31T11:26:45.459+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
