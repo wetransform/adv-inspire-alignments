@@ -9,7 +9,7 @@
     HORIZONTALGEOMETRYREFERENCEVALUE_BEFLIEGUNGSGEBAEUDE: default ist "footprint", falls anderer Wert aus der Codeliste (http://inspire.ec.europa.eu/codelist/HorizontalGeometryReferenceValue) erwünscht --&gt; angeben&#13;
     INSPIRE_NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2018-04-10T10:51:13.547+02:00</created>
-    <modified>2023-05-15T17:30:02.393+02:00</modified>
+    <modified>2023-06-02T15:39:46.451+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -60,23 +60,18 @@
         <setting name="source">http://inspire.ec.europa.eu/codelist/CurrentUseValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
-    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
         <setting name="charset">UTF-8</setting>
-        <setting name="ignoreEmptyStrings">false</setting>
-        <setting name="resourceId">3393e875-3d7d-4176-87cf-6ddc06f87f20</setting>
-        <setting name="keyColumn">0</setting>
-        <setting name="name"></setting>
-        <setting name="valueColumn">1</setting>
-        <setting name="skip">true</setting>
-        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Gebaudefunktion_Gebaeude.xlsx</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+        <setting name="resourceId">cc797b21-5059-4e60-a6ad-9ed2e1e02d32</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/HorizontalGeometryReferenceValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
     <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
         <setting name="charset">UTF-8</setting>
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">4c6f4cc3-b42e-42be-89b8-803d43800e66</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_KonstruktionsmerkmalBauart_Schleuse_cu</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_KonstruktionsmerkmalBauart_Schleuse.xlsx</setting>
@@ -87,8 +82,8 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">0b4d3c2e-8a0b-4078-ae24-930bac79e9f1</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
-        <setting name="valueColumn">1</setting>
+        <setting name="name">AX_Bauwerksfunktion_BauwerkImVerkehrsbereich_cu</setting>
+        <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Bauwerksfunktion_BauwerkImVerkehrsbereich.xlsx</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
@@ -98,7 +93,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">91f5fb2e-c2a0-460f-938f-2a903dededf5</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bahnkategorie_SeilbahnSchwebebahn_cu</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Bahnkategorie_SeilbahnSchwebebahn.xlsx</setting>
@@ -109,7 +104,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">e5f0f0ad-4372-4d87-8849-b3a35e8f4054</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Gebaeudefunktion_Gebaeude_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Gebaeudefunktion_Gebaeude.xlsx</setting>
@@ -120,7 +115,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">85878e2b-a71a-4ee3-b9e0-53a8f158ead2</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bauwerksfunktion_SonstigesBauwerkOderSonstigeEinrichtung_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Bauwerksfunktion_SonstigesBauwerkOderSonstigeEinrichtung.xlsx</setting>
@@ -131,7 +126,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">a7cdb6cb-9969-431a-9349-f591ebe8a8ed</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_ArchaeologischerTyp_HistorischesBauwerkOderHistorischeEinrichtung_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_ArchaeologischerTyp_HistorischesBauwerkOderHistorischeEinrichtung.xlsx</setting>
@@ -142,7 +137,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">e333f587-12c3-4263-a36c-11a1825b444b</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bauwerksfunktion_BauwerkImGewaesserbereich_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Bauwerksfunktion_BauwerkImGewaesserbereich.xlsx</setting>
@@ -153,7 +148,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">caed1ed5-4d6d-498d-93f5-fdb295de8826</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bauwerksfunktion_Turm_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Bauwerksfunktion_Turm.xlsx</setting>
@@ -164,7 +159,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">2d2162aa-884e-4824-a1e4-faf61d002fdf</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bauwerksfunktion_VorratsbehaelterSpeicherbauwerk_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Bauwerksfunktion_VorratsbehaelterSpeicherbauwerk.xlsx</setting>
@@ -175,7 +170,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">2d6cb688-5f8d-424c-b245-785c8124f4d8</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bauwerksfunktion_BauwerkOderAnlageFuerSportFreizeitUndErholung_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Bauwerksfunktion_BauwerkOderAnlageFuerSportFreizeitUndErholung.xlsx</setting>
@@ -186,7 +181,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">7af627c0-4db9-4242-879e-b3ccaae92063</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bauwerksfunktion_BauwerkOderAnlageFuerIndustrieUndGewerbe_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Bauwerksfunktion_BauwerkOderAnlageFuerIndustrieUndGewerbe.xlsx</setting>
@@ -197,7 +192,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">59272131-98a3-401b-a812-f72beedf81a9</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bahnkategorie_SeilbahnSchwebebahn_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Bahnkategorie_SeilbahnSchwebebahn.xlsx</setting>
@@ -208,7 +203,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">cc6fd8d4-8c5b-423d-b6d8-80285f2915fd</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Art_EinrichtungenFuerDenSchiffsverkehr_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Art_EinrichtungenFuerDenSchiffsverkehr.xlsx</setting>
@@ -219,7 +214,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">d0a0f8c2-1de8-4d9f-9084-1d159a36dd51</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bauwerksfunktion_Leitung_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Bauwerksfunktion_Leitung.xlsx</setting>
@@ -230,7 +225,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">61f69987-bd3c-4aee-9547-880376e06d1c</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_Bauwerksfunktion_BauwerkImVerkehrsbereich_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_Bauwerksfunktion_BauwerkImVerkehrsbereich.xlsx</setting>
@@ -241,7 +236,7 @@
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">cdf70143-61eb-40b5-858a-f07ae23b2590</setting>
         <setting name="keyColumn">1</setting>
-        <setting name="name"></setting>
+        <setting name="name">AX_KonstruktionsmerkmalBauart_Schleuse_bn</setting>
         <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenBuildingNature/AX_KonstruktionsmerkmalBauart_Schleuse.xlsx</setting>
@@ -251,18 +246,155 @@
         <setting name="charset">UTF-8</setting>
         <setting name="ignoreEmptyStrings">false</setting>
         <setting name="resourceId">c1e8f15e-a263-4694-8676-261e5d64e634</setting>
-        <setting name="keyColumn">0</setting>
-        <setting name="name"></setting>
-        <setting name="valueColumn">1</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Bauwerksfunktion_BauwerkOderAnlageFuerSportFreizeitUndErholung_cu</setting>
+        <setting name="valueColumn">2</setting>
         <setting name="skip">true</setting>
         <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Bauwerksfunktion_BauwerkOderAnlageFuerSportFreizeitUndErholung.xlsx</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
     </resource>
-    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
         <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">cc797b21-5059-4e60-a6ad-9ed2e1e02d32</setting>
-        <setting name="source">http://inspire.ec.europa.eu/codelist/HorizontalGeometryReferenceValue</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">49eb5006-4f60-4e6c-b67e-e3b761c9a5dd</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Gebaeudefunktion_Gebaeude_cu_secondary</setting>
+        <setting name="valueColumn">3</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Gebaeudefunktion_Gebaeude.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">e63fada2-b221-4dfd-9159-e334ee57cda2</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Gebaeudefunktion_Gebaeude_cu_tertiary</setting>
+        <setting name="valueColumn">4</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Gebaeudefunktion_Gebaeude.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">8d55040a-e363-4bd4-9de7-68e9b038282a</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Gebaeudefunktion_Gebaeude_cu</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Gebaeudefunktion_Gebaeude.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">28f9c922-6814-4575-b51a-6a3a919497a3</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Bauwerksfunktion_BauwerkImGewaesserbereich_cu</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Bauwerksfunktion_BauwerkImGewaesserbereich.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">288fb6a8-453f-4d50-ba22-798a9c8df660</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_ObererBezugspunkt_ElevationReference</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings7.1/Buildings/2D/Unterlagen/AX_ObererBezugspunkt_ElevationReference.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">31989f51-f377-469d-aa03-87e67251ce18</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_UntererBezugspunkt_ElevationReference</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings7.1/Buildings/2D/Unterlagen/AX_UntererBezugspunkt_ElevationReference.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">8431a9b6-3444-4c07-89a5-47a5e38e4907</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Bauwerksfunktion_BauwerkOderAnlageFuerIndustrieUndGewerbe_cu</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Bauwerksfunktion_BauwerkOderAnlageFuerIndustrieUndGewerbe.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">f32bdf17-185c-48c5-a13e-5ee3d8a15e2a</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Art_EinrichtungenFuerDenSchiffsverkehr_cu</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Art_EinrichtungenFuerDenSchiffsverkehr.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">06c06ab1-48c1-4fd6-b81e-ce53c53459dc</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_ArchaeologischerTyp_HistorischesBauwerkOderHistorischeEinrichtung_cu</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_ArchaeologischerTyp_HistorischesBauwerkOderHistorischeEinrichtung.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">551e9a3e-afe0-4a25-b512-6fabf486a67c</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Bauwerksfunktion_Leitung_cu</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Bauwerksfunktion_Leitung.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">bed52b8f-e2a3-4c15-9bd9-c889516969c0</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Bauwerksfunktion_SonstigesBauwerkOderSonstigeEinrichtung_cu</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Bauwerksfunktion_SonstigesBauwerkOderSonstigeEinrichtung.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">02c508f8-b231-4305-9cd4-16dc97c61202</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Bauwerksfunktion_Turm_cu</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Bauwerksfunktion_Turm.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
+    </resource>
+    <resource action-id="eu.esdihumboldt.hale.lookup.import" provider-id="eu.esdihumboldt.hale.io.xls.reader.lookup">
+        <setting name="charset">UTF-8</setting>
+        <setting name="ignoreEmptyStrings">false</setting>
+        <setting name="resourceId">54120340-6427-4f58-a329-cd48b2b4fc8a</setting>
+        <setting name="keyColumn">1</setting>
+        <setting name="name">AX_Bauwerksfunktion_VorratsbehaelterSpeicherbauwerk_cu</setting>
+        <setting name="valueColumn">2</setting>
+        <setting name="skip">true</setting>
+        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings6.0/Buildings/2D/Unterlagen/TabellenCurrentUse/AX_Bauwerksfunktion_VorratsbehaelterSpeicherbauwerk.xlsx</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.xls.xlsx</setting>
     </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
