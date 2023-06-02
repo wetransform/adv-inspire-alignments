@@ -1738,6 +1738,32 @@ _target{&#13;
         <parameter value="null" name="notClassifiedAction"/>
         <documentation>Platzhalter weil Abbildung noch fehlt</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C87cac832-a518-4f79-a62f-45025cfb4da6" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                </type>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="conditionOfConstruction" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/ConditionOfConstructionValue/declined"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C6a5191d7-f429-4e4c-8d4c-df6299334ffd" priority="normal">
         <source>
             <property>
