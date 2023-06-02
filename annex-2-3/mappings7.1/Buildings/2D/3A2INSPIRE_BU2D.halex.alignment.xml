@@ -2229,9 +2229,7 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C684412a9-8845-429c-9253-0fbef05ea4d4" priority="normal">
@@ -2254,18 +2252,18 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ccb0f04c8-72cb-4738-98e3-5849cb22e9d3" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Ccb0f04c8-72cb-4738-98e3-5849cb22e9d3" priority="normal">
+        <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">bauwerksfunktion = '1215' or bauwerksfunktion = '1220' or bauwerksfunktion = '1250' or bauwerksfunktion = '1251' or  bauwerksfunktion = '1260' or bauwerksfunktion = '1270' or bauwerksfunktion = '1280' or bauwerksfunktion = '1290' or bauwerksfunktion = '1330' or bauwerksfunktion = '1331' or bauwerksfunktion = '1332' or bauwerksfunktion = '1333' or bauwerksfunktion = '1340' or bauwerksfunktion = '1350'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2277,7 +2275,8 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/topOfConstruction" name="value"/>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C722f3d68-61e2-4083-bf64-4c35feb0230b" priority="normal">
         <source>
@@ -2299,16 +2298,16 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C92619c3e-edf7-4320-a0dc-7478ff33852c" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C92619c3e-edf7-4320-a0dc-7478ff33852c" priority="normal">
+        <source>
             <property>
                 <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2320,7 +2319,8 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/topOfConstruction" name="value"/>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="Cdecf015f-b71f-419c-99ed-7fc090be46e9" priority="normal">
         <source>
@@ -2342,9 +2342,7 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="Ca8c002d5-829e-4b08-883c-01aec48ca2ec" priority="normal">
@@ -2367,18 +2365,18 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C474c038e-af3b-4a1f-a8b9-7052d00e3044" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C474c038e-af3b-4a1f-a8b9-7052d00e3044" priority="normal">
+        <source>
             <property>
                 <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">bauwerksfunktion = '1610' or bauwerksfunktion = '1611' or bauwerksfunktion = '1700'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2390,13 +2388,16 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/topOfConstruction" name="value"/>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C7bd0cdbb-3d93-47de-a414-658e12a0ac27" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C7bd0cdbb-3d93-47de-a414-658e12a0ac27" priority="normal">
+        <source>
             <property>
                 <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2408,15 +2409,18 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/topOfConstruction" name="value"/>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C381bd6fd-3ae1-41c3-aa0d-796407a3f8a8" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C381bd6fd-3ae1-41c3-aa0d-796407a3f8a8" priority="normal">
+        <source>
             <property>
                 <type name="AX_VorratsbehaelterSpeicherbauwerkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">bauwerksfunktion = '1201' or bauwerksfunktion = '1203' or bauwerksfunktion = '1205' or bauwerksfunktion = '1206'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="obererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2428,7 +2432,8 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/topOfConstruction" name="value"/>
+        <parameter value="288fb6a8-453f-4d50-ba22-798a9c8df660" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C166b7504-e12a-486b-8d82-f244197d9408" priority="normal">
         <source>
@@ -2450,9 +2455,7 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C4c9939e9-2fb5-446b-9b2f-6a414c51b83e" priority="normal">
@@ -2475,18 +2478,18 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C641e4423-1a67-4292-b814-7d376a5f7141" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C641e4423-1a67-4292-b814-7d376a5f7141" priority="normal">
+        <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">bauwerksfunktion = '1215' or bauwerksfunktion = '1220' or bauwerksfunktion = '1250' or bauwerksfunktion = '1251' or  bauwerksfunktion = '1260' or bauwerksfunktion = '1270' or bauwerksfunktion = '1280' or bauwerksfunktion = '1290' or bauwerksfunktion = '1330' or bauwerksfunktion = '1331' or bauwerksfunktion = '1332' or bauwerksfunktion = '1333' or bauwerksfunktion = '1340' or bauwerksfunktion = '1350'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2498,7 +2501,8 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalGround" name="value"/>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C8e7e9fa8-393b-407f-909a-0f87ab703b68" priority="normal">
         <source>
@@ -2520,16 +2524,16 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3b15928d-17e6-4590-b193-a22d355d048e" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C3b15928d-17e6-4590-b193-a22d355d048e" priority="normal">
+        <source>
             <property>
                 <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2541,7 +2545,8 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalGround" name="value"/>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C52732489-4260-469c-8189-b61b54ce83a0" priority="normal">
         <source>
@@ -2563,9 +2568,7 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C448438a3-63c9-46ce-9475-765b4a0d67e6" priority="normal">
@@ -2588,18 +2591,18 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <complexParameter name="lookupTable">
-            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns=""/>
-        </complexParameter>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C06ec94c5-896d-4736-9ba3-f14bafcd6c1d" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C06ec94c5-896d-4736-9ba3-f14bafcd6c1d" priority="normal">
+        <source>
             <property>
                 <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">bauwerksfunktion = '1610' or bauwerksfunktion = '1611' or bauwerksfunktion = '1700'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2611,13 +2614,16 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalGround" name="value"/>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6de26262-de2c-4a75-b6cf-a6fa89ad085c" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C6de26262-de2c-4a75-b6cf-a6fa89ad085c" priority="normal">
+        <source>
             <property>
                 <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2629,15 +2635,18 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalGround" name="value"/>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C7ef81a2c-c44a-4174-9636-be87a514401f" priority="normal">
-        <source name="anchor">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C7ef81a2c-c44a-4174-9636-be87a514401f" priority="normal">
+        <source>
             <property>
                 <type name="AX_VorratsbehaelterSpeicherbauwerkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">bauwerksfunktion = '1201' or bauwerksfunktion = '1203' or bauwerksfunktion = '1205' or bauwerksfunktion = '1206'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="untererBezugspunkt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2649,7 +2658,8 @@ if (baujahr){&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalGround" name="value"/>
+        <parameter value="31989f51-f377-469d-aa03-87e67251ce18" name="lookupTableID"/>
+        <parameter value="null" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C40330ebe-c2fd-4afa-be22-67e9847b3a22" priority="normal">
         <source name="anchor">
