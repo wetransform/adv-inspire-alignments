@@ -4,10 +4,10 @@
     <customFunction>
         <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="adv.inspire.geometry.normalizedPoint" name="AdV Punkt aus Ordinaten erstellen" type="groovy">
             <cf:input eager="false" maxOccurs="1" minOccurs="1" name="northing">
-                <cf:binding>java.lang.String</cf:binding>
+                <cf:binding>java.lang.Double</cf:binding>
             </cf:input>
             <cf:input eager="false" maxOccurs="1" minOccurs="1" name="easting">
-                <cf:binding>java.lang.String</cf:binding>
+                <cf:binding>java.lang.Double</cf:binding>
             </cf:input>
             <cf:output eager="false" maxOccurs="1" minOccurs="1">
                 <cf:type name="PointType" ns="http://www.opengis.net/gml/3.2"/>
