@@ -20,7 +20,7 @@ Anmerkungen:&#13;
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
         <setting name="charset">UTF-8</setting>
         <setting name="resourceId">ecf01797-9cb4-4592-90d7-328216f6185b</setting>
-        <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String</setting>
+        <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Double,java.lang.Double,java.lang.String,java.lang.String,java.lang.String,java.lang.String</setting>
         <setting name="quote">"</setting>
         <setting name="skip">1</setting>
         <setting name="source">adressen.csv</setting>
@@ -267,8 +267,8 @@ Anmerkungen:&#13;
 <hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
-        <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
+        <hsd:name>java.lang.Double</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.Double"/>
         <hsd:constraint type="has-value" value="true"/>
     </hsd:type>
 </hsd:propertyType>
@@ -279,8 +279,8 @@ Anmerkungen:&#13;
 <hsd:constraint type="nillable" value="true"/>
 <hsd:propertyType>
     <hsd:type>
-        <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
+        <hsd:name>java.lang.Double</hsd:name>
+        <hsd:constraint type="binding" value="java.lang.Double"/>
         <hsd:constraint type="has-value" value="true"/>
     </hsd:type>
 </hsd:propertyType>
