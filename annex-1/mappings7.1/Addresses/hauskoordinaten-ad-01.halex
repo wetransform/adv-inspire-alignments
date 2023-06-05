@@ -10,7 +10,7 @@ Anmerkungen:&#13;
 &#13;
 2. Um die Koordinaten formatiert (z.B. 00000000.000) auszugeben, ist die Verwendung von hale studio 3.1.0 oder neuer erforderlich.</description>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2023-05-24T14:37:16.678+02:00</modified>
+    <modified>2023-06-05T15:57:41.094+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -345,125 +345,6 @@ Anmerkungen:&#13;
         <setting name="resourceId">0cb0fc4e-92ce-456e-977e-673a6382efc2</setting>
         <setting name="source">https://inspire.ec.europa.eu/schemas/ad/4.0/Addresses.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
-    </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">67d373a5-2566-418f-b21f-f3ee90836674</setting>
-        <setting name="types">java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String</setting>
-        <setting name="quote">"</setting>
-        <setting name="skip">True</setting>
-        <setting name="source">../../../testdaten/Hauskoordinaten/schluessel_kopfzeile.csv</setting>
-        <setting name="decimal">,</setting>
-        <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
-        <setting name="separator">;</setting>
-        <setting name="escape">\</setting>
-        <setting name="typename">Schlüssel</setting>
-        <setting name="properties">typ,a,b,c,d,e,f</setting>
-        <cache>
-            <hsd:schema xmlns:hsd="http://www.esdi-humboldt.eu/hale/schema" namespace="http://www.esdi-humboldt.eu/hale/csv">
-                <hsd:type-index>
-                    <hsd:entry index="0">
-                        <hsd:name>Schlüssel</hsd:name>
-                    </hsd:entry>
-                </hsd:type-index>
-                <hsd:mapping-relevant>0</hsd:mapping-relevant>
-                <hsd:types>
-                    <hsd:type index="0">
-                        <hsd:name>Schlüssel</hsd:name>
-                        <hsd:constraint type="abstract" value="false"/>
-                        <hsd:constraint type="has-value" value="false"/>
-                        <hsd:constraint type="mappable" value="true"/>
-                        <hsd:constraint type="mapping-relevant" value="true"/>
-                        <hsd:declares>
-                            <hsd:property>
-<hsd:name>typ</hsd:name>
-<hsd:constraint type="cardinality" value="1..1"/>
-<hsd:constraint type="nillable" value="true"/>
-<hsd:propertyType>
-    <hsd:type>
-        <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
-        <hsd:constraint type="has-value" value="true"/>
-    </hsd:type>
-</hsd:propertyType>
-                            </hsd:property>
-                            <hsd:property>
-<hsd:name>a</hsd:name>
-<hsd:constraint type="cardinality" value="1..1"/>
-<hsd:constraint type="nillable" value="true"/>
-<hsd:propertyType>
-    <hsd:type>
-        <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
-        <hsd:constraint type="has-value" value="true"/>
-    </hsd:type>
-</hsd:propertyType>
-                            </hsd:property>
-                            <hsd:property>
-<hsd:name>b</hsd:name>
-<hsd:constraint type="cardinality" value="1..1"/>
-<hsd:constraint type="nillable" value="true"/>
-<hsd:propertyType>
-    <hsd:type>
-        <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
-        <hsd:constraint type="has-value" value="true"/>
-    </hsd:type>
-</hsd:propertyType>
-                            </hsd:property>
-                            <hsd:property>
-<hsd:name>c</hsd:name>
-<hsd:constraint type="cardinality" value="1..1"/>
-<hsd:constraint type="nillable" value="true"/>
-<hsd:propertyType>
-    <hsd:type>
-        <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
-        <hsd:constraint type="has-value" value="true"/>
-    </hsd:type>
-</hsd:propertyType>
-                            </hsd:property>
-                            <hsd:property>
-<hsd:name>d</hsd:name>
-<hsd:constraint type="cardinality" value="1..1"/>
-<hsd:constraint type="nillable" value="true"/>
-<hsd:propertyType>
-    <hsd:type>
-        <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
-        <hsd:constraint type="has-value" value="true"/>
-    </hsd:type>
-</hsd:propertyType>
-                            </hsd:property>
-                            <hsd:property>
-<hsd:name>e</hsd:name>
-<hsd:constraint type="cardinality" value="1..1"/>
-<hsd:constraint type="nillable" value="true"/>
-<hsd:propertyType>
-    <hsd:type>
-        <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
-        <hsd:constraint type="has-value" value="true"/>
-    </hsd:type>
-</hsd:propertyType>
-                            </hsd:property>
-                            <hsd:property>
-<hsd:name>f</hsd:name>
-<hsd:constraint type="cardinality" value="1..1"/>
-<hsd:constraint type="nillable" value="true"/>
-<hsd:propertyType>
-    <hsd:type>
-        <hsd:name>java.lang.String</hsd:name>
-        <hsd:constraint type="binding" value="java.lang.String"/>
-        <hsd:constraint type="has-value" value="true"/>
-    </hsd:type>
-</hsd:propertyType>
-                            </hsd:property>
-                        </hsd:declares>
-                    </hsd:type>
-                </hsd:types>
-            </hsd:schema>
-        </cache>
     </resource>
     <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
         <setting name="charset">UTF-8</setting>

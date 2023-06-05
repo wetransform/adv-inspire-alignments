@@ -527,11 +527,11 @@ _target {
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb411eac2-d187-4ac9-a98e-af88c5ee6ec2" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.merge" id="Cd6dc3933-a136-46a0-997a-98216ec11eb1" priority="normal">
         <source>
             <class>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
             </class>
         </source>
@@ -540,14 +540,21 @@ _target {
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="auto_detect"/>
+        <parameter value="landschl" name="property"/>
+        <parameter value="gmdschl" name="property"/>
+        <parameter value="regbez" name="property"/>
+        <parameter value="regbezschl" name="property"/>
+        <parameter value="kreis" name="property"/>
+        <parameter value="land" name="property"/>
+        <parameter value="kreisschl" name="property"/>
+        <parameter value="gmd" name="property"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb1a3ef2a-7ce5-4cb3-b25c-5cd5d9d4f2d3" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.merge" id="C68033f13-3d25-431c-813a-e10db26e26ef" priority="normal">
         <source>
             <class>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
             </class>
         </source>
@@ -556,14 +563,19 @@ _target {
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="auto_detect"/>
+        <parameter value="landschl" name="property"/>
+        <parameter value="regbez" name="property"/>
+        <parameter value="regbezschl" name="property"/>
+        <parameter value="kreis" name="property"/>
+        <parameter value="land" name="property"/>
+        <parameter value="kreisschl" name="property"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="C8b77b6f5-4d21-46e3-b5aa-7d0b4ee12cd3" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.merge" id="C71d9ae2f-3f50-43d7-a064-9a018802f192" priority="normal">
         <source>
             <class>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
                 </type>
             </class>
         </source>
@@ -572,14 +584,15 @@ _target {
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="auto_detect"/>
+        <parameter value="landschl" name="property"/>
+        <parameter value="land" name="property"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cf87ecfad-78a4-4c4f-935c-a81b0078750a" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.merge" id="C255a9d7f-019b-41a7-8650-27f81bfe51ba" priority="normal">
         <source>
             <class>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
                 </type>
             </class>
         </source>
@@ -588,8 +601,11 @@ _target {
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
             </class>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <parameter value="false" name="auto_detect"/>
+        <parameter value="landschl" name="property"/>
+        <parameter value="regbez" name="property"/>
+        <parameter value="regbezschl" name="property"/>
+        <parameter value="land" name="property"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C26eae26b-f539-4c89-bf99-8d57abd3a557" priority="normal">
         <target>
@@ -601,70 +617,45 @@ _target {
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9867f699-6a70-4bca-8102-46296f733a15" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C97c170eb-4dae-4735-aba9-82c1a1e166fc" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="b"/>
+                <child name="kreisschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="c"/>
+                <child name="landschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="d"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
-            </property>
-        </target>
-        <parameter value="AdminUnitName_{a}{b}{c}{d}" name="pattern"/>
-    </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cdd2e0fdb-86eb-4720-a114-d0e87ca44cf0" priority="normal">
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
-                </type>
-                <child name="a"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
-                </type>
-                <child name="b"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
-                </type>
-                <child name="c"/>
+                <child name="regbezschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -673,15 +664,31 @@ _target {
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="AdminUnitName_{a}{b}{c}" name="pattern"/>
+        <parameter value="AdminUnitName_{landschl}{regbezschl}{kreisschl}{gmdschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cb0b60c62-2138-4c11-b63d-516fe94a6785" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cb153c55b-7de5-46a0-9552-624b34266460" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="regbezschl"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
+                </type>
+                <child name="landschl"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
+                </type>
+                <child name="kreisschl"/>
             </property>
         </source>
         <target>
@@ -690,23 +697,15 @@ _target {
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="AdminUnitName_{a}" name="pattern"/>
+        <parameter value="AdminUnitName_{landschl}{regbezschl}{kreisschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cca2772d3-cb14-4574-a9bc-feff094275a3" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C86da14aa-759a-4f0e-b41b-34e47f5c6598" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
-            </property>
-        </source>
-        <source name="var">
-            <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
-                </type>
-                <child name="b"/>
+                <child name="landschl"/>
             </property>
         </source>
         <target>
@@ -715,39 +714,72 @@ _target {
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="AdminUnitName_{a}{b}" name="pattern"/>
+        <parameter value="AdminUnitName_{landschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C0ba00179-8337-4923-94bd-d18ebead9116" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cb5a8b8a6-b7eb-4507-9247-6357408c8a94" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
                 </type>
-                <child name="b"/>
+                <child name="landschl"/>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
                 </type>
-                <child name="c"/>
+                <child name="regbezschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="AdminUnitName_{landschl}{regbezschl}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Ce5618f6d-9af1-4adc-a7de-d6f187db616d" priority="normal">
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
+                </type>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="d"/>
+                <child name="kreisschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="landschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
+                </type>
+                <child name="regbezschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -756,31 +788,31 @@ _target {
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{a}{b}{c}{d}" name="pattern"/>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{landschl}{regbezschl}{kreisschl}{gmdschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cbafec3b3-9425-403f-b12b-288ed0fa9944" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C14243383-245e-4cb8-9799-c92f51936c91" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="regbezschl"/>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
-                <child name="c"/>
+                <child name="landschl"/>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
-                <child name="b"/>
+                <child name="kreisschl"/>
             </property>
         </source>
         <target>
@@ -789,15 +821,15 @@ _target {
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{a}{b}{c}" name="pattern"/>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{landschl}{regbezschl}{kreisschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cde062b5b-b2ee-4bc2-a76d-8fbdedce7cd4" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cebcd2dc1-85e7-4c5f-bace-94ec1705d36f" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="landschl"/>
             </property>
         </source>
         <target>
@@ -806,23 +838,23 @@ _target {
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{a}" name="pattern"/>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{landschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C06f0c242-f9ec-4979-9110-3fb5f0b4d9d4" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Ceb726798-aa08-437b-86ae-a9d490542aea" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
                 </type>
-                <child name="b"/>
+                <child name="landschl"/>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="regbezschl"/>
             </property>
         </source>
         <target>
@@ -831,7 +863,7 @@ _target {
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{a}{b}" name="pattern"/>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{landschl}{regbezschl}" name="pattern"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C704a0f7b-af0f-4ee3-b876-c5364c671c46" priority="normal">
         <target>
@@ -843,37 +875,45 @@ _target {
         </target>
         <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C45bec584-1e2c-4886-a565-f3844d87b6b5" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C2163b781-12ac-4ca0-be36-d4cf494af2ff" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="b"/>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="c"/>
+                <child name="kreisschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="d"/>
+                <child name="landschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="regbezschl">
+                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -884,31 +924,31 @@ _target {
                 <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="AdminUnitName_{a}{b}{c}{d}" name="pattern"/>
+        <parameter value="AdminUnitName_{landschl}{regbezschl}{kreisschl}{gmdschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C91ad41be-0a13-43f0-8dd4-8d4bb59b2041" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C4ecf1a06-5b4d-4c64-84f9-a92decfc4638" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="regbezschl"/>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
-                <child name="c"/>
+                <child name="landschl"/>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
-                <child name="b"/>
+                <child name="kreisschl"/>
             </property>
         </source>
         <target>
@@ -919,15 +959,15 @@ _target {
                 <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="AdminUnitName_{a}{b}{c}" name="pattern"/>
+        <parameter value="AdminUnitName_{landschl}{regbezschl}{kreisschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C13781cba-f1cd-4ff5-8d8d-1cbc77255752" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C9cd01580-a8e4-492f-8459-129d4d946dfa" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="landschl"/>
             </property>
         </source>
         <target>
@@ -938,23 +978,23 @@ _target {
                 <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="AdminUnitName_{a}" name="pattern"/>
+        <parameter value="AdminUnitName_{landschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C171b467b-ad6e-4bca-8045-3b63647a2073" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C2c1e00dd-3140-4167-abda-7b26a55716fe" priority="normal">
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
                 </type>
-                <child name="b"/>
+                <child name="landschl"/>
             </property>
         </source>
         <source name="var">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
                 </type>
-                <child name="a"/>
+                <child name="regbezschl"/>
             </property>
         </source>
         <target>
@@ -965,7 +1005,7 @@ _target {
                 <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
-        <parameter value="AdminUnitName_{a}{b}" name="pattern"/>
+        <parameter value="AdminUnitName_{landschl}{regbezschl}" name="pattern"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C71e8142f-7490-4a0b-8141-3c859c2ade16" priority="normal">
         <target>
@@ -977,13 +1017,15 @@ _target {
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C95786a23-4df6-4327-88c9-85193bb8ba80" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbe4f0d4b-ecce-4654-9e6e-a67ff90f13dd" priority="normal">
         <source name="anchor">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="d"/>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -995,13 +1037,13 @@ _target {
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/6thOrder" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cadd69904-4c3b-42ca-a1c7-7716ad4e911c" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C44d14573-75c9-48cf-9102-963fca9c1139" priority="normal">
         <source name="anchor">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
-                <child name="d"/>
+                <child name="kreisschl"/>
             </property>
         </source>
         <target>
@@ -1013,13 +1055,13 @@ _target {
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/4thOrder" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2f56ac1a-0566-4332-aa8c-123254b9de00" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C7ccb0a75-4ce4-494b-a618-ca10eeed515a" priority="normal">
         <source name="anchor">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
                 </type>
-                <child name="b"/>
+                <child name="landschl"/>
             </property>
         </source>
         <target>
@@ -1031,13 +1073,13 @@ _target {
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/2ndOrder" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5acd4145-c2af-4e09-8cab-0f6020e9c25d" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf52cbfcc-06e5-4d20-9473-74aec1905ee2" priority="normal">
         <source name="anchor">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
                 </type>
-                <child name="c"/>
+                <child name="regbezschl"/>
             </property>
         </source>
         <target>
@@ -1059,13 +1101,13 @@ _target {
         </target>
         <parameter value="unknown" name="value"/>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cf25c20c4-3d93-4821-96fe-c0ee234e8d00" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C8262527a-18aa-4418-a68f-176a804715e1" priority="normal">
         <source name="spelling">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'G'</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
                 </type>
-                <child name="e"/>
+                <child name="gmd"/>
             </property>
         </source>
         <target>
@@ -1076,13 +1118,13 @@ _target {
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C0858c80d-365e-4886-9396-1fb25344a810" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C84c7a90f-ceb3-4fe4-8680-8b54d6c251c6" priority="normal">
         <source name="spelling">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'K' and c &lt;&gt; '00' and c &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
                 </type>
-                <child name="d"/>
+                <child name="kreis"/>
             </property>
         </source>
         <target>
@@ -1093,13 +1135,13 @@ _target {
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C776abe3c-0609-4337-9617-caa3a04eb0c4" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cdc3d7776-7e5c-4025-9bd5-6ccffeb13ca2" priority="normal">
         <source name="spelling">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'L' and a &lt;&gt; '00' and a &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
                 </type>
-                <child name="b"/>
+                <child name="land"/>
             </property>
         </source>
         <target>
@@ -1110,13 +1152,13 @@ _target {
             </property>
         </target>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C7406acde-5dde-4676-b93c-d4867f72d099" priority="normal">
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C828848d3-5c89-44a8-a295-a9c373ad91bd" priority="normal">
         <source name="spelling">
             <property>
-                <type name="Schlüssel">
-                    <condition lang="CQL">typ = 'R' and b &lt;&gt; '0' and b &lt;&gt; ''</condition>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
                 </type>
-                <child name="c"/>
+                <child name="regbez"/>
             </property>
         </source>
         <target>
