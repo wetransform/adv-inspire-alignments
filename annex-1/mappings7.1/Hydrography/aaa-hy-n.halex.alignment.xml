@@ -487,6 +487,156 @@ _target {&#13;
         </target>
         <parameter value="other" name="nameStatus"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="Cccbced66-91c7-4522-88f3-aa22fd17802a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GewaesserstationierungsachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (regionalsprache) {&#13;
+	regionalsprache.p.each { reg -&gt;&#13;
+		_target {&#13;
+			GeographicalName {&#13;
+				sourceOfName {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				spelling {&#13;
+					SpellingOfName {&#13;
+						text( reg )&#13;
+						script( 'Latn' )&#13;
+					}&#13;
+				}&#13;
+				pronunciation {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				language {&#13;
+					nilReason( 'unknown' )&#13;
+				}&#13;
+				nameStatus {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+				}&#13;
+				nativeness {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C267327b8-dc05-4cab-8554-25ef925910fe" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (regionalsprache) {&#13;
+	regionalsprache.p.each { reg -&gt;&#13;
+		_target {&#13;
+			GeographicalName {&#13;
+				sourceOfName {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				spelling {&#13;
+					SpellingOfName {&#13;
+						text( reg )&#13;
+						script( 'Latn' )&#13;
+					}&#13;
+				}&#13;
+				pronunciation {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				language {&#13;
+					nilReason( 'unknown' )&#13;
+				}&#13;
+				nameStatus {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+				}&#13;
+				nativeness {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C7ea8ce26-1461-4062-a6c1-2cd5e4d4b19a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_WasserlaufType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="regionalsprache" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="WatercourseLinkType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0">
+                    <context>1</context>
+                </child>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+if (regionalsprache) {&#13;
+	regionalsprache.p.each { reg -&gt;&#13;
+		_target {&#13;
+			GeographicalName {&#13;
+				sourceOfName {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				spelling {&#13;
+					SpellingOfName {&#13;
+						text( reg )&#13;
+						script( 'Latn' )&#13;
+					}&#13;
+				}&#13;
+				pronunciation {&#13;
+					nilReason( 'other:unpopulated' )&#13;
+				}&#13;
+				language {&#13;
+					nilReason( 'unknown' )&#13;
+				}&#13;
+				nameStatus {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/other' )&#13;
+				}&#13;
+				nativeness {&#13;
+					href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc6eb5d52-fad0-49f1-b26b-5246f2a6338e" priority="normal">
         <source name="spelling">
             <property>
