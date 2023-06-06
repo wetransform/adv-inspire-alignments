@@ -1100,6 +1100,76 @@ if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#13;
 </core:text>
         </complexParameter>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C0770ce5a-e56e-4e98-ab1c-d7802faf4907" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="CQL">bauwerksfunktion = '2012'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WatercourseSeparatedCrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                        <condition lang="CQL">bauwerksfunktion = '2012'</condition>
+                    </type>
+                </class>
+                <class>
+                    <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                            <condition lang="CQL">bauwerksfunktion = '2012'</condition>
+                        </type>
+                        <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                    <property>
+                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="hatDirektUnten" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def c = _.context.collector()&#13;
+&#13;
+def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#13;
+&#13;
+if (obereGewaesserAchseIDs) {&#13;
+	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#13;
+		_source.links.AX_Fliessgewaesser.p.id.each { fliessgewaesserID -&gt;&#13;
+			fliessgewaesserID = 'WatercourseLink_' + fliessgewaesserID&#13;
+			_target {&#13;
+			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#13;
+				element {&#13;
+					//unteres Fliessgewaesser&#13;
+					href( "#$fliessgewaesserID" )&#13;
+					}&#13;
+				element {&#13;
+					// obere Gewaesserachse/Fliessgewaesser&#13;
+					href( "#WatercourseLink_$obereGewaesserAchseID" )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+}
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C3138ace2-ae86-4835-b110-f39ead4202a0" priority="normal">
         <source name="types">
             <class>
@@ -1133,7 +1203,7 @@ if (_source.links.AX_BauwerkImGewaesserbereich.first()){&#13;
                         <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                             <condition lang="CQL">bauwerksfunktion = '2012'</condition>
                         </type>
-                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                        <child name="id" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
                         <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
