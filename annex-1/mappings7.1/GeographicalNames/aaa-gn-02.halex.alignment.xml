@@ -998,15 +998,15 @@ if (point) {
         </complexParameter>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-// alle Eigenschaften mit Geometrien aus Kommunalem Gebiet&#xD;
-def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())&#xD;
-&#xD;
-// erzeuge ein NamedPlace, wenn ein assoziiertes Kommunales&#xD;
-// Gebiet vorhanden ist mit entsprechender Geometrie&#xD;
-if (geoms) {&#xD;
-	_target{}&#xD;
-}&#xD;
-&#xD;
+// alle Eigenschaften mit Geometrien aus Kommunalem Gebiet&#13;
+def geoms = _.geom.findPolygons(_source.links.AX_KommunalesGebiet.p.position.list())&#13;
+&#13;
+// erzeuge ein NamedPlace, wenn ein assoziiertes Kommunales&#13;
+// Gebiet vorhanden ist mit entsprechender Geometrie&#13;
+if (geoms) {&#13;
+	_target{}&#13;
+}&#13;
+&#13;
 else _log.warn('Es existieren nicht zu allen Gemeinden kommunale Gebiete mit Geometrien. Für diese werden dem Modell entsprechend keine NamedPlace-Instanzen erzeugt.')
 </core:text>
         </complexParameter>
