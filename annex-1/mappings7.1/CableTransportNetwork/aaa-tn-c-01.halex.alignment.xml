@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+    <base prefix="ba1" location="../base-tn.halex.alignment.xml"/>
+    <base prefix="ba2" location="../base-functions.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
+        <source>
+            <class>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bahnkategorie &lt;&gt; '2500'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="CablewayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// nur Objekt mit linienartigen Geometrien behandeln
+def geometries = _.geom.findLines(_source.p.position.first())
+
+// Ziel unterstützt keine MultiLineStrings
+def curves = _.geom.toSimpleGeometries(geometries: geometries, collections: false)
+
+// Builder konfigurieren
+// - Zuweisung der Geometrie auf Ebene von geometry zulassen
+_b.strictValueFlags = false
+
+def sourceId = _source.p.id.value()
+
+// Ziel-Objekt für jede Linie erstellen
+int num = 1
+curves.each { curve -&gt;
+	// ID bestimmen
+	def _id = "CablewayLink_${sourceId}_${num}"
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+
+	// Ziel-Objekt erstellen
+	_target {
+		id( _id )
+		inspireId {
+			Identifier {
+				localId( _id )
+				namespace( _ns )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		centrelineGeometry(curve)
+	}
+	
+	withTransformationContext {
+		def collect = _.context.collector(it)
+		// Sammle ID für Netzwerk	
+		collect.network &lt;&lt; _id
+	}
+	
+	num++
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt `CablewayLink` aus einer `AX_SeilbahnSchwebebahn` (nicht `bahnkategorie` *Schwebebahn*).
+
+Die Geometrie des Quell-Objekts wird untersucht. Nur linienartige Geometrien werden verwendet. Je individueller Geometrie wird ein `CablewayLink` erzeugt.
+
+Die lokale ID wird aus dem Namen der Ziel-Objektart, der AAA-ObjektID des Quell-Objekts und einer aufsteigenden Nummer der individuellen Geometrien (1., 2., Geometrie) gebildet.
+
+Die erstellten `CablewayLink`s werden dem Index von Netzwerk-Elementen hinzugefügt.
+</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C51932291-90fa-45c4-9625-e372e60f65a2" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CablewayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C5f8353d2-54ee-47d4-8abb-62c2c585ba41" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bahnkategorie" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CablewayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="cablewayType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CablewayTypeValue/cabinCableCar"/>
+                </entry>
+                <entry>
+                    <key value="2200"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CablewayTypeValue/cabinCableCar"/>
+                </entry>
+                <entry>
+                    <key value="2300"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CablewayTypeValue/chairLift"/>
+                </entry>
+                <entry>
+                    <key value="2400"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CablewayTypeValue/skiTow"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C1107dba0-b8e6-4f84-95b6-36c2015934be" priority="normal">
+        <target>
+            <property>
+                <type name="CablewayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="cablewayType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="unknown" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C81ac1a4a-1acc-42f8-b12b-4758e5ce12b7" priority="normal">
+        <source>
+            <property>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CablewayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdebc2019-9966-4798-ba79-2c5a23c84db1" priority="normal">
+        <target>
+            <property>
+                <type name="CablewayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="fictitious" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C5ee0f9dd-3579-4712-a379-af803911bc0e" priority="normal">
+        <source name="spelling">
+            <property>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="CablewayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce6358df9-93d2-4e61-b6d6-b9732eaec3e8" priority="normal">
+        <target>
+            <property>
+                <type name="CablewayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C3788abbd-19cd-40a4-bed6-28bd52ec54ee" priority="normal">
+        <target>
+            <property>
+                <type name="CablewayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-c/4.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C13ad15bd-b849-403e-bcf4-ec122b3998bd" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="typeOfTransport" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+            </property>
+        </target>
+        <parameter value="cable" name="value"/>
+    </cell>
+</alignment>
