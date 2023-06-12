@@ -5,7 +5,7 @@
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
         <source>
             <class>
-                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">bahnkategorie &lt;&gt; '2500'</condition>
                 </type>
             </class>
@@ -73,10 +73,10 @@ Die erstellten `CablewayLink`s werden dem Index von Netzwerk-Elementen hinzugef√
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C51932291-90fa-45c4-9625-e372e60f65a2" priority="normal">
         <source>
             <property>
-                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -91,8 +91,8 @@ Die erstellten `CablewayLink`s werden dem Index von Netzwerk-Elementen hinzugef√
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C5f8353d2-54ee-47d4-8abb-62c2c585ba41" priority="normal">
         <source>
             <property>
-                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bahnkategorie" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="bahnkategorie" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -137,10 +137,10 @@ Die erstellten `CablewayLink`s werden dem Index von Netzwerk-Elementen hinzugef√
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C81ac1a4a-1acc-42f8-b12b-4758e5ce12b7" priority="normal">
         <source>
             <property>
-                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -164,8 +164,8 @@ Die erstellten `CablewayLink`s werden dem Index von Netzwerk-Elementen hinzugef√
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C5ee0f9dd-3579-4712-a379-af803911bc0e" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
