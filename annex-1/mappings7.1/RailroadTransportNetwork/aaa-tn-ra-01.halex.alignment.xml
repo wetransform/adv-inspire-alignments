@@ -193,7 +193,9 @@ def railwayTypes = []
 _source.p.bahnkategorie.each { bkt -&gt;
 	switch (bkt) {
 	case '1100': // Eisenbahn
+	case '1101': // Personenverkehr
 	case '1102': // Güterverkehr
+	case '1103': // Betriebsverkehr
 	case '1104': // S-Bahn
 	case '1400': // Museumsbahn
 	case '1500': // Bahn im Freizeitpark
