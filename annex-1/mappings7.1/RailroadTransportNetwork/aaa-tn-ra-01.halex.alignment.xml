@@ -5,10 +5,10 @@
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C48d3be90-5843-4323-bd79-ba1928b2429e" priority="normal">
         <source>
             <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -23,10 +23,10 @@
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C92d71e60-b3b7-4864-a6a2-fc6d46d9ac4c" priority="normal">
         <source>
             <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -168,7 +168,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cbdf5128c-1dad-4827-806e-ee6a6fc3cc50" priority="normal">
         <source>
             <class>
-                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -379,8 +379,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="C2415887f-d793-4ea9-be9a-5401165c7541" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -393,7 +393,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cab81ca0e-f1a1-4311-aeb5-379d03826e51" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -407,7 +407,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.identifier" id="Ce5d5030b-02c9-4cce-8c2e-0da8d0a0303b" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -421,7 +421,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="C825ec2fa-a425-41b9-a8af-d4d014d0de57" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -521,7 +521,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
     <cell relation="eu.esdihumboldt.cst.functions.groovy.merge" id="Ca500e629-76b0-4cda-b53f-c9db0c272403" priority="normal">
         <source>
             <class>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">nummerDerBahnstrecke is not null</condition>
                 </type>
             </class>
@@ -531,9 +531,9 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
                 <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
             </class>
         </target>
-        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}name" name="additional_property"/>
+        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/7.1}name" name="additional_property"/>
         <parameter value="false" name="auto_detect"/>
-        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}nummerDerBahnstrecke" name="property"/>
+        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/7.1}nummerDerBahnstrecke" name="property"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 _target {
@@ -574,10 +574,10 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="custom:alignment:adv.inspire.date.earliest" id="Ccef52db8-7149-4567-bfc0-a777865aa5b4" priority="normal">
         <source name="dates">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -590,10 +590,10 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="custom:alignment:adv.inspire.date.earliest" id="C5a51591e-2db2-4e05-a6c4-d01b59122d91" priority="normal">
         <source name="dates">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -606,8 +606,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C82626e7b-d27c-44b0-8821-6a49db42400a" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -631,7 +631,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="custom:alignment:adv.inspire.id.default" id="C39cd808f-36de-4888-ae0f-d56a457636fa" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -645,7 +645,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="custom:alignment:adv.inspire.identifier" id="C3cd86c2c-be9e-45f3-a85d-2f9fa24f0f54" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -659,7 +659,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cd19e2f21-33e0-426b-af74-dc2cd251c1da" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -685,7 +685,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cf0ca6058-fbaf-4604-a265-5c7f3d2ade2a" priority="normal">
         <source name="var">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -711,8 +711,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc8f197c0-2249-4a5e-956f-85addea8eb55" priority="normal">
         <source>
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="nummerDerBahnstrecke" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="nummerDerBahnstrecke" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -747,7 +747,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C19325fbe-66ff-4f83-9c63-947af27dc065" priority="normal">
         <source>
             <class>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -1059,7 +1059,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C433d8afa-844b-4e56-b6c8-82e369fd15ea" priority="normal">
         <source>
             <class>
-                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">bahnkategorie = '2500'</condition>
                 </type>
             </class>
@@ -1229,8 +1229,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="C3db7a167-d20a-482b-8b61-ce70f573de62" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1252,8 +1252,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C79a194e1-23b0-4f14-81f7-8b0871a857c6" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1267,8 +1267,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C5ee0f9dd-3579-4712-a379-af803911bc0e" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1292,7 +1292,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ce4468419-2542-4c90-a98f-02a3807111d8" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -1306,7 +1306,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.identifier" id="Ca7a866af-7d66-4d7a-9a25-ae2d39fca517" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -1320,7 +1320,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="C53e1aa42-b908-4f45-8224-2a82d2a5a54f" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnstreckeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -1366,7 +1366,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C05ddffbf-58b8-489b-b53b-44086656f42f" priority="normal">
         <source>
             <class>
-                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -1567,8 +1567,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ccf4d6e03-e860-410d-a4dc-2a47bc1b747a" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_BahnverkehrsanlageType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
