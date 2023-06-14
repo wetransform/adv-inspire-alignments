@@ -1944,10 +1944,10 @@ def erstelleRoadLink = { achse -&gt;
 		//bestimme TrafficFlowDirection
 		def trafficFlowDirection
 
-		if (istFahrbahn &amp;&amp; achse.p.fahrtrichtung.value().toString() == 'true') {
+		if (achse.p.fahrtrichtung.value().toString() == 'true') {
 			trafficFlowDirection = 'inDirection'
 		}
-		else if (istFahrbahn &amp;&amp; achse.p.fahrtrichtung.value().toString() == 'false') {
+		else if (achse.p.fahrtrichtung.value().toString() == 'false') {
 			trafficFlowDirection = 'inOppositeDirection'
 		}
 		
