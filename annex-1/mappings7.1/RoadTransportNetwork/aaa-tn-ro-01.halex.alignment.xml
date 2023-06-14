@@ -2218,6 +2218,15 @@ case '2000': // Eingeschränkt befahrbar
 	break
 }
 
+//bestimme TrafficFlowDirection
+def trafficFlowDirection
+if (_source.p.fahrtrichtung.value().toString() == 'true') {
+	trafficFlowDirection = 'inDirection'
+}
+else if (_source.p.fahrtrichtung.value().toString() == 'false') {
+	trafficFlowDirection = 'inOppositeDirection'
+}
+
 /*
  * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
  */
@@ -2285,6 +2294,10 @@ if (functionalClass) {
 // Sammle ID für AccessRestriction
 if (accessRestriction) {
 	collect.accessRestriction[accessRestriction] &lt;&lt; _id
+}
+// Sammle ID für TrafficFlowDirection
+if (trafficFlowDirection) {
+	collect.trafficFlowDirection[trafficFlowDirection] &lt;&lt; _id
 }
 // Sammle ID für VerticalPosition
 collect.verticalPosition[verticalPosition] &lt;&lt; _id
