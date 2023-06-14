@@ -5,7 +5,7 @@
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C44422922-aa67-4d00-bc52-a77a4ed816b8" priority="highest">
         <source>
             <class>
-                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_LagebezeichnungKatalogeintragType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -31,19 +31,19 @@ withTransformationContext {
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb6bd7b9a-eadf-48f2-9232-260ac1bf2c10" priority="normal">
         <source name="types">
             <class>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">internationaleBedeutung = '2001'</condition>
                 </type>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -54,39 +54,39 @@ withTransformationContext {
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                         <condition lang="CQL">internationaleBedeutung = '2001'</condition>
                     </type>
                 </class>
                 <class>
-                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                             <condition lang="CQL">internationaleBedeutung = '2001'</condition>
                         </type>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                             <condition lang="CQL">internationaleBedeutung = '2001'</condition>
                         </type>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -143,10 +143,10 @@ Die erstellte `ERoad` wird dem Index von Netzwerk-Elementen hinzugefügt.</docum
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cca1117da-b1b7-438c-a90d-89e71b6e0c72" priority="normal">
         <source>
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">internationaleBedeutung = '2001'</condition>
                 </type>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">value LIKE 'E%'</condition>
                 </child>
             </property>
@@ -300,7 +300,7 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cb090758a-65b1-49f7-a92e-42ef7d8afb04" priority="normal">
         <source>
             <class>
-                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">art = '1410'  and kilometerangabe is not null</condition>
                 </type>
             </class>
@@ -437,10 +437,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cce124c8f-8e7c-498c-9d01-a04f526147af" priority="normal">
         <source>
             <property>
-                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -455,10 +455,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb7df5a6e-5206-42db-8b74-43600a5462ce" priority="normal">
         <source>
             <property>
-                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -483,8 +483,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C46d6c8f8-2fa7-411f-983a-f894528dcc5a" priority="normal">
         <source>
             <property>
-                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
                 <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -502,7 +502,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="C83afa9d7-186c-4df3-b0ad-79672f3a17c3" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -516,7 +516,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.identifier" id="Ccfbdb83c-2028-4682-b4d1-bc4c4a87f907" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -530,7 +530,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="C2c8e10e4-55f9-410e-99b1-081b69c96388" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -556,8 +556,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cb0fd2ad8-360a-46f4-b1c4-a932d628ddda" priority="normal">
         <source>
             <property>
-                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="kilometerangabe" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_EinrichtungInOeffentlichenBereichenType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="kilometerangabe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -681,7 +681,7 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2581bae5-bd09-416c-948e-bcb8b5835ca3" priority="normal">
         <source>
             <class>
-                <type name="AX_KlassifizierungNachStrassenrechtType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_KlassifizierungNachStrassenrechtType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -888,7 +888,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca20f2d64-1511-4c47-b43c-ea4f8f9cae05" priority="normal">
         <source>
             <class>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">funktion = '5130'</condition>
                 </type>
             </class>
@@ -1013,7 +1013,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C0f1c8732-7bcc-4843-abce-025a5c88d4f6" priority="normal">
         <source>
             <class>
-                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">funktion is null or funktion = '2312' or funktion = '5130'</condition>
                 </type>
             </class>
@@ -1162,7 +1162,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2827fa08-a3dd-4539-83de-413c6b922f47" priority="normal">
         <source>
             <class>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
                 </type>
             </class>
@@ -1335,7 +1335,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cf0cb60dc-8399-4dd5-a7cc-03bba3ce2990" priority="normal">
         <source>
             <class>
-                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">funktion &lt;&gt; '5260' and funktion &lt;&gt; '9999'</condition>
                 </type>
             </class>
@@ -1494,10 +1494,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc08e41ed-4753-4bff-880c-4e02752007c7" priority="normal">
         <source>
             <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1512,10 +1512,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cbb136720-e720-41bb-b7e0-faa34263f64a" priority="normal">
         <source>
             <property>
-                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1530,9 +1530,9 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C7701b354-25ce-49a5-baa7-ef1dce6f6bd0" priority="normal">
         <source name="lagebezeichnung">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1546,9 +1546,9 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C56863741-74c0-4bbe-a955-273776c6670e" priority="normal">
         <source name="lagebezeichnung">
             <property>
-                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1562,8 +1562,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C17a29f5c-b3aa-487a-b62d-46bccb2ce299" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1577,8 +1577,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C97f8dc8e-cdff-4310-90c1-5a5fffea2ee4" priority="high">
         <source name="spelling">
             <property>
-                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1592,9 +1592,9 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C8efb5887-8982-4d92-a666-4c4b1701e6a1" priority="normal">
         <source name="lagebezeichnung">
             <property>
-                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1608,8 +1608,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="C03242cf4-d306-48d3-b28c-36ca110b9268" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1622,8 +1622,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="C14b7beec-415e-4a5e-bdf1-d522c580c2a7" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1636,8 +1636,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cfa221ae9-32f8-4cd2-a17e-e70893ce5865" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -1726,17 +1726,17 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cc8dfcac2-f330-4946-b4d6-8e1a87136c04" priority="normal">
         <source name="types">
             <class>
-                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -1747,33 +1747,33 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -2103,7 +2103,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ca2c2e18b-a4f7-4f75-8f33-c9f97ac16b08" priority="normal">
         <source>
             <class>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -2277,7 +2277,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3296f18d-e980-40cf-a9f3-9e5187ecf16a" priority="normal">
         <source>
             <class>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
                 </type>
             </class>
@@ -2502,10 +2502,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ceb60a943-e6d4-45c8-8692-2509eb1a7320" priority="normal">
         <source>
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2520,10 +2520,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce6f245ee-1436-45f8-a16d-78424c92b543" priority="normal">
         <source>
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2538,8 +2538,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cea0e0475-9496-4b4f-92a9-6f2a1d12bc85" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2552,10 +2552,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C28de3162-ee30-4e33-a023-c790c0626889" priority="normal">
         <source>
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2570,10 +2570,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf2ebdda1-3be7-4874-b722-5771fb39d520" priority="normal">
         <source>
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2597,8 +2597,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Ca2037be2-6ca4-4d8b-9f8c-0ca7b00923b0" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2612,8 +2612,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C1187dcaa-1077-4af5-8635-a8d4afd72e05" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2627,8 +2627,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cc282d381-71a7-42c0-ad00-3db811354191" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -2642,7 +2642,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ca2b6c098-4854-4d90-a534-81d0f7c5ad8b" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -2657,7 +2657,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.identifier" id="Cdd81c01e-7dae-452d-b14f-7c8f76f43c67" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -2671,7 +2671,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="C0720c2b6-cc98-42b3-9407-05b4b5cdb1b8" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -2718,7 +2718,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cab1f0844-ca2a-404f-818b-c72553e7a069" priority="normal">
         <source>
             <class>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">funktion = 1200</condition>
                 </type>
             </class>
@@ -2820,7 +2820,7 @@ collect.verticalPosition[verticalPosition] &lt;&lt; _id
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2676fc94-d50d-4c45-b5b1-e4301a9cfe4a" priority="normal">
         <source>
             <class>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">funktion = '5320' or funktion = '5330' or funktion = '5310'</condition>
                 </type>
             </class>
@@ -2945,7 +2945,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C2f3a385b-d4d3-4a1e-9999-296f10a58386" priority="normal">
         <source>
             <class>
-                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">funktion = '2311' or funktion = '2313'</condition>
                 </type>
             </class>
@@ -3094,10 +3094,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C061eaac0-9374-4b3e-b1e9-d153a8be91b5" priority="normal">
         <source>
             <property>
-                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3122,10 +3122,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cfcddb090-1dd1-47f2-b215-20490d0372cc" priority="normal">
         <source>
             <property>
-                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3140,10 +3140,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C29af463b-32e7-4faf-9c91-7d222cbc6030" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">funktion = 1200</condition>
                 </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3157,9 +3157,9 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.AX_Lagebezeichnung.GeographicalName" id="C99266668-af5a-41d1-8c0f-761ef6877469" priority="normal">
         <source name="lagebezeichnung">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AX_Lagebezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3173,10 +3173,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="C073255ea-ac1a-4066-965a-7aa87cc9babc" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">funktion = 1200</condition>
                 </type>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3189,8 +3189,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cd93d26ce-75f5-4a6a-9d4f-5e15f288d6f8" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3203,8 +3203,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.geometry.simplefeature" id="Cabfa9b04-be6c-4af3-a77c-09348ea070a1" priority="normal">
         <source name="geometrie">
             <property>
-                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrassenverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3217,7 +3217,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="C28588120-6d5c-4d16-b0e8-2b7a10d53c4c" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -3232,7 +3232,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.identifier" id="C36b5c984-cffc-4e48-98fe-38cd877b5b8e" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -3246,7 +3246,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.id.default" id="C63af76cc-1c77-4b8e-b20c-c63b749b972b" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_TatsaechlicheNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -3333,7 +3333,7 @@ if (!collect.roadServiceType.values().contains('5310')){&#xD;
     <cell relation="eu.esdihumboldt.cst.functions.groovy.merge" id="C7167685d-1927-4e65-82f3-b01258f955b4" priority="low">
         <source>
             <class>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">funktion = '5320' or funktion = '5330' or funktion = '5310'</condition>
                 </type>
             </class>
@@ -3344,7 +3344,7 @@ if (!collect.roadServiceType.values().contains('5310')){&#xD;
             </class>
         </target>
         <parameter value="false" name="auto_detect"/>
-        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/6.0}funktion" name="property"/>
+        <parameter value="{http://www.adv-online.de/namespaces/adv/gid/7.1}funktion" name="property"/>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
 def collect&#xD;
@@ -3362,8 +3362,8 @@ _target{}
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cccc9812b-cbe4-47a6-ab03-5e4e8e237b2f" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">value = '5330'</condition>
                 </child>
             </property>
@@ -3382,8 +3382,8 @@ _target{}
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C82f4f042-2fa9-48f2-9212-1607e76c1fe1" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">value = '5330'</condition>
                 </child>
             </property>
@@ -3402,8 +3402,8 @@ _target{}
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cebd7cdea-2694-4960-89ef-1cbc876bb136" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">value = '5330'</condition>
                 </child>
             </property>
@@ -3422,8 +3422,8 @@ _target{}
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C194d59be-3cd4-4730-9280-b7159a68190f" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">value = '5330'</condition>
                 </child>
             </property>
@@ -3442,8 +3442,8 @@ _target{}
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbe1e3f30-5acf-4eb2-85e2-e51713896d7b" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">value = '5330'</condition>
                 </child>
             </property>
@@ -3462,8 +3462,8 @@ _target{}
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C764250f9-a589-443e-b75b-b19525bc4a25" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">value = '5320' or value = '5330'</condition>
                 </child>
             </property>
@@ -3480,8 +3480,8 @@ _target{}
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C16d977ed-3a0e-450d-9304-e5b9ab61d589" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3496,8 +3496,8 @@ _target{}
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C06c4fa21-f02d-428e-9a48-6de08e035852" priority="normal">
         <source name="var">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3511,8 +3511,8 @@ _target{}
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C2f39c383-6a2c-4d96-86fa-13b70fb05164" priority="normal">
         <source name="var">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target name="result">
@@ -3536,8 +3536,8 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C2144d1d2-7e84-480c-88f5-69b8d027ea97" priority="normal">
         <source name="var">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3563,8 +3563,8 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb23dec73-0344-4ce3-8680-f66ef3dd2625" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3580,8 +3580,8 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C5751a76b-1feb-4a49-9cd3-1eec3fe57799" priority="normal">
         <source name="var">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="ECQL">value = '5310'</condition>
                 </child>
             </property>
@@ -3638,7 +3638,7 @@ _log.info('Schleife läuft für ' + flaeche)&#xD;
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C52ac1d6a-4b79-4afa-988a-ff6f351d3c52" priority="normal">
         <source name="var">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -3657,8 +3657,8 @@ _log.info('Schleife läuft für ' + flaeche)&#xD;
     <cell relation="eu.esdihumboldt.hale.align.classification" id="Cb822d066-69fc-4cf8-8d8d-7e957bf43384" priority="normal">
         <source>
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3689,8 +3689,8 @@ _log.info('Schleife läuft für ' + flaeche)&#xD;
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C76b7838c-63ba-405d-b3d8-4e82221002a8" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="funktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3761,19 +3761,19 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Ca487d3fe-c4c0-4b2e-9a46-937483bda3c3" priority="normal">
         <source name="types">
             <class>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">internationaleBedeutung is null or internationaleBedeutung &lt;&gt; '2001'</condition>
                 </type>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <source name="types">
             <class>
-                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -3784,39 +3784,39 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
         <complexParameter name="join">
             <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
                 <class>
-                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                         <condition lang="CQL">internationaleBedeutung is null or internationaleBedeutung &lt;&gt; '2001'</condition>
                     </type>
                 </class>
                 <class>
-                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <class>
-                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                    <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 </class>
                 <jp:condition>
                     <property>
-                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                             <condition lang="CQL">internationaleBedeutung is null or internationaleBedeutung &lt;&gt; '2001'</condition>
                         </type>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_FahrbahnachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
                 <jp:condition>
                     <property>
-                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                             <condition lang="CQL">internationaleBedeutung is null or internationaleBedeutung &lt;&gt; '2001'</condition>
                         </type>
                         <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                     <property>
-                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <type name="AX_StrassenachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                        <child name="istTeilVon" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                         <child name="href" ns="http://www.w3.org/1999/xlink"/>
                     </property>
                 </jp:condition>
@@ -3874,7 +3874,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C3d378c6d-c4c0-4bfe-9748-be28f5908f38" priority="normal">
         <source>
             <class>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </class>
         </source>
         <target>
@@ -3903,7 +3903,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C949d36a1-b1e9-4c1d-9fab-584d6ff7bee2" priority="normal">
         <source>
             <class>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
                     <condition lang="CQL">art = '1103' or art = '1106' or art = '1110'</condition>
                 </type>
             </class>
@@ -3962,10 +3962,10 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce6146fb9-6ab3-4d76-a0f8-ebf3c9e66667" priority="normal">
         <source>
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3980,10 +3980,10 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C43612668-3d9d-4857-ac31-d510c15bc312" priority="normal">
         <source>
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -3998,10 +3998,10 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C957cc3cc-ece3-459a-9ab0-61b8dc612bcd" priority="normal">
         <source>
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4016,10 +4016,10 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C9503659f-1365-4672-8cfb-1600e40207a5" priority="normal">
         <source>
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4034,7 +4034,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cd8e7f411-44b2-422e-8f5e-09112b56e2a1" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -4049,7 +4049,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="custom:alignment:adv.inspire.id.default" id="C92e8561d-980c-40f4-aa8e-834f628f8e3d" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -4064,7 +4064,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="custom:alignment:adv.inspire.identifier" id="Ccec81252-a0b4-4f4a-b6cf-1859e4cd3223" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -4078,7 +4078,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="custom:alignment:adv.inspire.identifier" id="Cc4d83d5a-b9af-4a97-ad33-d69a0e2777b8" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -4092,7 +4092,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="custom:alignment:adv.inspire.id.default" id="C25b81492-3b0f-4ffb-be0e-7ff925713e47" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -4109,7 +4109,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="custom:alignment:adv.inspire.id.default" id="Cde61c643-ff7b-4c72-9383-b958edf7654d" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -4126,7 +4126,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C1505c26d-f446-4fad-8d7f-bc3fd3448caf" priority="normal">
         <source name="var">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -4142,8 +4142,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C713718d5-a92b-4d39-a5e8-b55d5d88aca8" priority="normal">
         <source>
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="strassenschluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="strassenschluessel" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4158,8 +4158,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ce681d243-749e-4941-ab0d-02a2b7d3b7ec" priority="normal">
         <source>
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="strassenschluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="strassenschluessel" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4174,8 +4174,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C15dccdb1-4388-4632-a0b2-c40a9f31b855" priority="normal">
         <source>
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="strassenschluessel" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="strassenschluessel" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4190,8 +4190,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C3966b6d7-6d7f-4015-989d-68838f82deb5" priority="normal">
         <source>
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="bezeichnung" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4295,10 +4295,10 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Cf04bf7cb-0c75-4a85-a346-ff2791070e27" priority="normal">
         <source>
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="beginnt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4313,10 +4313,10 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca5cd019b-6e90-4f57-b478-94908d192233" priority="normal">
         <source>
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="AA_Lebenszeitintervall" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="endet" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4331,8 +4331,8 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="Cedb16141-aec0-4c8d-a70a-302e12648ea7" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_FahrwegachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4346,8 +4346,8 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C055eee92-8f70-4d3b-9771-2b7346cd7f6f" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4361,8 +4361,8 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C71badf51-3d25-4822-a1b3-c342ce7dd357" priority="normal">
         <source name="spelling">
             <property>
-                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_WegPfadSteigType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
         </source>
         <target>
@@ -4376,7 +4376,7 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="custom:alignment:adv.inspire.id.default" id="C5855cff4-b320-4f0c-bd53-c8d282791687" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -4391,7 +4391,7 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="custom:alignment:adv.inspire.identifier" id="C683c368a-e836-4ee4-9c47-abce43294ae6" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
@@ -4405,7 +4405,7 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="custom:alignment:adv.inspire.id.default" id="C8a40758b-371a-4883-9294-1adafd5bc376" priority="normal">
         <source name="id">
             <property>
-                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <type name="AX_StrasseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </source>
