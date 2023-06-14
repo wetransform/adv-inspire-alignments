@@ -28,6 +28,54 @@ withTransformationContext {
         </complexParameter>
         <documentation>Dies ist eine Dummy-Transformationsdefinition die keine Objekte erzeugt sondern zum Aufbauen eines Index für `AX_LagebezeichnungKatalogeintrag` dient.</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Ce6d4faab-cbaa-40c4-a1bf-76463a654af1" priority="low">
+        <target>
+            <class>
+                <type name="AccessRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect&#13;
+withTransformationContext {&#13;
+	collect = _.context.collector(it)&#13;
+}&#13;
+&#13;
+// Erstelle ein AccessRestriction-Objekt für jeden vorkommenden Wert&#13;
+collect.accessRestriction.consume { key, values -&gt;&#13;
+	def _id = 'AccessRestriction_' + key&#13;
+	def _ns = _project.vars.INSPIRE_NAMESPACE&#13;
+	&#13;
+	_target {&#13;
+		restriction {&#13;
+			href( 'http://inspire.ec.europa.eu/codelist/AccessRestrictionValue/' + key)&#13;
+		}&#13;
+		id( _id )&#13;
+		inspireId {&#13;
+			Identifier {&#13;
+				namespace( _ns )&#13;
+				localId( _id )&#13;
+			}&#13;
+		}&#13;
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {&#13;
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )&#13;
+		}&#13;
+		&#13;
+		// Referenz zu gesammelten RoadLinks/RoadAreas mit dieser Eigenschaft&#13;
+		values.each { linkId -&gt;&#13;
+			networkRef {&#13;
+				NetworkReference {&#13;
+					element {&#13;
+						href( "#$linkId" )&#13;
+					}&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+}
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb6bd7b9a-eadf-48f2-9232-260ac1bf2c10" priority="normal">
         <source name="types">
             <class>
@@ -2162,6 +2210,14 @@ case '5212': // Wirtschaftsweg
 	break
 }
 
+//bestimme AccessRestriction
+def accessRestriction
+switch (_source.p.befahrbarkeit.value()) {
+case '2000': // Eingeschränkt befahrbar
+	accessRestriction = 'seasonal'
+	break
+}
+
 /*
  * Sammeln von Informationen bzgl. hatDirektUnten für VerticalPosition
  */
@@ -2225,6 +2281,10 @@ if (surfaceCategory) {
 // Sammle ID für FunctionalRoadClass
 if (functionalClass) {
 	collect.functionalClass[functionalClass] &lt;&lt; _id
+}
+// Sammle ID für AccessRestriction
+if (accessRestriction) {
+	collect.accessRestriction[accessRestriction] &lt;&lt; _id
 }
 // Sammle ID für VerticalPosition
 collect.verticalPosition[verticalPosition] &lt;&lt; _id
