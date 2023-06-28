@@ -1863,6 +1863,28 @@ _target{&#13;
         <parameter value="49eb5006-4f60-4e6c-b67e-e3b761c9a5dd" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cba0f2b80-bb6e-485d-a64c-e5a43347b514" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="gebaeudefunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">value IN (1130,1131,2320,1210,1220,1221,1222,1223,1120,1121,1122,1123,2000,2310,3100)</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0">
+                    <context>0</context>
+                </child>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C36e96948-5bcd-4941-b680-572923222e50" priority="normal">
         <source>
             <property>
@@ -1883,6 +1905,28 @@ _target{&#13;
         </target>
         <parameter value="e63fada2-b221-4dfd-9159-e334ee57cda2" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce713847a-a3aa-474a-8b3d-e7760dc1c8d1" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="gebaeudefunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">value = 2320</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0">
+                    <context>1</context>
+                </child>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C6df8249e-9e75-450e-b125-79c5324948ef" priority="normal">
         <source>
@@ -2153,7 +2197,253 @@ _target{&#13;
         <parameter value="54120340-6427-4f58-a329-cd48b2b4fc8a" name="lookupTableID"/>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9fbf711b-1294-4e75-9fcf-c187e1d85801" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C8f1e9c2a-6106-4537-a6a0-07759f6fe635" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '2030' or bauwerksfunktion = '2050' or bauwerksfunktion = '2060' or bauwerksfunktion = '2070' or bauwerksfunktion = '2080' or bauwerksfunktion = '2090'</condition>
+                </type>
+                <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6fe93dab-e835-4d11-adad-492fcb5bb742" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1800' or bauwerksfunktion = '1830' or bauwerksfunktion = '1880' or bauwerksfunktion = '1890'</condition>
+                </type>
+                <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C36e9454c-3887-4797-8311-6a6e1c410147" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1215' or bauwerksfunktion = '1220' or bauwerksfunktion = '1250' or bauwerksfunktion = '1251' or  bauwerksfunktion = '1260' or bauwerksfunktion = '1270' or bauwerksfunktion = '1280' or bauwerksfunktion = '1290' or bauwerksfunktion = '1330' or bauwerksfunktion = '1331' or bauwerksfunktion = '1332' or bauwerksfunktion = '1333' or bauwerksfunktion = '1340' or bauwerksfunktion = '1350'</condition>
+                </type>
+                <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C55711c44-9f3f-466e-90b0-72c5059a0e34" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                </type>
+                <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb3cbacce-7479-4285-94b9-cf6f2196b496" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_EinrichtungenFuerDenSchiffsverkehrType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">art = '1420'</condition>
+                </type>
+                <child name="art" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9fbf711b-1294-4e75-9fcf-c187e1d85801" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="gebaeudefunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">value &lt;&gt; 9998</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb6838148-ce6f-47cc-8563-642f59414c8f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">archaeologischerTyp = '1100' or archaeologischerTyp = '1110' or archaeologischerTyp = '1210' or archaeologischerTyp = '1410'</condition>
+                </type>
+                <child name="archaeologischerTyp" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce5577217-2821-45a1-860e-5d3eb11ba195" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_LeitungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1110'</condition>
+                </type>
+                <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2db94490-8178-4f23-aff5-c17c193cc2bd" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_SchleuseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">konstruktionsmerkmalBauart = '1010' or konstruktionsmerkmalBauart = '1020'</condition>
+                </type>
+                <child name="konstruktionsmerkmalBauart" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce0d56916-fe0d-4f32-ad96-6df6356040c3" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_SeilbahnSchwebebahnType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bahnkategorie = '2100' or bahnkategorie = '2200' or bahnkategorie = '2300' or bahnkategorie = '2500' or bahnkategorie = '2600'</condition>
+                </type>
+                <child name="bahnkategorie" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5261f407-e4d3-4985-bb84-6ec97422b9b3" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1610' or bauwerksfunktion = '1611' or bauwerksfunktion = '1700'</condition>
+                </type>
+                <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6e33babe-d9d6-440e-8629-0e42a4c42462" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="percentage" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca605b9ec-e81d-4d13-a640-01633fc42f90" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_VorratsbehaelterSpeicherbauwerkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">bauwerksfunktion = '1201' or bauwerksfunktion = '1203' or bauwerksfunktion = '1205' or bauwerksfunktion = '1206'</condition>
+                </type>
+                <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
