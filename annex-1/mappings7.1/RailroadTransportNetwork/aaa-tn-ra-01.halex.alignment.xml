@@ -230,6 +230,9 @@ case '2100': // Außer Betrieb, stillgelegt, verlassen
 case '4000': // Im Bau
 	conditionOfFacility = 'underConstruction'
 	break
+case '8000': // Im Bau
+	conditionOfFacility = 'projected'
+	break
 }
 
 /*
