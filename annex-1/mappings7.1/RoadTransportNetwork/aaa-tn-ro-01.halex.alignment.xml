@@ -2911,7 +2911,7 @@ collect.verticalPosition[verticalPosition] &lt;&lt; _id
         <source>
             <class>
                 <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="CQL">funktion = '5320' or funktion = '5330' or funktion = '5310'</condition>
+                    <condition lang="ECQL">funktion = '5320' or funktion = '5330' or funktion = '5310' or funktion = '5360'</condition>
                 </type>
             </class>
         </source>
@@ -2930,6 +2930,14 @@ withTransformationContext {
 def _id = 'RoadServiceArea_' + _source.p.id.value()
 
 _target {
+}
+
+// bestimme RoadServiceType
+def serviceType
+switch (_source.p.funktion.value()) {
+case '5360': // Busbahnhof
+	serviceType = 'busStation'
+	break
 }
 
 /*
@@ -2986,6 +2994,10 @@ else {
 	}
 }
 
+// Sammle ID für RoadServiceType
+if (serviceType) {
+	collect.serviceType[serviceType] &lt;&lt; _id
+}
 // Sammle ID für Netzwerk
 collect.network &lt;&lt; _id
 // Sammle ID für VerticalPosition
@@ -3427,7 +3439,7 @@ if (!collect.roadServiceType.values().contains('5310')){&#13;
         <source>
             <class>
                 <type name="AX_PlatzType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="CQL">funktion = '5320' or funktion = '5330' or funktion = '5310'</condition>
+                    <condition lang="ECQL">funktion = '5320' or funktion = '5330' or funktion = '5310' or funktion = '5360'</condition>
                 </type>
             </class>
         </source>
@@ -3764,16 +3776,20 @@ _log.info('Schleife läuft für ' + flaeche)&#13;
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="5310"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/parking"/>
+                    <key value="5330"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/restArea"/>
                 </entry>
                 <entry>
                     <key value="5320"/>
                     <value value="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/restArea"/>
                 </entry>
                 <entry>
-                    <key value="5330"/>
-                    <value value="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/restArea"/>
+                    <key value="5310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/parking"/>
+                </entry>
+                <entry>
+                    <key value="5360"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/RoadServiceTypeValue/busStation"/>
                 </entry>
             </lookup-table>
         </complexParameter>
