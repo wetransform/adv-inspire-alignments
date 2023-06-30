@@ -1092,6 +1092,9 @@ case '2100': // Außer Betrieb, stillgelegt, verlassen
 case '4000': // Im Bau
 	conditionOfFacility = 'underConstruction'
 	break
+case '8000': // Erweiterung, Neuansiedlung
+	conditionOfFacility = 'projected'
+	break
 }
 
 /*
@@ -3062,6 +3065,9 @@ case '2100': // Außer Betrieb, stillgelegt, verlassen
 	break
 case '4000': // Im Bau
 	conditionOfFacility = 'underConstruction'
+	break
+case '8000': // Erweiterung, Neuansiedlung
+	conditionOfFacility = 'projected'
 	break
 }
 
