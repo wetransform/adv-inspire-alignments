@@ -29,8 +29,8 @@
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def c = _.context.collector()&#xD;
-&#xD;
+def c = _.context.collector()&#13;
+&#13;
 return c.extent.value()
 </core:text>
         </complexParameter>
@@ -1018,24 +1018,24 @@ return c.extent.value()
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def c = _.context.collector()&#xD;
-&#xD;
-def geom = _.geom.find(position.p.first())&#xD;
-if (!geom) {&#xD;
-  _log.error('No geometry found')&#xD;
-  return&#xD;
-}&#xD;
-&#xD;
-withTransformationContext {&#xD;
-	if(c.extent.value()){&#xD;
-		def ext= _.geom.bbox([c.extent.value(), geom])&#xD;
-		c.extent = ext&#xD;
-	}&#xD;
-	else {&#xD;
-		c.extent = geom&#xD;
-	}&#xD;
-}&#xD;
-targeom = _.geom.toSimpleGeometries(geometries:geom, collections:true)&#xD;
+def c = _.context.collector()&#13;
+&#13;
+def geom = _.geom.find(position.p.first())&#13;
+if (!geom) {&#13;
+  _log.error('No geometry found')&#13;
+  return&#13;
+}&#13;
+&#13;
+withTransformationContext {&#13;
+	if(c.extent.value()){&#13;
+		def ext= _.geom.bbox([c.extent.value(), geom])&#13;
+		c.extent = ext&#13;
+	}&#13;
+	else {&#13;
+		c.extent = geom&#13;
+	}&#13;
+}&#13;
+targeom = _.geom.toSimpleGeometries(geometries:geom, collections:true)&#13;
 return targeom
 </core:text>
         </complexParameter>
