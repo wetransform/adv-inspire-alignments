@@ -3316,10 +3316,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd5c9a27b-ad15-4446-9718-df346a16b880" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">funktion is null and artDerBebauung is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.funktion is null and parent.artDerBebauung is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -3340,10 +3340,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd411eb5c-5e84-41b7-b253-ce317d3bc4f1" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">artDerBebauung is null and funktion is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.artDerBebauung is null and parent.funktion is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -3552,10 +3552,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C4cd2fd98-7f30-4866-bed4-8837f7bc269f" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">funktion is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.funktion is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -3774,10 +3774,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C6eef3a67-9fbe-40ac-a858-4eff28682549" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">artDerBebauung not like '1000' and artDerBebauung not like '2000' </condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.artDerBebauung not like '1000' and parent.artDerBebauung not like '2000' </condition>
+                </child>
             </property>
         </source>
         <target>
@@ -3798,10 +3798,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2a59e951-473a-45b1-b80a-cb7bbf8be7fd" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">funktion is null and artDerBebauung is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.funktion is null and parent.artDerBebauung is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -3822,10 +3822,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0aa24288-4984-45fe-94a3-e1bc910ecb19" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">artDerBebauung is null and funktion is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.artDerBebauung is null and parent.funktion is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -4030,10 +4030,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbbf4f0c3-2e60-4c5b-8ef3-f6282f984b6a" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">funktion is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.funktion is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -4240,10 +4240,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C1c613859-d2db-4fe7-870d-de95c0fad0fe" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">artDerBebauung not like '1000' and artDerBebauung not like '2000' </condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.artDerBebauung not like '1000' and parent.artDerBebauung not like '2000' </condition>
+                </child>
             </property>
         </source>
         <target>
@@ -8480,10 +8480,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf485306c-0f00-4f82-b5f9-9de7bcfe86f0" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">funktion is null and artDerBebauung is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.funktion is null and parent.artDerBebauung is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -8534,10 +8534,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc7eb1409-672c-4de7-a6ba-e266582754d0" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">artDerBebauung is null and funktion is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.artDerBebauung is null and parent.funktion is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -8824,10 +8824,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C79ee586d-e68e-4e71-9e40-1e82ac3263e1" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">funktion is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.funktion is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -9066,10 +9066,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C84a48c58-d126-4af4-a545-745037ec07bc" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">artDerBebauung not like '1000' and artDerBebauung not like '2000' </condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.artDerBebauung not like '1000' and parent.artDerBebauung not like '2000' </condition>
+                </child>
             </property>
         </source>
         <target>
@@ -9108,10 +9108,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0cb32fac-c19a-4250-94e5-7347efe16f60" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">funktion is null and artDerBebauung is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_FlaecheBesondererFunktionalerPraegungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.funktion is null and parent.artDerBebauung is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -9150,10 +9150,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca30a16fc-0378-43f8-943e-41ad69078f0a" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">artDerBebauung is null and funktion is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_FlaecheGemischterNutzungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.artDerBebauung is null and parent.funktion is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -9428,10 +9428,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C36f29d04-cf65-4447-bceb-9894f6cf876e" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">funktion is null</condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_IndustrieUndGewerbeflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.funktion is null</condition>
+                </child>
             </property>
         </source>
         <target>
@@ -9662,10 +9662,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0e2a75e4-8e37-45e7-8dab-f97e6a80a55a" priority="normal">
         <source name="anchor">
             <property>
-                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">artDerBebauung not like '1000' and artDerBebauung not like '2000' </condition>
-                </type>
-                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                <type name="AX_WohnbauflaecheType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2">
+                    <condition lang="ECQL">parent.artDerBebauung not like '1000' and parent.artDerBebauung not like '2000' </condition>
+                </child>
             </property>
         </source>
         <target>
