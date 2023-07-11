@@ -1244,6 +1244,78 @@ if(obereGewaesserAchseIDs){&#13;
         </complexParameter>
         <documentation>Mittels der Relation`hatDirektUnten` wird ermittelt, ob es Fliessgewässer gibt, die von einer Brücke überquert werden. Ist dies der Fall, wird ein `WatercourseSeparatedCrossing` erstellt.</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cd7bc600d-cd3a-4354-86f4-7405730a075c" priority="normal">
+        <source name="types">
+            <class>
+                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                </type>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="WatercourseSeparatedCrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                        <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                    </type>
+                </class>
+                <class>
+                    <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                            <condition lang="CQL">bauwerksfunktion = '1800'</condition>
+                        </type>
+                        <child name="hatDirektUnten" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                    <property>
+                        <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//nur Brücken betrachten, die im Kollektor sind, weil sie einen Wasserlauf oder ein Fließgewässer über sich haben&#13;
+&#13;
+def c = _.context.collector()&#13;
+&#13;
+def obereGewaesserAchseIDs = c.crossing[_source.p.id.value()].values()&#13;
+&#13;
+if (obereGewaesserAchseIDs) {&#13;
+	obereGewaesserAchseIDs.each{ obereGewaesserAchseID -&gt;&#13;
+		_source.links.AX_Fliessgewaesser.p.id.each { fliessgewaesserID -&gt;&#13;
+			fliessgewaesserID = 'WatercourseLink_' + fliessgewaesserID&#13;
+			_target {&#13;
+			//https://inspire.ec.europa.eu/data-model/approved/r4618-ir/html/EARoot/EA3/EA1/EA5/EA9018.htm: "The order reflects their elevation; the first link is the lower link. "&#13;
+				element {&#13;
+					//unteres Fliessgewaesser&#13;
+					href( "#$fliessgewaesserID" )&#13;
+					}&#13;
+				element {&#13;
+					// obere Gewaesserachse/Fliessgewaesser&#13;
+					href( "#WatercourseLink_$obereGewaesserAchseID" )&#13;
+				}&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+}
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="C34e7e1a9-d45a-4579-a5aa-53b2958a02e5" priority="normal">
         <source name="types">
             <class>
