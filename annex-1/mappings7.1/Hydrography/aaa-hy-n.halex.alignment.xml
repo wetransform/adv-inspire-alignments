@@ -1453,7 +1453,7 @@ if(obereGewaesserAchseIDs){&#13;
                     </property>
                     <property>
                         <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
-                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                        <child name="id" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -1526,7 +1526,7 @@ if(obereGewaesserAchseIDs){&#13;
                     </property>
                     <property>
                         <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
-                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                        <child name="id" ns="http://www.opengis.net/gml/3.2"/>
                     </property>
                 </jp:condition>
             </jp:join-parameter>
@@ -1632,24 +1632,6 @@ if(obereGewaesserAchseIDs){&#13;
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
-    </cell>
-    <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C09349cb4-f977-4f44-b662-4c9597457d39" priority="normal">
-        <source name="spelling">
-            <property>
-                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="CQL">bauwerksfunktion = '1800'</condition>
-                </type>
-                <child name="name" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
-            </property>
-        </source>
-        <target>
-            <property>
-                <type name="WatercourseSeparatedCrossingType" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
-            </property>
-        </target>
-        <parameter value="official" name="nameStatus"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.id.default" id="Ca19f26cc-d722-4574-9217-23c1da508d5e" priority="normal">
         <source name="id">
