@@ -2521,7 +2521,15 @@ _target{&#13;
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9fbf711b-1294-4e75-9fcf-c187e1d85801" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9fbf711b-1294-4e75-9fcf-c187e1d85801" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gebaeudefunktion" ns="http://www.adv-online.de/namespaces/adv/gid/6.0">
+                    <condition lang="ECQL">value &lt;&gt; 9998</condition>
+                </child>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"/>
