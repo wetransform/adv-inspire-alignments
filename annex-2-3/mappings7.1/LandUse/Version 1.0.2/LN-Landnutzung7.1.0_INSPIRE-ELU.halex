@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="4.1.0.SNAPSHOT">
+<hale-project version="5.1.0.SNAPSHOT">
     <name>[Annex III] AdV LN 1.0.2 zu INSPIRE Existing Land Use</name>
     <author>Johanna Ott (wetransform)</author>
-    <description>Transformationsprojekt für die Transformation von Daten aus LN_Landnutzung nach INSPIRE ExistingLandUse&#xD;
-&#xD;
-Das Transformationsprojekt ist noch in Entwicklung befindlich.&#xD;
-&#xD;
-Hinweis zur Angabe einer WKT-Geometrie des Bundeslandes zur korrekten Handhabung von ExistingLandUseDataSet.extent:&#xD;
-	Im Ordner "testdaten" wird die Datei "extentBundesland.csv" bereitgestellt. Um den INSPIRE-Datensatz vollständig korrekt zu erzeugen, muss dort der Platzhalter "MULTIPOLYGON ((()))" mit einer WKT-Geometrie Ihres Bundeslandes ersetzt, die Datei in den Ordner "quelldaten" kopiert und die Konfigurationseinstellung "extentBundesland" in "gradle.properties" aktiviert werden. Machen Sie keine entsprechende Angabe, wird die konvexe Hülle der Ausgangsdaten verwendet, was aber nicht den INSPIRE-Anforderungen entspricht.&#xD;
-&#xD;
-Hinweis zur Nutzung der Projektvariablen:&#xD;
-    VOID_REASON_OBSERVATIONDATE&#xD;
-        bei ALKIS-Datensätzen, in denen "datumDerLetztenUeberpruefung" nie gefüllt ist: Eingabe von "other:unpopulated"&#xD;
-        bei ALKIS-Datensätzen, in denen "datumDerLetztenUeberpruefung" manchmal gefüllt ist: Eingabe von "unknown"&#xD;
-    DATASET: id des ExistingLandUseDatasets --&gt; kann nach Wunsch verändert werden&#xD;
+    <description>Transformationsprojekt für die Transformation von Daten aus LN_Landnutzung nach INSPIRE ExistingLandUse&#13;
+&#13;
+Das Transformationsprojekt ist noch in Entwicklung befindlich.&#13;
+&#13;
+Hinweis zur Angabe einer WKT-Geometrie des Bundeslandes zur korrekten Handhabung von ExistingLandUseDataSet.extent:&#13;
+	Im Ordner "testdaten" wird die Datei "extentBundesland.csv" bereitgestellt. Um den INSPIRE-Datensatz vollständig korrekt zu erzeugen, muss dort der Platzhalter "MULTIPOLYGON ((()))" mit einer WKT-Geometrie Ihres Bundeslandes ersetzt, die Datei in den Ordner "quelldaten" kopiert und die Konfigurationseinstellung "extentBundesland" in "gradle.properties" aktiviert werden. Machen Sie keine entsprechende Angabe, wird die konvexe Hülle der Ausgangsdaten verwendet, was aber nicht den INSPIRE-Anforderungen entspricht.&#13;
+&#13;
+Hinweis zur Nutzung der Projektvariablen:&#13;
+    VOID_REASON_OBSERVATIONDATE&#13;
+        bei ALKIS-Datensätzen, in denen "datumDerLetztenUeberpruefung" nie gefüllt ist: Eingabe von "other:unpopulated"&#13;
+        bei ALKIS-Datensätzen, in denen "datumDerLetztenUeberpruefung" manchmal gefüllt ist: Eingabe von "unknown"&#13;
+    DATASET: id des ExistingLandUseDatasets --&gt; kann nach Wunsch verändert werden&#13;
     INSPIRE_NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2020-10-14T14:40:19.238+02:00</created>
-    <modified>2021-06-28T11:54:14.908+02:00</modified>
+    <modified>2023-08-25T08:46:20.517+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna/git/adv-inspire-alignments/annex-2-3/mappings7.1/LandUse/LN-Landnutzung7.1.0_INSPIRE-ELU.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings7.1/LandUse/Version%201.0.2/LN-Landnutzung7.1.0_INSPIRE-ELU.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
