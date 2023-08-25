@@ -3410,7 +3410,7 @@ if (baujahr){&#13;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C78b8227b-6202-4496-9ddd-ebde60135e0a" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C78b8227b-6202-4496-9ddd-ebde60135e0a" priority="normal">
         <source>
             <property>
                 <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
@@ -3431,10 +3431,17 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cc8aaea0b-381b-4844-a7cf-e5ea134424f6" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cc8aaea0b-381b-4844-a7cf-e5ea134424f6" priority="normal">
         <source>
             <property>
                 <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
@@ -3455,10 +3462,17 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C306ab7e7-4fd2-4a10-a531-5f700a5255bc" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C306ab7e7-4fd2-4a10-a531-5f700a5255bc" priority="normal">
         <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerIndustrieUndGewerbeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
@@ -3479,10 +3493,17 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cba6f9d70-84df-430b-a084-e9859c4597e2" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cba6f9d70-84df-430b-a084-e9859c4597e2" priority="normal">
         <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
@@ -3503,10 +3524,17 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca47e3811-5e28-4539-b715-03c7d2837f13" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Ca47e3811-5e28-4539-b715-03c7d2837f13" priority="normal">
         <source>
             <property>
                 <type name="AX_GebaeudeType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
@@ -3525,10 +3553,17 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C0e0283b8-ab46-4f54-90ae-2cb9375bd720" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C0e0283b8-ab46-4f54-90ae-2cb9375bd720" priority="normal">
         <source>
             <property>
                 <type name="AX_HistorischesBauwerkOderHistorischeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
@@ -3549,10 +3584,17 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C33b9c226-625f-4a87-93e3-37a16cebd91b" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C33b9c226-625f-4a87-93e3-37a16cebd91b" priority="normal">
         <source>
             <property>
                 <type name="AX_SchleuseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
@@ -3573,10 +3615,17 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="C574ac1a1-24a1-4653-9782-8ec97697acf1" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C574ac1a1-24a1-4653-9782-8ec97697acf1" priority="normal">
         <source>
             <property>
                 <type name="AX_SonstigesBauwerkOderSonstigeEinrichtungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
@@ -3597,10 +3646,17 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca94c6ea1-6520-4947-a175-023d4711d2be" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Ca94c6ea1-6520-4947-a175-023d4711d2be" priority="normal">
         <source>
             <property>
                 <type name="AX_TurmType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
@@ -3619,10 +3675,17 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cdc8e06fc-0a49-4f55-8ad9-5f523d9f7246" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cdc8e06fc-0a49-4f55-8ad9-5f523d9f7246" priority="normal">
         <source>
             <property>
                 <type name="AX_VorratsbehaelterSpeicherbauwerkType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
@@ -3643,8 +3706,15 @@ if (baujahr){&#13;
                 <child name="uom"/>
             </property>
         </target>
-        <parameter value="false" name="ignoreNamespaces"/>
-        <parameter value="false" name="structuralRename"/>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="urn:adv:uom:m"/>
+                    <value value="m"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="source" name="notClassifiedAction"/>
     </cell>
     <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="C8e0f4178-7bb6-4562-8750-4c49799ebc0a" priority="normal">
         <source name="var">
