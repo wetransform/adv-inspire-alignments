@@ -22,10 +22,10 @@
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-//Dummy-Funktion, um die in der zusätzlichen Datei bereitgestellte Bundesland-Geometrie in einem Kollektor zu speichern&#xD;
-&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
+//Dummy-Funktion, um die in der zusätzlichen Datei bereitgestellte Bundesland-Geometrie in einem Kollektor zu speichern&#13;
+&#13;
+def c = _.context.collector()&#13;
+&#13;
 c.wkt &lt;&lt; _source.p.WKT.value()
 </core:text>
         </complexParameter>
@@ -50,14 +50,14 @@ c.wkt &lt;&lt; _source.p.WKT.value()
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def c = _.context.collector()&#xD;
-&#xD;
-if (c.wkt.value() &amp;&amp; !(c.wkt.value().equals('MULTIPOLYGON ((()))'))) {&#xD;
-	return _.geom.with(geometry: c.wkt.value(), crs:"EPSG:25832")	&#xD;
-}&#xD;
-&#xD;
-else {&#xD;
-	return c.extent.value()&#xD;
+def c = _.context.collector()&#13;
+&#13;
+if (c.wkt.value() &amp;&amp; !(c.wkt.value().equals('MULTIPOLYGON ((()))'))) {&#13;
+	return _.geom.with(geometry: c.wkt.value(), crs:"EPSG:25832")	&#13;
+}&#13;
+&#13;
+else {&#13;
+	return c.extent.value()&#13;
 }
 </core:text>
         </complexParameter>
@@ -489,27 +489,27 @@ else {&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-import com.vividsolutions.jts.geom.Geometry&#xD;
-&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
-def geom = _.geom.find(position.p.first())&#xD;
-if (!geom) {&#xD;
-  _log.error('No geometry found')&#xD;
-  return&#xD;
-}&#xD;
-&#xD;
-withTransformationContext {&#xD;
-	if(c.extent.value()){&#xD;
-		def ext= _.geom.convexHull([c.extent.value(), geom])&#xD;
-		c.extent = ext&#xD;
-	}&#xD;
-	else {&#xD;
-		c.extent = _.geom.convexHull(geom)&#xD;
-	}&#xD;
-}&#xD;
-&#xD;
-targeom = _.geom.toSimpleGeometries(geometries:geom, collections:true)&#xD;
+import com.vividsolutions.jts.geom.Geometry&#13;
+&#13;
+def c = _.context.collector()&#13;
+&#13;
+def geom = _.geom.find(position.p.first())&#13;
+if (!geom) {&#13;
+  _log.error('No geometry found')&#13;
+  return&#13;
+}&#13;
+&#13;
+withTransformationContext {&#13;
+	if(c.extent.value()){&#13;
+		def ext= _.geom.convexHull([c.extent.value(), geom])&#13;
+		c.extent = ext&#13;
+	}&#13;
+	else {&#13;
+		c.extent = _.geom.convexHull(geom)&#13;
+	}&#13;
+}&#13;
+&#13;
+targeom = _.geom.toSimpleGeometries(geometries:geom, collections:true)&#13;
 return targeom
 </core:text>
         </complexParameter>
@@ -2011,14 +2011,14 @@ return targeom
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-if (!datumDerLetztenUeberpruefung) {&#xD;
-	_target {&#xD;
-		nilReason( _project.vars.VOID_REASON_OBSERVATIONDATE )&#xD;
-	}&#xD;
-}&#xD;
-&#xD;
-else {&#xD;
-	return datumDerLetztenUeberpruefung&#xD;
+if (!datumDerLetztenUeberpruefung) {&#13;
+	_target {&#13;
+		nilReason( _project.vars.VOID_REASON_OBSERVATIONDATE )&#13;
+	}&#13;
+}&#13;
+&#13;
+else {&#13;
+	return datumDerLetztenUeberpruefung&#13;
 }
 </core:text>
         </complexParameter>
