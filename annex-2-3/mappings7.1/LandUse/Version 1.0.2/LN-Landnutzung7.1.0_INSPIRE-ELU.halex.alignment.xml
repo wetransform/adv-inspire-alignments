@@ -456,6 +456,16 @@ else {&#13;
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Caea112fd-f6a8-45e0-959b-e62723a6b46b" priority="normal">
+        <target>
+            <property>
+                <type name="ExistingLandUseObjectType" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="dataset" ns="http://inspire.ec.europa.eu/schemas/elu/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#{{project:DATASET}}" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="C928afd52-48b5-4957-9fa5-c23d6965a2fc" priority="normal">
         <source>
             <property>
