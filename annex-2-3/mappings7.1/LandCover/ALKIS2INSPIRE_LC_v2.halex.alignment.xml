@@ -1130,12 +1130,24 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
+                    <key value="2322"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}0"/>
+                </entry>
+                <entry>
                     <key value="2321"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
                 <entry>
-                    <key value="2322"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}0"/>
+                    <key value="1200"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
+                <entry>
+                    <key value="2323"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="2324"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -1313,6 +1325,10 @@ return targeom
                     <key value="5007"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
+                <entry>
+                    <key value="1003"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
@@ -1362,6 +1378,10 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}0"/>
                 </entry>
                 <entry>
+                    <key value="1200"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
+                <entry>
                     <key value="1100"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
@@ -1398,8 +1418,8 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
                 <entry>
-                    <key value="1200"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                    <key value="1180"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -1441,6 +1461,10 @@ return targeom
         </target>
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="7600"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
                 <entry>
                     <key value="2100"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
@@ -1490,8 +1514,36 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
                 <entry>
-                    <key value="7600"/>
+                    <key value="1200"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
+                <entry>
+                    <key value="3000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4"/>
+                </entry>
+                <entry>
+                    <key value="3001"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4"/>
+                </entry>
+                <entry>
+                    <key value="3002"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4"/>
+                </entry>
+                <entry>
+                    <key value="3003"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4"/>
+                </entry>
+                <entry>
+                    <key value="6810"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="6820"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="6830"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -1614,20 +1666,24 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
                 </entry>
                 <entry>
+                    <key value="5521"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
+                </entry>
+                <entry>
                     <key value="5511"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
+                </entry>
+                <entry>
+                    <key value="5522"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
                 <entry>
                     <key value="5512"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
                 </entry>
                 <entry>
-                    <key value="5521"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
-                </entry>
-                <entry>
-                    <key value="5522"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                    <key value="5513"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -1670,6 +1726,14 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
+                    <key value="9403"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
+                </entry>
+                <entry>
+                    <key value="9404"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
+                </entry>
+                <entry>
                     <key value="9401"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
@@ -1678,12 +1742,8 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
                 </entry>
                 <entry>
-                    <key value="9403"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
-                </entry>
-                <entry>
-                    <key value="9404"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
+                    <key value="1200"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -1986,6 +2046,10 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
                 </entry>
                 <entry>
+                    <key value="1530"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
                     <key value="2562"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
@@ -2030,6 +2094,10 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
                 <entry>
+                    <key value="1540"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
                     <key value="1440"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
@@ -2068,6 +2136,10 @@ return targeom
                 <entry>
                     <key value="2522"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
+                <entry>
+                    <key value="1510"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
                 <entry>
                     <key value="2521"/>
@@ -2134,6 +2206,10 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
                 <entry>
+                    <key value="1520"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
                     <key value="2531"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
@@ -2142,19 +2218,63 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
                 </entry>
                 <entry>
-                    <key value="1510"/>
+                    <key value="1200"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
+                <entry>
+                    <key value="1801"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
                 <entry>
-                    <key value="1520"/>
+                    <key value="1802"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
                 <entry>
-                    <key value="1530"/>
+                    <key value="1803"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
                 <entry>
-                    <key value="1540"/>
+                    <key value="1804"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1805"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1806"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1807"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1808"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1809"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1810"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1811"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1812"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="2701"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="2700"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
             </lookup-table>
@@ -2202,12 +2322,24 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2"/>
                 </entry>
                 <entry>
-                    <key value="1000"/>
+                    <key value="8000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2"/>
+                </entry>
+                <entry>
+                    <key value="6000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2"/>
+                </entry>
+                <entry>
+                    <key value="5000"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2"/>
                 </entry>
                 <entry>
                     <key value="4000"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--3"/>
+                </entry>
+                <entry>
+                    <key value="1000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2"/>
                 </entry>
                 <entry>
                     <key value="2000"/>
@@ -2218,20 +2350,12 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
                 <entry>
-                    <key value="6000"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2"/>
-                </entry>
-                <entry>
-                    <key value="8000"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2"/>
-                </entry>
-                <entry>
-                    <key value="5000"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2"/>
-                </entry>
-                <entry>
                     <key value="9999"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}0"/>
+                </entry>
+                <entry>
+                    <key value="9000"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -2274,35 +2398,31 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="1010"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3"/>
-                </entry>
-                <entry>
                     <key value="1011"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
                 </entry>
                 <entry>
-                    <key value="1012"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--3"/>
-                </entry>
-                <entry>
-                    <key value="1013"/>
+                    <key value="1010"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3"/>
-                </entry>
-                <entry>
-                    <key value="1020"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1"/>
                 </entry>
                 <entry>
                     <key value="1021"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
                 </entry>
                 <entry>
+                    <key value="1020"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1"/>
+                </entry>
+                <entry>
+                    <key value="1031"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--1"/>
+                </entry>
+                <entry>
                     <key value="1030"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3"/>
                 </entry>
                 <entry>
-                    <key value="1031"/>
+                    <key value="1052"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--1"/>
                 </entry>
                 <entry>
@@ -2310,19 +2430,39 @@ return targeom
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--3"/>
                 </entry>
                 <entry>
-                    <key value="1050"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--1"/>
-                </entry>
-                <entry>
                     <key value="1051"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--1"/>
                 </entry>
                 <entry>
-                    <key value="1052"/>
+                    <key value="1050"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--1"/>
                 </entry>
                 <entry>
+                    <key value="1013"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--3"/>
+                </entry>
+                <entry>
                     <key value="1200"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1"/>
+                </entry>
+                <entry>
+                    <key value="1012"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--3"/>
+                </entry>
+                <entry>
+                    <key value="1022"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1--1---0-1"/>
+                </entry>
+                <entry>
+                    <key value="1060"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--1---0-2-0"/>
+                </entry>
+                <entry>
+                    <key value="1100"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-2--1"/>
+                </entry>
+                <entry>
+                    <key value="1014"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3-1"/>
                 </entry>
             </lookup-table>
@@ -2433,6 +2573,14 @@ return targeom
                     <key value="5310"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
+                <entry>
+                    <key value="5360"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="5370"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
@@ -2474,24 +2622,36 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="2341"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
-                </entry>
-                <entry>
-                    <key value="5610"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
-                </entry>
-                <entry>
-                    <key value="5620"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
+                    <key value="5640"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
                 <entry>
                     <key value="5630"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
                 <entry>
-                    <key value="5640"/>
+                    <key value="5620"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
+                </entry>
+                <entry>
+                    <key value="5610"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1"/>
+                </entry>
+                <entry>
+                    <key value="2341"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1200"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
+                <entry>
+                    <key value="2342"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
+                </entry>
+                <entry>
+                    <key value="5600"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -2685,6 +2845,22 @@ return targeom
                     <key value="4160"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
+                <entry>
+                    <key value="1200"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
+                <entry>
+                    <key value="4235"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="4275"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="4295"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
             </lookup-table>
         </complexParameter>
         <parameter value="null" name="notClassifiedAction"/>
@@ -2790,19 +2966,27 @@ return targeom
         <complexParameter name="lookupTable">
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
-                    <key value="2311"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
-                </entry>
-                <entry>
-                    <key value="2312"/>
-                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
+                    <key value="5130"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
                 <entry>
                     <key value="2313"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}4-2"/>
                 </entry>
                 <entry>
-                    <key value="5130"/>
+                    <key value="2312"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
+                </entry>
+                <entry>
+                    <key value="2311"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="2314"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="2315"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
                 </entry>
             </lookup-table>
@@ -3242,6 +3426,10 @@ return targeom
                 <entry>
                     <key value="5260"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}2-2--2"/>
+                </entry>
+                <entry>
+                    <key value="5270"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
                 </entry>
             </lookup-table>
         </complexParameter>
@@ -4315,6 +4503,18 @@ return targeom
             <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
                 <entry>
                     <key value="5501"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
+                </entry>
+                <entry>
+                    <key value="1200"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-2"/>
+                </entry>
+                <entry>
+                    <key value="5502"/>
+                    <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}3"/>
+                </entry>
+                <entry>
+                    <key value="5503"/>
                     <value value="{{project:LANDCOVER_OBSERVATION_CODELIST}}1-1"/>
                 </entry>
             </lookup-table>
