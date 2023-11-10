@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <hale-project version="5.1.0.SNAPSHOT">
-    <name>[Annex III] AdV LN 1.0.2 zu INSPIRE Existing Land Use</name>
+    <name>[Annex III] AdV LN 1.0 zu INSPIRE Existing Land Use</name>
     <author>Johanna Ott (wetransform)</author>
     <description>Transformationsprojekt für die Transformation von Daten aus LN_Landnutzung nach INSPIRE ExistingLandUse&#13;
 &#13;
@@ -16,12 +16,12 @@ Hinweis zur Nutzung der Projektvariablen:&#13;
     DATASET: id des ExistingLandUseDatasets --&gt; kann nach Wunsch verändert werden&#13;
     INSPIRE_NAMESPACE: gewünschten Namespace eingeben</description>
     <created>2020-10-14T14:40:19.238+02:00</created>
-    <modified>2023-08-25T08:46:20.517+02:00</modified>
+    <modified>2023-11-10T14:34:06.380+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings7.1/LandUse/Version%201.0.2/LN-Landnutzung7.1.0_INSPIRE-ELU.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings7.1/LandUse/LN-Landnutzung-1.0_INSPIRE-ELU.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
@@ -49,7 +49,7 @@ Hinweis zur Nutzung der Projektvariablen:&#13;
         <setting name="types">java.lang.String</setting>
         <setting name="quote">"</setting>
         <setting name="skip">True</setting>
-        <setting name="source">../SchemaExtentBundesland.csv</setting>
+        <setting name="source">SchemaExtentBundesland.csv</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
         <setting name="separator">	</setting>
         <setting name="escape">\</setting>
@@ -89,8 +89,8 @@ Hinweis zur Nutzung der Projektvariablen:&#13;
             </hsd:schema>
         </cache>
     </resource>
-    <file name="alignment.xml" location="LN-Landnutzung7.1.0_INSPIRE-ELU.halex.alignment.xml"/>
-    <file name="styles.sld" location="LN-Landnutzung7.1.0_INSPIRE-ELU.halex.styles.sld"/>
+    <file name="alignment.xml" location="LN-Landnutzung-1.0_INSPIRE-ELU.halex.alignment.xml"/>
+    <file name="styles.sld" location="LN-Landnutzung-1.0_INSPIRE-ELU.halex.styles.sld"/>
     <complex-property name="codelists">
         <associations>
             <codeList identifier="//inspire.ec.europa.eu/codelist/HILUCSValue" namespace="http://inspire.ec.europa.eu/codelist/HILUCSValue">
