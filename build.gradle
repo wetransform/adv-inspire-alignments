@@ -715,6 +715,6 @@ transformations.each { name, config ->
 /*
  * Gradle wrapper
  */
-task wrapper(type: Wrapper) {
+wrapper {
   gradleVersion = '7.6.1'
 }
