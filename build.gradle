@@ -1,10 +1,7 @@
 buildscript {
   repositories {
     maven {
-      url 'https://artifactory.wetransform.to/artifactory/libs-release-local'
-    }
-    maven {
-      url 'https://artifactory.wetransform.to/artifactory/libs-snapshot-local'
+      url 'https://artifactory.wetransform.to/artifactory/local'
     }
     jcenter()
   }
@@ -719,5 +716,5 @@ transformations.each { name, config ->
  * Gradle wrapper
  */
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.14'
+  gradleVersion = '7.6.1'
 }
