@@ -1,0 +1,2513 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+    <base prefix="ba1" location="../../../../annex-1/mappings/base-functions.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C8834325a-40e1-4ea7-91e3-65e49743595b" priority="normal">
+        <source>
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="creationDate" ns="http://www.opengis.net/citygml/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C5808e9b4-a104-419e-8391-eabc13fa087e" priority="normal">
+        <source>
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="yearOfConstruction" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="dateOfConstruction" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C265607dd-1002-477b-9ed4-8e112a56d1af" priority="normal">
+        <source>
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="yearOfDemolition" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="dateOfDemolition" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1963af33-725f-480a-a550-90ea772e652e" priority="normal">
+        <source>
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="terminationDate" ns="http://www.opengis.net/citygml/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C45da352c-58d5-4d3e-bf7c-f406abf7b058" priority="normal">
+        <source>
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="externalReference" ns="http://www.opengis.net/citygml/1.0"/>
+                <child name="informationSystem" ns="http://www.opengis.net/citygml/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="externalReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="ExternalReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="informationSystem" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca00d9c68-a3bc-4553-8cc4-673d67432b7a" priority="normal">
+        <source>
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="externalReference" ns="http://www.opengis.net/citygml/1.0"/>
+                <child name="externalObject" ns="http://www.opengis.net/citygml/1.0"/>
+                <child name="choice_1" ns="http://www.opengis.net/citygml/1.0/ExternalObjectReferenceType"/>
+                <child name="name" ns="http://www.opengis.net/citygml/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="externalReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="ExternalReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="informationSystemName" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="choice" ns="http://www.isotc211.org/2005/gco/CharacterString"/>
+                <child name="CharacterString" ns="http://www.isotc211.org/2005/gco"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C2ccbafc7-2be2-47fa-88d8-1c09de1404f9" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="externalReference" ns="http://www.opengis.net/citygml/1.0"/>
+                <child name="externalObject" ns="http://www.opengis.net/citygml/1.0"/>
+                <child name="choice_1" ns="http://www.opengis.net/citygml/1.0/ExternalObjectReferenceType"/>
+                <child name="name" ns="http://www.opengis.net/citygml/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="externalReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="ExternalReference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="reference" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="urn:adv:oid:{name}" name="pattern"/>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca1e86e1d-bc3b-48eb-86ee-61b18bd67a57" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C97122210-1870-478e-b13f-7a4e569dba0f" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C10e6cead-ff13-4288-beef-a51f83dfb85a" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="id" ns="http://www.opengis.net/gml"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C6e56b446-1eec-4aac-afec-7b7a59c4e87e" priority="normal">
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C50f2acfa-0c8e-412d-85d0-85ffd67b5f49" priority="normal">
+        <source>
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/name"/>
+                <child name="name" ns="http://www.opengis.net/gml"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="name" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd785e4fe-80dc-449a-beaa-2bbbe2ff2ab7" priority="normal">
+        <source>
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="choice" ns="http://www.opengis.net/gml/name"/>
+                <child name="name" ns="http://www.opengis.net/gml"/>
+                <child name="codeSpace"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="name" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+        <documentation>Attribut wird von AbstractBuilding an Building und BuildingPart vererbt und daher auf dieser Ebene gemappt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C0e6483c9-0bcf-41e8-b2fc-f24e66f80b75" priority="normal">
+        <source>
+            <property>
+                <type name="AbstractBuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="storeysAboveGround" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AbstractBuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="numberOfFloorsAboveGround" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Cab73a9d8-d7ff-40ca-b5e2-a9d8c5c24f6d" priority="normal">
+        <source>
+            <class>
+                <type name="BuildingPartType" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="BuildingPartType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def v_status&#xD;
+def v_status_void&#xD;
+def v_height&#xD;
+def v_height_void&#xD;
+def horacc&#xD;
+def veracc&#xD;
+def lod1Solid&#xD;
+def lod1MultiSurface&#xD;
+def lod1Terrain&#xD;
+def lod2Solid&#xD;
+def lod2MultiSurface&#xD;
+def lod2Terrain&#xD;
+//laut Building-Workshop AdV &amp; wetransform am 26.06.2018 keine Bildung von lod3- und lod4-Geometrien&#xD;
+/*def lod3Solid&#xD;
+def lod3MultiSurface&#xD;
+def lod3Terrain&#xD;
+def lod4Solid&#xD;
+def lod4MultiSurfaceab&#xD;
+def lod4Terrain*/&#xD;
+	&#xD;
+_source.p.stringAttribute.each {&#xD;
+	def name = it.p.name.value()&#xD;
+	&#xD;
+	if (name.equals('DatenquelleDachhoehe')){&#xD;
+		if (it.p.value.value().equals('2000') || it.p.value.value().equals('3000')){&#xD;
+			v_status = 'http://inspire.ec.europa.eu/codelist/HeightStatusValue/estimated'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('5000') || it.p.value.value().equals('6000') || it.p.value.value().equals('4000') || it.p.value.value().equals('1000')){&#xD;
+			v_status = 'http://inspire.ec.europa.eu/codelist/HeightStatusValue/measured'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('5000') || it.p.value.value().equals('2000')){&#xD;
+			veracc = 1&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('6000')){&#xD;
+			veracc = 0.1&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('3000')){&#xD;
+			veracc = 2&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('4000') || it.p.value.value().equals('1000')){&#xD;
+			veracc = 0.5&#xD;
+		}&#xD;
+	}&#xD;
+	&#xD;
+	/*if (name.equals('DatenquelleBodenhoehe')){&#xD;
+		v_status_void = 'other:unpopulated'&#xD;
+	}*/&#xD;
+	&#xD;
+	if (name.equals('BezugspunktDach')){&#xD;
+		if (it.p.value.value().equals('2200') || it.p.value.value().equals('2100') || it.p.value.value().equals('2000')){&#xD;
+			v_height = 'http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalRoof'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('1000')){&#xD;
+			v_height = 'http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/highestRoofEdge'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('3000')){&#xD;
+			v_height = 'http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalEave'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('4000')){&#xD;
+			v_height_void = 'other:unpopulated'&#xD;
+		}&#xD;
+	}&#xD;
+	&#xD;
+	if (name.equals('DatenquelleLage')){&#xD;
+		if (it.p.value.value().equals('1300')){&#xD;
+			horacc = 0.3&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('1000')|| it.p.value.value().equals('1200')){&#xD;
+			horacc = 0.5&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('1100')){&#xD;
+			horacc = 0.03&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('3000')){&#xD;
+			horacc = 5&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('2000')){&#xD;
+			horacc = 0.6&#xD;
+		}&#xD;
+	} &#xD;
+}&#xD;
+&#xD;
+lod1MultiSurface = _.geom.find(_source.p.lod1MultiSurface.first())&#xD;
+lod1Solid = _.geom.find(_source.p.lod1Solid.first())&#xD;
+lod1Terrain = _.geom.find(_source.p.lod1TerrainIntersection.first())&#xD;
+if (!lod1Terrain){&#xD;
+	lod1Terrain = _.geom.find(_source.p.lod2TerrainIntersection.first())&#xD;
+}&#xD;
+&#xD;
+lod2MultiSurface = _.geom.find(_source.p.lod2MultiSurface.first())&#xD;
+if (!lod2MultiSurface){&#xD;
+	def surfaces = []&#xD;
+	surfaces.addAll( _.geom.findAll(_source.p.boundedBy('http://www.opengis.net/citygml/building/1.0').'*'.'*'.lod2MultiSurface.list()) )&#xD;
+	lod2MultiSurface = _.geom.aggregate(surfaces)&#xD;
+}&#xD;
+lod2Solid = _.geom.find(_source.p.lod2Solid.first())&#xD;
+lod2Terrain = _.geom.find(_source.p.lod2TerrainIntersection.first())&#xD;
+//laut Mail von Herrn Fuchs vom 10.12.2018 darf eine vorkommenden Angabe aus LoD1 nicht für die Erzeugung von LoD2 genutzt werden.&#xD;
+/*if (!lod2Terrain){&#xD;
+	lod2Terrain = _.geom.find(_source.p.lod1TerrainIntersection.first())&#xD;
+}*/&#xD;
+&#xD;
+//laut Building-Workshop AdV &amp; wetransform am 26.06.2018 keine Bildung von lod3- und lod4-Geometrien&#xD;
+/*lod3MultiSurface = _.geom.find(_source.p.lod3MultiSurface.first())&#xD;
+if (!lod3MultiSurface){&#xD;
+	def surfaces = []&#xD;
+	surfaces.addAll( _.geom.findAll(_source.p.boundedBy('http://www.opengis.net/citygml/building/1.0').'*'.'*'.lod3MultiSurface.list()) )&#xD;
+	lod3MultiSurface = _.geom.aggregate(surfaces)&#xD;
+}&#xD;
+lod3Solid = _.geom.find(_source.p.lod3Solid.first())&#xD;
+lod3Terrain = _.geom.find(_source.p.lod3TerrainIntersection.first())&#xD;
+&#xD;
+lod4MultiSurface = _.geom.find(_source.p.lod4MultiSurface.first())&#xD;
+if (!lod4MultiSurface){&#xD;
+	def surfaces = []&#xD;
+	surfaces.addAll( _.geom.findAll(_source.p.boundedBy('http://www.opengis.net/citygml/building/1.0').'*'.'*'.lod4MultiSurface.list()) )&#xD;
+	lod4MultiSurface = _.geom.aggregate(surfaces)&#xD;
+}&#xD;
+lod4Solid = _.geom.find(_source.p.lod4Solid.first())&#xD;
+lod4Terrain = _.geom.find(_source.p.lod4TerrainIntersection.first())*/&#xD;
+&#xD;
+_b.strictValueFlags = false&#xD;
+&#xD;
+_target{&#xD;
+	if (_source.p.measuredHeight.value()){&#xD;
+		heightAboveGround {		&#xD;
+			HeightAboveGround {&#xD;
+				if(v_height){&#xD;
+					heightReference {&#xD;
+						href( v_height )&#xD;
+					}&#xD;
+				}&#xD;
+				if(v_height_void){&#xD;
+					heightReference {&#xD;
+						nilReason( v_height_void )&#xD;
+					}&#xD;
+				}&#xD;
+				lowReference {&#xD;
+					nilReason( 'unknown' )&#xD;
+				}&#xD;
+				if(v_status){&#xD;
+					status {&#xD;
+						href( v_status )&#xD;
+					}&#xD;
+				}&#xD;
+				if(v_status_void){&#xD;
+					status {&#xD;
+						nilReason( v_status_void )&#xD;
+					}&#xD;
+				}&#xD;
+				value( _source.p.measuredHeight.value() ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+		if (!_source.p.measuredHeight.value()){&#xD;
+			nilReason( 'unknown' )&#xD;
+		}&#xD;
+	}&#xD;
+	&#xD;
+	if(lod1MultiSurface || lod1Solid || lod1Terrain){&#xD;
+		geometry3DLoD1 {&#xD;
+			BuildingGeometry3DLoD1 {&#xD;
+				if (horacc){&#xD;
+					horizontalGeometryEstimatedAccuracy( horacc ) {&#xD;
+						uom( 'm' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (!horacc){&#xD;
+					horizontalGeometryEstimatedAccuracy {&#xD;
+						nilReason( 'other:unpopulated' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (veracc){&#xD;
+					verticalGeometryEstimatedAccuracy( veracc ) {&#xD;
+						uom( 'm' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (lod1MultiSurface){&#xD;
+					geometryMultiSurface (&#xD;
+						lod1MultiSurface&#xD;
+					)&#xD;
+				}&#xD;
+				else if (lod1Solid){&#xD;
+					geometrySolid (&#xD;
+						lod1Solid&#xD;
+					)&#xD;
+				}&#xD;
+				if (lod1Terrain){&#xD;
+					terrainIntersection (&#xD;
+						lod1Terrain&#xD;
+					)	&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+	if(lod2MultiSurface || lod2Solid || lod2Terrain){&#xD;
+		geometry3DLoD2 {&#xD;
+			BuildingGeometry3DLoD2 {&#xD;
+				if (horacc){&#xD;
+					horizontalGeometryEstimatedAccuracy( horacc ) {&#xD;
+						uom( 'm' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (!horacc){&#xD;
+					horizontalGeometryEstimatedAccuracy {&#xD;
+						nilReason( 'other:unpopulated' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (veracc){&#xD;
+					verticalGeometryEstimatedAccuracy( veracc ) {&#xD;
+						uom( 'm' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (lod2MultiSurface){&#xD;
+					geometryMultiSurface (&#xD;
+						lod2MultiSurface&#xD;
+					)&#xD;
+				}&#xD;
+				else if (lod2Solid){&#xD;
+					geometrySolid (&#xD;
+						lod2Solid&#xD;
+					)&#xD;
+				}&#xD;
+				if (lod2Terrain){&#xD;
+					terrainIntersection (&#xD;
+						lod2Terrain&#xD;
+					)	&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+	//laut Building-Workshop AdV &amp; wetransform am 26.06.2018 keine Bildung von lod3- und lod4-Geometrien&#xD;
+	/*if(lod3MultiSurface || lod3Solid || lod3Terrain){&#xD;
+		geometry3DLoD3 {&#xD;
+			BuildingGeometry3DLoD {&#xD;
+				horizontalGeometryEstimatedAccuracy( horacc ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+				verticalGeometryEstimatedAccuracy( veracc ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+				if (lod3MultiSurface){&#xD;
+					geometryMultiSurface (&#xD;
+						lod3MultiSurface&#xD;
+					)&#xD;
+				}&#xD;
+				else if (lod3Solid){&#xD;
+					geometrySolid (&#xD;
+						lod3Solid&#xD;
+					)&#xD;
+				}&#xD;
+				if (lod3Terrain){&#xD;
+					terrainIntersection (&#xD;
+						lod3Terrain&#xD;
+					)	&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+	if(lod4MultiSurface || lod4Solid || lod4Terrain){&#xD;
+		geometry3DLoD4 {&#xD;
+			BuildingGeometry3DLoD {&#xD;
+				&#xD;
+				horizontalGeometryEstimatedAccuracy( horacc ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+				verticalGeometryEstimatedAccuracy( veracc ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+				if (lod4MultiSurface){&#xD;
+					geometryMultiSurface (&#xD;
+						lod4MultiSurface&#xD;
+					)&#xD;
+				}&#xD;
+				else if (lod4Solid){&#xD;
+					geometrySolid (&#xD;
+						lod4Solid&#xD;
+					)&#xD;
+				}&#xD;
+				if (lod4Terrain){&#xD;
+					terrainIntersection (&#xD;
+						lod4Terrain&#xD;
+					)	&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}*/&#xD;
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C44142715-cb4c-426f-92cf-128a2fa0ff08" priority="normal">
+        <target>
+            <property>
+                <type name="BuildingPartType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="conditionOfConstruction" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C783a4b74-746d-40a9-9d7a-012531cb4536" priority="normal">
+        <source>
+            <property>
+                <type name="BuildingPartType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="lod3TerrainIntersection" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingPartType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="geometry3DLoD3" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0/BuildingGeometry3DLoD"/>
+                <child name="BuildingGeometry3DLoD" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="terrainIntersection" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C280e53d4-2a2b-4215-a9df-df2dfc5eb8ee" priority="normal">
+        <target>
+            <property>
+                <type name="BuildingPartType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="Ce153dfee-729d-464f-ab84-50490ec0e250" priority="normal">
+        <source>
+            <class>
+                <type name="BuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def v_status&#xD;
+def v_status_void&#xD;
+def v_height&#xD;
+def v_height_void&#xD;
+def horacc&#xD;
+def veracc&#xD;
+def lod1Solid&#xD;
+def lod1MultiSurface&#xD;
+def lod1Terrain&#xD;
+def lod2Solid&#xD;
+def lod2MultiSurface&#xD;
+def lod2Terrain&#xD;
+//laut Building-Workshop AdV &amp; wetransform am 26.06.2018 keine Bildung von lod3- und lod4-Geometrien&#xD;
+/*def lod3Solid&#xD;
+def lod3MultiSurface&#xD;
+def lod3Terrain&#xD;
+def lod4Solid&#xD;
+def lod4MultiSurfaceab&#xD;
+def lod4Terrain*/&#xD;
+	&#xD;
+_source.p.stringAttribute.each {&#xD;
+	def name = it.p.name.value()&#xD;
+	&#xD;
+	if (name.equals('DatenquelleDachhoehe')){&#xD;
+		if (it.p.value.value().equals('2000') || it.p.value.value().equals('3000')){&#xD;
+			v_status = 'http://inspire.ec.europa.eu/codelist/HeightStatusValue/estimated'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('5000') || it.p.value.value().equals('6000') || it.p.value.value().equals('4000') || it.p.value.value().equals('1000')){&#xD;
+			v_status = 'http://inspire.ec.europa.eu/codelist/HeightStatusValue/measured'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('5000') || it.p.value.value().equals('2000')){&#xD;
+			veracc = 1&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('6000')){&#xD;
+			veracc = 0.1&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('3000')){&#xD;
+			veracc = 2&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('4000') || it.p.value.value().equals('1000')){&#xD;
+			veracc = 0.5&#xD;
+		}&#xD;
+	}&#xD;
+	&#xD;
+	/*if (name.equals('DatenquelleBodenhoehe')){&#xD;
+		v_status_void = 'other:unpopulated'&#xD;
+	}*/&#xD;
+	&#xD;
+	if (name.equals('BezugspunktDach')){&#xD;
+		if (it.p.value.value().equals('2200') || it.p.value.value().equals('2100') || it.p.value.value().equals('2000')){&#xD;
+			v_height = 'http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalRoof'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('1000')){&#xD;
+			v_height = 'http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/highestRoofEdge'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('3000')){&#xD;
+			v_height = 'http://inspire.ec.europa.eu/codelist/ElevationReferenceValue/generalEave'&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('4000')){&#xD;
+			v_height_void = 'other:unpopulated'&#xD;
+		}&#xD;
+	}&#xD;
+	&#xD;
+	if (name.equals('DatenquelleLage')){&#xD;
+		if (it.p.value.value().equals('1300')){&#xD;
+			horacc = 0.3&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('1000')|| it.p.value.value().equals('1200')){&#xD;
+			horacc = 0.5&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('1100')){&#xD;
+			horacc = 0.03&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('3000')){&#xD;
+			horacc = 5&#xD;
+		}&#xD;
+		if (it.p.value.value().equals('2000')){&#xD;
+			horacc = 0.6&#xD;
+		}&#xD;
+	} &#xD;
+}&#xD;
+&#xD;
+lod1MultiSurface = _.geom.find(_source.p.lod1MultiSurface.first())&#xD;
+lod1Solid = _.geom.find(_source.p.lod1Solid.first())&#xD;
+lod1Terrain = _.geom.find(_source.p.lod1TerrainIntersection.first())&#xD;
+if (!lod1Terrain){&#xD;
+	lod1Terrain = _.geom.find(_source.p.lod2TerrainIntersection.first())&#xD;
+}&#xD;
+&#xD;
+lod2MultiSurface = _.geom.find(_source.p.lod2MultiSurface.first())&#xD;
+if (!lod2MultiSurface){&#xD;
+	def surfaces = []&#xD;
+	surfaces.addAll( _.geom.findAll(_source.p.boundedBy('http://www.opengis.net/citygml/building/1.0').'*'.'*'.lod2MultiSurface.list()) )&#xD;
+	lod2MultiSurface = _.geom.aggregate(surfaces)&#xD;
+}&#xD;
+lod2Solid = _.geom.find(_source.p.lod2Solid.first())&#xD;
+lod2Terrain = _.geom.find(_source.p.lod2TerrainIntersection.first())&#xD;
+//laut Mail von Herrn Fuchs vom 10.12.2018 darf eine vorkommenden Angabe aus LoD1 nicht für die Erzeugung von LoD2 genutzt werden.&#xD;
+/*if (!lod2Terrain){&#xD;
+	lod2Terrain = _.geom.find(_source.p.lod1TerrainIntersection.first())&#xD;
+}*/&#xD;
+&#xD;
+//laut Building-Workshop AdV &amp; wetransform am 26.06.2018 keine Bildung von lod3- und lod4-Geometrien&#xD;
+/*lod3MultiSurface = _.geom.find(_source.p.lod3MultiSurface.first())&#xD;
+if (!lod3MultiSurface){&#xD;
+	def surfaces = []&#xD;
+	surfaces.addAll( _.geom.findAll(_source.p.boundedBy('http://www.opengis.net/citygml/building/1.0').'*'.'*'.lod3MultiSurface.list()) )&#xD;
+	lod3MultiSurface = _.geom.aggregate(surfaces)&#xD;
+}&#xD;
+lod3Solid = _.geom.find(_source.p.lod3Solid.first())&#xD;
+lod3Terrain = _.geom.find(_source.p.lod3TerrainIntersection.first())&#xD;
+&#xD;
+lod4MultiSurface = _.geom.find(_source.p.lod4MultiSurface.first())&#xD;
+if (!lod4MultiSurface){&#xD;
+	def surfaces = []&#xD;
+	surfaces.addAll( _.geom.findAll(_source.p.boundedBy('http://www.opengis.net/citygml/building/1.0').'*'.'*'.lod4MultiSurface.list()) )&#xD;
+	lod4MultiSurface = _.geom.aggregate(surfaces)&#xD;
+}&#xD;
+lod4Solid = _.geom.find(_source.p.lod4Solid.first())&#xD;
+lod4Terrain = _.geom.find(_source.p.lod4TerrainIntersection.first())*/&#xD;
+&#xD;
+_b.strictValueFlags = false&#xD;
+&#xD;
+_target{&#xD;
+	if (_source.p.measuredHeight.value()){&#xD;
+		heightAboveGround {		&#xD;
+			HeightAboveGround {&#xD;
+				if(v_height){&#xD;
+					heightReference {&#xD;
+						href( v_height )&#xD;
+					}&#xD;
+				}&#xD;
+				if(v_height_void){&#xD;
+					heightReference {&#xD;
+						nilReason( v_height_void )&#xD;
+					}&#xD;
+				}&#xD;
+				lowReference {&#xD;
+					nilReason( 'unknown' )&#xD;
+				}&#xD;
+				if(v_status){&#xD;
+					status {&#xD;
+						href( v_status )&#xD;
+					}&#xD;
+				}&#xD;
+				if(v_status_void){&#xD;
+					status {&#xD;
+						nilReason( v_status_void )&#xD;
+					}&#xD;
+				}&#xD;
+				value( _source.p.measuredHeight.value() ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+		if (!_source.p.measuredHeight.value()){&#xD;
+			nilReason( 'unknown' )&#xD;
+		}&#xD;
+	}&#xD;
+	&#xD;
+	if(lod1MultiSurface || lod1Solid || lod1Terrain){&#xD;
+		geometry3DLoD1 {&#xD;
+			BuildingGeometry3DLoD1 {&#xD;
+				if (horacc){&#xD;
+					horizontalGeometryEstimatedAccuracy( horacc ) {&#xD;
+						uom( 'm' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (!horacc){&#xD;
+					horizontalGeometryEstimatedAccuracy {&#xD;
+						nilReason( 'other:unpopulated' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (veracc){&#xD;
+					verticalGeometryEstimatedAccuracy( veracc ) {&#xD;
+						uom( 'm' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (lod1MultiSurface){&#xD;
+					geometryMultiSurface (&#xD;
+						lod1MultiSurface&#xD;
+					)&#xD;
+				}&#xD;
+				else if (lod1Solid){&#xD;
+					geometrySolid (&#xD;
+						lod1Solid&#xD;
+					)&#xD;
+				}&#xD;
+				if (lod1Terrain){&#xD;
+					terrainIntersection (&#xD;
+						lod1Terrain&#xD;
+					)	&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+	if(lod2MultiSurface || lod2Solid || lod2Terrain){&#xD;
+		geometry3DLoD2 {&#xD;
+			BuildingGeometry3DLoD2 {&#xD;
+				if (horacc){&#xD;
+					horizontalGeometryEstimatedAccuracy( horacc ) {&#xD;
+						uom( 'm' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (!horacc){&#xD;
+					horizontalGeometryEstimatedAccuracy {&#xD;
+						nilReason( 'other:unpopulated' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (veracc){&#xD;
+					verticalGeometryEstimatedAccuracy( veracc ) {&#xD;
+						uom( 'm' )&#xD;
+					}&#xD;
+				}&#xD;
+				if (lod2MultiSurface){&#xD;
+					geometryMultiSurface (&#xD;
+						lod2MultiSurface&#xD;
+					)&#xD;
+				}&#xD;
+				else if (lod2Solid){&#xD;
+					geometrySolid (&#xD;
+						lod2Solid&#xD;
+					)&#xD;
+				}&#xD;
+				if (lod2Terrain){&#xD;
+					terrainIntersection (&#xD;
+						lod2Terrain&#xD;
+					)	&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+	//laut Building-Workshop AdV &amp; wetransform am 26.06.2018 keine Bildung von lod3- und lod4-Geometrien&#xD;
+	/*if(lod3MultiSurface || lod3Solid || lod3Terrain){&#xD;
+		geometry3DLoD3 {&#xD;
+			BuildingGeometry3DLoD {&#xD;
+				horizontalGeometryEstimatedAccuracy( horacc ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+				verticalGeometryEstimatedAccuracy( veracc ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+				if (lod3MultiSurface){&#xD;
+					geometryMultiSurface (&#xD;
+						lod3MultiSurface&#xD;
+					)&#xD;
+				}&#xD;
+				else if (lod3Solid){&#xD;
+					geometrySolid (&#xD;
+						lod3Solid&#xD;
+					)&#xD;
+				}&#xD;
+				if (lod3Terrain){&#xD;
+					terrainIntersection (&#xD;
+						lod3Terrain&#xD;
+					)	&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+	if(lod4MultiSurface || lod4Solid || lod4Terrain){&#xD;
+		geometry3DLoD4 {&#xD;
+			BuildingGeometry3DLoD {&#xD;
+				&#xD;
+				horizontalGeometryEstimatedAccuracy( horacc ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+				verticalGeometryEstimatedAccuracy( veracc ) {&#xD;
+					uom( 'm' )&#xD;
+				}&#xD;
+				if (lod4MultiSurface){&#xD;
+					geometryMultiSurface (&#xD;
+						lod4MultiSurface&#xD;
+					)&#xD;
+				}&#xD;
+				else if (lod4Solid){&#xD;
+					geometrySolid (&#xD;
+						lod4Solid&#xD;
+					)&#xD;
+				}&#xD;
+				if (lod4Terrain){&#xD;
+					terrainIntersection (&#xD;
+						lod4Terrain&#xD;
+					)	&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}*/&#xD;
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C47ce72a2-7fbb-418c-8dee-c5d945b1307d" priority="normal">
+        <source>
+            <property>
+                <type name="BuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="function" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="buildingNature" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="31001_2211"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/windmill"/>
+                </entry>
+                <entry>
+                    <key value="31001_2723"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/shed"/>
+                </entry>
+                <entry>
+                    <key value="31001_2740"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/greenhouse"/>
+                </entry>
+                <entry>
+                    <key value="31001_2741"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/greenhouse"/>
+                </entry>
+                <entry>
+                    <key value="31001_2742"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/greenhouse"/>
+                </entry>
+                <entry>
+                    <key value="31001_3038"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/castle"/>
+                </entry>
+                <entry>
+                    <key value="31001_3041"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/church"/>
+                </entry>
+                <entry>
+                    <key value="31001_3042"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/synagogue"/>
+                </entry>
+                <entry>
+                    <key value="31001_3043"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/chapel"/>
+                </entry>
+                <entry>
+                    <key value="31001_3046"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/mosque"/>
+                </entry>
+                <entry>
+                    <key value="31001_3047"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/temple"/>
+                </entry>
+                <entry>
+                    <key value="31001_3074"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/bunker"/>
+                </entry>
+                <entry>
+                    <key value="51007_1410"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/castle"/>
+                </entry>
+                <entry>
+                    <key value="51007_1210"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/tower"/>
+                </entry>
+                <entry>
+                    <key value="51007_1100"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="51007_1110"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="53008_1420"/>
+                    <value value="{{project:BUILDINGNATURE}}leuchtfeuer"/>
+                </entry>
+                <entry>
+                    <key value="53005_2100"/>
+                    <value value="{{project:BUILDINGNATURE}}schwebebahn"/>
+                </entry>
+                <entry>
+                    <key value="53005_2200"/>
+                    <value value="{{project:BUILDINGNATURE}}schwebebahn"/>
+                </entry>
+                <entry>
+                    <key value="53005_2300"/>
+                    <value value="{{project:BUILDINGNATURE}}schwebebahn"/>
+                </entry>
+                <entry>
+                    <key value="53005_2500"/>
+                    <value value="{{project:BUILDINGNATURE}}schwebebahn"/>
+                </entry>
+                <entry>
+                    <key value="53005_2600"/>
+                    <value value="{{project:BUILDINGNATURE}}schwebebahn"/>
+                </entry>
+                <entry>
+                    <key value="53009_2030"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/dam"/>
+                </entry>
+                <entry>
+                    <key value="53009_2040"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/dam"/>
+                </entry>
+                <entry>
+                    <key value="53009_2050"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="53009_2060"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="53009_2070"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="53009_2080"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="53009_2090"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="53001_1800"/>
+                    <value value="{{project:BUILDINGNATURE}}bruecke"/>
+                </entry>
+                <entry>
+                    <key value="53001_1830"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="53001_1880"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="53001_1890"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="51002_1220"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/windTurbine"/>
+                </entry>
+                <entry>
+                    <key value="51002_1250"/>
+                    <value value="{{project:BUILDINGNATURE}}mast"/>
+                </entry>
+                <entry>
+                    <key value="51002_1251"/>
+                    <value value="{{project:BUILDINGNATURE}}mast"/>
+                </entry>
+                <entry>
+                    <key value="51002_1260"/>
+                    <value value="{{project:BUILDINGNATURE}}mast"/>
+                </entry>
+                <entry>
+                    <key value="51002_1290"/>
+                    <value value="{{project:BUILDINGNATURE}}schornstein"/>
+                </entry>
+                <entry>
+                    <key value="51002_1340"/>
+                    <value value="{{project:BUILDINGNATURE}}trockendock"/>
+                </entry>
+                <entry>
+                    <key value="51002_1270"/>
+                    <value value="{{project:BUILDINGNATURE}}antenneTeleskop"/>
+                </entry>
+                <entry>
+                    <key value="51002_1280"/>
+                    <value value="{{project:BUILDINGNATURE}}antenneTeleskop"/>
+                </entry>
+                <entry>
+                    <key value="51006_1430"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/stadium"/>
+                </entry>
+                <entry>
+                    <key value="51006_1440"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/stadium"/>
+                </entry>
+                <entry>
+                    <key value="51006_1470"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/stadium"/>
+                </entry>
+                <entry>
+                    <key value="51006_1490"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="51005_1110"/>
+                    <value value="{{project:BUILDINGNATURE}}freileitung"/>
+                </entry>
+                <entry>
+                    <key value="51009_1610"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/canopy"/>
+                </entry>
+                <entry>
+                    <key value="51009_1611"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/canopy"/>
+                </entry>
+                <entry>
+                    <key value="51009_1700"/>
+                    <value value="{{project:BUILDINGNATURE}}sonstiges"/>
+                </entry>
+                <entry>
+                    <key value="51001_1006"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/lighthouse"/>
+                </entry>
+                <entry>
+                    <key value="51001_1001"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/tower"/>
+                </entry>
+                <entry>
+                    <key value="51001_1002"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/tower"/>
+                </entry>
+                <entry>
+                    <key value="51001_1003"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/tower"/>
+                </entry>
+                <entry>
+                    <key value="51001_1004"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/tower"/>
+                </entry>
+                <entry>
+                    <key value="51001_1005"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/tower"/>
+                </entry>
+                <entry>
+                    <key value="51001_1007"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/tower"/>
+                </entry>
+                <entry>
+                    <key value="51001_1008"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/tower"/>
+                </entry>
+                <entry>
+                    <key value="51001_1009"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/tower"/>
+                </entry>
+                <entry>
+                    <key value="51003_1201"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/silo"/>
+                </entry>
+                <entry>
+                    <key value="51003_1205"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/storageTank"/>
+                </entry>
+                <entry>
+                    <key value="51003_1206"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/BuildingNatureValue/storageTank"/>
+                </entry>
+                <entry>
+                    <key value="52003_1010"/>
+                    <value value="{{project:BUILDINGNATURE}}schleuse"/>
+                </entry>
+                <entry>
+                    <key value="52003_1020"/>
+                    <value value="{{project:BUILDINGNATURE}}schleuse"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf80e30a1-e355-4c30-a897-371f55a8af14" priority="normal">
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="conditionOfConstruction" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cf5c43550-6d79-4914-a270-d3dc99f41ef6" priority="normal">
+        <source>
+            <property>
+                <type name="BuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="function" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0">
+                    <context>0</context>
+                </child>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="31001_1120"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_1121"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_1122"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_1123"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_1130"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="31001_1131"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="31001_1210"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_1220"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_1221"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_1222"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_1223"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2320"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="31001_3100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C46685bc5-8008-42f9-b512-a7570fc45e09" priority="normal">
+        <source>
+            <property>
+                <type name="BuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="function" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0">
+                    <context>1</context>
+                </child>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="31001_2320"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C32db8b2e-57e6-4c9f-8d4a-5eb2f86662fc" priority="normal">
+        <source>
+            <property>
+                <type name="BuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="function" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="CurrentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="currentUse" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="31001_1000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1010"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1020"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residenceForCommunities"/>
+                </entry>
+                <entry>
+                    <key value="31001_1021"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residenceForCommunities"/>
+                </entry>
+                <entry>
+                    <key value="31001_1022"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residenceForCommunities"/>
+                </entry>
+                <entry>
+                    <key value="31001_1023"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residenceForCommunities"/>
+                </entry>
+                <entry>
+                    <key value="31001_1024"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residenceForCommunities"/>
+                </entry>
+                <entry>
+                    <key value="31001_1025"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residenceForCommunities"/>
+                </entry>
+                <entry>
+                    <key value="31001_1100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1110"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1120"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1121"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1122"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1123"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1130"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1131"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1210"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1220"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1221"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1222"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1223"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1311"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1312"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_1313"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_2000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="31001_2010"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2020"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/office"/>
+                </entry>
+                <entry>
+                    <key value="31001_2030"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2040"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2050"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/trade"/>
+                </entry>
+                <entry>
+                    <key value="31001_2051"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/trade"/>
+                </entry>
+                <entry>
+                    <key value="31001_2052"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/trade"/>
+                </entry>
+                <entry>
+                    <key value="31001_2053"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/trade"/>
+                </entry>
+                <entry>
+                    <key value="31001_2054"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/trade"/>
+                </entry>
+                <entry>
+                    <key value="31001_2055"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/trade"/>
+                </entry>
+                <entry>
+                    <key value="31001_2056"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/trade"/>
+                </entry>
+                <entry>
+                    <key value="31001_2060"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/trade"/>
+                </entry>
+                <entry>
+                    <key value="31001_2070"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2071"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2072"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2073"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2074"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2080"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2081"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2082"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2083"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2090"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2091"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2092"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2093"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2094"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_2100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="31001_2110"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2111"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2112"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2113"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2114"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2120"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2121"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2130"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2131"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2140"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2141"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2142"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2143"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2150"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2160"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2170"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2171"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2172"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2180"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2200"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2210"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2211"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2212"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2213"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2220"/>
+                    <value value="{{project:CURRENTUSE}}industrie"/>
+                </entry>
+                <entry>
+                    <key value="31001_2310"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_2320"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_2400"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2410"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2411"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2412"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2420"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2421"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2422"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2423"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2424"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2430"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2431"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2440"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2443"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2444"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2450"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2451"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2460"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2461"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2462"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2463"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2464"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2465"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="31001_2500"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2501"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2510"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2511"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2512"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2513"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2520"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2521"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2522"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2523"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2527"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2528"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2529"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2540"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2560"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2570"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2571"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2580"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2590"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2591"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2600"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2610"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2611"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2612"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2620"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2621"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2622"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2623"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="31001_2700"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2720"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2721"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2723"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2724"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2726"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2727"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2728"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2729"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2732"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2735"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2740"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2741"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_2742"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/agriculture"/>
+                </entry>
+                <entry>
+                    <key value="31001_3000"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3010"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3011"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3012"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3013"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3014"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3015"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3016"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3017"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3018"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3019"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3020"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3021"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3022"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3023"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3024"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3030"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3031"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3032"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3033"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3034"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3035"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3036"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3037"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3038"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3040"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3041"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3042"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3043"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3044"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3045"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3046"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3047"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3048"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3050"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3051"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3052"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3053"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3060"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3061"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3062"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3063"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3064"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3065"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3066"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3070"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3071"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3072"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3073"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3074"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3075"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3080"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3081"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3082"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3090"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3091"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3092"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3094"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3095"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3097"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3098"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/residential"/>
+                </entry>
+                <entry>
+                    <key value="31001_3200"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3210"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3211"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3212"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3220"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3221"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3222"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3230"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3240"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3241"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3242"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3260"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3261"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3262"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3263"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3264"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3270"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3271"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3272"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3273"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3280"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3281"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="31001_3290"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="53008_1420"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="51005_1110"/>
+                    <value value="{{project:CURRENTUSE}}versorgungEntsorgung"/>
+                </entry>
+                <entry>
+                    <key value="53005_2100"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="53005_2200"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="53005_2300"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="53005_2500"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="53005_2600"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="53001_1800"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="53001_1830"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="53001_1880"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="53001_1890"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="52003_1010"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="52003_1020"/>
+                    <value value="{{project:CURRENTUSE}}verkehr"/>
+                </entry>
+                <entry>
+                    <key value="53009_2030"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="53009_2040"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="53009_2050"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="53009_2060"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="53009_2070"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="53009_2080"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="53009_2090"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51009_1610"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51009_1611"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51009_1700"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51007_1100"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51007_1110"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51007_1210"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51007_1410"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1001"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1002"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1003"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1004"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1005"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1006"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1007"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1008"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1009"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1010"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1011"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_1012"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_9998"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51001_9999"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/ancillary"/>
+                </entry>
+                <entry>
+                    <key value="51006_1430"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="51006_1431"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="51006_1432"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="51006_1440"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="51006_1470"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="51006_1490"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/publicServices"/>
+                </entry>
+                <entry>
+                    <key value="51003_1201"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51003_1203"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51003_1205"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51003_1206"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1215"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1220"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1250"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1260"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1270"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1280"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1290"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1330"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1331"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1332"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1333"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1340"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+                <entry>
+                    <key value="51002_1350"/>
+                    <value value="http://inspire.ec.europa.eu/codelist/CurrentUseValue/industrial"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc208c115-5e81-45ad-82cc-28470a5c5822" priority="normal">
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.inline" id="C5eb3116a-ed7d-4ecb-9744-98176f9995cc" priority="normal">
+        <source>
+            <property>
+                <type name="BuildingType" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="consistsOfBuildingPart" ns="http://www.opengis.net/citygml/building/1.0"/>
+                <child name="BuildingPart" ns="http://www.opengis.net/citygml/building/1.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="BuildingType" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+                <child name="parts" ns="http://inspire.ec.europa.eu/schemas/bu-base/4.0"/>
+                <child name="BuildingPart" ns="http://inspire.ec.europa.eu/schemas/bu-core3d/4.0"/>
+            </property>
+        </target>
+        <documentation>Building.consistsOFBuildingPart.BuildingPart muss auf Building.parts.BuildingPart abgebildet werden. Da es sich dabei um eine Transformation von einem FeatureType in den anderen auf Attributebene handelt, kann mit der Inline Tranformation gearbeitet werden. Diese nutzt die Transformationen, die zum FeatureType BuildingPart --&gt; BuildingPart vorliegen und überträgt sie auf diese Transformation auf Attributebene.&#xD;
+Auf diese Weise können BuildingParts, die im Quellmodell als Bestandteil eines Buildings modelliert werden, im Zielmodell analog abgebildet werden.</documentation>
+    </cell>
+</alignment>

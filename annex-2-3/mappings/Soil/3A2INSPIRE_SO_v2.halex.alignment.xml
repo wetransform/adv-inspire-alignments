@@ -1,0 +1,1785 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+    <base prefix="ba1" location="../../../annex-1/mappings/base-functions.halex.alignment.xml"/>
+    <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="AX_DQMitDatenerhebung to TimeInstant" name="AX_DQMitDatenerhebung to TimeInstant" type="groovy">
+            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="AX_DQMitDatenerhebung">
+                <cf:binding>java.lang.String</cf:binding>
+                <cf:type name="AX_DQMitDatenerhebungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:type name="TimeInstantType" ns="http://www.opengis.net/gml/3.2"/>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def values = qualitaetsangaben.p.herkunft.LI_Lineage.processStep.LI_ProcessStep.dateTime.DateTime.values()&#xD;
+&#xD;
+// sort dates&#xD;
+values.sort()&#xD;
+&#xD;
+// yield last date&#xD;
+def date = values[-1].toInstant() as String&#xD;
+&#xD;
+_target {&#xD;
+	timePosition( date)&#xD;
+	id( 'TimeInstant_' + UUID.randomUUID())&#xD;
+}
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">the function takes the time information out of a AX_DQMitDatenerhebung attribute and maps it to a TimeInstant</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
+    <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="lebenszeitintervall to TimeInstant" name="lebenszeitintervall to TimeInstant" type="groovy">
+            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="lebenszeitintervall">
+                <cf:binding>java.lang.String</cf:binding>
+                <cf:type name="AA_LebenszeitintervallPropertyType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:type name="TimeInstantType" ns="http://www.opengis.net/gml/3.2"/>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target {&#xD;
+	timePosition(  lebenszeitintervall.p.AA_Lebenszeitintervall.beginnt.value().toInstant() as String)&#xD;
+	id( 'TimeInstant_' + UUID.randomUUID() )&#xD;
+}
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">customFunction, weil an mehreren Stellen des Alignments von lebenszeitintervall auf TimeInstant abgebildet wird.</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
+    <customFunction>
+        <cf:custom-property-function xmlns:cf="http://www.esdi-humboldt.eu/hale/custom-function" identifier="qualitaetsangaben to TimeInstant" name="qualitaetsangaben to TimeInstant" type="groovy">
+            <cf:input eager="false" maxOccurs="1" minOccurs="1" name="qualitaetsangaben">
+                <cf:binding>java.lang.String</cf:binding>
+                <cf:type name="AX_DQMitDatenerhebungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </cf:input>
+            <cf:output eager="false" maxOccurs="1" minOccurs="1">
+                <cf:type name="TimeInstantType" ns="http://www.opengis.net/gml/3.2"/>
+            </cf:output>
+            <cf:definition>
+                <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+/*def resulttime = qualitaetsangaben.p.herkunft.LI_Lineage.processStep.LI_ProcessStep.dateTime.DateTime.value().toInstant()&#xD;
+&#xD;
+qualitaetsangaben.p.herkunft.LI_Lineage.processStep.each {&#xD;
+	instance -&gt;&#xD;
+	if (instance.LI_ProcessStep.dateTime.DateTime.value().toInstant().isAfter(resulttime)) {&#xD;
+		resulttime = instance.LI_ProcessStep.dateTime.DateTime.value().toInstant()&#xD;
+	}&#xD;
+}*/&#xD;
+&#xD;
+def values = qualitaetsangaben.p.herkunft.LI_Lineage.processStep.LI_ProcessStep.dateTime.DateTime.values()&#xD;
+&#xD;
+// sort dates&#xD;
+values.sort()&#xD;
+&#xD;
+// yield last date&#xD;
+def date = values[-1].toInstant() as String&#xD;
+&#xD;
+_target {&#xD;
+	timePosition( date)&#xD;
+	id( 'TimeInstant_' + UUID.randomUUID())&#xD;
+}
+</core:text>
+            </cf:definition>
+            <cf:explanation>
+                <cf:locale country="" language="" variant="">
+                    <cf:template>
+                        <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">the function takes the time information out of a qualitaetsangaben attribute and maps it to a TimeInstant</core:text>
+                    </cf:template>
+                </cf:locale>
+            </cf:explanation>
+        </cf:custom-property-function>
+    </customFunction>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cdc31571d-2dc7-43f9-87fc-18b4801a641e" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.join" id="Cb4ffb271-c1bc-4821-9a06-f120eae6e556" priority="high">
+        <source name="types">
+            <class>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <source name="types">
+            <class>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+            </class>
+        </target>
+        <complexParameter name="join">
+            <jp:join-parameter xmlns:jp="http://www.esdi-humboldt.eu/hale/join">
+                <class>
+                    <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <class>
+                    <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                </class>
+                <jp:condition>
+                    <property>
+                        <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="gehoertZu" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="href" ns="http://www.w3.org/1999/xlink"/>
+                    </property>
+                    <property>
+                        <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                        <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                    </property>
+                </jp:condition>
+            </jp:join-parameter>
+        </complexParameter>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def c = _.context.collector()&#xD;
+&#xD;
+if (_source.p.bodenzahlOderGruenlandgrundzahl.value() || _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value()){&#xD;
+	_target {&#xD;
+		procedure {&#xD;
+			href( '#Process_' + _project.vars['BODSCHAETZG-ID'] )&#xD;
+		}&#xD;
+		phenomenonTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		resultTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		if(_source.p.bodenzahlOderGruenlandgrundzahl.value()){&#xD;
+			result {&#xD;
+				CharacterString('This field contains information about AX_GrablochDerBodenschaetzung - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about bodenzahlOderGruenlandgrundzahl: ' + _source.p.bodenzahlOderGruenlandgrundzahl.value())&#xD;
+			}&#xD;
+			featureOfInterest {&#xD;
+				href( '#ObservedSoilProfile_' +  _source.p.id.value())&#xD;
+			}&#xD;
+			identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.p.id.value()) {&#xD;
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+			}&#xD;
+			observedProperty {&#xD;
+				title( 'AX_GrablochDerBodenschaetzung' )&#xD;
+				href( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'AX_GrablochDerBodenschaetzung' )&#xD;
+			}&#xD;
+			id( 'OM_Observation_' +  _source.p.id.value() )&#xD;
+			c.GLobs &lt;&lt; '#OM_Observation' +  _source.p.id.value()&#xD;
+			parameter {&#xD;
+				NamedValue {&#xD;
+					name {&#xD;
+						title( 'inGemarkung: land_gemarkungsnummer' )&#xD;
+					}&#xD;
+					value( _source.p.inGemarkung.AX_Gemarkung_Schluessel.land.value() + '_' + _source.p.inGemarkung.AX_Gemarkung_Schluessel.gemarkungsnummer.value())&#xD;
+				}&#xD;
+			}&#xD;
+&#xD;
+		}&#xD;
+		if(_source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value()){&#xD;
+			result{&#xD;
+				CharacterString('This field contains information about AX_Tagesabschnitt - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about tagesabschnittsnummer: ' + _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value())&#xD;
+			}&#xD;
+			featureOfInterest {&#xD;
+				href( '#ObservedSoilProfile_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
+			}&#xD;
+			identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value()) {&#xD;
+				codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+			}&#xD;
+			observedProperty {&#xD;
+				title( 'AX_Tagesabschnitt' )&#xD;
+				href( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'AX_Tagesabschnitt' )&#xD;
+			}&#xD;
+			id ('OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
+			c.GLobs &lt;&lt; '#OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value()&#xD;
+			parameter {&#xD;
+				NamedValue {&#xD;
+					name {&#xD;
+						title( 'tagesabschnittsnummer' )&#xD;
+					}&#xD;
+					value( _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value())&#xD;
+				}&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+}&#xD;
+&#xD;
+if (_source.p.bodenzahlOderGruenlandgrundzahl.value() &amp;&amp; _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value()){&#xD;
+	_target {&#xD;
+		procedure {&#xD;
+			href( '#Process_' + _project.vars['BODSCHAETZG-ID'] )&#xD;
+		}&#xD;
+		phenomenonTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		resultTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		result {&#xD;
+			CharacterString ('This field contains information about AX_GrablochDerBodenschaetzung - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about bodenzahlOderGruenlandgrundzahl: ' + _source.p.bodenzahlOderGruenlandgrundzahl.value())&#xD;
+		}&#xD;
+		featureOfInterest {&#xD;
+			href( '#ObservedSoilProfile_' +  _source.p.id.value())&#xD;
+		}&#xD;
+		identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.p.id.value()) {&#xD;
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+		}&#xD;
+		observedProperty {&#xD;
+			title( 'AX_GrablochDerBodenschaetzung' )&#xD;
+			href( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'AX_GrablochDerBodenschaetzung' )&#xD;
+		}&#xD;
+		id( 'OM_Observation_' +  _source.p.id.value() )&#xD;
+		c.GLobs &lt;&lt; '#OM_Observation_' +  _source.p.id.value()&#xD;
+		parameter {&#xD;
+			NamedValue {&#xD;
+				name {&#xD;
+					title( 'inGemarkung: land_gemarkungsnummer' )&#xD;
+				}&#xD;
+				value( _source.p.inGemarkung.AX_Gemarkung_Schluessel.land.value() + '_' + _source.p.inGemarkung.AX_Gemarkung_Schluessel.gemarkungsnummer.value())&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+	_target{&#xD;
+		procedure {&#xD;
+			href( '#Process_' + _project.vars['BODSCHAETZG-ID'] )&#xD;
+		}&#xD;
+		phenomenonTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		resultTime {&#xD;
+			nilReason( 'other:unpopulated' )&#xD;
+		}&#xD;
+		result {&#xD;
+			CharacterString ('This field contains information about AX_Tagesabschnitt - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about tagesabschnittsnummer: ' + _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value())&#xD;
+		}&#xD;
+		featureOfInterest {&#xD;
+			href( '#ObservedSoilProfile_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
+		}&#xD;
+		identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value()) {&#xD;
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+		}&#xD;
+		observedProperty {&#xD;
+			title( 'AX_Tagesabschnitt' )&#xD;
+			href ( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'AX_Tagesabschnitt' )&#xD;
+		}&#xD;
+		id ('OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value())&#xD;
+		c.GLobs &lt;&lt; '#OM_Observation_' +  _source.links.AX_Tagesabschnitt.p.id.value()&#xD;
+		parameter {&#xD;
+			NamedValue {&#xD;
+				name {&#xD;
+					title( 'tagesabschnittsnummer' )&#xD;
+				}&#xD;
+				value( _source.links.AX_Tagesabschnitt.p.tagesabschnittsnummer.value())&#xD;
+			}&#xD;
+		}&#xD;
+	}&#xD;
+}	
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cbabbca51-7f1a-4300-be6f-6a0c120b141f" priority="normal">
+        <source>
+            <class>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C06c52e7f-40e1-483f-a9fa-88f86e1d40e0" priority="normal">
+        <source>
+            <class>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target{&#xD;
+	procedure {&#xD;
+		href( '#Process_' + _project.vars['BODSCHAETZG-ID'] )&#xD;
+	}&#xD;
+	phenomenonTime {&#xD;
+		nilReason( 'other:unpopulated' )&#xD;
+	}&#xD;
+	resultTime {&#xD;
+		nilReason( 'other:unpopulated' )&#xD;
+	}&#xD;
+	result {&#xD;
+		CharacterString ('This field contains information about AX_Tagesabschnitt - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given holds information about tagesabschnittsnummer: ' + _source.p.tagesabschnittsnummer.value())&#xD;
+	}&#xD;
+	featureOfInterest {&#xD;
+		href( '#ObservedSoilProfile_' +  _source.p.id.value())&#xD;
+	}&#xD;
+	identifier( _project.vars.INSPIRE_NAMESPACE + 'OM_Observation_' +  _source.p.id.value()) {&#xD;
+		codeSpace( 'http://inspire.ec.europa.eu/ids' )&#xD;
+	}&#xD;
+	observedProperty {&#xD;
+		title( 'AX_Tagesabschnitt' )&#xD;
+		href ( _project.vars.URL_CODELIST_SOILPROFILEPARAMETERNAMEVALUE + 'AX_Tagesabschnitt' )&#xD;
+	}&#xD;
+	id ('OM_Observation_' +  _source.p.id.value())&#xD;
+	parameter {&#xD;
+		NamedValue {&#xD;
+			name {&#xD;
+				title( 'tagesabschnittsnummer' )&#xD;
+			}&#xD;
+			value( _source.p.tagesabschnittsnummer.value())&#xD;
+		}&#xD;
+	}&#xD;
+}
+</core:text>
+        </complexParameter>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cbef5626f-a138-4749-9134-45e94f9e2fd1" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="featureOfInterest" ns="http://www.opengis.net/om/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#SoilDerivedObject_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C105af74b-468f-49b9-ad71-acc2978deb16" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="featureOfInterest" ns="http://www.opengis.net/om/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#SoilDerivedObject_{id}" name="pattern"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ccd11dd24-5e4f-4b37-8ab9-f794a5d5eadb" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ca3763a17-7a9e-45e2-b9e5-c9d4706042f4" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cd966da9b-24c9-4690-a104-173144c2d0a6" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Ccfec527d-6180-41d4-a69c-693ae11057ed" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc8ed4410-02cc-4b65-88f4-897910f9432b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf8ad251c-612d-4aa9-8a3a-f18ad0614cfc" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C48d1c2e9-cfd8-4979-b965-a2d09a4fa5c4" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:URL_CODELIST_SOILDERIVEDOBJECTPARAMETERNAMEVALUE}}AX_Bodenschaetzung" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cb355922e-0db0-4345-b85c-376682898fb3" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="{{project:URL_CODELIST_SOILDERIVEDOBJECTPARAMETERNAMEVALUE}}AX_MusterLandesmusterUndVergleichsstueck" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C988cdb08-aa85-4996-8117-4cbf041b86e1" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="AX_Bodenschaetzung" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cedf2320a-ae53-45df-baa8-9a3d24ed018b" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="observedProperty" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="AX_MusterLandesmusterUndVergleichsstueck" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cc54089c2-ef50-4a30-9aa0-dfb3fb8cfc03" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="merkmal" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0">
+                    <context>0</context>
+                </child>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="merkmal" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C30042c7e-ede7-4b17-881c-4e92566170ad" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="merkmal" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0">
+                    <context>0</context>
+                </child>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C3dfad4a8-04ee-40cb-8a0c-808a08f78eb5" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0">
+                    <context>1</context>
+                </child>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="nummer" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C042fba8e-a6b6-46c2-b337-696e9174a98e" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0">
+                    <context>1</context>
+                </child>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd1b953aa-9606-452f-a7d8-524e46101dcd" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kulturart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="kulturart" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C5e421f40-8660-4e57-9754-5341d93841f8" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kulturart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="name" ns="http://www.opengis.net/om/2.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="kulturart" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Ca497b7bb-31b6-49bc-a094-12bdc224f6fc" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kulturart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C14d98636-39d9-4eca-890a-809aaf9c9f37" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kulturart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="parameter" ns="http://www.opengis.net/om/2.0"/>
+                <child name="NamedValue" ns="http://www.opengis.net/om/2.0"/>
+                <child name="value" ns="http://www.opengis.net/om/2.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C51c6d96c-72d4-46bb-92e7-d4a51ead3889" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="phenomenonTime" ns="http://www.opengis.net/om/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C87af8e10-e610-424d-aa35-bc98ff4b1829" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="phenomenonTime" ns="http://www.opengis.net/om/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca0c2162c-e940-4e16-b807-e1c57cd40370" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="procedure" ns="http://www.opengis.net/om/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cee7718be-b9ff-4170-8b18-2578bf83bde7" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="procedure" ns="http://www.opengis.net/om/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="Cb32dabb4-da5a-4138-8875-95961f9c3994" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="entstehungsartOderKlimastufeWasserverhaeltnisse" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bodenzahlOderGruenlandgrundzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="ackerzahlOderGruenlandzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bodenart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zustandsstufeOderBodenstufe" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="sonstigeAngaben" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="jahreszahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="CharacterString" ns="http://www.isotc211.org/2005/gco"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//für die Repräsentation des result-Attributs von OM_Observation wurde sich für die Nutzung eines CharacterString entschieden. Laute Datenspezifikation sind nur die Typen Number, CharacterString und RangeType zulässig,&#xD;
+//von denen CharacterString am besten passt.&#xD;
+&#xD;
+//Methode, die den Wert eines Attributs oder, wenn keiner vorhanden ist, einen leeren String zurückgibt&#xD;
+def extractValue = {&#xD;
+  if (it) {&#xD;
+    it.p.value()&#xD;
+  }&#xD;
+  else {&#xD;
+    ''&#xD;
+  }&#xD;
+}&#xD;
+&#xD;
+//in der Liste werden alle Einträge gesammelt, die in das CharacterString-Attribut geschrieben werden sollen, mit dessen Hilfe das result repräsentiert wird&#xD;
+def list = []&#xD;
+&#xD;
+//die Werte aus verschiedenen Attributen werden ausgelesen - bei Kardinalität 1 unter Nutzung der oben definierten Methode, bei Kardinalität &gt;1 über einen Join aller enthaltenen Werte &#xD;
+list &lt;&lt; extractValue(bodenart)&#xD;
+list &lt;&lt; extractValue(zustandsstufeOderBodenstufe)&#xD;
+if (entstehungsartOderKlimastufeWasserverhaeltnisse) {&#xD;
+  //das encoding ist folgendermaßen: Werte innerhalb dieses Feldes werden mit | getrennt, die einzelnen Felder werden mit Komma getrennt&#xD;
+  list &lt;&lt; entstehungsartOderKlimastufeWasserverhaeltnisse.p.values().join('|')&#xD;
+}&#xD;
+else {&#xD;
+  list &lt;&lt; ''&#xD;
+}&#xD;
+list &lt;&lt; extractValue(bodenzahlOderGruenlandgrundzahl)&#xD;
+list &lt;&lt; extractValue(ackerzahlOderGruenlandzahl)&#xD;
+if (sonstigeAngaben) {&#xD;
+  list &lt;&lt; sonstigeAngaben.p.values().join('|')&#xD;
+}&#xD;
+else {&#xD;
+  list &lt;&lt; ''&#xD;
+}&#xD;
+list &lt;&lt; extractValue(jahreszahl)&#xD;
+&#xD;
+//die gesamte Liste wird in das Ziel-Attribut geschrieben. Das encoding ist folgendermaßen:Werte innerhalb dieses Attributs werden mit Komma getrennt&#xD;
+return 'This field contains information about AX_Bodenschaetzung - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given is given in the following pattern: bodenart, zustandsstufeOderBodenstufe, entstehungsartOderKlimastufeWasserverhaeltnisse, bodezahlOderGruenlandgrundzahl, ackerOderGruenlandzahl, sonstigeAngaben, jahreszahl:' + list.join(',')
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+        <documentation>Alle Werte, die als result gewertet sind, werden in einem gemeinsamen DataArray gesammelt. Dabei werden unter elementType --&gt; DataRecord Felder definiert, welche die Struktur des results angeben.&#xD;
+Wie die Angaben innerhalb des DataArrays voneinander getrennt werden, wird im encoding angegeben.&#xD;
+Die Werte selbst stehen im values-Attribut, das an dieser Stelle gefüllt wird.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.greedy" id="Cf0f272a2-73ce-4ae6-ac83-fbadfb2b67e6" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="entstehungsartOderKlimastufeWasserverhaeltnisse" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="sonstigeAngaben" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bodenart" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="ackerzahlOderGruenlandzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="zustandsstufeOderBodenstufe" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="bodenzahlOderGruenlandgrundzahl" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="result" ns="http://www.opengis.net/om/2.0"/>
+                <child name="customElementsContentChoice" ns="http://www.opengis.net/om/2.0/OM_ObservationType/result"/>
+                <child name="CharacterString" ns="http://www.isotc211.org/2005/gco"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//für die Repräsentation des result-Attributs von OM_Observation wurde sich für die Nutzung eines CharacterString entschieden. Laute Datenspezifikation sind nur die Typen Number, CharacterString und RangeType zulässig,&#xD;
+//von denen CharacterString am besten passt.&#xD;
+&#xD;
+&#xD;
+//Methode, die den Wert eines Attributs oder, wenn keiner vorhanden ist, einen leeren String zurückgibt&#xD;
+def extractValue = {&#xD;
+  if (it) {&#xD;
+    it.p.value()&#xD;
+  }&#xD;
+  else {&#xD;
+    ''&#xD;
+  }&#xD;
+}&#xD;
+&#xD;
+//in der Liste werden alle Einträge gesammelt, die in das CharacterString-Attribut geschrieben werden sollen, mit dessen Hilfe das result repräsentiert wird&#xD;
+def list = []&#xD;
+&#xD;
+//die Werte aus verschiedenen Attributen werden ausgelesen - bei Kardinalität 1 unter Nutzung der oben definierten Methode, bei Kardinalität &gt;1 über einen Join aller enthaltenen Werte &#xD;
+list &lt;&lt; extractValue(bodenart)&#xD;
+list &lt;&lt; extractValue(zustandsstufeOderBodenstufe)&#xD;
+if (entstehungsartOderKlimastufeWasserverhaeltnisse) {&#xD;
+  //das encoding ist folgendermaßen: Werte innerhalb dieses Feldes werden mit | getrennt, die einzelnen Felder werden mit Komma getrennt&#xD;
+  list &lt;&lt; entstehungsartOderKlimastufeWasserverhaeltnisse.p.values().join('|')&#xD;
+}&#xD;
+else {&#xD;
+  list &lt;&lt; ''&#xD;
+}&#xD;
+list &lt;&lt; extractValue(bodenzahlOderGruenlandgrundzahl)&#xD;
+list &lt;&lt; extractValue(ackerzahlOderGruenlandzahl)&#xD;
+if (sonstigeAngaben) {&#xD;
+  list &lt;&lt; sonstigeAngaben.p.values().join('|')&#xD;
+}&#xD;
+else {&#xD;
+  list &lt;&lt; ''&#xD;
+}&#xD;
+&#xD;
+//die gesamte Liste wird in das Ziel-Attribut geschrieben. Das encoding (Werte innerhalb dieses Attributs werden mit , getrennt), wird an einer anderen Stelle dieses DataArrays beschrieben&#xD;
+return 'This field contains information about AX_MusterLandesmusterUndVergleichsstueck - more information in ALKIS 6.0 feature catalogue (OK, available in German and English) - see link in observedProperty. The data given is given in the following pattern: bodenart, zustandsstufeOderBodenstufe, entstehungsartOderKlimastufeWasserverhaeltnisse, bodezahlOderGruenlandgrundzahl, ackerOderGruenlandzahl, sonstigeAngaben' + list.join(',')
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cdd824027-a4a0-4db5-b318-e23d0146c4a7" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="resultTime" ns="http://www.opengis.net/om/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf7fa538a-10f7-4611-8f63-743261103665" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="OM_ObservationType" ns="http://www.opengis.net/om/2.0"/>
+                <child name="resultTime" ns="http://www.opengis.net/om/2.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce64e9c79-41cb-4131-b549-60189b1f3130" priority="normal">
+        <source>
+            <class>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C40b7477f-acdb-479e-b977-a5084dfec381" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="WRBSoilName" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce2c799aa-8a14-412f-ae9b-f58b68e5a7fa" priority="normal">
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cf3dbe4a5-2399-43cf-a7e6-f85f3b1b930b" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cdb470f3f-5d0f-43f0-9412-9d17942b6b11" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C93d7ed4e-7040-4b26-bf4a-60c6ea95e5ec" priority="normal">
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C2fabd623-7ab8-4109-a5b6-c35a539d9f2d" priority="normal">
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="isDescribedBy" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Ca15418a8-6d57-4bc2-b12c-06f08623700a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="land" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="gemarkungsnummer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummerDesGrablochs" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="kennziffer" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="AX_KennzifferGrabloch" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="nummerierungsbezirk" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="localIdentifier" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+//{land}_{gemarkungsnummer}_{nuzmmerierungsbezirk}_{nummerDesGrablochs}&#xD;
+def land = kennziffer_AX_KennzifferGrabloch_land&#xD;
+def gemnr = kennziffer_AX_KennzifferGrabloch_gemarkungsnummer&#xD;
+def numbez = kennziffer_AX_KennzifferGrabloch_nummerierungsbezirk&#xD;
+def numgl = kennziffer_AX_KennzifferGrabloch_nummerDesGrablochs&#xD;
+&#xD;
+&#xD;
+if (land &amp;&amp; gemnr &amp;&amp; numbez) {&#xD;
+	return land + '_' + gemnr + '_' + numbez + '_' + numgl&#xD;
+}&#xD;
+&#xD;
+else if (land &amp;&amp; gemnr){&#xD;
+	return land + '_' + gemnr + '__' + numgl&#xD;
+}&#xD;
+&#xD;
+else if (land &amp;&amp; numbez){&#xD;
+	return land + '__' + numbez + '_' + numgl&#xD;
+}&#xD;
+&#xD;
+else if (gemnr &amp;&amp; numbez){&#xD;
+	return '_' + gemnr + '_' + numbez + '_' + numgl&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cc6a6b5d0-bfa7-4592-b714-4a1bed38595b" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="location" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#SoilPlot_{id}" name="pattern"/>
+        <documentation>Stellt die Verbindung zwischen dem SoilPlot und dem ObservedSoilProfile her, die beide aus dem selben GrablochDerBodenschätzung entstehen - durch den formatierten String wird eine Referenz auf den entstehenden SoilPlot hergestellt</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Ccca12ed4-0f76-4382-b8ab-d073c5451edd" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target name="result">
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilProfileObservation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def c = _.context.collector()&#xD;
+&#xD;
+c.GLobs.each{ _id -&gt;&#xD;
+	return _id&#xD;
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd4a9c27a-49d8-4f6b-9214-9ca92534a589" priority="normal">
+        <target>
+            <property>
+                <type name="ObservedSoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.create" id="Cfd964e63-5bc2-4cce-835a-08c8dedd50de" priority="normal">
+        <target>
+            <class>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+            </class>
+        </target>
+        <parameter value="1" name="number"/>
+        <documentation>Alle Beobachtungen basieren auf dem Gesetz zur Schätzung des landwirtschaftlichen Kulturbodens. Daher wird dieses innerhalb des eines Process als documentation angelegt und aus allen entsprechenden Objekten darauf als Process verwiesen.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C988e82a2-abad-45b7-985e-b20b7dd85d9b" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="dateEnteredIntoForce" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="2008-01-01T00:00:00" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C02b81385-163b-466f-b893-1e2b28eea5e3" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="LegislationCitation_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf9694eb2-4f3c-4b32-8312-d02480aab4ba" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/LegislationLevelValue/national" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C805f0988-8916-4841-a865-3a4ef36d4b52" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="link" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="http://www.gesetze-im-internet.de/bodsch_tzg_2008/index.html" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca5fe8c66-b3c9-4064-98cd-6bad2e3aa76f" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="Gesetz zur Schätzung des landwirtschaftlichen Kulturbodens" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C417c7644-748d-429d-9ac3-279b2cf27c5a" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="documentation" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
+                <child name="LegislationCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+                <child name="shortName" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
+            </property>
+        </target>
+        <parameter value="Bodenschätzungsgesetz - BodSchätzG" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfacd64ac-4168-469b-a558-68868eceb357" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C7b161495-ea90-4f3e-b148-b88feacacfe6" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb0a5865c-d9bd-40af-9c96-61a11cdbd929" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf4a7ce72-a58b-4c97-83e6-826de767f3dc" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="Process_{{project:BODSCHAETZG-ID}}" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Cbbf008b3-5481-45f7-8b61-a44709634fbe" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C25dbee53-1982-4334-8d5b-025afa9ea143" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+            </property>
+        </target>
+        <parameter value="Bodenschaetzung" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C267df9f8-efe3-4248-8b99-c1229080da21" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C30f536dd-d229-4e0f-ac87-7114f083452f" priority="normal">
+        <target>
+            <property>
+                <type name="ProcessType" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/ompr/3.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Cb78e3268-e2f7-4f90-a8bf-7c64775f27bc" priority="normal">
+        <source>
+            <class>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C02d3d852-53ad-4ae5-bcdd-8a89fac5826b" priority="normal">
+        <source>
+            <class>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="Ce6d25c00-4005-4302-a65f-c5a7a7244f47" priority="normal">
+        <source>
+            <class>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C54815cd2-64bc-4047-8b6e-f91f4bde2d5a" priority="normal">
+        <source>
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="Cd15130e3-64a0-4055-91ab-701430e3ddd9" priority="normal">
+        <source>
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C0be2942f-dd42-4233-82da-c7696c43661d" priority="normal">
+        <source>
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="true" name="structuralRename"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C69ff7caf-5f67-4b5e-8682-2e01822f84ae" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C526ef649-2c0e-4ed0-96a5-1aa608b634fb" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C7595a089-6e0b-4501-b50e-cc8b89d37f6a" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Cd54be3d5-3894-4735-8e91-7b964bdc01de" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="Ce5c3d6a3-aa4f-4dea-acbf-af46d2dd418b" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C5c79a021-7261-441f-9752-5726dbc0fb43" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce28fc42e-c5bf-48f4-95d0-fe0d350fa689" priority="normal">
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C2e9d2df8-62d7-405c-8263-48ba905c12fd" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Ce696974c-f245-470a-a1a7-90e5c8a149fc" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C11b85f82-3b9b-4f3c-8f7b-5083e17d799e" priority="normal">
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C46a6a7b7-e505-491c-8c99-faacc238ce8a" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_BodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilDerivedObjectObservation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#OM_Observation_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C2a2685ae-91b5-4263-92f8-56eb3046369f" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_MusterLandesmusterUndVergleichsstueckType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilDerivedObjectObservation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#OM_Observation_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C124957cb-fda6-4924-a2bf-ef8978c586b8" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_TagesabschnittType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilDerivedObjectType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilDerivedObjectObservation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#OM_Observation_{id}" name="pattern"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.retype" id="C284c2dd5-e128-4051-8f13-f27bfa113714" priority="normal">
+        <source>
+            <class>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+            </class>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C0a2d77a9-6ce7-4bbd-a466-6e125c39fe6e" priority="normal">
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C6fcd0880-c1db-402b-bb97-d674e02365b4" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.identifier" id="C0b78d324-9cd0-47e0-be5a-de78534deb16" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdd4bbe81-b547-48d9-82ff-5f261df56cb4" priority="normal">
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="C0092dcd8-26a6-43a5-bf83-4ef5bbf55eee" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="Ce37f3eea-4f45-4162-864a-6a7330773a10" priority="normal">
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="C51aeb2a7-0183-44c3-b569-2db4abd511d3" priority="normal">
+        <source name="var">
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="observedProfile" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#ObservedSoilProfile_{id}" name="pattern"/>
+        <documentation>Stellt die Verbindung zwischen dem SoilPlot und dem ObservedSoilProfile her, die beide aus dem selben GrablochDerBodenschätzung entstehen - durch den formatierten String wird eine Referenz auf das entstehende ObservedSoilProfile hergestellt</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.rename" id="C1ec7ce82-4064-4977-92fa-474bd7587087" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GrablochDerBodenschaetzungType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="position" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilPlotLocation" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="choice_1" ns="http://www.opengis.net/samplingSpecimen/2.0/LocationPropertyType/sequence_1"/>
+                <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
+                <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <parameter value="false" name="ignoreNamespaces"/>
+        <parameter value="false" name="structuralRename"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C4d16240f-c68c-4796-bdc6-1f895747b1f0" priority="normal">
+        <target>
+            <property>
+                <type name="SoilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="soilPlotType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/SoilPlotTypeValue/sample" name="value"/>
+        <documentation>Für die Abbildung des soilPlotTypes wird die INSPIRE-Codeliste um alle möglichen Werte des Attributs bedeutung erweitert. Dabei kann Bedeutung bis zu 2 mal vorkommen, sodass die zu erstellende Codeliste alle möglichen Kombinationen von bedeutung erhalten muss und diese dann entsprechend abgebildet werden müssen.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.id.default" id="Cac796209-a904-4cef-9b6a-0d3b5981907f" priority="normal">
+        <source name="id">
+            <property>
+                <type name="AA_ObjektType" ns="http://www.adv-online.de/namespaces/adv/gid/6.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="SoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C2ca7b078-0b16-4d3b-99f1-7dc35f12cd35" priority="normal">
+        <target>
+            <property>
+                <type name="SoilProfileType" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/so/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+</alignment>
