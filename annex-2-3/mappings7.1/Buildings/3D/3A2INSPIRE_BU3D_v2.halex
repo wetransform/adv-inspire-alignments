@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="4.0.0.SNAPSHOT">
+<hale-project version="5.1.0.SNAPSHOT">
     <name>[Annex III] AdV CityGML zu INSPIRE Building 3D</name>
     <author>Johanna Ott</author>
-    <description>Hinweis zur Nutzung der Projektvariablen:&#xD;
-       BUILDINGNATURE: URL mit den von Herrn Fuchs und Herrn Schlegel entwickelten Erweiterungen der INSPIRE Codeliste, sobald diese veröffentlicht wurden&#xD;
-    CURRENTUSE: URL mit den von Herrn Fuchs und Herrn Schlegel entwickelten Erweiterungen der INSPIRE Codeliste, sobald diese veröffentlicht wurden&#xD;
-    INSPIRE_NAMESPACE: gewünschten Namespace eingeben&#xD;
-&#xD;
+    <description>Hinweis zur Nutzung der Projektvariablen:&#13;
+       BUILDINGNATURE: URL mit den von Herrn Fuchs und Herrn Schlegel entwickelten Erweiterungen der INSPIRE Codeliste, sobald diese veröffentlicht wurden&#13;
+    CURRENTUSE: URL mit den von Herrn Fuchs und Herrn Schlegel entwickelten Erweiterungen der INSPIRE Codeliste, sobald diese veröffentlicht wurden&#13;
+    INSPIRE_NAMESPACE: gewünschten Namespace eingeben&#13;
+&#13;
 Derzeit unterstützt hale studio keine Transformation aus einem zusammengesetzten (Lage- + Höhensystem) AdV-Koordinatensystem, da das hier eingesetzte Geotools keine Konvertierungsregeln in eines der seitens INSPIRE zulässigen 3D-Koordinatensysteme bereitstellt. Es liegt mit https://github.com/halestudio/hale/issues/628 ein Ticket vor, um das langfristig zu ermöglichen. Bis zu dessen Bearbeitung wird empfohlen, die Quelldaten vor der Transformation mit hale studio in ein seitens INSPIRE zulässiges 3D-CRS (EPSG:4936, EPSG:4937) bzw. zusammengesetztes CRS (EPSG:7409) zu konvertieren.</description>
     <created>2018-02-22T15:22:03.579+01:00</created>
-    <modified>2020-09-15T11:38:45.453+02:00</modified>
+    <modified>2023-11-20T09:39:12.235+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna/git/adv-inspire-alignments/annex-2-3/mappings7.1/Buildings/3D/3A2INSPIRE_BU3D_v2.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings7.1/Buildings/3D/3A2INSPIRE_BU3D_v2.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
