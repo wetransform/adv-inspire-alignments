@@ -23,10 +23,10 @@
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-//Dummy-Funktion, um die in der zusätzlichen Datei bereitgestellte Bundesland-Geometrie in einem Kollektor zu speichern&#xD;
-&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
+//Dummy-Funktion, um die in der zusätzlichen Datei bereitgestellte Bundesland-Geometrie in einem Kollektor zu speichern&#13;
+&#13;
+def c = _.context.collector()&#13;
+&#13;
 c.wkt &lt;&lt; _source.p.WKT.value()
 </core:text>
         </complexParameter>
@@ -61,13 +61,13 @@ c.wkt &lt;&lt; _source.p.WKT.value()
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-def c = _.context.collector()&#xD;
-&#xD;
-if (c.wkt.value() &amp;&amp; !c.wkt.value().equals('MULTIPOLYGON ((()))')) {&#xD;
-	return _.geom.with(geometry: c.wkt.value(), crs:"EPSG:25832")	&#xD;
-}&#xD;
-else {&#xD;
-	return c.extent.value()&#xD;
+def c = _.context.collector()&#13;
+&#13;
+if (c.wkt.value() &amp;&amp; !c.wkt.value().equals('MULTIPOLYGON ((()))')) {&#13;
+	return _.geom.with(geometry: c.wkt.value(), crs:"EPSG:25832")	&#13;
+}&#13;
+else {&#13;
+	return c.extent.value()&#13;
 }
 </core:text>
         </complexParameter>
@@ -578,53 +578,53 @@ else {&#xD;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-import com.vividsolutions.jts.geom.Geometry&#xD;
-&#xD;
-def c = _.context.collector()&#xD;
-&#xD;
-def geom = _.geom.find(position.p.first())&#xD;
-if (!geom) {&#xD;
-  _log.error('No geometry found')&#xD;
-  return&#xD;
-}&#xD;
-&#xD;
-/*withTransformationContext {&#xD;
-	if(c.extent.value()){&#xD;
-		def ext= _.geom.union([c.extent.value(), geom])&#xD;
-		c.extent = ext&#xD;
-	}&#xD;
-	else {&#xD;
-		c.extent = _.geom.union(geom)&#xD;
-	}&#xD;
-}*/&#xD;
-&#xD;
-&#xD;
-/*withTransformationContext {&#xD;
-	if(c.extent.value()){&#xD;
-		def ext= geom.geometry.union(c.extent.value())&#xD;
-		c.extent = ext&#xD;
-	}&#xD;
-	else {&#xD;
-		c.extent = geom.geometry.union()&#xD;
-	}&#xD;
-}*/&#xD;
-&#xD;
-withTransformationContext {&#xD;
-	if(c.extent.value()){&#xD;
-		def ext= _.geom.convexHull([c.extent.value(), geom])&#xD;
-		c.extent = ext&#xD;
-	}&#xD;
-	else {&#xD;
-		c.extent = _.geom.convexHull(geom)&#xD;
-	}&#xD;
-}&#xD;
-&#xD;
-targeom = _.geom.toSimpleGeometries(geometries:geom, collections:true)&#xD;
+import com.vividsolutions.jts.geom.Geometry&#13;
+&#13;
+def c = _.context.collector()&#13;
+&#13;
+def geom = _.geom.find(position.p.first())&#13;
+if (!geom) {&#13;
+  _log.error('No geometry found')&#13;
+  return&#13;
+}&#13;
+&#13;
+/*withTransformationContext {&#13;
+	if(c.extent.value()){&#13;
+		def ext= _.geom.union([c.extent.value(), geom])&#13;
+		c.extent = ext&#13;
+	}&#13;
+	else {&#13;
+		c.extent = _.geom.union(geom)&#13;
+	}&#13;
+}*/&#13;
+&#13;
+&#13;
+/*withTransformationContext {&#13;
+	if(c.extent.value()){&#13;
+		def ext= geom.geometry.union(c.extent.value())&#13;
+		c.extent = ext&#13;
+	}&#13;
+	else {&#13;
+		c.extent = geom.geometry.union()&#13;
+	}&#13;
+}*/&#13;
+&#13;
+withTransformationContext {&#13;
+	if(c.extent.value()){&#13;
+		def ext= _.geom.convexHull([c.extent.value(), geom])&#13;
+		c.extent = ext&#13;
+	}&#13;
+	else {&#13;
+		c.extent = _.geom.convexHull(geom)&#13;
+	}&#13;
+}&#13;
+&#13;
+targeom = _.geom.toSimpleGeometries(geometries:geom, collections:true)&#13;
 return targeom
 </core:text>
         </complexParameter>
         <parameter value="true" name="variablesAsInstances"/>
-        <documentation>Mapping auf Ebene von AX_Tatsaechliche Nutzung, weil alle verwendeten FeatureTypes davon abgeleitet sind.&#xD;
+        <documentation>Mapping auf Ebene von AX_Tatsaechliche Nutzung, weil alle verwendeten FeatureTypes davon abgeleitet sind.&#13;
 Groovy-Script bildet BoundingBox von allen verwendeten Geometrien, die in einer niedriger Priorisierten Zelle zur Erzeugung des ExistingLandUseDataSets für den extent genutzt wird. Bei dem Mapping jeder Geometrie wird eine BoundingBox von der bisher im Collector enthaltenen BoundingBox und der neuen Geometrie gebildet und diese neu gebildete BoundingBox in den Collector geschrieben</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.classification" id="C5efdd4a2-fa1a-4ef0-aca5-882e36fa1c60" priority="normal">
@@ -3296,7 +3296,7 @@ Groovy-Script bildet BoundingBox von allen verwendeten Geometrien, die in einer 
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <documentation>Mapping auf Ebene von AA_Objekt, weil alle verwendeten FeatureTypes davon abgeleitet sind.&#xD;
+        <documentation>Mapping auf Ebene von AA_Objekt, weil alle verwendeten FeatureTypes davon abgeleitet sind.&#13;
 Für Nutzung der CustomFunction --&gt; base-functions-alignment importieren</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.identifier" id="C0fbf7aff-d9d9-4c42-90bf-04f4a614d9d1" priority="normal">
@@ -3312,7 +3312,7 @@ Für Nutzung der CustomFunction --&gt; base-functions-alignment importieren</doc
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
-        <documentation>Mapping auf Ebene von AA_Objekt, weil alle verwendeten FeatureTypes davon abgeleitet sind.&#xD;
+        <documentation>Mapping auf Ebene von AA_Objekt, weil alle verwendeten FeatureTypes davon abgeleitet sind.&#13;
 Für Nutzung der CustomFunction --&gt; base-functions-alignment importieren</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf2260f48-d985-499b-936f-b8928a406073" priority="normal">
@@ -3341,7 +3341,7 @@ Für Nutzung der CustomFunction --&gt; base-functions-alignment importieren</doc
             </property>
         </target>
         <parameter value="dataset" name="collectorName"/>
-        <documentation>Mapping auf Ebene von AA_Objekt, weil alle verwendeten FeatureTypes davon abgeleitet sind.&#xD;
+        <documentation>Mapping auf Ebene von AA_Objekt, weil alle verwendeten FeatureTypes davon abgeleitet sind.&#13;
 Groovy-Funktion genutzt, um alle erzeugten localIds in einem Kollektor zu sammeln und in einer niedriger priorisierten Zelle für die Erzeugung des ExistingLandUseDataSets als member zu nutzen</documentation>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="Ccb3ac0f3-ba79-4bcc-b188-bfa7f08e5fc9" priority="normal">
@@ -3369,20 +3369,20 @@ Groovy-Funktion genutzt, um alle erzeugten localIds in einem Kollektor zu sammel
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-if (!datumDerLetztenUeberpruefung) {&#xD;
-	_target {&#xD;
-		nilReason( _project.vars.VOID_REASON_OBSERVATIONDATE )&#xD;
-	}&#xD;
-}&#xD;
-&#xD;
-else {&#xD;
-	_target (datumDerLetztenUeberpruefung)&#xD;
+if (!datumDerLetztenUeberpruefung) {&#13;
+	_target {&#13;
+		nilReason( _project.vars.VOID_REASON_OBSERVATIONDATE )&#13;
+	}&#13;
+}&#13;
+&#13;
+else {&#13;
+	_target (datumDerLetztenUeberpruefung)&#13;
 }
 </core:text>
         </complexParameter>
         <parameter value="false" name="variablesAsInstances"/>
-        <documentation>Mapping auf Ebene von AX_Tatsaechliche Nutzung, weil alle verwendeten Polygon-FeatureTypes davon abgeleitet sind.&#xD;
-Der nilReason wird abhängig von der Angabe in der Projektvariablen gefüllt.  Eingabe von "other:unpopulated" für alle ATKIS-Datensätze und solche ALKIS-Datensätze, in denen datumDerLetztenUeberpruefung nie gefüllt ist, Eingabe von "unknown" für ALKIS-Datensätze, in denen es manchmal gefüllt ist.&#xD;
+        <documentation>Mapping auf Ebene von AX_Tatsaechliche Nutzung, weil alle verwendeten Polygon-FeatureTypes davon abgeleitet sind.&#13;
+Der nilReason wird abhängig von der Angabe in der Projektvariablen gefüllt.  Eingabe von "other:unpopulated" für alle ATKIS-Datensätze und solche ALKIS-Datensätze, in denen datumDerLetztenUeberpruefung nie gefüllt ist, Eingabe von "unknown" für ALKIS-Datensätze, in denen es manchmal gefüllt ist.&#13;
 Liegt ein Wert für datumDerLetztenUeberpruefung vor, wird dieser in observationDate geschrieben.</documentation>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cbb066412-8da9-4c8c-bb51-dec8a26af4f2" priority="normal">
