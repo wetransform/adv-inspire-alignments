@@ -17,12 +17,12 @@ Hinweis zur Nutzung der Projektvariablen:&#13;
 ATKIS als Quelle derzeit ausgeschlossen&#13;
 (Begründung aus Email Herr Schliebner 30.05.2018: "Keine Verflächung von linienhaften Elementen. Zum AdV-Plenums-Beschluss 127/7 soll ein entsprechendes Änderungsersuchen gestellt werden, was Herr Dr. Seifert am 05.-06.Juni 2018 bei der AK IK-Tagung thematisieren wird. Diese Änderung kann hieb- und stichfest damit begründet werden, dass zur Schaffung von INSPIRE-Daten aus ATKIS erheblicher Aufwand anfiele.")</description>
     <created>2018-02-16T08:44:39.500+01:00</created>
-    <modified>2024-01-12T10:32:50.197+01:00</modified>
+    <modified>2024-02-26T11:07:49.601+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings7.1/LandUse/ALKIS2INSPIRE_ELU.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings/LandUse/ALKIS2INSPIRE_ELU.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.target" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
@@ -50,7 +50,7 @@ ATKIS als Quelle derzeit ausgeschlossen&#13;
         <setting name="types">java.lang.String</setting>
         <setting name="quote">"</setting>
         <setting name="skip">True</setting>
-        <setting name="source">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings7.1/LandUse/SchemaExtentBundesland.csv</setting>
+        <setting name="source">SchemaExtentBundesland.csv</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.csv</setting>
         <setting name="separator">	</setting>
         <setting name="escape">\</setting>
