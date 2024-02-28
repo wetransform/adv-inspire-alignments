@@ -482,6 +482,9 @@ transformations.each { name, config ->
       provider 'eu.esdihumboldt.hale.io.wfs.fc.write-2.0' // WFS 2 FC
       setting 'xml.pretty', true
       setting 'crs.epsg.prefix', 'http://www.opengis.net/def/crs/EPSG/0/'
+      if (project.hasProperty('targetCRS')) {
+        setting 'crs', 'code:' + project.getProperty('targetCRS')
+      }
       setting 'skipFeatureCount', true
     }
     
