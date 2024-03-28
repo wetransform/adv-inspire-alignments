@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="5.1.0.SNAPSHOT">
+<hale-project version="5.2.0.SNAPSHOT">
     <name>[Annex III] AdV CityGML zu INSPIRE Building 3D</name>
     <author>Johanna Ott</author>
     <description>Hinweis zur Nutzung der Projektvariablen:&#13;
@@ -9,7 +9,7 @@
 &#13;
 Derzeit unterstützt hale studio keine Transformation aus einem zusammengesetzten (Lage- + Höhensystem) AdV-Koordinatensystem, da das hier eingesetzte Geotools keine Konvertierungsregeln in eines der seitens INSPIRE zulässigen 3D-Koordinatensysteme bereitstellt. Es liegt mit https://github.com/halestudio/hale/issues/628 ein Ticket vor, um das langfristig zu ermöglichen. Bis zu dessen Bearbeitung wird empfohlen, die Quelldaten vor der Transformation mit hale studio in ein seitens INSPIRE zulässiges 3D-CRS (EPSG:4936, EPSG:4937) bzw. zusammengesetztes CRS (EPSG:7409) zu konvertieren.</description>
     <created>2018-02-22T15:22:03.579+01:00</created>
-    <modified>2023-11-20T09:39:12.235+01:00</modified>
+    <modified>2024-03-28T09:31:43.121+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
