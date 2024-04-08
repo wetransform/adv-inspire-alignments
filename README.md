@@ -191,6 +191,9 @@ Falls die Quell-Daten je nach Modellart vorliegen können auch folgende Gradle-E
 - `defaultSourceFolder_DLM50`
 - `defaultSourceFolder_DLM250`
 - `defaultSourceFolder_DLM1000`
+- `defaultSourceFolder_CityGML`
+- `defaultSourceFolder_LB`
+- `defaultSourceFolder_LN`
 
 Die Eigenschaft kann in der Datei `gradle.properties` konfiguriert werden (siehe auch `gradle.properties.sample`), oder auch beim Aufruf in der Kommandozeile mitgegeben werden, z.B.:
 
