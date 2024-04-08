@@ -306,8 +306,12 @@ transformations.each { name, config ->
     boolean isHauskoordinaten = (name == 'ad-hk')
     // special case: CityGML
     boolean isCityGML = (config.model == 'CityGML')
+    // special case: LB
+    boolean isLB = (config.model == 'LB')
+    // special case: LN
+    boolean isLN = (config.model == 'LN')
 
-    if (config.model && !isHauskoordinaten && !isCityGML) {
+    if (config.model && !isHauskoordinaten && !isCityGML && !isLB && !isLN) {
       // restrict to a specific model -> add generic filter
       filterArgs << '-filter'
       filterArgs << "CQL:modellart.AA_Modellart.advStandardModell = '${config.model}'"
