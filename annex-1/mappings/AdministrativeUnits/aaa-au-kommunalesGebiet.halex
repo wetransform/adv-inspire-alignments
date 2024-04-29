@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="4.1.0.release">
+<hale-project version="5.1.0.SNAPSHOT">
     <name>[Annex I] AdV 3A zu INSPIRE Administrative Units (Variante kommunales Gebiet)</name>
     <author>Simon Templer</author>
-    <description>Alignment vom 3A-Modell zum INSPIRE Anwendungsschema Administrative Units.&#xD;
-&#xD;
-Variante mit Aggregation der Geometrien aus `AX_KommunalesGebiet`.&#xD;
-&#xD;
-Zur Bildung der Referenzen zwischen den unterschiedlichen Ebenen von Administrative Units wird eine spezifische Reihenfolge bei der Transformation der 3A-Objekte eingehalten (z.B. Gemeinden vor Kreisen). Währenddessen wird die Zugehörigkeit jeweils in einem Index hinterlegt (z.B. Gemeinde *X* gehört zu Kreis *Y*) und beim Erstellen der nächsten Ebene von Objekten abgefragt und für die Bildung der Referenzen verwendet.&#xD;
-&#xD;
-Diese Art der Aggregation macht es nötig, dass für eine konsistente Referenzierung jeweils alle Objekte die zu einer gemeinsamen "upperLevelUnit" gehören auch in der Transformation verfügbar sind -- andernfalls sind die Referenzen unvollständig (z.B. ein Kreis würde ggf. nicht alle seine Gemeinden als "lowerLevelUnit" auflisten).&#xD;
-Ausnahme bildet hier der Nationalstaat. Eine `AdministrativeUnit` die den Nationalstaat repräsentiert wird nicht erzeugt, ebenso keine Referenzen zu  dem Nationalstaat-Objekt, da davon ausgegangen wird dass dieses ggf. auf andere Weise gebildet wird und die Vorgehensweise geklärt werden muss.&#xD;
-&#xD;
+    <description>Alignment vom 3A-Modell zum INSPIRE Anwendungsschema Administrative Units.&#13;
+&#13;
+Variante mit Aggregation der Geometrien aus `AX_KommunalesGebiet`.&#13;
+&#13;
+Zur Bildung der Referenzen zwischen den unterschiedlichen Ebenen von Administrative Units wird eine spezifische Reihenfolge bei der Transformation der 3A-Objekte eingehalten (z.B. Gemeinden vor Kreisen). Währenddessen wird die Zugehörigkeit jeweils in einem Index hinterlegt (z.B. Gemeinde *X* gehört zu Kreis *Y*) und beim Erstellen der nächsten Ebene von Objekten abgefragt und für die Bildung der Referenzen verwendet.&#13;
+&#13;
+Diese Art der Aggregation macht es nötig, dass für eine konsistente Referenzierung jeweils alle Objekte die zu einer gemeinsamen "upperLevelUnit" gehören auch in der Transformation verfügbar sind -- andernfalls sind die Referenzen unvollständig (z.B. ein Kreis würde ggf. nicht alle seine Gemeinden als "lowerLevelUnit" auflisten).&#13;
+Ausnahme bildet hier der Nationalstaat. Eine `AdministrativeUnit` die den Nationalstaat repräsentiert wird nicht erzeugt, ebenso keine Referenzen zu  dem Nationalstaat-Objekt, da davon ausgegangen wird dass dieses ggf. auf andere Weise gebildet wird und die Vorgehensweise geklärt werden muss.&#13;
+&#13;
 Das gleiche gilt für die aggregierten Geometrien -- hier werden bei unvollständigen Eingangsdaten für die Transformation entsprechend unvollständige aggregierte Geometrien erzeugt.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2021-11-24T11:56:34.173+01:00</modified>
+    <modified>2023-08-30T09:48:33.179+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
