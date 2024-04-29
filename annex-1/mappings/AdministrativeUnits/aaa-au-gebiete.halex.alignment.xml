@@ -541,4 +541,23 @@ Die Geometrie wird aus dem über den Gesamtschlüssel verknüpften `AX_Kommunale
 Über den Index wird bestimmt ob die Gemeinde zu einer Verwaltungsgemeinschaft gehört. Diese wird als `upperLevelUnit` referenziert.
 Falls keine Zugehörigkeit zu einer Verwaltungsgemeinschaft besteht wird die Zugehörigkeit zur übergeordneten `AdministrativeUnit` (in diesem Fall *Kreis*) im Index hinterlegt.</documentation>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf87a0aaa-4569-4c8f-82ef-7f9760a3c186" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_BundeslandType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="schluesselGesamt" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="upperLevelUnit" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="https://sgx.geodatenzentrum.de/wfs_dlm250_inspire?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetFeature&amp;OUTPUTFORMAT=text/xml;%20subtype=gml/3.2.1&amp;STOREDQUERY_ID=urn:ogc:def:query:OGC-WFS::GetFeatureById&amp;ID=DLM250_AdministrativeUnit_000000000000#DLM250_AdministrativeUnit_000000000000" name="value"/>
+    </cell>
+    <modifier cell="C1c3a0ce9-5605-4868-a6af-c9acbc1d41f2">
+        <transformation mode="disabled"/>
+    </modifier>
 </alignment>

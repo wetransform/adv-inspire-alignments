@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="5.1.0.SNAPSHOT">
+<hale-project version="5.2.0.SNAPSHOT">
     <name>[Annex I] AdV 3A 7.1.2 zu INSPIRE Administrative Units (Variante Gebiete)</name>
     <author>Simon Templer</author>
     <description>Alignment vom 3A-Modell zum INSPIRE Anwendungsschema Administrative Units.&#13;
@@ -11,7 +11,7 @@ Zur Bildung der Referenzen zwischen den unterschiedlichen Ebenen von Administrat
 Diese Art der Aggregation mach es nötig, dass für eine konsistente Referenzierung jeweils alle Objekte die zu einer gemeinsamen "upperLevelUnit" gehören auch in der Transformation verfügbar sind -- andernfalls sind die Referenzen unvollständig (z.B. ein Kreis würde ggf. nicht alle seine Gemeinden als "lowerLevelUnit" auflisten).&#13;
 Ausnahme bildet hier der Nationalstaat. Referenzen zu/von Nationalstaat werden aktuell nicht erzeugt, da davon ausgegangen wird dass dieser ggf. auf andere Weise gebildet wird und die Vorgehensweise geklärt werden muss.</description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2023-04-06T15:36:33.708+02:00</modified>
+    <modified>2024-04-29T10:18:09.416+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
