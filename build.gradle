@@ -442,8 +442,7 @@ transformations.each { name, config ->
       // Hauskoordinaten project
       
       // file locations
-      def hkSchluesselDatei = project.hasProperty('hkSchluesselDatei') ? project.getProperty('hkSchluesselDatei') : project.file('testdaten/Hauskoordinaten/schluessel_test.csv')
-      def hkDatei = project.hasProperty('hkDatei') ? project.property('hkDatei') : project.file('testdaten/Hauskoordinaten/adressen_test.csv')
+      def hkDatei = project.hasProperty('hkDatei') ? project.property('hkDatei') : project.file('testdaten/Hauskoordinaten/5.0/adressen-testdaten.csv')
 
       // common settings
       def hkQuote = '"'
@@ -454,24 +453,11 @@ transformations.each { name, config ->
 
       // define sources
       
-      source(hkSchluesselDatei) {
-        provider 'eu.esdihumboldt.hale.io.csv.reader.instance'
-
-        setting 'typename', 'Schlüssel'
-        setting 'skip', project.hasProperty('hkSchluesselSkipFirst') ? project.getProperty('hkSchluesselSkipFirst') : false
-
-        setting 'charset', hkCharset
-        setting 'quote', hkQuote
-        setting 'decimal', hkDecimal
-        setting 'separator', hkSeparator
-        setting 'escape', hkEscape
-      }
-
       source(hkDatei) {
         provider 'eu.esdihumboldt.hale.io.csv.reader.instance'
 
         setting 'typename', 'Hauskoordinaten'
-        setting 'skip', project.hasProperty('hkSkipFirst') ? project.getProperty('hkSkipFirst') : false
+        setting 'skip', project.hasProperty('hkSkipFirst') ? project.getProperty('hkSkipFirst') : 1
 
         setting 'charset', hkCharset
         setting 'quote', hkQuote
