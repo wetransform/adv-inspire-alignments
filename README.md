@@ -72,24 +72,21 @@ Alle weiteren *Tasks* stehen für die Transformation eines bestimmten Projekts, 
 
 ### Transformation für Hauskoordinaten
 
-Die Transformation von Hauskoordinaten zu Adressen ist ein Spezialfall, da hier kein XML als Quelle vorhanden ist, sondern CSV-Dateien.
+Die Transformation von Hauskoordinaten zu Adressen ist ein Spezialfall, da hier kein XML als Quelle vorhanden ist, sondern eine CSV-Datei.
 
 Das Kürzel `ad-hk` steht für diese Transformation und wird anders behandelt als die restlichen Transformationen.
-Die Quell-Dateien müssen hier einzeln angegeben werden, als Gradle properties (z.B. in der Datei `gradle.properties`):
+Die Quell-Datei muss hier über folgende Eingenschaft konfiguriert werden (z.B. in der Datei `gradle.properties`):
 
-- **hkSchluesselDatei** - Pfad zur CSV-Datei mit Schlüssel-Informationen
 - **hkDatei** - Pfad zur Datei mit Hauskoordinaten
 
-Sind diese Eigenschaften nicht angegeben, werden standardmäßig Testdaten aus dem Repository verwendet.
+Ist diese Eigenschaft nicht konfiguriert, wird standardmäßig eine Testdatei aus dem Repository verwendet.
 
-Zusätzlich muss für jede der beiden Dateien angegeben werden, ob die erste Zeile der Datei übersprungen werden soll. Dies geschieht ebenfalls über Gradle properties. Eine Konfiguration kann beispielsweise so aussehen:
+Zusätzlich muss für die Datei angegeben werden, wie viele Zeilen beim Einlesen übersprungen werden sollen. Dies geschieht ebenfalls über die Datei `gradle.properties`. Wird kein Wert für `hkSkipFirst` konfiguriert, wird standardmäßig davon ausgegangen, dass eine Zeile übersprungen werden muss. Eine Konfiguration kann beispielsweise so aussehen:
 
 ```
-# Hauskoordinaten (CSV-Dateien)
-hkSchluesselDatei=hk/schluessel.csv
-hkSchluesselSkipFirst=false
+# Hauskoordinaten (CSV-Datei)
 hkDatei=hk/adressen.csv
-hkSkipFirst=true
+hkSkipFirst=1
 ```
 
 Weitere Einstellungen zum Lesen der CSV-Dateien (z.B. Trennzeichen) sind im Moment fest konfiguriert.
