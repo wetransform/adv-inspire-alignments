@@ -31,7 +31,7 @@ withTransformationContext {
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Ce6d4faab-cbaa-40c4-a1bf-76463a654af1" priority="low">
         <target>
             <class>
-                <type name="AccessRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="AccessRestrictionType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -96,7 +96,7 @@ collect.accessRestriction.consume { key, values -&gt;&#13;
         </source>
         <target>
             <class>
-                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="join">
@@ -201,8 +201,8 @@ Die erstellte `ERoad` wird dem Index von Netzwerk-Elementen hinzugefügt.</docum
         </source>
         <target>
             <property>
-                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="europeanRouteNumber" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="europeanRouteNumber" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -211,8 +211,8 @@ Die erstellte `ERoad` wird dem Index von Netzwerk-Elementen hinzugefügt.</docum
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C006ef0a4-6836-420e-bd48-757ca82e3668" priority="normal">
         <target>
             <property>
-                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="europeanRouteNumber" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="europeanRouteNumber" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -221,8 +221,8 @@ Die erstellte `ERoad` wird dem Index von Netzwerk-Elementen hinzugefügt.</docum
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C18011a5e-4bdd-4a36-9235-ed65c8929197" priority="normal">
         <target>
             <property>
-                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -231,8 +231,8 @@ Die erstellte `ERoad` wird dem Index von Netzwerk-Elementen hinzugefügt.</docum
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C971693cf-9a72-4128-85ed-87338b3c7288" priority="normal">
         <target>
             <property>
-                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="ERoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -241,7 +241,7 @@ Die erstellte `ERoad` wird dem Index von Netzwerk-Elementen hinzugefügt.</docum
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cdea13ccc-cf83-4aa5-ac9d-9c076505f176" priority="low">
         <target>
             <class>
-                <type name="FormOfWayType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="FormOfWayType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -297,7 +297,7 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C76d28e9a-d217-4c2e-9b95-1597e9fe07de" priority="low">
         <target>
             <class>
-                <type name="FunctionalRoadClassType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="FunctionalRoadClassType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -355,7 +355,7 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
         </source>
         <target>
             <class>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -493,8 +493,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -511,8 +511,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -521,8 +521,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C283ae5bb-6e8e-4493-b074-c68810c93f64" priority="normal">
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -539,8 +539,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="Point" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -556,7 +556,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -570,7 +570,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -584,20 +584,20 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C3822502c-ad98-403a-97e7-bc45057e9cad" priority="normal">
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
@@ -610,8 +610,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="location" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="location" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -620,8 +620,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfaa78fbf-05c9-420c-8a2b-52f9a5ebaeb7" priority="normal">
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="location" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="location" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="uom"/>
             </property>
         </target>
@@ -630,8 +630,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C3ca73b7b-364f-402c-81ed-fe55f44463c4" priority="normal">
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="route" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="route" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -640,8 +640,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca2523e6e-1b8b-458d-95c6-47bf898786ec" priority="normal">
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -650,8 +650,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C3a3333de-7b30-45df-90fa-3e7f472a9fb5" priority="normal">
         <target>
             <property>
-                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="MarkerPostType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -660,7 +660,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cf936785f-5456-4fc6-bd62-f55395169e5a" priority="low">
         <target>
             <class>
-                <type name="NumberOfLanesType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="NumberOfLanesType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -719,8 +719,8 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb01cca94-65d0-482e-8ddc-79381e266aef" priority="normal">
         <target>
             <property>
-                <type name="NumberOfLanesType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="minMaxNumberOfLanes" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="NumberOfLanesType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="minMaxNumberOfLanes" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -734,7 +734,7 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
         </source>
         <target>
             <class>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -943,7 +943,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1068,7 +1068,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1220,7 +1220,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1393,7 +1393,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1553,8 +1553,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -1571,8 +1571,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -1588,8 +1588,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -1604,8 +1604,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -1619,8 +1619,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -1634,8 +1634,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -1650,8 +1650,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -1665,8 +1665,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -1679,8 +1679,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -1693,8 +1693,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -1707,7 +1707,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -1722,7 +1722,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -1736,10 +1736,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="true" name="useTargetTypePrefix"/>
@@ -1747,18 +1747,18 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.namespace" id="C87845354-a68e-4c9b-98a0-8d05883d4e0d" priority="normal">
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C6d642b7a-9a3c-4e71-aec4-43534a1b7e3c" priority="normal">
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -1767,8 +1767,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C5cbdfd0f-656b-4ab1-b556-a315cc806dc7" priority="normal">
         <target>
             <property>
-                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -1792,7 +1792,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="join">
@@ -2173,7 +2173,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -2374,7 +2374,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -2600,8 +2600,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -2618,8 +2618,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -2634,8 +2634,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -2650,8 +2650,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -2668,8 +2668,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -2678,8 +2678,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb21be42b-6ddb-448b-b3b3-bbf7b68a463d" priority="normal">
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="fictitious" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="fictitious" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="value"/>
@@ -2693,8 +2693,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -2708,8 +2708,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -2723,8 +2723,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -2738,7 +2738,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -2753,7 +2753,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -2767,10 +2767,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="true" name="useTargetTypePrefix"/>
@@ -2778,18 +2778,18 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.namespace" id="Ca75e7935-ff63-4356-909a-b59d866bc062" priority="normal">
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C7e730557-eed5-41b1-9e74-ceb423099aeb" priority="normal">
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -2798,8 +2798,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C7064efe2-85ca-4004-b2ee-1b11aab69401" priority="normal">
         <target>
             <property>
-                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -2815,7 +2815,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -2917,7 +2917,7 @@ collect.verticalPosition[verticalPosition] &lt;&lt; _id
         </source>
         <target>
             <class>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -3054,7 +3054,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -3207,8 +3207,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -3217,8 +3217,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C3c8f6f33-db96-4b93-8daa-93234f9b54d9" priority="normal">
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -3235,8 +3235,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -3253,8 +3253,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -3269,8 +3269,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -3286,8 +3286,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -3300,8 +3300,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -3314,8 +3314,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -3328,7 +3328,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -3343,7 +3343,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -3357,10 +3357,10 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="true" name="useTargetTypePrefix"/>
@@ -3368,18 +3368,18 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="custom:alignment:adv.inspire.namespace" id="Cffee451b-b8bd-4701-8077-cb5cca34261a" priority="normal">
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C12007973-d14d-476a-b70f-defa22c4688a" priority="normal">
         <target>
             <property>
-                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadServiceAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -3388,7 +3388,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Ca30ad72d-b136-4147-b4a6-21e3a41ac5fd" priority="lower">
         <target>
             <class>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -3445,7 +3445,7 @@ if (!collect.roadServiceType.values().contains('5310')){&#13;
         </source>
         <target>
             <class>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <parameter value="false" name="auto_detect"/>
@@ -3475,8 +3475,8 @@ _target{}
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0">
                     <context>0</context>
                 </child>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -3495,8 +3495,8 @@ _target{}
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0">
                     <context>1</context>
                 </child>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -3515,8 +3515,8 @@ _target{}
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0">
                     <context>2</context>
                 </child>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -3535,8 +3535,8 @@ _target{}
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0">
                     <context>3</context>
                 </child>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -3555,8 +3555,8 @@ _target{}
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0">
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0">
                     <context>4</context>
                 </child>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -3575,8 +3575,8 @@ _target{}
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="availableFacility" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3591,8 +3591,8 @@ _target{}
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -3607,7 +3607,7 @@ _target{}
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -3622,7 +3622,7 @@ _target{}
         </source>
         <target name="result">
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -3647,10 +3647,10 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="RoadServiceType_{funktion}" name="pattern"/>
@@ -3658,10 +3658,10 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
     <cell relation="custom:alignment:adv.inspire.namespace" id="C926d15b8-a481-4947-a796-ae74e3d6e3d7" priority="normal">
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
@@ -3674,10 +3674,10 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
@@ -3693,8 +3693,8 @@ _target( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
         </source>
         <target name="result">
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="networkRef" ns="http://inspire.ec.europa.eu/schemas/net/4.0">
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="networkRef" ns="http://inspire.ec.europa.eu/schemas/net/5.0">
                     <context>0</context>
                 </child>
             </property>
@@ -3749,11 +3749,11 @@ _log.info('Schleife läuft für ' + flaeche)&#13;
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="networkRef" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/net/4.0/NetworkReference"/>
-                <child name="NetworkReference" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="element" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="networkRef" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="choice" ns="http://inspire.ec.europa.eu/schemas/net/5.0/NetworkReference"/>
+                <child name="NetworkReference" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="element" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3768,8 +3768,8 @@ _log.info('Schleife läuft für ' + flaeche)&#13;
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="type" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="type" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3804,8 +3804,8 @@ _log.info('Schleife läuft für ' + flaeche)&#13;
         </source>
         <target>
             <property>
-                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadServiceTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -3814,7 +3814,7 @@ _log.info('Schleife läuft für ' + flaeche)&#13;
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C58fab7dc-5037-41c6-97cd-b69550c0ec51" priority="low">
         <target>
             <class>
-                <type name="RoadSurfaceCategoryType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadSurfaceCategoryType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -3887,7 +3887,7 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. `Roa
         </source>
         <target>
             <class>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="join">
@@ -3988,7 +3988,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <class>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -4019,7 +4019,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <class>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -4079,8 +4079,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4097,8 +4097,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4115,8 +4115,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4133,8 +4133,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4149,7 +4149,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -4164,7 +4164,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -4179,7 +4179,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -4193,7 +4193,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -4207,10 +4207,10 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="true" name="useTargetTypePrefix"/>
@@ -4224,10 +4224,10 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="true" name="useTargetTypePrefix"/>
@@ -4241,8 +4241,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="link" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="link" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -4257,8 +4257,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="localRoadCode" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="localRoadCode" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4273,8 +4273,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="localRoadCode" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="localRoadCode" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4289,8 +4289,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="localRoadCode" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="localRoadCode" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4305,8 +4305,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
         </source>
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="nationalRoadCode" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="nationalRoadCode" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4315,8 +4315,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C783bc706-7027-4d63-bdc7-39f885bc3652" priority="normal">
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -4325,8 +4325,8 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C0b66c144-c6eb-4f0b-9148-e9e7220f97fc" priority="normal">
         <target>
             <property>
-                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RoadType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -4335,7 +4335,7 @@ Die erstellte `Road` wird dem Index von Netzwerk-Elementen hinzugefügt.</docume
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C01d34ad8-6db2-4d58-8bfa-5ef45239e015" priority="low">
         <target>
             <class>
-                <type name="RoadWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -4394,8 +4394,8 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C809327ca-b90f-4c31-8cb4-b9988c5e0aa9" priority="normal">
         <target>
             <property>
-                <type name="RoadWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
-                <child name="measuredRoadPart" ns="http://inspire.ec.europa.eu/schemas/tn-ro/4.0"/>
+                <type name="RoadWidthType" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
+                <child name="measuredRoadPart" ns="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -4404,7 +4404,7 @@ Die gesammelten Daten werden verwendet um die Informationen zu Breite, Maßeinhe
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C6955e1ef-56ba-4ac9-9507-4203fc556956" priority="low">
         <target>
             <class>
-                <type name="TrafficFlowDirectionType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TrafficFlowDirectionType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -4460,8 +4460,8 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
         </source>
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4478,8 +4478,8 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
         </source>
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -4494,8 +4494,8 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
         </source>
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -4509,8 +4509,8 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
         </source>
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -4524,8 +4524,8 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
         </source>
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -4539,7 +4539,7 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
         </source>
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -4554,7 +4554,7 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
         </source>
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -4568,10 +4568,10 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
         </source>
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="true" name="useTargetTypePrefix"/>
@@ -4579,18 +4579,18 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
     <cell relation="custom:alignment:adv.inspire.namespace" id="Cc2269463-2fe0-460d-883d-6da676dbb1bc" priority="normal">
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C6da68b64-b734-429c-acd4-bd1fd5b68db1" priority="normal">
         <target>
             <property>
-                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="post" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportLinkSetType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="post" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -4599,8 +4599,9 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C72fea6b2-4d97-4299-9f1b-39cf00ffe3d3" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="typeOfTransport" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="typeOfTransport" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
         <parameter value="road" name="value"/>
