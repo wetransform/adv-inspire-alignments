@@ -4,7 +4,7 @@
     <cell relation="eu.esdihumboldt.hale.align.create" id="Cb008c5ac-e877-45a3-92dc-fe8296da779e" priority="lowest">
         <target>
             <class>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="1" name="number"/>
@@ -12,8 +12,8 @@
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C9d2e4658-e17d-4694-800c-47f798749c3c" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -22,8 +22,8 @@
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C35fa4223-dd8f-4a95-92b5-7a5414d0abf3" priority="normal">
         <target name="result">
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="extent" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="extent" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </property>
         </target>
         <complexParameter name="script">
@@ -38,7 +38,7 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cff9947b4-d24e-4ae4-946a-8702e65e55db" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -47,7 +47,7 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C0a581376-bec7-43ee-9f9f-21164e23a31d" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -56,7 +56,7 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cbaed14e2-583a-44ef-87ce-00958061ed30" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                 <child name="codeSpace"/>
             </property>
@@ -66,10 +66,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc8c89aa4-fba9-4b9a-baef-68a4fafa35c0" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="{{project:LANDCOVER_DATASET}}" name="value"/>
@@ -77,10 +77,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C1599b193-ea8c-43a6-9da3-94a2398a46e6" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
@@ -88,8 +88,8 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.cst.functions.collector.assign" id="Cd9fa0141-939a-426d-9d35-edfe00f55136" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="member" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="member" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </property>
         </target>
         <parameter value="dataset" name="collector"/>
@@ -97,8 +97,8 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C5becb69e-9224-40fd-9bb4-b301d58b584a" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="name" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="name" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </property>
         </target>
         <parameter value="{{project:LANDCOVER_DATASET}}" name="value"/>
@@ -106,10 +106,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce5c0e071-9847-4d36-9155-4a2153e8b4c5" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0">
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0">
                     <context>0</context>
                 </child>
                 <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
@@ -123,10 +123,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdbd48486-f56d-4ab9-a5d9-2ec7288946e7" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0">
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0">
                     <context>0</context>
                 </child>
                 <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
@@ -139,10 +139,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C3998bcc7-18fd-45ea-ac57-64548397dc19" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0">
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0">
                     <context>0</context>
                 </child>
                 <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
@@ -155,10 +155,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce8aeacf7-ca24-44e9-af9a-dc005abdf2e6" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
                 <child name="DocumentCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="date" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -170,10 +170,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C2b594215-7c1d-4ee9-90fe-1d30634846b4" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
                 <child name="DocumentCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="link" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -184,10 +184,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce42bacc3-71f9-48a6-9785-359e57512dbe" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="externalDescription" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="choice" ns="http://inspire.ec.europa.eu/schemas/base2/2.0/DocumentCitation"/>
                 <child name="DocumentCitation" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="name" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -198,12 +198,12 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C6ecc20c1-5d96-4d77-bc0a-92a588cbde8d" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="LandCoverNomenclature_1" name="value"/>
@@ -211,22 +211,22 @@ return c.extent.value()
     <cell relation="custom:alignment:adv.inspire.namespace" id="Cb1390159-b1ae-4484-9c9c-0b9a447d0451" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C4bbd14fb-ce72-4fe6-b705-446bf90091a1" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="nomenclatureCodeList" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="nomenclatureCodeList" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
             </property>
         </target>
         <parameter value="{{project:LANDCOVER_OBSERVATION_CODELIST}}" name="value"/>
@@ -234,10 +234,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C8c21572c-4098-491e-b4a0-d7a6ba261439" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -253,10 +253,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc3453039-23fc-4080-8561-d4f5bc73a045" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -273,10 +273,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C3c4a5cda-b6b6-4c94-ac3a-5539c6b11aeb" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -293,10 +293,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C88d1b920-78bc-4c43-9779-5fe69cde8596" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -313,10 +313,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C67c0d4db-23f7-4d31-b373-14dd1c2546ba" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -333,10 +333,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C630655c7-5e1b-4fc4-b07d-bdc5810ab3bc" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -354,10 +354,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cbd69fc28-08d4-4a97-9d50-31149d7d89c8" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -375,10 +375,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C32cc8623-25ad-4dc9-a0b2-d9927137a999" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -392,10 +392,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C8fdf481a-b0ae-49df-bdc2-0d8b9eb645fa" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -409,10 +409,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C2a93b4cf-98a3-410a-b837-5bb704e2452a" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -428,10 +428,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C90a05e4e-0eaf-4b12-9f56-964f5c92fadb" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -448,10 +448,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C683b2670-4804-45ec-a795-bfe5dab62be6" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -468,10 +468,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfb155c36-25fb-47a1-afaa-03a92e651080" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -488,10 +488,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C7f4ed309-9be3-4cc2-b5ca-99495edcb4f5" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -508,10 +508,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cbfcbfd71-951d-4ac5-a8f0-28be95e0a7dd" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -529,10 +529,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cced6ec47-e0cb-4769-8d57-2d1553f2ffe9" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -550,10 +550,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C2225fc74-d148-47e4-b8c1-51500d43c6cc" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="Contact" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
@@ -565,10 +565,10 @@ return c.extent.value()
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C308cf51c-74a2-45d9-92ee-115e622b7700" priority="normal">
         <target>
             <property>
-                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
-                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/4.0"/>
+                <type name="LandCoverDatasetType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="nomenclatureDocumentation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverNomenclature" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
+                <child name="responsibleParty" ns="http://inspire.ec.europa.eu/schemas/lcn/5.0"/>
                 <child name="RelatedParty" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="organisationName" ns="http://inspire.ec.europa.eu/schemas/base2/2.0"/>
                 <child name="choice" ns="http://www.isotc211.org/2005/gco/CharacterString"/>
@@ -585,7 +585,7 @@ return c.extent.value()
         </source>
         <target>
             <class>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -599,7 +599,7 @@ return c.extent.value()
         </source>
         <target>
             <class>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -613,7 +613,7 @@ return c.extent.value()
         </source>
         <target>
             <class>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -627,7 +627,7 @@ return c.extent.value()
         </source>
         <target>
             <class>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -641,7 +641,7 @@ return c.extent.value()
         </source>
         <target>
             <class>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -655,7 +655,7 @@ return c.extent.value()
         </source>
         <target>
             <class>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -669,7 +669,7 @@ return c.extent.value()
         </source>
         <target>
             <class>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -683,7 +683,7 @@ return c.extent.value()
         </source>
         <target>
             <class>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -697,7 +697,7 @@ return c.extent.value()
         </source>
         <target>
             <class>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </class>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -714,8 +714,8 @@ return c.extent.value()
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -732,8 +732,8 @@ return c.extent.value()
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -748,8 +748,8 @@ return c.extent.value()
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="choice" ns="http://www.opengis.net/gml/3.2/AbstractGeometry"/>
                 <child name="Surface" ns="http://www.opengis.net/gml/3.2"/>
             </property>
@@ -788,7 +788,7 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -802,7 +802,7 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -810,7 +810,7 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfcc72eb3-3fcf-4df1-9800-d2f31d6ee3e5" priority="normal">
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                 <child name="codeSpace"/>
             </property>
@@ -826,10 +826,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="dataset" name="collectorName"/>
@@ -837,10 +837,10 @@ return targeom
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cadc476f1-7750-4370-975e-fda9a22cba1e" priority="normal">
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
@@ -854,10 +854,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -886,10 +886,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -918,10 +918,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -948,10 +948,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1000,10 +1000,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1052,10 +1052,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1104,10 +1104,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1156,10 +1156,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1208,10 +1208,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1260,10 +1260,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1312,10 +1312,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1364,10 +1364,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1414,10 +1414,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1432,10 +1432,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1462,10 +1462,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1492,10 +1492,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1510,10 +1510,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1528,10 +1528,10 @@ return targeom
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1546,10 +1546,10 @@ return targeom
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1582,10 +1582,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1618,10 +1618,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1654,10 +1654,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1690,10 +1690,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1726,10 +1726,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1762,10 +1762,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1798,10 +1798,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1834,10 +1834,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1870,10 +1870,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1906,10 +1906,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1942,10 +1942,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -1978,10 +1978,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2014,10 +2014,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2050,10 +2050,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2086,10 +2086,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2122,10 +2122,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2158,10 +2158,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2194,10 +2194,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2230,10 +2230,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2266,10 +2266,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2302,10 +2302,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2338,10 +2338,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2374,10 +2374,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2410,10 +2410,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2446,10 +2446,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2482,10 +2482,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2518,10 +2518,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2554,10 +2554,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2590,10 +2590,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2626,10 +2626,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2662,10 +2662,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2698,10 +2698,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2732,10 +2732,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2750,10 +2750,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2790,10 +2790,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2830,10 +2830,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2858,10 +2858,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2898,10 +2898,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2938,10 +2938,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -2966,10 +2966,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3006,10 +3006,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3046,10 +3046,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3072,10 +3072,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3098,10 +3098,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3130,10 +3130,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3160,10 +3160,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3178,10 +3178,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3208,10 +3208,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3244,10 +3244,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3280,10 +3280,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3316,10 +3316,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3352,10 +3352,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3388,10 +3388,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3424,10 +3424,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3460,10 +3460,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3496,10 +3496,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3530,10 +3530,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3562,10 +3562,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3594,10 +3594,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3624,10 +3624,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3642,10 +3642,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3686,10 +3686,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3730,10 +3730,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3772,10 +3772,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3802,10 +3802,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3820,10 +3820,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3856,10 +3856,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3892,10 +3892,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3926,10 +3926,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3956,10 +3956,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="class" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -3974,10 +3974,10 @@ if (blattform.p.values().size() == 2){&#13;
         </source>
         <target name="result">
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="observationDate" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="observationDate" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
             </property>
         </target>
         <complexParameter name="script">
@@ -4003,10 +4003,10 @@ else {&#13;
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cb3e1d591-6efa-4bca-bdda-7265bf03e9e5" priority="normal">
         <target>
             <property>
-                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
-                <child name="observationDate" ns="http://inspire.ec.europa.eu/schemas/lcv/4.0"/>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="landCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="LandCoverObservation" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="observationDate" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>

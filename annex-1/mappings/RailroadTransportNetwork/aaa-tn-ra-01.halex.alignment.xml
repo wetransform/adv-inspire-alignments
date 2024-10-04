@@ -13,8 +13,8 @@
         </source>
         <target>
             <property>
-                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -31,8 +31,8 @@
         </source>
         <target>
             <property>
-                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -41,7 +41,7 @@
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Cbc1d0004-f009-40ce-a9e0-284e0852cbd0" priority="low">
         <target>
             <class>
-                <type name="NominalTrackGaugeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="NominalTrackGaugeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -104,7 +104,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `Railw
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C6f5276f4-be5d-4509-a927-a39aea98844a" priority="low">
         <target>
             <class>
-                <type name="NumberOfTracksType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="NumberOfTracksType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -158,8 +158,8 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Ca5062864-f188-41e7-a800-dc412d36911d" priority="normal">
         <target>
             <property>
-                <type name="NumberOfTracksType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="minMaxNumberOfTracks" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="NumberOfTracksType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="minMaxNumberOfTracks" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -173,7 +173,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
         </source>
         <target>
             <class>
-                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -374,8 +374,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C4d69e8d8-0f66-4fb1-9343-465ee5604ff3" priority="normal">
         <target>
             <property>
-                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -390,8 +390,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="geometry" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -404,7 +404,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -418,7 +418,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -432,28 +432,28 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C565ee942-8f6f-4e42-b213-23337a892129" priority="normal">
         <target>
             <property>
-                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C1d0cdc85-bd58-42ce-9698-9f42683e2d58" priority="normal">
         <target>
             <property>
-                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -462,8 +462,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cdc70ecf5-b963-44da-80b4-854b89fa7440" priority="normal">
         <target>
             <property>
-                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -472,7 +472,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C26cdc371-11f7-4d7d-990e-555c63de147b" priority="low">
         <target>
             <class>
-                <type name="RailwayElectrificationType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayElectrificationType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -533,7 +533,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
         </source>
         <target>
             <class>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <parameter value="{http://www.adv-online.de/namespaces/adv/gid/7.1}name" name="additional_property"/>
@@ -587,8 +587,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </source>
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -603,8 +603,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </source>
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="endLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
@@ -617,8 +617,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </source>
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -626,8 +626,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C80652f08-0840-40b1-b701-c4eb5b4e2856" priority="normal">
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -642,7 +642,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </source>
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -656,7 +656,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </source>
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -670,20 +670,20 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </source>
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C219ed724-f214-45a8-b291-5272fd866b99" priority="normal">
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
@@ -696,8 +696,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </source>
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="link" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="link" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -706,8 +706,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C0047cb98-5745-4d80-9ea9-5785af1a3809" priority="normal">
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="post" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="post" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -722,8 +722,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </source>
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="railwayLineCode" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="railwayLineCode" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </property>
         </target>
         <parameter value="false" name="ignoreNamespaces"/>
@@ -732,8 +732,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd99f8fb6-fc49-4a92-85bd-059d1e7deb42" priority="normal">
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -742,8 +742,8 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C688e237c-ab7e-4be7-8d06-0e366460c193" priority="normal">
         <target>
             <property>
-                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLineType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -757,7 +757,7 @@ Die erstellte `RailwayLine` wird dem Index von Netzwerk-Elementen hinzugefügt.<
         </source>
         <target>
             <class>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1073,7 +1073,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1242,16 +1242,16 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="centrelineGeometry" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf78462fb-2cc3-4337-b4b6-4bc3e6485717" priority="normal">
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="fictitious" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="fictitious" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
             </property>
         </target>
         <parameter value="false" name="value"/>
@@ -1265,8 +1265,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -1280,8 +1280,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -1289,8 +1289,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C5ee3e63c-f81e-482a-8c6e-d390db597620" priority="normal">
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -1305,7 +1305,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -1319,7 +1319,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -1333,28 +1333,28 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="custom:alignment:adv.inspire.namespace" id="C4bcaaeda-f8c5-41c5-8efa-bc3a2eaffa51" priority="normal">
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C8bdc6a70-fb35-49fc-8113-0fb3aac3b041" priority="normal">
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -1363,8 +1363,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C95a15bfe-e439-4f42-ac3f-eb3740da976a" priority="normal">
         <target>
             <property>
-                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayLinkType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -1378,7 +1378,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <class>
-                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1580,8 +1580,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
         </source>
         <target>
             <property>
-                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
         </target>
@@ -1589,8 +1589,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C2fd3d7ec-9da9-47f0-af0d-8502ced21036" priority="normal">
         <target>
             <property>
-                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -1599,8 +1599,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cad0cc7de-46e9-4eca-9c22-a50a195d20df" priority="normal">
         <target>
             <property>
-                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -1609,8 +1609,8 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cfe820c80-b3ae-4187-9e5d-3ebf7baccc3f" priority="normal">
         <target>
             <property>
-                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
-                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="RailwayStationAreaType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
+                <child name="validTo" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -1619,7 +1619,7 @@ Für alle anderen `bauwerksfunktion`en, Referenzen auf andere Objekte oder auch 
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C1f082d85-af49-4d27-bb48-4861e974d752" priority="low">
         <target>
             <class>
-                <type name="RailwayStationCodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayStationCodeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1670,7 +1670,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `Railw
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C2a6fa58e-9358-425c-aec0-cbb52951e52a" priority="low">
         <target>
             <class>
-                <type name="RailwayTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayTypeType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1729,7 +1729,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B. `Railw
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="Ca65a86a4-b0ae-482f-bb27-b8e9c5b51713" priority="low">
         <target>
             <class>
-                <type name="RailwayUseType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/4.0"/>
+                <type name="RailwayUseType" ns="http://inspire.ec.europa.eu/schemas/tn-ra/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -1788,8 +1788,9 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C13ad15bd-b849-403e-bcf4-ec122b3998bd" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="typeOfTransport" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="typeOfTransport" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
         <parameter value="rail" name="value"/>
