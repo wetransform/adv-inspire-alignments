@@ -42,6 +42,12 @@ Ein *TransportProperty*-Objekt wird erstellt für alle Features die über die gl
         <setting name="source">https://inspire.ec.europa.eu/schemas/tn-w/5.0/WaterTransportNetwork.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">c2e10a31-6368-4ff2-812a-aa247dd18c8d</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/TransportTypeValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
             <setting name="charset">UTF-8</setting>
