@@ -48,17 +48,17 @@ Das gleiche gilt für die aggregierten Geometrien -- hier werden bei unvollstän
     </export-config>
     <file name="alignment.xml" location="aaa-au-kommunalesGebiet.halex.alignment.xml"/>
     <file name="styles.sld" location="aaa-au-kommunalesGebiet.halex.styles.sld"/>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeBoundaryType/1">{http://inspire.ec.europa.eu/schemas/au/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeBoundaryType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeBoundaryType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeUnitType/1">{http://inspire.ec.europa.eu/schemas/au/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeUnitType/count">1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}CondominiumType/1">{http://inspire.ec.europa.eu/schemas/au/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}CondominiumType/2">{http://www.opengis.net/gml/3.2}MultiSurface</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}CondominiumType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}ResidenceOfAuthorityType/1">{http://inspire.ec.europa.eu/schemas/au/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}ResidenceOfAuthorityType/2">{http://www.opengis.net/gml/3.2}Point</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/4.0}ResidenceOfAuthorityType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}AdministrativeBoundaryType/1">{http://inspire.ec.europa.eu/schemas/au/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}AdministrativeBoundaryType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}AdministrativeBoundaryType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}AdministrativeUnitType/1">{http://inspire.ec.europa.eu/schemas/au/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}AdministrativeUnitType/count">1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}CondominiumType/1">{http://inspire.ec.europa.eu/schemas/au/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}CondominiumType/2">{http://www.opengis.net/gml/3.2}MultiSurface</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}CondominiumType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}ResidenceOfAuthorityType/1">{http://inspire.ec.europa.eu/schemas/au/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}ResidenceOfAuthorityType/2">{http://www.opengis.net/gml/3.2}Point</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/au/5.0}ResidenceOfAuthorityType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/base/3.3}SpatialDataSetType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/base/3.3}SpatialDataSetType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/base/3.3}SpatialDataSetType/count">2</property>
@@ -1332,9 +1332,9 @@ Das gleiche gilt für die aggregierten Geometrien -- hier werden bei unvollstän
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_Gebiet_NationalstaatType</property>
     <property name="mappableSourceType/9">{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_NationalstaatType</property>
     <property name="mappableSourceType/count">15</property>
-    <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeUnitType</property>
-    <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/au/4.0}AdministrativeBoundaryType</property>
-    <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/au/4.0}CondominiumType</property>
+    <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/au/5.0}AdministrativeUnitType</property>
+    <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/au/5.0}AdministrativeBoundaryType</property>
+    <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/au/5.0}CondominiumType</property>
     <property name="mappableTargetType/count">3</property>
     <property name="resource-0b55205f-6c0e-453c-b938-f369580faaaa:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_PunktortAUType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
     <property name="resource-0f492db6-9eda-4489-b9df-186a7c82e577:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AP_PPOType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}MultiPoint/{http://www.opengis.net/gml/3.2}pointMember/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>

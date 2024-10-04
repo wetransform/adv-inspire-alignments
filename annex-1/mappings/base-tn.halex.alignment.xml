@@ -58,7 +58,7 @@ Diese Information wird herangezogen um entsprechend für REO-Objekte über die B
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C1eb2d011-34d1-4077-8388-f7fbdb1659b9" priority="low">
         <target>
             <class>
-                <type name="ConditionOfFacilityType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="ConditionOfFacilityType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -117,8 +117,8 @@ Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. *Tra
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C03716a0b-a2f7-4f4b-8d93-13d186c7af73" priority="normal">
         <target name="result">
             <property>
-                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
-                <child name="inNetwork" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
+                <child name="inNetwork" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
@@ -132,7 +132,7 @@ Dazu wird die vorgegebene ID für das Netzwerk verwendet (Projekt-Variable).</do
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C376c9fef-ac45-4e2c-9941-651740ba7400" priority="lowest">
         <target>
             <class>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
@@ -161,8 +161,8 @@ Zuvor wurde beim Erstellen jedes Netzwerk-Elements dessen GML id in einem Index 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C60a849e5-b891-4866-8022-0cd07e0f01f4" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="language" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
@@ -172,8 +172,8 @@ Zuvor wurde beim Erstellen jedes Netzwerk-Elements dessen GML id in einem Index 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C8bd6e468-105d-4337-a3e7-f7355ed60664" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -184,8 +184,8 @@ Zuvor wurde beim Erstellen jedes Netzwerk-Elements dessen GML id in einem Index 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C56e9b1b9-1ade-49d5-9f53-37423fe9d061" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="nativeness" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -196,8 +196,8 @@ Zuvor wurde beim Erstellen jedes Netzwerk-Elements dessen GML id in einem Index 
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf2ce1338-3fce-4a09-807d-09c3e76262d0" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="pronunciation" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="nilReason"/>
@@ -208,8 +208,8 @@ Zuvor wurde beim Erstellen jedes Netzwerk-Elements dessen GML id in einem Index 
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cd1613f96-fd11-4e0b-b093-d38ce17cb580" priority="normal">
         <target name="result">
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="sourceOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
             </property>
@@ -233,8 +233,8 @@ else {
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd4048617-c86f-4863-99b5-3e9f0635a8f5" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
@@ -246,8 +246,8 @@ else {
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C76fb8de5-dd5d-47c3-824e-3c37906a2c89" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                 <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
@@ -259,7 +259,7 @@ else {
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C79bec27b-cdca-459d-9ecc-540aeca29d4b" priority="normal">
         <target name="result">
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="id" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -274,7 +274,7 @@ Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentati
     <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cad28e1b9-331b-4b75-838f-94b202fdba1f" priority="normal">
         <target name="result">
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
             </property>
         </target>
@@ -309,7 +309,7 @@ Beide Vorgaben können über eine Projekt-Variable überschrieben werden.</docum
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc9255943-592d-4e33-b874-03846d8c9a3c" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
                 <child name="codeSpace"/>
             </property>
@@ -319,10 +319,10 @@ Beide Vorgaben können über eine Projekt-Variable überschrieben werden.</docum
     <cell relation="eu.esdihumboldt.hale.align.assign" id="Caddb8db5-f486-4664-a6b8-edd9eb936efe" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
         <parameter value="{{project:NETWORK_ID}}" name="value"/>
@@ -333,18 +333,18 @@ Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentati
     <cell relation="custom:alignment:adv.inspire.namespace" id="C935f563e-2939-4fcc-aecc-8029498b746b" priority="normal">
         <target>
             <property>
-                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
-                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/4.0"/>
             </property>
         </target>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C6563043b-57b7-4264-b3ff-6264b547216f" priority="normal">
         <target>
             <property>
-                <type name="TransportPropertyType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <type name="TransportPropertyType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -354,8 +354,8 @@ Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentati
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C9fbdcf9a-e35a-4f33-b915-77155350de27" priority="normal">
         <target>
             <property>
-                <type name="TransportPropertyType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
-                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="TransportPropertyType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
                 <child name="nilReason"/>
             </property>
         </target>
@@ -365,7 +365,7 @@ Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentati
     <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C00cccf8c-b815-4fa9-b89c-6f37d12ae435" priority="lowest">
         <target>
             <class>
-                <type name="VerticalPositionType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <type name="VerticalPositionType" ns="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
             </class>
         </target>
         <complexParameter name="script">
