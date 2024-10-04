@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="5.1.0.SNAPSHOT">
+<hale-project version="5.4.0.SNAPSHOT">
     <name>[Annex II] AdV LB 1.0.1 zu INSPIRE Land Cover</name>
     <author>Johanna Ott (wetransform)</author>
     <created>2020-10-29T16:13:28.631+01:00</created>
-    <modified>2023-06-28T16:59:55.833+02:00</modified>
+    <modified>2024-09-30T15:18:31.905+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings7.1/LandCover/Version%201.0.1/LB-Landbedeckung1.0.1_INSPIRE-LC.halex</setting>
+        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-2-3/mappings/LandCover/v1.0.1/LB-Landbedeckung1.0.1_INSPIRE-LC.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
@@ -21,7 +21,7 @@
         <setting name="charset">UTF-8</setting>
         <setting name="onlyElementsMappable">true</setting>
         <setting name="resourceId">b14aadbe-c140-4c00-8eaf-58d5df326651</setting>
-        <setting name="source">https://inspire.ec.europa.eu/schemas/lcv/4.0/LandCoverVector.xsd</setting>
+        <setting name="source">https://inspire.ec.europa.eu/schemas/lcv/5.0/LandCoverVector.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
     <file name="alignment.xml" location="LB-Landbedeckung1.0.1_INSPIRE-LC.halex.alignment.xml"/>
