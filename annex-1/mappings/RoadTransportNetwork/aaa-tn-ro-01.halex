@@ -62,6 +62,12 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
         <setting name="source">http://inspire.ec.europa.eu/codelist/ServiceFacilityValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
+    <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
+        <setting name="charset">UTF-8</setting>
+        <setting name="resourceId">75908d5d-d4f3-4efc-a6b6-089d47524efe</setting>
+        <setting name="source">http://inspire.ec.europa.eu/codelist/TransportTypeValue</setting>
+        <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
+    </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
             <setting name="charset">UTF-8</setting>
@@ -79,6 +85,13 @@ Im Projekt gibt es drei verschiedene Herangehensweisen zur Bildung von *Transpor
     <file name="styles.sld" location="aaa-tn-ro-01.halex.styles.sld"/>
     <complex-property name="codelists">
         <associations>
+            <codeList identifier="//inspire.ec.europa.eu/codelist/TransportTypeValue" namespace="http://inspire.ec.europa.eu/codelist/TransportTypeValue">
+                <entity>
+                    <type name="TransportNetworkType" namespace="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                    <property name="typeOfTransport" namespace="http://inspire.ec.europa.eu/schemas/tn/5.0"/>
+                    <property name="href" namespace="http://www.w3.org/1999/xlink"/>
+                </entity>
+            </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/ServiceFacilityValue" namespace="http://inspire.ec.europa.eu/codelist/ServiceFacilityValue">
                 <entity>
                     <type name="RoadServiceTypeType" namespace="http://inspire.ec.europa.eu/schemas/tn-ro/5.0"/>

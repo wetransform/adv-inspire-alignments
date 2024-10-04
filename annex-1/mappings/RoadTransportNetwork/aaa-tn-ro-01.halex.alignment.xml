@@ -313,7 +313,9 @@ collect.functionalClass.consume { key, values -&gt;
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
 	_target {
-		functionalClass( key )
+		functionalClass {
+			href( 'http://inspire.ec.europa.eu/codelist/FunctionalRoadClassValue/' + key )
+		}
 		id( _id )
 		inspireId {
 			Identifier {
@@ -4604,7 +4606,7 @@ collect.trafficFlowDirection.consume { key, values -&gt;&#13;
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="road" name="value"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/TransportTypeValue/road" name="value"/>
     </cell>
     <modifier cell="C010d8324-6422-49f2-883a-7ee5d875177b">
         <disable-for parent="C2581bae5-bd09-416c-948e-bcb8b5835ca3"/>

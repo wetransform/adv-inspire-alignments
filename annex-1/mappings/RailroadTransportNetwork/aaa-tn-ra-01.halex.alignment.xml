@@ -69,7 +69,9 @@ collect.nominalTrackGauge.consume { key, values -&gt;
 				uom( 'mm' )
 			}
 		}
-		nominalGaugeCategory( key )
+		nominalGaugeCategory{
+			href( 'http://inspire.ec.europa.eu/codelist/TrackGaugeCategoryValue/' + key )
+		}
 		id( _id )
 		inspireId {
 			Identifier {
@@ -1793,7 +1795,7 @@ Es werden Referenzen (NetworkReference) zu allen Netzwerk-Elementen (z.B.  `Rail
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="rail" name="value"/>
+        <parameter value="http://inspire.ec.europa.eu/codelist/TransportTypeValue/rail" name="value"/>
     </cell>
     <modifier cell="C48d3be90-5843-4323-bd79-ba1928b2429e">
         <disable-for parent="Ca500e629-76b0-4cda-b53f-c9db0c272403"/>

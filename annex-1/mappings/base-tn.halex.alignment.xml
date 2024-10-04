@@ -384,7 +384,9 @@ collect.verticalPosition.consume { key, values -&gt;
 	def _ns = _project.vars.INSPIRE_NAMESPACE
 	
 	_target {
-		verticalPosition( key )
+		verticalPosition {
+			href( 'http://inspire.ec.europa.eu/codelist/VerticalPositionValue/' + key )
+		}
 		id( _id )
 		inspireId {
 			Identifier {
