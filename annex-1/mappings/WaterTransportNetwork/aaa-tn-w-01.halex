@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="5.1.0.SNAPSHOT">
+<hale-project version="5.4.0.SNAPSHOT">
     <name>[Annex I] AdV 3A 7.1.2 zu INSPIRE Water Transport Network</name>
     <author>Simon Templer</author>
     <description>### Alignment von 3A zum INSPIRE Water Transport Network GML Anwendungsschema.
@@ -22,7 +22,7 @@ Dieses Verhalten ließe sich auch mit wenigen Änderungen anpassen, so dass für
 Ein *TransportProperty*-Objekt wird erstellt für alle Features die über die gleichen Eigenschaften bzgl. der *TransportProperty* verfügen. Die Identifier werden dabei basierend auf dem Wert oder den Werten welche die jeweilige *TransportProperty* ausmachen gebildet. Umgesetzt wurde das so für `ConditionOfWaterFacility`, `FerryUse` und `VerticalPosition`.
 </description>
     <created>2015-09-28T11:46:45.435+02:00</created>
-    <modified>2023-06-23T15:14:00.437+02:00</modified>
+    <modified>2024-10-02T16:42:58.935+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
@@ -39,7 +39,7 @@ Ein *TransportProperty*-Objekt wird erstellt für alle Features die über die gl
         <setting name="charset">UTF-8</setting>
         <setting name="onlyElementsMappable">true</setting>
         <setting name="resourceId">c8cc6a7c-fd8e-4002-87c3-2cef3817825a</setting>
-        <setting name="source">https://inspire.ec.europa.eu/schemas/tn-w/4.0/WaterTransportNetwork.xsd</setting>
+        <setting name="source">https://inspire.ec.europa.eu/schemas/tn-w/5.0/WaterTransportNetwork.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
     <export-config name="hale-connect">
