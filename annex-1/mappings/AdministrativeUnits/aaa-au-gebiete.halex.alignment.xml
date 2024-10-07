@@ -15,7 +15,7 @@
         </source>
         <target>
             <class>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/5.0"/>
             </class>
         </target>
         <complexParameter name="join">
@@ -87,7 +87,7 @@ Die Verknüpfung zur untergeordneten Ebene von `AdministrativeUnit`s wird über 
         </source>
         <target>
             <class>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/5.0"/>
             </class>
         </target>
         <complexParameter name="join">
@@ -177,7 +177,7 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
         </source>
         <target>
             <class>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/5.0"/>
             </class>
         </target>
         <complexParameter name="join">
@@ -235,7 +235,7 @@ Die Geometrie wird aus dem über den Gesamtschlüssel verknüpften `AX_Gebiet_Na
         </source>
         <target>
             <class>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/5.0"/>
             </class>
         </target>
         <complexParameter name="join">
@@ -321,7 +321,7 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
         </source>
         <target>
             <class>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/5.0"/>
             </class>
         </target>
         <complexParameter name="join">
@@ -424,7 +424,7 @@ Die Information über die Zugehörigkeit zur übergeordneten `AdministrativeUnit
         </source>
         <target>
             <class>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/5.0"/>
             </class>
         </target>
         <complexParameter name="join">
@@ -550,8 +550,8 @@ Falls keine Zugehörigkeit zu einer Verwaltungsgemeinschaft besteht wird die Zug
         </source>
         <target>
             <property>
-                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
-                <child name="upperLevelUnit" ns="http://inspire.ec.europa.eu/schemas/au/4.0"/>
+                <type name="AdministrativeUnitType" ns="http://inspire.ec.europa.eu/schemas/au/5.0"/>
+                <child name="upperLevelUnit" ns="http://inspire.ec.europa.eu/schemas/au/5.0"/>
                 <child name="href" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
