@@ -20,7 +20,7 @@ Für die Ausführung selbst wird das Werkzeug [Gradle](https://gradle.org/) verw
 Für das Ausführen von Gradle mit hale müssen folgende Voraussetzungen geschaffen werden:
 
 - Internetverbindung (für Verwendung eines Proxy ist weitere Konfiguration nötig)
-- **Java 8** muss auf dem System installiert sein (erreichbar über `PATH` Umgebungsvariable)
+- **Java 17** muss auf dem System installiert sein (erreichbar über `PATH` Umgebungsvariable)
 - Um eine bestimmte _hale_ Version zu verwenden muss es auf dem System verfügbar sein, der Pfad zur HALE-Executable muss in der Datei `gradle.properties` angegeben werden (siehe `gradle.properties.sample` für ein Beispiel). Wird keine Angabe gemacht werden die hale-Bibliotheken für die Ausführung heruntergeladen (empfohlen).
 
 Gradle selbst wird beim ersten Aufruf von `gradlew.bat` (Windows) bzw. `./gradlew` (Linux / Mac OS X) automatisch heruntergeladen. Folgend wird `gradlew` stellvertretend für den Aufruf im jeweiligen Betriebssystem verwendet.
