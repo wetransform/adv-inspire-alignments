@@ -721,6 +721,16 @@ return c.extent.value()
         <parameter value="false" name="ignoreNamespaces"/>
         <parameter value="false" name="structuralRename"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C81cf9772-5988-405b-b53a-9ef95598ad1f" priority="normal">
+        <target>
+            <property>
+                <type name="LandCoverUnitType" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="dataset" ns="http://inspire.ec.europa.eu/schemas/lcv/5.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#{{project:LANDCOVER_DATASET}}" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.rename" id="Ccaf32896-09d1-4945-8b8b-249a78e40042" priority="normal">
         <source>
             <property>
