@@ -1,0 +1,25 @@
+name: Notify on PR merge
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    # event docs see https://docs.github.com/de/webhooks/webhook-events-and-payloads?actionType=closed#pull_request
+    if: github.event.pull_request.merged == true
+
+    timeout-minutes: 5
+
+    steps:
+      - name: Comment plan
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          token: ${{ github.token }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            @wetransform/service Please make sure that the PostNAS alignments are adapted accordingly.
