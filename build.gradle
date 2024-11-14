@@ -23,11 +23,15 @@ plugins {
 apply plugin: 'to.wetransform.hale'
 
 hale {
-  cliVersion = '5.3.0'
+  cliVersion = '6.0.1'
 }
 
 configurations.all {
   resolutionStrategy.cacheChangingModulesFor 5, 'minutes'
+
+  // Avoid problems with variant selection for dependencies that support
+  // multiple environments (like Guava)
+  attributes.attribute(Attribute.of("org.gradle.jvm.environment", String), "standard-jvm")
 }
 
 /*
