@@ -1,0 +1,71 @@
+---
+#
+# PLEASE NOTE: Managed workflow - do not change manually
+#
+name: Renovate
+
+on:
+  workflow_dispatch:
+    inputs:
+      dryRun:
+        type: boolean
+        description: "Dry-Run"
+      logLevel:
+        type: choice
+        description: "Log-Level"
+        default: debug
+        options:
+          - info
+          - debug
+          - trace
+  push:
+    branches:
+      - master
+      # branches that can be used for dry-runs
+      - ci/renovate
+      - ci/renovate/*
+      # exclude branches created by renovate (by convention, requires respective config for renovate)
+      - "!renovate/*"
+  schedule:
+    - cron: "0 0,2,4 * * 0"
+
+env:
+  # https://docs.renovatebot.com/troubleshooting/#log-debug-levels
+  LOG_LEVEL: "${{ inputs.logLevel || 'debug' }}"
+  # https://docs.renovatebot.com/self-hosted-configuration/#repositories
+  RENOVATE_REPOSITORIES: ${{ github.repository }}
+  # https://docs.renovatebot.com/self-hosted-configuration/#username
+  # If using a GitHub App as we do, the username needs to be the app name + [bot] (otherwise it fails to identify existing PRs)
+  # see https://github.com/renovatebot/renovate/discussions/13708#discussioncomment-2013249
+  RENOVATE_USERNAME: we-renovate[bot] # ${{ github.repository_owner }}
+  # https://docs.renovatebot.com/configuration-options/#platformcommit
+  RENOVATE_PLATFORM_COMMIT: "true"
+  # https://docs.renovatebot.com/self-hosted-configuration/#dryrun
+  # Run renovate in dry-run mode if executed in branches other than master - prevents versions in PRs/branches from being updated
+  RENOVATE_DRY_RUN: "${{ inputs.dryRun || ( github.head_ref || github.ref_name ) != 'master' || false }}"
+  # Renovate Automerge
+  # RENOVATE_AUTOMERGE_TYPE: "branch"
+  # RENOVATE_AUTOMERGE: "true"
+
+permissions: read-all
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - uses: actions/create-github-app-token@5d869da34e18e7287c1daad50e0b8ea0f506ce69 # v1.11.0
+        id: app-token
+        with:
+          # see https://github.com/renovatebot/renovate/blob/47c8501c412c2f53f61ca292a5039f5939c32c5d/lib/modules/platform/github/readme.md?plain=1#L28
+          app-id: ${{ secrets.WE_RENOVATE_GITHUB_APP_ID }}
+          private-key: "${{ secrets.WE_RENOVATE_GITHUB_PRIVATE_KEY }}"
+
+      - name: 💡 Self-hosted Renovate
+        uses: renovatebot/github-action@0984fb80fc633b17e57f3e8b6c007fe0dc3e0d62 # v40.3.6
+        with:
+          token: "${{ steps.app-token.outputs.token }}"
