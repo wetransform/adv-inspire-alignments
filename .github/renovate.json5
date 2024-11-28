@@ -1,0 +1,20 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "github>wetransform/renovate-config:self-hosted.json5",
+  ],
+  packageRules: [
+    {
+      "groupName": "{{manager}} non-major dependencies",
+      "groupSlug": "{{manager}}-minor-patch",
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    }
+  ],
+  rebaseWhen: "conflicted", // avoid too many PR builds for renovate changes; Note: may cause problems with automerge
+}
