@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alignment xmlns="http://www.esdi-humboldt.eu/hale/alignment">
+    <base prefix="ba1" location="file:/D:/git/adv-inspire-alignments/annex-1/mappings/base-functions40.halex.alignment.xml"/>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C33b5349d-fb85-4c7d-8519-ac27e4c49867" priority="highest">
+        <source>
+            <class>
+                <type name="AX_BauwerkImGewaesserbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def bwf = _source.p.bauwerksfunktion.value()
+def identifier = _source.p.identifier.value()
+
+withTransformationContext {
+  def collect = _.context.collector(it)
+  
+  // Bauwerksfunktion zu Identifier des Objekts im Index ablegen
+  collect.bauwerksfunktion[identifier] = bwf
+}
+</core:text>
+        </complexParameter>
+        <documentation>Dies ist eine Dummy-Transformationsdefinition die keine Objekte erzeugt sondern zum Aufbauen eines Index für die Bauwerksfunktion von `AX_BauwerkImGewaesserbereich` dient.
+Diese Information wird herangezogen um entsprechend für REO-Objekte über die Beziehung `hatDirektUnten` den entsprechenden Wert für die *TransportProperty* `VerticalPosition` zu bestimmen.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.retype" id="C43232927-f863-47e3-b297-dd8902f4bbc7" priority="highest">
+        <source>
+            <class>
+                <type name="AX_BauwerkImVerkehrsbereichType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+            </class>
+        </source>
+        <target>
+            <class>
+                <type name="AbstractFeatureType" ns="http://www.opengis.net/gml/3.2"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def bwf = _source.p.bauwerksfunktion.value()
+def identifier = _source.p.identifier.value()
+
+withTransformationContext {
+  def collect = _.context.collector(it)
+  
+  // Bauwerksfunktion zu Identifier des Objekts im Index ablegen
+  collect.bauwerksfunktion[identifier] = bwf
+}
+</core:text>
+        </complexParameter>
+        <documentation>Dies ist eine Dummy-Transformationsdefinition die keine Objekte erzeugt sondern zum Aufbauen eines Index für die Bauwerksfunktion von `AX_BauwerkImVerkehrsbereich` dient.
+Diese Information wird herangezogen um entsprechend für REO-Objekte über die Beziehung `hatDirektUnten` den entsprechenden Wert für die *TransportProperty* `VerticalPosition` zu bestimmen.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C1eb2d011-34d1-4077-8388-f7fbdb1659b9" priority="low">
+        <target>
+            <class>
+                <type name="ConditionOfFacilityType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Die Code-Liste für ConditionOfFacility
+def codeList = 'http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue'
+
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein ConditionOfFacility-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.conditionOfFacility.consume { key, values -&gt;
+	def _id = 'ConditionOfFacility_' + _project.vars.THEME_DISTINGUISHER + '_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		currentStatus {
+			href( "$codeList/$key" )
+		}
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt ein `ConditionOfFacility`-Objekt für jeden in den Daten vorkommenden Wert der [ConditionOfFacilityValue Code-Liste](http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue).
+
+Die INSPIRE localId und die GML id werden dabei basierend auf dem Namen der Objektart und dem repräsentierten Code-Listen Wert gebildet, z.B. `ConditionOfFacility_functional`.
+
+Es werden Referenzen (`NetworkReference`) zu allen Netzwerk-Elementen (z.B. *TransportLinks* und *TransportAreas*) erstellt, welche die entsprechende Eigenschaft aufweisen. Diese Information wurde zuvor beim Erstellen dieser Features in einem Index abgelegt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C03716a0b-a2f7-4f4b-8d93-13d186c7af73" priority="normal">
+        <target name="result">
+            <property>
+                <type name="NetworkElementType" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="inNetwork" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">'#' + _project.vars.NETWORK_ID</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+        <documentation>Verknüpft das Netzwerk-Element mit dem entsprechenden *TransportNetwork*.
+Dazu wird die vorgegebene ID für das Netzwerk verwendet (Projekt-Variable).</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C376c9fef-ac45-4e2c-9941-651740ba7400" priority="lowest">
+        <target>
+            <class>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collector
+
+withTransformationContext {
+	collector = _.context.collector(it)
+}
+
+_target {
+	// Verknüpfung zu gesammelten Netzwerk-Elementen
+	collector.network.each { id -&gt;
+		elements {
+			href( "#$id" )
+		}
+	}
+}
+
+</core:text>
+        </complexParameter>
+        <documentation>Erstellt das *TransportNetwork* für diese Netzwerk.
+
+Zuvor wurde beim Erstellen jedes Netzwerk-Elements dessen GML id in einem Index abgelegt. Diese Information wird hier nun genutzt um auf alle Elemente des Netzwerks zu verweisen.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C60a849e5-b891-4866-8022-0cd07e0f01f4" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="language" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="deu" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C8bd6e468-105d-4337-a3e7-f7355ed60664" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nameStatus" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NameStatusValue/official" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C56e9b1b9-1ade-49d5-9f53-37423fe9d061" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nativeness" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/codelist/NativenessValue/endonym" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cf2ce1338-3fce-4a09-807d-09c3e76262d0" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="pronunciation" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cd1613f96-fd11-4e0b-b093-d38ce17cb580" priority="normal">
+        <target name="result">
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="sourceOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def modellArt = _project.vars.ADV_MODELLART
+if (modellArt) {
+	_target(modellArt)
+}
+else {
+	_target {
+		nilReason( 'unknown' )
+	}
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+        <documentation>Bestimmung aus Projekt-Variable (`ADV_MODELLART`) falls vorhanden, andernfalls wird *nilReason* auf `unknown` gesetzt.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cd4048617-c86f-4863-99b5-3e9f0635a8f5" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="script" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="Latn" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C76fb8de5-dd5d-47c3-824e-3c37906a2c89" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="geographicalName" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="GeographicalName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="spelling" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="SpellingOfName" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+                <child name="text" ns="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
+            </property>
+        </target>
+        <parameter value="{{project:NETWORK_NAME}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="C79bec27b-cdca-459d-9ecc-540aeca29d4b" priority="normal">
+        <target name="result">
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">_project.vars.NETWORK_ID</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+        <documentation>Weist die vorgegebene lokale ID für das Netzwerk zu.
+
+Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy" id="Cad28e1b9-331b-4b75-838f-94b202fdba1f" priority="normal">
+        <target name="result">
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+// Zusammenfügen von INSPIRE namespace und localId
+
+// namespace
+def namespace = _project.vars.INSPIRE_NAMESPACE
+// localId (vorgegebene localId für das Netzwerk)
+def id = _project.vars.NETWORK_ID
+
+if (namespace) {
+  if (!namespace.endsWith('/')) {
+    namespace = namespace + '/'
+  }
+  
+  // namespace und id als Ergebnis
+  namespace + id
+}
+else {
+  // nur id als Ergebnis
+  id
+}
+</core:text>
+        </complexParameter>
+        <parameter value="false" name="variablesAsInstances"/>
+        <documentation>Erzeugt einen GML identifier basierend auf der INSPIRE ID. Dazu wird der vorgegebene INSPIRE Namespace und die vorgegebene lokale ID für das Netzwerk hinzugezogen.
+
+Beide Vorgaben können über eine Projekt-Variable überschrieben werden.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Cc9255943-592d-4e33-b874-03846d8c9a3c" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="Caddb8db5-f486-4664-a6b8-edd9eb936efe" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="localId" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:NETWORK_ID}}" name="value"/>
+        <documentation>Weist die vorgegebene lokale ID für das Netzwerk zu.
+
+Die Vorgabe kann über eine Projekt-Variable überschrieben werden.</documentation>
+    </cell>
+    <cell relation="custom:alignment:adv.inspire.namespace" id="C935f563e-2939-4fcc-aecc-8029498b746b" priority="normal">
+        <target>
+            <property>
+                <type name="TransportNetworkType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C6563043b-57b7-4264-b3ff-6264b547216f" priority="normal">
+        <target>
+            <property>
+                <type name="TransportPropertyType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/net/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+        <documentation>`TransportProperty`-Objekte sind im Rahmen der Transformation neu gebildete Objekte und übernehmen daher keine Information für `beginLifespanVersion` aus den Quell-Daten.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9fbdcf9a-e35a-4f33-b915-77155350de27" priority="normal">
+        <target>
+            <property>
+                <type name="TransportPropertyType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+        <documentation>Diese Information ist im 3A-Modell nicht vorhanden.</documentation>
+    </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C00cccf8c-b815-4fa9-b89c-6f37d12ae435" priority="lowest">
+        <target>
+            <class>
+                <type name="VerticalPositionType" ns="http://inspire.ec.europa.eu/schemas/tn/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+def collect
+withTransformationContext {
+	collect = _.context.collector(it)
+}
+
+// Erstelle ein VerticalPosition-Objekt für jeden vorkommenden Wert
+//
+// Inhalt der hier gesetzt wird sind die Identifier und die Verknüpfungen
+// zu den entsprechenden Netzwerk-Elementen
+collect.verticalPosition.consume { key, values -&gt;
+	def _id = 'VerticalPosition_' + _project.vars.THEME_DISTINGUISHER + '_' + key
+	def _ns = _project.vars.INSPIRE_NAMESPACE
+	
+	_target {
+		verticalPosition( key )
+		id( _id )
+		inspireId {
+			Identifier {
+				namespace( _ns )
+				localId( _id )
+			}
+		}
+		identifier( _ns ? (_ns.endsWith('/') ? _ns : _ns + '/') + _id : _id ) {
+			codeSpace( 'http://inspire.ec.europa.eu/ids' )
+		}
+		
+		// Referenz zu gesammelten Netzwerk-Elementen mit dieser Eigenschaft
+		values.each { linkId -&gt;
+			networkRef {
+				NetworkReference {
+					element {
+						href( "#$linkId" )
+					}
+				}
+			}
+		}
+	}
+}
+</core:text>
+        </complexParameter>
+    </cell>
+</alignment>
