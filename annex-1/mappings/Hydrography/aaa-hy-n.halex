@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="5.1.0.SNAPSHOT">
+<hale-project version="5.5.0.SNAPSHOT">
     <name>[Annex I] AdV 3A 7.1.2 zu INSPIRE Hydro-Network</name>
     <author>Thorsten Reitz</author>
     <description>`WatercourseLinkSequence`s werden nicht gebildet, da in den Quelldaten keine Verknüpfungen zwischen den einzelnen `AX_Gewaesserachsen` existieren, die für eine zuverlässige Bildung der Sequenz herangezogen werden können. Eine geometrische Analyse kann nicht zuverlässig funktionieren.</description>
     <created>2016-08-11T16:21:55.552+02:00</created>
-    <modified>2023-07-11T15:03:25.237+02:00</modified>
+    <modified>2025-02-05T13:45:26.716+01:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-1/mappings/Hydrography/aaa-hy-n.halex</setting>
+        <setting name="target">file:/D:/git/adv-inspire-alignments/annex-1/mappings/Hydrography/aaa-hy-n.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.xsd.reader">
         <setting name="charset">UTF-8</setting>
@@ -40,7 +40,7 @@
         <setting name="charset">UTF-8</setting>
         <setting name="onlyElementsMappable">true</setting>
         <setting name="resourceId">d3386ea5-a92d-4fe2-aa92-0a41005c86e5</setting>
-        <setting name="source">https://inspire.ec.europa.eu/schemas/hy-n/4.0/HydroNetwork.xsd</setting>
+        <setting name="source">https://inspire.ec.europa.eu/schemas/hy-n/5.0/HydroNetwork.xsd</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.xsd</setting>
     </resource>
     <resource action-id="eu.esdihumboldt.hale.codelist.read" provider-id="eu.esdihumboldt.hale.io.codelist.inspire.reader">
@@ -80,66 +80,66 @@
         <associations>
             <codeList identifier="//inspire.ec.europa.eu/codelist/HydrologicalPersistenceValue" namespace="http://inspire.ec.europa.eu/codelist/HydrologicalPersistenceValue">
                 <entity>
-                    <type name="WatercourseType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="persistence" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <type name="WatercourseType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                    <property name="persistence" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
                 <entity>
-                    <type name="StandingWaterType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="persistence" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <type name="StandingWaterType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                    <property name="persistence" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/ConditionOfFacilityValue" namespace="http://inspire.ec.europa.eu/codelist/ConditionOfFacilityValue">
                 <entity>
-                    <type name="DamOrWeirType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <type name="DamOrWeirType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
                 <entity>
-                    <type name="LockType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <type name="LockType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
                 <entity>
-                    <type name="CrossingType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <type name="CrossingType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
                 <entity>
-                    <type name="ShorelineConstructionType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <type name="ShorelineConstructionType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
                 <entity>
-                    <type name="EmbankmentType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <type name="EmbankmentType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
                 <entity>
-                    <type name="WatercourseType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <type name="WatercourseType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                    <property name="condition" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/CrossingTypeValue" namespace="http://inspire.ec.europa.eu/codelist/CrossingTypeValue">
                 <entity>
-                    <type name="CrossingType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
-                    <property name="type" namespace="http://inspire.ec.europa.eu/schemas/hy-p/4.0"/>
+                    <type name="CrossingType" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                    <property name="type" namespace="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/LinkDirectionValue" namespace="http://inspire.ec.europa.eu/codelist/LinkDirectionValue">
                 <entity>
-                    <type name="WatercourseLinkType" namespace="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                    <property name="flowDirection" namespace="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
+                    <type name="WatercourseLinkType" namespace="http://inspire.ec.europa.eu/schemas/hy-n/5.0"/>
+                    <property name="flowDirection" namespace="http://inspire.ec.europa.eu/schemas/hy-n/5.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
                 </entity>
             </codeList>
             <codeList identifier="//inspire.ec.europa.eu/codelist/NameStatusValue" namespace="http://inspire.ec.europa.eu/codelist/NameStatusValue">
                 <entity>
-                    <type name="WatercourseLinkType" namespace="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
-                    <property name="geographicalName" namespace="http://inspire.ec.europa.eu/schemas/hy-n/4.0"/>
+                    <type name="WatercourseLinkType" namespace="http://inspire.ec.europa.eu/schemas/hy-n/5.0"/>
+                    <property name="geographicalName" namespace="http://inspire.ec.europa.eu/schemas/hy-n/5.0"/>
                     <property name="GeographicalName" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                     <property name="nameStatus" namespace="http://inspire.ec.europa.eu/schemas/gn/4.0"/>
                     <property name="href" namespace="http://www.w3.org/1999/xlink"/>
@@ -147,120 +147,120 @@
             </codeList>
         </associations>
     </complex-property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/base/3.3}SpatialDataSetType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/base/3.3}SpatialDataSetType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/base/3.3}SpatialDataSetType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/base/4.0}SpatialDataSetType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/base/4.0}SpatialDataSetType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/base/4.0}SpatialDataSetType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/1">{http://inspire.ec.europa.eu/schemas/gn/4.0}geometry</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/2">{http://www.opengis.net/gml/3.2/AbstractGeometry}choice</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/gn/4.0}NamedPlaceType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}HydroNodeType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}HydroNodeType/2">{http://www.opengis.net/gml/3.2}Point</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}HydroNodeType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseLinkSequenceType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseLinkSequenceType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseLinkSequenceType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseLinkType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}centrelineGeometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseLinkType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseLinkType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseSeparatedCrossingType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseSeparatedCrossingType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseSeparatedCrossingType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}CrossingType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}CrossingType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}CrossingType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}DamOrWeirType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}DamOrWeirType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}DamOrWeirType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}DrainageBasinType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}DrainageBasinType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}DrainageBasinType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}EmbankmentType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}EmbankmentType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}EmbankmentType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FallsType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FallsType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FallsType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FluvialPointType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FluvialPointType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FluvialPointType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FordType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FordType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}FordType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}HydroPointOfInterestType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}HydroPointOfInterestType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}HydroPointOfInterestType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}LandWaterBoundaryType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}LandWaterBoundaryType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}LandWaterBoundaryType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}LockType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}LockType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}LockType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ManMadeObjectType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ManMadeObjectType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ManMadeObjectType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RapidsType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RapidsType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RapidsType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RiverBasinType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RiverBasinType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}RiverBasinType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ShoreType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ShoreType/2">{http://www.opengis.net/gml/3.2}MultiSurface</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ShoreType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ShorelineConstructionType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ShorelineConstructionType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}ShorelineConstructionType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}SluiceType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}SluiceType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}SluiceType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}StandingWaterType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}StandingWaterType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}StandingWaterType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}SurfaceWaterType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}SurfaceWaterType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}SurfaceWaterType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WatercourseType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WatercourseType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WatercourseType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WetlandType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WetlandType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/4.0}WetlandType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}CrossReferenceType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}CrossReferenceType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}CrossReferenceType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GeneralisedLinkType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GeneralisedLinkType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GeneralisedLinkType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GradeSeparatedCrossingType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GradeSeparatedCrossingType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}GradeSeparatedCrossingType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSequenceType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSequenceType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSequenceType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSetType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSetType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkSetType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}centrelineGeometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}LinkType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkAreaType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkAreaType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkAreaType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkConnectionType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkConnectionType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkConnectionType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkPropertyType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkPropertyType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkPropertyType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NodeType/1">{http://inspire.ec.europa.eu/schemas/net/4.0}geometry</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NodeType/2">{http://www.opengis.net/gml/3.2}Point</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/4.0}NodeType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}HydroNodeType/1">{http://inspire.ec.europa.eu/schemas/net/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}HydroNodeType/2">{http://www.opengis.net/gml/3.2}Point</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}HydroNodeType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseLinkSequenceType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseLinkSequenceType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseLinkSequenceType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseLinkType/1">{http://inspire.ec.europa.eu/schemas/net/5.0}centrelineGeometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseLinkType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseLinkType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseSeparatedCrossingType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseSeparatedCrossingType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseSeparatedCrossingType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}CrossingType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}CrossingType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}CrossingType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}DamOrWeirType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}DamOrWeirType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}DamOrWeirType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}DrainageBasinType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}DrainageBasinType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}DrainageBasinType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}EmbankmentType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}EmbankmentType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}EmbankmentType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}FallsType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}FallsType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}FallsType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}FluvialPointType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}FluvialPointType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}FluvialPointType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}FordType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}FordType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}FordType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}HydroPointOfInterestType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}HydroPointOfInterestType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}HydroPointOfInterestType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}LandWaterBoundaryType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}LandWaterBoundaryType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}LandWaterBoundaryType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}LockType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}LockType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}LockType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}ManMadeObjectType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}ManMadeObjectType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}ManMadeObjectType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}RapidsType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}RapidsType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}RapidsType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}RiverBasinType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}RiverBasinType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}RiverBasinType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}ShoreType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}ShoreType/2">{http://www.opengis.net/gml/3.2}MultiSurface</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}ShoreType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}ShorelineConstructionType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}ShorelineConstructionType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}ShorelineConstructionType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}SluiceType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}SluiceType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}SluiceType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}StandingWaterType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}StandingWaterType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}StandingWaterType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}SurfaceWaterType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}SurfaceWaterType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}SurfaceWaterType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}WatercourseType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}WatercourseType/2">{http://www.opengis.net/gml/3.2/AbstractGeometricPrimitive}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}WatercourseType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}WetlandType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}WetlandType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/hy-p/5.0}WetlandType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}CrossReferenceType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}CrossReferenceType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}CrossReferenceType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}GeneralisedLinkType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}GeneralisedLinkType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}GeneralisedLinkType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}GradeSeparatedCrossingType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}GradeSeparatedCrossingType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}GradeSeparatedCrossingType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}LinkSequenceType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}LinkSequenceType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}LinkSequenceType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}LinkSetType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}LinkSetType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}LinkSetType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}LinkType/1">{http://inspire.ec.europa.eu/schemas/net/5.0}centrelineGeometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}LinkType/2">{http://www.opengis.net/gml/3.2/AbstractCurve}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}LinkType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkAreaType/1">{http://inspire.ec.europa.eu/schemas/net/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkAreaType/2">{http://www.opengis.net/gml/3.2/AbstractSurface}choice</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkAreaType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkConnectionType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkConnectionType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkConnectionType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkElementType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkElementType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkElementType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkPropertyType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkPropertyType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkPropertyType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkType/count">2</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NodeType/1">{http://inspire.ec.europa.eu/schemas/net/5.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NodeType/2">{http://www.opengis.net/gml/3.2}Point</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/net/5.0}NodeType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/omop/3.0}ObservablePropertyType/1">{http://inspire.ec.europa.eu/schemas/omop/3.0}statisticalMeasure</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/omop/3.0}ObservablePropertyType/2">{http://inspire.ec.europa.eu/schemas/omop/3.0}StatisticalMeasure</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/omop/3.0}ObservablePropertyType/3">{http://inspire.ec.europa.eu/schemas/omop/3.0}otherAggregation</property>
@@ -275,7 +275,7 @@
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}CoastlineType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}CoastlineType/2">{http://www.opengis.net/gml/3.2/BoundingShapeType}choice_1</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}CoastlineType/count">2</property>
-    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}InterTidalAreaType/1">{http://inspire.ec.europa.eu/schemas/hy-p/4.0}geometry</property>
+    <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}InterTidalAreaType/1">{http://inspire.ec.europa.eu/schemas/hy-p/5.0}geometry</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}InterTidalAreaType/2">{http://www.opengis.net/gml/3.2}MultiSurface</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}InterTidalAreaType/count">2</property>
     <property name="defaultGeometry:{http://inspire.ec.europa.eu/schemas/sr/4.0}MarineCirculationZoneType/1">{http://www.opengis.net/gml/3.2}boundedBy</property>
@@ -1563,11 +1563,11 @@
     <property name="mappableSourceType/7">{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_WasserlaufType</property>
     <property name="mappableSourceType/8">{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_FliessgewaesserType</property>
     <property name="mappableSourceType/count">8</property>
-    <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseLinkType</property>
-    <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseSeparatedCrossingType</property>
-    <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/hy-n/4.0}WatercourseLinkSequenceType</property>
-    <property name="mappableTargetType/4">{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkType</property>
-    <property name="mappableTargetType/5">{http://inspire.ec.europa.eu/schemas/net/4.0}NetworkElementType</property>
+    <property name="mappableTargetType/1">{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseLinkType</property>
+    <property name="mappableTargetType/2">{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseSeparatedCrossingType</property>
+    <property name="mappableTargetType/3">{http://inspire.ec.europa.eu/schemas/hy-n/5.0}WatercourseLinkSequenceType</property>
+    <property name="mappableTargetType/4">{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkType</property>
+    <property name="mappableTargetType/5">{http://inspire.ec.europa.eu/schemas/net/5.0}NetworkElementType</property>
     <property name="mappableTargetType/count">5</property>
     <property name="resource-1bc28e1a-8abc-424f-a987-b84256a11b5c:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}CompositeCurve/{http://www.opengis.net/gml/3.2}curveMember/{http://www.opengis.net/gml/3.2}Curve/{http://www.opengis.net/gml/3.2}segments/{http://www.opengis.net/gml/3.2}LineStringSegment">code:EPSG:25832</property>
     <property name="resource-1bc28e1a-8abc-424f-a987-b84256a11b5c:defaultCRS:{http://www.adv-online.de/namespaces/adv/gid/7.1}AX_BauwerkImGewaesserbereichType/{http://www.adv-online.de/namespaces/adv/gid/7.1}position/{http://www.opengis.net/gml/3.2}Point">code:EPSG:25832</property>
