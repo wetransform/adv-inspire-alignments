@@ -66,6 +66,6 @@ jobs:
           private-key: "${{ secrets.WE_RENOVATE_GITHUB_PRIVATE_KEY }}"
 
       - name: 💡 Self-hosted Renovate
-        uses: renovatebot/github-action@8ac70de2fe55752c573155866e30735411e3b61c # v41.0.22
+        uses: renovatebot/github-action@e854b273e774bce1ef8cb05f128b8ce8aee2a887 # v42.0.1
         with:
           token: "${{ steps.app-token.outputs.token }}"
