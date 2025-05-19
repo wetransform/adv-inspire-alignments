@@ -3896,6 +3896,82 @@ if(linie){&#13;
         </target>
         <parameter value="natural" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="Cfa393f00-c94c-409e-9ca3-5a156b857276" priority="normal">
+        <source>
+            <property>
+                <type name="AX_FliessgewaesserType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">parent.funktion = 8300</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                <child name="origin" ns="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/enumeration/OriginValue/manMade"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/enumeration/OriginValue/manMade"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.classification" id="C4d2978e8-572c-4eb1-9737-4dca62177d09" priority="normal">
+        <source>
+            <property>
+                <type name="AX_GewaesserachseType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
+                    <condition lang="ECQL">parent.funktion = 8300</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                <child name="origin" ns="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <complexParameter name="lookupTable">
+            <lookup-table xmlns:ns2="http://www.esdi-humboldt.eu/hale/alignment" xmlns="">
+                <entry>
+                    <key value="2100"/>
+                    <value value="http://inspire.ec.europa.eu/enumeration/OriginValue/manMade"/>
+                </entry>
+                <entry>
+                    <key value="4000"/>
+                    <value value="http://inspire.ec.europa.eu/enumeration/OriginValue/manMade"/>
+                </entry>
+            </lookup-table>
+        </complexParameter>
+        <parameter value="null" name="notClassifiedAction"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cef333c1e-ffee-4ab4-96c8-a968e673766c" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="AX_KanalType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
+                <child name="id" ns="http://www.opengis.net/gml/3.2"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="WatercourseType" ns="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                <child name="origin" ns="http://inspire.ec.europa.eu/schemas/hy-p/5.0"/>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/enumeration/OriginValue/manMade" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign" id="C8b9cda33-7c80-4f41-9929-955d5aa59f19" priority="normal">
         <target>
             <property>
