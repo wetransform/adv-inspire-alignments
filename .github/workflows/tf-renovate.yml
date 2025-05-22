@@ -26,6 +26,9 @@ on:
       - ci/renovate/*
       # exclude branches created by renovate (by convention, requires respective config for renovate)
       - "!renovate/*"
+      # explicitly include special branch for renovate config change PRs
+      # see https://docs.renovatebot.com/config-validation/#validation-of-renovate-config-change-prs
+      - "renovate/reconfigure"
   schedule:
     - cron: "0 0,2,4 * * 0"
 
