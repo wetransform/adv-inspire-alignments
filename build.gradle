@@ -7,7 +7,7 @@ buildscript {
   }
   dependencies {
     // Gradle plugin
-    classpath 'to.wetransform.hale:gradle-hale-plugin:1.2.0-SNAPSHOT'
+    classpath 'to.wetransform.hale:gradle-hale-plugin:2.0.0'
 
     // for Config class
     classpath 'eu.esdihumboldt.hale:eu.esdihumboldt.util.config:5.3.0'
@@ -23,7 +23,7 @@ plugins {
 apply plugin: 'to.wetransform.hale'
 
 hale {
-  cliVersion = '6.0.1'
+  cliVersion = '6.1.2'
 }
 
 configurations.all {
