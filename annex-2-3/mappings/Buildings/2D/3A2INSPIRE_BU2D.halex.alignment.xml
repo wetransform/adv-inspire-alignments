@@ -664,7 +664,7 @@ _target{&#13;
         <source>
             <class>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
             </class>
         </source>
@@ -675,8 +675,8 @@ _target{&#13;
         </target>
         <complexParameter name="script">
             <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
-//bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or&#13;
-//bauwerksfunktion = '1490'&#13;
+//bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442' or bauwerksfunktion = '1470' or&#13;
+//bauwerksfunktion = '1490' or bauwerksfunktion = '1650'&#13;
 &#13;
 def poigeom = _.geom.findPoints(_source.p.position.first())&#13;
 def lingeom = _.geom.findLines(_source.p.position.first())&#13;
@@ -697,14 +697,14 @@ else if (poigeom){&#13;
 //wenn die Quellgeometrie eine Linie ist, werden Standardwerte für die Breite des Objektes verwendet&#13;
 else if (lingeom){&#13;
 	switch ( baufun ) {&#13;
-	    case ['1430', '1490']:&#13;
+	    case ['1430', '1431', '1432', '1470', '1490']:&#13;
 	        targeom = _.geom.buffer(geometry: lingeom, distance: 5)&#13;
 	        break&#13;
-	    case '1440':&#13;
+	    case ['1440', '1441', '1442', '1650']:&#13;
 	        targeom = _.geom.buffer(geometry: lingeom, distance: 10)&#13;
 	        break&#13;
-	    case ['1431', '1432', '1470']:&#13;
-	    	_log.error("Es liegt eine Liniengeometrie vor, für die keine Standardbreite angegeben ist. Bauwerk-id: " +  _source.p.id.value())&#13;
+	    //case []:&#13;
+	    //	_log.error("Es liegt eine Liniengeometrie vor, für die keine Standardbreite angegeben ist. Bauwerk-id: " +  _source.p.id.value())&#13;
 	}&#13;
 }&#13;
 &#13;
@@ -1449,7 +1449,7 @@ _target{&#13;
         <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
                 <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
@@ -1742,7 +1742,7 @@ _target{&#13;
         <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
                 <child name="zustand" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
@@ -1995,7 +1995,7 @@ _target{&#13;
         <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
                 <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
@@ -2261,7 +2261,7 @@ _target{&#13;
         <source name="anchor">
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
                 <child name="bauwerksfunktion" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
             </property>
@@ -2598,7 +2598,7 @@ if (baujahr){&#13;
         <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
@@ -2824,7 +2824,7 @@ if (baujahr){&#13;
         <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
@@ -3048,7 +3048,7 @@ if (baujahr){&#13;
         <source name="anchor">
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
@@ -3264,7 +3264,7 @@ if (baujahr){&#13;
         <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
@@ -3507,7 +3507,7 @@ if (baujahr){&#13;
         <source>
             <property>
                 <type name="AX_BauwerkOderAnlageFuerSportFreizeitUndErholungType" ns="http://www.adv-online.de/namespaces/adv/gid/7.1">
-                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1470' or bauwerksfunktion = '1490'</condition>
+                    <condition lang="ECQL">bauwerksfunktion = '1430' or bauwerksfunktion = '1431' or bauwerksfunktion = '1432' or bauwerksfunktion = '1440' or bauwerksfunktion = '1441' or bauwerksfunktion = '1442'or bauwerksfunktion = '1470' or bauwerksfunktion = '1490' or bauwerksfunktion = '1650'</condition>
                 </type>
                 <child name="objekthoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
                 <child name="AX_RelativeHoehe" ns="http://www.adv-online.de/namespaces/adv/gid/7.1"/>
