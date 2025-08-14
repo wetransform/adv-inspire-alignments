@@ -146,7 +146,7 @@ def sss = strschl.replaceAll(/[^a-zA-Z_0-9\-]/, '_')
             <property>
                 <type name="Hauskoordinaten"/>
                 <child name="regbezschl">
-                    <condition lang="ECQL">value &lt;&gt; '' and value &lt;&gt; '00'</condition>
+                    <condition lang="ECQL">value &lt;&gt; '' and value &gt; '0'</condition>
                 </child>
             </property>
         </source>
@@ -592,7 +592,7 @@ _target {
         <source>
             <class>
                 <type name="Hauskoordinaten">
-                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
                 </type>
             </class>
         </source>
@@ -720,7 +720,7 @@ _target {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten">
-                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
                 </type>
                 <child name="landschl"/>
             </property>
@@ -728,7 +728,7 @@ _target {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten">
-                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
                 </type>
                 <child name="regbezschl"/>
             </property>
@@ -844,7 +844,7 @@ _target {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten">
-                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
                 </type>
                 <child name="landschl"/>
             </property>
@@ -852,7 +852,7 @@ _target {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten">
-                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
                 </type>
                 <child name="regbezschl"/>
             </property>
@@ -984,7 +984,7 @@ _target {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten">
-                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
                 </type>
                 <child name="landschl"/>
             </property>
@@ -992,7 +992,7 @@ _target {
         <source name="var">
             <property>
                 <type name="Hauskoordinaten">
-                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
                 </type>
                 <child name="regbezschl"/>
             </property>
@@ -1077,7 +1077,7 @@ _target {
         <source name="anchor">
             <property>
                 <type name="Hauskoordinaten">
-                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
                 </type>
                 <child name="regbezschl"/>
             </property>
@@ -1156,7 +1156,7 @@ _target {
         <source name="spelling">
             <property>
                 <type name="Hauskoordinaten">
-                    <condition lang="ECQL">regbezschl IS NOT NULL</condition>
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
                 </type>
                 <child name="regbez"/>
             </property>
