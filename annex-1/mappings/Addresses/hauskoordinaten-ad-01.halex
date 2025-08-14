@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<hale-project version="5.1.0.SNAPSHOT">
+<hale-project version="5.4.0.release">
     <name>[Annex I] AdV Hauskoordinaten 5.0 zu INSPIRE Addresses</name>
     <author>Thorsten Reitz</author>
     <description>Bei diesem Projekt wird eine Datei mit Hauskoordinaten im CSV-Format (und in UTF-8 kodiert) verwendet, um INSPIRE AD4.0-GML zu erzeugen.&#13;
@@ -10,12 +10,12 @@ Anmerkungen:&#13;
 &#13;
 2. Um die Koordinaten formatiert (z.B. 00000000.000) auszugeben, ist die Verwendung von hale studio 3.1.0 oder neuer erforderlich.</description>
     <created>2016-06-09T20:05:02.767+02:00</created>
-    <modified>2023-06-05T15:57:41.094+02:00</modified>
+    <modified>2025-08-14T10:46:10.918+02:00</modified>
     <save-config action-id="project.save" provider-id="eu.esdihumboldt.hale.io.project.hale25.xml.writer">
         <setting name="charset">UTF-8</setting>
         <setting name="projectFiles.separate">false</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.project.hale25.xml</setting>
-        <setting name="target">file:/C:/Users/Johanna%20Ott/git/adv-inspire-alignments/annex-1/mappings/Addresses/hauskoordinaten-ad-01.halex</setting>
+        <setting name="target">hauskoordinaten-ad-01.halex</setting>
     </save-config>
     <resource action-id="eu.esdihumboldt.hale.io.schema.read.source" provider-id="eu.esdihumboldt.hale.io.csv.reader.schema">
         <setting name="charset">UTF-8</setting>
