@@ -271,6 +271,18 @@ else {
         </target>
         <parameter value="#AdminUnitName_{landschl}{regbezschl}{kreisschl}{gmdschl}" name="pattern"/>
     </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign" id="C0bd906b1-291f-417b-990d-774564cbf02c" priority="normal">
+        <target>
+            <property>
+                <type name="AddressType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="component" ns="http://inspire.ec.europa.eu/schemas/ad/4.0">
+                    <context>5</context>
+                </child>
+                <child name="href" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="#DLM250_ELF_AdministrativeUnit_000000000000" name="value"/>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.formattedstring" id="Cbfb7b3cb-018e-44ce-b36d-63d8f2e63d99" priority="normal">
         <source name="var">
             <property>
@@ -527,6 +539,61 @@ _target {
         </target>
         <parameter value="other:unpopulated" name="value"/>
     </cell>
+    <cell relation="eu.esdihumboldt.cst.functions.groovy.create" id="C335f4f8f-5760-41b4-ae68-0d8532f43b68" priority="normal">
+        <target>
+            <class>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+            </class>
+        </target>
+        <complexParameter name="script">
+            <core:text xmlns:core="http://www.esdi-humboldt.eu/hale/core" xml:space="preserve">
+_target {&#13;
+	inspireId {&#13;
+		Identifier {&#13;
+			namespace( 'https://registry.gdi-de.org/id/de.bund.bkg.inspire.dlm250' )&#13;
+			localId( 'DLM250_ELF_AdministrativeUnit_000000000000' )&#13;
+		}&#13;
+	}&#13;
+	validFrom {&#13;
+		nilReason( 'other:unpopulated' )&#13;
+	}&#13;
+	level {&#13;
+		href( 'http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/1stOrder' )&#13;
+		title( '1st order' )&#13;
+	}&#13;
+	identifier( 'https://registry.gdi-de.org/id/de.bund.bkg.inspire.dlm250/DLM250_ELF_AdministrativeUnit_000000000000' ) {&#13;
+		codeSpace( 'http://inspire.ec.europa.eu/ids' )&#13;
+	}&#13;
+	adminUnit {&#13;
+		href( 'https://sgx.geodatenzentrum.de/wfs_dlm250_inspire?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetFeature&amp;OUTPUTFORMAT=text/xml;%20subtype=gml/3.2.1&amp;STOREDQUERY_ID=urn:ogc:def:query:OGC-WFS::GetFeatureById&amp;ID=DLM250_AdministrativeUnit_000000000000#DLM250_AdministrativeUnit_000000000000' )&#13;
+	}&#13;
+	name( namespace: 'http://inspire.ec.europa.eu/schemas/ad/4.0' ) {&#13;
+		GeographicalName {&#13;
+			nameStatus {&#13;
+				href( 'http://inspire.ec.europa.eu/codelist/NameStatusValue/official' )&#13;
+			}&#13;
+			nativeness {&#13;
+				href( 'http://inspire.ec.europa.eu/codelist/NativenessValue/endonym' )&#13;
+			}&#13;
+			sourceOfName( 'DLM250' )&#13;
+			spelling {&#13;
+				SpellingOfName {&#13;
+					text( 'Deutschland' )&#13;
+					script( 'Latn' )&#13;
+				}&#13;
+			}&#13;
+			pronunciation {&#13;
+				nilReason( 'other:unpopulated' )&#13;
+			}&#13;
+			language( 'ger' )&#13;
+		}&#13;
+	}&#13;
+	id( 'DLM250_ELF_AdministrativeUnit_000000000000' )&#13;
+	beginLifespanVersion ( '2016-12-22T00:00:00' )&#13;
+}
+</core:text>
+        </complexParameter>
+    </cell>
     <cell relation="eu.esdihumboldt.hale.align.merge" id="Cd6dc3933-a136-46a0-997a-98216ec11eb1" priority="normal">
         <source>
             <class>
@@ -607,7 +674,71 @@ _target {
         <parameter value="regbezschl" name="property"/>
         <parameter value="land" name="property"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C26eae26b-f539-4c89-bf99-8d57abd3a557" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C26eae26b-f539-4c89-bf99-8d57abd3a557" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
+                </type>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd9673a66-c8d1-4fd9-81e0-2d294188fba2" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
+                </type>
+                <child name="kreisschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd01f1d62-78b0-4af5-a0fc-afc36bbb2a12" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
+                </type>
+                <child name="landschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="beginLifespanVersion" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C308587ea-38d0-461b-9c07-be9229651fb9" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
+                </type>
+                <child name="regbezschl"/>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -865,7 +996,71 @@ _target {
         </target>
         <parameter value="{{project:INSPIRE_NAMESPACE}}AdminUnitName_{landschl}{regbezschl}" name="pattern"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C704a0f7b-af0f-4ee3-b876-c5364c671c46" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C704a0f7b-af0f-4ee3-b876-c5364c671c46" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
+                </type>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2cc0bea7-83d1-4ea8-b544-70560deb1845" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
+                </type>
+                <child name="kreisschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cf2734659-732e-445a-bb69-b3f6affdf880" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
+                </type>
+                <child name="landschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="identifier" ns="http://www.opengis.net/gml/3.2"/>
+                <child name="codeSpace"/>
+            </property>
+        </target>
+        <parameter value="http://inspire.ec.europa.eu/ids" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C04d49138-af02-475b-a425-138ea95be320" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
+                </type>
+                <child name="regbezschl"/>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -1007,7 +1202,17 @@ _target {
         </target>
         <parameter value="AdminUnitName_{landschl}{regbezschl}" name="pattern"/>
     </cell>
-    <cell relation="custom:alignment:adv.inspire.namespace" id="C71e8142f-7490-4a0b-8141-3c859c2ade16" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C71e8142f-7490-4a0b-8141-3c859c2ade16" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
+                </type>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
@@ -1016,6 +1221,64 @@ _target {
                 <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
             </property>
         </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd248ad87-ec28-4736-bebd-fc716c78b85a" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
+                </type>
+                <child name="kreisschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ca5d97a8b-ae93-4e93-b2db-d07423468ed5" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
+                </type>
+                <child name="landschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C2e914002-e1c7-4453-91a6-cbdb88147907" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
+                </type>
+                <child name="regbezschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="inspireId" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="Identifier" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+                <child name="namespace" ns="http://inspire.ec.europa.eu/schemas/base/3.3"/>
+            </property>
+        </target>
+        <parameter value="{{project:INSPIRE_NAMESPACE}}" name="value"/>
     </cell>
     <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cbe4f0d4b-ecce-4654-9e6e-a67ff90f13dd" priority="normal">
         <source name="anchor">
@@ -1091,15 +1354,79 @@ _target {
         </target>
         <parameter value="http://inspire.ec.europa.eu/codelist/AdministrativeHierarchyLevel/3rdOrder" name="value"/>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="C9ac58560-d1ff-4443-a071-65eea14f6ef8" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cca7304d3-c7d9-4123-99ce-ac745dfe43c5" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
+                </type>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
                 <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
-                <child name="nilReason"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
             </property>
         </target>
-        <parameter value="unknown" name="value"/>
+        <parameter value="6th order" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C9ac58560-d1ff-4443-a071-65eea14f6ef8" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
+                </type>
+                <child name="kreisschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="4th order" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Cd4a5b1b4-3a65-461b-9df6-10cb6a94d796" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
+                </type>
+                <child name="landschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="2nd order" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C0fc4c6c6-2481-484f-a86c-b6886cb99d00" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
+                </type>
+                <child name="regbezschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="level" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="title" ns="http://www.w3.org/1999/xlink"/>
+            </property>
+        </target>
+        <parameter value="3rd order" name="value"/>
     </cell>
     <cell relation="custom:alignment:adv.inspire.GeographicalName.simple" id="C8262527a-18aa-4418-a68f-176a804715e1" priority="normal">
         <source name="spelling">
@@ -1169,7 +1496,71 @@ _target {
             </property>
         </target>
     </cell>
-    <cell relation="eu.esdihumboldt.hale.align.assign" id="Ce87bdbc2-c99a-450c-9c4d-de9261d3a46e" priority="normal">
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="Ce87bdbc2-c99a-450c-9c4d-de9261d3a46e" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">gmdschl IS NOT NULL</condition>
+                </type>
+                <child name="gmdschl">
+                    <condition lang="ECQL">value &lt;&gt; ''</condition>
+                </child>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C245eb9cd-2a40-4f21-80b6-d582c58f4f1f" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">kreisschl IS NOT NULL</condition>
+                </type>
+                <child name="kreisschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C49a04a76-d840-499a-8cbd-da3112b50390" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">landschl IS NOT NULL</condition>
+                </type>
+                <child name="landschl"/>
+            </property>
+        </source>
+        <target>
+            <property>
+                <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="validFrom" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
+                <child name="nilReason"/>
+            </property>
+        </target>
+        <parameter value="other:unpopulated" name="value"/>
+    </cell>
+    <cell relation="eu.esdihumboldt.hale.align.assign.bound" id="C78ede4bf-01b3-4d20-a9f7-230025b99a92" priority="normal">
+        <source name="anchor">
+            <property>
+                <type name="Hauskoordinaten">
+                    <condition lang="ECQL">regbezschl IS NOT NULL and regbezschl &gt; '0'</condition>
+                </type>
+                <child name="regbezschl"/>
+            </property>
+        </source>
         <target>
             <property>
                 <type name="AdminUnitNameType" ns="http://inspire.ec.europa.eu/schemas/ad/4.0"/>
