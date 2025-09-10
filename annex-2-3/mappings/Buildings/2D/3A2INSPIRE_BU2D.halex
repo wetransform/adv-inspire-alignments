@@ -264,21 +264,6 @@
         <setting name="source">http://inspire.ec.europa.eu/codelist/HorizontalGeometryReferenceValue</setting>
         <setting name="contentType">eu.esdihumboldt.hale.io.codelist.inspire</setting>
     </resource>
-    <resource action-id="eu.esdihumboldt.hale.io.instance.read.source" provider-id="eu.esdihumboldt.hale.io.xml.reader">
-        <setting name="charset">UTF-8</setting>
-        <setting name="resourceId">12a59ca7-fa6c-43e1-a6fd-b4a33633d954</setting>
-        <setting name="source">file:/C:/Users/Johanna/Box%20Sync/My%20Box%20Notes/AdV/Testdaten/Berlin/Bauteil_ohne_bezug_mitBaujahr.xml</setting>
-        <setting name="interpolation.maxError">0.1</setting>
-        <setting name="interpolation.algorithm">segment</setting>
-        <setting name="ignoreNamespaces">false</setting>
-        <setting name="paginateRequest">true</setting>
-        <setting name="featuresPerWfsRequest">1000</setting>
-        <setting name="ignoreRoot">true</setting>
-        <setting name="ignoreNumberMatched">false</setting>
-        <setting name="interpolation.grid.moveAllToGrid">false</setting>
-        <setting name="strict">false</setting>
-        <setting name="contentType">org.eclipse.core.runtime.xml</setting>
-    </resource>
     <export-config name="hale-connect">
         <configuration action-id="eu.esdihumboldt.hale.io.instance.write.transformed" provider-id="eu.esdihumboldt.hale.io.gml.writer">
             <setting name="charset">UTF-8</setting>
