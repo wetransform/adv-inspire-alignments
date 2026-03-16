@@ -57,6 +57,7 @@ permissions: read-all
 
 jobs:
   renovate:
+    timeout-minutes: 40
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
