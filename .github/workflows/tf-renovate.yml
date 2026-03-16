@@ -65,7 +65,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2.2.2
+      - uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
         id: app-token
         with:
           # see https://github.com/renovatebot/renovate/blob/47c8501c412c2f53f61ca292a5039f5939c32c5d/lib/modules/platform/github/readme.md?plain=1#L28
