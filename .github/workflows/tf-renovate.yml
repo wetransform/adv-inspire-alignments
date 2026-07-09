@@ -49,6 +49,14 @@ env:
   # Allow calling Gradle wrapper (required since Renovate 43)
   # https://docs.renovatebot.com/self-hosted-configuration/#allowedunsafeexecutions
   RENOVATE_ALLOWED_UNSAFE_EXECUTIONS: '["gradleWrapper"]'
+  # https://docs.renovatebot.com/self-hosted-configuration/#githubcomtoken
+  # Required for fetching changelogs/release notes from github.com: Renovate
+  # authenticates as a GitHub App, whose installation token cannot read repos
+  # outside the org (e.g. third-party deps), so those requests would otherwise
+  # be unauthenticated and hit GitHub's 60 req/h anonymous rate limit. Applies
+  # to all repos (public and private), hence outside the `if private` block.
+  # (RENOVATE_GITHUB_COM_TOKEN is the supported spelling; GITHUB_COM_TOKEN is deprecated.)
+  RENOVATE_GITHUB_COM_TOKEN: ${{ secrets.GH_PAT_READ_WETRANSFORM }}
   # Renovate Automerge
   # RENOVATE_AUTOMERGE_TYPE: "branch"
   # RENOVATE_AUTOMERGE: "true"
