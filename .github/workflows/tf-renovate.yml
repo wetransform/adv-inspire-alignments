@@ -73,7 +73,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+      - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         id: app-token
         with:
           # see https://github.com/renovatebot/renovate/blob/47c8501c412c2f53f61ca292a5039f5939c32c5d/lib/modules/platform/github/readme.md?plain=1#L28
@@ -81,6 +81,6 @@ jobs:
           private-key: "${{ secrets.WE_RENOVATE_GITHUB_PRIVATE_KEY }}"
 
       - name: 💡 Self-hosted Renovate
-        uses: renovatebot/github-action@230ce922b08968d0a4f6f70f295601daff09ef1d # v46.3.7
+        uses: renovatebot/github-action@a63d9a7bc606f7336fd20b47f2f32259a35e6213 # v46.3.9
         with:
           token: "${{ steps.app-token.outputs.token }}"
